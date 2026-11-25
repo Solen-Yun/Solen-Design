@@ -29,7 +29,7 @@ import inlineTextMorph from "./components/inline-text-morph.jsx";
 import blueFlutedGlass from "./components/blue-fluted-glass.jsx";
 import galaxyEffortSlider from "./components/galaxy-effort-slider.jsx";
 import reasoningEffortSlider from "./components/reasoning-effort-slider.jsx";
-import deepAgentComposer from "./components/deep-agent-composer.jsx";
+import deepAgentComposer from "./components/agent-composer.jsx";
 import hammerheadChart from "./components/hammerhead-chart.jsx";
 import glassTabMenu from "./components/glass-tab-menu.jsx";
 import crumpledPaper from "./components/crumpled-paper.jsx";
@@ -503,7 +503,7 @@ export const CATEGORIES = [
   {
     id: "control",
     label: "交互控件",
-    items: ["pixel-toggle", "tactile-push-button", "squish-switch", "blister-dropdown", "fluid-tooltip", "glass-tab-menu", "soft-action-wheel", "staggered-radial-menu", "galaxy-effort-slider", "reasoning-effort-slider", "deep-agent-composer", "otp-verification", "share-invite", "bouncy-access-request", "product-hotspots", "spider-music-player", "specular-button", "gooey-nav",
+    items: ["pixel-toggle", "tactile-push-button", "squish-switch", "blister-dropdown", "fluid-tooltip", "glass-tab-menu", "soft-action-wheel", "staggered-radial-menu", "galaxy-effort-slider", "reasoning-effort-slider", "agent-composer", "otp-verification", "share-invite", "bouncy-access-request", "product-hotspots", "spider-music-player", "specular-button", "gooey-nav",
     "card-nav", "dock", "option-wheel", "stepper", "elastic-slider", "flowing-menu", "staggered-menu", "bubble-menu", "pill-nav", "curved-input", "stack", "glass-icons", "folder", "animated-list", "bell-toggle", "call-chip", "code-slots", "comet-dial", "flip-card", "folder-float", "fuse-button", "glide-select", "hold-button", "jelly-radio", "lattice-loader", "paper-crumple", "peek-rating", "prompt-bar", "pulse-heart", "refine-frame", "rubber-segment", "scrub-field", "slide-commit", "sling-button", "slosh-gauge", "spring-check", "status-mark", "tear-ticket", "thought-line", "voice-pill", "wake-slider", "warm-tooltip", "chapter-number-roll", "emoji-feedback-slider", "underline-styles", "waitlist-position",
   
     "long-press-peek",

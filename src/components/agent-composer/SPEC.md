@@ -55,15 +55,15 @@
 
 独立实现与六框架交付
 - 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS、内嵌 SVG 或 Canvas 绘制，不加载远程图片、字体、视频或素材。
-- 从零创建四个文件：DeepAgentComposer.tsx、DeepAgentComposerEngine.js、motion-runtime.ts、DeepAgentComposerEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 从零创建四个文件：AgentComposer.tsx、AgentComposerEngine.js、motion-runtime.ts、AgentComposerEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
 - 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享同一套交互核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
 - 依赖安装说明：引擎只依赖 gsap@3.12.7；React 入口另需 react react-dom，其余框架入口各需对应框架包。组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
 - 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
 - 验收：375 / 768 / 1440px 无横向溢出；鼠标、键盘及相关触屏状态可用；成功、错误、快速中断、复制成功与失败均有反馈；多实例互不干扰，卸载后停止所有任务。
 
 生成完成后的使用示例
-import { DeepAgentComposer } from "./DeepAgentComposer";
+import { AgentComposer } from "./AgentComposer";
 
 export default function App() {
-  return <DeepAgentComposer />;
+  return <AgentComposer />;
 }

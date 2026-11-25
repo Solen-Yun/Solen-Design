@@ -29,7 +29,7 @@ export { BlueFlutedGlass } from "../components/blue-fluted-glass/BlueFlutedGlass
 export { InlineTextMorph } from "../components/inline-text-morph/InlineTextMorph.tsx";
 export { GalaxyEffortSlider } from "../components/galaxy-effort-slider/GalaxyEffortSlider.tsx";
 export { ReasoningEffortSlider } from "../components/reasoning-effort-slider/ReasoningEffortSlider.tsx";
-export { DeepAgentComposer } from "../components/deep-agent-composer/DeepAgentComposer.tsx";
+export { AgentComposer } from "../components/agent-composer/AgentComposer.tsx";
 export { HammerheadChart } from "../components/hammerhead-chart/HammerheadChart.tsx";
 export { GlassTabMenu } from "../components/glass-tab-menu/GlassTabMenu.tsx";
 export { CrumpledPaper } from "../components/crumpled-paper/CrumpledPaper.tsx";

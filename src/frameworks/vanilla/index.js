@@ -34,7 +34,7 @@ export { mount as mountStaggeredRadialMenu } from "./StaggeredRadialMenu.ts";
 export { mount as mountElasticPanelResize } from "./ElasticPanelResize.ts";
 export { mount as mountBlueFlutedGlass } from "./BlueFlutedGlass.ts";
 export { mount as mountReasoningEffortSlider } from "./ReasoningEffortSlider.ts";
-export { mount as mountDeepAgentComposer } from "./DeepAgentComposer.ts";
+export { mount as mountAgentComposer } from "./AgentComposer.ts";
 export { mount as mountHammerheadChart } from "./HammerheadChart.ts";
 export { mount as mountGlassTabMenu } from "./GlassTabMenu.ts";
 export { mount as mountCrumpledPaper } from "./CrumpledPaper.ts";

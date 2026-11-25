@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { mountDeepAgentComposer, type DeepAgentComposerOptions } from "./DeepAgentComposerEngine.js";
+import { mountAgentComposer, type AgentComposerOptions } from "./AgentComposerEngine.js";
 import type { MotionController } from "./motion-runtime";
 
-export function DeepAgentComposer({ options, className }: { options?: DeepAgentComposerOptions; className?: string }) {
+export function AgentComposer({ options, className }: { options?: AgentComposerOptions; className?: string }) {
   const host = useRef<HTMLDivElement>(null);
   const controller = useRef<MotionController | null>(null);
   useEffect(() => {
-    const instance = mountDeepAgentComposer(host.current!, options);
+    const instance = mountAgentComposer(host.current!, options);
     controller.current = instance;
     return () => { instance.destroy(); controller.current = null; };
     // Options are updated below without remounting the state machine.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => { controller.current?.update(options ?? {}); }, [options]);
-  return <div ref={host} className={className} data-motion-component="deep-agent-composer" />;
+  return <div ref={host} className={className} data-motion-component="agent-composer" />;
 }

@@ -630,7 +630,7 @@ function createEffortWidget(owner, { onChange, ariaLabel = "推理强度", reduc
   };
 }
 
-export function mountDeepAgentComposer(target, initial = {}) {
+export function mountAgentComposer(target, initial = {}) {
   const owner = target.ownerDocument;
   const browser = owner.defaultView;
   let options = { ...initial };
@@ -639,7 +639,7 @@ export function mountDeepAgentComposer(target, initial = {}) {
   /* ---- 挂载外壳 ---- */
   const element = owner.createElement("div");
   element.dataset.motionSurface = "";
-  element.dataset.motionComponent = "deep-agent-composer";
+  element.dataset.motionComponent = "agent-composer";
   element.style.cssText = "display:block;position:relative;min-width:0;width:100%;";
   for (const [name, token] of Object.entries(TOKENS)) element.style.setProperty(name, token);
   const shadow = element.attachShadow({ mode: "open" });

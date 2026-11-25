@@ -34,7 +34,7 @@ export { default as StaggeredRadialMenu } from "./StaggeredRadialMenu.vue";
 export { default as ElasticPanelResize } from "./ElasticPanelResize.vue";
 export { default as BlueFlutedGlass } from "./BlueFlutedGlass.vue";
 export { default as ReasoningEffortSlider } from "./ReasoningEffortSlider.vue";
-export { default as DeepAgentComposer } from "./DeepAgentComposer.vue";
+export { default as AgentComposer } from "./AgentComposer.vue";
 export { default as HammerheadChart } from "./HammerheadChart.vue";
 export { default as GlassTabMenu } from "./GlassTabMenu.vue";
 export { default as CrumpledPaper } from "./CrumpledPaper.vue";

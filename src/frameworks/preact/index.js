@@ -34,7 +34,7 @@ export { StaggeredRadialMenu } from "./StaggeredRadialMenu.preact.tsx";
 export { ElasticPanelResize } from "./ElasticPanelResize.preact.tsx";
 export { BlueFlutedGlass } from "./BlueFlutedGlass.preact.tsx";
 export { ReasoningEffortSlider } from "./ReasoningEffortSlider.preact.tsx";
-export { DeepAgentComposer } from "./DeepAgentComposer.preact.tsx";
+export { AgentComposer } from "./AgentComposer.preact.tsx";
 export { HammerheadChart } from "./HammerheadChart.preact.tsx";
 export { GlassTabMenu } from "./GlassTabMenu.preact.tsx";
 export { CrumpledPaper } from "./CrumpledPaper.preact.tsx";

@@ -1,10 +1,10 @@
 /* Component metadata only — the live demo and gallery preview live in
-   deep-agent-composer-demo.jsx, the framework source texts and the prompt in
-   deep-agent-composer-sources.jsx. Keeps the registry cheap for the sidebar and grid. */
+   agent-composer-demo.jsx, the framework source texts and the prompt in
+   agent-composer-sources.jsx. Keeps the registry cheap for the sidebar and grid. */
 export default {
-  id: "deep-agent-composer",
+  id: "agent-composer",
   name: "Agent 对话输入框",
-  href: "deep-agent-composer.html",
+  href: "agent-composer.html",
   title: "Agent 对话输入框",
   description:
     "Agent 对话输入框：自动增高的透明 textarea 配附件、权限菜单、上下文容量与模型/思考胶囊，点模型胶囊弹出连续变形菜单换模型和推理强度，Enter 经 onSubmit 提交。",

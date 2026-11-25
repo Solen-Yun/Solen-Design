@@ -34,7 +34,7 @@ export { default as StaggeredRadialMenu } from "./StaggeredRadialMenu.svelte";
 export { default as ElasticPanelResize } from "./ElasticPanelResize.svelte";
 export { default as BlueFlutedGlass } from "./BlueFlutedGlass.svelte";
 export { default as ReasoningEffortSlider } from "./ReasoningEffortSlider.svelte";
-export { default as DeepAgentComposer } from "./DeepAgentComposer.svelte";
+export { default as AgentComposer } from "./AgentComposer.svelte";
 export { default as HammerheadChart } from "./HammerheadChart.svelte";
 export { default as GlassTabMenu } from "./GlassTabMenu.svelte";
 export { default as CrumpledPaper } from "./CrumpledPaper.svelte";

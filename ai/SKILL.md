@@ -76,6 +76,7 @@ EXAMPLE COMPONENT PROMPTS 可直接当提示词用。
 | `address-search` | 地址搜索填单 | 搜地址匹配加粗，选中自动填单。 |
 | `advent-doors` | 降临节日历 | 小门绕铰链开合露惊喜。 |
 | `aero-shards` | 航标玻璃丝带 | 千片玻璃棱镜沿五条深度丝带流动，边缘折着工作室的光。 |
+| `agent-composer` | Agent 对话输入框 | 对话输入框：附件、权限、模型与思考强度菜单，Enter 提交。 |
 | `ai-brand-cover-cards` | AI 品牌封面三联卡片 | 三张 AI 品牌竖版封面，悬停微缩放，品牌标志与中文正文分层叠加。 |
 | `ai-image-generate` | 噪声生图生成器 | 四格噪声逐帧去噪成图。 |
 | `ai-image-generation` | 点阵加载 | 20×20 点阵随双焦点游走加亮放大，AI 生图等待动效。 |
@@ -165,7 +166,6 @@ EXAMPLE COMPONENT PROMPTS 可直接当提示词用。
 | `dark-veil` | 暗幕丝绸光 | 指针弯折空间、拖拽拉丝的一片暗色丝绸光，神经网络逐像素织出来。 |
 | `decay-card` | 撕裂熔融图片卡 | 指针划过照片就撕裂熔融、RGB 分离，停下来又慢慢愈合。 |
 | `decrypted-text` | 解密文字 | 乱码逐拍翻滚锁定成明文，占位保宽布局不抖。 |
-| `deep-agent-composer` | Agent 对话输入框 | 对话输入框：附件、权限、模型与思考强度菜单，Enter 提交。 |
 | `delivery-cutoff` | 截单倒计时配送承诺 | 截单秒级倒计时，时间条收缩。 |
 | `depth-carousel` | 纵深轨道卡片流 | 卡片沿 3D 轨道退进纵深，越深越暗越糊，拖拽甩动带惯性吸附。 |
 | `depth-text` | 立体层深文字 | 文字堆成几十层的 3D 挤出块，随指针转向、悬停压入回弹。 |

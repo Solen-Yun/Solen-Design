@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DemoFit } from "../demo-fit";
-import { DeepAgentComposer } from "../../src/components/deep-agent-composer/DeepAgentComposer.tsx";
+import { AgentComposer } from "../../src/components/agent-composer/AgentComposer.tsx";
 
 /* The workbench only feeds switches back through options. */
 function ControlRow({ label, children }) {
@@ -37,18 +37,18 @@ function Demo() {
       <div className="demo-stage" style={{ background: "#ffffff", colorScheme: "light" }}>
         <DemoFit>
 
-          <DeepAgentComposer
+          <AgentComposer
             options={{
               busy,
               reducedMotion,
               onStop: () => setBusy(false),
-              onSubmit: (message) => console.log("deep-agent-composer submit", message),
+              onSubmit: (message) => console.log("agent-composer submit", message),
             }}
           />
         </DemoFit>
       </div>
       <div className="demo-actions">
-        <a href="./deep-agent-composer-preview.html">
+        <a href="./agent-composer-preview.html">
           <span aria-hidden="true">⧉</span> 打开完整预览
         </a>
       </div>
@@ -81,7 +81,7 @@ function Demo() {
 function CardPreview() {
   return (
     <div className="comp-zoom">
-      <DeepAgentComposer options={{ reducedMotion: true, height: 420 }} />
+      <AgentComposer options={{ reducedMotion: true, height: 420 }} />
     </div>
   );
 }
