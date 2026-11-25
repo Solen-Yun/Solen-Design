@@ -88,7 +88,7 @@ This file is an index. Per-component full details (props, usage, source, recreat
 - 环形菜单交错展开（staggered-radial-menu）
 - 脑形滑块粒子增强（galaxy-effort-slider）
 - 模型思考强度滑块（reasoning-effort-slider）
-- Agent 对话输入框（deep-agent-composer）
+- Agent 对话输入框（agent-composer）
 - 验证码输入验证（otp-verification）
 - 分享邀请面板（share-invite）
 - 访问申请展开（bouncy-access-request）

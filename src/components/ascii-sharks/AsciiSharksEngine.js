@@ -380,8 +380,8 @@ function createSimulation(seed, document) {
       return to;
     };
     var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-    var ascii_sharks_upstream_exports = {};
-    __export(ascii_sharks_upstream_exports, {
+    var ascii_sharks_exports = {};
+    __export(ascii_sharks_exports, {
       AsciiRenderer: () => AsciiRenderer,
       World: () => World
     });
@@ -1787,7 +1787,7 @@ function createSimulation(seed, document) {
         }
       }
     };
-    return __toCommonJS(ascii_sharks_upstream_exports);
+    return __toCommonJS(ascii_sharks_exports);
   })();
   return AsciiSharksCore;
 }
