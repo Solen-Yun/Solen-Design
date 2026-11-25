@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>量化线场 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <div class="style-head-actions">
+          <a class="dl-link" href="./style-quantized-line-field-showcase.html" download="quantized-line-field-showcase.html">下载 HTML</a>
+          <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整复现提示词">复制复现提示词</button>
+        </div>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 01 · 浅色版面</p>
+        <h1>量化线场 <span class="style-card-en">Quantized Line Field</span></h1>
+        <p class="page-lead">把一张标记的明暗翻译成四档竖线，结构和留白都交给它。</p>
+        <div class="style-card-tags"><span>竖线</span><span>四档线宽</span><span>亮度场</span><span>品牌卡片</span><span>Canvas 2D</span></div>
+      </header>
+
+      <section class="style-intro">
+        <p>量化线场是一套生成式身份系统：任意一张标记图被采样成网格，每个格子的亮度被量化到四档之一，再用对应线宽的竖线画出来。核心规则是「不允许连续线宽」——只有四档，一旦变成渐变就失去了它的机械感。</p>
+        <p>线场会缓慢漂移，交互时给一次带衰减的弹簧位移，并尊重 prefers-reduced-motion。版面上纸面是暖白（#fafaf8），线场装在 17px 圆角的卡片里，卡片底色决定对比：浅灰、纯蓝或近黑。文字三层：衬线标题、无衬线界面文字、等宽坐标。</p>
+      </section>
+
+      <section class="field-showcase" aria-label="量化线场演示：站标在三种卡片底色上的四档竖线场">
+        <figure class="field-card field-pale" tabindex="0" data-ink="#202220" aria-label="Pale field card: light grey surface, ink lines, hover to scan">
+          <span class="field-head"><span class="field-brand">Solen · Pale</span><span class="field-hint">Hover to scan</span></span>
+          <canvas aria-hidden="true"></canvas>
+          <span class="scan-frame" aria-hidden="true"></span>
+          <span class="field-tagline">Best for low-contrast marks.</span>
+        </figure>
+        <figure class="field-card field-blue" tabindex="0" data-ink="#fafaf8" aria-label="Electric Blue field card: blue surface, paper-white lines, hover to scan">
+          <span class="field-head"><span class="field-brand">Solen · Electric Blue</span><span class="field-hint">Hover to scan</span></span>
+          <canvas aria-hidden="true"></canvas>
+          <span class="scan-frame" aria-hidden="true"></span>
+          <span class="field-tagline">The only colored field.</span>
+        </figure>
+        <figure class="field-card field-night" tabindex="0" data-ink="#fafaf8" aria-label="Night Field card: near-black surface, paper-white lines, hover to scan">
+          <span class="field-head"><span class="field-brand">Solen · Night Field</span><span class="field-hint">Hover to scan</span></span>
+          <canvas aria-hidden="true"></canvas>
+          <span class="scan-frame" aria-hidden="true"></span>
+          <span class="field-tagline">For high-brightness marks.</span>
+        </figure>
+      </section>
+      <p class="field-caption"><span>A mark sampled into a field of luminance</span><span>One path. Four line weights.</span></p>
+
+      <section class="style-section" data-doc-id="quantized-line-field">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>完整文档包含精确的站标路径与所有关键参数。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制复现提示词</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <div class="takeaway-links">
+          <a class="dl-link" href="./style-quantized-line-field-showcase.html" download="quantized-line-field-showcase.html">下载参考 HTML</a>
+          <a class="dl-link" href="./style-quantized-line-field-showcase.html" target="_blank" rel="noopener">独立打开交互效果</a>
+        </div>
+        <p class="takeaway-note">替换标记时，一起替换路径、名称、标语和底色。保留采样与交互规则；不同模型生成的细节仍需对照参考检查。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#202220"></span><span class="palette-name">Ink</span><code>#202220</code></li>
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><span class="palette-name">Paper</span><code>#fafaf8</code></li>
+          <li><span class="swatch-chip" style="background:#2152e7"></span><span class="palette-name">Electric Blue</span><code>#2152e7</code></li>
+          <li><span class="swatch-chip" style="background:#eeeeeb"></span><span class="palette-name">Pale Card</span><code>#eeeeeb</code></li>
+          <li><span class="swatch-chip" style="background:#267dff"></span><span class="palette-name">Detection Blue</span><code>#267dff</code></li>
+          <li><span class="swatch-chip" style="background:#ec353e"></span><span class="palette-name">Signal Red</span><code>#ec353e</code></li>
+          <li><span class="swatch-chip" style="background:#111212"></span><span class="palette-name">Night Field</span><code>#111212</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>全部颜色七枚：一枚纸面、一枚墨、三枚卡片底、一枚检测蓝、一枚信号红。检测蓝只做 2px 以下的线，信号红是唯一的警示色。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><div><strong>Paper</strong><span class="swatch-role">页面画布。暖白偏灰，让线场的细线不至于扎眼。</span></div><code>#fafaf8</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#202220"></span><div><strong>Ink</strong><span class="swatch-role">全部文字与最深一档线。带一点绿的黑，比纯黑柔和。</span></div><code>#202220</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#eeeeeb"></span><div><strong>Pale Card</strong><span class="swatch-role">浅色线场卡片底。适合展示低对比的标记。</span></div><code>#eeeeeb</code><code>--color-pale-card</code></li>
+          <li><span class="swatch-chip" style="background:#2152e7"></span><div><strong>Electric Blue</strong><span class="swatch-role">高对比线场卡片底与主强调。是这套系统唯一的彩色场。</span></div><code>#2152e7</code><code>--color-electric-blue</code></li>
+          <li><span class="swatch-chip" style="background:#267dff"></span><div><strong>Detection Blue</strong><span class="swatch-role">聚焦环、扫描线与交互反馈。只做 2px 以下的线。</span></div><code>#267dff</code><code>--color-detection-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ec353e"></span><div><strong>Signal Red</strong><span class="swatch-role">唯一的警示色，用于越界参数与错误状态。</span></div><code>#ec353e</code><code>--color-signal-red</code></li>
+          <li><span class="swatch-chip" style="background:#111212"></span><div><strong>Night Field</strong><span class="swatch-role">深色线场卡片底，用于展示高亮度标记。</span></div><code>#111212</code><code>--color-night-field</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 纸面 <code>#fafaf8</code>，1 浅色线场 <code>#eeeeeb</code>，2 高对比线场 <code>#2152e7</code>，3 深色线场 <code>#111212</code>。线场自带景深，阴影只出现在卡片悬停：<code>0 12px 32px rgba(32,34,32,0.08)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>三层字各司其职：衬线提供人文的一侧，与线场的机械形成对位；无衬线保持极小，不与线场抢注意力；等宽让参数表可以对齐。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="specimen-serif">量化线场，Quantized Line Field</p>
+            <p class="specimen-meta">Instrument Serif — 标题与展览式大字。替代栈：Georgia, 'Songti SC', serif · 400 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="specimen-sans">界面文字、注释与按钮。保持极小，不与线场抢注意力。</p>
+            <p class="specimen-meta">Inter — 界面文字与注释。替代栈：system-ui, -apple-system, sans-serif · 400 / 500 · 大写标签字距 0.08em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="specimen-mono">x: 0.70 · y: 460px · w: 1 2 3 4</p>
+            <p class="specimen-meta">JetBrains Mono — 坐标、参数与四档线宽标注。替代栈：ui-monospace, SFMono-Regular, Menlo, monospace · 400</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Instrument Serif</td><td>400</td><td>60px</td><td>1.02</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Instrument Serif</td><td>400</td><td>48px</td><td>1.05</td><td>—</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Instrument Serif</td><td>400</td><td>32px</td><td>1.1</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>Inter</td><td>400</td><td>13px</td><td>1.55</td><td>—</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+            <tr><td>coordinate</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.4</td><td>0.04em</td><td><code>--text-coordinate</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。页面上限 1280px、容器内边距 24px，区块间距 96px；作品以卡片阵列排布，卡片固定宽高比 0.70、间距 24px，标题区左对齐，注释在区块底部两端对齐。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:28px"></span><code>28</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:56px"></span><code>56</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:112px"></span><code>112</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>17px，固定</td></tr>
+            <tr><td>按钮圆角</td><td>999px 全圆角</td></tr>
+            <tr><td>输入框圆角</td><td>12px</td></tr>
+            <tr><td>卡片内边距</td><td>28px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Line Field Card</h3>
+            <p class="style-body-comp-role">线场容器与作品卡。17px 圆角、内边距 28px、宽高比 0.70、最小高度 460px、overflow hidden。底色三选一（<code>#eeeeeb</code>、<code>#2152e7</code>、<code>#111212</code>），不在同一屏重复，不在同一卡片混两种底色。线场画布铺满卡片，线条只有四档宽度（1px、2px、3px、4px），颜色取卡片底色的对比色。hover 时线场给一次带衰减的弹簧位移（幅度 8px），并加一层 8% 的阴影。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Source Button</h3>
+            <p class="style-body-comp-role">揭示来源与次级行动。透明底、1px <code>#d9dbd5</code> 描边、999px 全圆角、padding 10px 20px、14px 无衬线。hover 时描边转检测蓝；聚焦时 2px 检测蓝外环、offset 4px。无填充变化，过渡 150ms。</p>
+            <button type="button" class="source-button">查看来源</button>
+          </div>
+          <div class="comp-item">
+            <h3>Parameter Input</h3>
+            <p class="style-body-comp-role">参数与项目名输入。纸面底、1px <code>#d9dbd5</code> 描边、12px 圆角、padding 12px 16px、14px 无衬线。标签 14px 置于上方 8px。聚焦时 2px 检测蓝外环、offset 2px，不改变盒子尺寸。越界时描边转信号红。</p>
+            <label class="param-field"><span>线档上限</span><input type="text" value="4"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Studio Nav</h3>
+            <p class="style-body-comp-role">顶部导航。纸面底、底部 1px <code>#d9dbd5</code> 描边、水平内边距 24px、垂直 20px。左侧字标用衬线 24px，右侧链接 14px 无衬线加下划线（offset 4px）。无阴影、无背景变化。</p>
+            <div class="studio-nav" role="presentation"><span class="studio-nav-brand">量化线场</span><span class="studio-nav-links"><u>作品</u><u>参数</u><u>来源</u></span></div>
+          </div>
+          <div class="comp-item">
+            <h3>Annotation Footer</h3>
+            <p class="style-body-comp-role">作品注释与参数条。顶部 1px <code>#d9dbd5</code> 描边、padding 24px、12px 无衬线、字色 <code>#686b64</code>。左右两端对齐摆放注释与说明，参数值用等宽字体，与说明之间用 16px 间距分隔。上方演示卡的底注即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>线段只有四档宽度</li>
+              <li>线场尊重 prefers-reduced-motion</li>
+              <li>卡片圆角固定 17px</li>
+              <li>三种字体各司其职：衬线、无衬线、等宽</li>
+              <li>卡片底色三选一，不在同一屏重复</li>
+              <li>交互位移用带衰减的弹簧</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用连续线宽或渐变线</li>
+              <li>不要把线场裁切成非原比例</li>
+              <li>不要在同一卡片混两种底色</li>
+              <li>不要用大幅位移或旋转</li>
+              <li>不要把检测蓝用作填充</li>
+              <li>不要在减少动效模式下仍漂移</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像即线场：所有视觉由四档竖线构成，不允许位图与插画。允许把真实标记（logo、字形）采样后重建为线场。不使用摄影作为主体，最多作为线场的采样来源。线场画布必须与容器同宽高，不做裁切。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>机甲风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body mecha">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 45 · 深色版面</p>
+        <h1>机甲风 <span class="style-card-en">MECHA</span></h1>
+        <p class="page-lead">驾驶舱面板：切角金属、粗边框、警告黄与军绿。</p>
+        <div class="style-card-tags"><span>clip-path 切角</span><span>4px 警告黄边条</span><span>等宽大写铭牌字</span><span>零模糊硬阴影</span></div>
+      </header>
+
+      <section class="mecha-hero">
+        <div class="mecha-hero-copy">
+          <p>机甲风来自高达与 EVA 的机设语言：军绿与深蓝海军作底，警告黄与危险红作强调，界面像一块被切角、铆接、贴了警示标的面板。它的技术特征是切角（clip-path polygon 切掉一角或两角）、粗边框（2px 起，左侧常加一条 4px 的强调边）、以及零模糊的硬阴影。</p>
+          <p>字体必须等宽大写并放宽字距，因为这是设备铭牌。禁止柔和圆角、禁止粉色与浅色调、禁止花哨渐变与毛玻璃、禁止手写体。右边这块装甲面板是真的——左侧的黄条会增宽，角标会亮起来。</p>
+        </div>
+        <div class="mecha-demo">
+          <div class="mecha-panel-demo">
+            <span class="mecha-bracket" aria-hidden="true"></span>
+            <p class="mecha-panel-tag">UNIT-01 // ARMOR</p>
+            <p class="mecha-demo-title">切角，铆接，通电。</p>
+            <p class="mecha-demo-body">所有尺寸取 4 的倍数。</p>
+            <div class="mecha-gauge" role="presentation">
+              <span class="mecha-gauge-label">PWR</span>
+              <span class="mecha-gauge-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i class="warn"></i><i></i><i></i><i></i></span>
+              <span class="mecha-gauge-val">74%</span>
+            </div>
+            <button type="button" class="mecha-btn">LAUNCH</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="mecha-stripe" aria-hidden="true"></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a2744"></span><span class="palette-name">Navy</span><code>#1a2744</code></li>
+          <li><span class="swatch-chip" style="background:#4a5c3a"></span><span class="palette-name">Military Green</span><code>#4a5c3a</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Hazard Yellow</span><code>#fbbf24</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><span class="palette-name">Danger Red</span><code>#ef4444</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><span class="palette-name">Signal Green</span><code>#56ed40</code></li>
+          <li><span class="swatch-chip" style="background:#22283a"></span><span class="palette-name">Panel</span><code>#22283a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>海军蓝是机体涂装的主色；装甲板的哑光军绿做次级面板与边框；警告黄是工业警示色——左侧边条、按钮文字与关键读数都用它；危险红出现即表示状态异常；信号绿是仪表上的指示灯，管「系统在线」；深绿是绿色的暗部，压在亮绿上写字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a2744"></span><div><strong>Navy</strong><span class="swatch-role">主底与深色面板。机体涂装的主色。</span></div><code>#1a2744</code><code>--color-navy</code></li>
+          <li><span class="swatch-chip" style="background:#4a5c3a"></span><div><strong>Military Green</strong><span class="swatch-role">次级面板与边框。装甲板的哑光绿。</span></div><code>#4a5c3a</code><code>--color-military-green</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Hazard Yellow</strong><span class="swatch-role">主强调：左侧边条、按钮文字与关键读数。工业警示色。</span></div><code>#fbbf24</code><code>--color-hazard-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><div><strong>Danger Red</strong><span class="swatch-role">警报、过载与删除。出现即表示状态异常。</span></div><code>#ef4444</code><code>--color-danger-red</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><div><strong>Signal Green</strong><span class="swatch-role">正常运转与「系统在线」，像仪表上的指示灯。</span></div><code>#56ed40</code><code>--color-signal-green</code></li>
+          <li><span class="swatch-chip" style="background:#069006"></span><div><strong>Deep Green</strong><span class="swatch-role">绿色的暗部，用于压在亮绿上的文字与图表第二序列。</span></div><code>#069006</code><code>--color-deep-green</code></li>
+        </ul>
+        <p class="style-body-note">硬阴影零模糊：<code>4px 4px 0 #1a2744</code>、黄色档 <code>4px 4px 0 rgba(251,191,36,0.30)</code>；按下 <code>2px 2px 0 #1a2744</code>。切角统一 14px 或 20px。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站等宽大写 JetBrains Mono。字距 0.08 到 0.16em，像喷在装甲上的编号。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="mecha-specimen-title">UNIT-01 EVA-TYPE 0123</p>
+            <p class="specimen-meta">JetBrains Mono — 全站等宽大写。替代栈：ui-monospace, 'Courier New', monospace · 400 / 700 · 字距 0.08em（heading）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="mecha-specimen-label">SYS.STATUS // ALL GREEN</p>
+            <p class="specimen-meta">正文 13–15px / 400 / 行高 1.6；标签 10px / 700 / 0.16em；文字一律警告黄 #fbbf24</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>700</td><td>28px</td><td>1.2</td><td>0.08em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>20px</td><td>1.3</td><td>0.08em</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>15px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>13px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>400</td><td>11px</td><td>1.55</td><td>—</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>700</td><td>10px</td><td>1.4</td><td>0.16em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1360px、容器内边距 16px，面板间距 12px，形成密集的舱内排布。面板可用 2px 军绿线拼接成大屏。所有尺寸取 4 的倍数，切角统一 14px 或 20px。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0（仪表刻度 999px）</td></tr>
+            <tr><td>边框</td><td>2px 军绿描边 + 左侧 4px 警告黄边条</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>12px</td></tr>
+            <tr><td>警示条纹</td><td>高 8px，45 度黄蓝各 12px 宽</td></tr>
+            <tr><td>切角</td><td>clip-path 14px 或 20px，同屏只用一种</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Armor Button</h3>
+            <p class="style-body-comp-role">主行动按钮。深灰填充、警告黄文字、2px 警告黄 60% 描边、零圆角、4px 4px 0 海军蓝硬阴影，等宽 11px/700、全大写、字距 0.16em、padding 12px 32px；clip-path 切掉左上与右下各 14px。hover 时填充硬切到警告黄、文字转海军蓝；按下位移 2px 2px 且阴影缩到 2px。过渡 100ms linear。</p>
+            <button type="button" class="mecha-btn">ARMOR ON</button>
+          </div>
+          <div class="comp-item">
+            <h3>Armor Panel</h3>
+            <p class="style-body-comp-role">卡片与仪表面板。海军蓝填充、2px 军绿描边、左侧 4px 警告黄边条、零圆角、内边距 24px，硬阴影 4px 4px 0 警告黄 30%；右下角切掉 20px；右上角一个 32px 的 L 形角标，hover 时角标向内侧移动 2px 并升到 100%；hover 时左边条从 4px 增宽到 10px，过渡 150ms linear。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Hazard Stripe + Readout Gauge</h3>
+            <p class="style-body-comp-role">警示条纹：高 8px 的斜条纹带，45 度重复的警告黄与海军蓝（各 12px 宽），用于面板顶部或区块之间；纯平面的工业标记，不带圆角与阴影——本页标题下那条就是。读数仪表：12px 高的分段条，分成 10 格、每格间隔 2px、零圆角，底槽为军绿 30%；填充按状态取荧光绿、警告黄或危险红；左侧 10px 全大写标签，右侧等宽数值。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Cockpit Frame</h3>
+            <p class="style-body-comp-role">页头与座舱框架。高 64px、海军蓝底、底部 2px 军绿描边、顶部 8px 警示条纹；左侧 20px 等宽大写字标，中部放三到四个系统的状态灯（8px 圆点加 10px 标签），右侧一个 Armor Button；整体零圆角。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>切角用 clip-path，不用圆角</li>
+              <li>面板左侧 4px 警告黄边条</li>
+              <li>等宽大写、字距 0.08 到 0.16em</li>
+              <li>硬阴影零模糊</li>
+              <li>军绿配海军蓝，警告黄作强调</li>
+              <li>所有尺寸取 4 的倍数</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和的圆角</li>
+              <li>不要用粉色或浅色调</li>
+              <li>不要用花哨渐变与毛玻璃</li>
+              <li>不要用手写体或花体字</li>
+              <li>不要用模糊阴影</li>
+              <li>不要在同一屏混两种切角尺寸</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>机甲线稿、装甲板纹理、警示标与仪表盘。允许把照片处理成军绿双色调后叠网纹。不使用柔和插画、粉色系图像与毛玻璃图层。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="mecha">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的切角系统、警示条纹与仪表读数。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，clip-path 切角、4px 黄边条与零模糊硬阴影必须原样保留；柔和圆角即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

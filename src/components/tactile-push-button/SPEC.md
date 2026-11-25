@@ -1,0 +1,64 @@
+# 立体按压按钮 — TactilePushButton
+
+一枚 720×540 浅灰舞台中央的胶囊形立体按钮，全部由 CSS 雕刻出来：按钮是一块 135° 方向的灰色渐变表面，表面下压着七层内阴影做质感，表面外是一枚更深的胶囊底座。指针悬停时表面沿四边向内裁掉 1～2px、露出深色底座，同时文字层轻微缩小，像按钮真的往下陷了一点；按住时整个表面层压到 0.93 倍，松开弹回。文字用渐变裁切成字形，字号一变，所有内边距、阴影、裁剪都跟着等比缩放。
+
+## 布局与材质
+
+- 场景舞台 720×540px：铺满舞台、flex 水平垂直居中、`font-size: 3rem`、底色 rgba(225, 225, 225, 1)、字体族 "Inter", sans-serif、`-webkit-font-smoothing: antialiased`、`-moz-osx-font-smoothing: grayscale`、`overflow: hidden`。舞台高度跟随场景高度变量。
+- 按钮根元素是原生 `<button type="button">`，先 `all: unset` 清掉浏览器默认样式，再设定：`font-size: var(--button-font-size)`、`font-family: "Inter", sans-serif`、`line-height: normal`（行高必须钉死，否则宿主页面的行高会压扁行盒、把 background-clip: text 的渐变文字横切）、`cursor: pointer`、`-webkit-tap-highlight-color: rgba(0,0,0,0)`、`position: relative`、`border-radius: 999vw`。
+- 按钮本体由三层嵌套组成：根按钮（深色底座）> `.button-outer`（负责投影）> `.button-inner`（负责表面渐变、内阴影、裁剪与按下缩放）> 最内层 `<span>`（文字）。
+- 根按钮底座：`background-color: rgba(0, 0, 0, 0.75)`，外加两圈阴影 `-0.15em -0.15em 0.15em -0.075em rgba(5,5,5,0.25)` 与 `0.0375em 0.0375em 0.0675em 0 rgba(5,5,5,0.1)`。
+- 根按钮的 `::after` 是纯装饰的柔化暗边：absolute、z-index 0、尺寸 calc(100% + 0.3em)、top/left -0.15em、`border-radius: inherit`、底色 `linear-gradient(-135deg, rgba(5,5,5,0.5), transparent 20%, transparent 100%)`、`filter: blur(0.0125em)`、`opacity: .25`、`mix-blend-mode: multiply`、`pointer-events: none`。
+- `.button-outer`：display block、relative、z-index 1、`border-radius: inherit`；初始投影三层——`0 0.05em 0.05em -0.01em rgba(5,5,5,1)`、`0 0.01em 0.01em -0.01em rgba(5,5,5,0.5)`、`0.15em 0.3em 0.1em -0.01em rgba(5,5,5,0.25)`；只对 box-shadow 做过渡，时长 `calc(300ms / clamp(0.25, var(--button-motion-speed), 3))`。
+- `.button-inner`：display block、relative、z-index 1、`border-radius: inherit`、内边距 `var(--button-padding-y) var(--button-padding-x)`（默认 1em 1.5em）、`background-image: linear-gradient(135deg, var(--button-surface-start), var(--button-surface-end))`、`overflow: clip`、初始 `clip-path: inset(0 0 0 0 round 999vw)`；同时过渡 box-shadow（300ms ÷ 速度）、clip-path、background-image、transform（各 250ms ÷ 速度），缓动均为 ease。
+- 表面初始内阴影共七层（顺序与 inset 类型在悬停前后保持一致，让浏览器逐层补间）：`0 0 0 0 inset rgba(5,5,5,0.1)`、`-0.05em -0.05em 0.05em 0 inset rgba(5,5,5,0.25)`、`0 0 0 0 inset rgba(5,5,5,0.1)`、`0 0 0.05em 0.2em inset rgba(255,255,255,0.25)`、`0.025em 0.05em 0.1em 0 inset rgba(255,255,255,1)`、`0.12em 0.12em 0.12em inset rgba(255,255,255,0.25)`、`-0.075em -0.25em 0.25em 0.1em inset rgba(5,5,5,0.25)`。
+- 悬停时表面层改为：`clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 999vw)`，内阴影七层换成 `0.1em 0.15em 0.05em 0 inset rgba(5,5,5,0.75)`、`-0.025em -0.03em 0.05em 0.025em inset rgba(5,5,5,0.5)`、`0.25em 0.25em 0.2em 0 inset rgba(5,5,5,0.5)`、`0 0 0.05em 0.5em inset rgba(255,255,255,0.15)`、`0 0 0 0 inset rgba(255,255,255,1)`、`0.12em 0.12em 0.12em inset rgba(255,255,255,0.25)`、`-0.075em -0.12em 0.2em 0.1em inset rgba(5,5,5,0.25)`。
+- 文字层 `<span>`：`white-space: pre-wrap`（保留换行与空格）、`text-align: center`、relative、z-index 4、字体族 "Inter", sans-serif、`letter-spacing: -0.05em`、`font-weight: 500`、`color: rgba(0,0,0,0)`（字色透明，靠 `background-clip: text` 让渐变透出）、`background-image: linear-gradient(135deg, var(--button-text-start), var(--button-text-end))`、`text-shadow: rgba(0,0,0,0.1) 0 0 0.1em`、`user-select: none`、display block；只对 transform 做过渡（250ms ÷ 速度）。
+- 可调变量与默认值：`--button-font-size: 48px`（同时是所有 em 尺寸的缩放基准）、`--button-padding-x: 1.5em`、`--button-padding-y: 1em`、`--button-surface-start: #e6e6e6`、`--button-surface-end: #b4b4b4`、`--button-text-start: #191919`、`--button-text-end: #4b4b4b`、`--button-press-scale: 0.93`、`--button-hover-text-scale: 0.975`、`--button-motion-speed: 1`。
+- 焦点样式：`focus-visible` 时 `outline: 3px solid #23785c`、`outline-offset: 0.2em`。
+
+## 数据
+
+- 无写死数据条目。按钮唯一的内容是最内层 `<span>` 里的文字，初始为小写单词 "button"，可由 options.label 覆盖；文字支持多行（在 span 内换行或插入 `<br>`），`white-space: pre-wrap` 保证换行与空格被保留。
+
+## 操作和动效
+
+- 悬停（`:hover`）：外层投影整体收为零（三层阴影全部归零），表面层四边各向内裁掉 clamp(1px, 0.0625em, 2px)，露出底座的深色；同时七层内阴影换成上面那组"凹陷"配置，形成下沉感；文字层缩放到 `scale(clamp(0.8, var(--button-hover-text-scale), 1.05))`（默认 0.975 倍）。裁剪与内阴影都走过渡，300ms/250ms 按速度倍率换算。
+- 按下（`:active`）：整个 `.button-inner` 缩放到 `scale(clamp(0.8, var(--button-press-scale), 1.05))`（默认 0.93 倍），包含文字一起被压扁；指针仍处于悬停态时，文字层会同时叠加自己的悬停缩放。
+- 松开即回到悬停或静止状态，所有过渡均为 ease 曲线，时长由 `--button-motion-speed` 换算：`calc(300ms / clamp(0.25, var(--button-motion-speed), 3))` 用于阴影，`calc(250ms / clamp(0.25, var(--button-motion-speed), 3))` 用于裁剪、背景渐变与缩放，速度越大过渡越短。缩放倍率同样被 clamp 夹在 0.8～1.05。
+- 无障碍：按钮是原生 `<button type="button">`，可键盘聚焦与触发；`focus-visible` 显示 3px 绿色 #23785c 轮廓、偏移 0.2em，方便键盘用户定位；`-webkit-tap-highlight-color` 设为透明，避免移动端点击出现系统高亮。
+- `prefers-reduced-motion`（或 options.reducedMotion=true）下：外层、内层与文字层的过渡全部关闭，悬停与按下状态立即切换到最终形态，阴影、裁剪与缩放结果与动画结束时一致。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 540 | 场景高度，逻辑像素 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+| label | string | "button" | 按钮文字，支持换行与空格 |
+| fontSize | number \| string | 48 | 按钮字号（数字按 px），全部尺寸随它等比缩放 |
+| pressScale | number | 0.93 | 按下时表面层的缩放倍率，clamp 0.8～1.05 |
+| hoverTextScale | number | 0.975 | 悬停时文字层的缩放倍率，clamp 0.8～1.05 |
+| motionSpeed | number | 1 | 动画速度倍率，越大越快，clamp 0.25～3 |
+| surfaceStart / surfaceEnd | string | #e6e6e6 / #b4b4b4 | 表面渐变的起止色 |
+| textStart / textEnd | string | #191919 / #4b4b4b | 文字渐变的起止色 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；立体质感全部用 CSS（阴影、clip-path、渐变、混合模式）实现，不加载远程图片、字体、视频或素材，字体族只声明 "Inter", sans-serif 由系统回退。
+- 当前交付重点为 React，组件名称 TactilePushButton。从零创建四个文件：TactilePushButton.tsx、TactilePushButtonEngine.js、motion-runtime.ts、TactilePushButtonEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态时状态切换立即完成。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；悬停出现下沉、按住出现压缩、抬起恢复；改字号时整枚按钮等比缩放；改颜色时表面与文字渐变同步变化；键盘聚焦有绿色轮廓；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { TactilePushButton } from "./TactilePushButton";
+
+export default function App() {
+  return <TactilePushButton />;
+}
+```

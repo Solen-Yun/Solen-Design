@@ -1,0 +1,59 @@
+# 计数站点预载 — SitePreloader
+
+340×340 的作品集站点进入场景：整块画面先被两片墨色的「门」盖住——上半片压着「Studio Nara」品牌名，下方是「Loading work」小字、一枚 74px 的大百分比数字和一条 2px 的细进度条；数字从 0 爬到 100，节奏故意不均匀（有时一步不动，有时跳好几格），到 100 后两片门一上一下抽走，露出底下暖纸色的站点：左上角导航（Studio Nara / Work / About / Contact）、一张占位风景图、大标题「We build spaces and brands together」和底部的「Seoul · since 2016」，各块依次淡入上浮。右下角此时浮出一枚墨色「Reload」胶囊，点它整段预载重放。
+
+## 布局与材质
+
+- 场景根 340×340px，圆角 30px，overflow hidden，底色固定为暖纸色 #F4F1EA、文字 #1C1A17，外圈 1px 线色描边加 `0 30px 60px -36px` 强阴影。组件在根上声明了整套场景令牌（浅色：表面 #FFFFFF、次表面 #F5F3EF、三级表面 #EAE7E1、墨色 #16151B、次墨 #57535F、三级墨 #8E8A97、线 rgba(22,21,27,.09)、强线 rgba(22,21,27,.17)、强调 #6A57F2、强调二 #2F8FE0、强调浅底 rgba(106,87,242,.12)、强调字 #FFFFFF、薄荷 #119C72、警示 #D6731E、危险 #D93A55、玻璃 rgba(255,255,255,.58)、玻璃线 rgba(255,255,255,.85)、投影 rgba(40,30,80,.14)、强投影 rgba(40,30,80,.3)、渐变 linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)；深色：表面 #13141C、次表面 #1A1B25、三级表面 #252632、墨色 #F4F0E8、次墨 rgba(244,240,232,.68)、三级墨 rgba(244,240,232,.42)、线 rgba(255,255,255,.08)、强线 rgba(255,255,255,.16)、强调 #B7A4FF、强调二 #7DB4FF、强调浅底 rgba(183,164,255,.15)、强调字 #0B0C12、薄荷 #7EE8C0、警示 #FFB26B、危险 #FF7D8C、玻璃 rgba(255,255,255,.07)、玻璃线 rgba(255,255,255,.18)、投影 rgba(0,0,0,.45)、强投影 rgba(0,0,0,.72)、渐变 linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)），但画面本身用的是写死的暖纸色系，只有描边与阴影取令牌，所以深色模式下场景仍保持浅纸底，只有外描边与投影变深。场景不声明 font-family，继承宿主页面字体。
+- 站点层绝对定位铺满，内边距 18px。导航 flex 两端对齐、11px/800；品牌名 13px/900、字距 -0.02em；右侧三个链接（Work / About / Contact）flex 排列、间隙 12px、颜色 #5E5A52。
+- 占位风景图绝对定位 left 18px、right 18px、top 52px，高 150px，14px 圆角，溢出裁切，底色 linear-gradient(160deg,#D8C3A5,#8E7C68 60%,#4B4037)。图上叠两块：左 18% / 上 22% / 宽 40% / 高 78% 的拱形块，底色 linear-gradient(#EFE6D8,#CDBBA2)、圆角 80px 80px 0 0，投影 60px 20px 0 -6px #B9A386；右 12% / 上 16% 的 34×34 圆形 #F7EBD3、不透明度 0.9。
+- 大标题绝对定位 left/right 18px、top 214px，margin 0，26px、行高 1.12、字重 900、字距 -0.04em，内容为两行「We build spaces」/「and brands together」。底部小字绝对定位 left 18px、bottom 20px，10.5px/700、颜色 #7A746A，内容「Seoul · since 2016」。
+- 站点内四个块（导航、风景图、标题、副标）初始 opacity 0、transform `translateY(16px)`，过渡 opacity .6s 与 transform .8s cubic-bezier(.2,.8,.2,1)，各自带 transition-delay：导航 .15s、风景图 .25s、标题 .45s、副标 .6s。风景图额外带 transform `scale(1.08)` 与 `clip-path: inset(12% 8% 12% 8% round 14px)`，它的过渡时长拉长到 transform 1.2s 与 clip-path 1.1s，曲线同为 cubic-bezier(.2,.8,.2,1)。打开后所有块 opacity 1、transform 归零，风景图的 clip-path 变成 `inset(0 0 0 0 round 14px)`。
+- 预载层绝对定位铺满、z-index 2、pointer-events none。内含两片「门」：左右铺满、高 50.5%、底色 #1C1A17，过渡 transform .9s cubic-bezier(.76,0,.24,1)；上一片贴顶，下一片贴底。打开后上一片 `translateY(-101%)`、下一片 `translateY(101%)`，两片向相反方向抽离。
+- 预载层左下角：绝对定位 left 20px、bottom 26px 的信息块，颜色 #F4F1EA，过渡 opacity .3s，打开后归零。块内小字「Loading work」是块级 10.5px/700、颜色 #A8A196；大数字 74px、行高 .9、字重 900、字距 -0.05em、等宽数字；百分号是独立的斜体无衬线 24px 元素，左外边距 2px、顶对齐。数字下方是 2px 高的进度条轨道，颜色 rgba(244,241,234,.18)，上外边距 12px；条体底色 #F4F1EA，宽度按百分比写入。
+- 预载层左上角品牌名绝对定位 left 20px、top 20px，颜色 #F4F1EA、13px/900，过渡 opacity .3s，打开后归零，内容「Studio Nara」。
+- 「Reload」按钮绝对定位 right 14px、bottom 14px、z-index 3，无边框、内边距 6px 11px、胶囊圆角、底色 #1C1A17、文字 #F4F1EA、10.5px/800，初始 opacity 0 且不可点，过渡 opacity .3s 并延迟 .6s；打开后 opacity 1、可点。focus-visible 为 2px solid #1C1A17、offset 2px。
+- 场景按固定 340px 逻辑宽排版，容器窄于 340px 时整景按比例缩小，宽于 340px 时居中留白；组件内部不设断点，只用 `prefers-color-scheme` 切换描边与阴影令牌。
+
+## 数据
+
+- 站点内容全部写死：品牌「Studio Nara」出现两次（预载层左上、站点导航）；导航三项 Work / About / Contact；标题两行「We build spaces」「and brands together」；副标「Seoul · since 2016」；风景图用 CSS 渐变与伪元素拼出，不加载任何图片。
+- 进度节奏不写死，由运行时随机数决定：每一步有 18% 的概率增量为 0（原地停顿），否则增量在 2 到 10 之间取整（当进度已超过 80 时上限降到 5）；两次步进之间的间隔有 12% 的概率是 260ms，其余是 45ms。
+- 无外部数据请求。
+
+## 操作和动效
+
+- 首次进入视口（IntersectionObserver 阈值 0.4，命中一次后即停止观察）开始加载；若环境不支持 IntersectionObserver 则立即加载。加载时数字从 0 开始按上面的随机节奏递增，同时细进度条按百分比同步加宽，progressbar 的 aria-valuenow 同步刷新。
+- 数字到达 100 后停 300ms，然后两片门各自抽离（0.9s，cubic-bezier(.76,0,.24,1)），同时站点四个块按各自的 delay 依次淡入上浮（风景图还同时解除缩放与 clip-path 裁切），预载层的品牌名与信息块淡出。
+- 门完全抽走后，「Reload」按钮延迟 .6s 后淡入并可点。
+- 点「Reload」重放：先临时给全场景加一个禁用所有过渡的开关类并强制重排，立刻复位成「门关上、数字归零」的状态而不产生过渡，然后重新走一遍随机节奏的加载；重放期间上一轮的计时器被取消，不会叠加。
+- 减少动态偏好下：两片门与站点各块的过渡全部关闭；加载逻辑改为直接把数字设为 100 并立刻打开（不做随机递增、不等待 300ms）。
+- 无障碍：预载层是 `role="progressbar"`，带 aria-label「Loading」、aria-valuemin 0、aria-valuemax 100 与实时刷新的 aria-valuenow；「Reload」是原生 button 并有可见的 focus 描边；风景图是纯装饰（aria-hidden）；站点内容在门打开后才可读。
+- options.height 调整场景高度，options.reducedMotion 覆盖系统偏好。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SitePreloader。从零创建四个文件：SitePreloader.tsx、SitePreloaderEngine.js、motion-runtime.ts、SitePreloaderEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整流程状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；计数爬升、两片门抽离与站点揭示正确、Reload 可重播；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SitePreloader } from "./SitePreloader";
+
+export default function App() {
+  return <SitePreloader />;
+}
+```

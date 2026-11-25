@@ -1,0 +1,67 @@
+# 同步光标小多图 — SyncedMultiples
+
+一张 300×480 的小多图看板，标题「Last 30 days」，下面纵向排四张共享同一条 30 天时间轴的指标图：访客、转化率、平均停留、响应时间。首次进入视口时，一张从左向右推开的遮罩把四张图依次画出来。指针在图区左右移动，四张图同时浮出一条竖直准线与四个同位置的圆点，顶部读数给出该日期，右侧数字同步换成当天的指标值；打开 Compare 开关还会叠加上一周期的虚线对照，并显示每个指标相对上一周期的涨跌百分比。
+
+## 布局与材质
+
+- 场景 300×480 逻辑像素，圆角 32px，overflow hidden，底色 var(--ux-surface)（浅色 #FFFFFF，深色 #13141C），文字色 var(--ux-ink)（浅色 #16151B，深色 #F4F0E8）。外圈 1px var(--ux-line) 描边加 `0 30px 60px -36px var(--ux-shadow-strong)` 阴影（浅色 rgba(40,30,80,.3)，深色 rgba(0,0,0,.72)）。
+- 头部绝对定位 left 18px / right 16px / top 16px，flex 两端对齐、垂直居中。标题 14px / 字重 900。右侧 Compare 开关是 role="switch"、aria-checked 的原生按钮：无边框、gap 6px、文字 var(--ux-ink-2)（浅色 #57535F，深色 rgba(244,240,232,.68)）10.5px / 800；轨道 30×18px、圆角 9px、底色 var(--ux-line)（浅色 rgba(22,21,27,.09)，深色 rgba(255,255,255,.08)）、过渡 background .2s；滑块为 14×14px 白色圆、位于轨道 left 2px / top 2px、投影 0 1px 3px rgba(0,0,0,.25)、过渡 transform .25s cubic-bezier(.3,1.4,.5,1)。开启态轨道底色 #6366F1、滑块位移 translateX(12px)。focus-visible 为 2px solid #6366F1、偏移 3px、圆角 9px。
+- 日期读数绝对定位 left 18px / top 42px，11px / 字重 850、var(--ux-ink-2)、tabular-nums，带 aria-live="polite"。
+- 图表是一张 300×480、viewBox "0 0 300 480" 的内联 SVG，绝对定位 left 0 / top 0，pointer-events none、整体 aria-hidden；另有一层透明交互覆盖层 .u400-ov，绝对定位 left 12px / right 12px / top 70px、高 356px、圆角 12px、cursor crosshair、touch-action pan-y，tabindex=0、role="img"、aria-label="Metric charts, move sideways to inspect a day"，focus-visible 为 2px solid #6366F1、偏移 2px。
+- 绘图几何写死：N=30 天，横轴左界 XL=22、右界 XR=282，顶端 TOP=74，每张图的纵向步长 STEP=86，绘图带高 PH=50；X(i) = 22 + i/29 × 260。第 k 张图（k 从 0 到 3）的数值带占 y 从 96+86k 到 146+86k，即四段带依次是 96–146、182–232、268–318、354–404。
+- 每张图左上角是指标名（.u400-nm，10.5px / 800 / var(--ux-ink-2)）位于 x=22、y=104+86k；同一行右侧是当日数值（.u400-v，14px / 900 / var(--ux-ink)、右对齐于 x=282、y=106+86k、tabular-nums），数值左侧是涨跌百分比（.u400-dl，10px / 850、右对齐于 x=224、y=105+86k、tabular-nums、透明度过渡 0.25s，默认隐藏）。每张图底沿还有一条 currentColor、透明度 .1 的基线横线，从 x=22 拉到 x=282。
+- 四个指标的颜色与图形：访客为靛蓝 #6366F1 的面积图（折线下沿接基线闭合成面积，填一道自上而下 #6366F1 透明度 .35 到 0 的竖向渐变），另叠 2px 描边折线；转化率为翠绿 #10B981 的 2px 折线（linejoin round）；平均停留为琥珀 #F59E0B 的 30 根柱（每根宽 6px、圆角 1.5px、x = X(i)−3、透明度 .85）；响应时间为玫红 #F43F5E 的 2px 折线。
+- 上一周期对照是 ink 色的虚线组：折线指标为 1.5px、虚线 3 3、透明度 .35 的路径；平均停留则是 30 个 6px 宽、圆角 1.5px、虚线 2 2、透明度 .35 的空心矩形。整组默认 opacity 0，Compare 打开时切到 1（过渡 0.4s）。
+- 准线 .u400-xh 从 y=88 拉到 y=404，stroke var(--ux-ink)、1px、默认 opacity 0；四个圆点 .u400-dot 半径 4px、填充各自指标色、描边 var(--ux-surface) 2px、默认 opacity 0。卡片进入悬停态时准线 opacity .5、圆点 opacity 1，各过渡 0.15s。
+- 事件标记：第 9 天画一条标旗「⚑ Deploy」、第 21 天画「⚑ Sale」，竖线 var(--ux-ink-3) 1px、虚线 2 3、透明度 .7，从 y=90 拉到 y=422；文字 8.5px / 800 / var(--ux-ink-3) 居中于 y=432。
+- 时间轴刻度在第 0、10、20、29 天，文字 8.5px / 700 / var(--ux-ink-3) 居中于 y=418，分别是 9/15、9/25、10/5、10/14。
+- 场景令牌（`light-dark()` 写两套，跟随宿主的 color-scheme 切换）：surface #FFFFFF/#13141C、surface-2 #F5F3EF/#1A1B25、surface-3 #EAE7E1/#252632、ink #16151B/#F4F0E8、ink-2 #57535F/rgba(244,240,232,.68)、ink-3 #8E8A97/rgba(244,240,232,.42)、line rgba(22,21,27,.09)/rgba(255,255,255,.08)、line-2 rgba(22,21,27,.17)/rgba(255,255,255,.16)、accent #6A57F2/#B7A4FF、accent-2 #2F8FE0/#7DB4FF、accent-soft rgba(106,87,242,.12)/rgba(183,164,255,.15)、accent-ink #FFFFFF/#0B0C12、mint #119C72/#7EE8C0、warn #D6731E/#FFB26B、danger #D93A55/#FF7D8C、glass rgba(255,255,255,.58)/rgba(255,255,255,.07)、glass-line rgba(255,255,255,.85)/rgba(255,255,255,.18)、shadow rgba(40,30,80,.14)/rgba(0,0,0,.45)、shadow-strong rgba(40,30,80,.3)/rgba(0,0,0,.72)。
+- 字体：组件不写死字体栈，继承宿主页体。响应式：不设媒体查询断点；容器窄于 300px 时整景按 300 逻辑宽等比缩小（比例 = min(1, 可用宽/300)），options.height 改写场景高度（默认 480）。
+
+## 数据
+
+- 四条指标序列各 30 个点，由固定种子的线性同余随机数生成：种子 3，随机数 seed = (seed × 16807) mod 2147483647，取值 seed / 2147483647。取数顺序是访客、转化、平均停留、响应、然后上一周期的四条，每条连续消耗 30 个随机数，因此结果完全确定。
+- 每条序列的生成规则：第 i 天（i 从 0 到 29）先取 w = (i + 2) mod 7，w 为 0 或 6 时把当值乘 0.85（周末回落），否则乘 1；基准值 = (base + trend × i) × 周末系数，再加 (random − 0.5) × amp 的抖动，最后过一遍各自的修正函数。
+- 当期参数：访客 base 2100、amp 380、trend 18，第 21 至 25 天整段乘 1.35（促销带动）；转化 base 2.6、amp 0.5、trend 0.01，第 21 至 25 天加 0.7；平均停留 base 165、amp 30、trend 0.6；响应 base 220、amp 40、trend 0，第 9 天加 230、第 10 天加 110（发布当日响应尖峰）。
+- 上一周期参数：访客 base 1850、amp 380、trend 10；转化 base 2.4、amp 0.5、trend 0；平均停留 base 158、amp 30、trend 0.2；响应 base 250、amp 40、trend 0。
+- 纵轴量程由当期与上一周期的合并极值决定：留 10% 余量后取上界 max + 余量；访客与平均停留的下界固定为 0，转化与响应的下界为 min − 余量。
+- 日期基准是 2026 年 9 月 15 日，第 i 天即该日起第 i 天，格式为「M/D (周几)」；第 29 天是 10/14 (Wed)。
+- 数值格式：访客为千分位缩写（形如 2.1k），转化为百分比一位小数（形如 2.6%），平均停留为分秒（形如 2:45），响应为整数毫秒（形如 220ms）。
+
+## 操作和动效
+
+- 入场描画：首次进入视口（IntersectionObserver）时，裁剪矩形的宽度从 0 增长到 22 + 264 × e，历时 1000ms，e = 1 − (1 − k)³（k 为经过时间占比，即三次方缓出）；四张图的当期序列被同一张裁剪矩形罩住，因此是一把从左向右的刀把四张图同时画出来。上一周期对照不在这张裁剪里。
+- 悬停联动：指针在覆盖层上移动（pointermove，也包括 pointerdown）即定位到某一天，四张图同时显示准线与圆点，顶部读数换成该天日期；数值未悬停时顶部显示「Today · 10/14 (Wed)」并取第 29 天的值。指针离开覆盖层即回到 Today 状态。
+- 定位算法：把指针的横坐标按 300 / 卡片实际宽度还原成 SVG 坐标并补上覆盖层左侧 12px 内缩，再按 (x − 22) / 260 × 29 四舍五入取整并夹在 0–29。
+- 键盘操作：覆盖层聚焦后，左右方向键逐日移动（首次按键从第 29 天起步），Escape 取消选中，失焦同样回到 Today。准线与圆点的显隐由卡片上的悬停类驱动，因此键盘操作与指针操作呈现一致。
+- Compare 开关：点击后翻转状态并同步 aria-checked，上一周期对照组透明度在 0 与 1 之间切换（0.4s），同时重算四张图的涨跌百分比。涨跌百分比 = (当期 − 上期) / 上期 × 100，带正负号与整数；访客、转化、平均停留以上升为绿（#10B981），响应时间以上升为差（#F43F5E），下降才算好。
+- 减少动态：挂载时读取一次 `prefers-reduced-motion: reduce`（options.reducedMotion 优先）。开启时不播入场描画，裁剪宽度直接置为 300，四张图一次性呈现；准线、圆点、开关滑块等过渡也由运行时归零，但所有读数、联动与对照数据保持可用。
+- 无障碍：整张 SVG 对辅助技术隐藏，读数由带 aria-live="polite" 的日期行承担；覆盖层是 role="img" 的可聚焦元素，aria-label 说明「左右移动以查看某一天」；Compare 为 role="switch" 按钮并带 aria-checked；各图数值为纯文本节点，直接可读。
+- 多实例：每张卡片的渐变与裁剪 id 各自追加随机后缀，互不冲突；卸载时释放帧回调、计时器、观察器与监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有图形用内联 SVG 绘制，随机数用固定种子的线性同余发生器，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SyncedMultiples。从零创建四个文件：SyncedMultiples.tsx、SyncedMultiplesEngine.js、motion-runtime.ts、SyncedMultiplesEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。motion-runtime.ts 负责创建隔离的 shadow root 与样式层、按容器宽度等比缩放、把 options.reducedMotion 与系统偏好合成同一个判定，并登记在销毁时统一清掉的帧回调、计时器、观察器与事件监听。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 480），options.reducedMotion 覆盖系统偏好；减少动态时四张图直接画完，不再有入场扫过与过渡，但悬停联动与 Compare 对照照常工作。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；入场描画、悬停与键盘联动、Compare 叠加与涨跌百分比正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SyncedMultiples } from "./SyncedMultiples";
+
+export default function App() {
+  return <SyncedMultiples />;
+}
+```

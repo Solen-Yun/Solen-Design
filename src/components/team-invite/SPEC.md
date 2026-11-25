@@ -1,0 +1,72 @@
+# 团队成员邀请流 — TeamInvite
+
+制作一张 340×340 的工作区成员设置屏。顶部标题 "Members"，右侧跟一枚数字胶囊显示当前成员数（初始 3）。下面是一条输入条：邮箱输入框、角色下拉胶囊（默认 Editor）、Invite 按钮；输入合法邮箱前 Invite 按钮保持置灰。再下面是成员列表，每行一个圆形头像（取姓名首字母）、姓名与邮箱两行文字、右侧一枚角色按钮（Owner / Editor / Viewer）。输入邮箱并点 Invite 后，列表最顶部推入一行 Pending 成员：头像先是无色、状态徽章为琥珀色 "Pending" 并轻微闪烁；约 1.9 秒后头像圆盘以颜色撑开、徽章变为薄荷绿 "Joined"，标题栏的成员数加一。
+
+## 布局与材质
+
+- 340×340px 场景卡，圆角 30px，overflow 裁切；底色为表面色纯色，外圈 `0 0 0 1px` 线色描边，下方 `0 30px 60px -36px` 强阴影。
+- 标题栏绝对定位 left 20px / right 20px / top 20px，横向 flex、垂直居中、间距 7px；标题 "Members" 为 16px / 字重 900 / 字距 -0.03em。计数胶囊内边距 2px 8px、999px 圆角、表面色 2 号底、11px / 850、次级墨色、等宽数字（tabular-nums）。
+- 输入条绝对定位 left 14px / right 14px / top 56px，横向 flex、间距 5px、内边距 5px、15px 圆角、表面色 2 号底、`inset 0 0 0 1px` 线色，0.2s 过渡；整条获得焦点时（focus-within）描边加粗为 `inset 0 0 0 2px` 主色。
+  - 邮箱输入框 flex 1、最小宽 0、高 36px、内边距 0 8px、无边框无底色、12px / 700、主色文字，outline 设为 none；占位符 "Invite by email" 为三级墨色、字重 600，输入框的无障碍名为 "Email to invite"，`autocomplete="off"`。
+  - 角色胶囊为 inline-flex、高 36px、内边距 0 8px、10px 圆角、表面色底 + `inset 0 0 0 1px` 线色、次级墨色、11px / 800，文字为当前角色名；右侧一枚 9×9 折角箭头 SVG（路径 `M1.5 3 l3 3 3-3`，描边 1.5、圆头圆角连接）。
+  - Invite 按钮高 36px、内边距 0 13px、10px 圆角、墨色底、表面色字、12px / 850，0.2s 透明度过渡；禁用时 opacity 0.3、光标 not-allowed。
+- 成员列表绝对定位 left 14px / right 14px / top 112px / bottom 10px，无序列表、去点、内边距 0、overflow 裁切。
+- 每个列表项是 `grid-template-rows: 1fr` 的单行网格，0.45s cubic-bezier(.3,1,.4,1) 过渡行高、0.3s 过渡透明度；内层包裹层 min-height 0、overflow 裁切。列表项初始加 `is-new` 类时行高压到 0fr 且透明度归 0。
+- 行内布局 flex、间距 10px、高 52px、内边距 0 6px，下边框 1px 线色：
+  - 头像 34×34px 圆形，grid 居中，白字 12.5px / 850，表面色 3 号底；伪元素铺满整圆、背景取该行的主色变量、初始 scale(1)，用 0.6s cubic-bezier(.3,1.4,.5,1) 过渡 transform；姓名首字母写在伪元素之上的相对定位文字层里。
+  - 文字块 flex 1、最小宽 0：姓名为 12px / 850 单行截断，邮箱为 10px / 650、三级墨色、单行截断。
+  - 状态徽章 flex none，内边距 2px 8px、999px 圆角、9.5px / 850。Pending 态底色 color-mix(in srgb,#F59E0B 16%,transparent)、字色 #B45309，以 1.1s ease-in-out 无限循环在中点降到 opacity 0.45；Joined 态底色 color-mix(in srgb,#10B981 16%,transparent)、字色 #047857，以 0.45s cubic-bezier(.3,1.7,.5,1) 从 scale(0.4) 弹入。非待定成员该徽章整体隐藏。
+  - 角色按钮 flex none、最小宽 52px、高 26px、内边距 0 8px、8px 圆角、表面色 2 号底、次级墨色、10.5px / 800；Owner 态改为透明底、三级墨色、禁用。切换角色时按钮以 0.35s cubic-bezier(.3,1.7,.5,1) 从 scale(0.4) 弹一下。
+- 场景令牌用 CSS `light-dark()` 随 `color-scheme` 切换，浅色 / 深色两套：表面 #FFFFFF / #13141C，表面 2 #F5F3EF / #1A1B25，表面 3 #EAE7E1 / #252632，墨色 #16151B / #F4F0E8，次级墨色 #57535F / rgba(244,240,232,.68)，三级墨色 #8E8A97 / rgba(244,240,232,.42)，线色 rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 rgba(22,21,27,.17) / rgba(255,255,255,.16)，主色 #6A57F2 / #B7A4FF，主色 2 #2F8FE0 / #7DB4FF，主色淡底 rgba(106,87,242,.12) / rgba(183,164,255,.15)，主色字 #FFFFFF / #0B0C12，薄荷 #119C72 / #7EE8C0，警告 #D6731E / #FFB26B，危险 #D93A55 / #FF7D8C，玻璃 rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃线 rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 rgba(40,30,80,.3) / rgba(0,0,0,.72)。组件不声明字体族，继承宿主页面字体；输入框与按钮统一 `font: inherit`。
+- 组件只有 `@media (prefers-reduced-motion: reduce)` 一个媒体查询；场景是固定 340px 宽的等比缩放画布，容器变窄时整景按 `min(1, 可用宽/340)` 缩小，列表内部用绝对定位与固定行高，不做响应式重排。
+
+## 数据
+
+- 两名可选角色，顺序固定："Editor"、"Viewer"。
+- 三个初始成员（姓名、邮箱、角色序号，-1 表示 Owner）：
+  - Seoyeon Kim / seoyeon@studio.kr / Owner；
+  - Junho Lee / junho@studio.kr / Editor；
+  - Haeun Park / haeun@studio.kr / Viewer。
+- 头像色板 5 色，按顺序取用：#6366F1、#EC4899、#0EA5E9、#10B981、#F59E0B。初始三行各取一色，新邀请行按「当前成员数 + 1」对 5 取模取色。
+- 状态徽章文案两枚："Pending"（等待）与 "Joined"（已加入）。
+- 角色按钮文案三枚："Owner"、"Editor"、"Viewer"；Owner 行的按钮被禁用且无 aria-label，其余行的 aria-label 为「<姓名> <角色> — change role」。
+- 界面写死文案：标题 "Members"、输入框占位符 "Invite by email"、输入框无障碍名 "Email to invite"、按钮 "Invite"。
+- 头像文字为姓名首字母的大写：新邀请行取邮箱 `@` 之前的部分的首字母大写。
+
+## 操作和动效
+
+- 邮箱输入：每次 `input` 事件都用正则 `^[^\s@]+@[^\s@]+\.[^\s@]{2,}$` 校验去掉首尾空白后的值，不通过时 Invite 按钮保持禁用；输入框没有任何抖动或报错动画，非法输入的唯一反馈就是按钮不可点。
+- 在输入框里按 Enter：若 Invite 可用则等价于点击 Invite。
+- 点角色胶囊：在 Editor 与 Viewer 之间来回切换，胶囊里的文字同步更新（不下拉展开菜单）。
+- 点成员行的角色按钮：在 Editor 与 Viewer 之间切换该行角色；Owner 行的按钮禁用，点击无反应。切换时按钮移除重播标记、强制回流后重新加上，触发 0.35s 弹跳动画。
+- 点 Invite（按钮禁用时点击无效）：读取去掉空白后的邮箱，以 `@` 前半段作为名字生成一行成员，角色取角色胶囊当前的选项，状态为 Pending，头像色盘圆盘初始 scale 0（只看得见灰底与首字母）。该行被插入到列表最顶部，并从 0fr 行高、opacity 0 的收起态展开到 1fr 行高、opacity 1，0.45s cubic-bezier(.3,1,.4,1) 展开、0.3s 淡入，把下面三行整体向下推。随后输入框清空、Invite 按钮重新禁用。
+- 1.9 秒后（减少动态时 300ms）该行自动"接受"：头像的彩色圆盘 scale 从 0 撑到 1（0.6s cubic-bezier(.3,1.4,.5,1)），状态徽章从 "Pending" 换成 "Joined"（换成薄荷绿底并弹入），标题栏的成员计数加一。组件卸载后该延时不再执行。
+- 无障碍：成员列表容器带 `aria-live="polite"`，新增行与徽章变化可被读屏播报；角色按钮是无障碍名完整的原生按钮；Invite 与角色胶囊是原生按钮，focus-visible 时 2px 主色描边、外偏移 2px。
+- `prefers-reduced-motion: reduce`（或 `options.reducedMotion` 为真）时：列表项展开与头像圆盘的过渡关闭，Pending 闪烁与 Joined、角色按钮弹跳动画全部停止；接受等待缩短为 300ms，最终状态与最终画面完全保留。
+- 支持同页多实例：查询限定在各自 ShadowRoot 内，不使用全局 id；卸载时清理计时器、事件监听与观察器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 TeamInvite。从零创建四个文件：TeamInvite.tsx、TeamInviteEngine.js、motion-runtime.ts、TeamInviteEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整流程状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；邮箱校验、角色切换、邀请推入、自动接受与计数更新都正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { TeamInvite } from "./TeamInvite";
+
+export default function App() {
+  return <TeamInvite />;
+}

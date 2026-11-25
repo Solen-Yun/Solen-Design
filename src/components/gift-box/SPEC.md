@@ -1,0 +1,59 @@
+# 拆丝带开礼盒 — GiftBox
+
+制作「拆丝带开礼盒」场景：一张 340×340 的粉色卡片，中央是一只粉底黄丝带的 CSS 礼盒（盒身、盒盖、SVG 蝴蝶结）。点击礼盒后按固定时序开箱：竖丝带从上往下收拢消失、蝴蝶结缩小旋转飞散、盒盖以左下角为铰链向左上方翻飞淡出，同时 18 枚四色星星从盒口呈扇形迸出，米黄色光芒转轮放大点亮并匀速旋转，白色券卡「A gift for you / $5 coupon」从盒中弹出上浮；底部再淡入一枚深色「Wrap again」胶囊，点击后整场复位重新可开。
+
+## 布局与材质
+
+- 340×340px 场景卡，圆角 30px，溢出裁切。场景根是 340×340 的无底色包装层（水平居中），卡片视觉放在其内部的绝对填充层上——文档演示舞台会剥离场景根的背景，卡片底色必须在嵌套层上才能保留。容器窄于 340px 时整景等比缩小（缩放比 = min(1, 可用宽/340)，上限 1）。
+- 卡片底色为粉色径向渐变 radial-gradient(90% 80% at 50% 40%, #FFF0F6, #FCC2D7)，文字基色 #5C1F3A；外圈 1px 描边取令牌 --ux-line（浅 rgba(22,21,27,.09) / 深 rgba(255,255,255,.08)），投影 0 30px 60px -36px 取 --ux-shadow-strong（浅 rgba(40,30,80,.3) / 深 rgba(0,0,0,.72)）。视觉为写死的粉色系，不随深色模式翻转。
+- 光芒转轮：以礼盒中心（水平居中、top 170px）为圆心的 420×420px 层，背景 repeating-conic-gradient(from 0deg, rgba(255,243,191,.9) 0 10deg, transparent 10deg 30deg)（12 道扇形光束），用 radial-gradient(closest-side, #000, transparent) 蒙版让光束向外淡出；初始 opacity 0、scale(.3)；pointer-events none。
+- 礼盒按钮：absolute 水平居中、top 150px，170×150px，透明无边框，cursor pointer。盒身 absolute（左右各缩进 8px、top 46px 到按钮底部），圆角 8px、90deg 渐变 #F06595→#E64980，底部内阴影 0 -10px 0 rgba(0,0,0,.08)；盒身中央竖丝带宽 24px、#FCC419、带 2px rgba(0,0,0,.05) 内描边，transform-origin 50% 0（从顶部收起）。盒盖 absolute（左右贴满、top 20px、高 36px），圆角 8px、90deg 渐变 #F783AC→#F06595、投影 0 6px 0 rgba(0,0,0,.07)，transform-origin 12% 100%（左下角铰链）；盖上竖丝带同样 24px 宽 #FFD43B，origin 50% 100%。
+- 蝴蝶结：96×44 的内联 SVG（viewBox 0 0 96 44），absolute 水平居中、top -6px 搭在盒盖上——左右两个环（path 填充 #FFD43B、描边 #E8A400 宽 2）、两条下垂飘带（stroke #FFD43B 宽 6 圆头）、中央 r=7 的 #FAB005 结心；transform-origin 50% 80%。
+- 券卡：absolute 水平居中、top 120px，宽 150px、padding 12px 14px、圆角 14px、白底、投影 0 14px 30px -12px rgba(92,31,58,.5)、文字居中；小字「A gift for you」10.5px/字重 800、色 #C2255C、字距 .06em，主行「$5 coupon」20px/字重 900、字距 -.02em、上边距 2px；pointer-events none。
+- Wrap again 按钮：absolute 水平居中、bottom 16px，padding 7px 14px、圆角 999px、底 rgba(92,31,58,.85)、白字 12px/字重 800；初始 opacity 0、pointer-events none。不加载远程字体。
+
+## 数据
+
+- 券面文案写死：「A gift for you」与「$5 coupon」；按钮文案「Wrap again」；礼盒无其他可变数据。
+- 迸出的 18 枚星星颜色按序循环取 #FCC419、#fff、#F783AC、#74C0FC 四色，方向与距离随机。
+
+## 操作和动效
+
+- 点击礼盒触发开箱（已开状态再点无效），is-open 类驱动全部 CSS 延迟时序：
+  1. 竖丝带收拢：盒身与盒盖上的丝带 scaleY 1→0（origin 分别在顶部/底部），.45s cubic-bezier(.6,0,.4,1)，延迟 .15s（约 0.15–0.6s 完成）；
+  2. 蝴蝶结飞散：translateY(-10px) scale(.2) rotate(30deg) 并淡出，transform .5s cubic-bezier(.5,0,.3,1)、透明度 .4s 延迟 .2s；
+  3. 盒盖翻飞：以左下角铰链 translate(-170px,-150px) rotate(-70deg) 向左上抛出并淡出，transform .75s cubic-bezier(.3,1.1,.5,1) 延迟 .55s、透明度 .35s 延迟 .95s；
+  4. 券卡上浮：从盒内 translateY(80px) scale(.6) 弹到 translateY(-58px) scale(1)，transform .7s cubic-bezier(.3,1.5,.5,1) 延迟 .7s、透明度 .3s 延迟 .7s；
+  5. 光芒点亮：opacity 升至 .85、scale(.3)→1 并预转 20°，opacity .4s、transform .8s cubic-bezier(.3,1.2,.4,1)；0.8s 后接 u342-spin 动画——12s linear infinite 从 rotate(20deg) 匀速转到 380deg，持续旋转。
+- 星星迸发：开盒瞬间 JS 生成 18 枚 8×8px 八角星（clip-path 多边形），从盒中心（水平居中、top 150px）出发，方向为正上方 ±1.3 弧度的扇形、距离 70–160px 随机；动画 u342-sp 1.3s ease-out forwards（scale .4→1.3、rotate 180°、淡出），延时 0.7–0.9s 随机（与盒盖翻飞同步出现），2.2s 后移除节点。
+- 尾声：Wrap again 按钮在 1.2s 延迟后淡入并可点击；点击后摘 is-open、aria-expanded 回 false、光芒熄灭、礼盒复位，焦点移回礼盒按钮（preventScroll）。
+- 键盘与无障碍：礼盒与 Wrap again 都是原生 button，可 Tab、Enter/Space 触发；礼盒 aria-label「Gift box, press to open」、aria-expanded 表达开合状态，focus-visible 外圈 2px solid #5C1F3A（礼盒 offset 6px、圆角 12px；Wrap again offset 2px）；券卡容器 aria-live="polite"；光芒与星星均 aria-hidden（星星为临时装饰节点）。
+- prefers-reduced-motion: reduce（或 options.reducedMotion=true）下：场景内所有 transition 压缩为 .01s 且延迟归零、animation 全部取消——点击后礼盒瞬时呈现为已开状态（丝带消失、盖飞出、券卡与光芒就位）；星星迸发整体跳过；Wrap again 立即可见可用。
+- options.height 调整场景高度（默认 340）；options.reducedMotion 覆盖系统偏好；更新选项就地合并、不重挂载；卸载时清理星星节点的移除计时器。样式在 Shadow DOM 内，同页多实例互不干扰。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案与运动时序均以上述文字为准；礼盒用 DOM 与 CSS 绘制、蝴蝶结用内联 SVG，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 GiftBox。从零创建四个文件：GiftBox.tsx、GiftBoxEngine.js、motion-runtime.ts、GiftBoxEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下开盒结果与重置仍完整可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或「自行补齐核心」的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；开盒五步时序正确、光芒持续旋转、Wrap again 复位后可再开；减少动态直显券卡；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { GiftBox } from "./GiftBox";
+
+export default function App() {
+  return <GiftBox />;
+}
+```

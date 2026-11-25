@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>霓虹武士风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body nsam">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 61 · 深色版面</p>
+        <h1>霓虹武士风 <span class="style-card-en">NEON SAMURAI</span></h1>
+        <p class="page-lead">一刀的斜线、朱红鸟居、霓虹发光：浮世绘撞进了霓虹街。</p>
+        <div class="style-card-tags"><span>斩击线收细</span><span>鸟居区块框架</span><span>甲片 16px 切角</span><span>纵深只用发光</span></div>
+      </header>
+
+      <section class="nsam-hero">
+        <div class="nsam-hero-copy">
+          <p>霓虹武士把武士美学与赛博霓虹缝在一起：深海军底上，朱红作主色，紫与天蓝作双色霓虹，金作刀光高光。图形语汇固定四件——刀的斜斩线（末端收细）、鸟居作区块框架、甲片式的多边角卡片、书法笔触作分隔线。它禁止常规投影，纵深只能靠发光表达。</p>
+          <p>右边这张甲片是真的：右上与左下各切 16px，hover 时双色发光扩大、八个赤色墨点在 300ms 内散开。</p>
+        </div>
+        <div class="nsam-demo">
+          <div class="nsam-armor-demo">
+            <p class="nsam-demo-tag">居合 · 一刀两断</p>
+            <p class="nsam-demo-title">斩击只有一次。</p>
+            <button type="button" class="nsam-btn">DRAW</button>
+            <span class="nsam-slash" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#dc2626"></span><span class="palette-name">Vermilion</span><code>#dc2626</code></li>
+          <li><span class="swatch-chip" style="background:#080818"></span><span class="palette-name">Deep Navy</span><code>#080818</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><span class="palette-name">Neon Violet</span><code>#a020f0</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><span class="palette-name">Sky</span><code>#38bdf8</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Gold</span><code>#fbbf24</code></li>
+          <li><span class="swatch-chip" style="background:#ff1253"></span><span class="palette-name">Neon Pink</span><code>#ff1253</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>朱红是武士的赤，管鸟居、斩击线与主按钮；深海军底深到让朱红与双色霓虹同时发亮；霓虹紫是第一霓虹色，管甲片边缘与 hover 光晕；天蓝是第二霓虹色，管数据、刀光冷侧与链接；金是画面里唯一的暖光，给刀光与高光；霓虹粉管警示与溅射特效，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#080818"></span><div><strong>Deep Navy</strong><span class="swatch-role">页面底。深到让朱红与双色霓虹同时发亮。</span></div><code>#080818</code><code>--color-deep-navy</code></li>
+          <li><span class="swatch-chip" style="background:#dc2626"></span><div><strong>Vermilion</strong><span class="swatch-role">主色：鸟居、斩击线与主按钮。武士的赤。</span></div><code>#dc2626</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><div><strong>Neon Violet</strong><span class="swatch-role">第一霓虹色：甲片边缘与 hover 光晕。</span></div><code>#a020f0</code><code>--color-neon-violet</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><div><strong>Sky</strong><span class="swatch-role">第二霓虹色：数据、刀光冷侧与链接。</span></div><code>#38bdf8</code><code>--color-sky</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Gold</strong><span class="swatch-role">刀光与高光，是画面里唯一的暖光。</span></div><code>#fbbf24</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#ff1253"></span><div><strong>Neon Pink</strong><span class="swatch-role">警示与溅射特效，出现频率最低。</span></div><code>#ff1253</code><code>--color-neon-pink</code></li>
+        </ul>
+        <p class="style-body-note">双色霓虹发光固定为 <code>0 0 20px rgba(220,38,38,0.45), 0 0 40px rgba(160,32,240,0.25)</code>；刀光 <code>0 0 16px rgba(251,191,36,0.50)</code>。常规投影一律禁止。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>纪念碑式衬线 Cinzel 做标题，字形带刀锋般的锐利感——display 加 0.06em 字距、标签 0.22em；数据与坐标用 JetBrains Mono，赛博那一侧的字体。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="nsam-specimen-title">NEON SAMURAI 0123456789</p>
+            <p class="specimen-meta">Cinzel — 纪念碑式衬线。替代栈：'Noto Serif SC', Georgia, serif · 400/700 · 标签 0.22em 全大写</p>
+          </div>
+          <div class="type-specimen">
+            <p class="nsam-specimen-label">SLASH // -28° // 3PX</p>
+            <p class="specimen-meta">JetBrains Mono — 数据与坐标。替代栈：ui-monospace, 'Courier New', monospace · 400 · 字距 0.22em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cinzel</td><td>700</td><td>52px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Cinzel</td><td>700</td><td>38px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cinzel</td><td>400</td><td>28px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Cinzel</td><td>400</td><td>15px</td><td>1.65</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>Cinzel</td><td>400</td><td>13px</td><td>1.6</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>12px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1240px、容器内边距 24px，区块间距 96px。允许斩击线溢出容器、鸟居框架跨区块。零圆角贯穿全站，切角固定 16px。所有纵深由发光提供，绝不用常规投影。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>甲片切角</td><td>右上与左下各 16px（clip-path）</td></tr>
+            <tr><td>斩击线</td><td>2–4px、角度 -20 到 -35 度、末端收细、单屏 1–2 条</td></tr>
+            <tr><td>鸟居横梁</td><td>高 10px、两端外伸 32px、立柱 6px 宽</td></tr>
+            <tr><td>卡片内边距</td><td>28px</td></tr>
+            <tr><td>过渡</td><td>200ms</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Slash Line</h3>
+            <p class="style-body-comp-role">斩击线（签名图形）。一条 2 到 4px 的斜向长线（角度 -20 到 -35 度），从 4px 收细到 1px，颜色朱红或金并带 0 0 16px 发光。横跨区块并允许溢出容器。它是最能标识这套风格的元素，单屏一到两条，绝不多。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Armor Card</h3>
+            <p class="style-body-comp-role">甲片卡片（核心组件）。赤 8% 填充、零圆角、1px 朱红 40% 描边、内边距 28px，四角用 clip-path 切出不等边的斜角（右上 16px、左下 16px），外带双色霓虹发光。hover 时发光扩到 32/64px 并让溅射墨点爆发一次（8 个 4px 的赤色圆点在 300ms 内散开并淡出）。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Torii Frame</h3>
+            <p class="style-body-comp-role">鸟居框架。区块顶部一条水平朱红梁（高 10px、两端各外伸 32px、带 0 0 20px 发光）加两根立柱（各 6px 宽、向下延伸 40 到 64px），构成鸟居轮廓。它作为区块的框架边界，每屏最多两处。</p>
+            <div class="nsam-torii-demo" aria-hidden="true"><i class="nsam-torii-beam"></i><i class="nsam-torii-post nsam-torii-post--l"></i><i class="nsam-torii-post nsam-torii-post--r"></i></div>
+          </div>
+          <div class="comp-item">
+            <h3>Brush Divider</h3>
+            <p class="style-body-comp-role">书法分隔线。一条 2 到 6px 的横向不规则笔触（用 clip-path 或 SVG path 做出起笔粗、收笔细的效果），颜色朱红或金并带霓虹发光。它替代普通分隔线，暗示书法的一横。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Neon Button</h3>
+            <p class="style-body-comp-role">行动按钮。深海军填充、朱红文字、零圆角、1px 朱红 60% 描边、12px 等宽全大写 0.22em、padding 12px 28px，双色外发光。hover 时描边升到 100%、发光转紫加天蓝；按下时位移 1px 并让光晕收到 8px。过渡 200ms。</p>
+            <button type="button" class="nsam-btn">居合</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>朱红配深海军与双色霓虹</li>
+              <li>斩击线单屏一到两条</li>
+              <li>鸟居作区块框架，最多两处</li>
+              <li>甲片用 16px 不等边切角</li>
+              <li>书法笔触作分隔线</li>
+              <li>纵深只用发光，不用投影</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用常规投影</li>
+              <li>不要用圆角</li>
+              <li>不要让斩击线超过两条</li>
+              <li>不要用西方肖像</li>
+              <li>不要让发光失去克制</li>
+              <li>不要混用两种切角尺寸</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>武士与刀、鸟居、甲片、书法笔触、霓虹街景。允许把浮世绘或书法扫描件叠霓虹发光。不使用西方肖像、柔和插画与无发光的写实摄影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neon-samurai">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的斩击线、甲片切角与鸟居框架。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，斩击线收细、16px 切角与「纵深只用发光」必须原样保留；常规投影或圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

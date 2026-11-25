@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日式 RPG — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body jrpg">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 67 · 深色版面</p>
+        <h1>日式 RPG <span class="style-card-en">JRPG</span></h1>
+        <p class="page-lead">斜面边框、金色标题、蓝底渐变：一个 1995 年的菜单窗口。</p>
+        <div class="style-card-tags"><span>2px 边框斜面浮雕</span><span>金色标题选中</span><span>分段血条</span><span>90ms 硬切</span></div>
+      </header>
+
+      <section class="jrpg-hero">
+        <div class="jrpg-hero-copy">
+          <p>日式 RPG 界面来自 16 位到 32 位时代的游戏菜单：深海军蓝底上叠蓝色到深蓝的渐变，窗口用 2px 蓝色边框加内阴影做出斜面浮雕感，标题用金色，状态栏用绿（HP）与蓝（MP），按钮靠 inset 白色高光显得凸起。菜单反馈必须硬切——75 到 120ms，模拟手柄选中项的节奏，绝不能平滑缓动。</p>
+          <p>它禁止极简扁平：无边框无阴影在这里等于没做。右边这个菜单窗口是真的：双层描边、分段血条、hover 时文字转金，全部硬切。</p>
+        </div>
+        <div class="jrpg-demo">
+          <div class="jrpg-window-demo">
+            <p class="jrpg-window-title">コマンド</p>
+            <ul class="jrpg-menu-demo" role="presentation">
+              <li class="is-active">こうげき</li>
+              <li>まほう</li>
+              <li>ぼうぎょ</li>
+            </ul>
+            <div class="jrpg-status-demo" role="presentation">
+              <span class="jrpg-status-label">HP</span>
+              <span class="jrpg-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-empty"></i></span>
+              <span class="jrpg-status-val">152/180</span>
+            </div>
+            <div class="jrpg-status-demo jrpg-status-demo--mp" role="presentation">
+              <span class="jrpg-status-label">MP</span>
+              <span class="jrpg-bar"><i></i><i></i><i></i><i></i><i class="is-empty"></i><i class="is-empty"></i></span>
+              <span class="jrpg-status-val">48/96</span>
+            </div>
+            <button type="button" class="jrpg-btn">たたかう</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0f172a"></span><span class="palette-name">Deep Navy</span><code>#0f172a</code></li>
+          <li><span class="swatch-chip" style="background:#1e40af"></span><span class="palette-name">Command Blue</span><code>#1e40af</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Gold</span><code>#fbbf24</code></li>
+          <li><span class="swatch-chip" style="background:#f0f9ff"></span><span class="palette-name">Window White</span><code>#f0f9ff</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><span class="palette-name">HP Green</span><code>#22c55e</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><span class="palette-name">Signal Green</span><code>#56ed40</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深海军蓝是 32 位时代 RPG 的菜单底色；指令蓝管窗口边框、按钮底与 MP 条；金是菜单里唯一发亮的颜色，管标题、重要数值与选中项；窗白略带蓝，管主要文字与描述；HP 绿管生命值与成功，永远是分段条而非连续渐变；信号绿管状态提示与「可执行」标记。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0f172a"></span><div><strong>Deep Navy</strong><span class="swatch-role">页面底与窗口内部。32 位时代 RPG 的菜单底色。</span></div><code>#0f172a</code><code>--color-deep-navy</code></li>
+          <li><span class="swatch-chip" style="background:#1e40af"></span><div><strong>Command Blue</strong><span class="swatch-role">窗口边框、按钮底与 MP 条。</span></div><code>#1e40af</code><code>--color-command-blue</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Gold</strong><span class="swatch-role">标题、重要数值与选中项。菜单里唯一发亮的颜色。</span></div><code>#fbbf24</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#f0f9ff"></span><div><strong>Window White</strong><span class="swatch-role">主要文字与描述。略带蓝的白。</span></div><code>#f0f9ff</code><code>--color-window-white</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><div><strong>HP Green</strong><span class="swatch-role">生命值与成功。永远是分段条而非连续渐变。</span></div><code>#22c55e</code><code>--color-hp-green</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><div><strong>Signal Green</strong><span class="swatch-role">状态提示与「可执行」标记。</span></div><code>#56ed40</code><code>--color-signal-green</code></li>
+        </ul>
+        <p class="style-body-note">斜面内阴影固定为 <code>inset 0 1px 0 rgba(255,255,255,0.20), inset 0 -1px 0 rgba(0,0,0,0.35)</code>；窗口投影 <code>0 8px 24px rgba(0,0,0,0.55)</code>；按下 <code>inset 0 2px 6px rgba(0,0,0,0.45)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>方正一点的界面无衬线 Inter 做正文，标题 700 并带金色，字级偏紧凑——菜单要在一屏内放下很多行；数值与状态读数用 JetBrains Mono，等宽让 HP/MP 与等级在纵向可比。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="jrpg-specimen-title">コマンド COMMAND 0123</p>
+            <p class="specimen-meta">Inter — 界面无衬线。替代栈：'Segoe UI', system-ui, sans-serif · 400/700 · 标题金色</p>
+          </div>
+          <div class="type-specimen">
+            <p class="jrpg-specimen-label">HP 152/180 · LV 24</p>
+            <p class="specimen-meta">JetBrains Mono — 数值与状态读数。替代栈：ui-monospace, 'Courier New', monospace · 400/700 · 字距 0.08em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>44px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>34px</td><td>1.2</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>20px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>16px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>Inter</td><td>400</td><td>13px</td><td>1.55</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>700</td><td>13px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1120px、容器内边距 16px，窗口间距 12px，形成密集的菜单排布。允许窗口层叠（主菜单上叠子菜单），每层偏移 8px 并加深阴影。所有尺寸取 4 的倍数。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 8px · 按钮/输入 6px · 状态条 999px</td></tr>
+            <tr><td>双层描边</td><td>2px 深蓝 + 外层 1px 亮蓝 20% 环</td></tr>
+            <tr><td>状态条</td><td>高 16px、8px 小格、格间 2px，绝不连续渐变</td></tr>
+            <tr><td>菜单行</td><td>高 36px，选中填金 18%、文字转金</td></tr>
+            <tr><td>窗口内边距</td><td>20px</td></tr>
+            <tr><td>过渡</td><td>90ms linear 硬切</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Bevel Window</h3>
+            <p class="style-body-comp-role">斜面菜单窗口（核心组件）。窗口底 #132039、2px 指令蓝描边、外层再加 1px 亮蓝 20% 的环形成双层描边、8px 圆角、内边距 20px，阴影 inset 0 1px 0 白 20% 加 inset 0 -1px 0 黑 35% 做出斜面。外投影 0 8px 24px 黑 55%。标题金色 34px/700，内容窗白 16px。hero 里的菜单就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Command Button</h3>
+            <p class="style-body-comp-role">指令按钮。指令蓝填充、窗白文字、2px 深蓝描边、6px 圆角、16px/700、padding 10px 24px，inset 0 1px 0 白 20% 做出凸起。hover 时填充提亮 6%、文字转金色；按下时内阴影反向（inset 0 2px 6px 黑 45%）并下沉 1px。过渡 90ms linear——硬切。</p>
+            <button type="button" class="jrpg-btn">コマンド</button>
+          </div>
+          <div class="comp-item">
+            <h3>Status Bar</h3>
+            <p class="style-body-comp-role">HP / MP 状态条。高 16px、全圆角、2px 深蓝描边，内部填充 HP 绿或亮蓝，并用 8px 宽的小格分开（每格间隔 2px），模拟分段血条。绝不用平滑渐变——分段是这个时代的标志。数值用等宽字体放在条右侧，13px 金色。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Menu List</h3>
+            <p class="style-body-comp-role">菜单选项列表。每项高 36px、6px 圆角、左侧 8px 处一个 8px 的金色三角或方块指示选中（未选中时透明）。选中项底填金 18% 并把文字转金。切换只做颜色硬切，不做滑动，时长 90ms。</p>
+            <ul class="jrpg-menu-demo jrpg-menu-inline" role="presentation">
+              <li class="is-active">アイテム</li>
+              <li>そうび</li>
+              <li>ステータス</li>
+            </ul>
+          </div>
+          <div class="comp-item">
+            <h3>Portrait Frame</h3>
+            <p class="style-body-comp-role">立绘与头像框。48 到 96px、8px 圆角、2px 金色描边加 1px 深蓝外环，内部填海军的深色或放立绘。四角各放一个 4px 的金色角标。用于角色、物品与队伍成员。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>2px 边框加内阴影做斜面</li>
+              <li>金色标题与选中项</li>
+              <li>状态条必须分段</li>
+              <li>菜单反馈 75 到 120ms 硬切</li>
+              <li>双层描边（2px 深蓝加 1px 亮蓝）</li>
+              <li>按钮用 inset 白色高光显凸起</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用极简扁平（无边框无阴影）</li>
+              <li>不要用平滑缓动做菜单反馈</li>
+              <li>不要用连续渐变的状态条</li>
+              <li>不要用扁平线稿图标</li>
+              <li>不要用超过 8px 的圆角</li>
+              <li>不要让金色承担正文</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>像素立绘、道具图标、地图与技能特效。图标必须有 2px 描边与内阴影，不能是扁平线稿。允许把照片处理成 32 色调色板。不使用现代插画与扁平图标。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="jrpg">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的斜面窗口、分段血条与 90ms 硬切节奏。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双层描边、分段血条与硬切时序必须原样保留；平滑缓动或连续渐变血条一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

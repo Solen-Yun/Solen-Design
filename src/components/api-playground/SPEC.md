@@ -1,0 +1,56 @@
+# API 请求调试台 — ApiPlayground
+
+一张 340×340 的开发文档 API 调试场景：上方一块常暗的代码卡片，cURL / JavaScript / Python 三个页签切换同一段「创建短链」请求的写法，等宽字体带语法着色，行尾是 POST 方法徽章与复制按钮；下方一块响应面板，按下 Send request 后一枚紫色辉光圆点从代码区沿连接线落入响应区，按钮进入禁用态，约 0.7 秒后出现 200 OK 徽章与随机延迟毫秒数，JSON 响应逐行敲出；可反复重跑同一流程。
+
+## 布局与材质
+
+- 340×340px 场景，圆角 30px，溢出裁切。底色为表面色，外圈 1px 线色描边加 0 30px 60px -36px 强阴影，文字色为墨色。响应式行为是整景等比缩放：容器窄于 340px 时按「可用宽度 ÷ 340」缩放（不超过 1 倍），内部布局不重排。
+- 代码卡片：绝对定位 left/right 12px、top 12px、高 152px，圆角 16px，背景恒为 #0F1117，描边 1px #262A36，文字 #E5E7EB——浅色深色场景下都是一块深色代码窗，溢出裁切。
+- 页签行：高 34px，内边距 0 6px 0 8px，元素间距 2px，底部 1px #262A36 分隔线。页签按钮高 24px、内边距 0 9px、圆角 7px，10.5px/字重 800，默认文字 #8B90A3；选中态背景 #1E2230、文字 #F3F4F6，背景与文字 0.2s 过渡。行尾 POST 徽章：内边距 2px 6px、圆角 5px、背景 #1F3B2D、文字 #6EE7B7、等宽 9.5px/字重 800。复制按钮 26×26px、圆角 7px、背景 #1E2230、图标色 #C7CAD6，内嵌 12px 复制描边图标。
+- 代码区：内边距 9px 12px，字体栈 ui-monospace、SFMono-Regular、Menlo、monospace，字号 10px、行高 1.65，white-space: pre 不换行。语法着色：关键字 #C4B5FD、字符串 #86EFAC、注释 #6B7280、函数名 #93C5FD。
+- 连接元素：一条 2×22px 竖线（left 24px、top 164px，自 #262A36 渐隐到线色的纵向渐变）与一枚 10px 圆点（left 20px、top 150px，填充 #A78BFA，辉光 0 0 12px #A78BFA，默认透明）。
+- Send request 按钮：right 12px、top 172px，高 30px、内边距 0 12px、圆角 10px，墨色实底、文字取表面色，11px/字重 850，内嵌 11px 播放三角图标，透明度 0.2s 过渡；禁用时透明度 0.5。
+- 响应面板：left/right 12px、top 210px、bottom 12px，圆角 16px，背景次表面色，内嵌 1px 线色描边，溢出裁切。头部高 28px、内边距 0 12px、底部 1px 线色分隔，文案 "Response"，10px/字重 850 次级墨色；右侧状态胶囊默认透明并上移 4px。"200 OK" 徽章：内边距 1px 6px、圆角 5px、背景取 #10B981 的 16% 透明度、文字 #047857、字重 900；旁边延迟毫秒数用等宽数字（tabular-nums）。占位文案 "The response shows up here"，10.5px/字重 700 次级墨色，在头行以下的剩余高度内居中。
+- 响应 JSON：内边距 7px 12px，等宽 10px、行高 1.6、文字次级墨色；键名 #7C3AED、字符串 #059669、数字 #D97706。
+- 场景令牌浅色深色两套（`prefers-color-scheme: dark` 自动切换）：表面 #FFFFFF/#13141C、次表面 #F5F3EF/#1A1B25、墨色 #16151B/#F4F0E8、次级墨色 #57535F/rgba(244,240,232,.68)、线色 rgba(22,21,27,.09)/rgba(255,255,255,.08)、accent #6A57F2/#B7A4FF（仅用于 focus-visible 外圈）。场景根继承宿主字体，代码区固定等宽栈。
+
+## 数据
+
+- 页签固定三条：cURL、JavaScript、Python，写的是同一段「创建短链」请求——POST /v1/links，目标 URL https://shop.example.com/sale，名称 "Spring sale"。cURL 版含 `-H "Authorization: Bearer sk_live_…"` 头；JavaScript 版用 fetch + JSON.stringify；Python 版用同名 SDK 客户端的 links.create。
+- 响应 JSON 固定 5 个字段："id": "lnk_8Kx2"、"short": "solen.dev/sale"、"name": "Spring sale"、"clicks": 0、"created": "2026-10-15"；前后加大括号共 7 行逐行输出。
+- 延迟毫秒数随机生成：120 加上一个 0–60 的随机整数，即显示 120–180ms。
+
+## 操作和动效
+
+- 页签切换：点击页签立即更新选中态（aria-selected 与 roving tabIndex 同步，选中页签 tabIndex 0、其余 -1）；代码区先淡出并模糊（透明度 0 + 3px 模糊，0.2s 过渡），180ms 后替换代码再淡回。首次渲染直接写入，不播切换动画。
+- 复制按钮：点击把当前代码区纯文本写入系统剪贴板（clipboard 不可用时静默忽略），图标换成 12px 对勾、背景变 #064E3B、文字变 #6EE7B7，1500ms 后换回复制图标与原配色；连点会重置这 1500ms 计时。
+- Send request：点击后按钮禁用、响应区复位为占位文案；辉光圆点以 650ms、缓动 cubic-bezier(.5,0,.3,1) 下落——位移 0 到 58px，85% 进度处放大到 1.6 倍并落到 62px 处淡出，起点与终点透明。700ms 后状态胶囊（"200 OK" + 延迟毫秒）弹入：透明度 0.25s、位移 0.3s cubic-bezier(.3,1.5,.5,1)；JSON 逐行敲出，第 k 行延迟 k×140ms（7 行，最后一行落在 840ms），最后一行写完才恢复按钮可用。运行中重复点击无效；新一轮发送会作废上一轮尚未完成的逐行输出（内部代际计数）。
+- 键盘与焦点：页签行为原生 button 加 role="tab"，容器 role="tablist" aria-label="Language"，代码区 role="tabpanel"；响应面板 aria-live="polite"；复制按钮 aria-label="Copy code"；连接线与圆点 aria-hidden；全部按钮 focus-visible 时外圈 2px accent 描边、偏移 2px。
+- `prefers-reduced-motion` 下：代码切换与状态胶囊的过渡移除，Send 的 700ms 等待与 140ms 逐行节奏压缩为立即完成，圆点动画整段跳过；200 OK 最终状态完整可见。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动参数均以上述文字为准；所有界面用 DOM 与 CSS 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 ApiPlayground。从零创建四个文件：ApiPlayground.tsx、ApiPlaygroundEngine.js、motion-runtime.ts、ApiPlaygroundEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新选项不重挂载、状态保持，销毁时清理动画帧、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 340），options.reducedMotion 覆盖系统偏好；减少动态时仍保留完整的 200 OK 结果状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；页签切换、复制反馈、连续两次 Send（含运行中重发）状态均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { ApiPlayground } from "./ApiPlayground";
+
+export default function App() {
+  return <ApiPlayground />;
+}
+```

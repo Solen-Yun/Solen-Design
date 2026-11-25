@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+      "solen-design": {
+        "type": "stdio",
+        "command": "node",
+      "args": ["mcp/server.mjs"]
+    }
+  }
+}

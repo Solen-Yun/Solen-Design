@@ -1,0 +1,57 @@
+# 评论提及 — MentionComment
+
+一张 340×340 的协作评论卡：顶部「Comments」标题，下面一条已发评论（渐变头像 + Solen 的留言），中部一个 120px 高的评论输入框，底部一行「Will be notified」加被提及者的头像串与墨色 Send 按钮。核心互动是提及：在输入框键入「@」即弹出 178px 宽的队友浮层——头像、姓名、部门，姓名中匹配片段以 accent 色加粗；继续输入实时过滤，方向键循环高亮，Enter 或 Tab 把选中队友以「@姓名 」纯文本插入光标处（浮层定位在光标正下方），Escape 关闭；已完成的「@姓名」在镜像高亮层里染成淡 accent 圆角底色，底部头像串随提及增删自动补齐。
+
+## 布局与材质
+
+- 场景 340×340px，圆角 30px，溢出裁切，底色表面色，外圈 1px 线色描边，下方 0 30px 60px -36px 强阴影。窄容器里整景等比缩小。
+- 标题「Comments」：绝对定位 left 20px、top 20px、15px/900。
+- 评论卡：绝对定位 left 16px、right 16px、top 52px，flex、间距 9px、内边距 11px 12px、圆角 14px、背景次表面色。头像 28×28px 圆形、背景 linear-gradient(135deg, #A5B4FC, #6366F1)；姓名 11px/850；正文 margin-top 2px、11px、行高 1.45、字重 600、次级墨色。
+- 输入框：绝对定位 left 16px、right 16px、top 130px、高 120px、圆角 15px、背景表面色，常态 inset 0 0 0 1.5px 线色线圈，聚焦（focus-within）过渡到 inset 0 0 0 2px accent（box-shadow 过渡 .2s）。内部是一层镜像 div 加一层透明 textarea 完全重叠：两者内边距 12px 13px、12.5px、行高 1.6、字重 600、pre-wrap 断词断行；镜像层文字透明、指针穿透，用于绘制提及高亮 mark（文字透明、背景 accent 18% 混色、圆角 5px、外圈 0 0 0 2px 同色）与测量光标坐标；textarea 背景透明、无轮廓、caret 用 accent 色，占位文案「Leave a comment. Use @ to mention a teammate」占位色三级墨、600 字重，aria-label「Comment」、aria-autocomplete="list"、关闭拼写检查。镜像层随 textarea 滚动同步 scrollTop。
+- 队友浮层：绝对定位、宽 178px、内边距 5px、圆角 13px、背景表面色，外圈 1px 线色加 0 16px 32px -12px 强阴影，role="listbox" aria-label「Teammates」。关闭态 scale(.9) translateY(-4px)、transform-origin 12px 0、opacity 0、pointer-events none，过渡 transform .2s cubic-bezier(.3,1.6,.5,1)、opacity .12s。选项行 flex、间距 8px、高 34px、内边距 0 7px、圆角 9px、11.5px/700，悬停与键盘高亮同用次表面色底；行首 22×22px 圆形首字母头像（9.5px/850 白字、实底各自配色）；姓名 span 弹性占宽、单行省略，匹配片段嵌 b 元素（900 字重、accent 色）；行尾部门 9.5px/750、三级墨色。选项 tabIndex=-1，不进 Tab 序列。无匹配时显示「No matching teammates」占位行（内边距 9px、10.5px/700、三级墨色）。
+- 底栏：绝对定位 left 16px、right 16px、bottom 18px，flex、间距 8px。「Will be notified」10px/800、三级墨色、不换行；头像串 flex:1、最小高 26px，成员头像 26×26px 圆形、白字 10px/850 首字母、margin-left -6px 重叠、外圈 0 0 0 2.5px 表面色，进场播放 scale(0)→1 的 .4s cubic-bezier(.3,1.7,.5,1) 动画；Send 按钮高 34px、内边距 0 15px、圆角 11px、墨色实底、文字表面色、12px/850。
+- 场景令牌含浅色与深色两套（随 prefers-color-scheme 切换）：表面 #FFFFFF/#13141C、次表面 #F5F3EF/#1A1B25、三表面 #EAE7E1/#252632、主墨 #16151B/#F4F0E8、次墨 #57535F/rgba(244,240,232,.68)、三墨 #8E8A97/rgba(244,240,232,.42)、线 rgba(22,21,27,.09)/rgba(255,255,255,.08)、accent #6A57F2/#B7A4FF。组件样式不声明页面字体族，继承宿主页面字体；全部按钮 focus-visible 外圈 2px accent、偏移 1px。
+
+## 数据
+
+- 队友写死 5 名（姓名 / 部门 / 头像底色）：Seoyeon Kim / Design / #EC4899；Seojun Park / Engineering / #0EA5E9；Doyun Lee / Product / #10B981；Haeun Choi / Marketing / #F59E0B；Minjae Jung / Engineering / #8B5CF6。头像显示姓名首字母。
+- 已发评论写死：作者「Solen」，正文「New landing page draft is up. Focus on the first screen, please!」。
+- 输入框初始为空，占位文案见上；页面其余文案写死（Comments、Will be notified、Send、No matching teammates）。不发起任何网络请求。
+
+## 操作和动效
+
+- 触发与过滤：textarea 的 input 与 click 都会重算光标——取光标前最近的「@」，取「@」到光标之间的查询串；「@」不存在、查询串含空白、或「@」前一个字符不是空白时关闭浮层。有效时按「小写包含」过滤 5 名队友：命中项显示且姓名中与查询重合的片段加粗 accent；无命中显示占位行；每次弹出高亮重置到第 0 项。
+- 浮层定位：用隐藏镜像克隆测量「@」符号的页面坐标，浮层放在其正下方 4px 处，水平位置向左收——右缘不超过 340-16-178=146px，保证不出场景。
+- 键盘流：浮层开启时 ArrowDown / ArrowUp 在命中项间循环移动高亮（均 preventDefault）；Enter 或 Tab 插入当前高亮项；Escape 关闭浮层。插入实现为把「@」到光标之间的文本整体替换为「@姓名 」并保持纯文本——提及不是独立 DOM 节点，Backspace 即普通文本删除；镜像层用正则匹配已写完整的「@姓名」渲染 mark 高亮，光标坐标也由该层测得。
+- 失焦：textarea blur 后延迟 150ms 关闭浮层（给点击选项留时间；选项 mousedown preventDefault 防止抢焦点）。
+- 底栏头像串：textarea 里每出现一个完整的「@姓名」，按队伍固定顺序去重追加一枚首字母头像（scale 弹入动画）；删除提及即移除。
+- prefers-reduced-motion 下（或 options.reducedMotion）：浮层过渡与头像弹入动画关闭，出现/消失直接落位；过滤、键盘流、插入行为不变。
+- 键盘与无障碍：textarea 可 Tab 聚焦、aria-label「Comment」；浮层 role="listbox"、选项 role="option"；高亮项经 aria-activedescendant 指向（关闭时移除该属性）；Send 为原生 button。
+- options.height 改场景高度（默认 340），options.reducedMotion 覆盖系统偏好；支持同页多实例，更新 options 不重挂载，卸载时清理计时器与监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，头像用首字母加实底色，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 MentionComment。从零创建四个文件：MentionComment.tsx、MentionCommentEngine.js、motion-runtime.ts、MentionCommentEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整提及流程。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；@ 触发、过滤、键盘流、插入与底栏头像联动正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { MentionComment } from "./MentionComment";
+
+export default function App() {
+  return <MentionComment />;
+}
+```

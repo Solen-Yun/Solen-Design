@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>构成主义 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cstm">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 94 · 浅色版面</p>
+        <h1>构成主义 <span class="style-card-en">CONSTRUCTIVISM</span></h1>
+        <p class="page-lead">红与黑切进纸里：一切都在斜着喊。</p>
+        <div class="style-card-tags"><span>严格三色</span><span>只有 900 字重</span><span>4px 黑边硬阴影</span><span>角度只用三档</span></div>
+      </header>
+
+      <section class="cstm-hero">
+        <div class="cstm-hero-copy">
+          <p>构成主义来自苏联宣传海报：只用红（#cc0000）、黑（#1a1a1a）与泛黄纸（#f2e8d5）三色，色块以对角线切入画面，元素整体旋转 -6 到 3 度并斜切，字是超粗全大写，边框 4px 黑，阴影是 4px 的硬偏移模拟版画。</p>
+          <p>它的纪律是「三色、直角、硬边」——禁止圆角、禁止渐变、禁止任何超出这三色的颜色。混乱是表面的，构成是精确的。</p>
+        </div>
+        <div class="cstm-demo">
+          <span class="cstm-plane" aria-hidden="true"></span>
+          <div class="cstm-card">
+            <p class="cstm-card-label">ПЛАКАТ № 4</p>
+            <p class="cstm-card-title">БУДУЩЕЕ</p>
+            <p class="cstm-card-text">斜切的色块切进纸里，标题压在最上层。</p>
+            <button type="button" class="cstm-btn">СМОТРЕТЬ</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#cc0000"></span><span class="palette-name">Poster Red</span><code>#cc0000</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#f2e8d5"></span><span class="palette-name">Aged Paper</span><code>#f2e8d5</code></li>
+          <li><span class="swatch-chip" style="background:#d4a843"></span><span class="palette-name">Gold</span><code>#d4a843</code></li>
+          <li><span class="swatch-chip" style="background:#8b4513"></span><span class="palette-name">Ochre</span><code>#8b4513</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>海报红是主色，给色块、强调与需要立刻被看到的一切；墨色管文字、4px 边框与硬阴影，结构与冲击都靠它；泛黄的旧纸色做页面底，像 1920 年代的印刷纸；金是唯一允许的第三色，只作小面积高亮；赭石是压在红色上的文字色，避免红上红。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f2e8d5"></span><div><strong>Aged Paper</strong><span class="swatch-role">页面底。泛黄，像 1920 年代的印刷纸。</span></div><code>#f2e8d5</code><code>--color-aged-paper</code></li>
+          <li><span class="swatch-chip" style="background:#cc0000"></span><div><strong>Poster Red</strong><span class="swatch-role">主色：色块、强调与需要立刻被看到的一切。</span></div><code>#cc0000</code><code>--color-poster-red</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">文字、4px 边框与硬阴影。结构与冲击都靠它。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#d4a843"></span><div><strong>Gold</strong><span class="swatch-role">唯一允许的第三色，只作小面积高亮。</span></div><code>#d4a843</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#8b4513"></span><div><strong>Ochre</strong><span class="swatch-role">压在红色上的文字色，避免红上红。</span></div><code>#8b4513</code><code>--color-ochre</code></li>
+        </ul>
+        <p class="style-body-note">硬偏移只有墨：<code>4px 4px 0 #1a1a1a</code>，hover 扩到 <code>8px 8px 0</code>，按下归零。全页只用红、黑、旧纸三色。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>只有 900 一个字重，全大写。标题 80 到 112px、行高 0.88，字块本身是一块斜切的版面。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cstm-specimen-title">CONSTRUCT 0123</p>
+            <p class="specimen-meta">Inter — 只有 900 字重。替代栈：'Arial Black', 'Helvetica Neue', sans-serif · 全大写 · display 行高 0.88</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>112px</td><td>0.88</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>900</td><td>80px</td><td>0.92</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>56px</td><td>0.95</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>900</td><td>36px</td><td>1</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>900</td><td>16px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>900</td><td>16px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1200px，允许元素溢出容器与页面边缘。整页以对角线为主要构图手段，区块之间用 8 到 16px 粗条分隔。角度只用三档：-6、0、+3 度，混用更多角度会让版面失序。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>斜切</td><td>rotate(-6deg) skewX(3deg)，允许溢出页面边缘</td></tr>
+            <tr><td>标题</td><td>80–112px/900、行高 0.88、旋转 -3°</td></tr>
+            <tr><td>描边</td><td>4px 纯黑</td></tr>
+            <tr><td>分隔</td><td>8–16px 纯黑或纯红横条，倾斜 -2°</td></tr>
+            <tr><td>数字标记</td><td>80–160px/900，可 30% 透明压在色块上</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Diagonal Plane</h3>
+            <p class="style-body-comp-role">斜切色块（核心组件）。一个填红或黑的矩形，用 transform: rotate(-6deg) skewX(3deg) 倾斜，或直接用 clip-path 切出斜边。零圆角，可选 4px 黑色描边。它不被容器裁切，允许溢出页面边缘，产生「切进纸里」的感觉。hero 左上那块红的就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Agitprop Headline</h3>
+            <p class="style-body-comp-role">标语式标题。80 到 112px、900 字重、全大写、行高 0.88、字距 -0.03em，本身旋转 -3 度。允许分三行堆叠并与色块重叠，但文字必须在最上层。部分词可反白（在红色块上）或转红。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Block Button</h3>
+            <p class="style-body-comp-role">行动按钮。红填充、旧纸色文字、4px 黑边、零圆角、16px/900 全大写、padding 12px 28px，硬阴影 4px 4px 0 墨。hover 时填充转黑、文字转旧纸、阴影扩到 8px；按下时位移 4px 4px 且阴影归零。过渡 100ms linear。</p>
+            <button type="button" class="cstm-btn">看海报</button>
+          </div>
+          <div class="comp-item">
+            <h3>Bar Divider</h3>
+            <p class="style-body-comp-role">粗横条分隔。高 8px 或 16px 的纯黑或纯红横条，横跨全宽，可倾斜 -2 度。它替代留白来分隔区块——构成主义不用空，用块。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Number Stamp</h3>
+            <p class="style-body-comp-role">大号数字标记。80 到 160px 的 900 字重数字，颜色红或黑，可半透明（30%）压在色块上作为背景标记。用于章节编号与数据强调，一屏最多两处。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>严格三色：红、黑、旧纸</li>
+              <li>对角线与斜切色块</li>
+              <li>只有 900 一个字重，全大写</li>
+              <li>4px 黑边加 4px 硬阴影</li>
+              <li>角度只用 -6、0、+3 三档</li>
+              <li>用粗条分隔区块而不是留白</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和圆角</li>
+              <li>不要用渐变</li>
+              <li>不要超出三色体系</li>
+              <li>不要用超过三档角度</li>
+              <li>不要用细边框</li>
+              <li>不要用柔和插画</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>构成主义海报式图形：几何色块、粗黑剪影、工厂与齿轮、工人剪影、放射线。允许把照片处理成红黑双色调并加粗黑描边。不使用彩色摄影、柔和插画与渐变。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="constructivism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的斜切色块、三色纪律与硬阴影。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，严格三色、只有 900 字重与「角度只用三档」必须原样保留；圆角或第四种颜色一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视觉小说风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body vnovel">
+      <div class="vn-scene" aria-hidden="true">
+        <span class="vn-silhouette vn-silhouette--a"></span>
+        <span class="vn-silhouette vn-silhouette--b"></span>
+      </div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 56 · 深色版面</p>
+        <h1>视觉小说风 <span class="style-card-en">VISUAL NOVEL</span></h1>
+        <p class="page-lead">半透明的对话框浮在场景上，一切为「读下去」让路。</p>
+        <div class="style-card-tags"><span>85% 对话框</span><span>渐变名牌</span><span>高光扫过选项</span><span>行高 1.8 长读</span></div>
+      </header>
+
+      <section class="vnovel-hero">
+        <div class="vnovel-hero-copy">
+          <p>视觉小说风来自 ADV 游戏界面：场景是一张插画，对话框是压在下方的一块 85% 不透明的深色面板，角色名在面板左上角用渐变名牌标出，选项是纵向排列的分支按钮，hover 时有一道高光从左扫过。</p>
+          <p>它的排版纪律很清楚——叙事文本用衬线、UI 标签用无衬线，正文行高拉到 1.8，因为玩家要连续读几百字。装饰要克制：只在面板角落放 L 形线，绝不用粗边框、RGB 分离与像素字体。下方那个对话框是真的——选项 hover 时高光会扫过去。</p>
+        </div>
+        <div class="vnovel-demo">
+          <div class="vn-dialogue-demo">
+            <span class="vn-nameplate">千夏</span>
+            <p class="vn-narration">「明天放学后，天台见。」她说完就转身，校服的下摆被风掀起来。</p>
+            <div class="vn-choices">
+              <button type="button" class="vn-choice">「好，我准时到。」</button>
+              <button type="button" class="vn-choice">「……为什么是天台？」</button>
+              <button type="button" class="vn-choice">沉默地看着她离开。</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#6366f1"></span><span class="palette-name">Narrative Indigo</span><code>#6366f1</code></li>
+          <li><span class="swatch-chip" style="background:#ec4899"></span><span class="palette-name">Heart Pink</span><code>#ec4899</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><span class="palette-name">Trust Green</span><code>#10b981</code></li>
+          <li><span class="swatch-chip" style="background:#d948bb"></span><span class="palette-name">Magenta</span><code>#d948bb</code></li>
+          <li><span class="swatch-chip" style="background:#1a202c"></span><span class="palette-name">Night Slate</span><code>#1a202c</code></li>
+          <li><span class="swatch-chip" style="background:#f7fafc"></span><span class="palette-name">Mist White</span><code>#f7fafc</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>夜板岩以 85% 不透明度压住场景，做对话框与选项面板；雾白以 70% 出现，保持通透；叙事靛是角色名牌、选中项与关键按钮——对话里表示「这是重要的一句」；心粉管好感度与情感选项；信任绿管已解锁与已存档；品红管隐藏路线，全屏最多一处。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a202c"></span><div><strong>Night Slate</strong><span class="swatch-role">对话框与选项面板的底色，以 85% 不透明度压住场景。</span></div><code>#1a202c</code><code>--color-night-slate</code></li>
+          <li><span class="swatch-chip" style="background:#f7fafc"></span><div><strong>Mist White</strong><span class="swatch-role">信息卡与存档界面。以 70% 不透明度出现，保持通透。</span></div><code>#f7fafc</code><code>--color-mist</code></li>
+          <li><span class="swatch-chip" style="background:#6366f1"></span><div><strong>Narrative Indigo</strong><span class="swatch-role">角色名牌、选中项与关键按钮。对话里表示「这是重要的一句」。</span></div><code>#6366f1</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#ec4899"></span><div><strong>Heart Pink</strong><span class="swatch-role">好感度、情感选项与关键转折。</span></div><code>#ec4899</code><code>--color-heart-pink</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><div><strong>Trust Green</strong><span class="swatch-role">已解锁、已存档与正向反馈。</span></div><code>#10b981</code><code>--color-trust-green</code></li>
+          <li><span class="swatch-chip" style="background:#d948bb"></span><div><strong>Magenta</strong><span class="swatch-role">隐藏路线与特殊事件，全屏最多一处。</span></div><code>#d948bb</code><code>--color-magenta</code></li>
+        </ul>
+        <p class="style-body-note">阴影三档：对话框 <code>0 8px 32px rgba(0,0,0,0.5)</code>、名牌 <code>0 4px 10px rgba(99,102,241,0.30)</code>、信息卡 <code>0 6px 20px rgba(0,0,0,0.30)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>叙事与对话正文用衬线 Lora——衬线让长文本读起来像小说，行高 1.8 是硬指标；UI 标签、按钮与数值用 Inter，永远与衬线叙事文本分工明确。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="vnovel-specimen-title">为「读下去」让路</p>
+            <p class="specimen-meta">Lora — 叙事与对话。替代栈：Georgia, 'Songti SC', serif · 400 / 500 · 行高 1.8（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="vnovel-specimen-label">UI 标签与选项按钮</p>
+            <p class="specimen-meta">Inter — UI 标签。替代栈：system-ui, -apple-system, sans-serif · 400 / 500 / 700 · 标签 0.08em 全大写</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Lora</td><td>500</td><td>44px</td><td>1.3</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Lora</td><td>500</td><td>32px</td><td>1.35</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Lora</td><td>400</td><td>24px</td><td>1.4</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Lora</td><td>400</td><td>20px</td><td>1.8</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Lora</td><td>400</td><td>16px</td><td>1.8</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>700</td><td>13px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px，场景占 85vh，对话框固定在底部 24px、最大宽度 960px、居中。选项纵向排列、宽度与对话框一致、间距 8px。信息卡与存档界面用两列网格。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px、按钮 8px、名牌 6px（只圆三角）、胶囊 999px</td></tr>
+            <tr><td>对话框内边距</td><td>32px（顶部 40px 留给名牌）</td></tr>
+            <tr><td>元素间距</td><td>16px（选项间距 8px）</td></tr>
+            <tr><td>区块间距</td><td>64px</td></tr>
+            <tr><td>场景高度</td><td>85vh，对话框距底 24px、最大宽 960px</td></tr>
+            <tr><td>选项高光</td><td>白 5% 高光从左扫到右，700ms</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Dialogue Panel</h3>
+            <p class="style-body-comp-role">对话框（核心组件）。夜板岩 85% 填充、20px 模糊、12px 圆角、1px 叙事靛 20% 描边、内边距 32px（顶部 40px 留给名牌），阴影 0 8px 32px 黑 50%；叙事文字 16px 衬线、行高 1.8、白色；左上角用两条 1px 叙事靛 40% 的线做 L 形装饰（各 24px）。hover 时描边升到 40%、面板上浮 2px。上方演示框即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Nameplate</h3>
+            <p class="style-body-comp-role">角色名牌。压在对话框左上角、向上偏移 16px，横向内边距 24px、纵向 6px，叙事靛到深靛的横向渐变填充，圆角只有上两角与右下角（模拟标签），白字 13px/700、字距 0.08em，阴影 0 4px 10px 靛蓝 30%；名牌宽度随名字自适应，不留空。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Choice Button</h3>
+            <p class="style-body-comp-role">分支选项按钮。夜板岩 60% 填充、8px 模糊、8px 圆角、1px 叙事靛 30% 描边，左对齐、18px 无衬线、padding 16px 32px，全宽；hover 时填充转靛 20%、描边到 60%、上浮 2px，同时一道白色 5% 的高光从左扫到右（700ms）；按下时整体右移 8px 并回落。上方对话框里那三个选项就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Save Slot + Scene Stage</h3>
+            <p class="style-body-comp-role">存档与章节列表：雾白 70% 填充、12px 圆角、内边距 16px，左侧 16:9 截图缩略图，右侧 15px 章节名与 12px 时间戳；hover 时填充升到 85%、缩略图放大 1.03；空档位用虚线边框并显示「空」。场景区域：占视口 85% 高度，背景渐变插画，角色以底部对齐的半透明剪影出现（160px 宽、120% 高度、8% 不透明度）；对话框叠在底部 24px 处，不遮挡中心视觉——本页顶部那两个剪影就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>叙事用衬线、UI 用无衬线</li>
+              <li>对话框 85% 不透明加深模糊</li>
+              <li>正文行高 1.8</li>
+              <li>名牌只圆三角，做成标签形</li>
+              <li>选项 hover 用高光扫过</li>
+              <li>装饰只用角落的 L 形线</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用 4px 以上的粗边框</li>
+              <li>不要用 RGB 分离的重影</li>
+              <li>不要用像素风或等宽字体做正文</li>
+              <li>不要用纯黑背景</li>
+              <li>不要用全大写宽字距的终端风文本</li>
+              <li>不要让对话框遮住场景中心</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>场景插画是主体：天空渐变、室内、夜景，配半透明角色剪影。允许 CG 立绘与表情差分。不使用写实摄影、UI 截图与扁平几何。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="visual-novel">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的对话框、渐变名牌与高光扫过选项。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，85% 面板、衬线叙事行高 1.8 与「装饰只用 L 形线」必须原样保留；粗边框即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

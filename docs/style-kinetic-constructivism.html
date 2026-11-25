@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>动力学构成主义 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body kin">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 78 · 浅色版面</p>
+        <h1>动力学构成主义 <span class="style-card-en">KINETIC CONSTRUCTIVISM</span></h1>
+        <p class="page-lead">几何图元不是被摆放的，而是被装上轴的：圆在公转，三角在摆动。</p>
+        <div class="style-card-tags"><span>五图元三原色</span><span>圆公转 12–24s</span><span>方块错峰行进</span><span>只动 transform</span></div>
+      </header>
+
+      <section class="kin-hero">
+        <div class="kin-hero-copy">
+          <p>动力学构成主义把构成主义装上了马达：米白纸上只用圆、三角、方、粗斜条与弧这五种图元，填构成红、群青、金黄三色，暖墨作主体。图元不装饰版面，而是沿轴运动——圆公转、三角像钟摆摆动、方块按拍子行进。入场用 expo-out（0.6 到 0.9 秒），旋转循环用 linear 或 steps() 做出齿轮感。</p>
+          <p>禁令极硬：不许圆角阴影渐变发光模糊、不许第四种颜色、不许一屏所有图元同时乱动（保留静态骨架，一次只有一组主导运动）、不许动画布局属性。下面这台机器只有方块群在行进——其余都是骨架。</p>
+        </div>
+        <div class="kin-demo">
+          <span class="kin-bar" aria-hidden="true"></span>
+          <span class="kin-disc" aria-hidden="true"><i></i></span>
+          <span class="kin-tri" aria-hidden="true"></span>
+          <div class="kin-march" role="presentation">
+            <i></i><i></i><i></i><i></i>
+          </div>
+          <button type="button" class="kin-btn">启 动</button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#efe9dc"></span><span class="palette-name">Bone Paper</span><code>#efe9dc</code></li>
+          <li><span class="swatch-chip" style="background:#17130e"></span><span class="palette-name">Warm Ink</span><code>#17130e</code></li>
+          <li><span class="swatch-chip" style="background:#e0231b"></span><span class="palette-name">Constructivist Red</span><code>#e0231b</code></li>
+          <li><span class="swatch-chip" style="background:#1c4a87"></span><span class="palette-name">Ultramarine</span><code>#1c4a87</code></li>
+          <li><span class="swatch-chip" style="background:#f4b301"></span><span class="palette-name">Chrome Yellow</span><code>#f4b301</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>略带黄的纸色像一张还没印的海报；带暖调的近黑管文字与最粗的斜条；构成红是第一原色，给主圆盘与最抢眼的图元；群青是第二原色，给三角与次级图元；铬黄是第三原色，给最小的方块与高亮点。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#efe9dc"></span><div><strong>Bone Paper</strong><span class="swatch-role">页面底。略带黄的纸色，像一张还没印的海报。</span></div><code>#efe9dc</code><code>--color-bone-paper</code></li>
+          <li><span class="swatch-chip" style="background:#17130e"></span><div><strong>Warm Ink</strong><span class="swatch-role">文字与最粗的斜条。带暖调的近黑。</span></div><code>#17130e</code><code>--color-warm-ink</code></li>
+          <li><span class="swatch-chip" style="background:#e0231b"></span><div><strong>Constructivist Red</strong><span class="swatch-role">第一原色：主圆盘与最抢眼的图元。</span></div><code>#e0231b</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#1c4a87"></span><div><strong>Ultramarine</strong><span class="swatch-role">第二原色：三角与次级图元。</span></div><code>#1c4a87</code><code>--color-ultramarine</code></li>
+          <li><span class="swatch-chip" style="background:#f4b301"></span><div><strong>Chrome Yellow</strong><span class="swatch-role">第三原色：最小的方块与高亮点。</span></div><code>#f4b301</code><code>--color-chrome-yellow</code></li>
+        </ul>
+        <p class="style-body-note">层次为零：<code>none — knife-cut hard edges only</code>。三原色绝不调和，第四种颜色不允许存在。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站无衬线 Inter，只用 700 与 900。标题压到行高 0.95——字块本身就是一块几何体。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="kin-specimen-title">KINETIC 0123</p>
+            <p class="specimen-meta">Inter — 全站无衬线。替代栈：'Arial Black', Helvetica, sans-serif · 700/900 · display 行高 0.95</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>72px</td><td>0.95</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>48px</td><td>1</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>32px</td><td>1.1</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>22px</td><td>1.4</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>16px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>700</td><td>13px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1200px、容器内边距 24px，区块间距 96px。允许图元溢出容器与页面边缘。一屏只允许一组主导运动：其余图元保持静态，作为骨架。所有运动只用 transform，绝不动 top/left/width/height。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 0 · 圆盘自身为圆</td></tr>
+            <tr><td>公转</td><td>周期 12–24s linear，内层反向保持直立</td></tr>
+            <tr><td>钟摆</td><td>±18°、支点在顶点、4–6s</td></tr>
+            <tr><td>行进</td><td>错峰 120ms、平移 16px、周期 1.6s</td></tr>
+            <tr><td>斜条</td><td>16–40px 粗、45° 或 -30°、静态</td></tr>
+            <tr><td>入场</td><td>expo-out 0.6–0.9s</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Orbiting Disc</h3>
+            <p class="style-body-comp-role">公转圆盘（核心组件）。一个实心圆（40 到 160px、填构成红），沿另一个更大的隐形圆轨道公转：用 @keyframes 只改 transform 的 rotate（外圈旋转带动内层反向旋转以保持自身不转）。周期 12 到 24 秒、linear 无限。圆本身零圆角（它是圆）、无阴影无描边。hero 左上那颗就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pendulum Triangle</h3>
+            <p class="style-body-comp-role">钟摆三角。一个实心等腰三角（用 clip-path polygon）以顶点为轴做 ±18 度的摆动，周期 4 到 6 秒、cubic-bezier(0.45, 0, 0.55, 1)（近似正弦）。填群青或金黄。摆动的支点必须在顶点，否则看起来像在飘。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Marching Blocks</h3>
+            <p class="style-body-comp-role">行进的方块。3 到 6 个等大的方块（各 24 到 40px）排成一行，依次以 120ms 的延迟沿 X 轴平移 16px 再回位，周期 1.6 秒、linear 或 steps(2)（齿轮感）。填三原色轮换。绝不许它们同时移动——错峰才有行军感。hero 里那排就是（它是本页唯一的主导运动）。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Diagonal Bar</h3>
+            <p class="style-body-comp-role">粗斜条。一条 16 到 40px 粗、斜 45 度或 -30 度的实心条，填暖墨或构成红，横跨区块并允许溢出容器。它是最强的构图轴，静态——动的图元应该沿着它的方向运动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Hard Button</h3>
+            <p class="style-body-comp-role">行动按钮。构成红填充、米白文字、零圆角、无描边、16px/900、字距 0.08em、padding 12px 28px，无阴影。hover 时填充硬切到群青；按下时位移 2px 2px（无阴影可归零，用位移表示压入）。入场用 expo-out 0.7 秒。</p>
+            <button type="button" class="kin-btn">前 进</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只用五种图元、三种原色</li>
+              <li>圆公转、三角摆、方块行进</li>
+              <li>入场用 expo-out 0.6 到 0.9 秒</li>
+              <li>旋转循环用 linear 或 steps()</li>
+              <li>一屏只有一组主导运动</li>
+              <li>动画只用 transform</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用圆角、阴影、渐变、发光与模糊</li>
+              <li>不要引入第四种颜色</li>
+              <li>不要把三原色调浑</li>
+              <li>不要让插画抢戏</li>
+              <li>不要一屏所有图元同时乱动</li>
+              <li>不要动画布局属性</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>没有图像，图元就是图像。允许极少量黑白摄影并以硬边几何裁切嵌入。不使用插画、3D 拟物与有任何柔和边缘的图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="kinetic-constructivism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的公转圆盘、钟摆三角与行进方块。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，五图元三原色、「一屏一组主导运动」与只动 transform 必须原样保留；第四种颜色或柔和边缘一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

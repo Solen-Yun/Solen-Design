@@ -1,0 +1,61 @@
+# 按钮变形订阅表单 — MorphingButtonForm
+
+制作「按钮变形订阅表单」场景：一张 340×260 的卡片，中央一句说明文字 "One design letter every Thursday"，下面是一颗 200×54 的深色胶囊按钮 "Get the newsletter"。点它，胶囊在 0.6s 内横向拉宽到 300px，底色转浅，文字换成邮箱输入框和一枚 44px 的圆形发送钮；输入合法邮箱回车或点发送钮，胶囊先缩成 54×54 的圆形并转起转圈，1.1 秒后圆环补满并勾出一条对勾，再过 0.9 秒胶囊展开成 170px 的薄荷色药丸，写着 "Subscribed"。邮箱格式不对时卡片下缘出现红色提示，胶囊左右摇头。最后药丸下方浮出 "Try again" 文字钮，点它清空邮箱、回到最初的黑色按钮。
+
+## 布局与材质
+
+- 340×260px 场景卡，圆角 28px，溢出裁切。卡片用 flex 纵向排列，align-items 与 justify-content 都居中，gap 16px，内边距 20px；底色为表面色，外圈 1px 线色描边，下方 0 30px 60px -36px 强阴影，背景是纯色、无纹理。
+- 场景令牌用 CSS `light-dark()` 写浅色/深色两套，随宿主 `color-scheme` 切换（展示页默认浅色）：页面底色 `--ux-page` #FFFFFF / #0B0C12，表面 `--ux-surface` #FFFFFF / #13141C，次级面 `--ux-surface-2` #F5F3EF / #1A1B25，三级面 `--ux-surface-3` #EAE7E1 / #252632，墨色 `--ux-ink` #16151B / #F4F0E8，次级墨色 `--ux-ink-2` #57535F / rgba(244,240,232,.68)，三级墨色 `--ux-ink-3` #8E8A97 / rgba(244,240,232,.42)，线 `--ux-line` rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 `--ux-line-2` rgba(22,21,27,.17) / rgba(255,255,255,.16)，强调色 `--ux-accent` #6A57F2 / #B7A4FF，强调浅底 rgba(106,87,242,.12) / rgba(183,164,255,.15)，强调字色 `--ux-accent-ink` #FFFFFF / #0B0C12，薄荷 `--ux-mint` #119C72 / #7EE8C0，警告 #D6731E / #FFB26B，危险 `--ux-danger` #D93A55 / #FF7D8C，玻璃 rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃边 rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 rgba(40,30,80,.3) / rgba(0,0,0,.72)，渐变 linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A) / linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)。另有两个自定义缓动：标准缓动 `--ux-ease` cubic-bezier(.22,1,.36,1)、回弹缓动 `--ux-spring` cubic-bezier(.34,1.56,.64,1)。组件不声明 `font-family`，继承宿主字体。
+- 说明文字在卡片流内：13.5px/字重 700、次级墨色，margin 0。
+- 变形主体是一块相对定位的胶囊，根上用 `data-s` 属性切换形态。默认宽 `--w: 200px`、高 54px、圆角 27px、底色墨色、文字色页面底色、overflow 裁切、cursor pointer；宽度过渡 0.6s cubic-bezier(.3,1.25,.4,1)，底色过渡 0.4s。四种形态：idle 为 200px 墨色；form 为 300px、底色次级面、加 `inset 0 0 0 1.5px var(--ux-line-2)` 内描边、cursor 变 default；busy 与 ok 都为 54px 的正圆、底色回到墨色；done 为 170px、底色薄荷色、cursor default。
+- 胶囊内叠放四层，每层都是绝对定位铺满、flex 居中，初始 opacity 0 且 `pointer-events:none`，透明度过渡 0.25s。胶囊用 `data-s` 点名当前可见的一层，并给它加 0.18s 的 transition-delay，让旧层先淡出再让新层浮现。
+  - 标签层：15px/800 的 "Get the newsletter" 与一枚 18×18 的信封图标（24 视框，矩形 x=3 y=5 宽 18 高 14 圆角 3，加封口折线），图标 2px 描边、无填充、端点圆角，文字与图标间距 8px。
+  - 表单层：左右分布、内边距 0 5px 0 18px。左侧是邮箱输入框，flex 1、高 100%、无边框无底色无外框线、15px、墨色；右侧是 44×44 的圆形发送钮，墨色底、页面底色图标，内含 18×18 的右向箭头（水平线加折角，2.4px 描边），按下时 scale(.9)，过渡 0.35s 回弹缓动。
+  - 忙碌层：54×54 的 SVG（54 视框），一枚 r=21 的圆环描边，页面底色、3px、端点圆角，虚线节奏 40 200，绕自身中心以 0.8s linear 无限旋转；另有一条对勾路径，描边宽 3、虚线长 24、初始偏移 24（完全隐藏），过渡 0.35s 缓动并延迟 0.2s。
+  - 完成层：薄荷底上的 15px/800 文字 "Subscribed" 与一枚 18×18 对勾图标（2.6px 描边），文字与图标间距 6px，颜色取强调字色（浅色下 #FFFFFF，深色下 #0B0C12）。
+- 错误提示与重试钮脱离 flex 流，用绝对定位摆在卡片下半部：错误提示左右贴边、位于 `top: calc(50% + 58px)`、高 16px、居中、12px/700、危险色；"Try again" 位于 `top: calc(50% + 52px)`、水平居中（left 50% 加 translateX(-50%)）、高 30px、内边距 0 12px、圆角 999px、无底色、12px/700、三级墨色，默认 opacity 0 且不可点，过渡 0.3s，进入完成态后淡入并恢复可点。
+
+## 数据
+
+- 写死文案三处：说明 "One design letter every Thursday"；按钮 "Get the newsletter"；输入框 placeholder 与 aria-label 都是 "Email address"，输入类型 email、autocomplete 为 email；完成文案 "Subscribed"；重试钮 "Try again"；发送钮 aria-label "Send"。
+- 邮箱校验规则写死：去除首尾空白后必须匹配 `^[^\s@]+@[^\s@]+\.[^\s@]{2,}$`，即本地段与域名段都非空、域名含点、点后至少两个字符。
+- 失败提示文案写死为 "Please check the email format"。
+- 没有外部数据源，组件不发任何请求。
+
+## 操作和动效
+
+- 点 "Get the newsletter"：形态切到 form，胶囊 0.6s cubic-bezier(.3,1.25,.4,1) 拉宽到 300px、底色在 0.4s 内转为次级面，标签层淡出、表单层延迟 0.18s 淡入；350ms 后自动把焦点放进邮箱输入框。
+- 点发送钮或输入框回车触发提交：先用正则校验。校验不通过时错误提示写上 "Please check the email format"，胶囊左右摇头一次（0.45s，关键帧 20% 偏 -9px、40% 偏 8px、60% 偏 -5px、80% 偏 3px），动画播完自动摘掉抖动类，形态保持 form，焦点留在输入框；此时不会发请求也不会推进状态。
+- 校验通过：形态切到 busy，胶囊缩成 54×54 的正圆（宽度同样走 0.6s 弹性曲线），忙碌层淡入、圆环开始 0.8s linear 无限旋转；1100ms 后形态切到 ok，圆环虚线从 40 200 补成 200 0 并停转（stroke-dasharray 过渡 0.35s），对勾描边在 0.2s 延迟后用 0.35s 缓动画出；再过 900ms 形态切到 done，胶囊展开到 170px、底色转薄荷，对勾层淡出、完成层淡入，错误提示清空，完成层补上 aria-label "Subscribed"，"Try again" 淡入。
+- `prefers-reduced-motion` 打开时：等待段从 1100ms 缩到 100ms、900ms 缩到 100ms；表单层淡入、宽度与底色过渡、圆环补全、对勾描边、展开等过渡保持原时长，只是整体节奏被压缩。
+- 点 "Try again"：清空输入框内容，形态回到 idle（宽度收回 200px、底色回墨色），标签层重新浮现，错误提示保持为空。
+- 键盘：输入框内按 Esc 把形态切回 idle、清空错误提示，并把焦点移回 "Get the newsletter" 按钮；Enter 提交。四个可聚焦元素（订阅按钮、邮箱框、发送钮、Try again）都是原生 button/input，可用 Tab 依次到达。
+- 无障碍：变形主体是 `role="group"` 的容器，错误提示是 `role="status"` 的活区；发送钮带 aria-label "Send"，输入框带 aria-label "Email address"，完成层在成功时带 aria-label "Subscribed"；忙轮 SVG 与完成层图标对读屏隐藏。
+- `prefers-reduced-motion: reduce` 下仍会走完全部形态，只是等待更短。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 260 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 MorphingButtonForm。从零创建四个文件：MorphingButtonForm.tsx、MorphingButtonFormEngine.js、motion-runtime.ts、MorphingButtonFormEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留变形、校验、等待与完成的完整状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；idle→form→busy→ok→done 五态与重试复原正确；非法邮箱有提示与抖动；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { MorphingButtonForm } from "./MorphingButtonForm";
+
+export default function App() {
+  return <MorphingButtonForm />;
+}
+```

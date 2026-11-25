@@ -1,0 +1,61 @@
+# 可溯源 AI 答案 — CitedAiAnswer
+
+制作「可溯源 AI 答案」：一张 340×340 的 AI 问答卡。右上角墨色圆角气泡提出问题 "How do I raise landing page conversion?"，左侧四句答案逐句排布，部分句末内联一枚 15px 高的编号徽章；底部 "Sources" 一行三列来源卡（字母色块 + 序号、两行截断的标题、域名）。悬停或键盘聚焦某枚编号：该句底部刷出 accent 色下划线、编号点亮、对应来源卡上浮描边，同时一枚 218px 宽的预览卡（域名色块 + 域名、标题、带黄色 mark 高亮的摘要）在编号上方弹出（上方空间不足时自动翻到编号下方）；悬停或聚焦来源卡则反向点亮所有引用它的句子与编号。指针离开或失焦全部复位。
+
+## 布局与材质
+
+- 卡片 340×340px、圆角 30px、溢出裁切、表面色底；外圈 0 0 0 1px 线色描边，加 0 30px 60px -36px 强阴影。
+- 问题气泡：绝对定位 right 16px、top 16px、最大宽 240px、内边距 8px 12px、圆角 14px 14px 4px 14px、墨色实底、表面色文字 11.5px/字重 750；内容 "How do I raise landing page conversion?"。
+- 答案区：绝对定位 left/right 16px、top 58px；12px、行高 1.75、字重 600、二级墨色。每句包在独立 span 中；句间一个空格。被联动高亮（is-hl）的句子：文字转墨色、底部刷 accent 70% 透明度下划线——背景 linear-gradient(transparent 88%, 下划线色 88%) no-repeat，尺寸从 0 100% 过渡到 100% 100%（.3s，颜色 .2s）。
+- 编号徽章：内联 button、inline-grid 居中、最小宽 15px、高 15px、内边距 0 3px、圆角 5px、surface-2 底、内嵌 1px 线色描边、9px/字重 900、二级墨色、vertical-align 1px；aria-label 为 "<域名> — view source"。激活（is-on）时 accent 实底、白字、无描边；focus-visible 2px accent 外圈偏移 1px。
+- 预览卡：绝对定位、z-index 3、宽 218px、内边距 10px 11px、圆角 13px、表面色底；阴影 0 0 0 1px 线色 + 0 18px 34px -12px 强阴影；role="tooltip"。默认在编号上方：translate(-50%, calc(-100% - 6px)) scale(.94)、透明；出现时缩放归 1（透明度 .15s、transform .22s cubic-bezier(.3,1.5,.5,1)，origin 底部中心）。编号顶部坐标小于 150px 时翻到下方：translate(-50%, 24px)、origin 顶部中心。水平位置 = 编号中心并夹在 125–215px。内容：头部 16×16 圆角 5px 的字母色块（白字 9px/字重 900）+ 域名 9.5px/字重 800 三级墨色；标题 11px/字重 850、上边距 5px；摘要 10px、行高 1.5、字重 600、二级墨色、上边距 4px，引用片段以 mark 包裹（#FACC15 50% 透明度底、圆角 3px、内边距 0 1px）。
+- 来源区：绝对定位 left/right 16px、bottom 16px。标签 "Sources" 10px/字重 850 三级墨色；三列网格、间距 6px、上边距 6px。来源卡：内边距 8px、圆角 12px、surface-2 底、内嵌 1px 线色描边、tabIndex 0、可点样式；过渡 transform .25s cubic-bezier(.3,1.5,.5,1)、阴影 .2s、背景 .2s。激活（is-on）时上移 4px、表面色底、0 0 0 1.5px accent 描边 + 0 10px 20px -12px 强阴影。内部：头部 16×16 字母色块 + 序号 9px/字重 900 三级墨色；标题 10px、行高 1.35、字重 800、两行截断、上边距 5px；域名 8.5px/字重 700 三级墨色、单行省略、上边距 3px；focus-visible 2px accent 外圈偏移 2px。
+- 场景令牌一套两态（light-dark()）：surface #FFFFFF/#13141C、surface-2 #F5F3EF/#1A1B25、ink #16151B/#F4F0E8、ink-2 #57535F/rgba(244,240,232,.68)、ink-3 #8E8A97/rgba(244,240,232,.42)、line rgba(22,21,27,.09)/rgba(255,255,255,.08)、accent #6A57F2/#B7A4FF、阴影 rgba(40,30,80,.3)/rgba(0,0,0,.72)。字体随页面继承无衬线。
+
+## 数据
+
+- 答案四句与各自引用的编号（逐字固定）：
+  1. "Your first screen should say what you do in one sentence." → 引用 1
+  2. "Button copy that promises an outcome beats a plain “Get started.”" → 引用 2
+  3. "Fewer sign-up fields is better; asking for just an email had the highest completion." → 引用 2、3
+  4. "Put real customer quotes and numbers close to the button." → 引用 1
+- 三条来源（首字母、域名、标题、摘要前段 + mark 高亮段 + 后段）：
+  1. S / solen.dev / "Five habits of great landing pages" / "Visitors stay only if within 3 seconds they know " + "what the product does" + "."
+  2. C / cro-weekly.com / "120 button copy tests" / "Copy that " + "promised an outcome" + " got 31% more clicks than “Start free.”"
+  3. F / formlab.io / "Sign-up form length report" / "Asking only for email " + "had the highest completion" + "."
+- 字母色块颜色表：#6366F1、#F59E0B、#10B981（按来源序号取用，预览卡与来源卡共用）。无远程数据。
+
+## 操作和动效
+
+- 悬停/聚焦编号徽章（pointerenter / focus）：先整体复位，然后——所在句加 is-hl（下划线刷出）、徽章 is-on、对应来源卡 is-on；预览卡填入该来源内容（字母块染色、域名、标题、摘要文本 + mark）后按上述规则定位并弹出。
+- 悬停/聚焦来源卡（pointerenter / focus）：复位后——所有引用该来源的句子加 is-hl、所有对应编号徽章 is-on、该卡自身 is-on 上浮；不弹预览卡。
+- 指针离开 / 失焦（pointerleave / blur）：预览卡、句子下划线、徽章、来源卡全部复位。
+- 编号徽章与来源卡均可 Tab；徽章为原生 button，来源卡 tabIndex 0；焦点样式见上。编号无独立点击行为（点击等同聚焦后由 focus 逻辑联动）。
+- prefers-reduced-motion / options.reducedMotion：句子下划线、预览卡、来源卡的全部过渡关闭（联动瞬时呈现），逻辑不变；场景根打上 data-reduced-motion 强制容器内所有 CSS 过渡与动画时长归零。surface 会随容器宽度把整景等比缩小（缩放不超过 1）。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动参数均以上述文字为准；界面用 DOM 与 CSS，编号、色块、mark 均为普通元素，无内联 SVG 依赖，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 CitedAiAnswer。从零创建四个文件：CitedAiAnswer.tsx、CitedAiAnswerEngine.js、motion-runtime.ts、CitedAiAnswerEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下悬停/聚焦联动仍完整可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；编号与来源卡双向联动、预览卡上翻/下翻定位正确；键盘聚焦与指针悬停行为一致；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { CitedAiAnswer } from "./CitedAiAnswer";
+
+export default function App() {
+  return <CitedAiAnswer />;
+}
+```

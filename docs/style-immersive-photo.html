@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>沉浸摄影 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body iphoto">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 53 · 深色版面</p>
+        <h1>沉浸摄影 <span class="style-card-en">IMMERSIVE PHOTO</span></h1>
+        <p class="page-lead">照片就是界面：它不装饰内容，它就是内容本身。</p>
+        <div class="style-card-tags"><span>全幅照片主角</span><span>可读性遮罩</span><span>20s Ken Burns</span><span>唯一琥珀金强调</span></div>
+      </header>
+
+      <section class="iphoto-hero">
+        <div class="iphoto-hero-copy">
+          <p>沉浸摄影把所有界面元素减到最少，让全幅照片占据视口，文字浮在可读性遮罩之上。它的技术纪律比视觉更重要——每张图必须有 aspect-ratio（防 CLS）、用 AVIF 或 WebP 配 srcset、首屏给 LQIP 占位再淡入、缓慢的 Ken Burns 漂移只用 transform（8 秒起，且尊重 prefers-reduced-motion）。</p>
+          <p>强调色只有一支，而且必须从照片的暖光里采样（例如琥珀金），不允许硬塞品牌色去和照片打架。右边这张摄影卡是真的——照片会以 1200ms 缓慢放大。</p>
+        </div>
+        <div class="iphoto-demo">
+          <div class="iphoto-card-demo">
+            <span class="iphoto-photo" aria-hidden="true"></span>
+            <div class="iphoto-caption">
+              <span class="iphoto-series">SERIES · DUSK</span>
+              <p class="iphoto-photo-title">光落在最后一排山谷。</p>
+              <p class="iphoto-meta">青海 · 2024 · 85mm f/1.8</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#e8b04b"></span><span class="palette-name">Amber</span><code>#e8b04b</code></li>
+          <li><span class="swatch-chip" style="background:#f4f1ea"></span><span class="palette-name">Paper</span><code>#f4f1ea</code></li>
+          <li><span class="swatch-chip" style="background:#1a1c22"></span><span class="palette-name">Deep Grey</span><code>#1a1c22</code></li>
+          <li><span class="swatch-chip" style="background:#b8bcc4"></span><span class="palette-name">Mist</span><code>#b8bcc4</code></li>
+          <li><span class="swatch-chip" style="background:#0c0d10"></span><span class="palette-name">Ink</span><code>#0c0d10</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>近黑但不纯黑的墨色做遮罩与空隙，避免与照片暗部糊在一起；暖白在照片之外提供呼吸；琥珀金是唯一强调色——从照片的暖光采样，只给关键 CTA 与小标签；深灰比墨亮一档做分层；雾色管图注与元数据，永远不与琥珀金同屏竞争。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0c0d10"></span><div><strong>Ink</strong><span class="swatch-role">遮罩、页脚与照片之间的空隙。近黑但不纯黑，避免与照片的暗部糊在一起。</span></div><code>#0c0d10</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f4f1ea"></span><div><strong>Paper</strong><span class="swatch-role">浅色区块与图注。暖白，用于在照片之外提供呼吸。</span></div><code>#f4f1ea</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#e8b04b"></span><div><strong>Amber</strong><span class="swatch-role">唯一强调色，从照片的暖光采样。只用于关键 CTA 与小标签。</span></div><code>#e8b04b</code><code>--color-amber</code></li>
+          <li><span class="swatch-chip" style="background:#1a1c22"></span><div><strong>Deep Grey</strong><span class="swatch-role">次级区块底与卡片，比墨亮一档，用于分层。</span></div><code>#1a1c22</code><code>--color-deep-grey</code></li>
+          <li><span class="swatch-chip" style="background:#b8bcc4"></span><div><strong>Mist</strong><span class="swatch-role">图注、元数据与次级文字。永远不与琥珀金同屏竞争。</span></div><code>#b8bcc4</code><code>--color-mist</code></li>
+        </ul>
+        <p class="style-body-note">遮罩是硬纪律：<code>linear-gradient(to top, rgba(0,0,0,0.70), transparent)</code>；文字对比至少 4.5:1。摄影卡阴影 <code>0 24px 60px rgba(0,0,0,0.35)</code>、hover <code>0 32px 80px rgba(0,0,0,0.45)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：照片上的标题用 44 到 64px、500 字重，图注用 11px 全大写加 0.16em 字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="iphoto-specimen-title">照片就是界面</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 400–600 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="iphoto-specimen-label">SERIES · PLACE · TIME</p>
+            <p class="specimen-meta">正文 14–18px / 400 / 行高 1.6；图注标签 11px / 500 / 0.16em 全大写；文字奶白 #f4f1ea、次级雾色</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>500</td><td>64px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>500</td><td>44px</td><td>1.1</td><td>-0.02em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>28px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>11px</td><td>1.4</td><td>0.16em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1440px，首屏 100vh 全幅，画廊三列、间距 16px。区块之间的过渡用全幅照片而不是留白，或在照片之间插一段墨色 128px 的空白作为呼吸。文字块宽度不超过 40em。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>比例</td><td>首屏 16:9、卡片 4:5，一律带 aspect-ratio</td></tr>
+            <tr><td>圆角</td><td>卡片 16px、按钮 999px、媒体 0</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px（画廊间距 16px）</td></tr>
+            <tr><td>Ken Burns</td><td>20s、scale 1.00→1.06、只用 transform，8 秒起</td></tr>
+            <tr><td>CTA</td><td>全页只允许一个，琥珀金 999px 全圆角</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Photo Stage</h3>
+            <p class="style-body-comp-role">首屏与全幅图片区块。100vh 高、object-fit: cover、带 aspect-ratio（首屏 16:9，卡片 4:5），底部到顶部叠一层从黑 70% 到透明的渐变遮罩；图片带 20s 的 Ken Burns 漂移（scale 1.00 到 1.06，只用 transform，ease-out），prefers-reduced-motion 时静止；加载前显示 LQIP 模糊占位并在 400ms 内淡入。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Caption Block + Photo Grid</h3>
+            <p class="style-body-comp-role">图片说明与元数据：贴在图片底部或左下方，距边 24px；上方 11px 全大写 0.16em 的琥珀金系列标签，中间 18 到 28px 白色标题，下方 12px 雾色元数据（地点、时间、器材）；文字必须落在遮罩较暗的一侧。画廊与作品列表：两到三列、间距 16px、每张卡片固定 4:5 比例、16px 圆角、overflow hidden；图片 hover 时 scale 到 1.05、过渡 1200ms ease-out，卡片阴影同时加深；卡片内不加边框。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Amber CTA</h3>
+            <p class="style-body-comp-role">关键行动按钮。琥珀金填充、墨色文字、999px 全圆角、无描边，14px/600、padding 12px 28px，阴影 0 8px 24px 琥珀 30%。hover 时填充提亮 8%、阴影扩到 32px；按下缩放 0.98。全页只允许一个。</p>
+            <button type="button" class="iphoto-cta">VIEW THE SERIES</button>
+          </div>
+          <div class="comp-item">
+            <h3>Minimal Nav</h3>
+            <p class="style-body-comp-role">顶部导航。绝对定位在首屏之上，高 72px、透明底、无边框；字标与链接为白色，11px 全大写 0.16em；hover 时链接转琥珀金；滚动后切换为墨色 90% 底加 12px 模糊。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>每张图必须有 aspect-ratio</li>
+              <li>用 AVIF 或 WebP 配 srcset</li>
+              <li>首屏给 LQIP 占位再淡入</li>
+              <li>Ken Burns 只用 transform，8 秒起</li>
+              <li>文字必须落在遮罩暗侧</li>
+              <li>尊重 prefers-reduced-motion</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要把照片当背景再铺卡片挡住它</li>
+              <li>不要让文字直接压在图上不加遮罩</li>
+              <li>不要用未优化的全尺寸 JPG</li>
+              <li>不要用无 aspect-ratio 的图片</li>
+              <li>不要引入第二个强调色</li>
+              <li>不要用快于 8 秒的漂移</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>全部是全幅摄影，且照片必须具备明确的光线方向与可安放文字的暗部。允许同一位摄影师的一组作品形成系列感。不使用插画、图标墙、渐变背景与非摄影图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="immersive-photo">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的遮罩纪律、Ken Burns 规则与性能要求。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，aspect-ratio、LQIP 淡入与「唯一强调色取自照片」必须原样保留；文字裸压图上即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

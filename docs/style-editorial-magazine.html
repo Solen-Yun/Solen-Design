@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>编辑杂志风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body editorial">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="lockup-btn" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="section-label">风格 03 · 浅色版面</p>
+        <h1>编辑杂志风 <span class="style-card-en">EDITORIAL MAGAZINE</span></h1>
+        <p class="page-lead">暖米纸上的衬线杂志版面，秩序来自留白与一条发丝线，而不是分栏装饰。</p>
+        <div class="style-card-tags"><span>衬线标题</span><span>发丝线</span><span>留白</span><span>单一暖色点缀</span><span>直角</span></div>
+      </header>
+
+      <section class="editorial-hero">
+        <div class="editorial-hero-copy">
+          <p>编辑部风格来自印刷媒体：高端杂志与报纸的版面语言。它把全部表现力放在字号级差、衬线标题与留白的呼吸感上，颜色退到只剩一个柔和的墨黑与一层暖米底。</p>
+          <p>层次靠透明度（文字 /60、/40，边框 /10）和字距（标题收紧，标签放开）建立；深度靠留白与 1px 细线，不用阴影、不用圆角、不用渐变。整套系统只有一个暖色点缀，出现面积控制在一屏的 2% 以内，用于引文标记与选中态。</p>
+          <button type="button" class="lockup-btn">READ STORY</button>
+        </div>
+        <blockquote class="pull-quote">
+          <p>秩序来自留白与一条发丝线。</p>
+        </blockquote>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1c1c1c"></span><span class="palette-name">Ink</span><code>#1c1c1c</code></li>
+          <li><span class="swatch-chip" style="background:#f9f8f6"></span><span class="palette-name">Paper</span><code>#f9f8f6</code></li>
+          <li><span class="swatch-chip" style="background:#6b7280"></span><span class="palette-name">Graphite</span><code>#6b7280</code></li>
+          <li><span class="swatch-chip" style="background:#816d70"></span><span class="palette-name">Mauve</span><code>#816d70</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>颜色退到只剩一个柔和的墨黑与一层暖米底。层次靠透明度建立：文字 /60 与 /40，边框 /10，而不是引入新颜色；唯一暖色是莫夫色，只出现在引文标记与选中态。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1c1c1c"></span><div><strong>Ink</strong><span class="swatch-role">正文、标题、1px 边框与反色区块的底色。全站唯一的深色，替代纯黑以免印刷感过硬。</span></div><code>#1c1c1c</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f9f8f6"></span><div><strong>Paper</strong><span class="swatch-role">页面画布。所有默认背景都用它，比冷白更接近纸张，也避免长时间阅读的刺目感。</span></div><code>#f9f8f6</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#6b7280"></span><div><strong>Graphite</strong><span class="swatch-role">次要文字、题注、日期与辅助说明。层级需要后退时用它，而不是缩小字号。</span></div><code>#6b7280</code><code>--color-graphite</code></li>
+          <li><span class="swatch-chip" style="background:#816d70"></span><div><strong>Mauve</strong><span class="swatch-role">全站唯一暖色点缀。只出现在引文标记与选中态，面积不得超过一屏的 2%。</span></div><code>#816d70</code><code>--color-mauve</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Paper <code>#f9f8f6</code>，1 Ink Band <code>#1c1c1c</code>（反色区块：页脚、CTA 条、引文段）。层级表达只有一条发丝线：<code>1px solid rgba(28,28,28,0.1)</code>，不用阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>衬线是这套风格的识别核心，缺了它就只剩一页灰底文字；无衬线始终与衬线标题成对出现，承担所有功能性文本。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="editorial-specimen-serif">编辑杂志风，Editorial Magazine</p>
+            <p class="specimen-meta">serif — 所有标题、引文与数字。替代栈：Georgia, 'Times New Roman', 'Songti SC', serif · 400 / 500 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="editorial-specimen-sans">正文、按钮、标签与导航。承担所有功能性文本。</p>
+            <p class="specimen-meta">sans-serif — 功能性文本。替代栈：Inter, system-ui, -apple-system, sans-serif · 400 / 500 / 700 · 大写标签字距 0.2em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>serif</td><td>400</td><td>72px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>serif</td><td>400</td><td>48px</td><td>1.1</td><td>-0.02em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>serif</td><td>400</td><td>36px</td><td>1.2</td><td>-0.01em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>serif</td><td>400</td><td>28px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>sans-serif</td><td>400</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>sans-serif</td><td>400</td><td>14px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>sans-serif</td><td>500</td><td>12px</td><td>1.4</td><td>0.2em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。单栏 1200px 上限，内部 8 栏网格；hero 为 45/55 左右分栏，正文区块单栏或 2 栏，栏间距 48px。区块间距 96 至 128px，阅读宽度控制在 34em 以内；标题与正文硬对齐，不做三栏以上的密集排版。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0——卡片、按钮、输入框、图片</td></tr>
+            <tr><td>区块间距</td><td>96px，宁可多留一屏白</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>8px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Contrast Lockup Button</h3>
+            <p class="style-body-comp-role">主行动按钮。墨黑填充、暖米纸色文字、1px 墨黑描边、直角。字级 12px、字重 500、全大写、字距 0.2em；padding 16px 32px。hover 时填充与文字互换，过渡 200ms。页头与下面两个样本即此组件。</p>
+            <button type="button" class="lockup-btn">SUBSCRIBE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Underline Text Link</h3>
+            <p class="style-body-comp-role">次级行动与导航。无填充无边框，12px 全大写 0.2em 字距。下划线是一条 1px 当前色线，从右向左以 scale-x 0 起步，hover 时从左展开到 1，时长 500ms，缓动 cubic-bezier(0.16, 1, 0.3, 1)。</p>
+            <a class="underline-link" href="#components">VIEW ALL</a>
+          </div>
+          <div class="comp-item">
+            <h3>Hairline Card</h3>
+            <p class="style-body-comp-role">文章卡片与列表项。顶部 1px 墨黑 /10 边线，padding-top 24px，无圆角无阴影无背景。hover 时边线加深到 /40，过渡 500ms；行内左侧石墨色日期，右侧衬线标题与石墨摘要。</p>
+            <div class="hairline-row">
+              <span class="hairline-date">2026.11</span>
+              <span class="hairline-body"><span class="hairline-title">一本杂志的自我修养</span><span class="hairline-summary">留白与发丝线替代阴影与圆角，把层次交还给字号的级差。</span></span>
+            </div>
+            <div class="hairline-row">
+              <span class="hairline-date">2026.10</span>
+              <span class="hairline-body"><span class="hairline-title">只有一个暖色点缀</span><span class="hairline-summary">莫夫色只出现在引文标记与选中态，面积不超过一屏的 2%。</span></span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Section Label</h3>
+            <p class="style-body-comp-role">区块分类与栏目名。12px 全大写、0.2em 字距、石墨色；前面接一条 24px 长、1px 宽的墨黑横线，线与文字间距 12px。不加大写以外任何装饰。</p>
+            <p class="section-label">SECTION LABEL</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pull Quote</h3>
+            <p class="style-body-comp-role">段落中的引文强调。28 至 36px 衬线斜体、行高 1.3、左右各缩进 24px、左侧 2px 墨黑竖线、上下留白 32px。引号用莫夫色，字号为正文的 1.5 倍。首屏右侧即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>标题用衬线、正文用无衬线，两者始终成对出现</li>
+              <li>用透明度构建灰度：文字 /60 与 /40，边框 /10，而不是引入新颜色</li>
+              <li>区块间距至少 96px，容器内边距 24px 到 48px</li>
+              <li>标签统一 12px 全大写 0.2em 字距，不加粗</li>
+              <li>斜体只用于副标题与引文，不用于正文强调</li>
+              <li>交互只用下划线展开与颜色反转，时长 500ms 上下</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要引入其它彩色强调，只允许莫夫色用于引文标记和选中态</li>
+              <li>不要用阴影表达层次，深度只来自留白与 1px 线</li>
+              <li>不要用纯黑 #0a0a0a 或冷白 #fafafa 做主色</li>
+              <li>标题不得使用无衬线字体</li>
+              <li>不要用任何圆角，包括卡片、按钮与输入框</li>
+              <li>不要用渐变、背景图案或装饰性几何</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以摄影为主，低饱和、暖调、full-bleed 满幅裁切，人物与静物都可以，但必须能读成杂志跨页。不使用插画、图形纹样与图标系统；需要图示时用 1px 墨黑线框代替，保持纸面感。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="editorial-magazine">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的配色职责、字体规则、间距与组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="lockup-btn" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，衬线标题与无衬线正文的配对、发丝线层级与莫夫色的面积限制必须原样保留。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

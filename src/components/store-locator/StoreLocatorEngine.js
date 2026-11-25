@@ -1,0 +1,111 @@
+// Plain DOM implementation — no iframe, no runtime eval.
+import { createSurface } from "./motion-runtime";
+
+export function mountStoreLocator(target, options = {}) {
+  const scope = createSurface(
+    target,
+    {
+      width: 340,
+      height: 340,
+      responsive: false,
+      markup: `
+<div class="ux u262">
+  <div class="u262-mp" aria-label="Store map" role="group"><div class="u262-wd"><svg class="bg" viewBox="0 0 520 330" aria-hidden="true"><path d="M-10 210 C80 190 140 230 230 200 S390 150 530 180 L530 230 C400 210 330 260 230 250 S70 240 -10 260Z" fill="#BFDBFE"/><g fill="#D9F99D" opacity=".8"><rect x="300" y="40" width="70" height="50" rx="10"/><rect x="40" y="70" width="60" height="40" rx="10"/><rect x="380" y="260" width="80" height="40" rx="10"/></g><g stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"><path d="M0 120 H520"/><path d="M160 0 V330"/><path d="M360 0 V330"/><path d="M0 40 C120 60 220 20 520 70"/><path d="M20 330 L260 100 L520 300"/></g><g stroke="#fff" stroke-width="4" fill="none" opacity=".9"><path d="M80 0 V330M260 0 V330M440 0 V330M0 290 H520"/></g></svg></div></div>
+  <ul class="u262-ls" aria-label="Store list"></ul>
+</div>
+`,
+      css: `
+
+.u262{--ux-surface:light-dark(#FFFFFF,#13141C);--ux-surface-2:light-dark(#F5F3EF,#1A1B25);--ux-surface-3:light-dark(#EAE7E1,#252632);--ux-ink:light-dark(#16151B,#F4F0E8);--ux-ink-2:light-dark(#57535F,rgba(244,240,232,.68));--ux-ink-3:light-dark(#8E8A97,rgba(244,240,232,.42));--ux-line:light-dark(rgba(22,21,27,.09),rgba(255,255,255,.08));--ux-line-2:light-dark(rgba(22,21,27,.17),rgba(255,255,255,.16));--ux-accent:light-dark(#6A57F2,#B7A4FF);--ux-accent-2:light-dark(#2F8FE0,#7DB4FF);--ux-accent-soft:light-dark(rgba(106,87,242,.12),rgba(183,164,255,.15));--ux-accent-ink:light-dark(#FFFFFF,#0B0C12);--ux-mint:light-dark(#119C72,#7EE8C0);--ux-warn:light-dark(#D6731E,#FFB26B);--ux-danger:light-dark(#D93A55,#FF7D8C);--ux-glass:light-dark(rgba(255,255,255,.58),rgba(255,255,255,.07));--ux-glass-line:light-dark(rgba(255,255,255,.85),rgba(255,255,255,.18));--ux-shadow:light-dark(rgba(40,30,80,.14),rgba(0,0,0,.45));--ux-shadow-strong:light-dark(rgba(40,30,80,.3),rgba(0,0,0,.72));--ux-grad:light-dark(linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A),linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3));position:relative;width:340px;height:340px;border-radius:30px;overflow:hidden;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line),0 30px 60px -36px var(--ux-shadow-strong);color:var(--ux-ink)}
+.u262-mp{position:absolute;left:0;right:0;top:0;height:178px;overflow:hidden;background:#E8EEF4}
+.u262-wd{position:absolute;left:0;top:0;width:520px;height:330px;transition:transform .7s cubic-bezier(.3,1,.3,1)}
+.u262-wd svg.bg{position:absolute;inset:0;width:520px;height:330px}
+.u262-pn{position:absolute;width:30px;height:38px;margin:-38px 0 0 -15px;padding:0;border:0;background:none;cursor:pointer;transform-origin:50% 100%;transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.u262-pn svg{width:30px;height:38px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.u262-pn path{fill:var(--ux-ink-2);transition:fill .2s}
+.u262-pn.is-off path{fill:#9CA3AF}
+.u262-pn.is-hl{transform:scale(1.25) translateY(-3px);z-index:2}
+.u262-pn.is-on{transform:scale(1.3);z-index:3}
+.u262-pn.is-on path{fill:var(--ux-accent)}
+.u262-pn.is-bop{animation:u262-bop .5s cubic-bezier(.3,1.7,.5,1)}
+@keyframes u262-bop{30%{transform:scale(1.3) translateY(-8px)}}
+.u262-pn:focus-visible{outline:2px solid var(--ux-accent);outline-offset:2px;border-radius:6px}
+.u262-bb{position:absolute;z-index:4;width:150px;padding:9px 10px;border-radius:12px;background:var(--ux-surface);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);transform:translate(-50%,calc(-100% - 48px)) scale(.9);transform-origin:50% 100%;opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.3,1.5,.5,1),opacity .2s}
+.u262-bb.is-on{opacity:1;transform:translate(-50%,calc(-100% - 48px))}
+.u262-bb::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;margin-left:-5px;background:var(--ux-surface);transform:rotate(45deg)}
+.u262-bb b{display:block;font-size:11.5px;font-weight:900}
+.u262-bb small{display:flex;align-items:center;gap:4px;margin-top:2px;font-size:9.5px;font-weight:800;color:#059669}
+.u262-bb small::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.u262-bb small.is-off{color:var(--ux-ink-3)}
+.u262-bb span{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:7px;background:var(--ux-ink);color:var(--ux-surface);font-size:9.5px;font-weight:850}
+.u262-me{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#2563EB;box-shadow:0 0 0 3px #fff,0 0 0 8px rgba(37,99,235,.2)}
+.u262-ls{position:absolute;left:0;right:0;top:178px;bottom:0;margin:0;padding:6px 10px 10px;list-style:none;overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ux-line)}
+.u262-ls::-webkit-scrollbar{display:none}
+.u262-it{display:flex;align-items:center;gap:10px;width:100%;padding:8px 8px;border:0;border-radius:12px;background:none;color:var(--ux-ink);font:inherit;text-align:left;cursor:pointer;transition:background .2s}
+.u262-it:hover,.u262-it.g-hov,.u262-it.is-on{background:var(--ux-surface-2)}
+.u262-it.is-flash{animation:u262-fl 1s ease}
+@keyframes u262-fl{25%{background:color-mix(in srgb,var(--ux-accent) 16%,transparent)}}
+.u262-it i{flex:none;width:26px;height:26px;border-radius:8px;background:var(--ux-surface-2);display:grid;place-items:center;font-style:normal;font-size:10.5px;font-weight:900;color:var(--ux-ink-2)}
+.u262-it.is-on i{background:var(--ux-accent);color:#fff}
+.u262-it div{flex:1;min-width:0}
+.u262-it b{display:block;font-size:12px;font-weight:850}
+.u262-it small{display:block;font-size:10px;font-weight:650;color:var(--ux-ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.u262-it em{flex:none;font-style:normal;font-size:10px;font-weight:800;color:var(--ux-ink-2);font-variant-numeric:tabular-nums}
+.u262-it:focus-visible{outline:2px solid var(--ux-accent);outline-offset:-2px}
+@media (prefers-reduced-motion: reduce){.u262-wd,.u262-pn,.u262-bb{transition:none}.u262-pn.is-bop,.u262-it.is-flash{animation:none}}
+
+body{display:grid;place-items:center}
+`,
+    },
+    options,
+  );
+  const { document, window, requestAnimationFrame, IntersectionObserver, matchMedia } = scope;
+
+  (function () {
+(function () {
+  var root = document.querySelector('.u262');
+  var wd = root.querySelector('.u262-wd'), ls = root.querySelector('.u262-ls');
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // [이름, 주소, 영업 중이면 1, 거리]
+  var S = [['Seongsu', '12 Yeonmujang-gil, Seongdong', 1, '0.5 mi'], ['Hannam', '245 Itaewon-ro, Yongsan', 1, '1.3 mi'], ['Yeonnam', '230 Donggyo-ro, Mapo', 0, '4.0 mi'], ['Jamsil', '300 Olympic-ro, Songpa', 1, '4.9 mi'], ['Pangyo', '146 Pangyoyeok-ro, Bundang', 1, '9.3 mi']];
+  var POS = [[250, 150], [210, 215], [95, 115], [420, 165], [400, 300]], ME = [235, 125];
+  var me = document.createElement('span'); me.className = 'u262-me'; me.style.left = ME[0] + 'px'; me.style.top = ME[1] + 'px'; wd.appendChild(me);
+  var bb = document.createElement('div'); bb.className = 'u262-bb'; bb.setAttribute('role', 'status'); bb.innerHTML = '<b></b><small></small><span></span>'; wd.appendChild(bb);
+  var P = [], L = [], cur = -1;
+  S.forEach(function (s, i) {
+    var p = document.createElement('button'); p.type = 'button'; p.className = 'u262-pn' + (s[2] ? '' : ' is-off'); p.style.left = POS[i][0] + 'px'; p.style.top = POS[i][1] + 'px'; p.setAttribute('aria-label', s[0]);
+    p.innerHTML = '<svg viewBox="0 0 30 38" aria-hidden="true"><path d="M15 37C15 37 3 23 3 14a12 12 0 0 1 24 0c0 9-12 23-12 23z"/><circle cx="15" cy="14" r="4.5" fill="#fff"/></svg>';
+    p.addEventListener('click', function () { pick(i, true); });
+    wd.appendChild(p); P.push(p);
+    var li = document.createElement('li'), b = document.createElement('button'); b.type = 'button'; b.className = 'u262-it';
+    b.innerHTML = '<i>' + (i + 1) + '</i><div><b></b><small></small></div><em></em>'; b.querySelector('b').textContent = s[0]; b.querySelector('small').textContent = s[1]; b.querySelector('em').textContent = s[3];
+    b.addEventListener('pointerenter', function () { P[i].classList.add('is-hl'); });
+    b.addEventListener('pointerleave', function () { P[i].classList.remove('is-hl'); });
+    b.addEventListener('click', function () { pick(i, false); });
+    li.appendChild(b); ls.appendChild(li); L.push(b);
+  });
+  // 지도를 그 핀이 가운데 오도록 옮기고 말풍선을 엽니다
+  function pick(i, fromMap) {
+    cur = i;
+    var x = Math.max(-(520 - 340), Math.min(0, 170 - POS[i][0])), y = Math.max(-(330 - 178), Math.min(0, 112 - POS[i][1]));
+    wd.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    P.forEach(function (p, k) { p.classList.toggle('is-on', k === i); p.setAttribute('aria-pressed', k === i); });
+    L.forEach(function (b, k) { b.classList.toggle('is-on', k === i); b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    if (!rm) { P[i].classList.remove('is-bop'); void P[i].offsetWidth; P[i].classList.add('is-bop'); }
+    bb.classList.remove('is-on'); bb.style.left = POS[i][0] + 'px'; bb.style.top = POS[i][1] + 'px';
+    bb.querySelector('b').textContent = S[i][0]; var sm = bb.querySelector('small'); sm.textContent = S[i][2] ? 'Open · until 10 PM' : 'Closed · opens 10 AM'; sm.classList.toggle('is-off', !S[i][2]); bb.querySelector('span').textContent = 'Directions';
+    setTimeout(function () { if (cur === i) bb.classList.add('is-on'); }, rm ? 0 : 380);
+    // 지도에서 고르면 목록을 그 매장까지 내리고 반짝입니다
+    if (fromMap) {
+      var b = L[i], top = b.parentNode.offsetTop - 8, y0 = ls.scrollTop, t0 = performance.now();
+      (function f(now) { var k = rm ? 1 : Math.min(1, (now - t0) / 450), e = 1 - Math.pow(1 - k, 3); ls.scrollTop = y0 + (top - y0) * e; if (k < 1) requestAnimationFrame(f); })(t0);
+      b.classList.remove('is-flash'); void b.offsetWidth; b.classList.add('is-flash');
+    }
+  }
+  wd.style.transform = 'translate(-80px,-40px)';
+})();
+  })();
+
+  scope.ready();
+  return scope.controller;
+}

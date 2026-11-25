@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>移动编辑风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body med">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 130 · 浅色版面</p>
+        <h1>移动编辑风 <span class="style-card-en">MOBILE EDITORIAL</span></h1>
+        <p class="page-lead">把杂志的节奏压进手机：衬线标题、暖纸面、单列流。</p>
+        <div class="style-card-tags"><span>衬线标题 + 无衬线正文</span><span>珊瑚唯一强行动色</span><span>单列 480px</span><span>底部固定导航</span></div>
+      </header>
+
+      <section class="med-hero">
+        <div class="med-strip">
+          <article class="med-feature">
+            <span class="med-feature-img">图</span>
+            <h4 class="med-feature-title">城市边缘的陶艺工坊</h4>
+          </article>
+          <article class="med-feature">
+            <span class="med-feature-img med-feature-img--b">图</span>
+            <h4 class="med-feature-title">一位植物学者的十年记录</h4>
+          </article>
+        </div>
+        <article class="med-story">
+          <p class="med-tag">Culture · 6 min</p>
+          <h3 class="med-story-title">旧厂房里的新剧场</h3>
+          <p class="med-story-body">剧场的第一场演出在一个旧纺织厂里。没有灯光设计，只有从高窗斜切进来的午后光线，和三百个提前十分钟到场的观众。</p>
+        </article>
+        <article class="med-story">
+          <p class="med-tag">Opinion · 4 min</p>
+          <h3 class="med-story-title">为什么我们还在打印杂志</h3>
+          <p class="med-story-body">纸的选择意味着你必须做出取舍：这一期只能装下四十七页，于是编辑必须替读者做一次减法。</p>
+        </article>
+        <div class="med-field">
+          <input class="med-input" type="email" placeholder="订阅每周精选" aria-label="订阅每周精选">
+        </div>
+        <a class="med-btn" href="#0" onclick="return false">订阅</a>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#24211f"></span><span class="palette-name">Ink</span><code>#24211f</code></li>
+          <li><span class="swatch-chip" style="background:#fffdf8"></span><span class="palette-name">Paper</span><code>#fffdf8</code></li>
+          <li><span class="swatch-chip" style="background:#e97b61"></span><span class="palette-name">Coral</span><code>#e97b61</code></li>
+          <li><span class="swatch-chip" style="background:#c5d8c1"></span><span class="palette-name">Sage</span><code>#c5d8c1</code></li>
+          <li><span class="swatch-chip" style="background:#e9d7a9"></span><span class="palette-name">Sand Gold</span><code>#e9d7a9</code></li>
+          <li><span class="swatch-chip" style="background:#d7c4e8"></span><span class="palette-name">Lilac</span><code>#d7c4e8</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>珊瑚是唯一的强行动色，只给主按钮、栏目标签与链接。三支低饱和辅色只作底不作字：鼠尾草给生活与自然栏目，砂金给引文底与文化栏目，淡紫给观点与评论栏目，出现频率最低。墨色带暖调，纸面微暖——印刷感就来自这两者的关系。任何多余的强调色都会破坏编辑节奏。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#24211f"></span><div><strong>Ink</strong><span class="swatch-role">标题与正文。带暖调的近黑。</span></div><code>#24211f</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#fffdf8"></span><div><strong>Paper</strong><span class="swatch-role">页面底。微暖的白，比纯白更像纸张。</span></div><code>#fffdf8</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#e97b61"></span><div><strong>Coral</strong><span class="swatch-role">唯一的强行动色：主按钮、栏目标签与链接。</span></div><code>#e97b61</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#c5d8c1"></span><div><strong>Sage</strong><span class="swatch-role">生活与自然栏目的标记色，只作底不作字。</span></div><code>#c5d8c1</code><code>--color-sage</code></li>
+          <li><span class="swatch-chip" style="background:#e9d7a9"></span><div><strong>Sand Gold</strong><span class="swatch-role">引文底与文化栏目，第二支底色。</span></div><code>#e9d7a9</code><code>--color-sand-gold</code></li>
+          <li><span class="swatch-chip" style="background:#d7c4e8"></span><div><strong>Lilac</strong><span class="swatch-role">观点与评论栏目，出现频率最低。</span></div><code>#d7c4e8</code><code>--color-lilac</code></li>
+        </ul>
+        <p class="style-body-note">靠细线分隔，不靠浮起：<code>none — hairline rules separate</code>。只有底部弹层用 <code>0 -12px 40px rgba(36,33,31,0.1)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>衬线标题承担性格，无衬线正文保证易读。标题 24 到 30px 为主——在手机上大字号反而挤压，所以克制。标签 12px 全大写 0.18em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="med-specimen-title">旧厂房里的新剧场</p>
+            <p class="specimen-meta">Playfair Display — 标题。替代栈：Georgia, 'Songti SC', serif · 400/700 · 行高 1.2</p>
+          </div>
+          <div class="type-specimen">
+            <p class="med-specimen-body">正文用 Inter 400、14px、行高 1.75。</p>
+            <p class="specimen-meta">Inter — 正文与标签。替代栈：system-ui, -apple-system, sans-serif · 400–600</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Playfair Display</td><td>700</td><td>38px</td><td>1.1</td><td>-0.01em</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Playfair Display</td><td>700</td><td>30px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Playfair Display</td><td>400</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>15px</td><td>1.75</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.75</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Inter</td><td>600</td><td>12px</td><td>1.4</td><td>0.18em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。移动优先：单列、上限 480px、内边距 16px、区块间距 32px。桌面端居中为 480px 一列，不扩展成多栏。底部固定 56px 导航，内容区留出同等底部内边距。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:20px"></span><code>20</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 16px · 按钮 999px · 输入 12px · 图片 12px</td></tr>
+            <tr><td>页面</td><td>单列上限 480px、内边距 16px</td></tr>
+            <tr><td>区块间距</td><td>32px</td></tr>
+            <tr><td>卡片内边距</td><td>20px 0（故事卡）</td></tr>
+            <tr><td>专题条</td><td>横向滚动、卡宽 280px、间距 12px、末卡露出 24px</td></tr>
+            <tr><td>底部导航</td><td>固定 56px，四等分项</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Coral Button</h3>
+            <p class="style-body-comp-role">主行动按钮。珊瑚填充、白字、999px 全圆角、无描边，15px/500、padding 12px 20px。hover 时填充加深到 #d9644e；按下缩放 0.98。过渡只改颜色，200ms。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Story Card</h3>
+            <p class="style-body-comp-role">故事卡（纵向列表项）。纸色底、上下各 1px 墨色 15% 描边（无左右边）、内边距 20px 0。上方 12px 全大写 0.18em 的珊瑚栏目标签加阅读时长，中间 24px 衬线标题（最多两行），下方 14px 正文（最多三行，色墨 65%）。卡片之间无间距，靠描边分隔。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Feature Strip</h3>
+            <p class="style-body-comp-role">横向专题卡条。横向滚动的卡片条，每张宽 280px、12px 圆角、左侧图片 4:3、下方 20px 衬线标题。卡片间距 12px，容器左右内边距 16px 并允许最后一张露出边缘 24px 作为可滑动的暗示。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Archive Field</h3>
+            <p class="style-body-comp-role">搜索与订阅输入。纸色底、仅底部 1px 墨色 25% 描边（无边框包裹）、padding 12px 4px、14px 字。占位符墨 45%。聚焦时底线转珊瑚并保持 1px。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bottom Nav</h3>
+            <p class="style-body-comp-role">底部导航。固定底部、高 56px、纸色底加 16px 模糊、顶部 1px 墨色 10% 描边，四个等宽项，每项 12px 标签加 20px 图标。当前项用珊瑚，其余墨 50%。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>衬线标题配无衬线正文</li>
+              <li>珊瑚是唯一的强行动色</li>
+              <li>单列流、上限 480px</li>
+              <li>用横向条承载专题</li>
+              <li>行高 1.75 便于拇指阅读</li>
+              <li>底部固定导航</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用过多种强调色</li>
+              <li>不要打破编辑节奏</li>
+              <li>不要在桌面端扩成多栏</li>
+              <li>不要让标题超过两行</li>
+              <li>不要用冷调摄影</li>
+              <li>不要用全幅大图</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>编辑类摄影：人物、场所、物件，统一 4:3 或 3:2 裁切，暖调。允许小幅面缩略图配长标题。不使用全幅大图、装饰插画与冷调摄影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="mobile-editorial">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的衬线标题、描边分隔与单列流规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，衬线标题、上下描边分隔与单列 480px 必须原样保留；多栏或多余强调色一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

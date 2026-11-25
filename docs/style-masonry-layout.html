@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>瀑布流布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body masonry">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 02 · 瀑布版面</p>
+        <h1>瀑布流布局 <span class="style-card-en">MASONRY LAYOUT</span></h1>
+        <p class="page-lead">高度不一的卡片顺着列往下淌，扫描线永远不是水平的。</p>
+        <div class="style-card-tags"><span>高度错落</span><span>多列瀑布</span><span>图片主体</span><span>单一间距</span><span>hover 只动图</span></div>
+      </header>
+
+      <section class="masonry-intro">
+        <p>瀑布流是一种排布策略：卡片宽度固定、高度随内容变化，用多列容器让它自然错落。它的视觉语言必须让位给内容——卡片白底、8 到 16px 圆角、极浅描边，图片占卡片 60% 以上面积。</p>
+        <p>间距必须严格一致（16px），否则错落会变成混乱。hover 时图片以 1.05 倍缓慢放大并叠加一层 4% 的黑，卡片本身不上浮也不加阴影，因为任何位移都会破坏列的稳定。筛选条用胶囊按钮，选中态填主色。下面就是一条按规格跑的瀑布。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>列间距与行间距是同一个值（16px），卡片高度由内容决定、不做统一裁切，hover 只动图片不动卡片。列数随断点退化：桌面 4 到 5 列、平板 3 列、手机 2 列。用上方按钮切换视口看退化，整条筛选横向滚动、不换行。</p>
+        <div class="masonry-stage-bar" role="group" aria-label="预览视口宽度">
+          <button type="button" data-stage="desktop" aria-pressed="true">桌面 · 4 列</button>
+          <button type="button" data-stage="tablet" aria-pressed="false">平板 · 3 列</button>
+          <button type="button" data-stage="mobile" aria-pressed="false">手机 · 2 列</button>
+        </div>
+        <div class="masonry-stage" data-stage-view="desktop">
+          <div class="masonry-pillbar" role="presentation">
+            <span class="masonry-pill masonry-pill--on">全部</span>
+            <span class="masonry-pill">摄影</span>
+            <span class="masonry-pill">插画</span>
+            <span class="masonry-pill">截图</span>
+            <span class="masonry-pill">动图</span>
+            <span class="masonry-pill">字体</span>
+            <span class="masonry-pill">版面</span>
+          </div>
+          <div class="masonry-grid" role="presentation">
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--a"><span class="masonry-badge">新内容</span></span>
+              <figcaption>
+                <p class="masonry-card-title">山脊线上的凌晨四点</p>
+                <p class="masonry-card-desc">摄影 · 竖幅 · 未裁切</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--b"><span class="masonry-heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.9-4.5-9.4-8.2C.4 9.8 1.7 5.8 5.1 5.1c1.9-.4 3.9.7 5 2.3L12 9.6l1.9-2.2c1.1-1.6 3.1-2.7 5-2.3 3.4.7 4.7 4.7 2.5 7.7C18.9 16.5 12 21 12 21z"/></svg></span></span>
+              <figcaption>
+                <p class="masonry-card-title">海边收网的上午</p>
+                <p class="masonry-card-desc">摄影 · 横幅</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--c"></span>
+              <figcaption>
+                <p class="masonry-card-title">终端里的效率工具箱</p>
+                <p class="masonry-card-desc">截图 · 深色</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--d"><span class="masonry-flag">推荐</span></span>
+              <figcaption>
+                <p class="masonry-card-title">黏土质感的三只小物</p>
+                <p class="masonry-card-desc">插画 · 3D 渲染</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--e"></span>
+              <figcaption>
+                <p class="masonry-card-title">巷子口的光</p>
+                <p class="masonry-card-desc">摄影 · 方幅</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--f"></span>
+              <figcaption>
+                <p class="masonry-card-title">一行代码的海报化</p>
+                <p class="masonry-card-desc">字体实验</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--g"></span>
+              <figcaption>
+                <p class="masonry-card-title">雾里的等高线</p>
+                <p class="masonry-card-desc">插画 · 双色</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--h"></span>
+              <figcaption>
+                <p class="masonry-card-title">仪表盘的第四次改版</p>
+                <p class="masonry-card-desc">截图 · 浅色</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--i"></span>
+              <figcaption>
+                <p class="masonry-card-title">装满夏天的玻璃罐</p>
+                <p class="masonry-card-desc">摄影 · 静物</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--j"></span>
+              <figcaption>
+                <p class="masonry-card-title">入场券的背面</p>
+                <p class="masonry-card-desc">版面 · 平面</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--k"></span>
+              <figcaption>
+                <p class="masonry-card-title">一秒钟的循环动图</p>
+                <p class="masonry-card-desc">动图 · 循环</p>
+              </figcaption>
+            </figure>
+            <figure class="masonry-card">
+              <span class="masonry-media masonry-photo masonry-photo--l"></span>
+              <figcaption>
+                <p class="masonry-card-title">屋顶天线阵</p>
+                <p class="masonry-card-desc">摄影 · 长焦</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><span class="palette-name">Midnight</span><code>#1a1a2e</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f5"></span><span class="palette-name">Mist</span><code>#f5f5f5</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#e94560"></span><span class="palette-name">Rose Red</span><code>#e94560</code></li>
+          <li><span class="swatch-chip" style="background:#16c79a"></span><span class="palette-name">Mint</span><code>#16c79a</code></li>
+          <li><span class="swatch-chip" style="background:#ffd460"></span><span class="palette-name">Amber</span><code>#ffd460</code></li>
+          <li><span class="swatch-chip" style="background:#7579e7"></span><span class="palette-name">Indigo</span><code>#7579e7</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>白卡让图片成为唯一的视觉重量，卡片本身不参与竞争。玫红是全站唯一的高饱和色，只给喜欢、收藏与选中胶囊；薄荷绿只在徽标里出现；琥珀是高亮与推荐位，面积不超过一张卡片的 10%；靛蓝与玫红形成冷暖对位，承担链接与次级动作。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><div><strong>Midnight</strong><span class="swatch-role">标题、选中态与深色区块。接近黑但带一点紫，与图片内容更协调。</span></div><code>#1a1a2e</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f5"></span><div><strong>Mist</strong><span class="swatch-role">页面底色。比白低一档，让白卡片的边界清晰。</span></div><code>#f5f5f5</code><code>--color-mist</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">所有卡片填充。白卡是为了让图片成为唯一的视觉重量，卡片本身不参与竞争。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#e94560"></span><div><strong>Rose Red</strong><span class="swatch-role">主强调：喜欢、收藏与选中胶囊。全站唯一的高饱和色。</span></div><code>#e94560</code><code>--color-rose-red</code></li>
+          <li><span class="swatch-chip" style="background:#16c79a"></span><div><strong>Mint</strong><span class="swatch-role">成功与新内容标记，只用于徽标。</span></div><code>#16c79a</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#ffd460"></span><div><strong>Amber</strong><span class="swatch-role">高亮与推荐位，面积不超过一张卡片的 10%。</span></div><code>#ffd460</code><code>--color-amber</code></li>
+          <li><span class="swatch-chip" style="background:#7579e7"></span><div><strong>Indigo</strong><span class="swatch-role">链接与次级动作，与玫红形成冷暖对位。</span></div><code>#7579e7</code><code>--color-indigo</code></li>
+        </ul>
+        <p class="style-body-note">表面只有两级：0 Mist <code>#f5f5f5</code>，1 Card White <code>#ffffff</code>。阴影是刻意的「无」——描边负责分隔，hover 也只有图片动；灰字统一用 <code>#8a8a94</code>，描边统一 <code>#e8e8e8</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，字级整体偏小，为的是在密集瀑布里保持可读：卡片标题 600、说明 400。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="masonry-specimen-title">瀑布流布局，Masonry Layout</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.01em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>32px</td><td>1.2</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>500</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>15px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.03em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1440px、容器内边距 16px；列间距与行间距必须是同一个值（16px），卡片高度由内容决定，不做统一裁切。列数随断点变化：≥1280 五列、≥1024 四列、≥768 三列、移动两列；筛选条固定在顶部下方 8px，横向滚动不换行。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>16px</td></tr>
+            <tr><td>按钮圆角</td><td>999px 全圆角</td></tr>
+            <tr><td>输入框与图片圆角</td><td>12px</td></tr>
+            <tr><td>卡片内边距</td><td>16px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>列间距 = 行间距</td><td>16px</td></tr>
+            <tr><td>页面网格上限</td><td>1440px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Masonry Card</h3>
+            <p class="style-body-comp-role">瀑布流中的任意一张卡片。白底、16px 圆角、1px #e8e8e8 描边、无阴影，内边距 16px。图片占卡片高度 60% 以上、12px 圆角、懒加载；图下依次是 15px/600 标题（最多两行）与 13px 灰色说明（最多一行）。hover 图片放大 1.05 并叠 4% 黑，卡片不动，过渡 400ms ease-out。上面布局实演里全是它。</p>
+            <p class="masonry-comp-note">悬停任意卡片：只有图片在动，卡片纹丝不动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Filter Pill</h3>
+            <p class="style-body-comp-role">顶部筛选项。全圆角、高 36px、padding 0 16px、13px/500。默认白底 1px 描边；选中态午夜填充白字；hover 只加深描边与文字，不改填充。整条筛选横向滚动，不换行。</p>
+            <div class="masonry-pillbar" role="presentation">
+              <span class="masonry-pill masonry-pill--on">全部</span>
+              <span class="masonry-pill">摄影</span>
+              <span class="masonry-pill">插画</span>
+              <span class="masonry-pill">截图</span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Search Bar</h3>
+            <p class="style-body-comp-role">顶部搜索。浅雾底、12px 圆角、1px #e8e8e8 描边、高 40px、左内边距 40px 放 16px 图标、13px 字。聚焦时描边转午夜并加 2px 午夜 12% 外环。</p>
+            <label class="masonry-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="text" placeholder="搜索图片、作者或颜色">
+            </label>
+          </div>
+          <div class="comp-item">
+            <h3>Column Container</h3>
+            <p class="style-body-comp-role">瀑布流容器。桌面 4 到 5 列、平板 3 列、移动 2 列，列间距与行间距都固定 16px。用 CSS columns 或 grid 的 row-span 实现，禁止用绝对定位。卡片高度不做统一，但同一列的相邻卡片间距必须等于行间距。布局实演用的就是它（CSS columns）。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>列间距与行间距必须是同一个值</li>
+              <li>卡片高度由内容决定，不做统一裁切</li>
+              <li>图片占卡片 60% 以上</li>
+              <li>hover 只动图片，不动卡片</li>
+              <li>筛选条横向滚动不换行</li>
+              <li>用 CSS columns 或 grid，不用绝对定位</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用绝对定位模拟瀑布流</li>
+              <li>不要让卡片上浮，会打乱列的对齐</li>
+              <li>不要混用两种间距</li>
+              <li>不要把标题写成三行以上</li>
+              <li>不要给卡片加阴影</li>
+              <li>不要用统一裁剪比例</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图片是主体，占卡片 60% 以上。风格可以混杂（摄影、插画、截图），但尺寸比例必须由内容决定，不做裁切统一。不使用大面积纯色占位与装饰图形。布局实演里的渐变色块即图片占位，正式接入时替换为真实图片。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="masonry-layout">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的列规则、间距纪律、组件构造与颜色职责。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，列间距 = 行间距（16px）、hover 只动图片与「无阴影」必须原样保留；列数断点 5/4/3/2 不可省。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

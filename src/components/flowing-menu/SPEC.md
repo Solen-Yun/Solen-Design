@@ -1,0 +1,57 @@
+Implement the "FlowingMenu" component from zero: a full-height menu of oversized rows where hovering a row inflates a solid liquid band across the whole list — the band's edges chase the cursor with two independent springs (stretchy while moving, snap-backed when settling), and inside the band a marquee of the row's text and images glides horizontally, pushed further by cursor velocity. Leave the menu and the band collapses into the edge you exited from. Rows are container-query sized, so the type scales with row height. Pure React + CSS, two files: FlowingMenu.jsx (entry, band/marquee engine) and FlowingMenu.css (all styles). React plus one small icon package for the optional arrow.
+
+## Structure & rendering
+
+- Root is a `<nav>` (class flowing-menu, plus data-align center/left and data-shape pill/rounded/circle): position relative, width/height 100% of its container, overflow hidden, background bgColor (default near-black #120F17), colour textColor (default white), border colour injected as a variable (default 14% white). role-free nav with aria-label (default "Menu").
+- Rows are `<li>` elements flexed equally (min-height 56px), each a size container (container-type: size) so typography scales with row height: the main label clamps 16px → 40% of row height → 140px, index/meta text clamps 11–15px, marquee text scales with the band's fraction of the row via a CSS variable. Rows are separated by 1px divider spans (toggleable). align "left" moves the label to the left column of the row grid.
+- Each row's link area is a full-height grid (index | label | end): an optional zero-padded index number, the label text (letter-spacing −0.035em, weight 500, ellipsised) with a small dot appended when the row is the activeIndex one (plus aria-current="page"), and an end group holding optional meta text and the optional diagonal arrow icon. Rows with item.link render anchors, others buttons; click fires onItemClick(item, index, event). dimInactive dims every non-hovered row to 0.32 opacity while the band is shown. :focus-visible outlines inset 4px.
+- The band itself is drawn per row: each row holds an absolutely positioned band div (marqueeBgColor background, marqueeTextColor ink) whose visible area is a clip-path inset — recomputed every frame as the intersection of the row and the virtual band rectangle that spans the whole list (top/bottom edges with side insets from bandInset and corner radius min(bandRadius, half height)). With carryContent on, the per-row bands are replaced by a single absolutely positioned floating layer that rides the band's vertical centre and holds two crossfading marquee layers.
+- Inside every band a horizontal track holds N copies of the marquee part (text = item.marquee ?? item.text, plus an optional image span: pill = 2.2:1 rounded, rounded = 3:2 with 10%-of-height radius, circle = 1:1; image as background-image). N is measured as ceil(row width / part width) + 1 and re-measured by ResizeObserver; the track translates by the marquee offset modulo the part width, so the loop is seamless.
+
+## Motion engine
+
+- The band is a virtual rectangle with independent top and bottom spring states (position + velocity), integrated at 240Hz sub-steps. Target edges hug the hovered row (minus bandInset), leaning up to ±30% of a row height toward the cursor's y (magnet 0–1). The two edges use different spring rates chosen by which edge leads the travel: the leading edge runs slower (omega × (1 − 0.4·stretch)) and the trailing edge faster (× (1 + 1.1·stretch)), with damping zeta 1 − 0.3·stretch — so `stretch` makes the band lag and elongate like taffy; when the edges cross they are merged at the midpoint with averaged velocity. duration (≥ 0.1s) sets the base omega 2π/duration.
+- Entering: the band is born collapsed at the entry point — the half of the row the pointer arrived from (top, bottom or centre) — then inflates; leaving collapses it into the exit half (pointer leave above/below the list or on the row's half; keyboard blur releases toward the bottom). While no row is hovered it rests as a hidden point.
+- Marquee: each row's marquee has a coverage factor that eases to 1 (time constant 0.35s) while the band covers ≥ 4% of the row and back to 0 when uncovered; scroll velocity = direction × speed + cursor push, multiplied by coverage. direction is left (default, negative), right, or alternate (per-row parity). Cursor horizontal velocity is tracked with exponential smoothing (0.08s) and decays with a 0.3s time constant; push = clamp(vx · followCursor · 0.55, ±1600), so a fast swipe visibly accelerates the text.
+- Carry-content roll: in carryContent mode, showing a different row rolls the floating layer — the outgoing layer fades from its eased opacity while translating 0.8 row heights in the old direction, the incoming layer slides in from the direction of travel over duration × 0.8 with cubic ease-out.
+- Intro (once, unless interrupted by pointer input or reduced motion): label lines slide up from 110% (900ms, staggered 70ms), index/meta/arrow fades run (700ms, from 200ms), dividers draw scaleX 0→1 (1100ms); then an automated sweep hovers each row in sequence (170ms apart, entering from the top) and releases at the bottom.
+- Reduced motion: band edges snap to targets, the marquee holds still (coverage still drives visibility), the roll jumps, and the intro is skipped.
+- Frame economy: one rAF loop drives everything and self-sleeps when the band is at rest, the roll is finished and all marquees are stopped; it wakes on pointer moves, focus, resize and measure.
+- Unmount: cancels the frame, clears all intro timers, disconnects the ResizeObserver (root and every marquee part).
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| items | { text: string; marquee?: string; image?: string; link?: string; meta?: string }[] | [] | Menu rows; marquee overrides the scrolling text, image is a URL for the inline image part, link makes the row an anchor, meta shows in the end column. |
+| speed | number | 60 | Marquee scroll speed, px/s. |
+| direction | "left" \| "right" \| "alternate" | "left" | Marquee direction; alternate flips every other row. |
+| followCursor | number | 0.4 | How much cursor velocity pushes the marquee, 0–1. |
+| duration | number | 0.5 | Band spring base period, seconds; floored at 0.1. |
+| stretch | number | 0.6 | How much the band elongates while travelling, 0–1. |
+| magnet | number | 0.25 | How far the band leans toward the cursor, 0–1. |
+| bandInset | number | 0 | Vertical gap between band and row edges, px. |
+| bandRadius | number | 0 | Band corner radius, px. |
+| carryContent | boolean | false | One floating marquee layer follows the band instead of per-row bands. |
+| textColor | string | "#ffffff" | Row text colour. |
+| bgColor | string | "#120F17" | Menu background colour. |
+| marqueeBgColor | string | "#ffffff" | Band background colour. |
+| marqueeTextColor | string | "#120F17" | Text colour inside the band. |
+| borderColor | string | "rgba(255, 255, 255, 0.14)" | Divider colour. |
+| dividers | boolean | true | Draws the 1px row dividers. |
+| dimInactive | boolean | false | Dims rows not under the band. |
+| align | "center" \| "left" | "center" | Label alignment. |
+| showIndex | boolean | false | Zero-padded row numbers. |
+| showArrow | boolean | false | Diagonal arrow in the end column. |
+| imageShape | "pill" \| "rounded" \| "circle" | "pill" | Shape of inline marquee images. |
+| intro | boolean | true | One-time staggered reveal plus an automated sweep. |
+| activeIndex | number | - | Marks a row with a dot and aria-current. |
+| onItemClick | (item, index: number, event) => void | - | Called when a row is clicked. |
+| ariaLabel | string | "Menu" | aria-label of the nav. |
+| className | string | "" | Extra class names for the root. |
+| style | CSSProperties | - | Inline styles for the root. |
+
+## Delivery & validation
+
+- Deliver the complete content of FlowingMenu.jsx and FlowingMenu.css plus install steps and a usage example; no ellipses, no "fill in the core yourself" placeholders.
+- Validate: the band inflates from the entry half and collapses into the exit edge; moving between rows stretches the band and settles it without wobble (stretch 0 vs 1 changes the taffy feel); the marquee runs only while covered, wraps seamlessly, and speeds up with cursor swipes; alternate direction flips rows; images render in all three shapes and scroll with the text; bandInset/bandRadius shape the band; magnet leans the band; carryContent rolls content between rows instead of per-row bands; dimInactive dims siblings; index/arrow/meta/active dot render per flags; links navigate, buttons fire onItemClick; keyboard focus opens the band and blur releases it; touch taps highlight rows; intro plays once and pointer input interrupts it; reduced motion strips the springs and marquee movement; unmount leaves no frame loop, timers or observers; works at 375 / 768 / 1440 wide and with rows of differing heights.

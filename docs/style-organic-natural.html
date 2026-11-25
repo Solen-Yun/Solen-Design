@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自然有机风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body organic">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="handmade-btn" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 08 · 浅色版面</p>
+        <h1>自然有机风 <span class="style-card-en">NATURAL ORGANIC</span></h1>
+        <p class="page-lead">大地色、纸与布的质感、不规则的形状——像手工做出来的东西。</p>
+        <div class="style-card-tags"><span>大地色</span><span>大圆角</span><span>blob 形状</span><span>纸感</span><span>手工衬线</span></div>
+      </header>
+
+      <section class="organic-hero">
+        <div class="organic-hero-copy">
+          <p>自然有机风服务于健康、有机食品、环保与手作品牌。它拒绝一切冷色与精确几何：底色是暖米，文字用深棕而不是黑，形状用 32px 以上的大圆角甚至 blob 曲线，边界从不完全平行。</p>
+          <p>四支辅色全部来自自然——鼠尾草绿、陶土橘、亚麻米、湖水青——饱和度都在 40% 以下。质感靠一层极淡的纸纹或织物噪点承担，不能有明显图案。动效平缓，hover 只是让底色变深一档，不做位移。右边的产品卡可以悬停试试。</p>
+        </div>
+        <div class="paper-card organic-demo">
+          <span class="blob-badge">ORGANIC</span>
+          <span class="organic-demo-block" aria-hidden="true"></span>
+          <p class="organic-demo-title">一块手作陶器</p>
+          <p class="organic-demo-body">暖调、低饱和、允许轻微颗粒——像从自然光里拍出来的。</p>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#5c4033"></span><span class="palette-name">Deep Bark</span><code>#5c4033</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f1"></span><span class="palette-name">Warm Cream</span><code>#faf6f1</code></li>
+          <li><span class="swatch-chip" style="background:#e9e0d4"></span><span class="palette-name">Linen</span><code>#e9e0d4</code></li>
+          <li><span class="swatch-chip" style="background:#8b9d77"></span><span class="palette-name">Sage</span><code>#8b9d77</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><span class="palette-name">Terracotta</span><code>#d4a373</code></li>
+          <li><span class="swatch-chip" style="background:#75a191"></span><span class="palette-name">Lake Teal</span><code>#75a191</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>大地色系，饱和度全部控制在 40% 以下。深棕替代纯黑让页面保持暖调；湖水青是唯一允许的冷色，只作为对比出现，面积不超过一屏的 10%。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#5c4033"></span><div><strong>Deep Bark</strong><span class="swatch-role">正文、标题与描边。替代黑色，让页面保持暖调。</span></div><code>#5c4033</code><code>--color-bark</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f1"></span><div><strong>Warm Cream</strong><span class="swatch-role">页面画布。所有区块默认底色，接近未漂白的纸。</span></div><code>#faf6f1</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#e9e0d4"></span><div><strong>Linen</strong><span class="swatch-role">卡片与次级区块。只比米色深一档，靠质感而非对比分层。</span></div><code>#e9e0d4</code><code>--color-linen</code></li>
+          <li><span class="swatch-chip" style="background:#8b9d77"></span><div><strong>Sage</strong><span class="swatch-role">植物性与「天然」语义的主强调，用于标签与成功状态。</span></div><code>#8b9d77</code><code>--color-sage</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><div><strong>Terracotta</strong><span class="swatch-role">暖色强调与手作感，用于价格、徽标与小面积填充。</span></div><code>#d4a373</code><code>--color-terracotta</code></li>
+          <li><span class="swatch-chip" style="background:#75a191"></span><div><strong>Lake Teal</strong><span class="swatch-role">唯一允许的冷色，只作为对比出现，面积不超过一屏的 10%。</span></div><code>#75a191</code><code>--color-lake</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Warm Cream <code>#faf6f1</code>，1 Linen <code>#e9e0d4</code>。唯一可选阴影是 <code>0 8px 24px rgba(92,64,51,0.08)</code>，大多数时候直接省略；面板上铺了一层极淡的纸纹噪点，不能变成可见图案。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>带一点手写感的衬线是这套风格的人格来源；正文用中性无衬线，避免与衬线标题抢戏。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="organic-specimen-title">自然有机风，Natural Organic</p>
+            <p class="specimen-meta">Fraunces — 所有标题。替代栈：Georgia, 'Songti SC', serif · 400 / 500 · 字距 -0.01em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="organic-specimen-sans">正文、说明与表单。保持中性，避免与衬线标题抢戏。</p>
+            <p class="specimen-meta">Inter — 正文与表单。替代栈：-apple-system, 'Segoe UI', system-ui, sans-serif · 400 / 500 · 标签字距 0.14em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Fraunces</td><td>400</td><td>56px</td><td>1.15</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Fraunces</td><td>400</td><td>40px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Fraunces</td><td>500</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>17px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>13px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1180px，容器内边距 24px 到 48px；区块间距 112px，留白不求对称，允许左右不等。两栏时比例用 5:7 而不是 1:1，避免过于规整；图片可用 blob 或拱形裁切。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>32px</td></tr>
+            <tr><td>按钮圆角</td><td>999px 全圆</td></tr>
+            <tr><td>输入框圆角</td><td>20px</td></tr>
+            <tr><td>图片圆角</td><td>32px，可用 blob 裁切</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Handmade Button</h3>
+            <p class="style-body-comp-role">主行动按钮。深棕填充、暖米文字、999px 全圆角、无描边，字级 15px/500、padding 14px 28px。hover 只把填充提亮到深棕 90%，不加位移与阴影；按下填充换鼠尾草。过渡 300ms ease-out。页头与下面两个都是它。</p>
+            <button type="button" class="handmade-btn">SHOP THE COLLECTION</button>
+          </div>
+          <div class="comp-item">
+            <h3>Paper Card</h3>
+            <p class="style-body-comp-role">产品卡与故事卡。亚麻底、32px 圆角、无描边、内边距 32px，阴影可省略。上方图片 32px 圆角、宽高比 4:5；标题衬线 24px/500，正文 15px 深棕 70%。hover 时底色加深到鼠尾草 12%，其余不动。首屏右侧即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Rounded Input</h3>
+            <p class="style-body-comp-role">表单与订阅输入。暖米底、1px 深棕 20% 描边、20px 圆角、padding 14px 18px、15px 字。聚焦时描边转鼠尾草并加 3px 鼠尾草 20% 外环，不改变尺寸。</p>
+            <label class="organic-field"><span>订阅手作通讯</span><input type="text" placeholder="your@email.com"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Blob Badge</h3>
+            <p class="style-body-comp-role">标签与「有机」徽标。不规则的 blob 形状（border-radius 用 60% 40% 55% 45% / 45% 55% 45% 55% 一类），填充用鼠尾草或陶土 15%，文字 13px/500 深棕。不描边，不加阴影。</p>
+            <p class="blob-row">
+              <span class="blob-badge">ORGANIC</span>
+              <span class="blob-badge blob-badge-warm">HANDMADE</span>
+              <span class="blob-badge blob-badge-teal">SMALL BATCH</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用大地色系，饱和度控制在 40% 以下</li>
+              <li>圆角 20px 起，卡片 32px，允许 blob 形状</li>
+              <li>用深棕替代纯黑</li>
+              <li>加一层极淡的纸纹或织物噪点</li>
+              <li>标题用带手写感的衬线</li>
+              <li>hover 只加深底色，不做位移</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯黑 #000000</li>
+              <li>不要用冷色调作为主色</li>
+              <li>不要用锐利直角与完美圆形</li>
+              <li>不要用霓虹或高饱和色</li>
+              <li>不要用科技感的深色仪表盘</li>
+              <li>不要让纹理变成可见图案</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>自然光下的实物摄影：植物、陶器、织物、食材，暖调、低饱和、允许轻微颗粒。构图可留出大片空白。不使用冷光、高对比、科技感产品或几何插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="organic-natural">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的配色职责、字体规则、间距与组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="handmade-btn" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，大地色系、32px 大圆角与 blob 形状必须原样保留；纸纹不能变成可见图案，hover 不做位移。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

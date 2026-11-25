@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吉卜力风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ghibli">
+      <div class="ghibli-clouds" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 28 · 浅色版面</p>
+        <h1>吉卜力风格 <span class="style-card-en">GHIBLI STYLE</span></h1>
+        <p class="page-lead">手绘的天空与草地，暖到发甜的绿，一切都慢半拍。</p>
+        <div class="style-card-tags"><span>手作痕迹</span><span>0.8 度倾斜</span><span>暖棕代黑</span><span>500–700ms 缓动</span></div>
+      </header>
+
+      <section class="ghibli-hero">
+        <div class="ghibli-hero-copy">
+          <p>吉卜力风格来自动画场景美术：天空从浅蓝渐变到奶油，云是几块模糊的白，地面是带纹理的鼠尾草绿。它的核心不是配色而是「手作痕迹」——圆角一律很大，边界带 2px 半透明描边，卡片与按钮在 hover 时会轻微倾斜（0.8 度），像被人拿起来看了一眼。</p>
+          <p>颜色全部低饱和、偏暖，最深的文字用暖棕（#5a4a3a）而不是黑。动效慢，500 到 700ms，缓入缓出，允许缩放与旋转这种「有机」的位移，而不是机械的上下平移。右边这张场景卡是真的——拿起它看看。</p>
+        </div>
+        <div class="ghibli-demo">
+          <div class="story-card-demo">
+            <span class="ghibli-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21s2-8 9-8 9 8 9 8"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <p class="ghibli-demo-title">被夕阳照过的草原。</p>
+            <p class="ghibli-demo-body">风慢慢吹，卡片慢慢转。</p>
+            <button type="button" class="ghibli-btn">出发</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#7cb9a8"></span><span class="palette-name">Sage</span><code>#7cb9a8</code></li>
+          <li><span class="swatch-chip" style="background:#f4e4bc"></span><span class="palette-name">Cream</span><code>#f4e4bc</code></li>
+          <li><span class="swatch-chip" style="background:#5a4a3a"></span><span class="palette-name">Warm Brown</span><code>#5a4a3a</code></li>
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><span class="palette-name">Coral</span><code>#e8a87c</code></li>
+          <li><span class="swatch-chip" style="background:#85cdca"></span><span class="palette-name">Sky Teal</span><code>#85cdca</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><span class="palette-name">Rose Grey</span><code>#c38d94</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>鼠尾草绿是草地的绿，也是整套系统的主色；奶油让画面有「被夕阳照过」的暖度；暖棕替代黑色，避免破坏画面的暖调；珊瑚橙管夕阳与暖色强调；天青是渐变的上半段；玫瑰灰只在小面积出现，管情感强调。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#7cb9a8"></span><div><strong>Sage</strong><span class="swatch-role">主行动与自然语义。草地的绿，也是整套系统的主色。</span></div><code>#7cb9a8</code><code>--color-sage</code></li>
+          <li><span class="swatch-chip" style="background:#f4e4bc"></span><div><strong>Cream</strong><span class="swatch-role">卡片与地平线。让画面有「被夕阳照过」的暖度。</span></div><code>#f4e4bc</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#5a4a3a"></span><div><strong>Warm Brown</strong><span class="swatch-role">全部文字与标题。替代黑色，避免破坏画面的暖调。</span></div><code>#5a4a3a</code><code>--color-warm-brown</code></li>
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><div><strong>Coral</strong><span class="swatch-role">夕阳与暖色强调，用于徽标、价格与高亮。</span></div><code>#e8a87c</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#85cdca"></span><div><strong>Sky Teal</strong><span class="swatch-role">天空与水面，是渐变的上半段。</span></div><code>#85cdca</code><code>--color-sky-teal</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><div><strong>Rose Grey</strong><span class="swatch-role">情感强调与角色肤色，只在小面积出现。</span></div><code>#c38d94</code><code>--color-rose-grey</code></li>
+        </ul>
+        <p class="style-body-note">阴影轻而暖：卡片 <code>0 8px 30px rgba(90,74,58,0.06)</code>、hover 转绿 <code>0 16px 40px rgba(124,185,168,0.18)</code>、按钮 <code>0 8px 20px rgba(124,185,168,0.30)</code>。不用阴影做主要分层。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Quicksand：圆润无衬线配宽松行高（1.75），让文字像画面里的旁白。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ghibli-specimen-title">慢半拍的夏天</p>
+            <p class="specimen-meta">Quicksand — 全站唯一字体。替代栈：'Hiragino Maru Gothic ProN', 'Segoe UI', system-ui, sans-serif · 400–600 · 行高 1.75（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="ghibli-specimen-label">正文与旁白文字。0123456789</p>
+            <p class="specimen-meta">正文 15–18px / 400 / 行高 1.75；标签 13px / 500 / 0.08em；文字一律暖棕 #5a4a3a</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>48px</td><td>1.15</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>32px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>24px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.75</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>15px</td><td>1.75</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>13px</td><td>1.5</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px、容器内边距 24px，区块间距 112px。首屏为满幅天空渐变，标题居中偏上，下方留出大片天空。内容区用两栏或三栏卡片，卡片允许错落 8px 的高度差以增加手工感。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px、按钮与图标 999px、输入框 16px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>112px</td></tr>
+            <tr><td>云层</td><td>3–5 块白色椭圆（2:1），模糊 4px，分布在上三分之一</td></tr>
+            <tr><td>卡片错落</td><td>高度差 8px 以内，增加手工感</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Journey Button</h3>
+            <p class="style-body-comp-role">主行动按钮。天青到鼠尾草的纵向渐变、白字、999px 全圆角、2px 描边（主色 25% 不透明度）；字级 18px、字重 500、padding 16px 32px，阴影 0 8px 20px 绿 30%。hover 时上浮 4px、放大 1.01、旋转 0.8 度、阴影扩到 30px；按下时缩放 0.98 且角度归零。过渡 500ms ease-in-out。</p>
+            <button type="button" class="ghibli-btn">继续旅程</button>
+          </div>
+          <div class="comp-item">
+            <h3>Story Card</h3>
+            <p class="style-body-comp-role">内容卡与场景卡。奶油到浅琥珀的斜向渐变（90% 不透明）、24px 圆角、1px 描边（#d4c49a 45%）、内边距 32px、10px 模糊；图标块 64px 圆形、天青到鼠尾草渐变、内部阴影。hover 时上浮 6px、反向旋转 0.8 度、放大 1.01、阴影转绿 18%，图标放大 1.05 并旋转 6 度。过渡 700ms ease-in-out。上方场景卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Story Input</h3>
+            <p class="style-body-comp-role">表单与写作输入。奶油 60% 填充、2px 描边（#d4c49a 40%）、16px 圆角、padding 16px 20px、15px 字、暖棕文字；聚焦时描边转鼠尾草、填充升到 80%，过渡 300ms。</p>
+            <label class="ghibli-field"><span>写点什么</span><input type="text" value="八月的风筝与河"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Cloud Layer</h3>
+            <p class="style-body-comp-role">首屏云层与背景装饰。三到五块白色 40% 到 60% 的椭圆（宽高比 2:1），模糊 4px，分布在天空渐变的上三分之一，位置错落不重叠；不做动画或只做极慢的横向漂移（60 秒以上一个循环）。本页顶部那几朵云就是它。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用暖棕替代黑色文字</li>
+              <li>圆角大：按钮全圆角、卡片 24px</li>
+              <li>hover 允许 0.8 度旋转与 1.01 放大</li>
+              <li>动效 500 到 700ms，缓入缓出</li>
+              <li>用天空渐变与云层建立场景</li>
+              <li>正文行高 1.75，读起来像旁白</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯黑与高饱和色</li>
+              <li>不要用锐利直角</li>
+              <li>不要用快速过渡或线性缓动</li>
+              <li>不要让云层重叠成一大块</li>
+              <li>不要在画面里加科技感元素</li>
+              <li>不要用阴影做主要分层手段</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>手绘感插画与动画场景美术：天空、草地、小屋、云。允许纸张或水彩纹理叠加 5% 到 10%。不使用锐利摄影、3D 渲染与高饱和色块。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="ghibli-style">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的手作痕迹、暖棕色板与慢动效。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，暖棕代黑、大圆角与 0.8 度的「拿起看一眼」必须原样保留；快动效即出戏。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

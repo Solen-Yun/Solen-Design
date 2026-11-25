@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>组件封面截图台</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<style>
+  /* 截图台：宽度与画廊卡一致（250px），截图按 2 倍像素密度出图，
+     所以 PNG 是 500px 宽的 2 倍图，挂在卡里不虚。底色同画廊预览框。 */
+  body {
+    margin: 0;
+    background: var(--sd-fill);
+  }
+  #stage {
+    width: 250px;
+  }
+  #stage .comp-zoom {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module" src="./cover-shot-preview.jsx"></script>
+</body>
+</html>

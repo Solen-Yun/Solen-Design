@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>赛博朋克霓虹 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cyber">
+      <div class="cyber-scanlines" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 16 · 深色版面</p>
+        <h1 class="cyber-glitch" data-text="赛博朋克霓虹">赛博朋克霓虹 <span class="style-card-en">CYBERPUNK NEON</span></h1>
+        <p class="page-lead">近黑底上的霓虹光管：只有发光，没有阴影。</p>
+        <div class="style-card-tags"><span>发光代替阴影</span><span>近黑底</span><span>4px 扫描线</span><span>青主品红对</span></div>
+      </header>
+
+      <section class="cyber-hero">
+        <div class="cyber-hero-copy">
+          <p>赛博朋克霓虹的第一条规则是「禁止普通阴影」——所有纵深都由发光表达，用 0 0 20px 的彩色光晕代替投影。底色近黑（#0a0a0f），扫描线以 4px 间隔叠在上面，暗示 CRT。颜色是高饱和的青、品红、黄、绿，其中青色是主色（界面骨架），品红用于对抗性强调。</p>
+          <p>圆角必须小（不超过 8px），因为霓虹灯管是硬的；字体用等宽加全大写，像终端输出。右边的面板可以悬停：描边升到 60%、填充升到 8%、光晕扩大——每一条信息都有自己的发光层级。</p>
+        </div>
+        <div class="cyber-demo">
+          <div class="data-panel-demo">
+            <p class="cyber-panel-title">SYS.STATUS</p>
+            <p class="cyber-panel-body">NEON_GRID // ONLINE</p>
+            <p class="cyber-panel-metric"><span class="cyber-metric-val">98.2%</span> UPLINK</p>
+            <button type="button" class="cyber-btn">JACK IN</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0a0a0f"></span><span class="palette-name">Near Black</span><code>#0a0a0f</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Neon Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Neon Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><span class="palette-name">Neon Yellow</span><code>#ffff00</code></li>
+          <li><span class="swatch-chip" style="background:#00ff00"></span><span class="palette-name">Neon Green</span><code>#00ff00</code></li>
+          <li><span class="swatch-chip" style="background:#ff0506"></span><span class="palette-name">Alarm Red</span><code>#ff0506</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>青是主色，界面骨架全部由它勾出；品红是对抗性强调，管危险、敌对与第二层级，与青形成经典对位；黄负责警告与数据高亮，绿像老式荧光屏一样管成功与在线，红是唯一允许的暖色，出现即过载。底色带一点蓝，让青光看起来是在发亮而不是发灰。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0a0f"></span><div><strong>Near Black</strong><span class="swatch-role">页面底。带一点蓝的极深色，让青光看起来是在发亮而不是发灰。</span></div><code>#0a0a0f</code><code>--color-near-black</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Neon Cyan</strong><span class="swatch-role">主色：边框、主按钮与标题发光。界面骨架全部由它勾出。</span></div><code>#00ffff</code><code>--color-neon-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Neon Magenta</strong><span class="swatch-role">对抗性强调：危险、敌对与第二层级。与青形成经典对位。</span></div><code>#ff00ff</code><code>--color-neon-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><div><strong>Neon Yellow</strong><span class="swatch-role">警告与数据高亮，用于需要穿透暗底的信息。</span></div><code>#ffff00</code><code>--color-neon-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#00ff00"></span><div><strong>Neon Green</strong><span class="swatch-role">终端成功输出与在线状态，像老式荧光屏。</span></div><code>#00ff00</code><code>--color-neon-green</code></li>
+          <li><span class="swatch-chip" style="background:#ff0506"></span><div><strong>Alarm Red</strong><span class="swatch-role">错误与过载，是唯一允许的暖色。</span></div><code>#ff0506</code><code>--color-alarm-red</code></li>
+        </ul>
+        <p class="style-body-note">没有投影，只有三档发光：<code>0 0 20px rgba(0,255,255,0.5)</code> 青光、<code>0 0 20px rgba(255,0,255,0.45)</code> 品红光、<code>0 0 8px rgba(0,255,255,0.6)</code> 文字光晕。扫描线：<code>repeating-linear-gradient(0deg, rgba(0,255,255,0.04) 0 1px, transparent 1px 4px)</code>，整层 60% 不透明度。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 JetBrains Mono，全大写、宽字距。等宽字体是「这是机器界面」的第一信号；标签一律 0.14em 字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cyber-specimen-title">CYBERPUNK_NEON // 0123456789</p>
+            <p class="specimen-meta">JetBrains Mono — 全站唯一字体。替代栈：ui-monospace, 'Courier New', monospace · 400 / 700 · 字距 0.05em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="cyber-specimen-label">TERMINAL OUTPUT READY_</p>
+            <p class="specimen-meta">正文 14px / 400 / 行高 1.6；大写标签 11px / 700 / 0.14em；文字 #e0ffff，次级白 70%</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>40px</td><td>1.1</td><td>0.05em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>24px</td><td>1.2</td><td>0.05em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>18px</td><td>1.3</td><td>0.05em</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>0.02em</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>400</td><td>12px</td><td>1.55</td><td>—</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>700</td><td>11px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1280px、容器内边距 16px，区块间距 64px，卡片内边距 20px。允许全宽数据条与边框网格：用 1px 青 20% 的线把页面切成仪表盘式分区。密集度接近 HUD，信息可以挤，但每条都要有发光层级。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>4px（面板 8px）</td></tr>
+            <tr><td>按钮与输入框圆角</td><td>2px——霓虹灯管是硬的</td></tr>
+            <tr><td>卡片内边距</td><td>20px</td></tr>
+            <tr><td>元素间距</td><td>12px</td></tr>
+            <tr><td>扫描线</td><td>每 4px 一条 1px 青色 4% 横线</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Neon Button</h3>
+            <p class="style-body-comp-role">主行动按钮。透明底、2px 霓虹青描边、2px 圆角、无阴影色块；字级 12px、700、全大写、0.14em。静态带 0 0 12px 青色光晕，hover 填充升到 12%、光晕扩到 24px；按下光晕收到 6px、填充升到 20%。过渡 150ms。</p>
+            <button type="button" class="cyber-btn">CONNECT</button>
+          </div>
+          <div class="comp-item">
+            <h3>Data Panel</h3>
+            <p class="style-body-comp-role">卡片与数据面板。青 4% 填充、1px 青 30% 描边、4px 圆角、内边距 20px、无阴影；标题 18px 青色带文字光晕，正文白 70%；左上角可加 8px 直角切角制造硬件感。hover 时描边升到 60%、填充升到 8%、光晕 0 0 16px。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Terminal Input</h3>
+            <p class="style-body-comp-role">输入与命令行。近黑底、1px 青 40% 描边、2px 圆角、14px 等宽；左侧一个闪烁的青色方块光标（1 Hz、steps 缓动）。聚焦时描边升到 100% 并加 0 0 12px 光晕。</p>
+            <label class="cyber-field"><span>CMD</span><input type="text" value="run neon_grid.exe"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Scanline Overlay + Glitch Heading</h3>
+            <p class="style-body-comp-role">全屏 CRT 纹理：固定覆盖层每 4px 一条 1px 青色 4% 横线，pointer-events none，整层 60% 不透明度——本页每一寸都叠着它。故障标题：文字用青色叠两个伪元素副本（-2px 红、+2px 青，screen 混合、70% 不透明度），仅在 hover 或每 6 秒一次抖动 60ms，其余时间静止。本页 H1 即故障标题，移上去试试。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用发光表达纵深，禁用普通阴影</li>
+              <li>近黑底，不用纯黑</li>
+              <li>圆角不超过 8px</li>
+              <li>青色为主，品红为对抗</li>
+              <li>叠一层 4px 扫描线</li>
+              <li>全大写等宽，宽字距</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用浅色或白色背景</li>
+              <li>不要用低饱和色</li>
+              <li>不要用普通投影（shadow-md 一类）</li>
+              <li>不要用暖色，除警报红外</li>
+              <li>不要用大圆角</li>
+              <li>不要用柔和温暖的设计语言</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>夜景城市、电路纹理、扫描线与全息投影。允许把照片压成高对比双色调后叠青色光晕。不使用白天摄影、柔和渐变与暖色插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cyberpunk-neon">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的发光层级、扫描线与对抗色规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，「发光代替阴影」、近黑底、小圆角与 4px 扫描线必须原样保留；青主品红对，暖色只留警报红。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

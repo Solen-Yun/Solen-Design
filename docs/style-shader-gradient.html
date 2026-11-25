@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>着色器渐变 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body shgr">
+      <canvas class="shgr-canvas" data-shader aria-hidden="true"></canvas>
+
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 128 · 深色版面</p>
+        <h1>着色器渐变 <span class="style-card-en">SHADER GRADIENT</span></h1>
+        <p class="page-lead">一块真的在计算的虹彩场，玻璃面板浮在上面。</p>
+        <div class="style-card-tags"><span>实时 WebGL 片元着色器</span><span>DPR 封顶 2</span><span>离屏暂停 rAF</span><span>UI 只用一支紫</span></div>
+      </header>
+
+      <section class="shgr-hero">
+        <div class="shgr-panel">
+          <p class="shgr-label">Real-time</p>
+          <h3 class="shgr-display">Compute the<br>gradient.</h3>
+          <p class="shgr-lead">底层是一块真的在跑的着色器画布，颜色每 25 秒缓慢呼吸一次；上面这块玻璃板把所有文字托起来。</p>
+          <a class="shgr-cta" href="#0" onclick="return false">开始使用</a>
+        </div>
+        <div class="shgr-cards">
+          <div class="shgr-card">
+            <span class="shgr-icon"></span>
+            <h4 class="shgr-card-title">Frame budget</h4>
+            <p class="shgr-card-body">离屏时用 IntersectionObserver 暂停 requestAnimationFrame，不浪费一帧。</p>
+          </div>
+          <div class="shgr-card">
+            <span class="shgr-icon"></span>
+            <h4 class="shgr-card-title">DPR capped</h4>
+            <p class="shgr-card-body">devicePixelRatio 封顶 2 倍，避免高分屏把填充率打满。</p>
+          </div>
+        </div>
+        <div class="shgr-input-row">
+          <input class="shgr-input" type="email" placeholder="工作邮箱" aria-label="工作邮箱">
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#08090d"></span><span class="palette-name">Canvas Black</span><code>#08090d</code></li>
+          <li><span class="swatch-chip" style="background:#edeef2"></span><span class="palette-name">Bright White</span><code>#edeef2</code></li>
+          <li><span class="swatch-chip" style="background:#7c5cff"></span><span class="palette-name">Violet</span><code>#7c5cff</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><span class="palette-name">Cyan</span><code>#22d3ee</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><span class="palette-name">Pink</span><code>#f472b6</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>画布底是近黑但不纯黑，好让虹彩有暗部可以沉下去。主要文字用略带冷的白。紫色是唯一的 UI 强调色，只给主按钮、聚焦态与图标；着色器里的青与粉只属于着色器场，用来给渐变做冷暖过渡——它们不算 UI 色，也不允许出现在界面控件上。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#08090d"></span><div><strong>Canvas Black</strong><span class="swatch-role">着色器画布的底色。近黑但不纯黑。</span></div><code>#08090d</code><code>--color-canvas-black</code></li>
+          <li><span class="swatch-chip" style="background:#edeef2"></span><div><strong>Bright White</strong><span class="swatch-role">主要文字与高对比元素。略带冷的白。</span></div><code>#edeef2</code><code>--color-bright-white</code></li>
+          <li><span class="swatch-chip" style="background:#7c5cff"></span><div><strong>Violet</strong><span class="swatch-role">唯一 UI 强调色：主按钮、聚焦态与图标。</span></div><code>#7c5cff</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><div><strong>Cyan</strong><span class="swatch-role">只出现在着色器场里，提供冷暖过渡。</span></div><code>#22d3ee</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><div><strong>Pink</strong><span class="swatch-role">同样只属于着色器，是虹彩的第三支。</span></div><code>#f472b6</code><code>--color-pink</code></li>
+        </ul>
+        <p class="style-body-note">玻璃分两级：<code>rgba(255,255,255,0.06)</code> 做卡片，<code>rgba(255,255,255,0.12)</code> 做 hover 与次级按钮。文字下方必须有遮罩或玻璃板，保证对比度至少 4.5:1。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站一种字体。标题 48 到 64px 配紧字距，小标签 12px 全大写 0.14em。字重只用 400、500、600。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="shgr-specimen-title">Compute the gradient.</p>
+            <p class="specimen-meta">Inter — 标题。替代栈：-apple-system, 'SF Pro Display', system-ui, sans-serif · 600 · 行高 1.05 · 字距 -0.03em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="shgr-specimen-label">REAL-TIME</p>
+            <p class="specimen-meta">Inter — 标签。字重 500 · 12px · 全大写 · 字距 0.14em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>600</td><td>64px</td><td>1.05</td><td>-0.03em</td><td><code>--text-display</code></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>600</td><td>48px</td><td>1.1</td><td>-0.025em</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>32px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>20px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px、容器内边距 24px，区块间距 128px。首屏 100vh，内容垂直居中并包在玻璃面板里。全页只有一个 canvas，其余内容全部是 DOM 层。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 16px · 按钮 12px · 输入 12px · 图标 8px</td></tr>
+            <tr><td>页面</td><td>上限 1120px、容器内边距 24px</td></tr>
+            <tr><td>区块间距</td><td>128px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>首屏</td><td>100vh，内容垂直居中于玻璃板</td></tr>
+            <tr><td>画布</td><td>满幅、DPR 封顶 2、全页仅一个</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Violet CTA</h3>
+            <p class="style-body-comp-role">主行动按钮。紫色填充、白字、12px 圆角、无描边，16px/500、padding 12px 24px，阴影 0 8px 30px 紫 35%。hover 时填充提亮到 #8f72ff；按下缩放 0.98。过渡 300ms。全页只有一个——hero 里那个就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Card</h3>
+            <p class="style-body-comp-role">内容卡与特性卡。白 6% 填充、24px 模糊、16px 圆角、1px 白 10% 描边、内边距 24px，阴影 0 20px 60px 黑 45%。左上角一个 36px 的紫色 20% 底图标块（8px 圆角、1px 紫 30% 描边）。标题 20px/600 白色，正文 14px 白 60%。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Shader Field</h3>
+            <p class="style-body-comp-role">实时着色器画布（签名组件）。一个满幅 canvas 固定在最底层，运行片元着色器渲染三支色（紫、青、粉）的网格渐变，颜色随时间缓慢呼吸（周期 20 到 30 秒）。必须给 devicePixelRatio 设上限（通常 2），必须用 IntersectionObserver 在离屏时暂停 requestAnimationFrame，WebGL 不可用时回退为一张静态渐变图（同一配色），prefers-reduced-motion 时只渲染单帧。全页只能有一个 canvas。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Input</h3>
+            <p class="style-body-comp-role">邮箱与表单输入。白 6% 填充、12px 模糊、12px 圆角、1px 白 12% 描边、padding 12px 16px、16px 字。占位符白 40%。聚焦时描边转紫 70%、填充升到 9%、加 2px 紫 25% 外环。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scrim Layer</h3>
+            <p class="style-body-comp-role">文字可读性遮罩。在着色器与文字之间必须有一层遮罩：垂直渐变从黑 60% 到透明，或一块 24px 模糊的玻璃面板。目的只有一个——保证文字与场的对比度至少 4.5:1。禁止省略。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用真实的 WebGL 片元着色器</li>
+              <li>给 devicePixelRatio 设上限</li>
+              <li>离屏时用 IntersectionObserver 暂停 rAF</li>
+              <li>提供 WebGL 不可用的静态回退</li>
+              <li>文字下必须有玻璃板或遮罩</li>
+              <li>UI 只用一支紫色强调</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用静态渐变图冒充实时着色器</li>
+              <li>不要不限 DPR（会掉帧）</li>
+              <li>不要在离屏时继续跑 rAF</li>
+              <li>不要忽略 reduced-motion 与 WebGL 回退</li>
+              <li>不要让文字直接压场</li>
+              <li>不要放多个 canvas 或多支抢眼强调色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像即是着色器本身，不使用摄影与插画。允许产品截图放在玻璃面板内。禁止额外的背景图，它会与场打架。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="shader-gradient">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的着色器约束与玻璃面板规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，真实着色器、DPR 封顶与离屏暂停必须原样保留；用静态渐变图冒充即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+<script type="module">
+  // Shader Field：满幅 WebGL 片元着色器。
+  // DPR 封顶 2；离屏时暂停 requestAnimationFrame；WebGL 不可用时回退为静态渐变；
+  // prefers-reduced-motion 时只渲染单帧。
+  const canvas = document.querySelector('[data-shader]');
+  if (canvas) {
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, depth: false });
+
+    if (!gl) {
+      canvas.classList.add('shgr-canvas--fallback');
+    } else {
+      const VERT = `
+        attribute vec2 a_pos;
+        void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+      `;
+      const FRAG = `
+        precision highp float;
+        uniform vec2 u_res;
+        uniform float u_time;
+        const vec3 C_VIOLET = vec3(0.486, 0.361, 1.0);
+        const vec3 C_CYAN = vec3(0.133, 0.827, 0.933);
+        const vec3 C_PINK = vec3(0.957, 0.447, 0.714);
+        void main() {
+          vec2 uv = gl_FragCoord.xy / u_res;
+          float aspect = u_res.x / max(u_res.y, 1.0);
+          vec2 p = vec2((uv.x - 0.5) * aspect, uv.y - 0.5);
+          float t = u_time * 0.04;
+
+          vec2 gp = p * 3.2;
+          vec2 cell = floor(gp);
+          vec2 f = fract(gp);
+
+          float w1 = sin(cell.x * 0.7 + t) * 0.5 + 0.5;
+          float w2 = sin(cell.y * 0.6 - t * 0.8) * 0.5 + 0.5;
+          float w3 = sin((cell.x + cell.y) * 0.35 + t * 0.6) * 0.5 + 0.5;
+
+          vec3 col = mix(C_VIOLET, C_CYAN, w1);
+          col = mix(col, C_PINK, w2 * 0.55);
+          col = mix(col, C_VIOLET, w3 * 0.25);
+
+          float d = length(f - 0.5);
+          float glow = smoothstep(0.72, 0.0, d);
+          col = mix(col * 0.28, col, glow);
+
+          col *= 1.0 - 0.55 * length(p);
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `;
+
+      const compile = (type, src) => {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, src);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          canvas.classList.add('shgr-canvas--fallback');
+          return null;
+        }
+        return shader;
+      };
+
+      const vs = compile(gl.VERTEX_SHADER, VERT);
+      const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+
+      if (vs && fs) {
+        const program = gl.createProgram();
+        gl.attachShader(program, vs);
+        gl.attachShader(program, fs);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        const aPos = gl.getAttribLocation(program, 'a_pos');
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+        const uRes = gl.getUniformLocation(program, 'u_res');
+        const uTime = gl.getUniformLocation(program, 'u_time');
+
+        let raf = 0;
+        let running = false;
+        let elapsed = 0;
+        let last = null;
+
+        const resize = () => {
+          const w = Math.floor(window.innerWidth * DPR);
+          const h = Math.floor(window.innerHeight * DPR);
+          if (canvas.width !== w || canvas.height !== h) {
+            canvas.width = w;
+            canvas.height = h;
+            gl.viewport(0, 0, w, h);
+          }
+        };
+
+        const render = () => {
+          resize();
+          gl.uniform2f(uRes, canvas.width, canvas.height);
+          gl.uniform1f(uTime, elapsed);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+
+        const frame = (now) => {
+          if (!running) return;
+          if (last === null) last = now;
+          elapsed += Math.min((now - last) / 1000, 0.1);
+          last = now;
+          render();
+          raf = requestAnimationFrame(frame);
+        };
+
+        const play = () => {
+          if (running || reduced) return;
+          running = true;
+          last = null;
+          raf = requestAnimationFrame(frame);
+        };
+
+        const pause = () => {
+          running = false;
+          cancelAnimationFrame(raf);
+        };
+
+        // 离屏时暂停动画循环。
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) play();
+            else pause();
+          });
+        }, { threshold: 0 });
+        observer.observe(canvas);
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        if (reduced) {
+          elapsed = 0;
+          render();
+        } else {
+          play();
+        }
+      }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>粉彩应用风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body pui">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 129 · 浅色版面</p>
+        <h1>粉彩应用风 <span class="style-card-en">PASTEL UI</span></h1>
+        <p class="page-lead">暖奶油底上一层层淡色分组：友好，但每个字都读得清。</p>
+        <div class="style-card-tags"><span>暖奶油底</span><span>粉彩只做分组</span><span>触控目标 44px</span><span>单列 480px</span></div>
+      </header>
+
+      <section class="pui-hero">
+        <div class="pui-card pui-card--mint">
+          <p class="pui-tag">Featured</p>
+          <h3 class="pui-card-title">本周精选</h3>
+          <p class="pui-card-body">一整块只用一种粉彩，标签用深紫 70%，正文用深灰 80%。</p>
+          <div class="pui-cluster">
+            <button type="button" class="pui-act pui-act--lilac" aria-label="收藏"></button>
+            <button type="button" class="pui-act pui-act--mint" aria-label="点赞"></button>
+            <button type="button" class="pui-act pui-act--coral" aria-label="分享"></button>
+          </div>
+        </div>
+        <div class="pui-card pui-card--lilac">
+          <p class="pui-tag">Reminder</p>
+          <h3 class="pui-card-title">别忘了回复</h3>
+          <p class="pui-card-body">快捷操作贴在内容卡的右下角，用户读完时手就在那里。</p>
+        </div>
+        <div class="pui-field">
+          <input class="pui-input" type="search" placeholder="搜索内容" aria-label="搜索内容">
+        </div>
+        <a class="pui-btn" href="#0" onclick="return false">发布</a>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#66508f"></span><span class="palette-name">Deep Violet</span><code>#66508f</code></li>
+          <li><span class="swatch-chip" style="background:#fff8f0"></span><span class="palette-name">Cream</span><code>#fff8f0</code></li>
+          <li><span class="swatch-chip" style="background:#332d3d"></span><span class="palette-name">Ink</span><code>#332d3d</code></li>
+          <li><span class="swatch-chip" style="background:#d9c7ff"></span><span class="palette-name">Lilac</span><code>#d9c7ff</code></li>
+          <li><span class="swatch-chip" style="background:#cbefdf"></span><span class="palette-name">Mint</span><code>#cbefdf</code></li>
+          <li><span class="swatch-chip" style="background:#ffe49a"></span><span class="palette-name">Butter</span><code>#ffe49a</code></li>
+          <li><span class="swatch-chip" style="background:#ffb5a7"></span><span class="palette-name">Coral</span><code>#ffb5a7</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>暖奶油底承载全部内容。粉彩色只用于分组与状态提示，绝不作为大面积装饰：一整块只用一种粉彩。深紫是粉彩里唯一足够深的颜色，负责主按钮、标签与链接；深灰负责标题与正文，保证对比度在 4.5:1 以上。珊瑚出现频率最低，只做情感化反馈与聚焦环。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#66508f"></span><div><strong>Deep Violet</strong><span class="swatch-role">主色：主按钮、标签与链接。</span></div><code>#66508f</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#fff8f0"></span><div><strong>Cream</strong><span class="swatch-role">页面底。温暖的白，比纯白柔和。</span></div><code>#fff8f0</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#332d3d"></span><div><strong>Ink</strong><span class="swatch-role">标题与正文，保证 4.5:1 以上对比。</span></div><code>#332d3d</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#d9c7ff"></span><div><strong>Lilac</strong><span class="swatch-role">第一分组色，用于精选类区块底。</span></div><code>#d9c7ff</code><code>--color-lilac</code></li>
+          <li><span class="swatch-chip" style="background:#cbefdf"></span><div><strong>Mint</strong><span class="swatch-role">第二分组色与成功状态。</span></div><code>#cbefdf</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#ffe49a"></span><div><strong>Butter</strong><span class="swatch-role">提醒与收藏状态，只在小组件上出现。</span></div><code>#ffe49a</code><code>--color-butter</code></li>
+          <li><span class="swatch-chip" style="background:#ffb5a7"></span><div><strong>Coral</strong><span class="swatch-role">情感化反馈与聚焦环，出现频率最低。</span></div><code>#ffb5a7</code><code>--color-coral</code></li>
+        </ul>
+        <p class="style-body-note">两层柔和阴影：<code>0 4px 12px rgba(102,80,143,0.1)</code> 给卡片，<code>0 6px 16px rgba(102,80,143,0.2)</code> 给按钮。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站一种字体，字级偏移动端：正文以 13 到 17px 为主，标题 21 到 26px，标签 12px 全大写 0.16em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="pui-specimen-title">本周精选</p>
+            <p class="specimen-meta">Inter — 标题。替代栈：system-ui, -apple-system, 'PingFang SC', sans-serif · 700 · 行高 1.3 · 字距 -0.01em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="pui-specimen-label">FEATURED</p>
+            <p class="specimen-meta">Inter — 标签。字重 600 · 12px · 全大写 · 字距 0.16em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>26px</td><td>1.3</td><td>-0.01em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>600</td><td>21px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>600</td><td>17px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>body-sm</td><td>Inter</td><td>400</td><td>13px</td><td>1.55</td><td>—</td><td><code>--text-body-sm</code></tr>
+            <tr><td>label</td><td>Inter</td><td>600</td><td>12px</td><td>1.4</td><td>0.16em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。移动优先：单列、上限 480px、内边距 16px、卡片间距 12px、区块间距 32px。桌面端居中一列不加宽。底部固定操作条 64px，内容区留同等底部内边距。禁止横向表格。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:20px"></span><code>20</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮 16px · 输入 16px · 药丸 999px</td></tr>
+            <tr><td>页面</td><td>单列上限 480px、内边距 16px</td></tr>
+            <tr><td>卡片间距</td><td>12px</td></tr>
+            <tr><td>区块间距</td><td>32px</td></tr>
+            <tr><td>卡片内边距</td><td>20px</td></tr>
+            <tr><td>底部操作条</td><td>固定 64px，内容区留同等底部内边距</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Pastel Button</h3>
+            <p class="style-body-comp-role">主行动按钮。深紫填充、白字、16px 圆角、无描边，15px/600、padding 12px 20px，阴影 0 6px 16px 紫 20%。hover 时上浮 2px；按下缩到 0.98。触控高度不小于 44px。过渡 200ms。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Group Card</h3>
+            <p class="style-body-comp-role">内容卡与分组块。粉彩填充（薄荷、淡紫或黄油之一）、24px 圆角、1px 深紫 10% 描边、内边距 20px，阴影 0 4px 12px 紫 10%。上方 12px 全大写 0.16em 的深紫 70% 标签，中间 21px/600 深灰标题，下方 13px 正文深灰 80%。一整块只用一种粉彩。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Field</h3>
+            <p class="style-body-comp-role">搜索与输入。奶油填充、16px 圆角、1px 深紫 20% 描边、padding 12px 16px、15px 字，聚焦时加 4px 的珊瑚 40% 外环。占位符深灰 60%。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Action Cluster</h3>
+            <p class="style-body-comp-role">决策点快捷操作。横向三个 44px 的全圆按钮，间距 12px，分别用淡紫、薄荷、珊瑚的 30% 底配深紫图标。位置固定贴在内容卡的右下角或底部条，保证用户在读完内容时手就在那里。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bottom Sheet</h3>
+            <p class="style-body-comp-role">移动端底部弹层。奶油底、顶部 24px 圆角、顶部 1px 深紫 10% 描边、阴影 0 -12px 40px 深紫 12%。顶部中央 36px × 4px 的深紫 20% 抓手。内边距 20px，最大高度 88vh。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖奶油底承载全部内容</li>
+              <li>粉彩只用于分组与状态</li>
+              <li>文字用深紫与深灰保证对比</li>
+              <li>触控目标不小于 44px</li>
+              <li>快捷操作贴着决策点</li>
+              <li>圆角 16 到 24px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用荧光色或高饱和渐变覆盖整页</li>
+              <li>不要用过小的触控目标</li>
+              <li>不要用密集的横向表格</li>
+              <li>不要让粉彩承担正文</li>
+              <li>不要在桌面端加宽成多栏</li>
+              <li>不要在同一卡混两种粉彩</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以图标、头像与轻量插画为主。允许粉彩几何图形作为分组标识。不使用深色大图与高饱和摄影，移动端的图像只用于识别而非装饰。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="pastel-ui">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的分组色、圆角与触控规范。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，粉彩只做分组、44px 触控目标与单列 480px 必须原样保留；粉彩承担正文或桌面加宽即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

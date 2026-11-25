@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>单色极简 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body mono">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 91 · 浅色版面</p>
+        <h1>单色极简 <span class="style-card-en">MONOCHROME</span></h1>
+        <p class="page-lead">没有颜色：层次全靠五档灰、字重与负空间。</p>
+        <div class="style-card-tags"><span>五档灰无色相</span><span>字重 ≤500</span><span>700ms 只改颜色</span><span>1px #e5e5e5 结构</span></div>
+      </header>
+
+      <section class="mono-hero">
+        <div class="mono-hero-copy">
+          <p>单色极简是最严格的减法：整个页面只有黑、白与三档灰（#111111、#444444、#666666、#999999、#cccccc、#e5e5e5）。层级靠三件事建立——字重对比（300 对 500）、灰度深浅、以及负空间。</p>
+          <p>它禁止任何带色相的颜色、禁止全圆角、禁止重阴影、禁止渐变。节奏刻意放慢：过渡 700ms 的 ease-in-out，而且只改颜色不改位置，因为在这套语言里位移本身就是噪音。</p>
+        </div>
+        <div class="mono-demo">
+          <div class="mono-card">
+            <p class="mono-card-label">APPROACH / 04</p>
+            <p class="mono-card-title">灰度的五档</p>
+            <p class="mono-card-text">墨、纸、三档灰。层级由字重与留白共同完成，颜色不在场。</p>
+          </div>
+          <button type="button" class="mono-btn">ENTER</button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#111111"></span><span class="palette-name">Ink</span><code>#111111</code></li>
+          <li><span class="swatch-chip" style="background:#444444"></span><span class="palette-name">Deep Grey</span><code>#444444</code></li>
+          <li><span class="swatch-chip" style="background:#666666"></span><span class="palette-name">Mid Grey</span><code>#666666</code></li>
+          <li><span class="swatch-chip" style="background:#999999"></span><span class="palette-name">Light Grey</span><code>#999999</code></li>
+          <li><span class="swatch-chip" style="background:#cccccc"></span><span class="palette-name">Soft Grey</span><code>#cccccc</code></li>
+          <li><span class="swatch-chip" style="background:#e5e5e5"></span><span class="palette-name">Border Grey</span><code>#e5e5e5</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨色是主文字、主按钮与最深区块，整套风格的唯一「强调」；极浅灰白做页面底，让卡片能靠 #f5f5f5 分层；深灰比 #666666 再深一档，做 hover 后的次级文字；中灰管正文与说明文字；浅灰管元数据与占位符；边界灰承担所有 1px 分隔线——几乎不可见，但缺了结构会散。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fafafa"></span><div><strong>Paper</strong><span class="swatch-role">页面底。极浅的灰白，让卡片能靠 #f5f5f5 分层。</span></div><code>#fafafa</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#111111"></span><div><strong>Ink</strong><span class="swatch-role">主文字、主按钮与最深区块。整套风格的唯一「强调」。</span></div><code>#111111</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#666666"></span><div><strong>Mid Grey</strong><span class="swatch-role">正文与说明文字。与 #111111 形成第一层对比。</span></div><code>#666666</code><code>--color-mid-grey</code></li>
+          <li><span class="swatch-chip" style="background:#999999"></span><div><strong>Light Grey</strong><span class="swatch-role">元数据与占位符，第三层级。</span></div><code>#999999</code><code>--color-light-grey</code></li>
+          <li><span class="swatch-chip" style="background:#e5e5e5"></span><div><strong>Border Grey</strong><span class="swatch-role">所有 1px 分隔线。几乎不可见，但缺了结构会散。</span></div><code>#e5e5e5</code><code>--color-border-grey</code></li>
+          <li><span class="swatch-chip" style="background:#444444"></span><div><strong>Deep Grey</strong><span class="swatch-role">hover 后的次级文字，比 #666666 再深一档。</span></div><code>#444444</code><code>--color-deep-grey</code></li>
+        </ul>
+        <p class="style-body-note">层次靠边框：<code>none — a 1px #e5e5e5 border does the work</code>；最高只允许 <code>0 1px 2px rgba(17,17,17,0.04)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，只用 300 到 500。字重差是这套风格建立层级的主要手段。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="mono-specimen-title">Monochrome 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：'Helvetica Neue', system-ui, sans-serif · 只用 300–500 · 标签 0.2em 全大写</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>300</td><td>44px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>300</td><td>32px</td><td>1.25</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>400</td><td>22px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>300</td><td>16px</td><td>1.8</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>300</td><td>13px</td><td>1.8</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>11px</td><td>1.5</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1040px、容器内边距 32px，区块间距 160px。以负空间为主要构图手段，元素间距至少 32px。单栏或严格对齐的双栏，禁止错位与旋转。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 2px</td></tr>
+            <tr><td>边框</td><td>1px #e5e5e5，唯一的结构工具</td></tr>
+            <tr><td>字重阶梯</td><td>标题 300 / 正文 300 / 标签 500 / 元数据 400，禁 600+</td></tr>
+            <tr><td>卡片内边距</td><td>40px，无阴影</td></tr>
+            <tr><td>hover</td><td>填充 #ebebeb、描边 #cccccc、正文 #444444，元素不动</td></tr>
+            <tr><td>过渡</td><td>700ms ease-in-out，只改颜色</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Mono Button</h3>
+            <p class="style-body-comp-role">主行动按钮。墨色填充、纸色文字、2px 圆角、无描边、无阴影，11px/500、全大写、字距 0.2em、padding 16px 32px。hover 时填充转 #2a2a2a；按下再暗一档。过渡 700ms ease-in-out，只改颜色。</p>
+            <button type="button" class="mono-btn">提交</button>
+          </div>
+          <div class="comp-item">
+            <h3>Grey Card</h3>
+            <p class="style-body-comp-role">内容卡。#f5f5f5 填充、2px 圆角、1px #e5e5e5 描边、内边距 40px，无阴影。标题 32px/300 墨色、字距微开；正文 13px/300 中灰、行高 1.8。hover 时填充转 #ebebeb、描边转 #cccccc、正文转 #444444，全部在 700ms 内完成，元素不动。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Hairline Divider</h3>
+            <p class="style-body-comp-role">极细分隔线。1px #e5e5e5 横线，横跨内容宽，不做渐变淡出。它是这套风格唯一的结构工具，比留白更明确、比阴影更安静。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Ghost Field</h3>
+            <p class="style-body-comp-role">输入框。纸色填充、2px 圆角、1px #e5e5e5 描边、padding 14px 16px、13px 字。占位符 #999999。聚焦时描边转墨色并保持 1px，不加外环、不改背景。</p>
+            <input class="mono-input" type="text" placeholder="搜索">
+          </div>
+          <div class="comp-item">
+            <h3>Weight Ladder</h3>
+            <p class="style-body-comp-role">字重层级规则。标题只用 300，正文只用 300，标签与按钮用 500，元数据用 400。禁止出现 600 以上字重——一旦出现，灰度的细腻感会被压死。层级靠字号、灰度与留白三重叠加。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只用五到六档灰，无色相</li>
+              <li>层级靠字重与灰度</li>
+              <li>字重不超过 500</li>
+              <li>过渡 700ms，只改颜色</li>
+              <li>边框 1px #e5e5e5</li>
+              <li>留白作为主要构图手段</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何带色相的颜色</li>
+              <li>不要用全圆角</li>
+              <li>不要用重阴影</li>
+              <li>不要用渐变</li>
+              <li>不要在 hover 时位移元素</li>
+              <li>不要用 600 以上的字重</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>黑白摄影与建筑摄影：必须有明确的形状与光影结构，不能靠颜色成立。允许灰度图注。不使用彩色图像、插画与图标装饰。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="monochrome">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的灰度阶梯、字重规则与 1px 结构。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，五档灰、字重 ≤500 与「hover 只改颜色」必须原样保留；任何色相或 600+ 字重一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

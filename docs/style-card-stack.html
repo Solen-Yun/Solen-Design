@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卡片堆叠布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cstack">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 15 · 层叠版面</p>
+        <h1>卡片堆叠布局 <span class="style-card-en">CARD STACK</span></h1>
+        <p class="page-lead">三张卡片前后错开叠在一起，用 Z 轴而不是排布说明顺序。</p>
+        <div class="style-card-tags"><span>Z 轴层级</span><span>12px 偏移</span><span>缩放分层</span><span>位置指示器</span><span>400ms 缓出</span></div>
+      </header>
+
+      <section class="cstack-intro">
+        <p>卡片堆叠是一个 3D 排布策略：一张主卡在最前，后面两张各向上偏移 12px 与 24px、缩小到 0.96 与 0.92、并降低不透明度。它把「顺序」变成空间关系而不是列表。</p>
+        <p>视觉上必须克制——卡片本身只是白底、16px 圆角、一级阴影，所有表现力都放在层级变换上：切换时前后卡片沿着 Z 轴重新排列，用 400ms 的缓出完成。卡片之间的偏移不能超过 24px，否则会读成散落的纸片而不是一副牌。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>左右两个圆形按钮切换卡片，下面的指示器告诉你现在看到第几张。切换时只过渡 transform 与 opacity，卡片本身不换颜色——所有层级感都来自那三步变换。</p>
+        <div class="cstack-stage">
+          <button type="button" class="cstack-nav" data-stack="prev" aria-label="上一张">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div class="cstack-deck" data-deck>
+            <article class="cstack-card" data-card>
+              <p class="cstack-tag">主卡</p>
+              <h3 class="cstack-card-title">主卡在此</h3>
+              <p class="cstack-card-body">完全不透明、不偏移、不缩小。它是唯一能承载动作的一层，放最重要的内容。</p>
+              <p class="cstack-card-meta">偏移 0 · 缩放 1.00 · 不透明度 100%</p>
+            </article>
+            <article class="cstack-card" data-card>
+              <p class="cstack-tag">第二层</p>
+              <h3 class="cstack-card-title">后置卡片</h3>
+              <p class="cstack-card-body">向上偏移 12px、缩到 0.96、不透明度降到 70%。只留一个轮廓，不参与阅读。</p>
+              <p class="cstack-card-meta">偏移 12px · 缩放 0.96 · 不透明度 70%</p>
+            </article>
+            <article class="cstack-card" data-card>
+              <p class="cstack-tag">第三层</p>
+              <h3 class="cstack-card-title">底层卡片</h3>
+              <p class="cstack-card-body">再向上偏移 12px、缩到 0.92、不透明度 40%。它只负责告诉用户「后面还有」。</p>
+              <p class="cstack-card-meta">偏移 24px · 缩放 0.92 · 不透明度 40%</p>
+            </article>
+          </div>
+          <button type="button" class="cstack-nav" data-stack="next" aria-label="下一张">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="cstack-dots" data-dots role="group" aria-label="卡片位置">
+          <button type="button" class="cstack-dot" data-stack="0" aria-label="第 1 张"></button>
+          <button type="button" class="cstack-dot" data-stack="1" aria-label="第 2 张"></button>
+          <button type="button" class="cstack-dot" data-stack="2" aria-label="第 3 张"></button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><span class="palette-name">Midnight</span><code>#1a1a2e</code></li>
+          <li><span class="swatch-chip" style="background:#f0f0f5"></span><span class="palette-name">Fog</span><code>#f0f0f5</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#6c5ce7"></span><span class="palette-name">Indigo</span><code>#6c5ce7</code></li>
+          <li><span class="swatch-chip" style="background:#00cec9"></span><span class="palette-name">Cyan</span><code>#00cec9</code></li>
+          <li><span class="swatch-chip" style="background:#fd79a8"></span><span class="palette-name">Pink</span><code>#fd79a8</code></li>
+          <li><span class="swatch-chip" style="background:#ffeaa7"></span><span class="palette-name">Butter</span><code>#ffeaa7</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>所有卡片同色，层级只靠变换区分——这是这套布局最重要的纪律。午夜蓝是标题与主按钮，也是后置卡片阴影的基准；雾灰是页面底色，带一点蓝的浅灰让白卡片的边缘清晰；靛蓝只做主强调与指示器激活态，用来告诉用户当前看到第几张。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><div><strong>Midnight</strong><span class="swatch-role">标题、主按钮与深色卡片。堆叠需要一支足够深的颜色来区分主卡。</span></div><code>#1a1a2e</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#f0f0f5"></span><div><strong>Fog</strong><span class="swatch-role">页面底色。带一点蓝的浅灰，让白卡片的边缘清晰。</span></div><code>#f0f0f5</code><code>--color-fog</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">主卡与后置卡片的填充。所有卡片同色，只靠变换区分层级。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#6c5ce7"></span><div><strong>Indigo</strong><span class="swatch-role">主强调与指示器激活态，用于告诉用户当前看到第几张。</span></div><code>#6c5ce7</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#00cec9"></span><div><strong>Cyan</strong><span class="swatch-role">成功与「已完成」步骤，用于进度语义。</span></div><code>#00cec9</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#fd79a8"></span><div><strong>Pink</strong><span class="swatch-role">情感化强调，用于收藏与推荐。</span></div><code>#fd79a8</code><code>--color-pink</code></li>
+          <li><span class="swatch-chip" style="background:#ffeaa7"></span><div><strong>Butter</strong><span class="swatch-role">高亮与「新」标记，只在小面积出现。</span></div><code>#ffeaa7</code><code>--color-butter</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Fog <code>#f0f0f5</code>，1 Card White <code>#ffffff</code>。阴影两级：主卡 <code>0 18px 40px rgba(26,26,46,0.12)</code>、后置卡 <code>0 8px 20px rgba(26,26,46,0.08)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，字级克制以免抢走堆叠的注意力：卡片标题 600、正文 400。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cstack-specimen-title">卡片堆叠布局，Card Stack</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.02em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>36px</td><td>1.15</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>28px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>600</td><td>20px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。页面上限 960px、容器内边距 24px，区块间距 96px。堆叠区居中，卡片最大宽度 640px，左右各留 40px 给切换按钮，上下预留 48px 给后置层。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>16px</td></tr>
+            <tr><td>按钮圆角</td><td>12px（切换按钮为圆形）</td></tr>
+            <tr><td>指示器圆角</td><td>999px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>页面网格上限</td><td>960px</td></tr>
+            <tr><td>堆叠区卡片宽度</td><td>640px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Stack Card</h3>
+            <p class="style-body-comp-role">堆叠中的任意一张卡片。白底、16px 圆角、无描边、内边距 32px。前置卡片阴影 0 18px 40px 午夜 12%；后置卡片每层上移 12px、缩放 0.96、不透明度降到 70%，第二层再上移 12px、缩放 0.92、不透明度 40%。切换时用 transform 过渡，400ms cubic-bezier(0.22, 1, 0.36, 1)。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Deck Controls</h3>
+            <p class="style-body-comp-role">切换按钮。圆形按钮 40px、白底、1px #e4e4ec 描边、无阴影，箭头图标 16px。hover 时描边转午夜并加 0 4px 12px 8% 阴影；按下缩放 0.94。左右两个按钮分列卡片两侧，垂直居中。上面布局实演里的左右两枚就是它。</p>
+            <p class="cstack-action-row">
+              <button type="button" class="cstack-nav cstack-nav--demo" aria-label="切换按钮示例">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+              </button>
+            </p>
+          </div>
+          <div class="comp-item">
+            <h3>Step Indicator</h3>
+            <p class="style-body-comp-role">当前进度指示。一排 8px 圆点，间距 8px。当前项填充靛并拉长成 24px 的胶囊，其余为 30% 午夜圆点。切换时宽度与颜色一起过渡，300ms ease-out。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stack Container</h3>
+            <p class="style-body-comp-role">堆叠容器。最大宽度 640px，高度固定为卡片最高内容的高度加 48px（为后置层留出空间）。用 transform 与 z-index 实现层级，禁止用绝对定位偏移来模拟。容器需支持触摸左右滑动，滑动阈值 80px；移动端取消重叠，改单卡滑动。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>偏移不超过 24px，缩放不低于 0.92</li>
+              <li>所有卡片同色，只靠变换分层</li>
+              <li>切换时沿 Z 轴重排，400ms 缓出</li>
+              <li>用指示器告诉用户位置</li>
+              <li>移动端取消重叠，改单卡滑动</li>
+              <li>容器为后置层预留 48px 空间</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让偏移超过 24px</li>
+              <li>不要给后置卡片换颜色</li>
+              <li>不要用绝对定位模拟层级</li>
+              <li>不要在卡片里放第二个堆叠</li>
+              <li>不要用超过 500ms 的切换</li>
+              <li>不要在移动端保留重叠</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>卡片内以插图与产品截图为主，每张卡片最多一张图且宽度铺满内容区。不使用全幅摄影与背景纹理，堆叠本身已经足够有存在感。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="card-stack">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的层级变换、位移上限、圆角与阴影，以及组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，偏移 24px 与缩放 0.92 的下限必须原样保留；切换动画只用 transform 与 opacity，400ms cubic-bezier(0.22, 1, 0.36, 1)。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+<script type="module">
+  // 卡片堆叠：切换时沿 Z 轴重排，只过渡 transform 与 opacity。
+  // 每张卡用 --layer 表示自己在第几层，位移与缩放由 CSS 按层号算出。
+  const deck = document.querySelector('[data-deck]');
+  if (deck) {
+    const cards = [...deck.querySelectorAll('[data-card]')];
+    const dots = [...document.querySelectorAll('[data-dots] .cstack-dot')];
+    let index = 0;
+
+    const paint = () => {
+      cards.forEach((card, i) => {
+        const layer = (i - index + cards.length) % cards.length;
+        card.style.setProperty('--layer', layer);
+        card.dataset.layer = layer;
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-on', i === index);
+        dot.setAttribute('aria-pressed', String(i === index));
+      });
+    };
+
+    const step = (delta) => {
+      index = (index + delta + cards.length) % cards.length;
+      paint();
+    };
+
+    for (const btn of document.querySelectorAll('[data-stack]')) {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.stack;
+        if (value === 'prev') step(-1);
+        else if (value === 'next') step(1);
+        else index = Number(value);
+        paint();
+      });
+    }
+
+    paint();
+  }
+</script>
+</body>
+</html>

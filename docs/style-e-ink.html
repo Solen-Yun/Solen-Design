@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电子纸 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body eink">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 133 · 浅色版面</p>
+        <h1>电子纸 <span class="style-card-en">E-INK</span></h1>
+        <p class="page-lead">暖纸白承载墨色信息，灰阶和点阵只在需要分组的地方出现。</p>
+        <div class="style-card-tags"><span>暖纸底 + 墨色字</span><span>数字列对齐</span><span>细规则分组</span><span>状态配文字与形状</span></div>
+      </header>
+
+      <section class="eink-hero">
+        <div class="eink-toolbar">
+          <label class="eink-field-label" for="eink-search">筛选</label>
+          <input class="eink-field" id="eink-search" type="search" placeholder="按名称或状态筛选">
+          <button type="button" class="eink-action">刷新</button>
+        </div>
+        <ul class="eink-rows">
+          <li class="eink-row eink-row--selected">
+            <span class="eink-index">01</span>
+            <span class="eink-row-main">
+              <span class="eink-row-title">北站候车厅</span>
+              <span class="eink-row-desc">示例数据：客流、设备在线状态与最近更新时间。</span>
+            </span>
+            <span class="eink-status eink-status--on">● 在线</span>
+            <span class="eink-value">1,284<small>人</small></span>
+            <span class="eink-time">08:42</span>
+          </li>
+          <li class="eink-row">
+            <span class="eink-index">02</span>
+            <span class="eink-row-main">
+              <span class="eink-row-title">西侧停车场</span>
+              <span class="eink-row-desc">示例数据：车位占用与收费状态。</span>
+            </span>
+            <span class="eink-status eink-status--off">○ 离线</span>
+            <span class="eink-value">312<small>位</small></span>
+            <span class="eink-time">08:41</span>
+          </li>
+          <li class="eink-row">
+            <span class="eink-index">03</span>
+            <span class="eink-row-main">
+              <span class="eink-row-title">南广场</span>
+              <span class="eink-row-desc">示例数据：环境读数，数值仅为占位。</span>
+            </span>
+            <span class="eink-status eink-status--on">● 在线</span>
+            <span class="eink-value">21.4<small>°C</small></span>
+            <span class="eink-time">08:40</span>
+          </li>
+        </ul>
+        <div class="eink-chart">
+          <div class="eink-chart-grid">
+            <span class="eink-bar" style="height:44%"></span>
+            <span class="eink-bar" style="height:62%"></span>
+            <span class="eink-bar" style="height:38%"></span>
+            <span class="eink-bar" style="height:80%"></span>
+            <span class="eink-bar" style="height:56%"></span>
+            <span class="eink-bar" style="height:70%"></span>
+          </div>
+          <p class="eink-legend">图 1：示例数据，未接入真实设备。</p>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#20211e"></span><span class="palette-name">Ink</span><code>#20211e</code></li>
+          <li><span class="swatch-chip" style="background:#f5f3ea"></span><span class="palette-name">Warm Paper</span><code>#f5f3ea</code></li>
+          <li><span class="swatch-chip" style="background:#555750"></span><span class="palette-name">Graphite</span><code>#555750</code></li>
+          <li><span class="swatch-chip" style="background:#bab9b0"></span><span class="palette-name">Rule Gray</span><code>#bab9b0</code></li>
+          <li><span class="swatch-chip" style="background:#e6e4da"></span><span class="palette-name">Reading Surface</span><code>#e6e4da</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>暖纸白是页面底与输入框填充，它不是泛黄滤镜——所有正文都要在这里保持清楚。墨色承担正文、标题、主要操作与焦点轮廓。石墨做次级正文、图表线与元数据，但仍须有足够对比度。规则灰只做卡片边框、分隔线与非关键网格，绝不用它写正文。阅读面是列表分组与表格行的底。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#20211e"></span><div><strong>Ink</strong><span class="swatch-role">正文、标题、主要操作和焦点轮廓。</span></div><code>#20211e</code><code>--e-ink-text</code></li>
+          <li><span class="swatch-chip" style="background:#f5f3ea"></span><div><strong>Warm Paper</strong><span class="swatch-role">页面底色和输入框填充。</span></div><code>#f5f3ea</code><code>--e-ink-paper</code></li>
+          <li><span class="swatch-chip" style="background:#555750"></span><div><strong>Graphite</strong><span class="swatch-role">次级正文、图表线、元数据和简短标签。</span></div><code>#555750</code><code>--e-ink-muted</code></li>
+          <li><span class="swatch-chip" style="background:#bab9b0"></span><div><strong>Rule Gray</strong><span class="swatch-role">卡片边框、分隔线和非关键网格。</span></div><code>#bab9b0</code><code>--e-ink-rule</code></li>
+          <li><span class="swatch-chip" style="background:#e6e4da"></span><div><strong>Reading Surface</strong><span class="swatch-role">列表分组、表格行或选中的阅读卡片。</span></div><code>#e6e4da</code><code>--e-ink-panel</code></li>
+        </ul>
+        <p class="style-body-note">不做浮起：<code>none; use a single divider or offset hatch.</code> 选中态用 <code>2px ink outline</code> 配文字标记，不用阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>正文用系统里已有的无衬线，保持常规字重，标题最多到 700，不引入专有屏幕字体。日期、时间、数值、单位与简短状态用等宽，因为这些字段需要对齐。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="eink-specimen-title">读屏数据</p>
+            <p class="specimen-meta">Sans — 标题。替代栈：Inter, system-ui, sans-serif · 500–600 · 行高 1.2 · 字距 -0.02em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="eink-specimen-mono">1,284 人 · 08:42</p>
+            <p class="specimen-meta">Mono — 数值与时间。替代栈：ui-monospace, SFMono-Regular, Consolas, monospace · 600 · 字距 0</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Sans</td><td>600</td><td>36px</td><td>1.2</td><td>-0.02em</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Sans</td><td>600</td><td>28px</td><td>1.3</td><td>-0.01em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Sans</td><td>500</td><td>20px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></tr>
+            <tr><td>body</td><td>Sans</td><td>400</td><td>16px</td><td>1.55</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>body-compact</td><td>Sans</td><td>400</td><td>13px</td><td>1.5</td><td>—</td><td><code>--text-body-compact</code></tr>
+            <tr><td>data</td><td>Mono</td><td>600</td><td>16px</td><td>1.35</td><td>0</td><td><code>--text-data</code></tr>
+            <tr><td>label</td><td>Sans</td><td>600</td><td>12px</td><td>1.4</td><td>0.06em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。页面内容上限 1120px，区块间距 40px，卡内边距 20px，元素间距 8px。读屏数据面板按 800×480 比例组织，窄屏切为单列并保持明确的阅读顺序。表格在窄屏用卡片或滚动策略，而不是挤压正文。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:20px"></span><code>20</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>页面</td><td>上限 1120px</td></tr>
+            <tr><td>区块间距</td><td>40px</td></tr>
+            <tr><td>卡内边距</td><td>20px</td></tr>
+            <tr><td>控件高度</td><td>不小于 44px</td></tr>
+            <tr><td>分隔</td><td>1px 细规则，不用阴影</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Ink Action</h3>
+            <p class="style-body-comp-role">页面的单一主要行动。纸底上的墨色填充，零圆角，12–16px 内边距。标签用 14px/600；键盘焦点用 2px 墨色轮廓并与边缘保留 2px 间隔。不要加入图标当作唯一提示。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Reading Row</h3>
+            <p class="style-body-comp-role">书目、列表和摘要项。每行用一条 1px 细线分隔，序号与数字用等宽字体；次级描述换行，不缩到 12px 以下。选中行同时显示「当前」标签和左侧墨色条。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Paper Field</h3>
+            <p class="style-body-comp-role">搜索、筛选和短文本输入。暖纸填充、1px 中性边框、最小高度 44px；占位文字仍用可读灰度，不能把提示做成近乎消失的浅灰。提供可见 label 和 2px 键盘焦点轮廓。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Halftone Mark</h3>
+            <p class="style-body-comp-role">示例背景纹理或有限灰阶图表填充。只把小点阵用于装饰性图块或图表区域，点距至少 5px；文字与可交互元素保持纯色，避免灰点破坏字符边缘。需要深浅层次时，应同时保留标注和图例。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Status Marker</h3>
+            <p class="style-body-comp-role">进度、在线状态与提醒。灰阶色块与实心/空心几何标记配合，旁边有「完成」「离线」等文字。圆点不是唯一状态载体，错误或警告不借用未定义的颜色。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>先写屏幕目的，再选最少的卡片与状态</li>
+              <li>数字列、单位和日期保持对齐</li>
+              <li>每个状态同时给出形状或文字</li>
+              <li>用细规则和局部点阵分组</li>
+              <li>交互控件保留 44px 触控高度与焦点</li>
+              <li>窄屏按阅读顺序合并列</li>
+              <li>示例数据明确标注来源或示例状态</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要把演示内容说成实时硬件数据</li>
+              <li>不要把重要文字放进点阵或低对比灰</li>
+              <li>不要只用灰阶深浅表示状态</li>
+              <li>不要使用发光、玻璃模糊与连续闪烁</li>
+              <li>不要假定 1-bit 量化或屏幕刷新已完成</li>
+              <li>不要引入未确认许可的像素字体或品牌图</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>优先使用留白、可读数据表与少量线性图形。点阵只用于局部图表，不复制他人品牌标识、字体、设备外壳或宣传图像。需要预览真实图像时，先确认许可并保留原始来源。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="e-ink">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的灰阶分层、数字对齐与状态表达规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，暖纸底、等宽数字与 1px 规则必须原样保留；用阴影分区或只靠灰度表示状态即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>固定侧边栏布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body sfixed">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 16 · 常驻版面</p>
+        <h1>固定侧边栏布局 <span class="style-card-en">FIXED SIDEBAR</span></h1>
+        <p class="page-lead">一条 240px 的常驻侧边栏，主区只负责滚动内容。</p>
+        <div class="style-card-tags"><span>240px 常驻栏</span><span>56px 工具栏</span><span>12px 圆角</span><span>1px 描边</span><span>150ms 过渡</span></div>
+      </header>
+
+      <section class="sfixed-intro">
+        <p>固定侧边栏是一种结构风格而非视觉风格：导航常驻左侧 240px（收起时 64px），主内容区独立滚动，顶栏只放搜索与账号。</p>
+        <p>视觉上它几乎是中性的——白卡、浅描边、一级阴影、8 到 12px 圆角，全部为结构与可扫描性让路。选中项用主色 10% 底配主色文字，hover 只加深到 6%，150ms 内完成。密度是关键：侧边栏项目高 40px、主区卡片内边距 24px。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>左边是常驻侧栏，右边是内容区，两边各自滚动。点工具栏最左边的按钮可以把侧栏收成 64px 的图标条——选中态、文字、图标位置都不变，只是宽度变了。</p>
+        <div class="sfixed-stage-bar" role="group" aria-label="预览视口宽度">
+          <button type="button" data-stage="desktop" aria-pressed="true">桌面 · 240px 栏</button>
+          <button type="button" data-stage="tablet" aria-pressed="false">平板 · 64px 栏</button>
+          <button type="button" data-stage="mobile" aria-pressed="false">手机 · 抽屉</button>
+        </div>
+        <div class="sfixed-stage" data-stage-view="desktop">
+          <div class="sfixed-shell" data-shell>
+            <aside class="sfixed-rail" aria-label="示例侧边栏">
+              <div class="sfixed-rail-brand">
+                <span class="sfixed-rail-dot" aria-hidden="true"></span>
+                <span class="sfixed-rail-brand-text">工作台</span>
+              </div>
+              <nav class="sfixed-rail-group">
+                <a class="sfixed-rail-item is-on" href="#sfixed" aria-current="page">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                  <span>总览</span>
+                </a>
+                <a class="sfixed-rail-item" href="#sfixed">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 3-4 3 3 4-6"/></svg>
+                  <span>数据</span>
+                </a>
+                <a class="sfixed-rail-item" href="#sfixed">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                  <span>订单</span>
+                </a>
+                <a class="sfixed-rail-item" href="#sfixed">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+                  <span>客户</span>
+                </a>
+              </nav>
+              <div class="sfixed-rail-group">
+                <p class="sfixed-rail-label">设置</p>
+                <a class="sfixed-rail-item" href="#sfixed">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+                  <span>偏好</span>
+                </a>
+              </div>
+            </aside>
+            <div class="sfixed-main">
+              <div class="sfixed-toolbar">
+                <button type="button" class="sfixed-toggle" data-rail-toggle aria-label="收起或展开侧边栏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+                </button>
+                <p class="sfixed-crumb">工作台 / 总览</p>
+                <label class="sfixed-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                  <input type="search" placeholder="搜索订单、客户或内容" aria-label="搜索" />
+                </label>
+                <span class="sfixed-toolbar-actions">
+                  <button type="button" class="sfixed-icon-btn" aria-label="通知">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7"/><path d="M10.5 20a2 2 0 0 0 3 0"/></svg>
+                    <span class="sfixed-badge">3</span>
+                  </button>
+                  <span class="sfixed-avatar" aria-hidden="true">云</span>
+                </span>
+              </div>
+              <div class="sfixed-content">
+                <div class="sfixed-card">
+                  <p class="sfixed-card-kicker">本周</p>
+                  <h3 class="sfixed-card-title">活跃客户</h3>
+                  <p class="sfixed-card-body">白卡浮在纸灰底上，靠 1px 描边与一级阴影浮起，不靠颜色。</p>
+                  <p class="sfixed-card-stat">1,284</p>
+                  <p class="sfixed-card-foot"><span class="sfixed-dot sfixed-dot--green" aria-hidden="true"></span>在线 96%</p>
+                </div>
+                <div class="sfixed-card">
+                  <p class="sfixed-card-kicker">待处理</p>
+                  <h3 class="sfixed-card-title">未读消息</h3>
+                  <p class="sfixed-card-body">hover 时上浮 2px、阴影升到 0 8px 20px，过渡 150ms。</p>
+                  <p class="sfixed-card-stat">17</p>
+                  <p class="sfixed-card-foot"><span class="sfixed-dot sfixed-dot--red" aria-hidden="true"></span>3 条超期</p>
+                </div>
+                <div class="sfixed-card">
+                  <p class="sfixed-card-kicker">本周</p>
+                  <h3 class="sfixed-card-title">新订单</h3>
+                  <p class="sfixed-card-body">卡片内边距 24px，标题 20px/600，正文 14px 灰。</p>
+                  <p class="sfixed-card-stat">246</p>
+                  <p class="sfixed-card-foot"><span class="sfixed-dot sfixed-dot--green" aria-hidden="true"></span>正常</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1e293b"></span><span class="palette-name">Slate Ink</span><code>#1e293b</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><span class="palette-name">Paper Grey</span><code>#f8fafc</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><span class="palette-name">Primary Blue</span><code>#3b82f6</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><span class="palette-name">Status Green</span><code>#10b981</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><span class="palette-name">Alert Red</span><code>#ef4444</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>整套界面几乎没有颜色：石墨蓝是侧栏底色，纸灰是内容区底色，白是唯一的高光面。主蓝只做选中项、链接与焦点环，绝不做大面积填充；绿与红只在计数与图标上出现，各占几个像素。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1e293b"></span><div><strong>Slate Ink</strong><span class="swatch-role">侧边栏底色、标题与主按钮。深而不黑，避免长时间使用疲劳。</span></div><code>#1e293b</code><code>--color-slate-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><div><strong>Paper Grey</strong><span class="swatch-role">主内容区底色。白卡浮在它上面。</span></div><code>#f8fafc</code><code>--color-paper-grey</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">卡片、面板与浮层。全站唯一的高光面。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><div><strong>Primary Blue</strong><span class="swatch-role">选中项、链接与焦点环。不做大面积填充。</span></div><code>#3b82f6</code><code>--color-primary-blue</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><div><strong>Status Green</strong><span class="swatch-role">在线与成功状态，小面积圆点或徽标。</span></div><code>#10b981</code><code>--color-status-green</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><div><strong>Alert Red</strong><span class="swatch-role">错误与未读数，只用于计数与图标。</span></div><code>#ef4444</code><code>--color-alert-red</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Sidebar Ink <code>#1e293b</code>，1 Paper Grey <code>#f8fafc</code>，2 Card White <code>#ffffff</code>。阴影两级：卡片 <code>0 1px 2px rgba(15,23,42,0.06)</code>、hover <code>0 8px 20px rgba(15,23,42,0.08)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，字级偏小（13 到 14px 为主），这是应用密度而非网页密度。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="sfixed-specimen-title">固定侧边栏布局，Fixed Sidebar</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–600 · 字距 -0.01em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>28px</td><td>1.2</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>20px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>500</td><td>16px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。左侧 240px 固定栏加右侧自适应内容区，顶栏 56px 固定在内容区顶部。内容区最大宽度 1200px、内边距 24px，卡片间距 16px。断点 1024px 以下侧边栏收起为 64px，768px 以下改为抽屉。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>12px</td></tr>
+            <tr><td>按钮与输入框圆角</td><td>8px</td></tr>
+            <tr><td>导航项圆角</td><td>8px</td></tr>
+            <tr><td>侧边栏宽度</td><td>240px（收起 64px）</td></tr>
+            <tr><td>导航项高度</td><td>40px</td></tr>
+            <tr><td>工具栏高度</td><td>56px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>内容区最大宽度</td><td>1200px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Sidebar Rail</h3>
+            <p class="style-body-comp-role">常驻侧边导航。宽 240px（收起 64px）、石墨蓝填充、白字 70%、固定不随内容滚动。项目高 40px、8px 圆角、水平内边距 12px、图标 18px、图标与文字间距 10px。选中项用白 10% 底配纯白文字，hover 用白 6% 底，过渡 150ms。分区之间留 24px 并加一条 1px 白 8% 分隔线。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Content Card</h3>
+            <p class="style-body-comp-role">主区内容卡与列表容器。白底、12px 圆角、1px #e4e4e7 描边、内边距 24px、阴影 0 1px 2px。标题 20px/600，正文 14px 灰。hover 上浮 2px、阴影升到 0 8px 20px，过渡 150ms。上面布局实演里的三张卡都是它。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Search Field</h3>
+            <p class="style-body-comp-role">顶栏搜索。纸灰底、1px #e4e4e7 描边、8px 圆角、高 36px、左内边距 36px 放 16px 图标、13px 字。聚焦时描边转主蓝并加 2px 主蓝 20% 外环。</p>
+            <label class="sfixed-search sfixed-search--demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+              <input type="search" placeholder="搜索订单、客户或内容" aria-label="搜索示例" />
+            </label>
+          </div>
+          <div class="comp-item">
+            <h3>Toolbar</h3>
+            <p class="style-body-comp-role">顶栏。高 56px、白底、底部 1px #e4e4e7 描边、无阴影。左侧面包屑 13px，中间搜索框最大 360px，右侧图标按钮 32px 见方、8px 圆角。顶栏只放搜索、面包屑与账号，不堆超过三个动作。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>侧边栏固定，内容区独立滚动</li>
+              <li>侧边栏项目 40px 高，保持应用密度</li>
+              <li>选中态用主色 10% 底而不是实色</li>
+              <li>卡片用 1px 描边加一级阴影</li>
+              <li>顶栏只放搜索、面包屑与账号</li>
+              <li>过渡 150ms，快而不突兀</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让侧边栏跟随内容滚动</li>
+              <li>不要把主内容塞进侧边栏</li>
+              <li>不要用超过 12px 的卡片圆角</li>
+              <li>不要在顶栏堆超过三个动作</li>
+              <li>不要用大面积主色填充</li>
+              <li>不要在侧边栏用两套以上图标风格</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以界面截图、头像与图标为主，几乎不出现摄影。侧边栏允许 18px 线性图标，主区允许产品截图。不使用装饰性插画与大图，它们会挤掉结构感。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="sidebar-fixed">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的栏宽、密度、圆角与阴影，以及组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，240px 常驻栏与 56px 工具栏必须原样保留；卡片圆角不超过 12px，所有过渡 150ms。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+<script type="module">
+  // 固定侧边栏：常驻栏 240px 与收起态 64px 之间切换，文字淡出只做一次。
+  const shell = document.querySelector('[data-shell]');
+  if (shell) {
+    const toggle = document.querySelector('[data-rail-toggle]');
+    toggle?.addEventListener('click', () => {
+      shell.classList.toggle('is-collapsed');
+    });
+  }
+</script>
+</body>
+</html>

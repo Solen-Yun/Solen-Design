@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>玻璃拟态 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body glass">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 10 · 深色版面</p>
+        <h1>玻璃拟态 <span class="style-card-en">GLASSMORPHISM</span></h1>
+        <p class="page-lead">夜色里的光学：玻璃没有自己的颜色，它只借用、弯曲、柔化背后的光。</p>
+        <div class="style-card-tags"><span>夜景光斑</span><span>8% 玻璃填充</span><span>40px 模糊</span><span>三层阴影</span><span>香槟金唯一强调</span></div>
+      </header>
+
+      <section class="glass-hero">
+        <div class="glass-hero-copy">
+          <p>玻璃拟态的本质是光学，不是配色。真实玻璃是无色的，它从内容层取色、保持自身中性。整套系统由三件事构成：深墨夜景底加两到三个大半径柔光斑，玻璃必须有东西可模糊；面板本身只用 5% 到 12% 的白，配 40px 到 60px 的 backdrop-blur 与 180% 的 backdrop-saturate；光必须有方向——顶边 1px 白色内高光、底边 1px 深色内暗缘、外层深阴影，三层同时存在才有厚度。</p>
+          <p>唯一允许的颜色是香槟金，只给主 CTA 与关键数字。右边这张玻璃面板可以悬停：填充从 8% 升到 14%，描边提亮，阴影升档，面板上浮 2px——玻璃的每一个状态都走 500ms 的慢过渡。</p>
+        </div>
+        <div class="glass-demo">
+          <div class="glass-panel-demo">
+            <span class="glass-label">FEATURED</span>
+            <p class="glass-demo-title">浮在夜色上。</p>
+            <p class="glass-demo-body">模糊、描边、填充，三层缺一不可。</p>
+            <button type="button" class="champagne-btn">GET STARTED</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#060a13"></span><span class="palette-name">Night Deep</span><code>#060a13</code></li>
+          <li><span class="swatch-chip" style="background:#0b1322"></span><span class="palette-name">Night</span><code>#0b1322</code></li>
+          <li><span class="swatch-chip" style="background:#16233a"></span><span class="palette-name">Night Steel</span><code>#16233a</code></li>
+          <li><span class="swatch-chip" style="background:#33517a"></span><span class="palette-name">Moon Steel</span><code>#33517a</code></li>
+          <li><span class="swatch-chip" style="background:#7c9cc4"></span><span class="palette-name">Moonlight</span><code>#7c9cc4</code></li>
+          <li><span class="swatch-chip" style="background:#e4b863"></span><span class="palette-name">Champagne</span><code>#e4b863</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>整页只有夜的明度阶梯和一支香槟金。Night 承载页面，Night Steel 在玻璃下层再分一层；Moon Steel 是夜景里的结构线，Moonlight 负责发亮但不抢主 CTA；香槟金全站唯一，只给主 CTA、关键数字与最重要的一条链接。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#060a13"></span><div><strong>Night Deep</strong><span class="swatch-role">最深一层底，用于全屏背景与最底层区块。玻璃浮在它上面才有对比。</span></div><code>#060a13</code><code>--color-night-deep</code></li>
+          <li><span class="swatch-chip" style="background:#0b1322"></span><div><strong>Night</strong><span class="swatch-role">默认页面底色。比深夜底亮一档，用来区分相邻区块而不引入第二条色带。</span></div><code>#0b1322</code><code>--color-night</code></li>
+          <li><span class="swatch-chip" style="background:#16233a"></span><div><strong>Night Steel</strong><span class="swatch-role">次级面板与输入框底。用于需要在玻璃下层再分一层的地方。</span></div><code>#16233a</code><code>--color-night-steel</code></li>
+          <li><span class="swatch-chip" style="background:#33517a"></span><div><strong>Moon Steel</strong><span class="swatch-role">次级文字、图表对比与分隔线。是夜景里最接近「结构线」的颜色。</span></div><code>#33517a</code><code>--color-moon-steel</code></li>
+          <li><span class="swatch-chip" style="background:#7c9cc4"></span><div><strong>Moonlight</strong><span class="swatch-role">高光文字、图标与数据点。用于需要发亮但不抢主 CTA 的位置。</span></div><code>#7c9cc4</code><code>--color-moonlight</code></li>
+          <li><span class="swatch-chip" style="background:#e4b863"></span><div><strong>Champagne</strong><span class="swatch-role">全站唯一强调色。只给主 CTA、关键数字与最重要的一条链接。</span></div><code>#e4b863</code><code>--color-champagne</code></li>
+          <li><span class="swatch-chip glass-fill-chip" style="background:rgba(255,255,255,0.08)"></span><div><strong>Glass Fill</strong><span class="swatch-role">面板填充。始终半透明，绝不超过 15%，否则退化成实心色块。</span></div><code>rgba(255,255,255,0.08)</code><code>--color-glass-fill</code></li>
+        </ul>
+        <p class="style-body-note">玻璃阴影必须三层同时存在：外层 <code>0 16px 40px rgba(3,7,18,0.5)</code>、顶边内高光 <code>inset 0 1px 0 rgba(255,255,255,0.22)</code>、底边内暗缘 <code>inset 0 -1px 0 rgba(2,6,16,0.35)</code>；hover 时升到 64px 档。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，层级靠字重（400/500/600）与字号，不靠第二套字体。大标题 600 字重配 -0.02em 字距，大写标签一律 0.14em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="glass-specimen-title">玻璃拟态，GLASSMORPHISM</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：SF Pro Display, system-ui, -apple-system, sans-serif · 400 / 500 / 600 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="glass-specimen-label">正文、标签与数据。0123456789</p>
+            <p class="specimen-meta">大写标签 12px / 500 / 0.14em；正文 14–16px / 400 / 行高 1.6，夜色里靠 Moonlight 与白分出层级</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>600</td><td>64px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>40px</td><td>1.15</td><td>-0.01em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>500</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。12 栏、上限 1280px，区块间距 128px，面板内边距 32px，元素间距 16px。内容浮在光斑之上：光斑固定于背景层，滚动时保持视差。一屏内玻璃面板不超过三个，超过就没有「实心」参照物，玻璃感会失效。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>24px</td></tr>
+            <tr><td>面板圆角</td><td>32px</td></tr>
+            <tr><td>按钮圆角</td><td>16px（CTA 用 999px 全圆角）</td></tr>
+            <tr><td>输入框圆角</td><td>14px</td></tr>
+            <tr><td>面板内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Glass Panel</h3>
+            <p class="style-body-comp-role">所有内容容器：卡片、面板、弹层。白色 8% 填充、40px backdrop-blur、180% backdrop-saturate、1px 白色 15% 描边、24px 圆角，阴影三层同时存在。hover 时填充升到 14%、描边到 30%、阴影升到 64px 档、面板上浮 2px，过渡 500ms cubic-bezier(0.16, 1, 0.3, 1)。上方演示卡即此组件。</p>
+            <p class="glass-comp-note">悬停上面那张卡，看填充、描边与阴影一起变。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Champagne CTA</h3>
+            <p class="style-body-comp-role">主行动按钮，全页只允许一个。香槟金填充、深墨文字、999px 全圆角、无描边；16px 字体、500 字重、padding 14px 28px。hover 时填充提到 92% 不透明度、上浮 1px、加一层金色 25% 的光晕。</p>
+            <button type="button" class="champagne-btn">START FREE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Input</h3>
+            <p class="style-body-comp-role">表单输入与搜索框。透明底、1px 白色 15% 描边、14px 圆角、无外阴影；内边距 12px 16px、14px 字体、占位符用月光钢。聚焦时描边升到 40%，并加一圈白色 8% 的外环，不改变尺寸。</p>
+            <label class="glass-field"><span>邮箱</span><input type="text" value="you@night.sky"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Stat Tile</h3>
+            <p class="style-body-comp-role">关键数字与仪表盘指标。玻璃面板的轻量版：白色 5% 填充、24px 模糊、16px 圆角、内边距 24px。上方 12px 全大写标签用月光钢，下方 40px 数字用 600 字重白色；数字本身不允许用香槟金，除非它是页面上唯一的强调。</p>
+            <div class="stat-tile"><span class="stat-label">UPTIME</span><span class="stat-value">99.98%</span></div>
+          </div>
+          <div class="comp-item">
+            <h3>Night Nav</h3>
+            <p class="style-body-comp-role">顶部导航。高 72px，白色 4% 填充、20px 模糊、仅底部 1px 白色 10% 描边；左侧字标 16px 500 字重，中间链接 14px 月光钢、hover 转月光，右侧放一个香槟金 CTA。滚动超过一屏后填充升到 8%。</p>
+            <div class="glass-nav-demo" role="presentation">
+              <span class="glass-nav-brand">NIGHT</span>
+              <span class="glass-nav-links"><span class="on">Overview</span><span>Metrics</span><span>Pricing</span></span>
+              <button type="button" class="champagne-btn champagne-btn--sm">SIGN IN</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>背景必须先有光：深墨底加两到三个大半径柔光斑</li>
+              <li>玻璃面板只用 5% 到 12% 的白，绝不超 15%</li>
+              <li>模糊 40px 起，并始终叠加 180% 饱和度增强</li>
+              <li>阴影必须三层：外层深阴影、顶边白色内高光、底边深色内暗缘</li>
+              <li>唯一强调色香槟金只给主 CTA 与关键数字</li>
+              <li>过渡统一 500ms 与 cubic-bezier(0.16, 1, 0.3, 1)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用紫粉 AI 渐变背景（#667eea、#764ba2、#f093fb 一类）</li>
+              <li>不要在纯色平面背景上用玻璃，没有可模糊的东西</li>
+              <li>不要给玻璃面板本身上色，颜色属于背景</li>
+              <li>不要用低于 40px 的模糊，也不要省略 backdrop-saturate</li>
+              <li>不要用不透明填充或直角，圆角 16px 起</li>
+              <li>不要用 100ms 到 150ms 的快过渡，玻璃需要慢</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>必须有光源。用夜景摄影、暗场产品照，或纯 CSS 的两到三个大半径径向光斑。图像低饱和、深色、带明显的高光区域，因为玻璃要靠这些高光才能读出折射。不使用插画、图标墙与纯色平面背景。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="glassmorphism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的玻璃三层结构、光的来源与唯一强调色。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，「先有光再有玻璃」、8% 填充、40px 模糊与三层阴影必须原样保留；香槟金只属于主 CTA 与关键数字。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

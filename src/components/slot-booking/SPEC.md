@@ -1,0 +1,54 @@
+# 预约时段选择 — SlotBooking
+
+制作「预约时段选择」卡片：一张 340×340 的会议预约排程面板。顶部是渐变圆角图标加 30-min product demo 标题与 Video call · dedicated manager 副题；其下一排 Mon–Fri 五枚日期块（Tue 15 呈斜纹的 Fully booked 禁用态）；再往下是所选日期的时段按钮列表，行从下方错峰升起。点击某个时段，按钮左半收缩、右侧同步展开一枚 Confirm 按钮；确认后整卡淡入成功幕——绿色圆圈里描出一枚对勾，下方 You're booked 标题、本次预约的日期时间摘要胶囊，以及 We sent an invite and a calendar event 说明。
+
+## 布局与材质
+
+- 340×340px 场景卡，圆角 30px，溢出裁切。底色表面色，外圈 0 0 0 1px 线色描边加 0 30px 60px -36px 强阴影。场景令牌浅色/深色两套（CSS light-dark，`prefers-color-scheme: dark` 切换）：表面 #FFFFFF/#13141C，次表面 #F5F3EF/#1A1B25，三级表面 #EAE7E1/#252632，墨色 #16151B/#F4F0E8，次级墨 #57535F/rgba(244,240,232,.68)，三级墨 #8E8A97/rgba(244,240,232,.42)，线色 rgba(22,21,27,.09)/rgba(255,255,255,.08)，强调色 #6A57F2/#B7A4FF，装饰渐变 `linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)`（深色 `#B7A4FF→#7DB4FF 55%→#A5F2D3`）。数字统一 tabular-nums。
+- 头部绝对定位 left/right 20px、top 18px，横向排列、间距 10px：左枚 34×34px、圆角 11px 的渐变图标；右侧标题 30-min product demo，14px/字重 900，独占一行；副题 Video call · dedicated manager，10px/字重 700、三级墨色、margin-top 1px。
+- 日期条绝对定位 left/right 14px、top 66px，五等分网格、间距 6px，role="group"、aria-label 为 Date。每枚日期按钮：高 54px、padding-top 7px、圆角 13px、背景次表面、内嵌 1px 线色描边，纵向排列星期缩写、日号、状态点。星期 9.5px/字重 800、三级墨色；日号 16px/字重 900；状态点 4×4px 圆形、#10B981。选中态（aria-pressed="true"）背景换墨色、文字换表面色、描边阴影移除，星期变半透明。禁用日透明度 0.38、cursor not-allowed，背景叠加 `repeating-linear-gradient(135deg,transparent 0 5px,墨色 6% 透明色 5px 6px)` 斜纹，状态点换三级墨色。
+- 时段列表绝对定位 left/right 14px、top 132px、bottom 12px，纵向溢出滚动、滚动条隐藏、内边距 2px，role="group"、aria-label 为 Time。每行高 40px、行距 6px，进入动画 0.4s cubic-bezier(.3,1.3,.5,1)（从 opacity 0、translateY(12px) 起，backwards 填充），逐行延迟 0.05s 递增。行内两个按钮各占 48% 宽、圆角 11px。
+- 时段按钮默认占满整行：背景表面色、文字取强调色、内嵌 1.5px 强调色 45% 透明描边，12.5px/字重 850、tabular-nums；悬停描边加粗为 2px。选中行的时段按钮收缩到 48% 宽：背景换次级墨色、文字换表面色、描边清除；flex-basis 过渡 0.4s cubic-bezier(.3,1.2,.5,1)。Confirm 按钮默认 0 宽、opacity 0、overflow 裁切，选中行展开到 48% 宽、opacity 1（过渡 0.4s 同曲线、透明度 0.25s）；背景强调色、白字 12.5px/字重 850。
+- 成功幕绝对铺满整卡：纵向居中、水平居中、左右内边距 24px、背景表面色、文字居中，默认 opacity 0 且不接事件，进入时 0.35s 淡入。图形为 62×62px 的 SVG：圆 r=29 填 #10B981 的 14% 透明色，对勾 path 描边 #10B981、宽 3.5、圆角端点、dasharray 30。标题 You're booked，17px/字重 900、margin-top 12px；摘要胶囊 margin 6px 0 0、内边距 8px 14px、圆角 11px、背景次表面、12px/字重 850；说明行 margin-top 10px、10.5px/字重 650、三级墨色。
+
+## 数据
+
+- 日期固定五天：Mon 14、Tue 15、Wed 16、Thu 17、Fri 18（10 月）。
+- 各日可约时段（当日分钟数，转 12 小时制 AM/PM 显示）：Mon 14 → 10:00 AM、11:30 AM、3:00 PM；Tue 15 → 无时段（Fully booked，禁用）；Wed 16 → 9:30 AM、10:30 AM、12:00 PM、2:00 PM、3:00 PM、4:00 PM、5:00 PM；Thu 17 → 11:00 AM、1:00 PM；Fri 18 → 9:00 AM、10:00 AM、2:00 PM、3:30 PM。
+- 禁用日的 aria-label 形如 Tue 15 Fully booked。成功摘要文案格式为 Oct 14 (Mon) · 10:00 AM。
+
+## 操作和动效
+
+- 初始选中 Mon 14 并渲染其时段。点击其他日期：该日按钮 aria-pressed 置真、其余复原，列表整体重建，各行按 0.05s 步进从下方升起；点击当前已选日期不重复渲染。
+- 点时段按钮：所在行加选中态，其他行退出选中态；仅选中行的 Confirm 可聚焦（tabindex 0，其余 -1）；300ms 后（减少动态时立即）把焦点移到该 Confirm 并阻止页面滚动。
+- 点 Confirm：把 Oct + 日号 + (星期) · 时间写入摘要，根节点加成功态，成功幕淡入；绿圈从 scale(0.4) 弹到 1（0.5s cubic-bezier(.3,1.6,.5,1)，延迟 0.1s），对勾以 stroke-dashoffset 30→0 描出（0.4s ease，延迟 0.4s）。成功幕 aria-live="polite"。
+- 无障碍：日期与列表均为 role="group"；日期按钮用 aria-pressed 表选中；禁用日不可聚焦。所有按钮 focus-visible 为 2px 强调色描边、偏移 2px。
+- `prefers-reduced-motion` 下：时段行升起动画取消，行展开、成功幕、圆圈、对勾的过渡全部关闭，直接呈现最终状态；焦点跳转不再等待。
+- options.height 调整场景高度（默认 340），窄容器整景按比例缩小；options.reducedMotion 覆盖系统偏好。支持同页多实例，更新选项不重挂载，卸载时释放计时器、帧回调与监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动算法均以上述文字为准；界面用 DOM 与 CSS、图标用内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SlotBooking。从零创建四个文件：SlotBooking.tsx、SlotBookingEngine.js、motion-runtime.ts、SlotBookingEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的选日、选时、确认与成功状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或「自行补齐核心」的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；选日重置、时段升起、分裂展开、确认成功幕均正确；Fully booked 日禁用；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SlotBooking } from "./SlotBooking";
+
+export default function App() {
+  return <SlotBooking />;
+}
+```

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全息渐变 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body holo">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 86 · 深色版面</p>
+        <h1>全息渐变 <span class="style-card-en">HOLOGRAPHIC</span></h1>
+        <p class="page-lead">彩虹色谱在深空底上随角度流动：像镭射膜在光里翻转。</p>
+        <div class="style-card-tags"><span>三色以上渐变</span><span>Spectrum Shift</span><span>深空底光球</span><span>禁纯色块</span></div>
+      </header>
+
+      <section class="holo-hero">
+        <div class="holo-hero-copy">
+          <p>全息渐变模拟镭射全息膜的棱镜折射：底色是深紫或深海军，所有元素都带三色以上的渐变，而且渐变会随交互横向流动——这是它独有的规则叫 Spectrum Shift，用 background-size: 200% 加 hover 时 background-position 从左侧移到右侧来实现，模拟箔片随视角变色。</p>
+          <p>它禁止纯色元素（没有渐变的实心块在这套语言里等于失去材质）、禁止浅色背景（会直接杀掉全息感）、禁止低饱和色、也禁止没有光晕的锐角。</p>
+        </div>
+        <div class="holo-demo">
+          <span class="holo-orb holo-orb--a" aria-hidden="true"></span>
+          <span class="holo-orb holo-orb--b" aria-hidden="true"></span>
+          <div class="holo-card">
+            <span class="holo-foil" aria-hidden="true"></span>
+            <p class="holo-card-title">棱镜之内</p>
+            <p class="holo-card-text">渐变随视角流动，纯色块在这套语言里等于失去材质。</p>
+            <button type="button" class="holo-btn">REFRACT</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0a0a1f"></span><span class="palette-name">Deep Space</span><code>#0a0a1f</code></li>
+          <li><span class="swatch-chip" style="background:#1a0b2e"></span><span class="palette-name">Deep Violet</span><code>#1a0b2e</code></li>
+          <li><span class="swatch-chip" style="background:#a855f7"></span><span class="palette-name">Hologram Violet</span><code>#a855f7</code></li>
+          <li><span class="swatch-chip" style="background:#ff0080"></span><span class="palette-name">Magenta</span><code>#ff0080</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><span class="palette-name">Cyan</span><code>#00d4ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffd700"></span><span class="palette-name">Gold</span><code>#ffd700</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深空底深到让所有虹彩都能浮起来；深紫做次级面板底；全息紫是渐变的主站与品牌色，最常用于按钮起点；品红是光谱的暖端，让渐变跨过紫与青；青是光谱的冷端，渐变里最亮的一站；金是高光与「箔片反光」，只在渐变中出现，不做填充；霓虹绿是光谱的第五站，让渐变多一层不规则。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0a1f"></span><div><strong>Deep Space</strong><span class="swatch-role">页面底。深到让所有虹彩都能浮起来。</span></div><code>#0a0a1f</code><code>--color-deep-space</code></li>
+          <li><span class="swatch-chip" style="background:#1a0b2e"></span><div><strong>Deep Violet</strong><span class="swatch-role">次级面板底，比深空偏紫。</span></div><code>#1a0b2e</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#a855f7"></span><div><strong>Hologram Violet</strong><span class="swatch-role">渐变的主站与品牌色，最常用于按钮起点。</span></div><code>#a855f7</code><code>--color-hologram-violet</code></li>
+          <li><span class="swatch-chip" style="background:#ff0080"></span><div><strong>Magenta</strong><span class="swatch-role">光谱的暖端，用于让渐变跨过紫与青。</span></div><code>#ff0080</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><div><strong>Cyan</strong><span class="swatch-role">光谱的冷端，是渐变里最亮的一站。</span></div><code>#00d4ff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ffd700"></span><div><strong>Gold</strong><span class="swatch-role">高光与「箔片反光」，只在渐变中出现，不做填充。</span></div><code>#ffd700</code><code>--color-gold</code></li>
+        </ul>
+        <p class="style-body-note">虹彩光晕 <code>0 0 40px rgba(168,85,247,0.35)</code>、品红光晕 <code>0 0 32px rgba(255,0,128,0.30)</code>。相邻元素不得连续出现两个无渐变的纯色块。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。标题用渐变文字（background-clip: text），标签全大写。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="holo-specimen-title">HOLOGRAPHIC 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 400–700 · 标签 0.14em 全大写</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>52px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>36px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>500</td><td>24px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>17px</td><td>1.55</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 24px，区块间距 112px。允许元素大范围重叠与溢出的光球。相邻两个元素不得都是无渐变的纯色块——这条规则强制整页始终有光谱在场。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:112px"></span><code>112</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 20px · 按钮 999px · 输入 16px</td></tr>
+            <tr><td>Spectrum Shift</td><td>background-size 200%、hover 1.2s 左→右</td></tr>
+            <tr><td>三色渐变</td><td>紫 → 品红 → 青，各占约 1/3</td></tr>
+            <tr><td>箔片边</td><td>2px 三色渐变横线，hover 反向流动</td></tr>
+            <tr><td>光球</td><td>96–240px、径向虹彩、外发光 60px、单屏 ≤2</td></tr>
+            <tr><td>焦点环</td><td>紫 25% 3px 环 + 深空色 offset</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Spectrum Button</h3>
+            <p class="style-body-comp-role">主行动按钮。紫到品红到青的三色线性渐变填充（每站约 1/3）、白色文字、999px 全圆角、无描边，15px/700、padding 12px 28px，外发光 0 0 32px 品红 30%。渐变设 background-size: 200% auto，hover 时 background-position 从 left 移到 right（1.2s ease），这就是 Spectrum Shift。按下缩放 0.98。</p>
+            <button type="button" class="holo-btn">SHIFT</button>
+          </div>
+          <div class="comp-item">
+            <h3>Prism Card</h3>
+            <p class="style-body-comp-role">内容卡。白 6% 填充、20px 圆角、1px 白 12% 描边、内边距 24px，外加一层紫到青的柔光晕（0 0 40px 紫 35%）。顶部放一条 2px 的三色渐变横线（紫→品红→青）作为「箔片边缘」。hover 时渐变横线的 background-position 反向流动，卡片外发光转品红。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Spectrum Text</h3>
+            <p class="style-body-comp-role">渐变标题。用 background: linear-gradient(90deg, 紫, 品红, 青, 金) 配 background-clip: text 与 color: transparent，background-size 200%，hover 时位置移动。仅用于首屏与章节标题，正文绝不使用（可读性会崩）。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Field</h3>
+            <p class="style-body-comp-role">输入框。白 6% 填充、16px 圆角、1px 白 15% 描边、padding 12px 18px、15px 字。聚焦时描边换 1px 渐变（用 border-image 或伪元素），并加 0 0 0 3px 的紫 25% 环——焦点环必须带 offset 到深空色，否则在暗底上看不见。</p>
+            <input class="holo-input" type="text" placeholder="搜索光谱…">
+          </div>
+          <div class="comp-item">
+            <h3>Iridescent Orb</h3>
+            <p class="style-body-comp-role">装饰光球。96px 到 240px 的圆，径向渐变从紫中心渐隐到品红与青，无边框，外发光 0 0 60px 紫 30%。放在卡片背后或区块角落，允许溢出容器。单屏最多两个——hero 里那两颗就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有元素带三色以上渐变</li>
+              <li>深紫或深海军底</li>
+              <li>用 Spectrum Shift 让渐变横向流动</li>
+              <li>锐角必须配光晕</li>
+              <li>焦点环带深空色 offset</li>
+              <li>高饱和色，保持虹彩强度</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用无渐变的纯色块</li>
+              <li>不要用浅色或白色背景</li>
+              <li>不要用低饱和或灰调色</li>
+              <li>不要给锐角不加光晕</li>
+              <li>不要连续两个以上的非渐变元素</li>
+              <li>不要让焦点环在暗底上消失</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>镭射材质、棱镜、箔片、流体与晶体。所有图像必须带多色虹彩。允许把照片叠一层 30% 的彩虹渐变后用 overlay 混合。不使用单色摄影、纯白背景与灰调插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="holographic">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的三色渐变、Spectrum Shift 与虹彩光球。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，三色以上渐变、Spectrum Shift 与「禁连续纯色块」必须原样保留；浅色背景一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

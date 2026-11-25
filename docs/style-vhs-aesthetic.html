@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VHS 美学 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body vhs">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 89 · 深色版面</p>
+        <h1>VHS 美学 <span class="style-card-en">VHS AESTHETIC</span></h1>
+        <p class="page-lead">一盘看了二十年的录像带：色偏、噪点、时间码在闪。</p>
+        <div class="style-card-tags"><span>洋红青双向偏移</span><span>常驻时间码</span><span>扫描线 + 噪点</span><span>失真是介质不是故障</span></div>
+      </header>
+
+      <section class="vhs-hero">
+        <div class="vhs-hero-copy">
+          <p>VHS 美学模拟 80 到 90 年代录像带的画面缺陷：文字用洋红与青的双向偏移做 RGB 分离，全站等宽字体，深黑或深紫底，标签全大写加宽字距，画面叠扫描线与噪点，右下角常驻一个闪烁的时间码。</p>
+          <p>它与故障艺术的区别在于「这不是故障而是介质」——VHS 的失真是一贯的、温柔的、整体的，而不是突发撕裂。它禁止干净锐利的排版，因为那正是 VHS 没有的东西。</p>
+        </div>
+        <div class="vhs-demo">
+          <div class="vhs-panel">
+            <span class="vhs-rec"><i></i>REC</span>
+            <span class="vhs-osd">SP · 00:12:47</span>
+            <p class="vhs-panel-title">家庭录像 #07</p>
+            <p class="vhs-panel-text">1994 年夏，泳池边。磁迹开始漂移。</p>
+            <button type="button" class="vhs-btn">▶ PLAY</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><span class="palette-name">Yellow</span><code>#ffff00</code></li>
+          <li><span class="swatch-chip" style="background:#00ff00"></span><span class="palette-name">Green</span><code>#00ff00</code></li>
+          <li><span class="swatch-chip" style="background:#1a0a2e"></span><span class="palette-name">Deep Violet</span><code>#1a0a2e</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>洋红是 RGB 分离的暖侧，也是主文字色；录像带的黑场做页面底；青是分离的冷侧，与洋红永远成对；黄管时间码、录制标记与高亮；绿管「PLAY」指示与状态，出现频率较低；深紫做次级底与渐变的一端，让黑不那么死。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">页面底。录像带的黑场。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Magenta</strong><span class="swatch-role">RGB 分离的暖侧，也是主文字色。</span></div><code>#ff00ff</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Cyan</strong><span class="swatch-role">RGB 分离的冷侧。与洋红永远成对。</span></div><code>#00ffff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><div><strong>Yellow</strong><span class="swatch-role">时间码、录制标记与高亮。</span></div><code>#ffff00</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#00ff00"></span><div><strong>Green</strong><span class="swatch-role">「PLAY」指示与状态，出现频率较低。</span></div><code>#00ff00</code><code>--color-green</code></li>
+          <li><span class="swatch-chip" style="background:#1a0a2e"></span><div><strong>Deep Violet</strong><span class="swatch-role">次级底与渐变的一端，让黑不那么死。</span></div><code>#1a0a2e</code><code>--color-deep-violet</code></li>
+        </ul>
+        <p class="style-body-note">RGB 分离固定为 <code>2px 0 #ff00ff, -2px 0 #00ffff</code>；文字微光 <code>0 0 8px rgba(255,0,255,0.55)</code>；<code>no standard drop shadows</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站等宽 JetBrains Mono。标签全大写加 0.18em 字距，像录像机的屏幕字符。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="vhs-specimen-title">VHS 00:12:47</p>
+            <p class="specimen-meta">JetBrains Mono — 全站等宽。替代栈：ui-monospace, 'Courier New', monospace · 400/700 · 标签 0.18em 全大写</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>JetBrains Mono</td><td>700</td><td>44px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>JetBrains Mono</td><td>700</td><td>32px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>JetBrains Mono</td><td>700</td><td>22px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>JetBrains Mono</td><td>400</td><td>16px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>JetBrains Mono</td><td>400</td><td>13px</td><td>1.55</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.45</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 16px，区块间距 80px。允许画面轻微偏移与整体抖动（每 8 秒 2 到 4px）。小圆角（2 到 4px）贯穿全站。所有文字都在 OSD 层之上保持可读。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:80px"></span><code>80</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 4px · 按钮/输入 2px</td></tr>
+            <tr><td>RGB 分离</td><td>只做标题与装饰、偏移 2px、正文绝不分离</td></tr>
+            <tr><td>抖动</td><td>200ms steps(3)、每 8 秒一次、幅度 ≤4px</td></tr>
+            <tr><td>扫描线</td><td>3px 间距 1px 黑 40% + 6% 噪点 + 12s 慢滚</td></tr>
+            <tr><td>OSD</td><td>11px 等宽全大写 0.18em、黄或绿、常驻角落</td></tr>
+            <tr><td>过渡</td><td>80ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Split Title</h3>
+            <p class="style-body-comp-role">RGB 分离标题（核心）。等宽 700 全大写，主色洋红，叠两层文本副本：一层偏移 2px 用青、一层偏移 -2px 用洋红，混合模式 screen。静置时偏移 2px，每 8 秒触发一次 200ms 的步进抖动（steps(3)）让偏移跳到 4px 再回。正文绝不做分离。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tape Panel</h3>
+            <p class="style-body-comp-role">录像面板。深紫填充、4px 圆角、1px 洋红 25% 描边、内边距 24px。标题 22px/700 带分离，正文 13px 白 80%。左上角放「● REC」指示（绿点带 1s 闪烁），右下角放时间码（黄，如 00:12:47）。hover 时描边升到 50% 并加一条 2px 高的白 30% 横线扫过（180ms steps(3)）。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scanline Bed</h3>
+            <p class="style-body-comp-role">扫描线与噪点底。固定覆盖两层：一层 repeating-linear-gradient（每 3px 一条 1px 黑 40% 横线），一层噪点（base64 颗粒或 feTurbulence，不透明度 6%）。再叠一层极缓的垂直滚动（每 12 秒偏移 3px，linear）。pointer-events: none——本页背景就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Play Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 洋红 40% 描边、2px 圆角、11px 等宽全大写 0.18em、padding 10px 24px，文字洋红带 0 0 8px 微光。hover 时描边升到 100%、文字转黄；按下时整体横向位移 2px 并做一次 60ms 的色偏。过渡 80ms linear。</p>
+            <button type="button" class="vhs-btn">⏸ PAUSE</button>
+          </div>
+          <div class="comp-item">
+            <h3>OSD Label</h3>
+            <p class="style-body-comp-role">屏幕字符标签。11px 等宽全大写 0.18em，色黄或绿，可带 1px 黑描边保证在亮画面上可读。格式固定为「SP · 00:12:47」或「PLAY」。它是录像机叠加在画面上的信息，常驻角落。</p>
+            <span class="vhs-osd vhs-osd--static">PLAY ▶</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>文字用洋红青双向偏移</li>
+              <li>全站等宽字体</li>
+              <li>深黑或深紫底</li>
+              <li>叠扫描线与噪点</li>
+              <li>常驻时间码与 REC 指示</li>
+              <li>抖动幅度 2 到 4px、每 8 秒一次</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用干净锐利的排版</li>
+              <li>不要在正文做 RGB 分离</li>
+              <li>不要用高清干净摄影</li>
+              <li>不要用大圆角</li>
+              <li>不要用标准投影</li>
+              <li>不要让噪点压过文字</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>录像带画面：家庭录像、老广告、监控、低分辨率素材。必须带扫描线、色偏与噪点。允许把现代照片做 VHS 化处理（色度位移、降采样、加噪）。不使用高清干净摄影与现代插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="vhs-aesthetic">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 RGB 分离、OSD 标签与噪点底。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，洋红青成对分离、「失真是介质不是故障」与常驻时间码必须原样保留；干净锐利的排版一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

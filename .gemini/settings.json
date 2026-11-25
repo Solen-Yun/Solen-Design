@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "solen-design": {
+      "command": "node",
+      "args": ["mcp/server.mjs"]
+    }
+  }
+}

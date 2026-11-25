@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>粘土拟态 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body clay">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 12 · 浅色版面</p>
+        <h1>粘土拟态 <span class="style-card-en">CLAYMORPHISM</span></h1>
+        <p class="page-lead">像捏出来的一块软糖：超大圆角、内外双阴影、按下去会扁。</p>
+        <div class="style-card-tags"><span>超大圆角</span><span>内外双阴影</span><span>粉彩色相</span><span>压扁交互</span><span>弹簧回弹</span></div>
+      </header>
+
+      <section class="clay-hero">
+        <div class="clay-hero-copy">
+          <p>粘土拟态是新拟物的可爱版本：形状必须圆到近乎球体（按钮 24px、卡片 32px、hero 容器 48px），每个元素同时拥有内外两层阴影——外层负责体积、内层负责高光与暗缘。颜色全部为粉彩，饱和度低、明度高，靠色相而不是明度区分层级。</p>
+          <p>交互最特别：按下时不是位移，而是横向拉宽 5%、纵向压扁 10% 并下沉 8px，像真正的粘土被按住。动效使用带回弹的弹簧曲线，让柔软被感知。右边这颗按钮和输入框都是真的——捏一下试试。</p>
+        </div>
+        <div class="clay-demo">
+          <div class="clay-card-demo">
+            <span class="clay-badge clay-badge--mint">NEW</span>
+            <p class="clay-demo-title">捏一下。</p>
+            <p class="clay-demo-body">按下去会扁，松手会弹回来。</p>
+            <button type="button" class="clay-btn">SQUISH ME</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#f8b4d9"></span><span class="palette-name">Clay Pink</span><code>#f8b4d9</code></li>
+          <li><span class="swatch-chip" style="background:#fef3c7"></span><span class="palette-name">Cream</span><code>#fef3c7</code></li>
+          <li><span class="swatch-chip" style="background:#a7f3d0"></span><span class="palette-name">Mint</span><code>#a7f3d0</code></li>
+          <li><span class="swatch-chip" style="background:#c4b5fd"></span><span class="palette-name">Lavender</span><code>#c4b5fd</code></li>
+          <li><span class="swatch-chip" style="background:#fcd34d"></span><span class="palette-name">Lemon</span><code>#fcd34d</code></li>
+          <li><span class="swatch-chip" style="background:#b6e9ff"></span><span class="palette-name">Sky</span><code>#b6e9ff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>粉是基准色相，其他颜色都围绕它取值：奶油承载内容不抢戏，薄荷管成功与「新」，薰衣草做次级强调，柠檬出现频率最低、面积最小，天蓝是唯一偏冷的粉彩、只给可点击的东西。层级靠色相区分，不靠明度。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f8b4d9"></span><div><strong>Clay Pink</strong><span class="swatch-role">主行动与主色块。整套系统的基准色相，其他颜色都围绕它取值。</span></div><code>#f8b4d9</code><code>--color-clay-pink</code></li>
+          <li><span class="swatch-chip" style="background:#fef3c7"></span><div><strong>Cream</strong><span class="swatch-role">卡片与分区底。比粉更浅，用来承载内容而不抢戏。</span></div><code>#fef3c7</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#a7f3d0"></span><div><strong>Mint</strong><span class="swatch-role">成功与「新」语义，用于标签与徽标。</span></div><code>#a7f3d0</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#c4b5fd"></span><div><strong>Lavender</strong><span class="swatch-role">次级强调与信息块。与粉形成同明度的色相对比。</span></div><code>#c4b5fd</code><code>--color-lavender</code></li>
+          <li><span class="swatch-chip" style="background:#fcd34d"></span><div><strong>Lemon</strong><span class="swatch-role">提醒与数字高亮。出现频率最低，面积最小。</span></div><code>#fcd34d</code><code>--color-lemon</code></li>
+          <li><span class="swatch-chip" style="background:#b6e9ff"></span><div><strong>Sky</strong><span class="swatch-role">链接与可点击标记，是唯一偏冷的粉彩。</span></div><code>#b6e9ff</code><code>--color-sky</code></li>
+        </ul>
+        <p class="style-body-note">阴影一律成对出现：外层 <code>8px 8px 16px rgba(255,182,193,0.5)</code> 加 <code>-8px -8px 16px rgba(255,255,255,0.8)</code> 负责体积，内层 <code>inset 4px 4px 8px 白 40%</code> 加 <code>inset -4px -4px 8px 深粉 20%</code> 负责高光与暗缘。按下时收缩到 2px 档。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Nunito，圆润的无衬线是粘土感的一半，换成几何体就垮。标题 800 字重、正文 400，大写标签 0.06em 字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="clay-specimen-title">粘土拟态，Claymorphism</p>
+            <p class="specimen-meta">Nunito — 全站唯一字体。替代栈：Quicksand, 'Segoe UI', system-ui, sans-serif · 400 / 700 / 800 · 字距 -0.01em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="clay-specimen-label">正文、标签与徽标。0123456789</p>
+            <p class="specimen-meta">正文 15–18px / 400 / 行高 1.6；标签 13px / 700 / 0.06em；文字一律深琥珀 #7c3f58</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>800</td><td>48px</td><td>1.15</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>34px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>13px</td><td>1.4</td><td>0.06em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px、容器内边距 24px，区块间距 96px，卡片间距 24px。元素之间至少留 24px，因为四段阴影会互相侵占。允许卡片轻微旋转（±2 度）增加手工感，但同屏不超过两张。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>32px</td></tr>
+            <tr><td>按钮圆角</td><td>24px</td></tr>
+            <tr><td>输入框圆角</td><td>16px</td></tr>
+            <tr><td>hero 容器圆角</td><td>48px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px（最小值）</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Clay Button</h3>
+            <p class="style-body-comp-role">主行动按钮。粉色纵向渐变、白字、24px 圆角、字级 18px/700、padding 16px 32px；阴影为外双加内双的四段组合。hover 时四段各扩 2px 并上浮 4px；按下时横向缩放 1.05、纵向 0.9、下沉 8px，阴影收缩到 2px 档。过渡 300ms 弹簧缓动 cubic-bezier(0.34, 1.56, 0.64, 1)。上方演示卡里那颗就是它。</p>
+            <button type="button" class="clay-btn">PRESS ME</button>
+          </div>
+          <div class="comp-item">
+            <h3>Clay Card</h3>
+            <p class="style-body-comp-role">功能卡与内容卡。奶油到琥珀的斜向渐变、32px 圆角、无描边、内边距 32px；阴影为 12px 12px 24px 黑 8% 加两层内阴影。标题 24px/700 深琥珀色。hover 时阴影各扩 4px、上浮 4px，300ms 弹簧。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Clay Input</h3>
+            <p class="style-body-comp-role">表单输入。灰到浅灰的纵向渐变、16px 圆角、内边距 16px 24px、15px 字；基础状态就是凹陷的，聚焦时内阴影加深并外扩一圈 4px 粉 30% 的光环。过渡 300ms 弹簧。</p>
+            <label class="clay-field"><span>昵称</span><input type="text" value="软糖小姐"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Clay Badge</h3>
+            <p class="style-body-comp-role">标签与状态徽标。全圆角、粉彩填充（薄荷、薰衣草或柠檬之一）、内部一层 2px 内高光与 2px 内暗缘，字级 13px/700、padding 6px 14px；不描边、不加外阴影，靠内阴影保持粘土感。</p>
+            <p class="clay-badge-row">
+              <span class="clay-badge clay-badge--mint">成功</span>
+              <span class="clay-badge clay-badge--lavender">进行中</span>
+              <span class="clay-badge clay-badge--lemon">提醒</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>圆角从 16px 起，卡片 32px，容器 48px</li>
+              <li>每个元素同时有外阴影与内阴影</li>
+              <li>全部使用粉彩，靠色相区分层级</li>
+              <li>按下时横向拉宽纵向压扁</li>
+              <li>动效用带回弹的弹簧曲线</li>
+              <li>元素间距至少 24px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用锐利直角或小圆角</li>
+              <li>不要用单层阴影</li>
+              <li>不要用深色背景</li>
+              <li>不要用高饱和或纯色填充</li>
+              <li>不要把元素挤在 16px 以内</li>
+              <li>不要用线性缓动，柔软需要回弹</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>3D 渲染的软质物体、圆润插画、粉彩渐变背景。允许把界面元素做成「实物」——按钮像糖果、卡片像积木。不使用锐利摄影、深色背景与几何线稿。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="claymorphism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的圆角档位、四段阴影与压扁交互。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，内外双阴影、粉彩色相与「拉宽压扁」的按压交互必须原样保留；缓动一律带回弹。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

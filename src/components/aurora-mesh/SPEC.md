@@ -1,0 +1,61 @@
+# 极光网格背景 — AuroraMesh
+
+340×340 的深色场景，背景是一团缓慢漂移的极光：Canvas 里叠了五团不同色相的径向光斑，用叠加混合互相渗透，再用 18px 的模糊和一点饱和度把它们揉成雾状的光。右上角悬着三枚圆形色板按钮（极光 / 日落 / 海洋），点一下整套配色会像水彩一样慢慢化过去。左下角压着一组文字：眉标 "Living background"、主标 "Light at dawn"、副标 "The light drifts slowly after your cursor"。移动指针时，光会朝指针的方向倾斜，其中一团还会慢半拍地追着指针走。
+
+## 布局与材质
+
+- 场景 340×340px，圆角 30px，overflow hidden，固定深色底 #050B1F，文字色 #fff。外圈 1px 线色描边加 0 30px 60px -36px 的强阴影。
+- 极光层是一张 72×72 的 Canvas，position absolute、inset -8%、宽高 116%，并施加 filter blur(18px) saturate(1.15)。低分辨率加上大模糊，得到的是柔和的光雾而不是清晰的色块。
+- 颗粒层叠在极光之上：inset 0，opacity .16，mix-blend-mode overlay，pointer-events none。纹理是一张 96×96 的 Canvas：每个像素填随机的灰度值且完全不透明，整张转成 data URL 作为 background-image 铺开，形成胶片般的细噪点。
+- 色板浮层绝对定位在右上（right 14px、top 14px），flex、gap 6px、内边距 5px、圆角 999px，底色 rgba(255,255,255,.12)，配 10px 的 backdrop-filter blur(10px)。三枚按钮各 24×24px、圆形、border 0，底色是各自配色的主色到第三色（linear-gradient(135deg, 色0, 色2)）；未选中时外圈是 2px 透明环，选中时外圈变白色并放大到 1.08，过渡 box-shadow .25s 与 transform .3s cubic-bezier(.34,1.56,.64,1)；获得焦点时 outline 2px solid #fff、偏移 3px。
+- 文字块绝对定位在左下（left 22px、bottom 22px、right 22px），pointer-events none。眉标 small 11.5px/750、字距 .02em、opacity .8；主标 b 为 30px/880、字距 -0.04em、行高 1.05，带 0 2px 24px rgba(0,0,0,.25) 的文字阴影；副标 span 13px、opacity .85。
+- 场景令牌在根元素上声明浅深两套（light-dark()，由宿主页面的 color-scheme 决定，未声明时取浅色），但本场景本身是固定深色：--ux-surface #FFFFFF/#13141C、--ux-surface-2 #F5F3EF/#1A1B25、--ux-surface-3 #EAE7E1/#252632、--ux-ink #16151B/#F4F0E8、--ux-ink-2 #57535F/rgba(244,240,232,.68)、--ux-ink-3 #8E8A97/rgba(244,240,232,.42)、--ux-line rgba(22,21,27,.09)/rgba(255,255,255,.08)、--ux-line-2 rgba(22,21,27,.17)/rgba(255,255,255,.16)、--ux-accent #6A57F2/#B7A4FF、--ux-accent-2 #2F8FE0/#7DB4FF、--ux-accent-soft、--ux-accent-ink、--ux-mint #119C72/#7EE8C0、--ux-warn #D6731E/#FFB26B、--ux-danger #D93A55/#FF7D8C、--ux-glass、--ux-glass-line、--ux-shadow、--ux-shadow-strong、--ux-grad。
+- 响应式：场景按 340×340 逻辑像素排版，容器比 340px 窄时整景等比缩小，Canvas 与模糊一起缩放。
+
+## 数据
+
+- 三套配色写死，每套包含一个背景色和五个光斑色：
+  - Aurora（极光）：背景 #050B1F，光斑 #00F5A0、#00D9F5、#7B61FF、#24FE41、#2EC5FF。
+  - Sunset（日落）：背景 #1A0B1F，光斑 #FF6B6B、#FFD93D、#FF8E3C、#C44569、#F8B500。
+  - Ocean（海洋）：背景 #031926，光斑 #00A8E8、#007EA7、#00F5D4、#3A86FF、#80FFDB。
+- 初始使用 Aurora，色板按钮的 aria-label 分别是 Aurora、Sunset、Ocean。
+- 五团光斑的基础参数写死：基准点 bx 依次 0.20、0.57、0.24、0.61、0.28，by 依次 0.25、0.78、0.31、0.84、0.37；半径 r 依次 0.38、0.46、0.54、0.38、0.46（相对画布宽）；相位 ph 依次 0、1.7、3.4、5.1、6.8；漂移速度 sp 依次 0.18、0.21、0.24、0.27、0.30。
+- 文案写死：眉标 "Living background"、主标 "Light at dawn"、副标 "The light drifts slowly after your cursor"。
+
+## 操作和动效
+
+- 逐帧绘制：每帧先以 source-over 把背景色铺满 72×72，再切成 lighter（叠加）混合，逐团画径向渐变。渐变中心在光斑位置、半径为 r × 72，色标从中心 rgba(色, .85) 过渡到边缘 rgba(色, 0)。
+- 漂移：第 i 团的位置 = 基准点 + sin(时间 × sp + ph) × 0.18（横）与 cos(时间 × sp × 0.8 + ph × 1.3) × 0.16（纵），因此五团各走各的相位，速度最慢的一团周期约 35 秒。
+- 跟随指针：指针在场内时，每团光斑都朝指针方向偏移 18%（横纵各取 18% 靠近）；其中第一团不直接用偏移后的坐标，而是用一个带滞后的跟随点——跟随点以每秒 15% 的比例趋近目标（无指针时目标点沿 0.21 与 0.17 频率的椭圆缓慢游走，横向 0.3 ± 0.15、纵向 0.35 ± 0.12），所以第一团总是慢半拍地追着指针走。
+- 换配色：点击色板按钮后，按钮的 aria-pressed 随之切换，目标背景色与五个目标光斑色被记录下来；当前颜色每帧按 1 − 0.02^dt 的比例向目标色插值（帧率无关的指数趋近），于是整套配色是"化过去"而不是跳变。
+- 可见性：用 IntersectionObserver 观察场景，进入视口才启动帧循环，离开视口自动暂停，重新进入时恢复。
+- 减少动态（系统 prefers-reduced-motion: reduce，或 options.reducedMotion 覆盖为 true）：不启动帧循环，只静态绘制一帧（时间取 2 秒处的形状）；此时换配色会立刻把颜色替换成目标色并重绘该静态帧，指针移动也会重绘该静态帧，光斑位置随之更新但没有漂移与插值动画。该状态在挂载时读取一次。
+- 键盘操作：三枚色板按钮是原生按钮，Tab 可聚焦，Enter/Space 切换配色；文字块 pointer-events none，不会挡按钮。
+- 无障碍：Canvas 与颗粒层 aria-hidden，不参与朗读；色板按钮靠 aria-label 说明配色名、用 aria-pressed 表达当前选择；文字是真实文本。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；极光用 Canvas 绘制、颗粒纹理用 Canvas 生成后转 data URL、文字用 DOM，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 AuroraMesh。从零创建四个文件：AuroraMesh.tsx、AuroraMeshEngine.js、motion-runtime.ts、AuroraMeshEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的三套配色与静态成图。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；漂移、跟随与配色过渡正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { AuroraMesh } from "./AuroraMesh";
+
+export default function App() {
+  return <AuroraMesh />;
+}
+```

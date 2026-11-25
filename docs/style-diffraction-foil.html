@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>镭射箔 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body foil">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 132 · 深色版面</p>
+        <h1>镭射箔 <span class="style-card-en">DIFFRACTION FOIL</span></h1>
+        <p class="page-lead">光就是油墨：让银箔按光栅方程响应一盏共享的灯。</p>
+        <div class="style-card-tags"><span>λ = d × |dot(h, k)| / m</span><span>共享 300px 指针灯</span><span>整页一个 WebGL2 上下文</span><span>CSS 平替跟随同灯</span></div>
+      </header>
+
+      <section class="foil-hero">
+        <nav class="foil-nav">
+          <span class="foil-wordmark">FOIL / 04</span>
+          <a class="foil-nav-link" href="#0" onclick="return false">藏品</a>
+          <a class="foil-nav-link" href="#0" onclick="return false">光栅</a>
+          <a class="foil-nav-link" href="#0" onclick="return false">兑换</a>
+        </nav>
+
+        <div class="foil-card">
+          <div class="foil-face" data-foil="0">
+            <canvas class="foil-canvas"></canvas>
+          </div>
+          <p class="foil-code">Nº 0042 · 1500 nm</p>
+          <h3 class="foil-card-title">光栅收藏</h3>
+          <p class="foil-meta">m = 1 · d = 1500 nm · 银底基底</p>
+        </div>
+
+        <div class="foil-panel">
+          <div class="foil-control">
+            <label class="foil-control-label" for="foil-angle">灯角度</label>
+            <input class="foil-range" id="foil-angle" type="range" min="0" max="70" step="1" value="26" data-angle>
+            <output class="foil-value" data-angle-out>26°</output>
+          </div>
+          <div class="foil-control">
+            <label class="foil-control-label" for="foil-period">刻槽间距</label>
+            <input class="foil-range" id="foil-period" type="range" min="800" max="2200" step="50" value="1500" data-period>
+            <output class="foil-value" data-period-out>1500 nm</output>
+          </div>
+          <div class="foil-orders">
+            <span class="foil-order">1 级 <b data-order="1">—</b></span>
+            <span class="foil-order">2 级 <b data-order="2">—</b></span>
+            <span class="foil-order">3 级 <b data-order="3">—</b></span>
+          </div>
+          <div class="foil-strip" data-strip aria-hidden="true"></div>
+        </div>
+
+        <div class="foil-samples">
+          <figure class="foil-sample">
+            <div class="foil-sample-face" data-foil="0"><canvas class="foil-canvas"></canvas></div>
+            <figcaption class="foil-sample-name">交叉光栅</figcaption>
+          </figure>
+          <figure class="foil-sample">
+            <div class="foil-sample-face" data-foil="1"><canvas class="foil-canvas"></canvas></div>
+            <figcaption class="foil-sample-name">同心星芒</figcaption>
+          </figure>
+          <figure class="foil-sample">
+            <div class="foil-sample-face" data-foil="2"><canvas class="foil-canvas"></canvas></div>
+            <figcaption class="foil-sample-name">碎钻晶面</figcaption>
+          </figure>
+        </div>
+
+        <button type="button" class="foil-btn" data-foil="0" data-press>
+          <canvas class="foil-canvas"></canvas>
+          <span class="foil-btn-label">赎回收藏</span>
+        </button>
+
+        <div class="foil-redeem">
+          <label class="foil-redeem-label" for="foil-code">兑换码</label>
+          <input class="foil-code" id="foil-code" type="text" placeholder="XXXX-XXXX-XXXX" maxlength="14" data-code>
+          <p class="foil-redeem-note" data-code-note>输入 12 位兑换码。</p>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0c0b10"></span><span class="palette-name">Print Sheet</span><code>#0c0b10</code></li>
+          <li><span class="swatch-chip" style="background:#141319"></span><span class="palette-name">Panel</span><code>#141319</code></li>
+          <li><span class="swatch-chip" style="background:#a3a2af"></span><span class="palette-name">Dark Silver</span><code>#a3a2af</code></li>
+          <li><span class="swatch-chip" style="background:#e9e8f0"></span><span class="palette-name">Light Silver</span><code>#e9e8f0</code></li>
+          <li><span class="swatch-chip" style="background:#16151c"></span><span class="palette-name">Ink</span><code>#16151c</code></li>
+          <li><span class="swatch-chip" style="background:#ececf2"></span><span class="palette-name">Text</span><code>#ececf2</code></li>
+          <li><span class="swatch-chip" style="background:#a9a8b6"></span><span class="palette-name">Secondary</span><code>#a9a8b6</code></li>
+          <li><span class="swatch-chip" style="background:#c9c8d4"></span><span class="palette-name">Focus Silver</span><code>#c9c8d4</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>全页近黑印张让变化中的银箔和光谱成为唯一的焦点。暗面板比印张亮一档，配极细白色描边分层。两种银箔面：暗箔以银灰为底，虹彩只在角度吻合处叠上去；浅箔用来印深色油墨字，不用纯白替代——因为纯白不是箔。光谱的紫、蓝、绿、黄、红是算出来的动态结果，不是固定配色，所以这里只登记三枚采样值作为参考。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0c0b10"></span><div><strong>Print Sheet</strong><span class="swatch-role">全页近黑画布。</span></div><code>#0c0b10</code><code>--color-print-sheet</code></li>
+          <li><span class="swatch-chip" style="background:#141319"></span><div><strong>Panel</strong><span class="swatch-role">暗色卡片与容器底色。</span></div><code>#141319</code><code>--color-panel</code></li>
+          <li><span class="swatch-chip" style="background:#a3a2af"></span><div><strong>Dark Silver Foil</strong><span class="swatch-role">暗箔面的银灰基底。</span></div><code>#a3a2af</code><code>--color-dark-silver</code></li>
+          <li><span class="swatch-chip" style="background:#e9e8f0"></span><div><strong>Light Silver Foil</strong><span class="swatch-role">适合印深色油墨字的浅银箔面。</span></div><code>#e9e8f0</code><code>--color-light-silver</code></li>
+          <li><span class="swatch-chip" style="background:#16151c"></span><div><strong>Ink</strong><span class="swatch-role">仅在浅银箔上印标题与按钮文案。</span></div><code>#16151c</code><code>--color-foil-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ececf2"></span><div><strong>Text</strong><span class="swatch-role">印张与暗面板上的主要文字。</span></div><code>#ececf2</code><code>--color-text</code></li>
+          <li><span class="swatch-chip" style="background:#a9a8b6"></span><div><strong>Secondary Text</strong><span class="swatch-role">说明、注释与次级内容。</span></div><code>#a9a8b6</code><code>--color-text-secondary</code></li>
+          <li><span class="swatch-chip" style="background:#c9c8d4"></span><div><strong>Focus Silver</strong><span class="swatch-role">键盘焦点、范围滑杆与克制的行动按钮。</span></div><code>#c9c8d4</code><code>--color-focus-silver</code></li>
+        </ul>
+        <p class="style-body-note">光谱三枚采样值随灯与衍射级次变化：<code>#d2052d</code>、<code>#00d777</code>、<code>#6600e1</code>。它们只作为动态光谱的一部分，不是组件填色。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站只用无衬线与等宽两种。大标题粗而紧凑（800 字重），次级标记用等宽字加 0.2em 字距。光栅方程、纳米数值与兑换码一律等宽，不用等宽排长段正文。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="foil-specimen-title">光栅收藏</p>
+            <p class="specimen-meta">Sans Serif — 标题。替代栈：system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif · 800 · 行高 1.05 · 字距 -0.025em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="foil-specimen-mono">λ = d × |dot(h, k)| / m</p>
+            <p class="specimen-meta">Monospace — 方程与数值。替代栈：ui-monospace, SFMono-Regular, Menlo, Consolas, monospace · 500 · 字距 0.04em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Sans Serif</td><td>800</td><td>72px</td><td>1.05</td><td>-0.025em</td><td><code>--text-display</code></tr>
+            <tr><td>heading-lg</td><td>Sans Serif</td><td>800</td><td>48px</td><td>1.12</td><td>-0.02em</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>Sans Serif</td><td>800</td><td>32px</td><td>1.2</td><td>-0.015em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Sans Serif</td><td>600</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Sans Serif</td><td>400</td><td>16px</td><td>1.65</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Sans Serif</td><td>400</td><td>14px</td><td>1.65</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Monospace</td><td>500</td><td>12px</td><td>1.4</td><td>0.2em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。印张主容器上限 1280px，移动端 padding 24px，桌面端 40px。区块上方细线、48px 移动端 / 64px 桌面端垂直节奏。亮面采用 1.8:1 宽卡，可并排布局一个主卡和两个方形材质样片。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡与箔板 16–24px · 按钮与输入 12px · 药丸 999px</td></tr>
+            <tr><td>页面</td><td>上限 1280px，移动 24px / 桌面 40px 内边距</td></tr>
+            <tr><td>区块间距</td><td>48px 移动端 / 64px 桌面端</td></tr>
+            <tr><td>卡内边距</td><td>24px</td></tr>
+            <tr><td>箔面比例</td><td>1.8:1</td></tr>
+            <tr><td>控件高度</td><td>44px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Foil Trading Card</h3>
+            <p class="style-body-comp-role">收藏展示主体：深色卡框承托宽幅烫印箔面。用 #141319 卡框、白色 10% 细描边和 24px 左右圆角；中央箔面纵横比 1.8:1。标题字靠底边印在浅色位置；说明与编号用 #a9a8b6 和等宽字。边缘可以有深色投影，箔面本身不叠重阴影。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Light Foil Button</h3>
+            <p class="style-body-comp-role">浅银箔上的主要行动，压下时材质弯曲而版面位置不动。用亮银多层银色底、screen 高光与 overlay 光谱；深色 #16151c 油墨字，12px 圆角，min-height 44px，水平 padding 24px，字体 14px/600。内侧加细白高光与深色落影；键盘操作保留 2px 的 #c9c8d4 外轮廓。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Grating Controls</h3>
+            <p class="style-body-comp-role">让读者直接观察入射角和刻槽间距怎样改变衍射级次。深色面板内使用两条水平范围控件：灯角度 0°–70°，间距 800–2200 nm、步长 50 nm；实时显示数值和 1–3 级衍射位置。滑轨使用 #c9c8d4 作银色强调，标签 14px，数值等宽显示。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Foil Material Samples</h3>
+            <p class="style-body-comp-role">并列展示彩虹膜、同心星芒和碎钻的刻槽差异。用统一尺寸、12px 圆角和 #141319 卡底；图形依次使用交叉光栅、圆形刻槽和随机晶面。拉丝光栅与薄膜干涉需要 WebGL2 的逐像素效果，使用明确的 WebGL 示例链接，不以假静态色块代替。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Redeem-Code Field</h3>
+            <p class="style-body-comp-role">收藏卡或包装上用于兑换的短码。面板底 #141319，1px rgba(255,255,255,0.15) 描边，12px 圆角，padding 12px 16px；占位格式 XXXX-XXXX-XXXX，使用等宽大写字、0.2em 字距和 #6c6b78 占位文字。聚焦描边切换为 #c9c8d4，保留可见焦点环。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Collector Navigation</h3>
+            <p class="style-body-comp-role">作为纸面边缘的一行轻导航，而非厚重应用栏。近黑底、底部 1px rgba(255,255,255,0.1) 细线、24px 水平 padding；字标可使用油墨彩箔字，普通链接保持 #a9a8b6。右侧仅放短行动按钮，桌面可提供下载 HTML 的文字链接。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用 λ = d × |dot(h, k)| / m 计算颜色，d 默认 1500 nm</li>
+              <li>使用离屏 300px 的共享指针灯</li>
+              <li>把光谱当作计算结果而非固定配色</li>
+              <li>整页互动效果共用一个 WebGL2 上下文</li>
+              <li>为不支持 WebGL 的用户提供 CSS 平替</li>
+              <li>把操作反馈落在法线与光照上</li>
+              <li>尊重减少动态偏好，固定灯的位置</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用静态虹彩渐变冒充光栅衍射</li>
+              <li>不要把彩虹铺满箔面</li>
+              <li>不要让油墨文字压在高饱和光谱上</li>
+              <li>不要给每个元素新建 WebGL 上下文</li>
+              <li>不要靠循环 hue-rotate 改色</li>
+              <li>不要为 WebGL-only 样式生成假色块预览</li>
+              <li>不要交错读取布局和写入样式</li>
+              <li>不要在减少动态模式下保留过冲</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>展示真实光谱箔面、藏品或包装的宏观细节，保留能辨认金属基底的区域。静态展示用预计算光谱条加银底和方向性高光；避免照片噪点淹没细槽。WebGL-only 拉丝与幻彩需使用实际 shader 预览——本页的三块样片就是同一个上下文里的逐像素结果。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="diffraction-foil">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的衍射计算、共享灯与材质分层规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，光栅方程、共享灯与单上下文必须原样保留；用静态渐变或 hue-rotate 冒充衍射即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+<script type="module">
+  // 镭射箔：整页共用一个 WebGL2 上下文，逐项绘制后复制到各自的画布。
+  // 颜色由光栅方程算出：λ = d × |dot(h, k)| / m，1/2/3 级权重 1 : 0.5 : 0.3。
+  // 共享指针灯在离屏 300px 处；没有 WebGL2 时回退为跟随同一盏灯的 CSS 渐变。
+  const foils = Array.from(document.querySelectorAll('[data-foil]'));
+  const angleInput = document.querySelector('[data-angle]');
+  const periodInput = document.querySelector('[data-period]');
+  const strip = document.querySelector('[data-strip]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const LAMP_Z = 300;
+
+  let angle = Number(angleInput.value);
+  let period = Number(periodInput.value);
+  let lampSign = 1;
+
+  // 波长 → RGB（可见光近似），与着色器里的实现保持一致。
+  const wlToRgb = (wl) => {
+    let r = 0, g = 0, b = 0;
+    if (wl >= 380 && wl < 440) { r = -(wl - 440) / 60; b = 1; }
+    else if (wl < 490) { g = (wl - 440) / 50; b = 1; }
+    else if (wl < 510) { g = 1; b = -(wl - 510) / 20; }
+    else if (wl < 580) { r = (wl - 510) / 70; g = 1; }
+    else if (wl < 645) { r = 1; g = -(wl - 645) / 65; }
+    else if (wl <= 780) { r = 1; }
+    let f = 0;
+    if (wl >= 380 && wl < 420) f = 0.3 + 0.7 * (wl - 380) / 40;
+    else if (wl >= 420 && wl < 700) f = 1;
+    else if (wl >= 700 && wl <= 780) f = 0.3 + 0.7 * (780 - wl) / 80;
+    return [Math.round(r * f * 255), Math.round(g * 0.8 * f * 255), Math.round(b * f * 255)];
+  };
+
+  const FRAG = `#version 300 es
+  precision highp float;
+  in vec2 v_uv;
+  out vec4 outColor;
+  uniform vec2 u_res;
+  uniform vec3 u_lamp;
+  uniform float u_period;
+  uniform float u_mode;
+  uniform vec2 u_press;
+
+  vec3 spectrum(float wl) {
+    float r = 0.0, g = 0.0, b = 0.0;
+    if (wl >= 380.0 && wl < 440.0) { r = -(wl - 440.0) / 60.0; b = 1.0; }
+    else if (wl < 490.0) { g = (wl - 440.0) / 50.0; b = 1.0; }
+    else if (wl < 510.0) { g = 1.0; b = -(wl - 510.0) / 20.0; }
+    else if (wl < 580.0) { r = (wl - 510.0) / 70.0; g = 1.0; }
+    else if (wl < 645.0) { r = 1.0; g = -(wl - 645.0) / 65.0; }
+    else if (wl <= 780.0) { r = 1.0; }
+    float f = 0.0;
+    if (wl >= 380.0 && wl < 420.0) f = 0.3 + 0.7 * (wl - 380.0) / 40.0;
+    else if (wl >= 420.0 && wl < 700.0) f = 1.0;
+    else if (wl >= 700.0 && wl <= 780.0) f = 0.3 + 0.7 * (780.0 - wl) / 80.0;
+    return vec3(r, g * 0.8, b) * f;
+  }
+
+  void main() {
+    vec2 p = vec2((v_uv.x - 0.5) * u_res.x, (0.5 - v_uv.y) * u_res.y);
+    vec3 l = normalize(u_lamp - p);
+
+    float tiltX = 0.0;
+    float tiltY = 0.0;
+    if (u_mode < 0.5) {
+      tiltX = sin(p.x * 0.85) * 0.32;
+    } else if (u_mode < 1.5) {
+      float r = max(length(p), 1.0);
+      tiltX = (p.x / r) * 0.28;
+      tiltY = (p.y / r) * 0.28;
+    } else {
+      vec2 cell = floor(p / 26.0);
+      tiltX = fract(sin(dot(cell, vec2(12.9898, 78.233))) * 43758.5453) * 0.6 - 0.3;
+      tiltY = fract(sin(dot(cell, vec2(39.346, 11.135))) * 24634.6345) * 0.6 - 0.3;
+    }
+
+    vec3 n = normalize(vec3(tiltX + u_press.x, tiltY + u_press.y, 1.0));
+    float cosI = abs(dot(n, l));
+
+    vec3 spec = spectrum(u_period * cosI) * 1.0
+             + spectrum(u_period * cosI / 2.0) * 0.5
+             + spectrum(u_period * cosI / 3.0) * 0.3;
+    float s = clamp(max(max(spec.r, spec.g), spec.b), 0.0, 1.0);
+
+    float band = 0.5 + 0.5 * sin(v_uv.y * 9.0 + 1.7);
+    vec3 silver = vec3(0.63, 0.62, 0.67) * (0.84 + 0.26 * band);
+    vec3 col = mix(silver, silver * 0.3 + spec * 0.85, s * 0.82);
+    col += pow(cosI, 34.0) * 0.32;
+    outColor = vec4(col, 1.0);
+  }`;
+
+  const VERT = `#version 300 es
+  in vec2 a_pos;
+  out vec2 v_uv;
+  void main() {
+    v_uv = a_pos * 0.5 + 0.5;
+    gl_Position = vec4(a_pos, 0.0, 1.0);
+  }`;
+
+  const glCanvas = document.createElement('canvas');
+  const gl = glCanvas.getContext('webgl2', { preserveDrawingBuffer: true, antialias: false });
+  const press = { value: 0, target: 0, vel: 0, active: false };
+
+  const lampPage = () => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const reach = Math.tan((angle * Math.PI) / 180) * LAMP_Z;
+    return { x: cx + lampSign * reach, y: cy - 60 };
+  };
+
+  // 派生光谱条：把各级衍射在 0°–70° 之间的波长画成一条带。
+  const renderStrip = () => {
+    const stops = [];
+    for (let i = 0; i <= 24; i++) {
+      const t = i / 24;
+      const cosI = Math.cos((t * 70 * Math.PI) / 180);
+      let rgb = [163, 162, 175];
+      for (const m of [1, 2, 3]) {
+        const wl = (period * cosI) / m;
+        if (wl >= 380 && wl <= 780) {
+          const c = wlToRgb(wl);
+          const w = m === 1 ? 1 : m === 2 ? 0.5 : 0.3;
+          rgb = [Math.round(c[0] * w + 163 * (1 - w)), Math.round(c[1] * w + 162 * (1 - w)), Math.round(c[2] * w + 175 * (1 - w))];
+          break;
+        }
+      }
+      stops.push(`rgb(${rgb[0]},${rgb[1]},${rgb[2]}) ${Math.round(t * 100)}%`);
+    }
+    strip.style.background = `linear-gradient(90deg, ${stops.join(',')})`;
+  };
+
+  const renderReadouts = () => {
+    const cosI = Math.cos((angle * Math.PI) / 180);
+    for (const m of [1, 2, 3]) {
+      const el = document.querySelector(`[data-order="${m}"]`);
+      const wl = (period * cosI) / m;
+      el.textContent = wl >= 380 && wl <= 780 ? `${Math.round(wl)} nm` : '—';
+    }
+    document.querySelector('[data-angle-out]').textContent = `${angle}°`;
+    document.querySelector('[data-period-out]').textContent = `${period} nm`;
+  };
+
+  // 无 WebGL2 时的 CSS 平替：跟随同一盏灯算出每个位置的波长。
+  const renderCssFallback = () => {
+    foils.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const lamp = lampPage();
+      const localX = (lamp.x - (rect.left + rect.width / 2)) * DPR;
+      const stops = [];
+      for (let i = 0; i <= 24; i++) {
+        const u = i / 24;
+        const px = (u - 0.5) * rect.width * DPR;
+        const py = 0;
+        const lx = localX - px;
+        const lz = LAMP_Z * DPR;
+        const len = Math.hypot(lx, py, lz);
+        const cosI = Math.abs(lz / len);
+        let rgb = [163, 162, 175];
+        for (const m of [1, 2, 3]) {
+          const wl = (period * cosI) / m;
+          if (wl >= 380 && wl <= 780) {
+            const c = wlToRgb(wl);
+            const w = m === 1 ? 1 : m === 2 ? 0.5 : 0.3;
+            rgb = [Math.round(c[0] * w + 163 * (1 - w)), Math.round(c[1] * w + 162 * (1 - w)), Math.round(c[2] * w + 175 * (1 - w))];
+            break;
+          }
+        }
+        stops.push(`rgb(${rgb[0]},${rgb[1]},${rgb[2]}) ${Math.round(u * 100)}%`);
+      }
+      el.style.background = `linear-gradient(90deg, ${stops.join(',')})`;
+    });
+  };
+
+  const draw = () => {
+    if (!gl) return;
+    const lamp = lampPage();
+    foils.forEach((el) => {
+      const canvas = el.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const rect = canvas.getBoundingClientRect();
+      const w = Math.max(1, Math.round(rect.width * DPR));
+      const h = Math.max(1, Math.round(rect.height * DPR));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
+      if (glCanvas.width !== w || glCanvas.height !== h) {
+        glCanvas.width = w;
+        glCanvas.height = h;
+      }
+      gl.viewport(0, 0, w, h);
+      gl.useProgram(program);
+      gl.uniform2f(uRes, w, h);
+      gl.uniform3f(uLamp, (lamp.x - (rect.left + rect.width / 2)) * DPR, (lamp.y - (rect.top + rect.height / 2)) * DPR, LAMP_Z * DPR);
+      gl.uniform1f(uPeriod, period);
+      gl.uniform1f(uMode, Number(el.dataset.foil) || 0);
+      gl.uniform2f(uPress, press.value * 0.24, 0);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(glCanvas, 0, 0);
+    });
+  };
+
+  let program;
+  let uRes;
+  let uLamp;
+  let uPeriod;
+  let uMode;
+  let uPress;
+
+  if (gl) {
+    const compile = (type, src) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, src);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return null;
+      return shader;
+    };
+    const vs = compile(gl.VERTEX_SHADER, VERT);
+    const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+    if (vs && fs) {
+      program = gl.createProgram();
+      gl.attachShader(program, vs);
+      gl.attachShader(program, fs);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      const aPos = gl.getAttribLocation(program, 'a_pos');
+      gl.enableVertexAttribArray(aPos);
+      gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+      uRes = gl.getUniformLocation(program, 'u_res');
+      uLamp = gl.getUniformLocation(program, 'u_lamp');
+      uPeriod = gl.getUniformLocation(program, 'u_period');
+      uMode = gl.getUniformLocation(program, 'u_mode');
+      uPress = gl.getUniformLocation(program, 'u_press');
+    }
+  }
+
+  const paint = () => {
+    renderReadouts();
+    renderStrip();
+    if (gl && program) draw();
+    else renderCssFallback();
+  };
+
+  // 按压只弯法线，不移动版面：弹簧刚度 320、阻尼比 0.32。
+  let springRaf = 0;
+  const stepSpring = () => {
+    const stiffness = 320;
+    const damping = 2 * 0.32 * Math.sqrt(stiffness);
+    const dt = 1 / 60;
+    const accel = (press.target - press.value) * stiffness - press.vel * damping;
+    press.vel += accel * dt;
+    press.value += press.vel * dt;
+    if (Math.abs(press.target - press.value) < 0.001 && Math.abs(press.vel) < 0.001) {
+      press.value = press.target;
+      press.vel = 0;
+      springRaf = 0;
+      paint();
+      return;
+    }
+    paint();
+    springRaf = requestAnimationFrame(stepSpring);
+  };
+  const startSpring = () => {
+    if (!springRaf) springRaf = requestAnimationFrame(stepSpring);
+  };
+
+  const pressBtn = document.querySelector('[data-press]');
+  if (pressBtn) {
+    pressBtn.addEventListener('pointerdown', () => {
+      press.target = 1;
+      startSpring();
+    });
+    const release = () => {
+      press.target = 0;
+      startSpring();
+    };
+    pressBtn.addEventListener('pointerup', release);
+    pressBtn.addEventListener('pointerleave', release);
+    pressBtn.addEventListener('blur', release);
+  }
+
+  angleInput.addEventListener('input', () => {
+    angle = Number(angleInput.value);
+    paint();
+  });
+  periodInput.addEventListener('input', () => {
+    period = Number(periodInput.value);
+    paint();
+  });
+
+  // 共享指针灯：指针在视口中线哪一侧，灯就转到哪一侧。
+  if (!reduced) {
+    window.addEventListener('pointermove', (event) => {
+      const dx = event.clientX - window.innerWidth / 2;
+      lampSign = dx < 0 ? -1 : 1;
+      const deg = Math.min(70, (Math.atan(Math.abs(dx) / LAMP_Z) * 180) / Math.PI);
+      angle = Math.round(deg);
+      angleInput.value = String(angle);
+      paint();
+    });
+  }
+
+  window.addEventListener('resize', paint);
+
+  // 兑换码：只接受大写字母与数字，并播报格式是否完整。
+  const codeInput = document.querySelector('[data-code]');
+  const codeNote = document.querySelector('[data-code-note]');
+  if (codeInput) {
+    codeInput.addEventListener('input', () => {
+      const raw = codeInput.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
+      const chunks = raw.match(/.{1,4}/g) || [];
+      codeInput.value = chunks.join('-');
+      if (raw.length === 12) codeNote.textContent = '格式完整。';
+      else codeNote.textContent = `已输入 ${raw.length} / 12 位。`;
+    });
+  }
+
+  paint();
+</script>
+</body>
+</html>

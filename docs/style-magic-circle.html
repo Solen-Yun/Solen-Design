@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>魔法阵风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body mcir">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 62 · 深色版面</p>
+        <h1>魔法阵风 <span class="style-card-en">MAGIC CIRCLE</span></h1>
+        <p class="page-lead">同心环、六芒星、符文沿圆周排列：一条还没启动的法阵。</p>
+        <div class="style-card-tags"><span>3–5 层同心环</span><span>hover 旋转 180°</span><span>符文沿圆周排布</span><span>按下缩到 0.95</span></div>
+      </header>
+
+      <section class="mcir-hero">
+        <div class="mcir-hero-copy">
+          <p>魔法阵风来自奇幻作品的施法视觉：深海军黑底上叠多层次同心圆环，核心是六芒星或六边形，符文沿圆周排布，生命之花等神圣几何作暗纹，金色作唯一的暖光。它的核心动效叫 Arcane Rotation——hover 时内部虚线同心环在 3000ms 内线性旋转 180 度，像法阵被启动。</p>
+          <p>右边这条法阵是真的：hover 它，四层环会缓缓转动；按钮按下时缩到 0.95，那是施法的能量聚焦。</p>
+        </div>
+        <div class="mcir-demo">
+          <div class="mcir-circle-demo" role="presentation">
+            <span class="mcir-ring mcir-ring--outer"></span>
+            <span class="mcir-ring mcir-ring--dash"></span>
+            <span class="mcir-ring mcir-ring--mid"></span>
+            <span class="mcir-ring mcir-ring--inner"></span>
+            <span class="mcir-hexagram" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none" stroke="#fbbf24" stroke-width="1.2" stroke-opacity="0.8">
+                <path d="M50 12 L82 68 L18 68 Z" />
+                <path d="M50 88 L18 32 L82 32 Z" />
+              </svg>
+            </span>
+            <span class="mcir-runes" aria-hidden="true">✦ ◈ ✧ ◇ ✦ ◈ ✧ ◇ ✦ ◈ ✧ ◇</span>
+            <button type="button" class="mcir-btn">CAST</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0a0920"></span><span class="palette-name">Circle Ground</span><code>#0a0920</code></li>
+          <li><span class="swatch-chip" style="background:#1e1b4b"></span><span class="palette-name">Circle Indigo</span><code>#1e1b4b</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Gold</span><code>#fbbf24</code></li>
+          <li><span class="swatch-chip" style="background:#e2e8f0"></span><span class="palette-name">Silver</span><code>#e2e8f0</code></li>
+          <li><span class="swatch-chip" style="background:#818cf8"></span><span class="palette-name">Indigo</span><code>#818cf8</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><span class="palette-name">Spirit Green</span><code>#56ed40</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深海军黑让金环与靛蓝符文都能浮起来；阵紫是面板与抬升面，法阵内部的底色；金是唯一的暖光，管圆环、符文与主按钮；银白管主要文字与次级圆环，是冷侧的亮；靛蓝管符文文字与数据，与金形成冷暖对位；灵绿管「已充能」状态与成功，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0920"></span><div><strong>Circle Ground</strong><span class="swatch-role">页面底。深海军黑，让金环与靛蓝符文都能浮起来。</span></div><code>#0a0920</code><code>--color-circle-ground</code></li>
+          <li><span class="swatch-chip" style="background:#1e1b4b"></span><div><strong>Circle Indigo</strong><span class="swatch-role">面板与抬升面。法阵内部的底色。</span></div><code>#1e1b4b</code><code>--color-circle-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Gold</strong><span class="swatch-role">唯一的暖光：圆环、符文与主按钮。</span></div><code>#fbbf24</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#e2e8f0"></span><div><strong>Silver</strong><span class="swatch-role">主要文字与次级圆环。冷侧的亮。</span></div><code>#e2e8f0</code><code>--color-silver</code></li>
+          <li><span class="swatch-chip" style="background:#818cf8"></span><div><strong>Indigo</strong><span class="swatch-role">符文文字与数据。与金形成冷暖对位。</span></div><code>#818cf8</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#56ed40"></span><div><strong>Spirit Green</strong><span class="swatch-role">「已充能」状态与成功，出现频率最低。</span></div><code>#56ed40</code><code>--color-spirit-green</code></li>
+        </ul>
+        <p class="style-body-note">金色发光三档：<code>0 0 15px rgba(251,191,36,0.15)</code>、<code>0 0 30px rgba(251,191,36,0.40)</code> 与施法态 <code>inset 0 0 30px rgba(251,191,36,0.60)</code>。焦点环必须带深底色 offset。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用纪念碑式衬线 Cinzel 加宽字距，符文与标签用 JetBrains Mono——等宽让符文沿圆周排列时宽度一致；正文用衬线保证可读。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="mcir-specimen-title">MAGIC CIRCLE 0123456789</p>
+            <p class="specimen-meta">Cinzel — 纪念碑式衬线。替代栈：'Trajan Pro', Georgia, serif · 400/700 · display 0.08em、标签 0.24em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="mcir-specimen-label">✦ ◈ ✧ ◇ ARCANA VII</p>
+            <p class="specimen-meta">JetBrains Mono — 符文、坐标与咒文。替代栈：ui-monospace, 'Courier New', monospace · 400 · 字距 0.24em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cinzel</td><td>700</td><td>44px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Cinzel</td><td>700</td><td>32px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cinzel</td><td>400</td><td>22px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Cinzel</td><td>400</td><td>16px</td><td>1.7</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>Cinzel</td><td>400</td><td>13px</td><td>1.65</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.5</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px、容器内边距 24px，区块间距 128px。允许圆形与六边形打破矩形容器。法阵常作为首屏的中心视觉，文字围绕或压在其上但必须可读。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 8px · 按钮 2px · 圆形 999px · 六边形 0</td></tr>
+            <tr><td>圆环组</td><td>3–5 层同心环，尺寸 240–480px</td></tr>
+            <tr><td>环旋转</td><td>hover 3000ms linear 转 180°，减少动态时静止</td></tr>
+            <tr><td>符文</td><td>8–24 个 11px 等宽字符，按角度旋转，金 60%</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>暗纹</td><td>生命之花/六边形网格，1px、金 6% 或靛蓝 8%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Arcane Circle</h3>
+            <p class="style-body-comp-role">法阵圆环组（核心组件）。由 3 到 5 层同心环组成：最外 1px 金 40% 实线、次外 1px 金 25% 虚线圈（dash 8 gap 6）、中间 2px 金 60% 实线、内部虚线环；核心放六芒星或六边形。所有环在 hover 时以 3000ms linear 旋转 180 度——绝不允许静止不动；prefers-reduced-motion 时静止。尺寸 240–480px。hero 里的法阵就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Rune Path</h3>
+            <p class="style-body-comp-role">圆周符文。沿圆周均匀排列 8 到 24 个 11px 等宽字符，每个字符按其在圆上的角度旋转（transform: rotate(角度) 后反向旋转文字以保持直立或沿切线排列）。使用几何符号或拉丁大写，不用真实文字。颜色金 60%。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sigil Button</h3>
+            <p class="style-body-comp-role">施法按钮。阵底填充、金文字、2px 圆角、1px 金 40% 描边、16px/700、字距 0.24em、padding 12px 32px，外发光 0 0 15px 金 15%。hover 时描边升到 100%、发光扩到 30px 并加内发光；按下时缩到 0.95 且内发光加深到 60%——这是施法的能量聚焦。过渡 500ms。</p>
+            <button type="button" class="mcir-btn">INVOKE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Hex Card</h3>
+            <p class="style-body-comp-role">六边形卡片。用 clip-path polygon 切出正六边形（或 8px 圆角矩形配六边形角标），阵紫填充、1px 金 30% 描边、内边距 32px，内容居中。hover 时描边升到 60% 并触发内部圆环旋转。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sacred Geometry Bed</h3>
+            <p class="style-body-comp-role">神圣几何暗纹。全页或区块底层叠一层生命之花或六边形网格，线宽 1px、金 6% 或靛蓝 8%，不透明度极低。它只在被注意到时才存在，绝不能压过内容。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>多层同心环加六芒星核心</li>
+              <li>hover 时圆环 3000ms 线性旋转</li>
+              <li>符文沿圆周等距排列</li>
+              <li>金是唯一暖光，靛蓝为冷侧</li>
+              <li>按钮按下缩到 0.95</li>
+              <li>焦点环带深底色 offset</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮霓虹色</li>
+              <li>不要让圆环在 hover 时静止</li>
+              <li>不要用缺少 offset 的焦点环</li>
+              <li>不要让按钮按下无缩放</li>
+              <li>不要让暗纹压过内容</li>
+              <li>不要用真实文字作符文</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>符阵插画、炼金术符号、星图、魔法书页扫描。必须线稿式、金色或靛蓝、深底。不使用写实摄影、柔和插画与彩色图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="magic-circle">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的同心环、圆周符文与 Arcane Rotation 时序。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，3000ms 线性旋转、符文等距排布与按下 0.95 必须原样保留；霓虹亮色或静止的圆环一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

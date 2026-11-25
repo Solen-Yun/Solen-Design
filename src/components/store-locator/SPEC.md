@@ -1,0 +1,53 @@
+# 门店定位图 — StoreLocator
+
+一个 340×340 的门店查找场景：上半是 178px 高的简化矢量地图（浅蓝河流、三块绿地、白色主干道与次干道、一枚蓝色「我的位置」圆点、五枚水滴形门店图钉），下半是五行门店列表（序号片 + 名称 + 地址 + 距离）。点列表行或图钉，地图以 0.7s 弹性过渡平移把选中图钉带回视野中央，图钉弹跳、变 accent 放大并弹出一枚白色气泡（店名、营业状态、「Directions」角标）；从地图选中时列表还会平滑滚到对应行并闪一圈 accent 底色。
+
+## 布局与材质
+
+- 340×340px 场景，圆角 30px，溢出裁切，底色表面色，外圈 1px 线色描边加 0 30px 60px -36px 强阴影，文字墨色。响应式行为是整景等比缩放：容器窄于 340px 时按「可用宽度 ÷ 340」缩放（不超过 1 倍），内部不重排。
+- 地图：铺满宽、高 178px、溢出裁切、底色 #E8EEF4；内是一张 520×330px 的世界层（transform 0.7s cubic-bezier(.3,1,.3,1) 过渡），初始平移 (-80px,-40px)。世界层内容由一张 viewBox 0 0 520 330 的内联 SVG 绘制：一条浅蓝 #BFDBFE 河流带（贝塞尔闭合路径，横贯中部）；三块 #D9F99D 80% 透明度绿地圆角矩形（300,40 起 70×50；40,70 起 60×40；380,260 起 80×40）；主干道白色 9px 圆头描边五条（横线 y=120、竖线 x=160 与 x=360、曲线 M0 40 C120 60 220 20 520 70、折线 M20 330 L260 100 L520 300）；次干道白色 4px 描边 90% 透明度四条（竖线 x=80/260/440、横线 y=290）。地图容器 role="group" aria-label "Store map"，装饰 SVG aria-hidden。
+- 「我的位置」圆点：14px 圆、填充 #2563EB，世界层坐标 (235,125)，描边环 0 0 0 3px #fff 加 0 0 0 8px rgba(37,99,235,.2)。
+- 图钉：30×38px 的 button（锚点在针尖：margin -38px 0 0 -15px），transform-origin 底部中心，transform 0.3s cubic-bezier(.3,1.7,.5,1) 过渡；内联 SVG 水滴轮廓加 (15,14) 处 4.5px 白色圆孔，投影 drop-shadow(0 4px 4px rgba(0,0,0,.25))。默认针体为次级墨色（fill 0.2s 过渡）；歇业门店变 #9CA3AF；列表悬停联动的图钉放大 1.25 倍并上移 3px；选中图钉放大 1.3 倍、变 accent、层级最高，并播 0.5s cubic-bezier(.3,1.7,.5,1) 弹跳（30% 处 1.3 倍且上跳 8px）。focus-visible 外圈 2px accent、偏移 2px、圆角 6px。
+- 气泡：宽 150px、内边距 9px 10px、圆角 12px、背景表面色、投影 0 12px 26px -10px rgba(0,0,0,.35)，底部一枚 10px 旋转 45° 的同色菱形小尾；定位在图钉上方 48px 处（translate(-50%, calc(-100% - 48px))），transform-origin 底部中心，出现时从 0.9 倍弹到 1 倍（transform 0.3s cubic-bezier(.3,1.5,.5,1)、透明度 0.2s），平时透明度 0 且不可点击，role="status"。店名 11.5px/字重 900；状态行 flex 间距 4px、上边距 2px、9.5px/字重 800——营业中 #059669、歇业三级墨色，行首 6px 圆点同色；「Directions」角标上边距 6px、内边距 3px 8px、圆角 7px、墨色实底文字取表面色、9.5px/字重 850。
+- 列表：top 178px 到场景底、内边距 6px 10px 10px、纵向可滚（滚动条隐藏）、顶部 1px 线色分隔，aria-label "Store list"。行按钮整行宽、flex 居中间距 10px、内边距 8px、圆角 12px、文字左对齐、背景 0.2s 过渡；悬停与选中背景次表面色。序号片 26×26px、圆角 8px、背景次表面色、10.5px/字重 900 次级墨色（文案 1–5），选中变 accent 实底白字。名称 12px/字重 850；地址 10px/字重 650 三级墨色、单行省略；距离 10px/字重 800 次级墨色、等宽数字。行 focus-visible 外圈 2px accent、偏移 -2px。
+- 场景令牌浅色深色两套（`prefers-color-scheme: dark` 切换）：表面 #FFFFFF/#13141C、次表面 #F5F3EF/#1A1B25、墨色 #16151B/#F4F0E8、次级墨色 #57535F/rgba(244,240,232,.68)、三级墨色 #8E8A97/rgba(244,240,232,.42)、线色 rgba(22,21,27,.09)/rgba(255,255,255,.08)、accent #6A57F2/#B7A4FF。地图 SVG 色值两种主题一致。
+
+## 数据
+
+- 写死 5 家门店（名称、地址、营业、距离、图钉坐标）：Seongsu · 12 Yeonmujang-gil, Seongdong · 营业 · 0.5 mi · (250,150)；Hannam · 245 Itaewon-ro, Yongsan · 营业 · 1.3 mi · (210,215)；Yeonnam · 230 Donggyo-ro, Mapo · 歇业 · 4.0 mi · (95,115)；Jamsil · 300 Olympic-ro, Songpa · 营业 · 4.9 mi · (420,165)；Pangyo · 146 Pangyoyeok-ro, Bundang · 营业 · 9.3 mi · (400,300)。
+- 营业状态文案固定两种："Open · until 10 PM" 与 "Closed · opens 10 AM"；气泡角标固定 "Directions"。初始无选中门店。
+
+## 操作和动效
+
+- 列表行悬停（pointerenter/leave）：对应图钉放大 1.25 倍上浮 3px，移开还原。
+- 选中（点列表行或点图钉）：① 地图世界层平移，使选中图钉落到视口锚点 (170,112)——位移按「锚点 − 图钉坐标」计算并钳制在世界层活动范围（x ∈ [-180,0]、y ∈ [-152,0]），0.7s cubic-bezier(.3,1,.3,1) 过渡；② 图钉与列表行同步置选中态（图钉 is-on + aria-pressed、行 is-on + aria-current），歇业针保持灰色；③ 图钉播弹跳动画；④ 气泡先收起、换内容并移到新图钉上方，380ms 后重新弹出（若期间未换选）。
+- 从地图选中时：列表以 450ms、缓出曲线 1−(1−k)³ 平滑滚到「该行顶边 − 8px」，并重播 1s ease 的闪烁动画（25% 处背景 accent 16% 透明度）。
+- 键盘与无障碍：图钉与列表行都是原生 button，可 Tab 聚焦、回车选择；图钉 aria-label 为店名；气泡 role="status"；地图装饰 aria-hidden。
+- `prefers-reduced-motion`（或 options.reducedMotion）下：地图平移、图钉缩放、气泡弹出的过渡移除，弹跳与闪烁动画不播，列表滚动改为瞬时跳位；选中态、气泡内容与同步高亮完全一致。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动参数均以上述文字为准；地图、图钉全部用内联 SVG 与 DOM 绘制，不加载远程图片、字体、视频、地图服务或素材。
+- 当前交付重点为 React，组件名称 StoreLocator。从零创建四个文件：StoreLocator.tsx、StoreLocatorEngine.js、motion-runtime.ts、StoreLocatorEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新选项不重挂载、状态保持，销毁时清理动画帧、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与相机平移算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 340），options.reducedMotion 覆盖系统偏好；减少动态时选中与气泡仍正确。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；列表悬停联动、两种入口的选中、气泡内容与营业两态、边界钳制（选边缘图钉不过推）均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { StoreLocator } from "./StoreLocator";
+
+export default function App() {
+  return <StoreLocator />;
+}
+```

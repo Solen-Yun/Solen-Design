@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>立体主义 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cub">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 106 · 浅色版面</p>
+        <h1>立体主义 <span class="style-card-en">CUBISM</span></h1>
+        <p class="page-lead">把同一件东西从三个角度看，再压回一个平面。</p>
+        <div class="style-card-tags"><span>clip-path 切碎面</span><span>多视角叠加</span><span>2px 粗边</span><span>无渐变无阴影</span></div>
+      </header>
+
+      <section class="cub-hero">
+        <div class="cub-hero-copy">
+          <p>立体主义来自毕加索与布拉克：把对象拆成棱角分明的几何块，从多个视角同时呈现，再用 skew 与 rotate 把这些碎片压回画面。配色是低饱和的大地色，边框 2px 粗线、圆角只有 2 到 4px、布局刻意不对称并带倾斜，文字用粗体全大写字强调几何感。</p>
+          <p>它禁止柔和渐变与模糊——立体主义是硬的。</p>
+        </div>
+        <div class="cub-demo">
+          <div class="cub-fragments" role="presentation">
+            <span class="cub-frag cub-frag--a"></span>
+            <span class="cub-frag cub-frag--b"></span>
+            <span class="cub-frag cub-frag--c"></span>
+            <span class="cub-frag cub-frag--d"></span>
+          </div>
+          <div class="cub-title-wrap">
+            <p class="cub-title">TROIS</p>
+            <p class="cub-title-echo" aria-hidden="true">TROIS</p>
+          </div>
+          <button type="button" class="cub-btn">REGARDER</button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#5c4033"></span><span class="palette-name">Umber</span><code>#5c4033</code></li>
+          <li><span class="swatch-chip" style="background:#e8dcc8"></span><span class="palette-name">Cream</span><code>#e8dcc8</code></li>
+          <li><span class="swatch-chip" style="background:#8b7355"></span><span class="palette-name">Ochre</span><code>#8b7355</code></li>
+          <li><span class="swatch-chip" style="background:#3d5c6e"></span><span class="palette-name">Slate Blue</span><code>#3d5c6e</code></li>
+          <li><span class="swatch-chip" style="background:#9b3d25"></span><span class="palette-name">Brick</span><code>#9b3d25</code></li>
+          <li><span class="swatch-chip" style="background:#647f53"></span><span class="palette-name">Moss</span><code>#647f53</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>棕是主色，管文字、粗边框与最深色块；像旧画布的米色做页面底与浅色面；赭是中间调色面，用来制造第三个明度层；灰蓝是冷侧碎面，与棕形成分析立体主义的冷暖交错；砖红是最暖的碎面，用于强调与关键块；苔绿是第四碎面色，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#e8dcc8"></span><div><strong>Cream</strong><span class="swatch-role">页面底与浅色面。像旧画布的米色。</span></div><code>#e8dcc8</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#5c4033"></span><div><strong>Umber</strong><span class="swatch-role">主色：文字、粗边框与最深色块。</span></div><code>#5c4033</code><code>--color-umber</code></li>
+          <li><span class="swatch-chip" style="background:#8b7355"></span><div><strong>Ochre</strong><span class="swatch-role">中间调色面，用于制造第三个明度层。</span></div><code>#8b7355</code><code>--color-ochre</code></li>
+          <li><span class="swatch-chip" style="background:#3d5c6e"></span><div><strong>Slate Blue</strong><span class="swatch-role">冷侧的碎面，与棕形成分析立体主义的冷暖交错。</span></div><code>#3d5c6e</code><code>--color-slate-blue</code></li>
+          <li><span class="swatch-chip" style="background:#9b3d25"></span><div><strong>Brick</strong><span class="swatch-role">最暖的碎面，用于强调与关键块。</span></div><code>#9b3d25</code><code>--color-brick</code></li>
+          <li><span class="swatch-chip" style="background:#647f53"></span><div><strong>Moss</strong><span class="swatch-role">第四碎面色，出现频率最低。</span></div><code>#647f53</code><code>--color-moss</code></li>
+        </ul>
+        <p class="style-body-note">层次靠叠放而非阴影：<code>none — planes stack by overlap, not shadow</code>。碎面一律不加阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>粗无衬线 Inter、全大写。字形必须方正，因为立体主义的文字也是被切的块。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cub-specimen-title">CUBISM</p>
+            <p class="specimen-meta">Inter — 粗无衬线。替代栈：'Arial Black', Georgia, sans-serif · 700/900 · display 60px 行高 1.0</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>60px</td><td>1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>44px</td><td>1.05</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>32px</td><td>1.15</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>24px</td><td>1.45</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>18px</td><td>1.55</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>900</td><td>14px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 96px。允许元素重叠、倾斜与错位，角度只用 -3、-1.5、+2 三档。布局必须不对称——居中对称会立刻失去立体主义。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 4px · 按钮/输入 2px</td></tr>
+            <tr><td>碎片</td><td>clip-path 切 3–5 块、块间留 2px 米色缝</td></tr>
+            <tr><td>整块倾斜</td><td>rotate(-2deg) 或 skewX(-4deg)</td></tr>
+            <tr><td>多视角</td><td>副本偏移 8px、skewX(-8deg)、不透明度 45%</td></tr>
+            <tr><td>卡片角度</td><td>相邻卡片 -3 / +2 / -1 度</td></tr>
+            <tr><td>过渡</td><td>150ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Fragmented Panel</h3>
+            <p class="style-body-comp-role">碎片化面板（核心组件）。一个容器被 clip-path 切成 3 到 5 个不规则多边形，每块填不同的大地色，块与块之间留 2px 的米色缝（模拟画布的底色透出）。整块 rotate(-2deg) 或 skewX(-4deg)。零阴影。hero 左上那组碎面就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Multi-View Block</h3>
+            <p class="style-body-comp-role">多视角叠加。同一内容的副本叠两层：一层正常、一层偏移 8px 并 skewX(-8deg)、不透明度 45%，形成「同时从两个角度看」的错觉。仅用于标题与图像，正文绝不叠加——hero 里 TROIS 那两行就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Angular Button</h3>
+            <p class="style-body-comp-role">行动按钮。棕填充、米色文字、2px 圆角、2px 棕描边、14px/900 全大写、字距 0.06em、padding 14px 28px，无阴影。用 clip-path 切掉右上角 12px。hover 时填充换砖红；按下时位移 2px 2px。过渡 150ms linear。</p>
+            <button type="button" class="cub-btn">观看</button>
+          </div>
+          <div class="comp-item">
+            <h3>Skewed Card</h3>
+            <p class="style-body-comp-role">倾斜卡片。米色或大地色填充、4px 圆角、2px 棕描边、内边距 28px。整张卡 skewX(-3deg) 并 rotate(1deg)，相邻卡片角度不同（-3、+2、-1 度），刻意不对称。内容在内层反向 skew 以保持文字直立。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Fragmented Edge</h3>
+            <p class="style-body-comp-role">碎片边缘。用 clip-path 的一个不规则多边形让图像的边缘像被打碎，或沿边缘叠 3 到 4 个小的三角与梯形色块。它替代圆角与装饰边框。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>大地色系，低饱和</li>
+              <li>用 clip-path 把面切成碎片</li>
+              <li>多视角叠加同一内容</li>
+              <li>2px 粗边框、2 到 4px 圆角</li>
+              <li>布局不对称并倾斜</li>
+              <li>粗体全大写字</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和渐变与模糊</li>
+              <li>不要用对称居中布局</li>
+              <li>不要用大圆角</li>
+              <li>不要用过亮的饱和色</li>
+              <li>不要把完整照片直接放上</li>
+              <li>不要给碎面加阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像必须被切碎：把照片用 clip-path 分成多块并各自偏移、或转成大地色的多面体构成。允许同一张脸的三个角度并置。不使用完整清晰的照片、柔和插画与渐变图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cubism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的碎片化面板、多视角叠加与不对称纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，clip-path 碎片、多视角叠加与「无渐变无阴影」必须原样保留；对称居中布局一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

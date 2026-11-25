@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分屏布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body split">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 03 · 对照版面</p>
+        <h1>分屏布局 <span class="style-card-en">SPLIT LAYOUT</span></h1>
+        <p class="page-lead">两块内容各占一半，靠对比产生张力，靠平衡避免刺眼。</p>
+        <div class="style-card-tags"><span>两半对照</span><span>反色按钮</span><span>留白中缝</span><span>非对称允许</span><span>移动堆叠</span></div>
+      </header>
+
+      <section class="split-intro">
+        <p>分屏布局用一条中缝把视口切成两半，两侧放互相映照的内容：图与文、旧与新、问题与答案。它的规则全是平衡问题——两侧内容绝不能完全相同（那是无意义分屏），视觉重量不能严重失衡（一边满页面一边空白），阅读顺序不能被中缝切断，分割线不能突兀到抢戏。</p>
+        <p>移动端必须放弃分屏转为上下堆叠，否则每侧只有 180px 宽。允许非对称分屏（如 40:60）来表达主次。下面是一个按规格跑的分屏面板。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>两侧构成对照而不是重复：一暗一亮、一问题一答案，标签取蓝与红，两侧标题同字号；按钮与所在侧反色，hover 只改亮度不做位移。用上方按钮切换：对称 1:1、非对称 2:3（40:60 表达主次），以及手机堆叠——堆叠后标签保留、顺序与阅读一致。</p>
+        <div class="split-stage-bar" role="group" aria-label="预览视口与比例">
+          <button type="button" data-stage="split" aria-pressed="true">对称 · 1:1</button>
+          <button type="button" data-stage="asymmetric" aria-pressed="false">非对称 · 2:3</button>
+          <button type="button" data-stage="stacked" aria-pressed="false">手机 · 堆叠</button>
+        </div>
+        <div class="split-stage" data-stage-view="split">
+          <div class="split-panel">
+            <div class="split-half split-half--ink">
+              <span class="split-label split-label--before">Before</span>
+              <p class="split-title">改版之前</p>
+              <p class="split-body">旧版把所有功能塞进同一条导航，找东西靠记忆，第一次来的用户要在页面里迷路三次。</p>
+              <button type="button" class="split-cta split-cta--ghost">查看旧版</button>
+            </div>
+            <div class="split-half split-half--paper">
+              <span class="split-label split-label--after">After</span>
+              <p class="split-title">改版之后</p>
+              <p class="split-body">新版按任务重组导航，任何功能三步内到达；首次访问的用户在测试里全部一次找对入口。</p>
+              <button type="button" class="split-cta split-cta--solid">查看新版</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0f0f0f"></span><span class="palette-name">Ink</span><code>#0f0f0f</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff4757"></span><span class="palette-name">Red</span><code>#ff4757</code></li>
+          <li><span class="swatch-chip" style="background:#2ed573"></span><span class="palette-name">Green</span><code>#2ed573</code></li>
+          <li><span class="swatch-chip" style="background:#1e90ff"></span><span class="palette-name">Blue</span><code>#1e90ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffa502"></span><span class="palette-name">Amber</span><code>#ffa502</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>整页的基本张力来自墨白成对：深色一侧负责吸住视线，浅色一侧负责呼吸。红与蓝是一对结构性对立——「之后」取红、「之前」取蓝，永远成对出现；绿色只说正向结果；琥珀标注需要注意的差异项。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0f0f0f"></span><div><strong>Ink</strong><span class="swatch-role">深色一侧的底与文字。用于制造两侧的最大对比。</span></div><code>#0f0f0f</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">浅色一侧的底。与墨成对，构成整页的基本张力。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff4757"></span><div><strong>Red</strong><span class="swatch-role">「之后」「新」这一侧的强调，与蓝形成对立。</span></div><code>#ff4757</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#2ed573"></span><div><strong>Green</strong><span class="swatch-role">正向结果与成功对比项。</span></div><code>#2ed573</code><code>--color-green</code></li>
+          <li><span class="swatch-chip" style="background:#1e90ff"></span><div><strong>Blue</strong><span class="swatch-role">「之前」「旧」这一侧的强调，与红形成对立。</span></div><code>#1e90ff</code><code>--color-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffa502"></span><div><strong>Amber</strong><span class="swatch-role">需要注意的差异项与高亮。</span></div><code>#ffa502</code><code>--color-amber</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Ink Half <code>#0f0f0f</code>，1 White Half <code>#ffffff</code>，2 Image Half（整幅照片）。阴影两级：面板 <code>0 12px 32px rgba(15,15,15,0.10)</code>，按钮 <code>0 4px 12px rgba(15,15,15,0.15)</code>；中缝优先用留白，需要线时用 1px 深色 10% 且不贯穿全高。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。两侧标题必须同级同字号，否则视觉重量会失衡——这条比任何字号选择都重要。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="split-specimen-title">分屏布局，Split Layout</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.02em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>44px</td><td>1.1</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>32px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>22px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1440px，首屏 100vh 分两半；内容区可用 40:60 非对称表达主次。每侧内边距 48px（移动端 24px）、内容垂直居中、单列、行宽不超过 34em；中缝对齐整页网格。移动端（小于 768px）放弃分屏转单列堆叠。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>16px</td></tr>
+            <tr><td>按钮与输入框圆角</td><td>8px</td></tr>
+            <tr><td>每侧内边距</td><td>48px（移动端 24px）</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>0px（分屏自身即区块）</td></tr>
+            <tr><td>行宽上限</td><td>34em</td></tr>
+            <tr><td>页面网格上限</td><td>1440px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Split Panel</h3>
+            <p class="style-body-comp-role">分屏容器。grid-template-columns 取 1fr 1fr（对称）或 0.8fr 1.2fr（非对称），最小高度 100vh（首屏）或 600px（内容区）。每侧内边距 48px、内容垂直居中、单列、行宽不超过 34em。上面布局实演用的就是它，切换按钮可以看对称、非对称与堆叠三种形态。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Contrast Pair</h3>
+            <p class="style-body-comp-role">两侧的成对内容。两侧必须构成对照而不是重复：一图一文、一暗一亮、一问题一答案。标签用 12px 全大写 0.08em，分别取蓝与红；两侧标题字号必须相同。实演里的「改版之前 / 改版之后」即此结构。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Split CTA</h3>
+            <p class="style-body-comp-role">每侧的独立行动。8px 圆角、16px/500、padding 12px 24px。深色侧用白底墨字，浅色侧用墨底白字——按钮必须与所在侧反色，否则会失去分离感。hover 时只改亮度，不做位移。</p>
+            <div class="split-cta-demo" role="presentation">
+              <div class="split-cta-demo-a"><button type="button" class="split-cta split-cta--ghost">深色侧 · 白底墨字</button></div>
+              <div class="split-cta-demo-b"><button type="button" class="split-cta split-cta--solid">浅色侧 · 墨底白字</button></div>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Seam Divider</h3>
+            <p class="style-body-comp-role">中缝分隔。优先用留白（48px 间隙）而不是线。需要线时用 1px 深色 10%，不贯穿全高（上下各留 15%），避免把版面切成两块互不相关的图。</p>
+            <div class="split-seam-demo" role="presentation"></div>
+          </div>
+          <div class="comp-item">
+            <h3>Compare Row</h3>
+            <p class="style-body-comp-role">对比行——移动端保留的对照结构。堆叠后每项上方用 12px 标签标明「之前」「之后」，颜色对应（蓝对红），堆叠顺序与阅读顺序一致。</p>
+            <div class="split-compare">
+              <div class="split-compare-item">
+                <span class="split-label split-label--before">Before</span>
+                <p>所有功能共用一条导航，入口靠记忆。</p>
+              </div>
+              <div class="split-compare-item">
+                <span class="split-label split-label--after">After</span>
+                <p>按任务重组，任何功能三步内到达。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>两侧内容必须构成对照</li>
+              <li>两侧标题同字号</li>
+              <li>允许 40:60 非对称分屏</li>
+              <li>中缝优先用留白</li>
+              <li>按钮与所在侧反色</li>
+              <li>移动端转单列堆叠并保留标签</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让两侧内容完全相同</li>
+              <li>不要在移动端保持分屏</li>
+              <li>不要让视觉重量严重失衡</li>
+              <li>不要切断阅读顺序</li>
+              <li>不要让分割线突兀</li>
+              <li>不要在 hover 时位移按钮</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>一张对比性强的照片或截图占一侧，另一侧是文字或纯色块。图像比例固定（1:1 或 4:5），允许裁切但不允许拉伸。不使用两侧都放图像的对称布局，除非两张图构成明确对照。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="split-layout">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的对照规则、中缝处理、反色按钮与移动端堆叠策略。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，两侧标题同字号、按钮与所在侧反色、hover 只改亮度必须原样保留；移动端小于 768px 必须转单列堆叠并保留标签。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

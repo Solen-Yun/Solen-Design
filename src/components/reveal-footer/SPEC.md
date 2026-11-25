@@ -1,0 +1,56 @@
+# 卷帘揭示页脚 — RevealFooter
+
+制作「卷帘揭示页脚」场景：一张 300×480 的页面卡。上层是一张深浅主题跟随的普通页面（末屏 hero 文案加案例卡），下层预先垫着一张固定 300px 高的深色页脚（订阅表单、三列链接和一枚巨型 "Solen." 水印字）。内容层滚到底后，页面像卷帘一样整体上抬，露出底下的页脚；随着揭示幅度 r 从 0 到 1，页脚从 0.94 倍缩放、35% 透明度连续过渡到原大、完全不透明，水印字同步从下方 26px 处升到位。页脚里的订阅表单可直接交互，提交后按钮变绿色的 "Subscribed" 加对勾。
+
+## 布局与材质
+
+- 300×480px 场景卡，圆角 32px，溢出裁切。场景底色固定为 #0E0F14（页脚色），外圈 1px 线色描边、下方 0 30px 60px -36px 强阴影。窄容器时整景按 min(1, 可用宽/300) 等比缩放。
+- 页脚绝对定位贴底、通栏、高 300px、内边距 22px 20px，文字基色 #E8E9F2；transform-origin 50% 100%，transform scale(0.94 + 0.06×r)、opacity 0.35 + 0.65×r（r 为 0–1 的揭示进度，写在内联 CSS 变量 --r 上）。
+- 订阅区：眉标 "Newsletter" 10px/850、字距 0.08em、#8B8FA8；标题 "Once a month, only useful news" 15px/850、上边距 4px、下边距 10px。表单为原生 form 元素、横向 flex、间距 6px：邮箱输入框 flex:1、高 36px、圆角 11px，占位符 "Email address"、autocomplete off，背景 rgba(255,255,255,.08)、内描边 1px rgba(255,255,255,.1)，文字 12px/600 白色，聚焦时内描边加粗到 1.5px #818CF8；提交按钮高 36px、内边距 0 14px、圆角 11px、白底 #0E0F14 字、12px/850，内含 13px 对勾 SVG（成功前隐藏）与文字 "Subscribe"；成功态按钮底色 #34D399、文字 #05261A、文案 "Subscribed" 并亮出对勾；聚焦时 2px #818CF8 外圈、偏移 2px。
+- 链接区：三等分网格、间距 8px、上边距 22px，文字 11px/650 #8B8FA8；列标题 11px/850 #E8E9F2，条目行距 4px。
+- 水印 "Solen."：绝对定位左右 14px、bottom 8px，68px/0.9、字重 950、字距 -0.06em，白色到 rgba(255,255,255,.08) 的纵向渐变文字（同时使用 -webkit-background-clip 与 background-clip 裁到文字）；transform translateY(26px×(1-r))，揭示越大升得越高；aria-hidden。
+- 滚动层铺满整卡：overflow-y auto、滚动条隐藏、overscroll-behavior contain、tabindex="0"、aria-label "Page"，聚焦时 2px #818CF8 外圈、偏移 -4px；整层 pointer-events:none，仅内容卡片恢复 pointer-events:auto，这样揭示后能直接点到下层页脚。
+- 内容卡片：主内容背景表面色、下缘圆角 0 0 28px 28px、投影 0 20px 40px -10px rgba(0,0,0,.5)、内边距 38px 22px 30px——眉标 "Final section" 10px/850 accent、字距 0.08em；标题两行 "Good tools / work quietly" 25px/1.15/900、字距 -0.04em；段落 "We handle the rest so your team can focus on the work." 12px/1.6/600 次级墨色；案例卡上边距 22px、内边距 16px、圆角 18px、surface-2 底——眉标 "Case study"、标题 "Cut launch time in half" 16px/900，下方 120px 高的渐变图块（accent-soft 到 accent 30% 混色、圆角 12px）。卡片之后是精确 300px 高的空白占位，等于页脚高度。
+- 场景令牌浅色/深色两套（light-dark() 切换：浅色表面 #FFFFFF、墨色 #16151B、accent #6A57F2；深色表面 #13141C、墨色 #F4F0E8、accent #B7A4FF），仅作用于上层内容卡；页脚恒为 #0E0F14 深色。字体栈继承页面。
+
+## 数据
+
+- 页脚写死：Newsletter 标题组、Subscribe/Subscribed 按钮、三列链接 Product（Features、Pricing）、Company（About、Careers）、Help（Docs、Contact）、水印 Solen.。
+- 内容页写死：Final section、Good tools work quietly、We handle the rest so your team can focus on the work.、Case study / Cut launch time in half。
+- 订阅提交时空输入自动填入 hello@solen.dev。
+
+## 操作和动效
+
+- 滚动揭示：监听滚动层 scroll（passive），进度 r = clamp(1 - 剩余可滚动距离/300px, 0, 1)（剩余可滚动距离 = 可滚动总距 − scrollTop，300px 即占位块高度），写回场景根的 --r；页脚缩放 0.94→1、透明度 0.35→1、水印上移 0→26px 全部由该变量连续驱动，滚回即反向，全程无关键帧。
+- 由于滚动层 pointer-events 穿透、内容卡恢复事件，滚到底后页脚的输入框与按钮可直接点击、聚焦。
+- 订阅提交：阻止默认提交；输入为空时自动填入 hello@solen.dev；随后按钮进入成功态——底色 #34D399、文字 "Subscribed"、对勾 SVG 淡入显示。
+- 键盘与无障碍：滚动层 tabindex="0" 可聚焦滚动；邮箱输入 aria-label "Email address"；提交按钮 focus-visible 外圈；水印 aria-hidden。
+- prefers-reduced-motion 下：页脚保持 scale(1)、opacity 1，水印不上移——揭示只改变可见区域本身，不再附加缩放与位移。
+- options.height 调整场景高度（默认 480），options.reducedMotion 覆盖系统偏好。支持同页多实例；卸载时移除滚动监听。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案与揭示映射公式均以上述文字为准；水印与图块全部用 CSS 渐变绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 RevealFooter。从零创建四个文件：RevealFooter.tsx、RevealFooterEngine.js、motion-runtime.ts、RevealFooterEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态时页脚完整显示，滚动揭示仍然可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；揭示随滚动可逆、页脚缩放与水印位移正确；滚到底可直接操作订阅表单且成功反馈正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { RevealFooter } from "./RevealFooter";
+
+export default function App() {
+  return <RevealFooter />;
+}
+```

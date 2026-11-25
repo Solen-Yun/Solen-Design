@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>赤陶暖调 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body terra">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 90 · 浅色版面</p>
+        <h1>赤陶暖调 <span class="style-card-en">TERRACOTTA</span></h1>
+        <p class="page-lead">赤陶、沙、奶油：地中海的午后，一切都在阳光里慢慢干。</p>
+        <div class="style-card-tags"><span>大地色系</span><span>暖阴影非灰黑</span><span>按下压印不缩放</span><span>禁一切冷色</span></div>
+      </header>
+
+      <section class="terra-hero">
+        <div class="terra-hero-copy">
+          <p>赤陶暖调来自地中海的手工陶器与土墙：奶油底、赤陶主色、沙与土棕作大地色系层次、橄榄绿作自然元素。阴影是暖色调的柔光（赤陶 10%）而不是灰的黑，点击反馈用下沉压印（active 时 translateY 而非缩放），因为陶器被按下去是陷进去不是弹出来。</p>
+          <p>它禁止一切冷色——蓝与紫在这套语言里是不存在的。右边这张陶卡是真的：左上角有一只陶罐的轮廓，hover 时暖阴影缓缓扩散。</p>
+        </div>
+        <div class="terra-demo">
+          <span class="terra-pot" aria-hidden="true"></span>
+          <div class="terra-card">
+            <p class="terra-card-title">手作的温度</p>
+            <p class="terra-card-text">陶轮转了四十分钟，杯壁留下指纹般的旋痕。</p>
+            <button type="button" class="terra-btn">看工坊</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#b5654a"></span><span class="palette-name">Terracotta</span><code>#b5654a</code></li>
+          <li><span class="swatch-chip" style="background:#faf5ef"></span><span class="palette-name">Cream</span><code>#faf5ef</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><span class="palette-name">Sand</span><code>#d4a373</code></li>
+          <li><span class="swatch-chip" style="background:#7a6350"></span><span class="palette-name">Earth Brown</span><code>#7a6350</code></li>
+          <li><span class="swatch-chip" style="background:#8b9d77"></span><span class="palette-name">Olive</span><code>#8b9d77</code></li>
+          <li><span class="swatch-chip" style="background:#8fb86a"></span><span class="palette-name">Fresh Green</span><code>#8fb86a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>赤陶管主按钮、主强调与陶器语义；暖白的墙面色做页面底；沙是第一层次色，用于区块底与装饰；像烧过黏土的土棕管正文与第二层次；橄榄绿管植物与「自然」语义，用于标签与点缀；最亮的嫩绿只在「新芽」与春季主题出现。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#faf5ef"></span><div><strong>Cream</strong><span class="swatch-role">页面底。暖白的墙面色。</span></div><code>#faf5ef</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#b5654a"></span><div><strong>Terracotta</strong><span class="swatch-role">主色：主按钮、主强调与陶器语义。</span></div><code>#b5654a</code><code>--color-terracotta</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><div><strong>Sand</strong><span class="swatch-role">第一层次色，用于区块底与装饰。</span></div><code>#d4a373</code><code>--color-sand</code></li>
+          <li><span class="swatch-chip" style="background:#7a6350"></span><div><strong>Earth Brown</strong><span class="swatch-role">正文与第二层次。像烧过的黏土。</span></div><code>#7a6350</code><code>--color-earth-brown</code></li>
+          <li><span class="swatch-chip" style="background:#8b9d77"></span><div><strong>Olive</strong><span class="swatch-role">植物与「自然」语义，用于标签与点缀。</span></div><code>#8b9d77</code><code>--color-olive</code></li>
+          <li><span class="swatch-chip" style="background:#8fb86a"></span><div><strong>Fresh Green</strong><span class="swatch-role">最亮的一支，只在「新芽」与春季主题出现。</span></div><code>#8fb86a</code><code>--color-fresh-green</code></li>
+        </ul>
+        <p class="style-body-note">暖阴影三档：<code>0 6px 20px rgba(181,101,74,0.10)</code>、hover <code>0 12px 32px rgba(181,101,74,0.16)</code> 与按下 <code>0 2px 6px rgba(181,101,74,0.12)</code>——全部带赤陶调。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>衬线字体 Lora，行高 1.75。手作感需要一点不精确，所以字距只微开不加宽。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="terra-specimen-title">赤陶暖调 0123</p>
+            <p class="specimen-meta">Lora — 衬线。替代栈：Georgia, 'Songti SC', serif · 400/600 · 行高 1.75 · display 字距 0.01em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Lora</td><td>600</td><td>48px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Lora</td><td>600</td><td>36px</td><td>1.3</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Lora</td><td>400</td><td>28px</td><td>1.4</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Lora</td><td>400</td><td>21px</td><td>1.7</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Lora</td><td>400</td><td>17px</td><td>1.75</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Lora</td><td>600</td><td>14px</td><td>1.55</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 112px。允许轻微的不对称（5:7 双栏）。留白宽松，暖阴影负责把元素从底上抬起，而不是边框。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:112px"></span><code>112</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px · 按钮/输入 8px · 陶罐 999px 999px 40% 40%</td></tr>
+            <tr><td>暖阴影</td><td>0 6px 20px 赤陶 10%，hover 32px，按下收 6px</td></tr>
+            <tr><td>压印</td><td>active translateY(2px)，绝不缩放</td></tr>
+            <tr><td>陶罐轮廓</td><td>64–160px、沙或赤陶 20–35%、单屏 2–3 处</td></tr>
+            <tr><td>大地渐变</td><td>135° 沙到土棕、20–40%、绝不超 60%</td></tr>
+            <tr><td>过渡</td><td>200ms ease-out</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Clay Button</h3>
+            <p class="style-body-comp-role">行动按钮。赤陶填充、奶油文字、8px 圆角、无描边、17px/600、padding 14px 32px，暖阴影 0 6px 20px 赤陶 10%。hover 时填充加深到 #a1563f、阴影扩到 32px；按下时 translateY(2px) 且阴影收到 6px——是压印而不是缩放。过渡 200ms ease-out。</p>
+            <button type="button" class="terra-btn">按一按</button>
+          </div>
+          <div class="comp-item">
+            <h3>Clay Card</h3>
+            <p class="style-body-comp-role">内容卡。奶油或沙 18% 填充、12px 圆角、1px 土棕 12% 描边、内边距 32px，暖阴影 0 6px 20px 赤陶 10%。标题 36px/600 土棕，正文 17px 土棕 80%。hover 时阴影扩到 32px 并上浮 2px。hero 里的陶卡就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pot Silhouette</h3>
+            <p class="style-body-comp-role">陶罐轮廓装饰。用 border-radius 的四值（如 999px 999px 40% 40%）做出罐子的轮廓，填沙或赤陶并降到 20% 到 35%，尺寸 64 到 160px。放在卡片角落或区块之间，作为「手工器物」的暗示，单屏 2 到 3 处——hero 左上那只就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Earth Gradient</h3>
+            <p class="style-body-comp-role">大地色渐变层。从沙到土棕的 135 度渐变（不透明度 20% 到 40%），叠在区块背景上，模拟墙面受光的变化。绝不做到 60% 以上——它应该是气息而不是色块。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Clay Field</h3>
+            <p class="style-body-comp-role">表单输入。奶油填充、8px 圆角、1px 土棕 25% 描边、padding 12px 16px、17px 衬线。占位符土棕 45%。聚焦时描边转赤陶并加 2px 的赤陶 20% 外环。</p>
+            <input class="terra-input" type="text" placeholder="写点什么…">
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>奶油底配赤陶与大地色</li>
+              <li>阴影是暖色调而非灰黑</li>
+              <li>点击下沉压印，不缩放</li>
+              <li>橄榄绿作自然元素</li>
+              <li>圆角 8 到 12px</li>
+              <li>用陶罐轮廓暗示手作</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用蓝、紫等冷色</li>
+              <li>不要用灰黑阴影</li>
+              <li>不要用弹性缩放反馈</li>
+              <li>不要用金属高光</li>
+              <li>不要让渐变超过 60%</li>
+              <li>不要用冷调摄影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>手作器物与地中海场景：陶罐、土墙、橄榄树、亚麻、食物。必须自然光、暖调、可见材质纹理。不使用冷调摄影、蓝色与紫色图像、金属高光。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="terracotta">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的暖阴影、压印反馈与陶罐轮廓。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，暖色调阴影、「压印而非缩放」与大地色系必须原样保留；蓝紫冷色或灰黑阴影一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

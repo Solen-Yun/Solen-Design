@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>柔和工具风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body sutil">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 131 · 浅色版面</p>
+        <h1>柔和工具风 <span class="style-card-en">SOFT UTILITY</span></h1>
+        <p class="page-lead">效率工具也可以温和：深青压住信息，柔色安抚手感。</p>
+        <div class="style-card-tags"><span>深青主色</span><span>柔色只做分类</span><span>圆角 12–16px</span><span>动效 200ms</span></div>
+      </header>
+
+      <section class="sutil-hero">
+        <div class="sutil-chips">
+          <span class="sutil-chip sutil-chip--mint">生活</span>
+          <span class="sutil-chip sutil-chip--apricot">截止</span>
+          <span class="sutil-chip sutil-chip--blush">个人</span>
+          <span class="sutil-chip sutil-chip--blue">日程</span>
+        </div>
+        <div class="sutil-card">
+          <span class="sutil-icon"></span>
+          <h3 class="sutil-card-title">整理这周的账单</h3>
+          <p class="sutil-card-note">已核对 6 / 9 张</p>
+          <div class="sutil-progress"><span></span></div>
+        </div>
+        <div class="sutil-field">
+          <input class="sutil-input" type="text" placeholder="添加一条待办" aria-label="添加一条待办">
+        </div>
+        <a class="sutil-btn" href="#0" onclick="return false">完成任务</a>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#2d5b63"></span><span class="palette-name">Deep Teal</span><code>#2d5b63</code></li>
+          <li><span class="swatch-chip" style="background:#f4f8f6"></span><span class="palette-name">Mist</span><code>#f4f8f6</code></li>
+          <li><span class="swatch-chip" style="background:#203b40"></span><span class="palette-name">Ink Teal</span><code>#203b40</code></li>
+          <li><span class="swatch-chip" style="background:#a9d8cc"></span><span class="palette-name">Mint</span><code>#a9d8cc</code></li>
+          <li><span class="swatch-chip" style="background:#f3c98b"></span><span class="palette-name">Apricot</span><code>#f3c98b</code></li>
+          <li><span class="swatch-chip" style="background:#e6b7b0"></span><span class="palette-name">Blush</span><code>#e6b7b0</code></li>
+          <li><span class="swatch-chip" style="background:#b8c9ed"></span><span class="palette-name">Pale Blue</span><code>#b8c9ed</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深青是整套系统里唯一的高对比色，承担主行动、标题、进度条与选中态；正文用比它更深的墨青，长段落才读得动。雾绿白做页面与卡片底。剩下四支全是低饱和柔色，只用于分类与状态，不承担正文——薄荷代表生活与完成，杏色代表提醒与截止，藕粉代表个人，淡蓝代表信息与日程。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#2d5b63"></span><div><strong>Deep Teal</strong><span class="swatch-role">主行动、标题、进度条与选中态。</span></div><code>#2d5b63</code><code>--color-deep-teal</code></li>
+          <li><span class="swatch-chip" style="background:#f4f8f6"></span><div><strong>Mist</strong><span class="swatch-role">页面与卡片底。带一点绿的暖白。</span></div><code>#f4f8f6</code><code>--color-mist</code></li>
+          <li><span class="swatch-chip" style="background:#203b40"></span><div><strong>Ink Teal</strong><span class="swatch-role">正文与标题文字，比主色更深。</span></div><code>#203b40</code><code>--color-ink-teal</code></li>
+          <li><span class="swatch-chip" style="background:#a9d8cc"></span><div><strong>Mint</strong><span class="swatch-role">分类色与图标底，表示生活 / 完成。</span></div><code>#a9d8cc</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#f3c98b"></span><div><strong>Apricot</strong><span class="swatch-role">提醒与截止语义，暖色里最显眼的一支。</span></div><code>#f3c98b</code><code>--color-apricot</code></li>
+          <li><span class="swatch-chip" style="background:#e6b7b0"></span><div><strong>Blush</strong><span class="swatch-role">情感与个人类分类，面积小、频率低。</span></div><code>#e6b7b0</code><code>--color-blush</code></li>
+          <li><span class="swatch-chip" style="background:#b8c9ed"></span><div><strong>Pale Blue</strong><span class="swatch-role">信息与日程类分类，唯一偏冷的柔色。</span></div><code>#b8c9ed</code><code>--color-pale-blue</code></li>
+        </ul>
+        <p class="style-body-note">卡片不靠阴影浮起：<code>none — 1px border carries it</code>。只有按钮与底部弹层带阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站一种字体。字级偏移动端：正文 13 到 17px，标题 22 到 28px，标签 12px。字重不超过 600——再重就会压过柔色。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="sutil-specimen-title">整理这周的账单</p>
+            <p class="specimen-meta">Inter — 标题。替代栈：system-ui, -apple-system, 'PingFang SC', sans-serif · 600 · 行高 1.3</p>
+          </div>
+          <div class="type-specimen">
+            <p class="sutil-specimen-body">正文 15px / 400 / 行高 1.6，说明文字 12px。</p>
+            <p class="specimen-meta">Inter — 正文与说明。字重 400–600 · 12–17px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>28px</td><td>1.3</td><td>-0.01em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>600</td><td>22px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>600</td><td>17px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>body-sm</td><td>Inter</td><td>400</td><td>13px</td><td>1.55</td><td>—</td><td><code>--text-body-sm</code></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。移动优先：单栏、上限 480px、内边距 20px、卡片间距 12px、区块间距 32px。桌面端居中为一列，宽度不超过 560px。底部固定操作条高 64px，内容区留出同等底部内边距。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:20px"></span><code>20</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 / 按钮 / 输入 16px · 图标 12px · 药丸 999px</td></tr>
+            <tr><td>页面</td><td>单栏上限 480px、桌面不超过 560px</td></tr>
+            <tr><td>区块间距</td><td>32px</td></tr>
+            <tr><td>卡片内边距</td><td>20px</td></tr>
+            <tr><td>卡片间距</td><td>12px</td></tr>
+            <tr><td>底部操作条</td><td>固定 64px，内容区留同等底部内边距</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Primary Action</h3>
+            <p class="style-body-comp-role">主行动按钮（例：完成任务）。深青填充、白字、16px 圆角、无描边，字级 17px、字重 600、padding 12px 20px，阴影 0 6px 16px 主色 20%。hover 时填充加深到 #234b52；按下缩放 0.98。过渡只改颜色，200ms。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Task Card</h3>
+            <p class="style-body-comp-role">任务卡与进度块。雾绿白填充、1px 主色 15% 描边、16px 圆角、内边距 20px，无阴影。左上 40px 薄荷图标块（12px 圆角），标题 17px/600 墨青，说明 12px 灰。底部进度条高 8px、全圆角、底槽 #d9e8e3、填充深青。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Input</h3>
+            <p class="style-body-comp-role">添加任务与搜索。白底、1px 主色 20% 描边、16px 圆角、padding 12px 16px、15px 字。占位符用灰 60%。聚焦时加 4px 的薄荷 50% 外环，不改变描边宽度。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Category Chip</h3>
+            <p class="style-body-comp-role">分类与筛选标记。全圆角、padding 6px 12px、12px/500。四个分类各用一支柔色作 20% 底配主色文字：薄荷=生活、杏=截止、藕粉=个人、淡蓝=日程。选中态底色升到 100% 并保持深色文字。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bottom Sheet</h3>
+            <p class="style-body-comp-role">移动端底部弹层。白底、顶部 20px 圆角、顶部 1px 主色 10% 描边、阴影 0 -12px 40px 墨青 12%。顶部中央放一个 36px × 4px 的灰色抓手。内边距 20px，内容区可滚动，最大高度 88vh。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>主色深青，只用它承担行动与正文</li>
+              <li>圆角 12 到 16px</li>
+              <li>柔色只用于分类与状态</li>
+              <li>字重不超过 600</li>
+              <li>动效 200ms，只改颜色</li>
+              <li>移动端单栏，上限 480px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用弹跳或夸张动效</li>
+              <li>不要让柔色承担正文</li>
+              <li>不要用超过 20px 的圆角</li>
+              <li>不要用重阴影</li>
+              <li>不要在同一屏用超过三种分类色</li>
+              <li>不要在移动端上多栏</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以图标与少量插画为主。允许柔色几何图形作为分类标识。不使用摄影与背景图，移动工具里图像会挤掉信息。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="soft-utility">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的深青主色、分类色与动效约束。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，深青主色、12–16px 圆角与 200ms 纯变色动效必须原样保留；弹跳动效或柔色承担正文即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

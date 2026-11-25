@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手绘涂鸦风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body doodle">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 49 · 浅色版面</p>
+        <h1>手绘涂鸦风 <span class="style-card-en">HAND-DRAWN DOODLE</span></h1>
+        <p class="page-lead">笔记本上的随手涂画：虚线、彩色马克笔、胶带与图钉。</p>
+        <div class="style-card-tags"><span>虚线边框</span><span>彩色实心阴影</span><span>胶带与图钉</span><span>150ms 线性</span></div>
+      </header>
+
+      <section class="doodle-hero">
+        <div class="doodle-hero-copy">
+          <p>手绘涂鸦风把界面做成一页贴满便签的笔记：奶白纸底，所有边框都是 2 到 3px 的虚线，阴影不是灰的而是彩色的实心偏移（黄、红或青），标题允许 -3 度的斜切，卡片 hover 时轻微旋转。</p>
+          <p>装饰语言包括胶带条、图钉、回形针——它们是这套风格区别于「铅笔手绘」的关键：铅笔更安静，涂鸦更热闹。字体用无衬线加粗，绝不使用等宽，因为笔记里的字是随手写的。右边这张便签是真的——胶带贴着，风一吹会歪。</p>
+        </div>
+        <div class="doodle-demo">
+          <div class="doodle-note-demo">
+            <span class="doodle-tape" aria-hidden="true"></span>
+            <span class="doodle-pin" aria-hidden="true"></span>
+            <p class="doodle-demo-title">贴在墙上的便签！</p>
+            <p class="doodle-demo-body">虚线勾边，彩影垫底，胶带压角。</p>
+            <button type="button" class="doodle-btn">再贴一张</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><span class="palette-name">Ink</span><code>#2c2c2c</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><span class="palette-name">Marker Red</span><code>#ff6b6b</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><span class="palette-name">Marker Teal</span><code>#4ecdc4</code></li>
+          <li><span class="swatch-chip" style="background:#ffd93d"></span><span class="palette-name">Marker Yellow</span><code>#ffd93d</code></li>
+          <li><span class="swatch-chip" style="background:#a98d16"></span><span class="palette-name">Olive</span><code>#a98d16</code></li>
+          <li><span class="swatch-chip" style="background:#fffef5"></span><span class="palette-name">Cream</span><code>#fffef5</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑色签字笔承担虚线边框、标题与主要文字；再生纸奶白做页面与卡片底；标记红是第一强调，卡片 hover 时阴影会换成它；标记青管链接与按钮 hover 阴影；标记黄管高亮与默认阴影；橄榄是唯一的暗色强调，压在黄色上写字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><div><strong>Ink</strong><span class="swatch-role">虚线边框、标题与主要文字。像黑色签字笔。</span></div><code>#2c2c2c</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#fffef5"></span><div><strong>Cream</strong><span class="swatch-role">页面与卡片底色。极浅的暖黄，像再生纸。</span></div><code>#fffef5</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><div><strong>Marker Red</strong><span class="swatch-role">第一强调与阴影色。卡片 hover 时阴影会换成它。</span></div><code>#ff6b6b</code><code>--color-marker-red</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><div><strong>Marker Teal</strong><span class="swatch-role">链接与次级强调，按钮 hover 时的阴影色。</span></div><code>#4ecdc4</code><code>--color-marker-teal</code></li>
+          <li><span class="swatch-chip" style="background:#ffd93d"></span><div><strong>Marker Yellow</strong><span class="swatch-role">高亮与默认阴影色，用于强调一块区域。</span></div><code>#ffd93d</code><code>--color-marker-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#a98d16"></span><div><strong>Olive</strong><span class="swatch-role">唯一的暗色强调，用于压在黄色上的文字。</span></div><code>#a98d16</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">阴影全是彩色实心偏移：便签 <code>5px 5px 0 #ffd93d</code>、hover <code>8px 8px 0 #ff6b6b</code>、按钮 <code>4px 4px 0 #ff6b6b</code>；按下归零。没有灰色模糊。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与按钮用 Baloo 2，字重 800 并允许 -3 度斜切——圆润的无衬线是涂鸦的语气；正文与说明用 Nunito，保持可读但仍有手写气质。绝不使用等宽。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="doodle-specimen-title">随手涂画！0123</p>
+            <p class="specimen-meta">Baloo 2 — 标题与按钮。替代栈：'Comic Sans MS', 'Trebuchet MS', sans-serif · 600 / 800 · 标题允许 -3 度斜切</p>
+          </div>
+          <div class="type-specimen">
+            <p class="doodle-specimen-label">正文与便签文字。0123456789</p>
+            <p class="specimen-meta">Nunito — 正文与说明。替代栈：'Segoe UI', system-ui, sans-serif · 400 / 600 · 行高 1.65</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Baloo 2</td><td>800</td><td>44px</td><td>1.1</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Baloo 2</td><td>800</td><td>32px</td><td>1.15</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Baloo 2</td><td>600</td><td>24px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Nunito</td><td>600</td><td>18px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Nunito</td><td>400</td><td>16px</td><td>1.65</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Baloo 2</td><td>600</td><td>14px</td><td>1.35</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 96px。卡片允许 ±2 度旋转，同屏最多三张带旋转。元素可略微错位，像贴在墙上的便签。整体保持可读的网格，不追求整齐。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片、按钮与输入框 2px；涂鸦形 60% 40% 50% 50%</td></tr>
+            <tr><td>边框</td><td>一律虚线 2–3px，绝不用实线</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>旋转</td><td>卡片 ±2 度，同屏最多三张带旋转</td></tr>
+            <tr><td>胶带</td><td>96×24px、-4 度、两端 2px 锯齿，压住边框 4px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Doodle Button</h3>
+            <p class="style-body-comp-role">行动按钮。奶白底、2px 虚线墨黑描边、2px 圆角、18px/800 全大写 0.12em 字距、padding 12px 24px，阴影 4px 4px 0 标记红。hover 时填充硬切墨黑、文字转奶白、上浮 4px、右移 1px、旋转 1 度、阴影换成标记青并扩到 6px；按下时位移 3px 3px、缩放 0.98、旋转归零、阴影去除。过渡 150ms 线性。</p>
+            <button type="button" class="doodle-btn">DOODLE!</button>
+          </div>
+          <div class="comp-item">
+            <h3>Note Card + Tape Strip</h3>
+            <p class="style-body-comp-role">便签卡与内容卡：奶白底、3px 虚线墨黑描边、2px 圆角、内边距 32px，阴影 5px 5px 0 标记黄；标题 32px/800 默认 -3 度斜切，hover 归零；hover 卡片上浮 4px、旋转 -1 度、阴影换标记红并扩到 8px。装饰胶带：宽 96px、高 24px、旋转 -4 度、半透明标记黄 80%、两端各一个 2px 锯齿，压住边框 4px——上方便签角上那条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scribble Input</h3>
+            <p class="style-body-comp-role">表单与笔记输入。奶白底、2px 虚线墨黑描边、2px 圆角、padding 12px 16px、16px 无衬线；占位符墨黑 30%；聚焦时描边转标记红并加 2px 2px 0 标记黄的硬阴影，不改变盒子尺寸。过渡 200ms。</p>
+            <label class="doodle-field"><span>写点啥</span><input type="text" value="记得买胶带"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Doodle Underline</h3>
+            <p class="style-body-comp-role">手绘下划线与圈注。用单周期 SVG 波浪线（stroke 2px、颜色取标记色之一）压在文字下方 4px，长度比文字宽 6%；圈注用椭圆、倾斜 6 度、不闭合（留 12px 缺口），只用一次以保持强调的稀缺。</p>
+            <p class="doodle-underline-demo">被圈注的关键词只有一处</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有边框用虚线，2 到 3px</li>
+              <li>阴影用彩色实心偏移</li>
+              <li>卡片允许 ±2 度旋转</li>
+              <li>用胶带、图钉等实物装饰</li>
+              <li>标题加粗并允许 -3 度斜切</li>
+              <li>动效 150ms 线性</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用实线边框</li>
+              <li>不要用灰色模糊阴影</li>
+              <li>不要用等宽字体</li>
+              <li>不要用渐变</li>
+              <li>不要用精确的直角与几何</li>
+              <li>不要用大圆角</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>涂鸦插画、便签照片、手写步骤图。允许把照片贴成「拍立得」并加胶带。不使用写实摄影、渐变与精确矢量插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="hand-drawn-doodle">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的虚线规则、彩影阴影与实物装饰。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，虚线边框、彩色阴影与胶带图钉必须原样保留；灰色模糊阴影即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>赛璐璐动画风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cel">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 72 · 浅色版面</p>
+        <h1>赛璐璐动画风 <span class="style-card-en">CEL SHADING</span></h1>
+        <p class="page-lead">粗墨线、平涂、硬阴影：手绘动画的每一帧都只有两种颜色。</p>
+        <div class="style-card-tags"><span>3px 墨线描边</span><span>平涂不渐变</span><span>按下挤压变形</span><span>过渡 75ms linear</span></div>
+      </header>
+
+      <section class="cel-hero">
+        <div class="cel-hero-copy">
+          <p>赛璐璐来自传统动画的赛璐璐片上色法：每个色块都是平的，阴影只有一层并且是硬的，边缘用 3px 墨线勾出来。落到界面上有一条独特的时间规则——过渡只有 75ms，因为动画是抽帧的，不是流体缓动的；缓动必须用 linear 或 ease-in，绝不使用 ease-in-out。</p>
+          <p>按下时元素做挤压变形（横向 110%、纵向 90%）并下沉，这是卡通物理而不是材料物理。试试下面这颗按钮：hover 有高光掠过，按下会被「压扁」。</p>
+        </div>
+        <div class="cel-demo">
+          <div class="cel-card">
+            <p class="cel-card-title">ACTION!</p>
+            <p class="cel-card-text">3px 墨线 + 4px 硬阴影，卡通里的一帧。</p>
+            <button type="button" class="cel-btn">PUNCH</button>
+            <span class="cel-speedlines" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><span class="palette-name">Ink</span><code>#1a1a2e</code></li>
+          <li><span class="swatch-chip" style="background:#fafaf5"></span><span class="palette-name">Cel White</span><code>#fafaf5</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><span class="palette-name">Red</span><code>#e63946</code></li>
+          <li><span class="swatch-chip" style="background:#4ea8de"></span><span class="palette-name">Aqua</span><code>#4ea8de</code></li>
+          <li><span class="swatch-chip" style="background:#2ecc71"></span><span class="palette-name">Grass</span><code>#2ecc71</code></li>
+          <li><span class="swatch-chip" style="background:#f1c40f"></span><span class="palette-name">Sunset</span><code>#f1c40f</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨线是这套风格的骨架——所有 3px 描边、硬阴影与文字都是它；赛璐璐白略带暖调，像动画用的赛璐璐片；赤色管主行动与高能状态，平涂、不渐变；水蓝是画面里的冷色块，管信息与次级行动；草绿管成功与生命值，卡通语义里的正向；日落黄管高亮与能量，用于强调条与徽标。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><div><strong>Ink</strong><span class="swatch-role">所有 3px 描边、硬阴影与文字。墨线是这套风格的骨架。</span></div><code>#1a1a2e</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#fafaf5"></span><div><strong>Cel White</strong><span class="swatch-role">平涂底色。略带暖调，像动画用的赛璐璐片。</span></div><code>#fafaf5</code><code>--color-cel-white</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><div><strong>Red</strong><span class="swatch-role">主行动与高能状态。平涂、不渐变。</span></div><code>#e63946</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#4ea8de"></span><div><strong>Aqua</strong><span class="swatch-role">信息与次级行动，是画面里的冷色块。</span></div><code>#4ea8de</code><code>--color-aqua</code></li>
+          <li><span class="swatch-chip" style="background:#2ecc71"></span><div><strong>Grass</strong><span class="swatch-role">成功与生命值，卡通语义里的正向。</span></div><code>#2ecc71</code><code>--color-grass</code></li>
+          <li><span class="swatch-chip" style="background:#f1c40f"></span><div><strong>Sunset</strong><span class="swatch-role">高亮与能量，用于强调条与徽标。</span></div><code>#f1c40f</code><code>--color-sunset</code></li>
+        </ul>
+        <p class="style-body-note">硬阴影只有黑墨：<code>4px 4px 0 #1a1a2e</code>，hover 扩到 <code>6px 6px 0</code>，按下归零。模糊阴影不存在。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，只用 700 与 900。全大写、行高 1.0，让文字像标题框。替代栈用 Arial Black。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cel-specimen-title">CEL SHADING 0123</p>
+            <p class="specimen-meta">Inter — 只用 700/900。替代栈：'Arial Black', Helvetica, sans-serif · 全大写 · display 行高 1.0</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>56px</td><td>1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>40px</td><td>1.05</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>28px</td><td>1.1</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>16px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>14px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>700</td><td>14px</td><td>1.35</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 80px。元素可以轻微重叠与错位，像分镜排列。所有区块用 3px 墨线分隔，留白比其它硬边风格略少，因为线条本身承担了分隔。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0（徽标 999px）</td></tr>
+            <tr><td>描边</td><td>3px 墨线，无细边框</td></tr>
+            <tr><td>硬阴影</td><td>4px 4px 0 墨，hover 6px，按下归零</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>速度线</td><td>3–5 条 3px 墨线、15° 斜向、间距 8px、只给交互元素</td></tr>
+            <tr><td>过渡</td><td>75ms linear 或 ease-in</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Cel Button</h3>
+            <p class="style-body-comp-role">主行动按钮。赤色平涂、白字、3px 墨线描边、零圆角、4px 硬阴影，14px/900 全大写、padding 12px 24px。hover 时填充提亮到 #ff4d5a、上浮 4px、阴影扩到 6px，并有一道斜切白色 30% 的高光从左掠到右（300ms linear）。按下时横向缩放 1.1、纵向 0.9、位移 4px 8px、阴影归零——这是挤压变形，不是位移。过渡 75ms linear。</p>
+            <button type="button" class="cel-btn">ACTION</button>
+          </div>
+          <div class="comp-item">
+            <h3>Cel Card</h3>
+            <p class="style-body-comp-role">内容卡与分镜卡。纸白平涂、3px 墨线描边、零圆角、内边距 24px、4px 硬阴影。标题 28px/900 全大写，正文 14px/700，字色 60% 墨。hover 时上浮并左移各 2px、阴影扩到 6px。过渡 75ms linear。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Ink Divider</h3>
+            <p class="style-body-comp-role">分区与描边线。3px 纯墨线，横跨内容宽或全宽。用于分隔区块而不是留白——这套风格更依赖线条分区。允许 8px 的短粗线作为强调标记。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Impact Badge</h3>
+            <p class="style-body-comp-role">状态与能量徽标。橙黄或草绿平涂、3px 墨线、999px 全圆角、14px/900 全大写、padding 4px 12px，可带 3px 硬阴影。用于「新」「完成」「关键」等一次性标记。</p>
+            <span class="cel-badge">NEW!</span>
+          </div>
+          <div class="comp-item">
+            <h3>Speed Lines</h3>
+            <p class="style-body-comp-role">速度线与动势装饰。3 到 5 条 3px 墨线，长度 24px 到 64px 不等，以 15 度斜向排列在元素一侧，间距 8px。用于暗示运动方向，只出现在交互元素上，静态区块不加——hero 卡右侧那组就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>3px 墨线包住每个元素</li>
+              <li>平涂填充，不用渐变</li>
+              <li>阴影只有一层且无模糊</li>
+              <li>过渡 75ms，缓动 linear 或 ease-in</li>
+              <li>按下做挤压变形（110%/90%）</li>
+              <li>零圆角，徽标除外</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变色</li>
+              <li>不要用细边框</li>
+              <li>不要用低饱和或灰色调</li>
+              <li>不要用 300ms 以上的丝滑过渡</li>
+              <li>不要用 ease-in-out</li>
+              <li>不要用模糊阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>平涂插画与赛璐璐上色：两种明度、硬边阴影、3px 描边。允许角色与道具插画。不使用摄影、渐变与柔和阴影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cel-shading">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的墨线、平涂与挤压变形物理。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，3px 墨线、硬阴影与 75ms linear 必须原样保留；渐变或 ease-in-out 一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

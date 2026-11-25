@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>千禧风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body y2k">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 25 · 浅色版面</p>
+        <h1>千禧风格 <span class="style-card-en">Y2K</span></h1>
+        <p class="page-lead">铬金属、透明塑料、彩虹渐变：一个对未来过度乐观的界面。</p>
+        <div class="style-card-tags"><span>多段铬渐变</span><span>透明塑料壳</span><span>玻璃气泡</span><span>彩虹只给一处</span></div>
+      </header>
+
+      <section class="y2k-hero">
+        <span class="y2k-bubble y2k-bubble--l" aria-hidden="true"></span>
+        <span class="y2k-bubble y2k-bubble--s" aria-hidden="true"></span>
+        <div class="y2k-hero-copy">
+          <p>千禧风格来自 1999 到 2003 年的数码美学：一切都要亮、要反光、要像刚从包装盒里拆出来。技术上靠三件事模拟——铬金属用多段线性渐变做出镜面反射，透明塑料用半透明白底加 1px 亮边和顶部高光，气泡用径向渐变加内高光做出球体感。</p>
+          <p>颜色是高饱和的粉、青、品红与天蓝，常常叠在银灰底上。圆角极大（胶囊与球体），排版偏几何无衬线加宽字距，模拟当年的产品名。右边这张塑料卡可以悬停——它会像刚拆封一样反光。</p>
+        </div>
+        <span class="y2k-bubble y2k-bubble--r" aria-hidden="true"></span>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#c0c0c0"></span><span class="palette-name">Chrome</span><code>#c0c0c0</code></li>
+          <li><span class="swatch-chip" style="background:#ff69b4"></span><span class="palette-name">Bubblegum</span><code>#ff69b4</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Electric Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#87ceeb"></span><span class="palette-name">Sky</span><code>#87ceeb</code></li>
+          <li><span class="swatch-chip plastic-chip" style="background:rgba(255,255,255,0.55)"></span><span class="palette-name">Plastic White</span><code>rgba(255,255,255,0.55)</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>铬金属承担面板与按钮底——必须叠多段渐变才有镜面感，单色会变成灰；泡泡糖粉是千禧审美最典型的颜色，管主强调与气泡；电子青管高光、边缘光与数据；品红是彩虹渐变的中段；天蓝代表那个年代的「科技蓝」，做渐变起点与背景。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#c0c0c0"></span><div><strong>Chrome</strong><span class="swatch-role">金属面板与按钮底。必须叠多段渐变才有镜面感，单色会变成灰。</span></div><code>#c0c0c0</code><code>--color-chrome</code></li>
+          <li><span class="swatch-chip plastic-chip" style="background:rgba(255,255,255,0.55)"></span><div><strong>Plastic White</strong><span class="swatch-role">透明塑料外壳填充，配 1px 亮边与顶部高光。</span></div><code>rgba(255,255,255,0.55)</code><code>--color-plastic</code></li>
+          <li><span class="swatch-chip" style="background:#ff69b4"></span><div><strong>Bubblegum</strong><span class="swatch-role">主强调与气泡填充，是千禧审美最典型的颜色。</span></div><code>#ff69b4</code><code>--color-bubblegum</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Electric Cyan</strong><span class="swatch-role">高光、边缘光与数据，与粉形成对比。</span></div><code>#00ffff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Magenta</strong><span class="swatch-role">彩虹渐变的中段，用于按钮与边框。</span></div><code>#ff00ff</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#87ceeb"></span><div><strong>Sky</strong><span class="swatch-role">渐变起点与背景，代表那个年代的「科技蓝」。</span></div><code>#87ceeb</code><code>--color-sky</code></li>
+        </ul>
+        <p class="style-body-note">三种材质感：塑料壳 <code>0 8px 24px rgba(0,80,140,0.18), inset 0 1px 0 rgba(255,255,255,0.9)</code>、玻璃气泡 <code>inset -8px -8px 16px 粉 45%, inset 8px 8px 16px 白 70%</code>、铬唇边 <code>inset 0 1px 0 白 95%, inset 0 -1px 0 黑 15%</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与产品名用几何无衬线 Eurostile：宽字距、全大写，字形的方与圆是那个年代的签名；正文用 Verdana——它在 1024×768 时代最常出现。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="y2k-specimen-title">MILLENNIUM 2000</p>
+            <p class="specimen-meta">Eurostile — 标题与产品名。替代栈：'Trebuchet MS', 'Arial Black', sans-serif · 400 / 700 · 字距 0.04em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="y2k-specimen-label">正文与说明。0123456789</p>
+            <p class="specimen-meta">Verdana — 正文与说明。替代栈：'Segoe UI', system-ui, sans-serif · 400 / 700 · 大写标签 0.14em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Eurostile</td><td>700</td><td>44px</td><td>1.1</td><td>0.04em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Eurostile</td><td>700</td><td>32px</td><td>1.15</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Eurostile</td><td>400</td><td>24px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Verdana</td><td>400</td><td>15px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Verdana</td><td>400</td><td>13px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Eurostile</td><td>700</td><td>12px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 80px。允许元素大范围重叠与浮动，气泡可以溢出容器。首屏常见为居中标题加左右各一个大气泡。整体密度中等，但视觉元素很多。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片与输入框 24px，按钮与气泡 999px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>区块间距</td><td>80px</td></tr>
+            <tr><td>气泡尺寸</td><td>48px 到 160px，可浮动在卡片外</td></tr>
+            <tr><td>彩虹边框</td><td>2px 渐变边，只允许一个主行动使用</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Chrome Button</h3>
+            <p class="style-body-comp-role">主行动按钮。999px 全圆角、多段铬渐变（#f5f5f5 → #c8c8c8 → #9e9e9e → #e6e6e6）、深灰文字、1px #8a8a8a 描边，阴影带塑料壳双层与铬唇边；14px/700、0.1em 字距、padding 10px 28px。hover 时渐变整体上移（模拟光源变化）；按下时渐变反向并压暗。过渡 150ms。</p>
+            <button type="button" class="y2k-chrome-btn">CONNECT NOW</button>
+          </div>
+          <div class="comp-item">
+            <h3>Plastic Card</h3>
+            <p class="style-body-comp-role">内容卡与产品卡。55% 白填充、24px 圆角、1px 白 80% 描边、内边距 24px，阴影 0 8px 24px 深蓝 18% 加内高光；hover 时填充升到 70%、阴影扩到 32px；卡片右上角可放一个 96px 的彩虹气泡。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bubble Element</h3>
+            <p class="style-body-comp-role">装饰气泡与图标底。全圆角球体，径向渐变从左上白 80% 过渡到主色 100%，再叠一层深色内阴影与白色内高光，形成玻璃球质感；尺寸 48px 到 160px，可浮动在卡片外。本页三个气泡都是它。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Rainbow Border + Pill Input</h3>
+            <p class="style-body-comp-role">彩虹边框与选中态：2px 的彩虹渐变（天蓝→青→品红→粉→天蓝）作为边框，背景保持白色；实现上用 1px padding 的渐变层加内层白底覆盖；只允许出现在一个主行动上——上方演示卡的描边就是。胶囊输入框：白 70% 填充、999px 全圆角、1px #b8d8e8 描边；聚焦时描边转电子青并加青色 30% 外环，同时叠一层顶部白色高光。</p>
+            <label class="y2k-field"><span>SCREEN NAME</span><input type="text" value="star_master_2000"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>铬金属用多段渐变，单色会变灰</li>
+              <li>透明塑料必须有亮边与顶部高光</li>
+              <li>气泡用径向渐变加双层内阴影</li>
+              <li>圆角大：胶囊与球体</li>
+              <li>彩虹渐变只给一个主行动</li>
+              <li>全大写加宽字距的产品名</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用哑光纯色面板</li>
+              <li>不要让铬金属只有单色</li>
+              <li>不要把彩虹渐变用在多处</li>
+              <li>不要用小圆角</li>
+              <li>不要用沉静或极简的语言</li>
+              <li>不要让气泡遮挡正文</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>铬金属、透明塑料、彩色气泡、星芒与光线。允许把产品图放进透明塑料壳里。不使用哑光材质、极简摄影与任何沉静的图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="y2k">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的铬渐变、塑料壳与气泡公式。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，多段铬渐变、塑料亮边与「彩虹只给一处」必须原样保留；哑光就是失败。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

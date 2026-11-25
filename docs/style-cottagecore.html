@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>田园核风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cottage">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 43 · 浅色版面</p>
+        <h1>田园核风 <span class="style-card-en">COTTAGECORE</span></h1>
+        <p class="page-lead">亚麻、花园、手缝的边：一个想住进去的乡下午后。</p>
+        <div class="style-card-tags"><span>亚麻与花色</span><span>刺绣式装饰</span><span>掀纸 0.8 度</span><span>缝线分隔</span></div>
+      </header>
+
+      <section class="cottage-hero">
+        <div class="cottage-hero-copy">
+          <p>田园核风来自「向往简单的乡居生活」这一情绪：大地色与花色（绿、米白、麦黄、棕、藕粉）、衬线字体、亚麻或纸张质感背景、圆角与柔和阴影、花卉与蘑菇等刺绣式装饰。它的动效有一个很具体的习惯——hover 时上浮 2px 并旋转 0.8 度，像纸片被风轻轻掀起，而且必须带 motion-reduce 降级。</p>
+          <p>禁令是：不许冷蓝灰、不许锐角与硬边框、不许霓虹与荧光、不许任何科技或工业感元素。右边这张亚麻卡是真的——被风掀起的那一下是真的。</p>
+        </div>
+        <div class="cottage-demo">
+          <div class="linen-card-demo">
+            <span class="cottage-sprig" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#5a8f5a" stroke-width="1.6" stroke-linecap="round"><path d="M16 28 C16 18 12 12 16 4"/><path d="M16 20 C12 18 10 14 10 10 C14 12 16 15 16 20Z" fill="rgba(90,143,90,0.5)" stroke="none"/><path d="M16 14 C20 12 22 8 22 4 C18 6 16 9 16 14Z" fill="rgba(90,143,90,0.35)" stroke="none"/></svg></span>
+            <p class="cottage-demo-title">被风掀起的便签。</p>
+            <p class="cottage-demo-body">抬起 2 度角，像挂在晾衣绳上。</p>
+            <button type="button" class="cottage-btn">到花园里来</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="cottage-stitch" aria-hidden="true"></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#5a8f5a"></span><span class="palette-name">Meadow</span><code>#5a8f5a</code></li>
+          <li><span class="swatch-chip" style="background:#f5d75f"></span><span class="palette-name">Wheat</span><code>#f5d75f</code></li>
+          <li><span class="swatch-chip" style="background:#d4a0a0"></span><span class="palette-name">Wild Rose</span><code>#d4a0a0</code></li>
+          <li><span class="swatch-chip" style="background:#8b7355"></span><span class="palette-name">Timber</span><code>#8b7355</code></li>
+          <li><span class="swatch-chip" style="background:#7ff77e"></span><span class="palette-name">Sprout</span><code>#7ff77e</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f0"></span><span class="palette-name">Cloth</span><code>#faf6f0</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>草甸绿是主色——主按钮、叶子装饰与成功状态都归它；洗旧亚麻做页面底；麦黄是阳光与高亮，点在花蕊与徽标上；木棕是文字的第二层，比墨色暖；野蔷薇管花朵与情绪化强调；新芽绿只给「新增」与春季主题。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#5a8f5a"></span><div><strong>Meadow</strong><span class="swatch-role">主色：主按钮、叶子装饰与成功状态。</span></div><code>#5a8f5a</code><code>--color-meadow</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f0"></span><div><strong>Cloth</strong><span class="swatch-role">页面底。像洗过很多次的亚麻布。</span></div><code>#faf6f0</code><code>--color-cloth</code></li>
+          <li><span class="swatch-chip" style="background:#f5d75f"></span><div><strong>Wheat</strong><span class="swatch-role">阳光与高亮，用于小花蕊与徽标。</span></div><code>#f5d75f</code><code>--color-wheat</code></li>
+          <li><span class="swatch-chip" style="background:#8b7355"></span><div><strong>Timber</strong><span class="swatch-role">木器与文字的第二层，比墨色暖。</span></div><code>#8b7355</code><code>--color-timber</code></li>
+          <li><span class="swatch-chip" style="background:#d4a0a0"></span><div><strong>Wild Rose</strong><span class="swatch-role">花朵与情绪化强调，出现频率中等。</span></div><code>#d4a0a0</code><code>--color-wild-rose</code></li>
+          <li><span class="swatch-chip" style="background:#7ff77e"></span><div><strong>Sprout</strong><span class="swatch-role">最亮的一支，只用于「新增」与春季主题。</span></div><code>#7ff77e</code><code>--color-sprout</code></li>
+        </ul>
+        <p class="style-body-note">软阴影三档：<code>0 4px 10px rgba(90,143,90,0.20)</code>、hover <code>0 8px 20px rgba(90,143,90,0.30)</code>、按下 <code>0 2px 6px rgba(90,143,90,0.20)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Lora：衬线带一点手写气质，行高 1.8 让页面显得慢。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cottage-specimen-title">想住进去的下午</p>
+            <p class="specimen-meta">Lora — 全站唯一字体。替代栈：Georgia, 'Songti SC', serif · 400 / 600 · 行高 1.8（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="cottage-specimen-label">正文与手记。0123456789</p>
+            <p class="specimen-meta">正文 17–21px / 400 / 行高 1.8；标签 15px / 600 / 0.12em；文字一律深米 #3d3a34</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>48px</td><td>1.2</td><td>0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>36px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>28px</td><td>1.4</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>21px</td><td>1.75</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>17px</td><td>1.8</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>15px</td><td>1.6</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1040px、容器内边距 24px，区块间距 112px。允许卡片轻微错位与旋转（-2 到 2 度）。留白宽松，密度中低。装饰可以溢出容器一点，像藤蔓爬出边框。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px、按钮与装饰 999px、输入框 16px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>112px</td></tr>
+            <tr><td>花卉装饰</td><td>24–96px，允许 -8 到 8 度倾斜，不可省略</td></tr>
+            <tr><td>缝线分隔</td><td>2px 虚线（dash 6px、gap 4px），两端收进 16px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Meadow Button</h3>
+            <p class="style-body-comp-role">行动按钮。草甸绿填充、米白文字、999px 全圆角、无描边、衬线 15px、padding 12px 32px，阴影 0 4px 10px 绿 20%。hover 时上浮 2px、旋转 0.8 度、阴影扩到 20px；按下旋转归零、缩到 0.97、阴影收到 6px。过渡 500ms ease-in-out，并带 motion-reduce 降级。</p>
+            <button type="button" class="cottage-btn">PICK FLOWERS</button>
+          </div>
+          <div class="comp-item">
+            <h3>Linen Card</h3>
+            <p class="style-body-comp-role">内容卡。提亮一档的布色填充、24px 圆角、1px 草甸绿 12% 描边、内边距 32px，柔阴影 0 4px 10px 绿 20%；左上角放一个 32px 的花卉或叶片装饰（草甸绿 70%）。hover 时上浮 4px、阴影扩到 20px。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Fabric Field</h3>
+            <p class="style-body-comp-role">输入框。布色填充、16px 圆角、1px 木棕 20% 描边、padding 12px 18px、17px 字；聚焦时描边转草甸绿并加 3px 的绿 15% 外环；占位符木棕 50%。</p>
+            <label class="cottage-field"><span>今天种什么</span><input type="text" value="三排豌豆"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Floral Sprig + Stitched Rule</h3>
+            <p class="style-body-comp-role">花卉与蘑菇装饰：手绘式线稿或刺绣感的花朵、麦穗、蘑菇，尺寸 24 到 96px，颜色取野蔷薇、麦黄或草甸绿；放在卡片角落或标题旁，允许轻微旋转 -8 到 8 度；它是这套风格的身份标记，不可省略。缝线分隔：一条 2px 的虚线（dash 6px、gap 4px），颜色取草甸绿 30% 或木棕 30%，两端各收进 16px；可选在两端加一针「回针」小标记——本页那条虚线就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>大地色与花色，暖调为主</li>
+              <li>衬线字体，行高 1.8</li>
+              <li>圆角 16 到 24px，软阴影</li>
+              <li>必须有花卉或叶片装饰</li>
+              <li>hover 上浮 2px 并旋转 0.8 度</li>
+              <li>带 motion-reduce 降级</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用冷蓝灰色调</li>
+              <li>不要用锐角与硬边框</li>
+              <li>不要用霓虹或荧光色</li>
+              <li>不要用科技或工业风元素</li>
+              <li>不要省略装饰</li>
+              <li>不要在无降级的情况下做旋转动画</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>乡居摄影与手绘插画：花园、面包、陶器、亚麻、蘑菇。必须自然光、暖调、有柔焦。允许把照片处理成柔和的胶片色。不使用冷光、工业物件与科技产品。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cottagecore">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的亚麻色板、刺绣装饰与掀纸动效。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，花卉装饰、掀纸 0.8 度与 motion-reduce 降级必须原样保留；冷蓝灰一出现即出园。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

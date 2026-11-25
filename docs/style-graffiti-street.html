@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>涂鸦街头 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body graf">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 103 · 深色版面</p>
+        <h1>涂鸦街头 <span class="style-card-en">GRAFFITI STREET</span></h1>
+        <p class="page-lead">喷漆罐在砖墙上：撞色、粗边、随手歪着的字。</p>
+        <div class="style-card-tags"><span>错位砖墙纹理</span><span>900 全大写随机旋转</span><span>零模糊喷漆晕边</span><span>4px 粗边硬影</span></div>
+      </header>
+
+      <section class="graf-hero">
+        <div class="graf-hero-copy">
+          <p>涂鸦街头模拟砖墙与沥青墙面上的喷漆：深灰近黑底、高饱和撞色（玫红、青、黄、紫、橙）、文字用 900 字重全大写并随机旋转 -3 到 3 度、喷漆扩散靠多层 drop-shadow 模拟、按钮与标签用 4px 粗边框加硬偏移阴影。</p>
+          <p>它的规则是「乱但可读」——每个元素都歪，但文字始终清楚。</p>
+        </div>
+        <div class="graf-demo">
+          <span class="graf-blob graf-blob--a" aria-hidden="true"></span>
+          <span class="graf-blob graf-blob--b" aria-hidden="true"></span>
+          <div class="graf-panel">
+            <p class="graf-title">STREET<span class="graf-underline" aria-hidden="true"></span></p>
+            <p class="graf-text">砖墙与沥青，所有字都歪着，但都还读得出来。</p>
+            <div class="graf-tags"><span class="graf-tag">TAG</span><span class="graf-tag graf-tag--cyan">SPRAY</span></div>
+            <button type="button" class="graf-btn">PAINT IT</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff2d55"></span><span class="palette-name">Spray Rose</span><code>#ff2d55</code></li>
+          <li><span class="swatch-chip" style="background:#1c1c1e"></span><span class="palette-name">Asphalt</span><code>#1c1c1e</code></li>
+          <li><span class="swatch-chip" style="background:#00e5ff"></span><span class="palette-name">Spray Cyan</span><code>#00e5ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffea00"></span><span class="palette-name">Spray Yellow</span><code>#ffea00</code></li>
+          <li><span class="swatch-chip" style="background:#b620e0"></span><span class="palette-name">Spray Violet</span><code>#b620e0</code></li>
+          <li><span class="swatch-chip" style="background:#ff6d00"></span><span class="palette-name">Spray Orange</span><code>#ff6d00</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>玫红是主色，给主按钮、主标签与最抢眼的字；沥青灰模拟夜里的砖墙与沥青，做页面底；青是第二撞色，与玫红形成最强对比；黄像荧光喷漆，管高亮与描边；紫是第三撞色，用来让画面失去统一色；橙是第四撞色与警示，出现频率中等。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1c1c1e"></span><div><strong>Asphalt</strong><span class="swatch-role">页面底。模拟夜里的砖墙与沥青。</span></div><code>#1c1c1e</code><code>--color-asphalt</code></li>
+          <li><span class="swatch-chip" style="background:#ff2d55"></span><div><strong>Spray Rose</strong><span class="swatch-role">主色：主按钮、主标签与最抢眼的字。</span></div><code>#ff2d55</code><code>--color-spray-rose</code></li>
+          <li><span class="swatch-chip" style="background:#00e5ff"></span><div><strong>Spray Cyan</strong><span class="swatch-role">第二撞色，与玫红形成最强对比。</span></div><code>#00e5ff</code><code>--color-spray-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ffea00"></span><div><strong>Spray Yellow</strong><span class="swatch-role">高亮与描边，像荧光喷漆。</span></div><code>#ffea00</code><code>--color-spray-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#b620e0"></span><div><strong>Spray Violet</strong><span class="swatch-role">第三撞色，用于让画面失去统一色。</span></div><code>#b620e0</code><code>--color-spray-violet</code></li>
+          <li><span class="swatch-chip" style="background:#ff6d00"></span><div><strong>Spray Orange</strong><span class="swatch-role">第四撞色与警示，出现频率中等。</span></div><code>#ff6d00</code><code>--color-spray-orange</code></li>
+        </ul>
+        <p class="style-body-note">硬偏移两支：<code>6px 6px 0 #ff2d55</code> 与 <code>6px 6px 0 #00e5ff</code>，按下归零。喷漆晕边用零模糊的 drop-shadow，不做真实模糊光晕。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>只有 900 一个字重，全大写。标题压到行高 1.0 并带随机旋转，像手喷上去的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="graf-specimen-title">GRAFFITI</p>
+            <p class="specimen-meta">Inter — 只有 900 字重。替代栈：'Arial Black', Impact, sans-serif · 全大写 · display 行高 1.0</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>64px</td><td>1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>46px</td><td>1.05</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>900</td><td>34px</td><td>1.1</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>900</td><td>24px</td><td>1.35</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>900</td><td>18px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>900</td><td>14px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1200px、容器内边距 16px，区块间距 64px。允许元素重叠、旋转与溢出。零圆角贯穿全站。混乱必须有节奏：大 tag 与小贴纸交替，文字始终可读。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>砖墙</td><td>砖 64×24px、缝 4px、错位、第二行起 32px、不透明度 40%</td></tr>
+            <tr><td>旋转</td><td>-3 到 3 度，绝不超过</td></tr>
+            <tr><td>描边</td><td>4px 撞色或黑</td></tr>
+            <tr><td>喷漆圆斑</td><td>24–96px、模糊 6–12px、不透明度 40–70%、单屏 3–6 处</td></tr>
+            <tr><td>划线</td><td>4px 撞色线、倾斜 1–2°、比文字宽 4%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Spray Tag</h3>
+            <p class="style-body-comp-role">喷漆标签（核心组件）。透明底、4px 撞色描边、零圆角、14px/900 全大写、字距 0.04em、padding 6px 14px，带随机旋转 -3 到 3 度与 6px 6px 0 的硬阴影。文字用 2 到 3 层 drop-shadow（同色、偏移 1px、模糊 0）模拟喷漆的边晕。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Brick Wall</h3>
+            <p class="style-body-comp-role">砖墙底纹。用 repeating-linear-gradient 画错位的砖块（砖 64×24px、缝 4px、缝色更深），整体不透明度 40%。它必须错位（第二行砖从 32px 处开始），否则会看起来像地砖而不是砖墙。本页背景就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Thick Button</h3>
+            <p class="style-body-comp-role">行动按钮。玫红填充、黑字、零圆角、4px 黑描边、18px/900 全大写、padding 12px 28px，硬阴影 6px 6px 0 青。hover 时填充硬切到黄、阴影换紫；按下时位移 6px 6px 且阴影归零。过渡 80ms linear。</p>
+            <button type="button" class="graf-btn">喷它</button>
+          </div>
+          <div class="comp-item">
+            <h3>Spray Underline</h3>
+            <p class="style-body-comp-role">喷漆划线。文字下方一条 4px 的撞色横线（text-decoration 或伪元素），长度比文字宽 4%，略微倾斜 1 到 2 度，颜色取与文字对比的撞色。它是这套风格最常用的强调手段——hero 里 STREET 底下那道就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sticker Blob</h3>
+            <p class="style-body-comp-role">喷漆圆斑。一个 24 到 96px 的圆或不规则块，用 radial-gradient 从实色渐隐到透明，边缘不锐利（模糊 6 到 12px），像喷漆的扩散。颜色取一支撞色，不透明度 40% 到 70%，放在文字背后或角落。单屏 3 到 6 处。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>深灰底加四支高饱和撞色</li>
+              <li>文字 900 全大写并随机旋转</li>
+              <li>喷漆晕边用零模糊的 drop-shadow</li>
+              <li>4px 粗边框加硬偏移阴影</li>
+              <li>砖墙纹理必须错位</li>
+              <li>乱但可读</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用棚拍产品与干净影像</li>
+              <li>不要用圆角</li>
+              <li>不要给喷漆加真实模糊光晕</li>
+              <li>不要让旋转超过 3 度</li>
+              <li>不要让纹理变成地砖</li>
+              <li>不要牺牲可读性</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>街头摄影与涂鸦作品：砖墙、卷帘门、地铁车厢、手绘 tag。必须高对比、有街头痕迹。允许把照片压成高饱和双色调再叠喷漆效果。不使用棚拍产品、柔和插画与无痕迹的干净图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="graffiti-street">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的砖墙纹理、喷漆晕边与旋转纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，错位砖墙、零模糊晕边与「乱但可读」必须原样保留；圆角或真实模糊光晕一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

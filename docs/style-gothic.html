@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>哥特式风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body gothic">
+      <div class="gothic-border" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 40 · 深色版面</p>
+        <h1>哥特式风 <span class="style-card-en">GOTHIC</span></h1>
+        <p class="page-lead">尖拱、玫瑰窗、手抄本边饰：一座还没点灯的大教堂。</p>
+        <div class="style-card-tags"><span>尖拱框架</span><span>玫瑰花窗</span><span>手抄本边饰</span><span>首字下沉</span></div>
+      </header>
+
+      <section class="gothic-hero">
+        <div class="gothic-hero-copy">
+          <p>哥特式风来自中世纪教堂建筑与手抄本装饰：深紫、血红与黑为底，金色作装饰线，形状一律是尖拱、三叶饰与玫瑰花窗，标题必须用衬线并带装饰性，页面必须有边饰与首字下沉这类手抄本语汇。</p>
+          <p>它的禁令是：不许明亮欢快的配色、不许圆润可爱的元素、不许现代无衬线做标题、不许过度简约、不许轻浮的快速抖动或弹性跳动——庄严感不容许任何轻快。右边那扇尖拱窗是真的，悬停看彩窗转起来。</p>
+        </div>
+        <div class="gothic-demo">
+          <div class="gothic-arch-demo">
+            <span class="gothic-rose" aria-hidden="true"></span>
+            <p class="gothic-demo-title">Sanctum</p>
+            <p class="gothic-demo-body">尖拱之内，光线尚未点亮。</p>
+            <button type="button" class="gothic-btn">入堂</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#2d1b4e"></span><span class="palette-name">Deep Violet</span><code>#2d1b4e</code></li>
+          <li><span class="swatch-chip" style="background:#8b1a1a"></span><span class="palette-name">Blood Red</span><code>#8b1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><span class="palette-name">Gold</span><code>#c9a227</code></li>
+          <li><span class="swatch-chip" style="background:#4a2d6e"></span><span class="palette-name">Mid Violet</span><code>#4a2d6e</code></li>
+          <li><span class="swatch-chip" style="background:#4bc542"></span><span class="palette-name">Verdigris</span><code>#4bc542</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Black</span><code>#0a0a0a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>教堂夜里的深紫比黑更有层次；血红承担彩窗、印章与关键强调；金色画所有镶边；纯黑留给最深区块与阴影；中紫比底色亮一档做抬升面；铜绿是彩窗里的一抹「生」，面积最小。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#2d1b4e"></span><div><strong>Deep Violet</strong><span class="swatch-role">页面底与主色。教堂夜里的紫，比黑更有层次。</span></div><code>#2d1b4e</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#8b1a1a"></span><div><strong>Blood Red</strong><span class="swatch-role">第二主色：彩窗、印章与关键强调。</span></div><code>#8b1a1a</code><code>--color-blood-red</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><div><strong>Gold</strong><span class="swatch-role">装饰线、描边与高光。所有镶边的颜色。</span></div><code>#c9a227</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Black</strong><span class="swatch-role">最深的区块与阴影。</span></div><code>#0a0a0a</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#4a2d6e"></span><div><strong>Mid Violet</strong><span class="swatch-role">抬升面与卡片，比底色亮一档。</span></div><code>#4a2d6e</code><code>--color-mid-violet</code></li>
+          <li><span class="swatch-chip" style="background:#4bc542"></span><div><strong>Verdigris</strong><span class="swatch-role">彩窗里的一抹绿与「生」的语义，面积最小。</span></div><code>#4bc542</code><code>--color-verdigris</code></li>
+        </ul>
+        <p class="style-body-note">没有投影——深度来自拱形与阴影形状；唯一的「光」是金线镶边：<code>inset 0 0 0 1px rgba(201,162,39,0.40)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用哥特体或高对比装饰衬线；正文用可读衬线 EB Garamond，行高 1.75，像手抄本的正文栏——哥特体只做标题，正文用它读不动。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="gothic-specimen-title">Sanctum 0123</p>
+            <p class="specimen-meta">UnifrakturMaguntia — 标题哥特体。替代栈：'Cinzel', 'Playfair Display', Georgia, serif · 400 · 字距 0.02em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="gothic-specimen-label">正文与手抄本栏。0123456789</p>
+            <p class="specimen-meta">EB Garamond — 正文与说明。替代栈：Garamond, 'Songti SC', serif · 400 / 600 · 行高 1.75</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>哥特体</td><td>400</td><td>84px</td><td>1.15</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>哥特体</td><td>400</td><td>60px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>哥特体</td><td>400</td><td>44px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>EB Garamond</td><td>400</td><td>20px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>EB Garamond</td><td>400</td><td>17px</td><td>1.75</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>EB Garamond</td><td>600</td><td>15px</td><td>1.6</td><td>0.18em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 32px，区块间距 128px。允许严格轴对称（与暗黑学院不同，哥特更讲仪式性的对称）。页边保留装饰带，内容区收窄。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片与按钮 0；尖拱 50% 50% 0 0；花窗 999px</td></tr>
+            <tr><td>卡片内边距</td><td>36px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>128px</td></tr>
+            <tr><td>尖拱比例</td><td>高宽比 1:2 到 1:2.5，像教堂的窗</td></tr>
+            <tr><td>边饰带</td><td>页边 24–48px，1px 金线加菱形与三叶饰</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Pointed Arch Frame</h3>
+            <p class="style-body-comp-role">尖拱框架（核心组件）。容器顶部用 clip-path 切出尖拱，零圆角，1px 金描边沿边勾出；内部填中紫或深紫，可嵌彩窗式色块；整块高宽比常见 1:2 到 1:2.5，像教堂的窗。上方演示窗即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gilt Button</h3>
+            <p class="style-body-comp-role">行动按钮。血红填充、金文字、1px 金描边、零圆角、衬线 15px、字距 0.18em、padding 14px 36px，无阴影。hover 时填充转深紫、文字转金 100%、描边升到 80%；按下时整体下沉 1px。过渡 400ms ease-out。</p>
+            <button type="button" class="gothic-btn">ENTER</button>
+          </div>
+          <div class="comp-item">
+            <h3>Rose Window</h3>
+            <p class="style-body-comp-role">玫瑰花窗装饰。一个 96 到 240px 的圆形，内部用 conic-gradient 分成 8 或 12 个扇形，各取红、紫、绿、金之一并降到 40% 不透明度，外圈 2px 金描边加 4 个同心细环；放在区块顶部居中或角落，像教堂的窗。演示窗顶上那朵就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Manuscript Border + Drop Cap</h3>
+            <p class="style-body-comp-role">手抄本边饰：页边 24 到 48px 的装饰带，1px 金线加重复的小菱形或三叶饰，四角各放一个 16px 的十字或花饰；它框住整个内容区——本页边缘的金线就是。首字下沉：段落首字母 float: left、字号为正文的 3.2 倍、行高对齐三行、颜色金或血红、字体用装饰衬线；每个内容区块只允许一次，且只在第一段。</p>
+            <p class="gothic-dropcap"><span class="gothic-cap">G</span>othic 手抄本的第一段以一个下沉的大写字母开始，像修士在羊皮纸上落下的第一笔。它的存在本身就是仪式的一部分。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>深紫、血红、黑配金线</li>
+              <li>形状用尖拱、三叶与玫瑰窗</li>
+              <li>标题用哥特体，正文用可读衬线</li>
+              <li>页边必须有手抄本式边饰</li>
+              <li>首字下沉</li>
+              <li>过渡 400ms 起，动作庄重</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮欢快的配色</li>
+              <li>不要用圆润可爱的元素</li>
+              <li>不要用现代无衬线做标题</li>
+              <li>不要过度简约</li>
+              <li>不要用快速抖动与弹性跳动</li>
+              <li>不要用哥特体排正文</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>教堂建筑摄影、彩窗局部、手抄本插图、木刻版画。必须暗调、有明确的拱形构图。允许把照片处理成深紫与血红的双色调。不使用明亮摄影、现代插画与任何轻快的图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="gothic">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的尖拱系统、彩窗配色与手抄本语汇。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，尖拱、金线镶边与「庄严不容轻快」必须原样保留；欢快元素即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

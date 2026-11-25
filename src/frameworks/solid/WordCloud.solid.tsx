@@ -1,0 +1,13 @@
+/** @jsxImportSource solid-js */
+import { onMount, onCleanup, createEffect } from "solid-js";
+import { mountWordCloud, type WordCloudOptions } from "../../components/word-cloud/WordCloudEngine.js";
+import type { MotionController } from "../../components/word-cloud/motion-runtime";
+
+export function WordCloud(props: { options?: WordCloudOptions; class?: string }) {
+  let host!: HTMLDivElement;
+  let controller: MotionController | undefined;
+  onMount(() => { controller = mountWordCloud(host, props.options); });
+  createEffect(() => { const options = props.options; controller?.update(options ?? {}); });
+  onCleanup(() => controller?.destroy());
+  return <div ref={host} class={props.class} data-motion-component="word-cloud" />;
+}

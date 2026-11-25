@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>霓虹渐变 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ngrad">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 69 · 深色版面</p>
+        <h1>霓虹渐变 <span class="style-card-en">NEON GRADIENT</span></h1>
+        <p class="page-lead">深紫底上一张张渐变卡片，边缘发着光。</p>
+        <div class="style-card-tags"><span>双极渐变 135°</span><span>发光与渐变同色</span><span>渐变文字 ≤2 处</span><span>background-size 200%</span></div>
+      </header>
+
+      <section class="ngrad-hero">
+        <div class="ngrad-hero-copy">
+          <p>霓虹渐变是近年 SaaS 与年轻品牌最常见的视觉：深紫黑底上放一张张渐变填充的卡片（紫到粉、青到绿等对角渐变），卡片用 16 到 24px 的大圆角与粗彩色描边，边缘带同色霓虹发光。它的规则是「渐变必须有明确的两极」——从一支饱和色到另一支饱和色，不允许三色以上的浑浊过渡。</p>
+          <p>而且发光必须与渐变同色，否则会显脏。右边这张渐变卡是真的：hover 时渐变转 180 度、发光扩到 40px。</p>
+        </div>
+        <div class="ngrad-demo">
+          <div class="ngrad-card">
+            <span class="ngrad-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><path d="M12 3 L14 10 L21 10 L15.5 14.5 L17.5 21 L12 17 L6.5 21 L8.5 14.5 L3 10 L10 10 Z"/></svg></span>
+            <p class="ngrad-card-title">Ship faster</p>
+            <p class="ngrad-card-text">紫到粉的 135 度双极渐变，边缘发光取主极色。</p>
+            <button type="button" class="ngrad-btn">Get started</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0f0a1e"></span><span class="palette-name">Deep Violet Ground</span><code>#0f0a1e</code></li>
+          <li><span class="swatch-chip" style="background:#a855f7"></span><span class="palette-name">Violet</span><code>#a855f7</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><span class="palette-name">Pink</span><code>#f472b6</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><span class="palette-name">Cyan</span><code>#22d3ee</code></li>
+          <li><span class="swatch-chip" style="background:#a3e635"></span><span class="palette-name">Lime</span><code>#a3e635</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Amber</span><code>#fbbf24</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>带紫的近黑让所有渐变都显得更亮；紫是渐变的第一极，也是主按钮的起点；粉是第二极，与紫成对出现；青是第二组渐变的冷极，用于数据与科技语义；青柠是第二组的暖极与成功状态；琥珀是第三组渐变与徽标高亮。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0f0a1e"></span><div><strong>Deep Violet Ground</strong><span class="swatch-role">页面底。带紫的近黑，让所有渐变都显得更亮。</span></div><code>#0f0a1e</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#a855f7"></span><div><strong>Violet</strong><span class="swatch-role">渐变的第一极，也是主按钮的起点。</span></div><code>#a855f7</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><div><strong>Pink</strong><span class="swatch-role">渐变的第二极，与紫成对出现。</span></div><code>#f472b6</code><code>--color-pink</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><div><strong>Cyan</strong><span class="swatch-role">第二组渐变的冷极，用于数据与科技语义。</span></div><code>#22d3ee</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#a3e635"></span><div><strong>Lime</strong><span class="swatch-role">第二组渐变的暖极与成功状态。</span></div><code>#a3e635</code><code>--color-lime</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Amber</strong><span class="swatch-role">第三组渐变与徽标高亮。</span></div><code>#fbbf24</code><code>--color-amber</code></li>
+        </ul>
+        <p class="style-body-note">发光三档：<code>0 0 32px rgba(168,85,247,0.45)</code>、<code>0 0 40px rgba(244,114,182,0.40)</code> 与按钮 <code>0 8px 32px rgba(168,85,247,0.50)</code>——全部与渐变同色。同屏渐变不超过三组。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：标题 34 到 48px 配紧字距，可用渐变文字——但同一页不超过两处，用多了整页会失去重点。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ngrad-specimen-title">NEON GRADIENT 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · display 行高 1.1</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>48px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>34px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>600</td><td>24px</td><td>1.25</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>17px</td><td>1.55</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>600</td><td>12px</td><td>1.45</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1200px、容器内边距 24px，区块间距 96px。卡片可大小不一（1×1 与 2×1），但同一屏的渐变不超过三组。整页保持深紫底，渐变块之间留出足够暗区，否则发光会互相污染。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮/输入 16px · 徽标 999px</td></tr>
+            <tr><td>渐变角</td><td>135°（卡片），hover 转 180°</td></tr>
+            <tr><td>按钮渐变</td><td>横向、background-size 200%</td></tr>
+            <tr><td>卡片内边距</td><td>28px</td></tr>
+            <tr><td>渐变文字</td><td>首屏与关键区块标题，每页 ≤2 处</td></tr>
+            <tr><td>暗区</td><td>渐变块之间必须留暗区隔离发光</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Gradient Card</h3>
+            <p class="style-body-comp-role">渐变卡片（核心组件）。135 度的双极渐变填充（紫到粉，或青到青柠）、24px 圆角、1px 白 20% 描边、内边距 28px，外发光 0 0 32px 紫 45%——发光必须取渐变的主极色。标题纯白 34px/700，正文白 85%。hover 时渐变角度转为 180 度并让发光扩到 40px。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gradient Button</h3>
+            <p class="style-body-comp-role">主行动按钮。紫到粉横向渐变、白字、16px 圆角、无描边、17px/600、padding 12px 28px，外发光 0 8px 32px 紫 50%。hover 时渐变横向位移（background-position 从 left 到 right）、发光扩到 40px；按下缩放 0.98。渐变必须设 background-size: 200% 才有可动的余量。</p>
+            <button type="button" class="ngrad-btn">Launch</button>
+          </div>
+          <div class="comp-item">
+            <h3>Gradient Text</h3>
+            <p class="style-body-comp-role">渐变标题。用 background: linear-gradient(90deg, 紫, 粉) 配 background-clip: text 与 color: transparent。只用于首屏与关键区块标题，且同一页不超过两处——用多了整页会失去重点。绝不用于正文。</p>
+            <p class="ngrad-grad-text">BRIGHTER, EVERY SPRINT</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glow Border</h3>
+            <p class="style-body-comp-role">发光描边。1px 渐变描边（用 padding 1px 的渐变层加内层深底实现），外带 0 0 24px 的同色发光。用于次级卡片与输入框，替代实色描边。描边颜色必须与卡片的渐变同族。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sparkle Badge</h3>
+            <p class="style-body-comp-role">徽标与图标底。999px 全圆或 12px 圆角的小块，填渐变或渐变 20% 底，内放一个 16 到 20px 的线性图标（星、火箭、闪光）。图标用白色，绝不用彩色图标压在彩色渐变上——那会糊。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>渐变必须有两个饱和极</li>
+              <li>发光与渐变同色</li>
+              <li>卡片圆角 24px，按钮 16px</li>
+              <li>渐变文字最多两处</li>
+              <li>按钮渐变设 background-size 200%</li>
+              <li>同屏渐变不超过三组</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用三色以上的浑浊渐变</li>
+              <li>不要让发光与渐变不同色</li>
+              <li>不要在正文用渐变文字</li>
+              <li>不要用彩色图标压彩色渐变</li>
+              <li>不要用写实摄影抢亮度</li>
+              <li>不要用锐角</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以渐变、抽象图形与图标为主。允许产品截图放在渐变卡片里。不使用写实摄影、灰度图像与柔和插画，它们会与渐变抢亮度。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neon-gradient">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的双极渐变、同色发光与渐变文字纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双极渐变、同色发光与 background-size 200% 必须原样保留；三色浑浊渐变一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

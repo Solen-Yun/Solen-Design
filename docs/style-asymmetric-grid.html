@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>非对称网格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body asym">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 10 · 张力版面</p>
+        <h1>非对称网格 <span class="style-card-en">ASYMMETRIC GRID</span></h1>
+        <p class="page-lead">列宽不相等、元素互相压着：张力来自失衡，而不是来自装饰。</p>
+        <div class="style-card-tags"><span>1fr 2.2fr 0.6fr 列比</span><span>负位移重叠</span><span>字号差 10 倍</span><span>硬阴影 6px 6px 0</span></div>
+      </header>
+
+      <section class="asym-intro">
+        <p>非对称网格用不等的列宽制造张力：grid-template-columns 写成 1fr 2fr 0.6fr 这样的比例，元素用 -translate 与 z-index 互相压着，字号层级拉开极大的差距（小到 12px、大到 120px），阴影用硬边偏移强化「物理剥离感」。它的禁令是可操作的质量线——不许所有列宽相等、不许元素整齐对齐毫无变化、不许忽略移动端、不许过度杂乱失去可读性、不许所有元素大小相近。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>下面这块版面按 1fr 2.2fr 0.6fr 排：红块负位移压进中列、大标题跨两列、12px 标签被压在重叠区边缘。移动端会降为单列并取消全部位移。</p>
+        <div class="asym-stage">
+          <p class="asym-headline">失衡即张力</p>
+          <div class="asym-red-block">
+            <span class="asym-chip">BLOCK A</span>
+            <p>压在相邻元素上的色块——重叠 32px，z-index 差 10。</p>
+          </div>
+          <div class="asym-mid-block">
+            <p class="asym-mid-title">中列承担内容</p>
+            <p>列比 1fr 2.2fr 0.6fr，绝不三等分；每行的列组合都不同。</p>
+            <button type="button" class="asym-btn">ACTION</button>
+          </div>
+          <div class="asym-side-block">
+            <p class="asym-chip asym-chip--cyan">0.6fr</p>
+            <p class="asym-side-text">窄列只放锚点。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0f0f0f"></span><span class="palette-name">Ink</span><code>#0f0f0f</code></li>
+          <li><span class="swatch-chip" style="background:#ff3366"></span><span class="palette-name">Tension Red</span><code>#ff3366</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><span class="palette-name">Signal Cyan</span><code>#00d4ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><span class="palette-name">Alert Yellow</span><code>#ffcc00</code></li>
+          <li><span class="swatch-chip" style="background:#b45700"></span><span class="palette-name">Rust</span><code>#b45700</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨色承担结构的全部重量——文字、色块与硬阴影都是它；纯白画布让色块与阴影都更锐利；张力红是主强调，给最大那块色与最粗的那个标题；信号青与红形成冷暖对位；警示黄管高亮与标签底，让元素从重叠中跳出来；锈橙最暗，压在黄色上做文字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">画布。纯白让色块与阴影都更锐利。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#0f0f0f"></span><div><strong>Ink</strong><span class="swatch-role">文字、色块与硬阴影。结构的全部重量。</span></div><code>#0f0f0f</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ff3366"></span><div><strong>Tension Red</strong><span class="swatch-role">主强调：最大那块色与最粗的那个标题。</span></div><code>#ff3366</code><code>--color-tension-red</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><div><strong>Signal Cyan</strong><span class="swatch-role">第二强调，与红形成冷暖对位。</span></div><code>#00d4ff</code><code>--color-signal-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><div><strong>Alert Yellow</strong><span class="swatch-role">高亮与标签底，用于让元素从重叠中跳出来。</span></div><code>#ffcc00</code><code>--color-alert-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#b45700"></span><div><strong>Rust</strong><span class="swatch-role">最暗的一支强调，用于压在黄色上的文字。</span></div><code>#b45700</code><code>--color-rust</code></li>
+        </ul>
+        <p class="style-body-note">硬阴影两支：<code>6px 6px 0 #0f0f0f</code> 与 <code>6px 6px 0 #ff3366</code>；重叠量控制在 16 到 48px，超过就吃掉内容。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，字号层级必须拉开——12px 与 120px 同时出现在一屏是常态。display 行高 0.95、字距 -0.03em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="asym-specimen-title">ASYMMETRIC 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：'Helvetica Neue', system-ui, sans-serif · 400–900 · display 行高 0.95</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>120px</td><td>0.95</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>900</td><td>72px</td><td>1</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>40px</td><td>1.05</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>24px</td><td>1.2</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>16px</td><td>1.55</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>700</td><td>12px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1440px、容器内边距 24px，区块间距 96px。每行的列组合都要不同，允许负位移与重叠。移动端降为单列、取消重叠、字号层级压缩到 4 倍以内。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>网格</td><td>12 栏基准、间距 16px，比例如 1fr 2.2fr 0.6fr</td></tr>
+            <tr><td>重叠</td><td>16–48px，z-index 相邻两层差 10</td></tr>
+            <tr><td>字号反差</td><td>120px 标题配 12px 标签，差 10 倍</td></tr>
+            <tr><td>硬阴影</td><td>6px 6px 0 墨或红</td></tr>
+            <tr><td>过渡</td><td>120ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Uneven Grid</h3>
+            <p class="style-body-comp-role">不等宽网格（核心结构）。grid-template-columns 用 1fr 2.2fr 0.6fr 或 2fr 1fr 1.4fr 这类比例，绝不出现三等分。12 栏基准、间距 16px，但每行的列组合可以不同。移动端降为单列并取消负位移。上方实演就是 1fr 2.2fr 0.6fr。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Overlap Block</h3>
+            <p class="style-body-comp-role">重叠色块。一个填色块用 -translate-x-8 与 -translate-y-4 压到相邻元素上，z-index 显式设定（相邻两层差 10）。零圆角，硬阴影 6px 6px 0 墨或红。重叠量控制在 16 到 48px，超过就吃掉内容。实演里的红块位移了 (-32px,-16px)。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Contrast Headline</h3>
+            <p class="style-body-comp-role">极端对比标题。120px/900、行高 0.95、字距 -0.03em，与其下方的 12px 标签形成 10 倍的尺寸差。允许标题跨越两列并压在其他元素上，但文字必须始终在最上层且保持可读。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Label Chip</h3>
+            <p class="style-body-comp-role">小标签。警示黄填充、墨色文字、零圆角、12px/700、字距 0.06em、padding 4px 10px。它常被压在重叠区的边缘，作为「这块是什么」的说明，与大标题形成尺寸反差。青色变体用于窄列锚点。</p>
+            <span class="asym-chip">12PX LABEL</span>
+          </div>
+          <div class="comp-item">
+            <h3>Edge Button</h3>
+            <p class="style-body-comp-role">行动按钮。张力红填充、白字、零圆角、16px/700、padding 14px 28px，硬阴影 6px 6px 0 墨。hover 时阴影换到信号青；按下时位移 6px 6px 且阴影归零。过渡 120ms linear。</p>
+            <button type="button" class="asym-btn">推移</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>列宽必须不相等</li>
+              <li>用负位移与 z-index 做重叠</li>
+              <li>字号层级拉开到 10 倍</li>
+              <li>硬边偏移阴影强化剥离感</li>
+              <li>移动端降单列并取消重叠</li>
+              <li>重叠量控制在 16 到 48px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让列宽完全相等</li>
+              <li>不要让元素整齐对齐毫无变化</li>
+              <li>不要忽略移动端响应式</li>
+              <li>不要杂乱到失去可读性</li>
+              <li>不要让元素大小相近</li>
+              <li>不要让重叠吃掉内容</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像可以尺寸悬殊：一张横跨三列的巨图配一张 120px 的小图。允许裁切与局部特写。不使用等尺寸网格与整齐对齐的画廊式排列。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="asymmetric-grid">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的不等列宽、重叠规则与字号反差。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，不等列宽、16–48px 重叠与 10 倍字号反差必须原样保留；三等分网格或整齐对齐一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

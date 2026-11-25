@@ -1,0 +1,60 @@
+# 滚动隐藏页头 — HideOnScrollHeader
+
+制作「滚动隐藏页头」：一张 340×340 的博客页面场景。顶部 58px 页头（渐变圆点品牌 Relay、菜单 Product / Pricing / Blog、墨色胶囊按钮 Get started）悬浮在内容上方、初始透明；内部滚动区里是 "Blog · 5 min read" 眉标、两行大标题 "How small teams ship fast" 的封面与四段正文。向下滚动超过 20px 后页头收紧为 46px 毛玻璃实底并显示 accent 色阅读进度条；继续下滑累计 8px 整个页头以 .38s 上移 110% 让位；向上累计滚 6px 立即滑回；滚回顶部 60px 内恢复透明宽松态。进度条宽度始终等于滚动百分比。
+
+## 布局与材质
+
+- 卡片 340×340px、圆角 30px、溢出裁切、表面色底；外圈 0 0 0 1px 线色描边，加 0 30px 60px -36px 强阴影。
+- 页头：绝对定位 left 0 / right 0 / top 0、z-index 2，高 58px、左右内边距 18px、列间距 12px、垂直居中，基准字号 11px/字重 750、二级墨色。整条页头过渡：transform .38s cubic-bezier(.2,.8,.2,1)，height、background-color、box-shadow、backdrop-filter 各 .3s。
+- 品牌：文字 Relay，13px/字重 900、墨色、右margin auto 占位；行首一枚 14×14 圆形点，背景为 --ux-grad 渐变（浅色 120deg #7B61FF→#3D8BFF 55%→#1FB89A，深色 #B7A4FF→#7DB4FF 55%→#A5F2D3）。菜单依次 Product、Pricing、Blog。右侧按钮 Get started：内边距 6px 11px、圆角 999px、墨色实底、表面色文字、10.5px/字重 800。
+- 收紧态（滚动超过 20px）：高 46px；背景 color-mix(表面色 78%, transparent)；backdrop-filter blur(12px)；阴影 0 1px 0 线色 + 0 8px 20px -14px 强阴影。同时页头底边的阅读进度条淡入：绝对定位 left 0、bottom -1px、高 2px、accent 色，宽度由滚动百分比驱动。
+- 隐藏态：整个页头 translateY(-110%)。
+- 滚动区：绝对填充、overflow-y auto、overscroll-behavior contain、滚动条隐藏（scrollbar-width none + webkit 隐藏）、tabindex 0、aria-label "Blog post"；focus-visible 时 2px accent 外圈、偏移 -4px、圆角 30px。
+- 封面：高 150px、上内边距 72px、左右 22px、无边距，背景 linear-gradient(160deg, accent-soft, transparent 80%)。眉标 "Blog · 5 min read"：10px/字重 800、accent 色。标题 "How small teams<br>ship fast"：上边距 6px、24px、行高 1.15、字重 900、字距 -0.04em。
+- 正文区：内边距 22px 22px 40px。段落 12.5px、行高 1.75、字重 600、二级墨色，下边距 14px；第二段之后插入一块图片占位：高 84px、圆角 14px、下边距 14px、背景 linear-gradient(135deg, surface-2, accent 18% 透明度混表面色)。
+- 场景令牌一套两态（light-dark()）：surface #FFFFFF/#13141C、surface-2 #F5F3EF/#1A1B25、surface-3 #EAE7E1/#252632、ink #16151B/#F4F0E8、ink-2 #57535F/rgba(244,240,232,.68)、ink-3 #8E8A97/rgba(244,240,232,.42)、line rgba(22,21,27,.09)/rgba(255,255,255,.08)、accent #6A57F2/#B7A4FF、accent-soft rgba(106,87,242,.12)/rgba(183,164,255,.15)、阴影 rgba(40,30,80,.3)/rgba(0,0,0,.72)。字体随页面继承无衬线。
+
+## 数据
+
+- 四段正文逐字固定（英文演示文案）：
+  1. "If you try to make it perfect from the start, launch keeps slipping. Ship the smallest useful thing and refine it as people respond."
+  2. "Keep meetings short and notes long. When the reason behind a decision is written down, the next person won't repeat the same debate."
+  3. "Automate the third time you repeat something. Automate too early and you cement what is still changing."
+  4. "Finally, set the launch date first. A date is what lets you choose what to cut."
+- 其余写死文案：品牌 Relay、菜单 Product / Pricing / Blog、按钮 Get started、眉标 "Blog · 5 min read"、标题 "How small teams ship fast"。除上述与占位图块外无其他写死数据。
+
+## 操作和动效
+
+- 滚动监听为 passive。每次滚动记录 scrollTop 与上次的差值 d：方向与上次累计相同则累加（acc += d），方向变化则重置 acc = d——即同方向滚动量累计。
+- 收紧态：scrollTop > 20 时加、否则移除；背景、高度、阴影、进度条透明度随之过渡。
+- 隐藏与返回：scrollTop < 60 时一律移除隐藏态（顶部宽松区）；否则累计下滑 acc > 8px 加隐藏态（页头 .38s cubic-bezier(.2,.8,.2,1) 上移 110%），累计上滑 acc < -6px 立即移除并滑回。
+- 进度条宽度 = scrollTop / (scrollHeight − clientHeight) × 100，保留 1 位小数，随每次滚动实时更新；收紧态下才可见（透明度过渡 .3s）。
+- 键盘：滚动区 tabindex 0，聚焦后可用方向键、PageUp/PageDown 滚动；焦点样式 2px accent 内缩。
+- prefers-reduced-motion / options.reducedMotion：页头的全部过渡关闭（收紧、隐藏、滑回瞬时完成，进度条仍实时更新），判断逻辑不变；场景根打上 data-reduced-motion 强制容器内所有 CSS 过渡与动画时长归零。surface 会随容器宽度把整景等比缩小（缩放不超过 1）。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案与运动参数均以上述文字为准；界面用 DOM 与 CSS，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 HideOnScrollHeader。从零创建四个文件：HideOnScrollHeader.tsx、HideOnScrollHeaderEngine.js、motion-runtime.ts、HideOnScrollHeaderEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下滚动行为与进度条仍完整可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；下滑让位、上滑立即滑回、顶端恢复透明宽松态、进度条随滚动增长；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { HideOnScrollHeader } from "./HideOnScrollHeader";
+
+export default function App() {
+  return <HideOnScrollHeader />;
+}
+```

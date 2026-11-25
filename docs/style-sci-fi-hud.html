@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>科幻 HUD — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body hud">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 76 · 深色版面</p>
+        <h1>科幻 HUD <span class="style-card-en">SCI-FI HUD</span></h1>
+        <p class="page-lead">深空底上的一层发光数据：面板半透明，角标是 L 形，灯一直在脉冲。</p>
+        <div class="style-card-tags"><span>L 形四角角标</span><span>等宽大写 0.16em</span><span>状态灯脉冲</span><span>交互必发光</span></div>
+      </header>
+
+      <section class="hud-hero">
+        <div class="hud-hero-copy">
+          <p>科幻 HUD 模拟星舰驾驶舱与战术指挥台的显示层。它的构成是固定的：深空底，面板以 85% 不透明叠上去并带 20px 发光边，四角用 L 形 2px 边框做框选标记，文字用等宽大写加宽字距，状态灯持续脉冲，进度条用渐变加一道扫描光。</p>
+          <p>它的关键不是装饰而是「系统活着」的感觉——所有交互都必须让某个部件发光或脉冲，普通阴影加深在这里不够用。</p>
+        </div>
+        <div class="hud-demo">
+          <div class="hud-panel-demo">
+            <span class="hud-bracket hud-bracket--tl" aria-hidden="true"></span>
+            <span class="hud-bracket hud-bracket--tr" aria-hidden="true"></span>
+            <span class="hud-bracket hud-bracket--bl" aria-hidden="true"></span>
+            <span class="hud-bracket hud-bracket--br" aria-hidden="true"></span>
+            <p class="hud-panel-tag">SYS.CHECK // ALL GREEN</p>
+            <p class="hud-panel-title">推进器温度</p>
+            <div class="hud-scanbar" role="presentation">
+              <span class="hud-scanbar-fill" style="width:68%"></span>
+            </div>
+            <div class="hud-scan-row"><span class="hud-scan-val">68</span><span class="hud-scan-unit">%</span></div>
+            <div class="hud-light-row">
+              <span class="hud-light" aria-hidden="true"></span>
+              <span class="hud-light-text">锁定</span>
+              <button type="button" class="hud-btn">ENGAGE</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#020617"></span><span class="palette-name">Deep Space</span><code>#020617</code></li>
+          <li><span class="swatch-chip" style="background:#06b6d4"></span><span class="palette-name">Primary Cyan</span><code>#06b6d4</code></li>
+          <li><span class="swatch-chip" style="background:#0ea5e9"></span><span class="palette-name">Scan Blue</span><code>#0ea5e9</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><span class="palette-name">Bright Cyan</span><code>#22d3ee</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><span class="palette-name">System Green</span><code>#22c55e</code></li>
+          <li><span class="swatch-chip" style="background:#9e74ff"></span><span class="palette-name">Resonance Violet</span><code>#9e74ff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>极深的蓝黑把青光的对比拉到最大；主青管边框、发光与主强调，所有「系统在线」的信号都由它发出；扫描蓝管雷达扫描、数据流与次级高亮；亮青比主青更亮一档，管峰值高光与关键数值；系统绿是唯一的「安全」色，管正常状态、已锁定与通过检查；共振紫管异常读数与需要人工介入的状态，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#020617"></span><div><strong>Deep Space</strong><span class="swatch-role">页面底。极深的蓝黑，让青光的对比拉到最大。</span></div><code>#020617</code><code>--color-deep-space</code></li>
+          <li><span class="swatch-chip" style="background:#06b6d4"></span><div><strong>Primary Cyan</strong><span class="swatch-role">边框、发光与主强调。所有「系统在线」的信号都由它发出。</span></div><code>#06b6d4</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#0ea5e9"></span><div><strong>Scan Blue</strong><span class="swatch-role">雷达扫描、数据流与次级高亮。</span></div><code>#0ea5e9</code><code>--color-scan-blue</code></li>
+          <li><span class="swatch-chip" style="background:#22d3ee"></span><div><strong>Bright Cyan</strong><span class="swatch-role">峰值高光与关键数值，比主青更亮一档。</span></div><code>#22d3ee</code><code>--color-bright-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><div><strong>System Green</strong><span class="swatch-role">正常状态、已锁定与通过检查。是唯一的「安全」色。</span></div><code>#22c55e</code><code>--color-system-green</code></li>
+          <li><span class="swatch-chip" style="background:#9e74ff"></span><div><strong>Resonance Violet</strong><span class="swatch-role">异常读数与需要人工介入的状态，出现频率最低。</span></div><code>#9e74ff</code><code>--color-violet</code></li>
+        </ul>
+        <p class="style-body-note">发光三档：<code>0 0 20px rgba(6,182,212,0.50)</code>、激活 <code>0 0 32px rgba(6,182,212,0.70)</code> 与文字 <code>0 0 8px rgba(34,211,238,0.60)</code>。暖色只用于警告。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 JetBrains Mono，全大写、0.08 到 0.16em 字距。等宽让数值列对齐，也让整页像仪表读数。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="hud-specimen-title">SCI-FI HUD 0123</p>
+            <p class="specimen-meta">JetBrains Mono — 全站唯一字体。替代栈：ui-monospace, 'Courier New', monospace · 400/700 · 全大写 0.08–0.16em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>JetBrains Mono</td><td>700</td><td>24px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>JetBrains Mono</td><td>400</td><td>18px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>JetBrains Mono</td><td>400</td><td>14px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>JetBrains Mono</td><td>400</td><td>12px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.55</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>700</td><td>10px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1600px、容器内边距 16px，面板间距 8px，形成密集的仪表盘排布。允许面板以 1px 青线拼接成更大的显示区。四角常驻 L 形角标，页面边缘保留 16px 安全区。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>面板 4px · 按钮/输入 2px · 仪表 999px</td></tr>
+            <tr><td>L 形角标</td><td>2px 主青、长 16px，四角必配</td></tr>
+            <tr><td>面板</td><td>深板岩 85% + 20px 模糊 + 内边距 20px</td></tr>
+            <tr><td>状态灯</td><td>8px 圆点，脉冲周期 2s，旁配 11px 等宽文字</td></tr>
+            <tr><td>扫描条</td><td>高 6px、高光 24px 宽、3s 扫过一轮</td></tr>
+            <tr><td>雷达</td><td>160–240px 圆环，conic 扇区 4s/圈 线性</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>HUD Panel</h3>
+            <p class="style-body-comp-role">主面板与数据块。深板岩 85% 填充、20px 模糊、4px 圆角、1px 主青 30% 描边、内边距 20px，外发光 0 0 20px 青 50%。四角各用两个伪元素画 L 形角标（2px 主青、长 16px）。hover 时描边升到 60%、外发光扩到 32px——这就是「系统激活」。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glow Button</h3>
+            <p class="style-body-comp-role">主行动按钮。透明底、2px 主青描边、2px 圆角、无填充，12px/700 全大写 0.16em、padding 8px 20px，文字亮青。静态时已有 0 0 12px 的发光。hover 时填充青 12%、发光扩到 24px；按下时发光收到 6px 并把填充升到 20%。过渡 120ms。</p>
+            <button type="button" class="hud-btn">ENGAGE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Status Light</h3>
+            <p class="style-body-comp-role">状态指示灯。8px 圆点，正常绿、预警紫、告警橙。必须持续脉冲：0 到 100% 之间把外发光从 4px 扩到 12px 再收回，周期 2 秒，缓动用 ease-in-out。灯旁边永远配 11px 的等宽状态文字，不只靠颜色。</p>
+            <div class="hud-light-row">
+              <span class="hud-light" aria-hidden="true"></span>
+              <span class="hud-light-text">在线</span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Scan Bar</h3>
+            <p class="style-body-comp-role">进度条与扫描指示。高 6px、2px 圆角，底槽为主青 15%。填充用主青到亮青的横向渐变，并在填充上叠一道 24px 宽的白色 40% 高光，以 3 秒周期从左扫到右。数值以等宽字体放在右侧，单位与数字分开。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Radar Ring</h3>
+            <p class="style-body-comp-role">雷达与环形仪表。直径 160px 到 240px 的圆环，2px 主青 30% 描边，内部十字准线 1px 主青 20%，扫描扇区用 conic-gradient 从主青 40% 渐隐到透明，旋转一周 4 秒、线性。中心显示 18px 等宽读数。</p>
+            <div class="hud-radar-demo" role="presentation"><span class="hud-radar-sweep"></span><span class="hud-radar-val">87.4</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>面板半透明加深模糊加外发光</li>
+              <li>四角必须有 L 形角标</li>
+              <li>等宽大写，字距 0.08 到 0.16em</li>
+              <li>状态灯持续脉冲</li>
+              <li>交互必须让某处发光变化</li>
+              <li>暖色只用于警告</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用浅色或白色背景</li>
+              <li>不要用暖色调（警告除外）</li>
+              <li>不要用衬线字体</li>
+              <li>不要用圆润可爱的语言</li>
+              <li>不要用 8px 以上的圆角</li>
+              <li>不要让状态灯静止</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以网格、雷达、波形与星图为图像语言，不用摄影。允许深空摄影作为面板底层并压到 20% 不透明度。不使用插画、人物与任何暖色图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="sci-fi-hud">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 L 形角标、脉冲状态灯与扫描条。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，L 形角标、持续脉冲与「交互必发光」必须原样保留；浅色背景或静止的灯一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

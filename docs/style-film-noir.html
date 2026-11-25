@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑色电影 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body noir">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 81 · 深色版面</p>
+        <h1>黑色电影 <span class="style-card-en">FILM NOIR</span></h1>
+        <p class="page-lead">一束斜光切开黑房间：其余全部藏在阴影里。</p>
+        <div class="style-card-tags"><span>斜光渐变</span><span>深灰阶分层</span><span>猩红只一处</span><span>衬线斜体标题</span></div>
+      </header>
+
+      <section class="noir-hero">
+        <div class="noir-hero-copy">
+          <p>黑色电影来自 1940 到 50 年代的黑色片：极端明暗对比、深灰阶分层、斜向光影、以及只在必要时出现的一抹猩红。它不用颜色造层次而用亮度——卡片之间靠极微妙的灰差区分，光影用线性渐变模拟，hover 只改亮度不改色相。</p>
+          <p>标题用衬线斜体，像片头字幕。禁令是：不许彩色背景、不许高饱和色（猩红只作点缀）、不许大圆角。右边这张斜光卡是真的：一道 115 度的光从左上打进来，hover 时只提亮 8%。</p>
+        </div>
+        <div class="noir-demo">
+          <div class="noir-card">
+            <span class="noir-shadow" aria-hidden="true"></span>
+            <p class="noir-card-title">最后一班列车</p>
+            <p class="noir-card-text">雨停在下一个街区之外。她把车票折了两折，放进大衣内袋。</p>
+            <span class="noir-mark" aria-hidden="true"></span>
+            <span class="noir-year">1948</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Film Black</span><code>#0a0a0a</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Screen Grey</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#262626"></span><span class="palette-name">Second Grey</span><code>#262626</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><span class="palette-name">Smoke White</span><code>#f5f5f0</code></li>
+          <li><span class="swatch-chip" style="background:#c41e3a"></span><span class="palette-name">Crimson</span><code>#c41e3a</code></li>
+          <li><span class="swatch-chip" style="background:#d4af37"></span><span class="palette-name">Brass</span><code>#d4af37</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>近纯黑的影黑让光看起来是打上去的；幕灰只比底色亮一档，做第一层抬升面；次灰是第二层抬升面与卡片内部；烟白略带暖，像旧拷贝，管标题与主要文字；猩红是唯一的彩色，只作点缀——一个标记、一条线、一次警告；黄铜极少量出现，暗示「贵」，如奖项与年份。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Film Black</strong><span class="swatch-role">页面底与最深的阴影。近纯黑，让光看起来是打上去的。</span></div><code>#0a0a0a</code><code>--color-film-black</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Screen Grey</strong><span class="swatch-role">第一层抬升面。只比底色亮一档。</span></div><code>#1a1a1a</code><code>--color-screen-grey</code></li>
+          <li><span class="swatch-chip" style="background:#262626"></span><div><strong>Second Grey</strong><span class="swatch-role">第二层抬升面与卡片内部。</span></div><code>#262626</code><code>--color-second-grey</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><div><strong>Smoke White</strong><span class="swatch-role">标题与主要文字。略带暖的灰白，像旧拷贝。</span></div><code>#f5f5f0</code><code>--color-smoke-white</code></li>
+          <li><span class="swatch-chip" style="background:#c41e3a"></span><div><strong>Crimson</strong><span class="swatch-role">唯一的彩色，只作点缀：一个标记、一条线、一次警告。</span></div><code>#c41e3a</code><code>--color-crimson</code></li>
+          <li><span class="swatch-chip" style="background:#d4af37"></span><div><strong>Brass</strong><span class="swatch-role">极少量用于「贵」的暗示，如奖项与年份。</span></div><code>#d4af37</code><code>--color-brass</code></li>
+        </ul>
+        <p class="style-body-note">层次靠渐变假光：<code>none — light is faked with gradients</code>；卡片影 <code>0 24px 60px rgba(0,0,0,0.70)</code>。斜光固定 <code>linear-gradient(115deg, rgba(255,255,255,0.08), transparent 45%)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用衬线斜体 Playfair Display，像 1940 年代的片头字幕；正文用同族正体，行高 1.7。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="noir-specimen-title"><em>The Last Train</em></p>
+            <p class="specimen-meta">Playfair Display — 标题衬线斜体。替代栈：Georgia, 'Songti SC', serif · 400/700 · display 72px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Playfair Display</td><td>700</td><td>72px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Playfair Display</td><td>700</td><td>52px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Playfair Display</td><td>400</td><td>38px</td><td>1.25</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Playfair Display</td><td>400</td><td>28px</td><td>1.4</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Playfair Display</td><td>400</td><td>20px</td><td>1.7</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Playfair Display</td><td>700</td><td>20px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 128px。允许斜向构图与元素错位。整页以黑为主，靠不同层的暗灰区分区域，几乎不用留白做分隔。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 4px · 按钮/输入 2px</td></tr>
+            <tr><td>斜光</td><td>115° 白 8% → 45% 处透明，从左上打入</td></tr>
+            <tr><td>斜影</td><td>rotate(-18°)、宽 200–400px、黑 60% + 120px 模糊、单屏 ≤2 处</td></tr>
+            <tr><td>猩红</td><td>2px 线 / 8px 点 / 一行字，全页 1–2 处</td></tr>
+            <tr><td>hover</td><td>filter: brightness +8%，不改色相</td></tr>
+            <tr><td>过渡</td><td>400ms ease-out</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Shaft Card</h3>
+            <p class="style-body-comp-role">斜光卡片（核心组件）。#1a1a1a 填充、4px 圆角、1px #2e2e2e 描边、内边距 32px。关键是用一层线性渐变模拟斜光：linear-gradient(115deg, rgba(255,255,255,0.08) 0%, transparent 45%)，从左上打入。标题 38px 衬线斜体烟白，正文 20px 烟白 70%。hover 时整体亮度升 8%（filter: brightness），绝不改色相。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Noir Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 烟白 30% 描边、2px 圆角、20px/700、字距 0.14em、padding 12px 32px。hover 时描边升到 70%、文字从 85% 升到 100%、背景加烟白 4%；按下时亮度降 10%。过渡 400ms ease-out。</p>
+            <button type="button" class="noir-btn">继续放映</button>
+          </div>
+          <div class="comp-item">
+            <h3>Crimson Mark</h3>
+            <p class="style-body-comp-role">猩红标记。一条 2px、长 32 到 64px 的猩红横线，或一个 8px 的猩红圆点，或一行猩红文字。全页只允许出现一到两处，它是画面的「出血点」。绝不铺成色块——hero 卡左下那条线就是本页的第一处。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Diagonal Shadow</h3>
+            <p class="style-body-comp-role">斜向阴影带。一个绝对定位的斜向条带（rotate(-18deg)）、宽 200 到 400px、填黑 60% 并加 120px 模糊，压在内容上但 pointer-events: none。它模拟百叶窗或门框投下的影，单屏最多两处。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Smoke Field</h3>
+            <p class="style-body-comp-role">暗场输入。#1a1a1a 填充、2px 圆角、1px #2e2e2e 描边、padding 12px 16px、20px 衬线。占位符烟白 35%。聚焦时描边转烟白 50% 并加 1px 外环。</p>
+            <input class="noir-input" type="text" placeholder="案卷编号…">
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>极端明暗对比，深灰阶分层</li>
+              <li>用线性渐变模拟斜光</li>
+              <li>hover 只改亮度不改色相</li>
+              <li>标题用衬线斜体</li>
+              <li>猩红只作点缀，一到两处</li>
+              <li>圆角不超过 4px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用彩色背景</li>
+              <li>不要用高饱和色（猩红除外）</li>
+              <li>不要用大圆角</li>
+              <li>不要把猩红铺成色块</li>
+              <li>不要用平光摄影</li>
+              <li>不要用彩色图像</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>黑白摄影：人物侧影、百叶窗光、雨夜街道、烟雾、烟头特写。必须有强方向光与深阴影。允许把彩色照片转成高对比黑白。不使用彩色图像、平光摄影与柔和插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="film-noir">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的斜光渐变、灰阶分层与猩红纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，斜光渐变、「hover 只改亮度」与猩红 1–2 处必须原样保留；彩色背景或大圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# 滚筒时间选择器 — DrumTimePicker
+
+制作「滚筒时间选择器」：一张 340×330 的闹钟时间卡。顶部是 20px 特粗的读数行（如 "Alarm 7:30 AM"）和一行次级说明（如 "Rings in 8 h 50 min · Repeats on weekdays"，按固定的今晚 22:40 基准实时计算距响铃还有多久）。下半部是三只并排的滚筒——AM/PM、1–12 时、00–55 分（步进 5 分钟）——像圆柱面一样滚动：离中线越远的选项越向后倾倒、越暗淡；中线处有一条圆角高亮带，停下后最近刻度吸附到正中并刷新读数。三只滚筒均可触摸拖动、滚轮滚动或聚焦后用方向键步进。
+
+## 布局与材质
+
+- 340×330px 场景卡，内边距 18px，纵向 flex，圆角 28px，溢出裁切。底色表面色（浅色 #FFFFFF、深色 #13141C），外圈 1px 线色描边（浅色 rgba(22,21,27,.09)、深色 rgba(255,255,255,.08)），下方 0 30px 60px -36px 强阴影（浅色 rgba(40,30,80,.3)、深色 rgba(0,0,0,.72)）。窄容器时整景按 transform:scale 等比缩小。
+- 读数行：字号 20px/字重 850、字距 -0.03em、tabular-nums；说明行在其下 2px：字号 12.5px/字重 700、三级墨色（浅色 #8E8A97、深色 rgba(244,240,232,.42)）。
+- 滚筒区贴卡片底（margin-top:auto）、高 216px、水平居中、列间距 4px；整个区域用垂直方向 mask 渐隐——上下边缘各 30% 渐隐至透明，营造圆柱没入雾中的效果。中线高亮带为横贯全宽的浮层（aria-hidden，纯装饰）：top 90px、高 36px、圆角 12px、背景次级表面色（浅色 #F5F3EF、深色 #1A1B25）、内描边 1px 线色；带位于滚筒文字下层，选项行无底色，正中的数字直接叠在带上。
+- 每只滚筒宽 76px、高 216px、圆角 12px（与中线高亮带同款圆角）、overflow-y:auto、scroll-snap-type:y mandatory、滚动条完全隐藏（scrollbar-width:none 与 ::-webkit-scrollbar 双写）、perspective 300px；列表上下各留 90px 空白使首尾项也能滚到中线；选项行高 36px、文字水平垂直居中、字号 22px/字重 750、墨色、tabular-nums（AM/PM 列字号 17px）。滚筒 focus-visible 时内嵌 2px accent（浅色 #6A57F2、深色 #B7A4FF）描边（box-shadow inset）。
+- 场景令牌浅色深色两套（light-dark() 随 prefers-color-scheme 切换），如上；组件未声明字体栈，文字继承页面字体。
+
+## 数据
+
+- 三列写死选项：AM/PM 两项；小时 1–12 共 12 项；分钟 00、05、10、15、20、25、30、35、40、45、50、55 共 12 项。
+- 写死初始选择：AM · 7 点 · 30 分（三列滚动位置直接置为选项索引 × 36px，无入场动画；每列先执行一次选中判定，初始 aria-selected 即标注在 AM、7、30 上；读数 "Alarm 7:30 AM"，剩余时间按 8 h 50 min 显示）。
+- 写死文案：读数行前缀 "Alarm "；说明行前缀 "Rings in <小时> h <分钟> min"、后缀 " · Repeats on weekdays"；响铃基准时刻写死为 22:40（22×60+40 分钟），剩余时间按「目标 − 基准」对 1440 取模折算，跨零点也正确。除以上内容外无其他写死数据。
+
+## 操作和动效
+
+- 滚筒滚动（触摸拖动、滚轮、触控板均为原生滚动）：容器启用 CSS scroll-snap（y mandatory、每项 scroll-snap-align:center），松手由浏览器吸附到最近刻度；惯性来自原生滚动，无需自实现。列表上下各留 90px 空白（padding），使首尾两项也能滚到正中，因此每一项都可选。
+- 圆柱弯曲：滚动中每帧（scroll 事件以 requestAnimationFrame 节流，passive 监听）对每项按「项中心到滚筒中线（scrollTop+108px）的距离 d（以 36px 为单位）」做 3D 变换——rotateX(−clamp(d×22°, −80°, 80°)) 并向屏幕内推 translateZ(−|d|×4px)，越远越倾倒、越缩进；透明度按 1 − |d|×0.28 衰减，下限 0.15。项以 transform-style:preserve-3d 与 backface-visibility:hidden 防止翻转穿帮。停止滚动后，最后一次弯曲状态保留（不回弹），选中的项正好平贴中线。
+- 选定与读数：滚动停止 120ms（去抖计时器）后判定选中项 k = clamp(round(scrollTop ÷ 36), 0, 项数−1)，同步该列全部 role="option" 的 aria-selected；随后刷新读数行与剩余时间行。剩余时间 =（目标分钟 − 1360）对 1440 取模，目标分钟 =（小时 mod 12 + PM 补 12×60）+ 分钟数，跨 AM/PM 与零点自动折算；例如初始 7:30 AM 距 22:40 为 8 h 50 min。
+- 键盘：滚筒可 Tab 聚焦（tabindex=0，role="listbox"，按 DOM 顺序 AM/PM → 时 → 分）；ArrowDown/ArrowUp 以平滑滚动步进 ±1 项（scrollTo behavior:smooth，目标 = clamp(选中±1) × 36px，按住即连续步进，到首尾自动停住），随后走同样的吸附与刷新流程。
+- 无障碍：三列 role="listbox"，aria-label 分别为 "AM or PM"、"Hour"、"Minute"；每项 role="option"、aria-selected 标注选中；读数行 aria-live="polite"，每次变化向读屏播报。
+- 减少动态：组件未写专属分支——吸附由原生 scroll-snap 完成，弯曲与渐隐是随滚动位置即时计算的静态样式而非动画，因此减少动态偏好不改变选择结果与最终状态；options.reducedMotion 仍由运行时统一接管（全局 CSS 动画时长归零，本组件无 CSS 动画受影响）。
+- 更新 options 不重挂载组件，支持同页多实例互不干扰；卸载时移除滚动、键盘监听与去抖计时器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| height | number | 330 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案与参数均以上述文字为准；界面全部用 DOM 与 CSS 绘制，吸附与弯曲逻辑自行实现，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 DrumTimePicker。从零创建四个文件：DrumTimePicker.tsx、DrumTimePickerEngine.js、motion-runtime.ts、DrumTimePickerEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；初始即显示 "Alarm 7:30 AM · Rings in 8 h 50 min"；三筒滚动吸附均落在正确刻度、读数与剩余时间随之刷新；拨到 PM 或跨零点时段剩余时间折算仍正确；方向键步进与 aria-selected 正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { DrumTimePicker } from "./DrumTimePicker";
+
+export default function App() {
+  return <DrumTimePicker />;
+}
+```

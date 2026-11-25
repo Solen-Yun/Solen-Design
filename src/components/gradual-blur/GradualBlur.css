@@ -1,0 +1,5 @@
+@layer sd.components {
+.gradual-blur {
+  pointer-events: none;
+}
+}

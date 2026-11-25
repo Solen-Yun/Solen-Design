@@ -1,0 +1,58 @@
+Implement the "FallingText" component from zero: a block of text whose words (or letters) turn into rigid bodies and collapse into a physical pile — they tumble, knock each other loose, can be grabbed and thrown, get shoved by fast cursor swipes, and optionally fly back into their original typeset positions after a quiet delay. Full specification follows; it must not depend on external pages, videos, images, font files, or off-the-shelf effect components.
+
+## Structure & rendering
+
+- Pure React + CSS + the matter-js physics engine, two files only: FallingText.jsx (entry, body model, release/restore state machine) and FallingText.css (all styles). React >= 18. No iframe. File starts with a `'use client'` directive.
+- Root is a `<div>` with class falling-text (plus falling-text--wireframes and className): position relative, flex centred, width and height 100%, overflow hidden, user-select none, tap highlight transparent. It carries data-trigger and, when draggable, data-draggable; while a phase runs it also carries data-phase ("falling" or "restoring") and data-dragging while a grab is active. The trigger "click" cursor is pointer only while idle. Inline styles inject the theme tokens, the accent custom properties, background from backgroundColor, and fontSize.
+- Theme tokens set as CSS custom properties on the root: dark tiles use a #3a3644→#27242f vertical gradient, a faint white inset edge, a stronger white top highlight, a deep drop shadow and #f4f4f5 ink; light tiles use a #ffffff→#f6f6f8 gradient, a faint dark edge, a full white highlight, a soft dark shadow and #27272a ink. The accent colour (accentColor) sets --falling-text-accent plus an auto-contrasted ink (3/6-digit hex; relative luminance above 0.4 picks #18181b, otherwise #ffffff; unparsable falls back to white ink).
+- Inside is the text block (class falling-text__text): max-width 100%, padding 1em, line-height 1.4, centred, text-wrap balance. The text splits on whitespace into word spans (class falling-text__piece, inline-block, white-space pre, each carrying data-piece). With split "letters", each word is wrapped in a nowrap group span (class falling-text__group) and becomes one piece per letter. A word starting with any highlightWords entry is highlighted: it gains the highlightClass class (default "highlighted") and the data-highlight attribute — plain pieces render in the accent colour at weight 600; tile pieces render the accent background with the accent ink.
+- The tiles variant (variant "tiles") styles every piece as a rounded chip: margin 0.14em/0.06em, padding 0.24em/0.56em, radius 0.42em, the theme gradient background, an inset 1px edge plus a top highlight plus the theme drop shadow, tile ink and line-height 1.2. The wireframes flag outlines every piece with a 1px inset currentColor outline.
+
+## Physics model
+
+- On trigger the text block's min-height locks to its current height, word/letter rects are measured relative to the container, and a matter-js world is created with sleeping enabled and position/velocity iterations 10/8. Gravity is the gravity prop clamped to −3…4, scaled ×1.4 downward.
+- Four static walls (400px thick) bound the container: floor friction 0.8, left/right/ceiling friction 0.3; they reposition on container resize and bodies wake. Every piece becomes a rectangle body one pixel smaller than its rect (min 2px), chamfered — tiles by radius min(height × 0.28, half-width − 1, half-height − 1), plain text by 4px under the same caps — with restitution = bounciness (clamped 0–1, applied live when the prop changes), friction 0.4, frictionStatic 0.8, frictionAir 0.012, density 0.0015, slop 0.02. Bodies start static at their measured rects.
+- Release order: "random" releases in shuffled order, "center" releases from the horizontal middle outward (distance rank × count−1), "together" releases all at once, anything else releases left to right; each piece's start time is its rank × max(0, stagger) seconds. Releasing un-freezes the body with a kick — random horizontal velocity ±6 × kick, upward up to 2.5 × kick, spin ±0.12 × kick — where kick = scatter (clamped 0–1), damped to 0.4 for knocked pieces.
+- Collision knock: when a released piece hits a still-frozen piece from above (more than a quarter of the frozen piece's height along the gravity direction), the frozen piece releases early with the weaker kick, so the pile avalanches naturally.
+- Simulation runs on a fixed 120 Hz step with an accumulator; rendering interpolates between the previous and current physics state each frame and writes translate3d + rotate transforms (skipping updates below a 0.01px / 0.0001rad epsilon). Pieces carry will-change: transform while a phase is active and touch-action: none while falling with dragging enabled.
+- Dragging: pointerdown during the falling phase over a released body (matter point query) creates a stiff constraint (stiffness = mouseConstraintStiffness clamped 0.01–1, damping 0.08, zero length) that follows the pointer; the pointer is captured, data-dragging is set, and the cursor switches grab → grabbing (CSS-driven). Releasing removes the constraint.
+- Cursor push: pointer velocity is tracked (blend over ~40 ms); during the falling phase, released pieces within reach (half their larger side + 18px) of a moving pointer (speed ≥ 0.35) receive a velocity kick along the pointer direction with an upward bias (0.7 × kick), capped at 20, scaled by cursorPush (clamped 0–2) and a quadratic falloff, plus a small random spin; each piece cools down 60 ms between pushes.
+- Restore: when restoreDelay > 0, every piece is released and settled (sleeping or slower than 0.05), the pointer is outside and nothing is dragged, a quiet timer of restoreDelay seconds starts; when it expires the pieces animate home — 760 ms each, staggered 14 ms per piece capped at 360 ms in top-down order (sorted by current height), with a spring easing expressed as a CSS linear() spring when supported and a cubic-bezier(0.34, 1.4, 0.64, 1) fallback, fill backwards. When all finish, everything resets: engine cleared, inline styles removed, min-height released, data attributes dropped.
+
+## Triggers & lifecycle
+
+- trigger "auto": after document fonts are ready and one animation frame, the fall fires once on mount. "hover": fires on pointer enter or pointer move while idle. "click": fires on click while idle. "scroll": an IntersectionObserver with thresholds 0 and 0.3 fires the fall once when 30% of the container becomes visible; it re-arms only after the phase has returned to idle and the container has scrolled back out. Reduced motion never falls — the text stays static.
+- The frame loop self-sleeps: it stops when the container is off-screen (IntersectionObserver) or the simulation has gone quiet, and wakes on resize, pointer activity or visibility.
+- Unmount: both observers disconnect, every listener is removed, running Web Animations cancel, the engine clears and all inline piece styles reset. Same-page instances are fully independent.
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| text | string | "" | The sentence to break apart. |
+| highlightWords | string[] | [] | Words starting with any of these render in the accent style. |
+| highlightClass | string | "highlighted" | Extra class for highlighted pieces. |
+| trigger | "auto" \| "hover" \| "click" \| "scroll" | "auto" | What starts the fall. |
+| variant | "text" \| "tiles" | "text" | Plain glyphs or rounded tile chips. |
+| split | "words" \| "letters" | "words" | Whether each word or each letter becomes a body. |
+| gravity | number | 1 | World gravity, −3 to 4; negative floats upward. |
+| bounciness | number | 0.2 | Restitution of the bodies, 0–1; applies live. |
+| scatter | number | 0.5 | Strength of the initial release kick, 0–1. |
+| stagger | number | 0.03 | Seconds between piece releases. |
+| order | "random" \| "center" \| "together" \| string | "random" | Release order; centre-out, all at once, or any other value falls left to right. |
+| draggable | boolean | true | Pieces can be grabbed and thrown once falling. |
+| mouseConstraintStiffness | number | 0.2 | Drag constraint stiffness, 0.01–1. |
+| cursorPush | number | 0.5 | How hard fast cursor swipes shove pieces, 0–2; 0 disables. |
+| restoreDelay | number | 0 | Seconds of quiet before pieces fly home; 0 keeps the pile. |
+| fontSize | string | "1rem" | Font size of the text block. |
+| accentColor | string | "#5b8cff" | Highlight colour; highlighted tile ink auto-contrasts. |
+| theme | "dark" \| "light" | "dark" | Tile palette for the tiles variant. |
+| backgroundColor | string | "transparent" | Background of the container. |
+| wireframes | boolean | false | Outlines every piece to debug the bodies. |
+| className | string | "" | Extra class names for the container. |
+| style | CSSProperties | - | Inline styles for the container. |
+
+## Delivery & validation
+
+- Deliver the complete content of FallingText.jsx and FallingText.css plus install steps and the usage example; no ellipses, no "fill in the core yourself" placeholders.
+- Validate: all four triggers fire (auto once after fonts, hover on entry, click while idle, scroll at 30% visibility with re-arm); pieces release in the chosen order and stagger; knocked pieces avalanche; the pile stacks and tumbles at gravity −3…4 and bounciness 0–1; drag picks up, follows and throws pieces; fast swipes shove nearby pieces; restoreDelay brings everything home aligned to the original typesetting with no visual jump; words and letters both split; tiles and text variants both render with dark and light themes; highlight words take the accent colour (and accent tiles with contrast ink); resize mid-fall keeps the walls tight; prefers-reduced-motion never falls; unmount leaves no observers, listeners, engine or animations; same-page instances are independent; no horizontal overflow at 375 / 768 / 1440 wide.

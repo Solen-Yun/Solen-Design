@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>创意工作室风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body sbold">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 123 · 深色版面</p>
+        <h1>创意工作室风 <span class="style-card-en">STUDIO BOLD</span></h1>
+        <p class="page-lead">字大到撑满屏幕，色块直接切换，直角保持自信。</p>
+        <div class="style-card-tags"><span>标题 96–128px</span><span>深浅底色切换</span><span>零圆角</span><span>珊瑚单强调</span></div>
+      </header>
+
+      <section class="sbold-hero">
+        <div class="sbold-hero-main">
+          <h3 class="sbold-display">We make <span class="sbold-hit">things</span> that <span class="sbold-hit">move</span>.</h3>
+          <p class="sbold-lead">一段自我介绍，18px，行高 1.55，颜色 #8a8a85。留白负责呼吸，不靠装饰。</p>
+          <a class="sbold-cta" href="#0" onclick="return false">开始项目</a>
+        </div>
+        <div class="sbold-block sbold-block--light">
+          <h4 class="sbold-h">Selected Work</h4>
+          <div class="sbold-cards">
+            <article class="sbold-card">
+              <div class="sbold-card-img"><span>项目图</span></div>
+              <h5 class="sbold-card-title">品牌重塑</h5>
+              <p class="sbold-card-meta">客户：某消费品牌</p>
+            </article>
+            <article class="sbold-card">
+              <div class="sbold-card-img sbold-card-img--alt"><span>项目图</span></div>
+              <h5 class="sbold-card-title">年度视觉系统</h5>
+              <p class="sbold-card-meta">客户：某科技公司</p>
+            </article>
+          </div>
+        </div>
+        <div class="sbold-block sbold-block--dark">
+          <blockquote class="sbold-quote">
+            “他们交付的不是页面，是一整套说话的方式。”
+            <cite>客户 · 市场总监</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><span class="palette-name">Paper</span><code>#f5f5f0</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><span class="palette-name">Coral</span><code>#ff6b6b</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#333333"></span><span class="palette-name">Graphite</span><code>#333333</code></li>
+          <li><span class="swatch-chip" style="background:#0d0d0d"></span><span class="palette-name">Near Black</span><code>#0d0d0d</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨黑做深色区块底与浅色区上的文字，是整套风格的骨架；纸白做浅色区块底，比纯白暖，避免与纯白文字混淆；珊瑚是唯一强调色，只给 CTA、hover 态与 hero 里被高亮的关键词；纯白只做文字，绝不当底色；石墨做深色区里的次级文字与分隔线；近黑给页头页脚，在深色区之间再分一层。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">深色区块底与浅色区上的文字。骨架色。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><div><strong>Paper</strong><span class="swatch-role">浅色区块底。比纯白暖。</span></div><code>#f5f5f0</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><div><strong>Coral</strong><span class="swatch-role">唯一强调色：CTA、hover 与 hero 高亮词。</span></div><code>#ff6b6b</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">只用于文字，绝不作底色。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#333333"></span><div><strong>Graphite</strong><span class="swatch-role">深色区里的次级文字与分隔线。</span></div><code>#333333</code><code>--color-graphite</code></li>
+          <li><span class="swatch-chip" style="background:#0d0d0d"></span><div><strong>Near Black</strong><span class="swatch-role">页头页脚，比区块底再深一层。</span></div><code>#0d0d0d</code><code>--color-near-black</code></li>
+        </ul>
+        <p class="style-body-note">静止时零阴影：<code>none at rest — blocks do the separating</code>。只有两处 hover 才出现阴影——卡片 <code>0 25px 50px rgba(0,0,0,0.25)</code>、CTA <code>0 20px 40px rgba(255,107,107,0.3)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站无衬线。标题用 700 到 900 并压到行高 0.95，正文用 300 到 400，两者之间的差距本身就是层级。衬线字体一律不用。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="sbold-specimen-title">Impact</p>
+            <p class="specimen-meta">Inter — 标题。替代栈：Helvetica, 'Arial Black', system-ui, sans-serif · 700–900 · 行高 0.95 · 字距 -0.04em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="sbold-specimen-body">正文用 300 字重、14px、行高 1.55，尽量少的存在。</p>
+            <p class="specimen-meta">Inter — 正文。字重 300–400 · 14 / 18px · 行高 1.55</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>128px</td><td>0.95</td><td>-0.04em</td><td><code>--text-display</code></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>900</td><td>96px</td><td>0.98</td><td>-0.04em</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>64px</td><td>1.02</td><td>-0.03em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>40px</td><td>1.1</td><td>-0.02em</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>300</td><td>14px</td><td>1.55</td><td>—</td><td><code>--text-body</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。页面上限 1440px、容器内边距 32px，区块间距 128px——这个数字偏大，因为它要撑住 96px 以上的标题。区块之间不加边框也不加阴影，直接换底色。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 / 按钮 / 输入 0，头像 999px</td></tr>
+            <tr><td>页面</td><td>上限 1440px、容器内边距 32px</td></tr>
+            <tr><td>区块间距</td><td>128px</td></tr>
+            <tr><td>区块分隔</td><td>无边框无阴影，靠底色切换</td></tr>
+            <tr><td>首屏</td><td>接近满高，标题左对齐</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Hero Display</h3>
+            <p class="style-body-comp-role">超大首屏标题（核心）。96 到 128px、900 字重、行高 0.95、字距 -0.04em，左对齐并可跨行。其中一到两个关键词用珊瑚色，其余白或墨。绝不小于 48px——小于这个尺寸就失去冲击力。hero 里那块就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Coral CTA</h3>
+            <p class="style-body-comp-role">主行动按钮。珊瑚填充、白字、零圆角、无描边、18px/700、padding 16px 32px，无静态阴影。hover 时填充加深到 #e55a5a、阴影 0 20px 40px 珊瑚 30%、上浮 2px；按下缩放 0.98；过渡 300ms。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Project Card</h3>
+            <p class="style-body-comp-role">项目卡。浅色纸底、零圆角、overflow hidden、无边框。图片 4:3 或 16:9，文字压在图片下方（不在图上），项目名 24 到 32px/700、客户名 14px/300 灰。hover 时整体放大 1.02 并加 0 25px 50px 阴影，图片再放大 1.04；过渡 300ms。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Section Switch</h3>
+            <p class="style-body-comp-role">区块底色切换，也就是分隔手段。区块之间不加边框也不加阴影，直接用底色切换：深（#1a1a1a）→ 浅（#f5f5f0）→ 深。切换本身就是分隔符，而且它比线更有力量。整页通常三到五个色块。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Testimonial Block</h3>
+            <p class="style-body-comp-role">客户引文。最大宽度 64rem 居中、内边距 64px 左右 48px，引文 24 到 30px 斜体、行高 1.6、墨色，下方 14px 的姓名与职位。无引号图标、无边框。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>hero 标题不小于 48px，通常 96 到 128px</li>
+              <li>零圆角，头像除外</li>
+              <li>全站无衬线</li>
+              <li>区块靠底色切换分隔</li>
+              <li>珊瑚贯穿全站作唯一强调</li>
+              <li>卡片 hover 放大 1.02</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用小号或标准字号做 hero</li>
+              <li>不要用圆角</li>
+              <li>不要用衬线字体</li>
+              <li>不要用细边框分割区块</li>
+              <li>不要用纯白背景</li>
+              <li>不要把文字压在作品图上</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>项目作品图与团队肖像。作品图必须高质、可裁切、不带圆角与边框，比例 4:3 或 16:9。允许客户 logo 墙（灰度或单色）。不使用装饰插画与背景纹理。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="studio-bold">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的大标题、底色切换与零圆角规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，96px 以上的标题、底色切换与零圆角必须原样保留；圆角或细边框分割一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

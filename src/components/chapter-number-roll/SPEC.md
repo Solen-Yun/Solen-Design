@@ -1,0 +1,63 @@
+# 章节号滚带 — ChapterNumberRoll
+
+一张 340×330 的双栏阅读卡：左边 118px 的窄侧栏是一个会上下滚动的章节号带——顶上一枚等宽字体的 CH 标签，中间一条 96×78 的窗口只露出一个 70px 的巨型数字（上下用遮罩渐隐），数字下方是当前章节名，再下方是一枚 40×40 的圆环进度；右边是可滚动的正文区，四章依次排下，每章一个标题、一段文字和一块 70px 高的占位色块。滚动正文时，侧栏的数字带按章内插值缓慢上卷、圆环按章内进度填满，跨章瞬间章名自下方弹入替换旧名。
+
+## 布局与材质
+
+- 场景固定 340×330px，`responsive: false`，没有断点；容器窄于 340px 时整景按 `scale = min(1, 可用宽度 / 340)` 等比缩小，frame 宽度取 `max(340, 可用宽度)`。`options.height` 只改 surface 外框高度（写入 `--motion-height`），卡片本体仍为 330px。
+- 卡片根 `.u390`：position relative，宽 340px、高 330px，横向 flex，圆角 28px，背景 `var(--ux-surface)`，外圈 1px `var(--ux-line)` 描边加 `0 30px 60px -36px var(--ux-shadow-strong)` 阴影，overflow hidden。
+- 侧栏 `.u390-side`：flex none，宽 118px，纵向 flex、居中对齐、gap 6px，右侧 1px `var(--ux-line)` 分隔线，背景 `var(--ux-surface-2)`。整块 aria-hidden。
+- 章标 `.u390-lb`：`font: 800 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace`，字距 .14em，颜色 `var(--ux-ink-3)`，文案为 `CH`。
+- 数字窗 `.u390-num`：position relative，宽 96px、高 78px，overflow hidden，上下用 `mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent)` 渐隐（同时写 `-webkit-mask-image`）。
+- 数字带 `.u390-strip`：绝对定位 left/right 0、top 0，`will-change: transform`，靠 transform 上移。带内每个 `<span>` 是 display block、高 78px，`font: 900 70px/78px ui-monospace, SFMono-Regular, Menlo, monospace`，字距 -.06em，居中，颜色 `var(--ux-ink)`。四条分别是 `01`、`02`、`03`、`04`。
+- 章名槽 `.u390-tt`：position relative，宽 100%、高 20px，overflow hidden，居中。每个 `<span>` 绝对定位 left/right 0，字号 13px、字重 800，过渡 `transform .45s var(--ux-spring), opacity .3s`；`.in` 初始 `translateY(100%)`、`opacity: 0`，`.out` 为 `translateY(-100%)`、`opacity: 0`。
+- 圆环 `.u390-g`：40×40，margin-top 4px，内联 SVG viewBox `0 0 40 40`，两条同心圆 cx=20 cy=20 r=16；`circle` 统一 fill none、stroke-width 4；轨道 `.t` 用 `var(--ux-line-2)`，进度 `.v` 用 `var(--ux-accent)`、stroke-linecap round，并 `transform: rotate(-90deg)`、`transform-origin: 20px 20px`，使起点在 12 点方向。
+- 正文区 `.u390-sc`：flex 1，overflow-y auto，内边距 16px 16px 140px（底部留白让最后一章能滚到顶），`scrollbar-width: none` 且 `::-webkit-scrollbar` 隐藏，`outline: none`，带 `tabindex="0"` 与 `aria-label="Text, scroll to read"`。
+- 章节块 `.u390-sec`：内边距 6px 0 30px。标题 `b` 为 display block、字号 16px、字重 850；正文 `p` margin 6px 0 0、字号 13.5px、行高 1.75、颜色 `var(--ux-ink-2)`；占位块 `i` 为 display block、高 70px、margin-top 10px、圆角 12px、背景 `var(--ux-surface-2)`、aria-hidden。
+- 场景令牌用 `light-dark()` 给浅色与深色两套：surface `#FFFFFF`/`#13141C`，surface-2 `#F5F3EF`/`#1A1B25`，surface-3 `#EAE7E1`/`#252632`，ink `#16151B`/`#F4F0E8`，ink-2 `#57535F`/`rgba(244,240,232,.68)`，ink-3 `#8E8A97`/`rgba(244,240,232,.42)`，line `rgba(22,21,27,.09)`/`rgba(255,255,255,.08)`，line-2 `rgba(22,21,27,.17)`/`rgba(255,255,255,.16)`，accent `#6A57F2`/`#B7A4FF`，accent-2 `#2F8FE0`/`#7DB4FF`，accent-soft `rgba(106,87,242,.12)`/`rgba(183,164,255,.15)`，accent-ink `#FFFFFF`/`#0B0C12`，mint `#119C72`/`#7EE8C0`，warn `#D6731E`/`#FFB26B`，danger `#D93A55`/`#FF7D8C`，glass `rgba(255,255,255,.58)`/`rgba(255,255,255,.07)`，glass-line `rgba(255,255,255,.85)`/`rgba(255,255,255,.18)`，shadow `rgba(40,30,80,.14)`/`rgba(0,0,0,.45)`，shadow-strong `rgba(40,30,80,.3)`/`rgba(0,0,0,.72)`，渐变 `linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)` / `linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)`；缓动常量 `--ux-spring: cubic-bezier(.34,1.56,.64,1)`。
+- 字体：正文与章名继承宿主页面字体栈；CH 标签与数字带固定用等宽栈 `ui-monospace, SFMono-Regular, Menlo, monospace`。
+
+## 数据
+
+- 四章写死在引擎里，每章是「章名 / 正文」二元组，组件不带外部数据源：Seed — Every story began with a tiny question. Why is this button always so confusing?；Watching — We spent a week watching how people really use the screen. Their hands paused in unexpected places.；Trying — We built twenty different shapes and tested them one by one. Most failed, but two remained.；Refining — We blended the two into one and kept trimming until it needed no explanation.
+- 每章在正文区生成一个 section：标题文本为「序号补零两位 + ` · ` + 章名」，即 `01 · Seed`、`02 · Watching`、`03 · Trying`、`04 · Refining`；正文段落是上面的第二段文字；末尾附一块 70px 高的纯色占位块（无文字、无图像）。
+- 数字带里塞入同名的两位序号 `01`/`02`/`03`/`04`；侧栏章名槽显示的是不含序号的章名。
+
+## 操作和动效
+
+- 唯一的交互是滚动右侧正文区。`scroll` 监听是 passive 的，并用一帧 rAF 节流（同一帧内只排一次 `draw`）。
+- `draw()` 的插值：取 `y = scrollTop + 20`；逐个章节判断 `y >= s.offsetTop`，满足则把进度记为 `f = 章节序号 + min(1, (y - offsetTop) / offsetHeight)`，因此 `f` 是一个以章节为单位的浮点数，`floor(f)` 是当前章，`inCh = f - 当前章` 是本章内的 0–1 进度；当前章取 `min(章数-1, floor(f))`。
+- 数字带滚动：只有本章进度超过 0.75 才开始上卷，`roll = 当前章 + (inCh - 0.75) / 0.25`，并夹在 0 到章数-1 之间；数字带位移为 `translateY(-78 × roll)` 像素，一行正好 78px，所以数字在章末的 25% 里被连续卷走一行。
+- 圆环进度：`stroke-dasharray` 设为周长 `2π × 16 ≈ 100.53`，`stroke-dashoffset = 周长 × (1 - min(1, inCh))`，即本章进度 0 时整环空、到 1 时填满；跨到下一章时又从 0 重新开始。
+- 章名切换：当前章序号变化时（`i !== cur`）触发换名。新章名 span 先带 `.in` 类（`translateY(100%)`、`opacity: 0`）插入，旧章名改为 `.out`（`translateY(-100%)`、`opacity: 0`）并在 450ms 后从 DOM 删除；连续两帧 rAF 后去掉新章名的 `.in` 类，触发过渡，新名以 .45s 的 `--ux-spring` 从下方弹入、旧名以 .3s 透明度淡出上移。
+- 初始化时立即调用一次 `draw()`，所以首帧就显示 `01` 与章名 Seed，圆环为空。
+- 插值完全由 `scrollTop` 推导，向上滚回去会原样退回，属于可逆的滚动驱动动画；没有自动播放与循环。
+- `prefers-reduced-motion`（或 `options.reducedMotion` 为真）：宿主属性 `data-reduced-motion="true"` 把场景内所有 transition-duration 与 animation-duration 归零，于是章名替换变成瞬时；数字带与圆环仍随滚动更新（它们是 transform / 属性赋值，不是 CSS 过渡）。
+- 无障碍：右侧正文区是 `tabindex="0"` 的可滚动区域，带 `aria-label="Text, scroll to read"`，可聚焦并用方向键滚动；左侧整块侧栏 aria-hidden（纯装饰与视觉镜像）；正文标题用 `<b>` 语义化但不是 heading 元素。组件没有自定义 `:focus-visible` 样式，正文区还显式设了 `outline: none`，因此聚焦时没有可见焦点环。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 330 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、数据、文案、图形和运动算法均以上述文字为准；界面用 DOM 与 CSS，圆环用内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 ChapterNumberRoll。从零创建四个文件：ChapterNumberRoll.tsx、ChapterNumberRollEngine.js、motion-runtime.ts、ChapterNumberRollEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的章节内容与滚动插值。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或“自行补齐核心”的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；滚动时数字带、圆环、章名三者同步且可逆；正文区可键盘聚焦并滚动；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { ChapterNumberRoll } from "./ChapterNumberRoll";
+
+export default function App() {
+  return <ChapterNumberRoll />;
+}
+```

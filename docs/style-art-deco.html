@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>装饰艺术风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body deco">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 18 · 深色版面</p>
+        <h1>装饰艺术风格 <span class="style-card-en">ART DECO</span></h1>
+        <p class="page-lead">金色几何线条压在深底上，对称到近乎仪式感。</p>
+        <div class="style-card-tags"><span>金色细线</span><span>轴对称</span><span>衬线宽字距</span><span>放射装饰</span></div>
+      </header>
+
+      <section class="deco-hero">
+        <div class="deco-hero-copy">
+          <p>装饰艺术来自 1920 到 30 年代：金色、深蓝黑、严格的轴对称、几何化的装饰线条（放射、阶梯、扇形）。它的规则是三条禁令——不许鲜艳的现代配色、不许不对称的混乱布局、不许现代无衬线字体，也不许省略装饰元素。</p>
+          <p>界面上最有效的做法是：深底（#1a1a2e）配金色描边（#d4af37 的 1px 或 2px），标题用衬线加大字距，装饰用 1px 的金线构成上下对称的边框。右边是一张按规格搭的卡片——扇形、角饰、上下金线一样不缺。</p>
+        </div>
+        <div class="deco-demo">
+          <div class="deco-card-demo">
+            <span class="deco-fan" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="deco-demo-title">THE GILDED RULE</p>
+            <p class="deco-demo-body">金线分隔一切，对称组织一切。</p>
+            <span class="deco-rule" aria-hidden="true"></span>
+            <button type="button" class="deco-btn">ENTER</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#d4af37"></span><span class="palette-name">Gold</span><code>#d4af37</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><span class="palette-name">Midnight</span><code>#1a1a2e</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><span class="palette-name">Antique Gold</span><code>#c9a227</code></li>
+          <li><span class="swatch-chip" style="background:#2d2d44"></span><span class="palette-name">Slate Navy</span><code>#2d2d44</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5dc"></span><span class="palette-name">Ivory</span><code>#f5f5dc</code></li>
+          <li><span class="swatch-chip" style="background:#4bc542"></span><span class="palette-name">Emerald</span><code>#4bc542</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>整套风格的奢华感全部来自金色这一支：描边、标题与小面积装饰。深蓝黑而不是纯黑的底让金色显得更暖；暗金做次级描边与压印；石板蓝只比底色亮一点，保持整体的沉；象牙比纯白柔，像旧信纸；祖母绿是唯一的第二色，只用于极小的宝石式点缀。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#d4af37"></span><div><strong>Gold</strong><span class="swatch-role">描边、标题与小面积装饰。整套风格的奢华感全部来自它。</span></div><code>#d4af37</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><div><strong>Midnight</strong><span class="swatch-role">页面底。深蓝黑而不是纯黑，让金色显得更暖。</span></div><code>#1a1a2e</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><div><strong>Antique Gold</strong><span class="swatch-role">次级描边与压印效果，比主金暗一档。</span></div><code>#c9a227</code><code>--color-antique-gold</code></li>
+          <li><span class="swatch-chip" style="background:#2d2d44"></span><div><strong>Slate Navy</strong><span class="swatch-role">卡片与面板。只比底色亮一点，保持整体的沉。</span></div><code>#2d2d44</code><code>--color-slate-navy</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5dc"></span><div><strong>Ivory</strong><span class="swatch-role">正文与浅色区块。比纯白柔，像旧信纸。</span></div><code>#f5f5dc</code><code>--color-ivory</code></li>
+          <li><span class="swatch-chip" style="background:#4bc542"></span><div><strong>Emerald</strong><span class="swatch-role">唯一的第二色，只用于极小的宝石式点缀。</span></div><code>#4bc542</code><code>--color-emerald</code></li>
+        </ul>
+        <p class="style-body-note">没有投影，分隔全部由 1px 金线承担；唯一的发光是 hover 时的 <code>0 0 12px rgba(212,175,55,0.35)</code> 金色外晕。角饰永远是 12px 的 45 度短斜线。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与字标用 Cinzel：全大写、字距 0.12 到 0.2em，字形本身带二十年代的纪念碑感。正文用 Georgia——衬线是唯一合法的正文字体，无衬线在这套语言里是不合时代的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="deco-specimen-title">ART DECO · 0123456789</p>
+            <p class="specimen-meta">Cinzel — 标题与字标。替代栈：'Trajan Pro', Georgia, serif · 400 / 700 · 字距 0.12em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="deco-specimen-label">正文用衬线，像旧信纸。0123456789</p>
+            <p class="specimen-meta">Georgia — 正文。替代栈：'Songti SC', serif · 400 / 700 · 行高 1.7，无衬线不合时代</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cinzel</td><td>700</td><td>64px</td><td>1.1</td><td>0.12em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Cinzel</td><td>700</td><td>48px</td><td>1.15</td><td>0.12em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Cinzel</td><td>400</td><td>36px</td><td>1.2</td><td>0.1em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cinzel</td><td>400</td><td>24px</td><td>1.3</td><td>0.08em</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Georgia</td><td>400</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Cinzel</td><td>400</td><td>14px</td><td>1.5</td><td>0.2em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1080px、容器内边距 24px，区块间距 128px。一切严格居中对称，标题与内容都走中轴线；装饰线从页面边缘延伸到内容边缘，形成框式构图。禁止左对齐的偏置布局。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0（徽章章牌用 999px）</td></tr>
+            <tr><td>金线</td><td>1px 常规、上下边框 2px、角饰 12px 斜线</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>128px——留白也是仪式的一部分</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Gold Frame</h3>
+            <p class="style-body-comp-role">对称金线边框（识别核心）。内容块外侧两层 1px 金线：外层距边 0，内层距边 8px，四角各加一个 12px 的 45 度短斜线作为角饰；上下边框比左右粗一档（2px 对 1px），强化二十年代的框式构图。框内保持纯粹，不加其他装饰。本页顶部整条内容都住在这个框里。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Deco Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 金描边、零圆角、金色文字全大写、14px/400、字距 0.2em、padding 14px 36px。hover 时填充金 12%、文字转象牙、外发光 0 0 12px 金 35%；按下时填充升到 20%。过渡 250ms ease-out。</p>
+            <button type="button" class="deco-btn">RESERVE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Deco Card</h3>
+            <p class="style-body-comp-role">内容卡与菜单卡。石板蓝底、零圆角、1px 暗金 60% 描边、内边距 32px；顶部居中一个 24px 的几何装饰（扇形或放射线，用 1px 金线画），标题 24px/400 全大写 0.08em 居中，正文 16px 衬线象牙；整卡上下留 32px 金线分隔。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sunburst Divider + Ivory Panel</h3>
+            <p class="style-body-comp-role">放射状分隔装饰：一条水平金线与 7 到 9 条向下辐射的短线（各 8 到 12px，间隔 12 度），线宽 1px，宽 120 到 200px，居中置于区块之间；这是签名装饰，单屏最多两处。象牙面板：象牙底、四边 1px 暗金描边、内边距 48px、内部文字转深夜蓝，用于打破全暗页面，整页不超过一块。下方这条放射线即签名装饰。</p>
+            <div class="deco-sunburst" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>严格轴对称，一切居中</li>
+              <li>金色只用 1px 与 2px 细线</li>
+              <li>标题衬线、全大写、宽字距</li>
+              <li>装饰必须有：角饰、放射、扇形</li>
+              <li>零圆角，只用直角</li>
+              <li>深底配象牙文字</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用鲜艳的现代配色</li>
+              <li>不要用不对称的混乱布局</li>
+              <li>不要用现代无衬线字体</li>
+              <li>不要省略装饰元素</li>
+              <li>不要用大圆角</li>
+              <li>不要一屏放两块象牙面板</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>黑白摄影与几何装饰图形：放射线、阶梯形、扇形、对称花纹。允许把照片处理成金调双色调。不使用彩色摄影、现代插画与不对称构图。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="art-deco">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的对称纪律、金线系统与签名装饰。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，轴对称、1px 金线系统与「装饰不可省略」必须原样保留；衬线之外无正文。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

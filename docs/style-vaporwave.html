@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>霓虹复古 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body vapor">
+      <div class="vapor-overlay" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 24 · 深色版面</p>
+        <h1 class="vapor-chrome" data-text="霓虹复古">霓虹复古 <span class="style-card-en">NEON RETRO</span></h1>
+        <p class="page-lead">粉紫青三色渐变、扫描线、故障位移：一个坏掉的 1987 年系统。</p>
+        <div class="style-card-tags"><span>粉青双色重影</span><span>扫描线网格</span><span>0.24em 宽字距</span><span>600ms 慢漂浮</span></div>
+      </header>
+
+      <section class="vapor-hero">
+        <div class="vapor-hero-copy">
+          <p>霓虹复古是 80 到 90 年代未来想象的回收：粉、紫、青三色渐变铺底，霓虹发光必须是双色重影（粉与青各偏移 1 到 2px），扫描线与网格背景暗示 CRT 与透视地面。它的交互语汇也来自旧系统——点击时元素做 2px 的错位抖动，像错误弹窗。</p>
+          <p>动效刻意慢：hover 用长时间漂浮而不是快速响应。禁止单调灰、禁止现代极简、禁止单色发光。右边的卡片可以悬停，按钮可以按下去——感受那个 2px 的错位。</p>
+        </div>
+        <div class="vapor-demo">
+          <div class="glitch-card-demo">
+            <span class="vapor-label">SYSTEM 87</span>
+            <p class="vapor-demo-title">信号已恢复。</p>
+            <p class="vapor-demo-body">重影在粉与青之间来回漂移。</p>
+            <button type="button" class="vapor-btn">INSERT TAPE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff71ce"></span><span class="palette-name">Neon Pink</span><code>#ff71ce</code></li>
+          <li><span class="swatch-chip" style="background:#01cdfe"></span><span class="palette-name">Seafoam Cyan</span><code>#01cdfe</code></li>
+          <li><span class="swatch-chip" style="background:#b967ff"></span><span class="palette-name">Violet</span><code>#b967ff</code></li>
+          <li><span class="swatch-chip" style="background:#05ffa1"></span><span class="palette-name">Mint</span><code>#05ffa1</code></li>
+          <li><span class="swatch-chip" style="background:#fffb96"></span><span class="palette-name">Sunlight</span><code>#fffb96</code></li>
+          <li><span class="swatch-chip" style="background:#0d0221"></span><span class="palette-name">Midnight</span><code>#0d0221</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>粉是第一主色与发光重影的暖侧，青是冷侧——两者成对出现，不可单独使用；带紫的近黑底让两支霓虹都能浮起来；紫罗兰是渐变的中间站；薄荷绿管成功与在线；柠檬黄只给需要立刻被看到的关键数值，面积最小。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ff71ce"></span><div><strong>Neon Pink</strong><span class="swatch-role">第一主色与发光重影的暖侧。标题与主按钮的核心。</span></div><code>#ff71ce</code><code>--color-neon-pink</code></li>
+          <li><span class="swatch-chip" style="background:#01cdfe"></span><div><strong>Seafoam Cyan</strong><span class="swatch-role">第二主色与发光重影的冷侧。与粉成对出现，不可单独使用。</span></div><code>#01cdfe</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#0d0221"></span><div><strong>Midnight</strong><span class="swatch-role">页面底。带紫的近黑，让粉与青的发光都能浮起来。</span></div><code>#0d0221</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#05ffa1"></span><div><strong>Mint</strong><span class="swatch-role">成功与「在线」状态，是第三支霓虹。</span></div><code>#05ffa1</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#b967ff"></span><div><strong>Violet</strong><span class="swatch-role">渐变的中间站，用于让粉过渡到青。</span></div><code>#b967ff</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#fffb96"></span><div><strong>Sunlight</strong><span class="swatch-role">高亮与关键数值，面积最小。</span></div><code>#fffb96</code><code>--color-sunlight</code></li>
+        </ul>
+        <p class="style-body-note">发光三档：双色重影 <code>2px 2px 0 #01cdfe, -2px -2px 0 #ff71ce</code>、霓虹光晕 <code>0 0 20px rgba(255,113,206,0.5)</code>、文字光晕 <code>0 0 10px rgba(255,113,206,0.6), 0 0 20px rgba(1,205,254,0.4)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用方形无衬线 Space Grotesk；小标签用等宽全大写加 0.24em 的宽字距——宽字距是这套风格最强的年代信号。正文、标签与数据用 JetBrains Mono，让整页像一份从旧系统导出的日志。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="vapor-specimen-title">NEON RETRO 0123456789</p>
+            <p class="specimen-meta">Space Grotesk — 标题。替代栈：'Arial Black', 'Courier New', sans-serif · 500 / 700 · 字距 0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="vapor-specimen-label">SYSTEM LOG // TAPE 0X87</p>
+            <p class="specimen-meta">JetBrains Mono — 正文与标签。替代栈：ui-monospace, 'Courier New', monospace · 400 · 大写标签 0.24em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Space Grotesk</td><td>700</td><td>52px</td><td>1.05</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Space Grotesk</td><td>700</td><td>36px</td><td>1.15</td><td>0.02em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Space Grotesk</td><td>500</td><td>24px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>JetBrains Mono</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>JetBrains Mono</td><td>400</td><td>13px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>12px</td><td>1.4</td><td>0.24em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 24px，区块间距 96px。首屏常为居中大标题压在透视网格上。允许元素轻微倾斜与重叠，但网格背景必须贯穿全页以保持年代统一。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>4px——旧系统的窗口没有大圆角</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>区块间距</td><td>96px</td></tr>
+            <tr><td>扫描线</td><td>4px 间隔青色 6% 横线</td></tr>
+            <tr><td>透视网格</td><td>40px 间隔品红 8% 竖线，perspective(400px) rotateX(60deg)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Neon Button</h3>
+            <p class="style-body-comp-role">主行动按钮。透明底、1px 荧光粉描边、4px 圆角，12px 等宽全大写 0.24em、padding 12px 24px，文字荧光粉带双色文字发光。hover 时填充粉 12%、上浮 4px、发光扩到 24px，过渡 600ms ease-out（慢漂浮，不能快）；按下时元素做 2px 的 glitch 错位并在 120ms 内复位。</p>
+            <button type="button" class="vapor-btn">LOAD MODEM</button>
+          </div>
+          <div class="comp-item">
+            <h3>Glitch Card</h3>
+            <p class="style-body-comp-role">内容卡与面板。粉 6% 填充、4px 圆角、1px 青 30% 描边、内边距 24px，1px 粉 20% 的偏移重影（2px 2px 0）；标题 24px/500 带双色文字发光，正文 13px 等宽、粉白 75%。hover 时描边转粉 60%、重影换成青、上浮 2px，过渡 600ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Grid Floor + Chrome Text</h3>
+            <p class="style-body-comp-role">透视网格与扫描线背景：底层 4px 间隔的青色 6% 横线（扫描线），再叠 40px 间隔的品红 8% 竖线构成网格；透视用 perspective(400px) rotateX(60deg) 做出地平线；整层 pointer-events none——本页每一寸都叠着它。铬金属标题：background-clip: text 填粉→紫→青三段渐变，叠 2px 深色描边与双色重影；仅用于首屏主标题，单页最多一处，正文绝不使用。本页 H1 即铬字，移上去试试。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Status Strip</h3>
+            <p class="style-body-comp-role">底部状态条。固定在视口底部、高 32px、深夜底、顶部 1px 青 20% 描边；左侧 12px 等宽薄荷绿文字显示「在线」，右侧显示时间与坐标——像旧系统的状态栏。本页底部这条即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>粉紫青三色渐变</li>
+              <li>发光必须是粉青双色重影</li>
+              <li>叠扫描线与透视网格</li>
+              <li>标签全大写、字距 0.24em</li>
+              <li>hover 用 600ms 慢漂浮</li>
+              <li>点击做 2px 的 glitch 错位</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用单调灰配色</li>
+              <li>不要做现代简约风</li>
+              <li>不要省略霓虹发光</li>
+              <li>不要用正式字体</li>
+              <li>不要只用单色发光</li>
+              <li>不要让交互过快</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>合成器风景、棕榈剪影、古典雕塑、透视网格与 CRT 扫描线。图像必须带粉紫调色与发光边缘。不使用写实摄影、自然光照片与现代插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="vaporwave">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的双色重影、扫描线与慢交互纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，粉青双色重影、扫描线网格与 600ms 慢漂浮必须原样保留；单色发光即是错。</p>
+      </section>
+    </main>
+
+    <div class="vapor-strip" aria-hidden="true">
+      <span>ONLINE</span>
+      <span>37.4419° N, 122.1430° W // 19:87:24</span>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

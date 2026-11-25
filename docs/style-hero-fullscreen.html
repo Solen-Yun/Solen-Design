@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全屏英雄区布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body hfull">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 18 · 全屏版面</p>
+        <h1>全屏英雄区布局 <span class="style-card-en">FULL-SCREEN HERO</span></h1>
+        <p class="page-lead">一整屏的画面先说话，文字只是画面上的标注。</p>
+        <div class="style-card-tags"><span>100vh 满屏</span><span>40% 遮罩</span><span>96px 标题</span><span>反色按钮</span><span>0.4 视差</span></div>
+      </header>
+
+      <section class="hfull-intro">
+        <p>全屏英雄区把首屏让给一张图或一段视频：视口高度 100vh，背景铺满，上面盖一层 30% 到 50% 的黑色遮罩保证文字可读。</p>
+        <p>它的排版是反过来的——标题极大（56 到 96px）、副标题短、只放两个行动按钮，其余信息全部下移。按钮用反色（白底黑字）才能在深色遮罩上跳出。视觉细节只有一个：CTA 的「重力浮起」，hover 时上浮 4px 并让阴影爆发到 28px，像被光托起来。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>下面这一屏就是完整的第一屏：透明导航、满屏画面、40% 遮罩、96px 标题、一行副标题、两个按钮，首屏底部只留三张磨砂特性卡。把鼠标放到主按钮上——它会上浮 4px，阴影同时爆发。</p>
+        <div class="hfull-frame">
+          <div class="hfull-hero">
+            <img class="hfull-media" src="./assets/demo-photos/photo-09.jpg" alt="夜幕下的城市" />
+            <span class="hfull-veil" aria-hidden="true"></span>
+            <nav class="hfull-nav" aria-label="示例导航">
+              <span class="hfull-logo">
+                <span class="hfull-logo-mark" aria-hidden="true"></span>
+                SOLEN
+              </span>
+              <span class="hfull-nav-links">
+                <a href="#hfull">产品</a>
+                <a href="#hfull">案例</a>
+                <a href="#hfull">定价</a>
+              </span>
+              <button type="button" class="hfull-nav-cta">登录</button>
+            </nav>
+            <div class="hfull-copy">
+              <h3 class="hfull-title">把一整屏<br />交给画面</h3>
+              <p class="hfull-sub">文字只是画面上的标注。</p>
+              <p class="hfull-actions">
+                <button type="button" class="hfull-cta">立即开始</button>
+                <button type="button" class="hfull-cta hfull-cta--ghost">看演示</button>
+              </p>
+            </div>
+            <div class="hfull-features">
+              <div class="hfull-card">
+                <span class="hfull-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>
+                </span>
+                <p class="hfull-card-title">全屏媒体</p>
+                <p class="hfull-card-body">图片或视频铺满，object-fit: cover。</p>
+              </div>
+              <div class="hfull-card">
+                <span class="hfull-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+                </span>
+                <p class="hfull-card-title">0.4 视差</p>
+                <p class="hfull-card-body">滚动时背景慢半拍，最多 0.5。</p>
+              </div>
+              <div class="hfull-card">
+                <span class="hfull-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h6"/></svg>
+                </span>
+                <p class="hfull-card-title">反色按钮</p>
+                <p class="hfull-card-body">白底黑字，才跳得出遮罩。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><span class="palette-name">Coral</span><code>#ff6b6b</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><span class="palette-name">Cyan</span><code>#4ecdc4</code></li>
+          <li><span class="swatch-chip" style="background:#ffe66d"></span><span class="palette-name">Yellow</span><code>#ffe66d</code></li>
+          <li><span class="swatch-chip" style="background:#6c5ce7"></span><span class="palette-name">Indigo</span><code>#6c5ce7</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>这一套的颜色全在画面上，界面本身只有黑白两层：白是唯一能保证在深色遮罩上可读的颜色，黑是遮罩与按钮文字。珊瑚红是次要强调与徽标，青色给链接与次级按钮的悬停，黄色只用在高亮与数字上。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">主按钮填充与标题文字。在全屏画面之上，白是唯一能保证可读的色。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">遮罩与按钮文字。遮罩用 30% 到 50% 不透明度铺在图上。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><div><strong>Coral</strong><span class="swatch-role">次要强调与徽标，用于需要从画面中跳出的信息。</span></div><code>#ff6b6b</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><div><strong>Cyan</strong><span class="swatch-role">链接与次级按钮的悬停色，与暖色画面形成对位。</span></div><code>#4ecdc4</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ffe66d"></span><div><strong>Yellow</strong><span class="swatch-role">高亮与数字，只用在小面积标注上。</span></div><code>#ffe66d</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#6c5ce7"></span><div><strong>Indigo</strong><span class="swatch-role">品牌色，用于 logo 与一处强调。不与珊瑚、黄同屏面积相当。</span></div><code>#6c5ce7</code><code>--color-indigo</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Full-bleed media（100vh 画面），1 Veil <code>rgba(0,0,0,0.40)</code>，2 Frosted panel <code>rgba(255,255,255,0.10)</code>。阴影三级：CTA 静息 <code>0 4px 14px rgba(0,0,0,0.30)</code>、CTA hover <code>0 8px 28px rgba(0,0,0,0.50)</code>、卡片 hover <code>0 16px 40px rgba(0,0,0,0.50)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。首屏标题靠 96px 与 -0.035em 字距制造压迫感，其余字级迅速回落。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="hfull-specimen-title">把一整屏交给画面</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Segoe UI', system-ui, sans-serif · 400–700 · 字距 -0.035em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>96px</td><td>0.98</td><td>-0.035em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>700</td><td>64px</td><td>1.02</td><td>-0.03em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>40px</td><td>1.1</td><td>-0.02em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>13px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。首屏 100vh，内容垂直居中或偏下 60% 处，最大宽度 1280px、左右内边距 32px。标题最多两行，副标题一行，两个按钮横排。首屏内不放超过三个信息块。往下每个区块至少 160px 间距。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>16px</td></tr>
+            <tr><td>按钮圆角</td><td>999px</td></tr>
+            <tr><td>输入框圆角</td><td>12px</td></tr>
+            <tr><td>媒体圆角</td><td>0</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>首屏高度</td><td>100vh</td></tr>
+            <tr><td>页面网格上限</td><td>1280px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Hero CTA</h3>
+            <p class="style-body-comp-role">首屏主行动按钮。白底、黑字、999px 全圆角、无描边，字级 18px、字重 600、padding 16px 32px，阴影 0 4px 14px 黑 30%。hover 时填充降到 95%、上浮 4px、阴影爆发到 0 8px 28px 黑 50%；按下缩放 0.98、位移归零、阴影回到 8px。焦点环用白色 80% 并带黑色 offset。过渡 200ms ease-out。</p>
+            <p class="hfull-actions">
+              <button type="button" class="hfull-cta">立即开始</button>
+              <button type="button" class="hfull-cta hfull-cta--ghost">看演示</button>
+            </p>
+          </div>
+          <div class="comp-item">
+            <h3>Frosted Feature Card</h3>
+            <p class="style-body-comp-role">首屏内的特性卡与数据块。白 10% 填充、8px 模糊、1px 白 20% 描边、16px 圆角、内边距 32px。图标块 48px 见方、白 20% 底、12px 圆角。hover 时填充升到 15%、描边到 30%、上浮 8px、阴影 0 16px 40px 黑 50%，图标放大 1.1。过渡 300ms ease-out。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Transparent Nav</h3>
+            <p class="style-body-comp-role">首屏顶部导航。完全透明，无边框无阴影。高 80px、水平内边距 32px，字标与链接均为白色，链接 13px/500、字距 0.08em、间距 32px，hover 转白 70%。滚动超过一屏后切换到实色底并加 1px 白 10% 下边框。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Hero Media</h3>
+            <p class="style-body-comp-role">首屏背景图或视频。100vh 高、铺满宽度、object-fit: cover、直角。上覆一层 40% 黑遮罩（顶部可深到 55% 保证导航可读）。允许 0.3 到 0.5 的视差速度。视频必须静音、循环、poster 必填。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>首屏必须占满一个视口</li>
+              <li>遮罩 40% 起，保证文字可读</li>
+              <li>按钮用反色（白底黑字）</li>
+              <li>标题最多两行，副标题一行</li>
+              <li>CTA hover 上浮并爆发阴影</li>
+              <li>视差控制在 0.3 到 0.5</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要在首屏放超过两个按钮</li>
+              <li>不要把正文塞进首屏</li>
+              <li>不要在图片角落放关键信息</li>
+              <li>不要用低于 30% 的遮罩</li>
+              <li>不要用自动播放带声音的视频</li>
+              <li>不要让视差超过 0.6</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>全屏摄影或视频是这套布局的全部内容：风景、产品、现场。图片必须有明确的明暗区域来安放文字，四角不要有重要信息。不使用插画与图案背景。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="hero-fullscreen">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的首屏规则、遮罩强度、字级与按钮构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，100vh 首屏与 40% 遮罩必须原样保留；首屏最多两个按钮，CTA 的浮起与阴影爆发是这套风格唯一的视觉细节。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

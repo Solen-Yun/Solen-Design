@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>油画印象派风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body impress">
+      <span class="impress-dabs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 52 · 浅色版面</p>
+        <h1>油画印象派风 <span class="style-card-en">IMPRESSIONIST OIL</span></h1>
+        <p class="page-lead">厚涂的颜料与斑驳的光：界面像一张还没干的画布。</p>
+        <div class="style-card-tags"><span>厚涂双层阴影</span><span>笔触纹理</span><span>点彩光斑</span><span>按下下沉 3px</span></div>
+      </header>
+
+      <section class="impress-hero">
+        <div class="impress-hero-copy">
+          <p>油画印象派风借鉴莫奈与雷诺阿：暖画布底、粗笔触纹理、斑驳的光影、点彩式的杂色、以及厚涂的体积感。技术上靠三件事——按钮用线性渐变模拟颜料从管里挤出的走向，卡片用 repeating-linear-gradient 做出笔触方向的纹理，阴影用「实色底加模糊扩散」的双层组合模拟厚涂堆起的高度。</p>
+          <p>它禁止纯平色块、禁止霓虹荧光、禁止等宽字体、禁止全大写，而且按钮按下必须下沉 3px，因为实色阴影不做陷入感就会失真。右边这张笔触卡是真的——按一下按钮，颜料会被压进画布里。</p>
+        </div>
+        <div class="impress-demo">
+          <div class="brush-card-demo">
+            <p class="impress-demo-title">画布还没干。</p>
+            <p class="impress-demo-body">笔触的方向就是纹理的方向。</p>
+            <button type="button" class="impress-btn">按进画布里</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><span class="palette-name">Warm Ochre</span><code>#e8a87c</code></li>
+          <li><span class="swatch-chip" style="background:#c0392b"></span><span class="palette-name">Vermilion</span><code>#c0392b</code></li>
+          <li><span class="swatch-chip" style="background:#1abc9c"></span><span class="palette-name">Teal</span><code>#1abc9c</code></li>
+          <li><span class="swatch-chip" style="background:#f5d88a"></span><span class="palette-name">Sunlight</span><code>#f5d88a</code></li>
+          <li><span class="swatch-chip" style="background:#2c3e50"></span><span class="palette-name">Deep Blue</span><code>#2c3e50</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e1"></span><span class="palette-name">Canvas</span><code>#f5f0e1</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>亚麻画布的暖米色是底，所有笔触画在它上面；暖赭是印象派最常用的暖调——日落、肤色与主按钮；朱红出现在小面积但极醒目；印象派从不用纯黑，深蓝承担文字与阴影；青绿是水与叶的冷侧，与朱红形成点彩对比；日黄是画面里最亮的笔触。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f5f0e1"></span><div><strong>Canvas</strong><span class="swatch-role">页面底。亚麻画布的暖米色，所有笔触画在它上面。</span></div><code>#f5f0e1</code><code>--color-canvas</code></li>
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><div><strong>Warm Ochre</strong><span class="swatch-role">主色：日落、肤色与主按钮。印象派最常用的暖调。</span></div><code>#e8a87c</code><code>--color-warm-ochre</code></li>
+          <li><span class="swatch-chip" style="background:#c0392b"></span><div><strong>Vermilion</strong><span class="swatch-role">强调与花的红，出现在小面积但极醒目。</span></div><code>#c0392b</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#2c3e50"></span><div><strong>Deep Blue</strong><span class="swatch-role">文字与阴影。印象派从不用纯黑，用深蓝作暗部。</span></div><code>#2c3e50</code><code>--color-deep-blue</code></li>
+          <li><span class="swatch-chip" style="background:#1abc9c"></span><div><strong>Teal</strong><span class="swatch-role">水与叶的冷侧，与朱红形成点彩式对比。</span></div><code>#1abc9c</code><code>--color-teal</code></li>
+          <li><span class="swatch-chip" style="background:#f5d88a"></span><div><strong>Sunlight</strong><span class="swatch-role">光斑与高光，是画面里最亮的笔触。</span></div><code>#f5d88a</code><code>--color-sunlight</code></li>
+        </ul>
+        <p class="style-body-note">厚涂阴影是双层：<code>0 4px 0 rgba(44,62,80,0.18)</code> 实色底 + <code>0 12px 28px rgba(44,62,80,0.14)</code> 模糊扩散；hover 加厚到 <code>0 6px 0 / 0 18px 36px</code>；按下收到 <code>0 1px 0</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>粗衬线 Lora，字重 700 用于标题。绝不用等宽，也绝不用全大写——印象派是柔的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="impress-specimen-title">还没干的画布</p>
+            <p class="specimen-meta">Lora — 粗衬线。替代栈：Georgia, 'Songti SC', serif · 400 / 700 · 行高 1.75（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="impress-specimen-label">正文与画注。0123456789</p>
+            <p class="specimen-meta">正文 18–22px / 400 / 行高 1.75；标签 15px / 700 / 0.06em；文字一律深蓝 #2c3e50</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>54px</td><td>1.2</td><td>0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>40px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>30px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>22px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>18px</td><td>1.75</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>15px</td><td>1.5</td><td>0.06em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 112px。允许元素重叠与柔化边缘。整页保留画布纹理，色块像薄涂一样半透明。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 10px、按钮与输入框 8px</td></tr>
+            <tr><td>笔触纹理</td><td>8px 间隔、深蓝 3%、角度 -12 度</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>点彩光斑</td><td>6–14 个、半径 12–32px、20%–35%，单屏 2–3 组</td></tr>
+            <tr><td>混色边缘</td><td>底层朱红 25% + 上层青绿 20%，各偏移 1px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Paint Button</h3>
+            <p class="style-body-comp-role">行动按钮。暖赭上下渐变（#f0b98f 到 #d99a6d）、画布色文字或深蓝文字、8px 圆角、无描边、18px/700、padding 14px 32px，厚涂阴影 0 4px 0 深蓝 18% 加 0 12px 28px 深蓝 14%。hover 时渐变提亮、阴影扩到 36px；按下时 translateY(3px) 且阴影收到 1px——这是颜料被压下去的感觉。焦点环必须带画布色 offset。</p>
+            <button type="button" class="impress-btn">PAINT ON</button>
+          </div>
+          <div class="comp-item">
+            <h3>Brushstroke Card</h3>
+            <p class="style-body-comp-role">笔触卡片（核心组件）。画布色填充并叠一层 repeating-linear-gradient 笔触纹理（8px 间隔、深蓝 3%、角度 -12 度，模拟笔刷方向），10px 圆角、1px 深蓝 12% 描边、内边距 32px，厚涂阴影；标题 40px/700 深蓝，正文 18px 深蓝 75%。hover 时阴影加深加厚。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Dab Light</h3>
+            <p class="style-body-comp-role">光斑与点彩。一组 6 到 14 个半径 12 到 32px 的圆形，颜色取日黄、青绿或朱红并降到 20% 到 35%，绝对定位在区块上，允许互相重叠、互相柔化；它们模拟穿过树叶的光斑，单屏 2 到 3 组——本页左上那组就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Mixed Hue Edge + Canvas Field</h3>
+            <p class="style-body-comp-role">混色边缘：边框不用单一颜色，而用两层错开的描边——底层朱红 25%、上层青绿 20%，各偏移 1px，读起来像颜料在边界处混在了一起；它替代纯色描边。暗场输入：画布色填充、8px 圆角、1px 深蓝 20% 描边、padding 12px 16px、18px 衬线；聚焦时描边转暖赭并加 2px 的暖赭 25% 外环，外环 offset 取画布色。</p>
+            <label class="impress-field"><span>画题</span><input type="text" value="印象·晨光"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖画布底加亚麻纹理</li>
+              <li>按钮用渐变模拟颜料挤出</li>
+              <li>卡片叠笔触方向的纹理</li>
+              <li>阴影用实色底加模糊扩散</li>
+              <li>按下必须下沉 3px</li>
+              <li>焦点环带画布色 offset</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯平色块</li>
+              <li>不要用霓虹或荧光色</li>
+              <li>不要用等宽字体</li>
+              <li>不要用全大写文字</li>
+              <li>不要让按钮按下不下沉</li>
+              <li>不要让焦点环贴住元素</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>印象派油画：风景、花园、水面、人物小景。必须可见笔触与混色，暖调、柔光。允许把照片处理成油画笔触。不使用纯平色块、霓虹图像与高清写实摄影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="impressionist-oil">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的厚涂阴影、笔触纹理与点彩光斑。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双层厚涂阴影、笔触纹理与按下下沉 3px 必须原样保留；纯平色块即失真。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

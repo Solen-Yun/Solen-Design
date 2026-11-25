@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>侘寂风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body wabi">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 74 · 浅色版面</p>
+        <h1>侘寂风 <span class="style-card-en">WABI-SABI</span></h1>
+        <p class="page-lead">不完美、不恒常、不完整：让材质和时间替设计说话。</p>
+        <div class="style-card-tags"><span>泛黄暖纸底</span><span>1px 细线 30%</span><span>留白近乎奢侈</span><span>允许不完美</span></div>
+      </header>
+
+      <section class="wabi-hero">
+        <div class="wabi-hero-copy">
+          <p>侘寂是日本美学里对「不完美」的接纳：器物的缺口、纸的泛黄、墙的斑驳都被视为价值而不是缺陷。落到界面上，它表现为暖纸底、墨色文字、衬线字体、极细的分隔线（1px 且只有 30% 不透明度），以及大量到近乎奢侈的留白。</p>
+          <p>它禁止鲜艳与高饱和、禁止厚重阴影与粗边框、禁止密集排列、禁止装饰性动画与弹跳——任何「表现欲」都是对它的冒犯。</p>
+        </div>
+        <div class="wabi-demo">
+          <p class="wabi-object-title">一只缺口的碗</p>
+          <p class="wabi-object-text">窑变留下的釉色，边缘的缺口在第三年被磨圆。它因此被留在窗边的位置。</p>
+          <span class="wabi-object-meta">器 · 无名氏</span>
+        </div>
+      </section>
+
+      <div class="wabi-silence" aria-hidden="true"></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#3a3a3a"></span><span class="palette-name">Ink</span><code>#3a3a3a</code></li>
+          <li><span class="swatch-chip" style="background:#f2ede4"></span><span class="palette-name">Paper</span><code>#f2ede4</code></li>
+          <li><span class="swatch-chip" style="background:#8a9a7b"></span><span class="palette-name">Moss</span><code>#8a9a7b</code></li>
+          <li><span class="swatch-chip" style="background:#b5a78c"></span><span class="palette-name">Sand</span><code>#b5a78c</code></li>
+          <li><span class="swatch-chip" style="background:#8b6f4e"></span><span class="palette-name">Tea</span><code>#8b6f4e</code></li>
+          <li><span class="swatch-chip" style="background:#799d91"></span><span class="palette-name">Slate Teal</span><code>#799d91</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>中深灰而非纯黑的墨色让长时间阅读更松；泛黄的暖米色像放了很久的和纸；苔绿像石阶上的苔，做第一辅色；沙色用于不引入对比地分区；茶色是温暖的棕，管需要人气的元素与木器语义；灰青是冷侧的一笔，用于水、陶釉与安静状态。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f2ede4"></span><div><strong>Paper</strong><span class="swatch-role">页面底。泛黄的暖米色，像放了很久的和纸。</span></div><code>#f2ede4</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#3a3a3a"></span><div><strong>Ink</strong><span class="swatch-role">全部文字。中深灰而非纯黑，长时间看更松。</span></div><code>#3a3a3a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#8a9a7b"></span><div><strong>Moss</strong><span class="swatch-role">第一辅色，像石阶上的苔，用于次级强调。</span></div><code>#8a9a7b</code><code>--color-moss</code></li>
+          <li><span class="swatch-chip" style="background:#b5a78c"></span><div><strong>Sand</strong><span class="swatch-role">区块底与分隔，用于不引入对比地分区。</span></div><code>#b5a78c</code><code>--color-sand</code></li>
+          <li><span class="swatch-chip" style="background:#8b6f4e"></span><div><strong>Tea</strong><span class="swatch-role">温暖的棕，用于需要人气的元素与木器语义。</span></div><code>#8b6f4e</code><code>--color-tea</code></li>
+          <li><span class="swatch-chip" style="background:#799d91"></span><div><strong>Slate Teal</strong><span class="swatch-role">冷侧的一笔，用于水、陶釉与安静状态。</span></div><code>#799d91</code><code>--color-slate-teal</code></li>
+        </ul>
+        <p class="style-body-note">细线固定为 <code>#d4cdc5</code> 的 30%，两端各收进 10%。阴影被禁止——最高只允许 <code>0 1px 2px rgba(58,58,58,0.04)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站衬线 Noto Serif SC，只用 300 与 400。行高 1.9，字距微开，让字与字之间也有空隙。替代栈用 Songti SC、Georgia。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="wabi-specimen-title">侘寂 wabi-sabi 0123</p>
+            <p class="specimen-meta">Noto Serif SC — 全站衬线。替代栈：'Songti SC', Georgia, serif · 只用 300/400 · 行高 1.9 · 标签字距 0.24em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Noto Serif SC</td><td>300</td><td>42px</td><td>1.25</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Noto Serif SC</td><td>400</td><td>32px</td><td>1.35</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Noto Serif SC</td><td>400</td><td>24px</td><td>1.45</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Noto Serif SC</td><td>400</td><td>19px</td><td>1.85</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Noto Serif SC</td><td>300</td><td>16px</td><td>1.9</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Noto Serif SC</td><td>400</td><td>14px</td><td>1.7</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 980px、容器内边距 32px，区块间距 192px。版面允许不完整与偏置：元素不必贴齐网格，留白可以不对称。禁止密集排列，一屏原则上不超过三个信息块。上方那块空白就是 Silence Block——「什么都没有」本身就是内容。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:144px"></span><code>144</code></li>
+          <li><span class="spacing-bar" style="width:192px"></span><code>192</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 2px · 图片 0</td></tr>
+            <tr><td>细线</td><td>1px、30%、两端收进 10%</td></tr>
+            <tr><td>区块间距</td><td>192px</td></tr>
+            <tr><td>卡片内边距</td><td>40px，无阴影</td></tr>
+            <tr><td>元素间距</td><td>36px</td></tr>
+            <tr><td>过渡</td><td>600–800ms ease-out，元素不动</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Hairline Rule</h3>
+            <p class="style-body-comp-role">极细分隔线（核心结构）。1px、色 #d4cdc5 的 30%、横跨内容宽并在两端各收进 10%。整条线必须弱到「几乎看不见但又能感觉到」，它是这套风格唯一的结构工具。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Quiet Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 墨色 25% 描边、2px 圆角、衬线 14px、字距 0.24em、padding 14px 36px，无阴影。hover 时描边升到 45%、文字从 80% 升到 100%，元素完全不动。过渡 600ms ease-out。</p>
+            <button type="button" class="wabi-btn">静 观</button>
+          </div>
+          <div class="comp-item">
+            <h3>Paper Card</h3>
+            <p class="style-body-comp-role">内容卡。提亮一档的纸色填充、2px 圆角、1px 沙 30% 描边、内边距 40px，无阴影。标题 32px/400，正文 16px/300 行高 1.9。hover 时只把描边升到 50% 与填充提亮 2%，过渡 800ms。hero 里的器物卡就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Object Image</h3>
+            <p class="style-body-comp-role">器物图片容器。零圆角、无边框、无阴影。图片可以是不规则的器物（陶碗、旧木、石），允许边缘不齐。图片与文字之间 36px。不叠加任何滤镜或遮罩，让材质自己呈现。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Silence Block</h3>
+            <p class="style-body-comp-role">留白区块。一个 192px 到 320px 高的空区块，不含任何内容，作为真实元素存在。在侘寂里「什么都没有」本身就是一种内容，用来把前后的东西隔开并放大。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖纸底，不用纯白</li>
+              <li>衬线字体，行高 1.9</li>
+              <li>分隔线 1px 且只有 30%</li>
+              <li>留白到近乎奢侈</li>
+              <li>允许不完美与不对称</li>
+              <li>过渡 600 到 800ms，元素不动</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用鲜艳高饱和色</li>
+              <li>不要用厚重阴影或粗边框</li>
+              <li>不要密集排列元素</li>
+              <li>不要用装饰性动画与弹跳</li>
+              <li>不要用纯白背景</li>
+              <li>不要加滤镜与遮罩破坏材质</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>器物摄影：陶器、旧木、石、枯枝、麻布。必须自然光、低饱和、有磨损痕迹。允许不对称与不完整构图。不使用高饱和、棚拍打光与装饰插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="wabi-sabi">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的细线结构、留白节奏与材质呈现。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，暖纸底、1px 30% 细线与「元素不动」的过渡必须原样保留；高饱和色或弹跳动效一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

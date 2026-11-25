@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>欧普艺术 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body opart">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 95 · 浅色版面</p>
+        <h1>欧普艺术 <span class="style-card-en">OP ART</span></h1>
+        <p class="page-lead">黑白条纹让静止的页面看起来在动——眼睛被图案骗了。</p>
+        <div class="style-card-tags"><span>纯黑白高对比</span><span>8px 等宽图案</span><span>振动色对等面积</span><span>严格网格居中</span></div>
+      </header>
+
+      <section class="opart-hero">
+        <div class="opart-hero-copy">
+          <p>欧普艺术用几何图案制造视觉错觉：纯黑白的极端对比是底子，同心圆、条纹与棋盘格作为装饰，振动色彩对（红与蓝、黄与紫）作点缀。它的纪律与「乱」相反——所有元素严格对齐网格、居中、用 2px 黑线勾出、零圆角，因为错觉依赖图案的精确性，任何松动都会让效果失效。</p>
+          <p>它禁止大面积密集图案（会造成视觉疲劳与晕眩）、禁止柔和渐变、禁止柔和阴影。</p>
+        </div>
+        <div class="opart-demo">
+          <div class="opart-rings" role="presentation"></div>
+          <div class="opart-pair" role="presentation">
+            <span class="opart-pair-half opart-pair-half--red"></span>
+            <span class="opart-pair-half opart-pair-half--blue"></span>
+          </div>
+          <button type="button" class="opart-btn">SEE</button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff3300"></span><span class="palette-name">Vibrating Red</span><code>#ff3300</code></li>
+          <li><span class="swatch-chip" style="background:#0066ff"></span><span class="palette-name">Vibrating Blue</span><code>#0066ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><span class="palette-name">Vibrating Yellow</span><code>#ffcc00</code></li>
+          <li><span class="swatch-chip" style="background:#5e6d00"></span><span class="palette-name">Olive</span><code>#5e6d00</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑是图案的一半、文字与 2px 线条，对比的极限；白是图案的另一半与画布，纯白，不做任何灰阶过渡；振动红与振动蓝永远成对出现，并置时边缘会「抖」；振动黄只作小块点缀；橄榄是压在黄色上的文字色，避免黄底黄字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">图案的另一半与画布。纯白，不做任何灰阶过渡。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">图案的一半、文字与 2px 线条。对比的极限。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ff3300"></span><div><strong>Vibrating Red</strong><span class="swatch-role">第一振动色，与蓝并置时边缘会「抖」。</span></div><code>#ff3300</code><code>--color-vibrating-red</code></li>
+          <li><span class="swatch-chip" style="background:#0066ff"></span><div><strong>Vibrating Blue</strong><span class="swatch-role">第二振动色，与红成对使用，绝单独出现。</span></div><code>#0066ff</code><code>--color-vibrating-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><div><strong>Vibrating Yellow</strong><span class="swatch-role">第三振动色，只作小块点缀。</span></div><code>#ffcc00</code><code>--color-vibrating-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#5e6d00"></span><div><strong>Olive</strong><span class="swatch-role">压在黄色上的文字色，避免黄底黄字。</span></div><code>#5e6d00</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">层次为零：<code>none — a shadow would break the flat illusion</code>。线宽与间隔必须相等，一宽一窄就失去「呼吸」节奏。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>极简无衬线 Inter，字重 500 与 700。文字必须克制——图案已经是主角。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="opart-specimen-title">OP ART 0123</p>
+            <p class="specimen-meta">Inter — 极简无衬线。替代栈：Helvetica, 'Arial Black', sans-serif · 500/700 · display 64px 字距 -0.02em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>64px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>44px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>500</td><td>30px</td><td>1.25</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>500</td><td>22px</td><td>1.45</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>500</td><td>16px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>700</td><td>13px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1200px、容器内边距 24px，区块间距 96px。一切严格对齐网格并居中，零圆角零阴影。图案区块的面积受控：单屏不超过 30% 是密集图案区，其余留白或纯色。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>同心环</td><td>8px 一环，线与间隔各 8px</td></tr>
+            <tr><td>条纹</td><td>8px 间隔，可倾斜 15°，面积 ≤单屏 30%</td></tr>
+            <tr><td>棋盘格</td><td>16px 单元</td></tr>
+            <tr><td>振动色对</td><td>等面积并列，中间 2px 黑线</td></tr>
+            <tr><td>网格</td><td>4 或 6 列，2px 黑线分隔，内容居中</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Concentric Rings</h3>
+            <p class="style-body-comp-role">同心圆图案（签名）。用 repeating-radial-gradient 画 8px 一环的黑白同心圆，覆盖一个 240 到 480px 的方或圆区域。线与线的宽度必须相等（各 8px），一宽一窄就失去欧普的「呼吸」节奏。hero 左侧那圈就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stripe Field</h3>
+            <p class="style-body-comp-role">条纹与棋盘格。用 repeating-linear-gradient 画 8px 间隔的黑白条纹，或 16px 的棋盘格，覆盖一个区块。条纹可以 15 度倾斜制造更强的振动。面积上限为单屏 30%——超过会导致视觉疲劳。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Vibrating Pair</h3>
+            <p class="style-body-comp-role">振动色对。红与蓝（或黄与紫）两块等面积的色块紧贴并列，中间加一条 2px 黑线。两色边界会产生震颤感。绝不让其中一块独占大面积，面积必须相等才有振动。hero 右侧那两块就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Op Button</h3>
+            <p class="style-body-comp-role">行动按钮。黑填充、白字、零圆角、2px 黑描边（反色时为白描边）、16px/700、padding 12px 28px，无阴影。hover 时填充与文字硬切互换（黑白反转）；按下时内缩 2px 并加 2px 黑内边框。过渡 120ms linear。</p>
+            <button type="button" class="opart-btn">LOOK</button>
+          </div>
+          <div class="comp-item">
+            <h3>Grid Cell</h3>
+            <p class="style-body-comp-role">严格网格单元。所有内容放在严格对齐的网格里（4 或 6 列），单元用 2px 黑线分隔，零圆角。内容居中（items-center justify-center）。禁止错位——欧普的错觉会被任何松动破坏。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>纯黑白的高对比</li>
+              <li>同心圆、条纹与棋盘格</li>
+              <li>条纹与间隔宽度必须相等</li>
+              <li>严格网格对齐并居中</li>
+              <li>振动色对大块等面积并列</li>
+              <li>密集图案不超过单屏 30%</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要大面积铺密集图案</li>
+              <li>不要用柔和渐变</li>
+              <li>不要用柔和阴影</li>
+              <li>不要偏移网格</li>
+              <li>不要用圆角</li>
+              <li>不要让振动色对面积不等</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像即图案：同心圆、条纹、棋盘格、莫尔条纹、波动线。允许把照片转成超高高对比的黑白半调。不使用彩色摄影、柔和插画与任何有景深的图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="op-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的同心环、振动色对与网格纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，8px 等宽图案、「振动色对等面积」与严格居中必须原样保留；圆角或渐变一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

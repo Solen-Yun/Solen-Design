@@ -1,0 +1,61 @@
+# 网速测试仪表盘 — SpeedGauge
+
+一张 340×340 的深蓝测速场景：上半部是一段 240° 的半环仪表（内联 SVG），弧轨道带 0 到 1000 的 8 档非线性刻度与刻度数字，中央一枚 94×94 的圆形 GO 按钮，外圈青色光环在待机时持续脉动。按下 GO 进入四段测速流程：Measuring ping 阶段读数每帧显示 8–30 之间的随机毫秒并定格 12ms；Download 阶段白色指针带着正弦噪声抖动扫向 440–520 Mbps 间的随机目标，弧以青紫渐变充填，左下下载磁贴每 0.09 秒采一个点画火花线；停顿 0.7 秒「Preparing upload」后 Upload 阶段换粉紫渐变扫向 84–98 Mbps；结束后按钮收缩成底部胶囊「Run again」，三枚磁贴定格平均结果。指针角度用每帧系数 dt×12 的缓动逼近，数值阶段时长与随机量全部写死在组件里。
+
+## 布局与材质
+
+- 场景 340×340px，圆角 30px，溢出裁切。底色固定深蓝（两种主题一致）：radial-gradient(120% 80% at 50% 0%, #1E2450, #0D1024 70%)，文字基调 #EEF0FF；外圈 1px 线色描边，下方 0 30px 60px -36px 强阴影。窄容器里整景等比缩小。
+- 仪表 SVG：viewBox 0 0 260 210，绝对定位 left 40px、top 14px、260×210、溢出可见。弧心 (130,130)、半径 100、跨度 -120°→+120°（共 240°）；轨道弧 stroke rgba(255,255,255,.09)、宽 14、圆角端点。进度弧同形，pathLength=100、dasharray「100 200」、初始 dashoffset 100（空）加 stroke-opacity 0，描边色为实例级渐变——下载 #22D3EE→#6366F1、上传 #C084FC→#EC4899（渐变 id 按实例生成随机后缀防冲突）。
+- 刻度：8 个值写死 [0, 5, 10, 50, 100, 250, 500, 1000]，7 段等角非线性映射——值落在第 i 段内按段内占比插值，角度 = -120° + 240°×(i+段内占比)/7。每档一根刻度线（半径 88→93、stroke rgba(255,255,255,.3)、宽 1.5），档位数字放半径 76 处（9px/800、fill #7C82B8、居中、tabular-nums）。SVG 整体 aria-hidden。
+- 指针：白色细长三角形（路径 M-3.4 0 L0 -88 L3.4 0 Z）套两层圆心（r=9 白、r=4 #1E2450），整体 transform 为 translate(130 130) 后旋转 (-120+240×显示值比例) 度；显示值比例用 f += (目标-f)×min(1, dt×12) 缓动逼近；待机时整组 opacity 0（过渡 .4s）。
+- 读数：绝对定位置顶 top 160px、水平居中、pointer-events none、aria-live="polite"；待机整组透明（.3s）。数值 30px/900、字距 -0.03em、行高 1、tabular-nums；阶段标签 margin-top 3px、10px/800、字距 0.06em、色 #9AA0D6。
+- GO 按钮：94×94px 圆，位于 left 50%、top 144px（margin -47px 居中），背景 radial-gradient(circle at 50% 35%, #4F46E5, #312E81)，白字 18px/900、字距 0.04em「GO」，外圈 0 0 0 2px #22D3EE 加辉光 0 0 30px -4px rgba(34,211,238,.7)；待机时播放 1.8s ease-in-out infinite 的光环脉冲（外圈扩到 12px 渐隐）；运行态缩到 scale(.2) 透明不可点（transform 过渡 .45s cubic-bezier(.3,1.4,.5,1)）；完成态过渡到 top 224px、96×28px、圆角 999px、11.5px 字号、字距 0、外圈 1px rgba(34,211,238,.6)，文案「Run again」。focus-visible 外圈 2px #fff、偏移 4px。
+- 结果磁贴：绝对定位 left 18px、right 18px、bottom 16px，三列 grid（.8fr 1fr 1fr）、间距 8px。每枚高 66px、内边距 8px 10px、圆角 14px、背景 rgba(255,255,255,.06)、inset 1px rgba(255,255,255,.07)；激活阶段 inset 线圈变 1.5px 自身色。行首标签 flex、间距 4px、9.5px/800、色 #9AA0D6、字距 0.04em，前置 7×7 圆点自身色；数值 17px/900、tabular-nums、字距 -0.02em，单位小字 9px/800 #9AA0D6。下载与上传磁贴各带一条火花线 SVG（viewBox 0 0 80 14、preserveAspectRatio none、polyline stroke 1.6、圆角转折），Ping 色 #FACC15、Download #22D3EE、Upload #EC4899。
+- 场景令牌：仪表与磁贴全部写死深色值，两种主题一致；仅描边与外阴影走令牌（线 rgba(22,21,27,.09)/rgba(255,255,255,.08)、强阴影 rgba(40,30,80,.3)/rgba(0,0,0,.72)）。组件样式不声明页面字体族，继承宿主页面字体。
+
+## 数据
+
+- 刻度值写死 8 档：0、5、10、50、100、250、500、1000（非线性等角分布）。
+- 测速目标每次点击随机生成，区间写死：下载 TD = 440 + 随机×80 Mbps、上传 TU = 84 + 随机×14 Mbps；Ping 阶段读数为 8 + 随机×22 ms（每帧刷新），定格值写死 12 ms。
+- 阶段文案写死：「Measuring ping」「Download」「Preparing upload」「Upload」「Test complete」；按钮文案「GO」「Run again」；磁贴标签「Ping」「Download」「Upload」，单位「ms」「Mbps」。
+- 噪声函数写死：noise(x) = sin(x×7.3)×0.5 + sin(x×13.1+1)×0.3 + sin(x×29.7+2)×0.2，速度乘 (1 + noise×0.06) 抖动。不发起任何网络请求。
+
+## 操作和动效
+
+- 启动：点 GO——下载/上传目标抽样、三枚磁贴复位为「–」、火花线清空、进入 run 态（GO 缩隐、指针淡入）。帧循环经 IntersectionObserver 门控：场景不可见时停帧，重新可见且未在 idle 时续跑；组件移除后停止。
+- 四段状态机（均由 rAF 帧驱动，dt 封顶 0.033s）：
+  1. ping 持续 1.1s：读数每帧显示 8–30 随机毫秒，阶段标签「Measuring ping」，Ping 磁贴激活；结束后磁贴定格「12 ms」，进度弧换下载渐变；
+  2. down 持续 4.2s：速度 v = TD×(1−e^(−1.9t))×(1+noise×0.06)，数字按一位小数滚动，每 0.09s 采样画火花线（纵轴按样本最大值归一）；结束把磁贴定为后 1/3 样本的平均值，进入 0.7s 的 gap（「Preparing upload」，速度回 0、无激活磁贴）；
+  3. up 持续 3.6s：同公式用 TU，进度弧换上传渐变，Upload 磁贴激活，结束后磁贴定平均值；
+  4. end 停 0.6s 后转 done：读数定格下载平均值、标签「Test complete」、按钮变形为「Run again」胶囊。
+- 指针与弧：目标角按非线性 frac(v) 映射，弧 dashoffset = 100−f×100，f>0.004 时弧可见；数字与指针同步。再次点击「Run again」重跑全流程。
+- prefers-reduced-motion 下（或 options.reducedMotion）：跳过整个测量动画——直接生成 24 个样本（噪声×0.05）填两条火花线、Ping 显示 12ms、磁贴定平均值、读数定格下载平均、立即进入 done 态；GO 按钮的待机脉冲动画也一并关闭。
+- 键盘与无障碍：GO 为原生 button（aria-label「Start speed test」），focus-visible 外圈 2px #fff、偏移 4px；读数区 aria-live="polite" 播报数字变化；仪表 SVG aria-hidden。
+- options.height 改场景高度（默认 340），options.reducedMotion 覆盖系统偏好；支持同页多实例（渐变 id 按实例生成），更新 options 不重挂载，卸载时清理帧回调、计时器、观察器及监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；仪表、指针、火花线全部用内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SpeedGauge。从零创建四个文件：SpeedGauge.tsx、SpeedGaugeEngine.js、motion-runtime.ts、SpeedGaugeEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果直接呈现完整测试结果。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；四段流程时序、非线性刻度映射与指针抖动正确；减少动态直显结果；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SpeedGauge } from "./SpeedGauge";
+
+export default function App() {
+  return <SpeedGauge />;
+}
+```

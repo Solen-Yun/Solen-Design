@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>滚动叙事 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body scr">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 12 · 叙事版面</p>
+        <h1>滚动叙事 <span class="style-card-en">SCROLLYTELLING</span></h1>
+        <p class="page-lead">滚动手势就是时间轴：画面钉住，文字一步步走过，每步换一个状态。</p>
+        <div class="style-card-tags"><span>sticky 画布 100vh</span><span>IntersectionObserver 离散切换</span><span>只改 transform/opacity</span><span>数值有静态 DOM</span></div>
+      </header>
+
+      <section class="scr-intro">
+        <p>滚动叙事是数据长报道的语法：一个 sticky 画布钉在视口里，文字步骤从它旁边滚过，每一步触发一次离散的状态变化（数字滚动、形状变形、图层点亮）。它与「滚动擦洗」的关键区别在于离散而非连续——用 IntersectionObserver 检测每一步进入视口再切换状态，绝不在 scroll 事件里读 offsetTop 或 getBoundingClientRect 做连续计算，那会卡顿。画布只改 transform 与 opacity，绝不改 top、width、height。数值必须有 DOM 里的静态文本作为真实来源，因为计数器读屏与 SEO 都读不到。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>左侧是钉住的画布（三层柱按步骤点亮），右侧是步骤块：当前步竖线与编号 100%，其余 30%。点「下一步」体验离散切换。</p>
+        <div class="scr-stage">
+          <div class="scr-canvas" role="presentation">
+            <div class="scr-bars">
+              <span class="scr-bar"><i style="--h:34%"></i><b>2019</b></span>
+              <span class="scr-bar"><i style="--h:58%"></i><b>2020</b></span>
+              <span class="scr-bar"><i style="--h:82%"></i><b>2021</b></span>
+              <span class="scr-bar"><i style="--h:64%"></i><b>2022</b></span>
+            </div>
+            <span class="scr-canvas-label">FIG.01 · 年度增幅（示意）</span>
+          </div>
+          <div class="scr-steps">
+            <div class="scr-step is-current">
+              <span class="scr-step-no">STEP 01</span>
+              <p class="scr-step-title">从基线开始</p>
+              <p class="scr-step-text">画布钉在视口里，第一步只点亮 2019 年的柱。</p>
+            </div>
+            <div class="scr-step">
+              <span class="scr-step-no">STEP 02</span>
+              <p class="scr-step-title">一层一层点亮</p>
+              <p class="scr-step-text">每进入一步才切换一次状态——离散，不是连续擦洗。</p>
+            </div>
+            <div class="scr-step">
+              <span class="scr-step-no">STEP 03</span>
+              <p class="scr-step-title">峰值与回落</p>
+              <p class="scr-step-text">关键数值 <b class="scr-val">82%</b> 同时以静态文本存在，读屏读得到。</p>
+            </div>
+          </div>
+          <div class="scr-rail" role="presentation">
+            <span class="scr-rail-fill" style="height:33%"></span>
+            <span class="scr-rail-no">01 / 03</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0e1116"></span><span class="palette-name">Deep Base</span><code>#0e1116</code></li>
+          <li><span class="swatch-chip" style="background:#f7f5f0"></span><span class="palette-name">Warm White</span><code>#f7f5f0</code></li>
+          <li><span class="swatch-chip" style="background:#2f6fed"></span><span class="palette-name">Signal Blue</span><code>#2f6fed</code></li>
+          <li><span class="swatch-chip" style="background:#e8503a"></span><span class="palette-name">Vermilion</span><code>#e8503a</code></li>
+          <li><span class="swatch-chip" style="background:#1c2530"></span><span class="palette-name">Mid Ink</span><code>#1c2530</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深底是数据长报道的沉浸底色；暖白比纯白暖，长时间阅读不刺眼，管正文与画布标注；信号蓝是当前焦点的唯一标记——活动步骤、高亮数据点、进度都用它；朱红只用于对比与警示，不参与常规强调；中墨比深底亮一档，做卡片与画布衬底。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0e1116"></span><div><strong>Deep Base</strong><span class="swatch-role">页面底。数据长报道的沉浸底色。</span></div><code>#0e1116</code><code>--color-deep-base</code></li>
+          <li><span class="swatch-chip" style="background:#f7f5f0"></span><div><strong>Warm White</strong><span class="swatch-role">正文与画布标注。比纯白暖，长时间阅读不刺眼。</span></div><code>#f7f5f0</code><code>--color-warm-white</code></li>
+          <li><span class="swatch-chip" style="background:#2f6fed"></span><div><strong>Signal Blue</strong><span class="swatch-role">当前焦点的唯一标记：活动步骤、高亮数据点、进度。</span></div><code>#2f6fed</code><code>--color-signal-blue</code></li>
+          <li><span class="swatch-chip" style="background:#e8503a"></span><div><strong>Vermilion</strong><span class="swatch-role">只用于对比与警示，不参与常规强调。</span></div><code>#e8503a</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#1c2530"></span><div><strong>Mid Ink</strong><span class="swatch-role">卡片与画布衬底，比深底亮一档。</span></div><code>#1c2530</code><code>--color-mid-ink</code></li>
+        </ul>
+        <p class="style-body-note">强调色只有两支。卡影 <code>0 8px 24px rgba(0,0,0,0.35)</code>；焦点环必须取深底色 offset，否则在暗底上看不见。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：步骤标题 24 到 36px、600 字重，正文 17px、行高 1.6；步骤编号、坐标轴刻度与数值标签用 JetBrains Mono——等宽让数据可被比较。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="scr-specimen-title">SCROLLYTELLING 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 400–700 · display 行高 1.1</p>
+          </div>
+          <div class="type-specimen">
+            <p class="scr-specimen-label">STEP 02 · 02 / 07 · 82%</p>
+            <p class="specimen-meta">JetBrains Mono — 编号、刻度与数值。替代栈：ui-monospace, 'Courier New', monospace · 400/700 · 字距 0.14em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>48px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>700</td><td>36px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>600</td><td>24px</td><td>1.25</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>17px</td><td>1.6</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1200px，区块间距 128px。桌面为左右分栏：左侧 45% 放钉住的画布、右侧 55% 放滚动的文字（或反之），文字列最大宽度 28rem。移动端改为上图下文，画布高度降到 50vh，绝不挤掉文字。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 8px · 按钮 6px · 圆点 999px</td></tr>
+            <tr><td>画布</td><td>外层 300vh、内层 sticky top-0 100vh</td></tr>
+            <tr><td>步骤块</td><td>行高 ≥96px、左侧 2px 竖线、文字列 ≤28rem</td></tr>
+            <tr><td>进度轨</td><td>宽 2px、高 40vh、视口右侧居中</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>移动端</td><td>上图下文，画布 50vh</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Sticky Canvas</h3>
+            <p class="style-body-comp-role">钉住的画布（核心组件）。外层高 300vh，内层 sticky top-0、高 100vh、含一个 canvas 或 SVG。每一步由 IntersectionObserver 触发，把画布切到该步的离散状态（不做连续擦洗）。所有状态切换只改 transform 与 opacity，绝不改 top、width、height。prefers-reduced-motion 时直接跳到各步的终态。实演左侧的柱状图就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Step Block</h3>
+            <p class="style-body-comp-role">叙事步骤块。左侧 2px 信号蓝竖线、内边距 0 0 0 24px，行高 96px 以上。上方 11px 等宽全大写步骤编号（Step 02），标题 24 到 36px/600，正文 17px 暖白 70%、最大宽度 28rem。当前步骤的竖线与编号升到 100% 不透明度，非当前降到 30%。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Progress Rail</h3>
+            <p class="style-body-comp-role">进度轨。固定在视口右侧中部，宽 2px、高 40vh，底槽为暖白 15%。已完成部分填信号蓝，高度按当前步骤索引递增。旁边等宽显示「02 / 07」——实演右侧那条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Figure Label</h3>
+            <p class="style-body-comp-role">图注与数值标注。图注 11px 等宽全大写、暖白 50%、位于图下方 12px。关键数值必须同时以静态 DOM 文本存在（而不是只由计数器渲染），字体 13px 等宽、信号蓝。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Next Button</h3>
+            <p class="style-body-comp-role">章节推进按钮。信号蓝填充、白字、6px 圆角、14px/600、padding 10px 20px，hover 时填充加深到 #2560d4；按下缩放 0.98。焦点环 2px 信号蓝 50% 且 offset 必须取深底色，否则在暗底上看不见。</p>
+            <button type="button" class="scr-btn" data-scr-next>下一步</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用 IntersectionObserver 触发离散状态</li>
+              <li>画布只改 transform 与 opacity</li>
+              <li>一步只讲一个新信息</li>
+              <li>数值必须有静态 DOM 文本</li>
+              <li>只用两个强调色</li>
+              <li>reduced-motion 时跳到终态</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要在 scroll 里读 offsetTop 做连续擦洗</li>
+              <li>不要一步塞多个新信息</li>
+              <li>不要改画布的布局属性</li>
+              <li>不要让计数器成为唯一数值来源</li>
+              <li>不要在移动端让画布挤掉文字</li>
+              <li>不要超过两个强调色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图表即图像：折线、面积、散点、地图与流程，全部由画布绘制并随步骤切换状态。允许一条底线示意与少量标注。不使用装饰摄影与插画，任何图像都必须承担数据。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="scrollytelling">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的 sticky 画布、离散步骤切换与进度轨。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，IntersectionObserver 离散切换、只改 transform/opacity 与静态数值文本必须原样保留；scroll 连续擦洗一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+<script>
+  (function () {
+    var stage = document.querySelector(".scr-stage");
+    if (!stage) return;
+    var steps = stage.querySelectorAll(".scr-step");
+    var bars = stage.querySelector(".scr-bars");
+    var fill = stage.querySelector(".scr-rail-fill");
+    var no = stage.querySelector(".scr-rail-no");
+    var btn = document.querySelector("[data-scr-next]");
+    if (!steps.length || !btn) return;
+    var cur = 0;
+    function apply() {
+      for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("is-current", i === cur);
+      if (bars) bars.setAttribute("data-step", String(cur + 1));
+      if (fill) fill.style.height = Math.round(((cur + 1) / steps.length) * 100) + "%";
+      if (no) no.textContent = "0" + (cur + 1) + " / 0" + steps.length;
+    }
+    btn.addEventListener("click", function () {
+      cur = (cur + 1) % steps.length;
+      apply();
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>酸性平面设计 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body acid">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 48 · 深色版面</p>
+        <h1 class="acid-skew" data-text="酸性平面设计">酸性平面设计</h1>
+        <p class="page-lead">荧光绿压在纯黑上，字被拉扯变形，一切都在高频振动。</p>
+        <div class="style-card-tags"><span>平面荧光色</span><span>skew 扭曲字</span><span>100ms 内反馈</span><span>硬边偏移阴影</span></div>
+      </header>
+
+      <section class="acid-hero">
+        <div class="acid-hero-copy">
+          <p>酸性平面设计来自锐舞文化与地下俱乐部视觉：纯黑底上铺荧光绿、荧光黄、紫与粉，颜色必须是纯平面的荧光色而不是渐变，字体用等宽并做 skew 与 rotate 的扭曲，阴影是硬边偏移。</p>
+          <p>它的动效语言反抛光——禁止 ease-in-out 与缓慢微交互，一切反馈都在 100ms 内完成，像设备在跳帧。禁令还有：不许柔和粉彩与低饱和、不许圆角、不许衬线、不许白色或浅色背景。下面的按钮是真的——移上去，颜色是硬切的。</p>
+        </div>
+        <div class="acid-demo">
+          <div class="acid-card-demo">
+            <span class="acid-tick" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="acid-demo-title">SIGNAL // 0X1F</p>
+            <p class="acid-demo-body">跳帧、扭曲、高频率。没有柔光。</p>
+            <button type="button" class="acid-btn">DROP IT</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#39ff14"></span><span class="palette-name">Acid Green</span><code>#39ff14</code></li>
+          <li><span class="swatch-chip" style="background:#e6ff00"></span><span class="palette-name">Acid Yellow</span><code>#e6ff00</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><span class="palette-name">Electric Violet</span><code>#a020f0</code></li>
+          <li><span class="swatch-chip" style="background:#ff6ec7"></span><span class="palette-name">Hot Pink</span><code>#ff6ec7</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Electric Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Pure Black</span><code>#0a0a0a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>荧光绿在纯黑上几乎在振动，是整套风格的标志；荧光黄与绿形成最近的频率冲突；电紫拉开冷暖；热粉管情绪化强调与故障感；电青频率最低，管数据与刻度。颜色必须平面，渐变即违规。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#39ff14"></span><div><strong>Acid Green</strong><span class="swatch-role">第一主色。在纯黑上几乎在振动，是整套风格的标志。</span></div><code>#39ff14</code><code>--color-acid-green</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Pure Black</strong><span class="swatch-role">页面底。必须近乎纯黑，让荧光色刺眼。</span></div><code>#0a0a0a</code><code>--color-pure-black</code></li>
+          <li><span class="swatch-chip" style="background:#e6ff00"></span><div><strong>Acid Yellow</strong><span class="swatch-role">第二荧光色，与绿形成最近的频率冲突。</span></div><code>#e6ff00</code><code>--color-acid-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><div><strong>Electric Violet</strong><span class="swatch-role">第三荧光色，用于拉开冷暖。</span></div><code>#a020f0</code><code>--color-electric-violet</code></li>
+          <li><span class="swatch-chip" style="background:#ff6ec7"></span><div><strong>Hot Pink</strong><span class="swatch-role">第四荧光色，用于情绪化强调与故障感。</span></div><code>#ff6ec7</code><code>--color-hot-pink</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Electric Cyan</strong><span class="swatch-role">第五荧光色，出现频率最低，用于数据与刻度。</span></div><code>#00ffff</code><code>--color-electric-cyan</code></li>
+        </ul>
+        <p class="style-body-note">硬边偏移阴影：<code>6px 6px 0 #39ff14</code> 与 <code>6px 6px 0 #a020f0</code>；按下归零。没有模糊，没有渐变。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站等宽 JetBrains Mono：标题用 700 并压到行高 0.95，允许 skew 与 rotate 变形。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="acid-specimen-title">ACID // 0123456789</p>
+            <p class="specimen-meta">JetBrains Mono — 全站等宽。替代栈：ui-monospace, 'Courier New', monospace · 400 / 700 · 行高 0.95（display）、字距 -0.02em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="acid-specimen-label">RAVE // 138BPM // LOOP ON</p>
+            <p class="specimen-meta">正文 14–18px / 400 / 行高 1.45；标签 12px / 400 / 0.08em；文字一律荧光绿 #39ff14</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>64px</td><td>0.95</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>40px</td><td>1</td><td>-0.02em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>26px</td><td>1.1</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.45</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.45</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>400</td><td>12px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1360px、容器内边距 16px，区块间距 48px。允许元素大量重叠、倾斜 -8 到 8 度、溢出容器。混乱必须有节奏：每屏至少一个元素与其他元素角度不同。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>卡片内边距</td><td>20px</td></tr>
+            <tr><td>元素间距</td><td>12px</td></tr>
+            <tr><td>区块间距</td><td>48px</td></tr>
+            <tr><td>扭曲</td><td>标题 skewX(-8deg) rotate(-2deg)，hover 硬切 -14deg</td></tr>
+            <tr><td>刻度条</td><td>高 32px，每 8px 一条 2px 荧光竖线，单屏不超过三处</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Skewed Headline</h3>
+            <p class="style-body-comp-role">扭曲标题（核心组件）。等宽 700、行高 0.95、字距 -0.02em，整块 skewX(-8deg) 并 rotate(-2deg)，颜色用荧光绿或黄；允许与色块重叠、允许超出容器边缘。hover 时 skew 量硬切到 -14 度（抖一下），transition-none 或 80ms linear。本页 H1 就是它——移上去抖一下。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Acid Button + Acid Card</h3>
+            <p class="style-body-comp-role">行动按钮：荧光绿填充、黑字、零圆角、2px 黑描边、14px/700、字距 0.08em、padding 10px 24px，硬阴影 6px 6px 0 电紫；hover 时填充硬切到荧光黄、阴影换色；按下时位移 6px 6px 且阴影归零。内容卡：纯黑 90% 填充、零圆角、2px 荧光绿描边、内边距 20px，硬阴影 6px 6px 0 电紫；标题 26px/700 荧光绿，正文白 80%；hover 时描边硬切到荧光黄、阴影转绿。上方演示卡即后者。</p>
+            <button type="button" class="acid-btn">ACID DROP</button>
+          </div>
+          <div class="comp-item">
+            <h3>Liquid Form</h3>
+            <p class="style-body-comp-role">液态流动形状。用 SVG 的 feTurbulence 加 feDisplacementMap（baseFrequency 0.015、scale 30）让一个纯色块或粗描边图形的边缘流动；填充用一支荧光色，每秒或每帧位移噪声种子形成蠕动；只作用于装饰块，绝不作用于文字。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tick Rail</h3>
+            <p class="style-body-comp-role">刻度与数据条。高 32px 的一段，用 repeating-linear-gradient 每 8px 画一条 2px 的荧光青或荧光绿竖线，模拟音频电平表；数值用等宽荧光色叠加在右侧；用于装饰与数据可视化，单屏不超过三处——演示卡里那排就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>纯黑底配荧光色</li>
+              <li>颜色必须是平面荧光，不用渐变</li>
+              <li>用 skew 与 rotate 扭曲字</li>
+              <li>硬边偏移阴影</li>
+              <li>反馈在 100ms 内完成</li>
+              <li>等宽字体</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和粉彩与低饱和色</li>
+              <li>不要用圆角</li>
+              <li>不要用衬线字体</li>
+              <li>不要用白色或浅色背景</li>
+              <li>不要用渐变</li>
+              <li>不要用 ease-in-out 与缓慢微交互</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>锐舞传单式图像：扭曲的金属质感图形、液态色块、故障条纹、ASCII 与栅格化照片。允许把照片压成 8 色荧光调色板。不使用精致摄影、柔和插画与低饱和图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="acid-graphics">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的荧光色板、扭曲标题与跳帧反馈。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，平面荧光、skew 扭曲与 100ms 反馈必须原样保留；ease-in-out 一出现即失败。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

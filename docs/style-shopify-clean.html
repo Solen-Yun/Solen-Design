@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>清爽电商 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body shop">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 115 · 浅色版面</p>
+        <h1>清爽电商 <span class="style-card-en">CLEAN COMMERCE</span></h1>
+        <p class="page-lead">产品图说了算：界面只负责让价格和按钮无法被错过。</p>
+        <div class="style-card-tags"><span>价格对比度最高</span><span>图片固定 1:1 / 3:4</span><span>主按钮只用品牌绿</span><span>列表页禁大面积装饰</span></div>
+      </header>
+
+      <section class="shop-hero">
+        <div class="shop-hero-copy">
+          <p>清爽电商是为独立店铺做的转化型界面，规则由商业逻辑倒推：底色必须白或极浅灰，因为任何深色都会影响产品图的色彩还原；产品卡必须固定比例以便网格对齐；价格是页面上对比度最高的元素，18px 加粗；原价用 14px 划线灰字放在现价旁；主按钮只用品牌绿，而且必须足够饱和。</p>
+          <p>列表页禁止大面积装饰元素——它们在和商品抢注意力。</p>
+        </div>
+        <div class="shop-demo">
+          <div class="shop-card">
+            <div class="shop-thumb" role="img" aria-label="产品图：白底器物"></div>
+            <p class="shop-name">手作粗陶杯 · 两只装</p>
+            <div class="shop-prices">
+              <span class="shop-price">¥128.00</span>
+              <span class="shop-was">¥168.00</span>
+              <span class="shop-off">-24%</span>
+            </div>
+            <button type="button" class="shop-btn">加入购物车</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#f7f7f8"></span><span class="palette-name">Light Grey</span><code>#f7f7f8</code></li>
+          <li><span class="swatch-chip" style="background:#008060"></span><span class="palette-name">Brand Green</span><code>#008060</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#e3e3e3"></span><span class="palette-name">Line Grey</span><code>#e3e3e3</code></li>
+          <li><span class="swatch-chip" style="background:#ffd700"></span><span class="palette-name">Gold</span><code>#ffd700</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>白是产品页与卡片底，必须白，任何色偏都会污染产品图；浅灰只比白暗一档，做列表页底让白卡浮起；品牌绿是唯一的主行动色，购买、加入购物车、结账全部用它；墨色管标题与价格，价格必须用最高对比；线灰管卡片描边与分隔线，1px，几乎不参与视觉；金管评分星与「热销」标记，面积必须极小。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">产品页与卡片底。必须白，任何色偏都会污染产品图。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#f7f7f8"></span><div><strong>Light Grey</strong><span class="swatch-role">列表页底与区块分隔。只差一档，让白卡浮起。</span></div><code>#f7f7f8</code><code>--color-light-grey</code></li>
+          <li><span class="swatch-chip" style="background:#008060"></span><div><strong>Brand Green</strong><span class="swatch-role">唯一的主行动色。购买、加入购物车、结账全部用它。</span></div><code>#008060</code><code>--color-brand-green</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">标题与价格。价格必须用最高对比。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#e3e3e3"></span><div><strong>Line Grey</strong><span class="swatch-role">卡片描边与分隔线。1px，几乎不参与视觉。</span></div><code>#e3e3e3</code><code>--color-line-grey</code></li>
+          <li><span class="swatch-chip" style="background:#ffd700"></span><div><strong>Gold</strong><span class="swatch-role">评分星与「热销」标记，面积必须极小。</span></div><code>#ffd700</code><code>--color-gold</code></li>
+        </ul>
+        <p class="style-body-note">卡片静止只有边框：<code>none — 1px border only</code>，hover 才升到 <code>0 4px 12px rgba(0,0,0,0.08)</code>。绝不低饱和 CTA。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。价格用 18px/700，标题 24 到 32px，辅助文字 12px 灰。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="shop-specimen-title">¥128.00</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 价格 18px/700</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>32px</td><td>1.2</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>24px</td><td>1.3</td><td><code>--text-heading</code></tr>
+            <tr><td>price</td><td>Inter</td><td>700</td><td>18px</td><td>1.3</td><td><code>--text-price</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>16px</td><td>1.55</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.55</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。上限 1280px、容器内边距 16px，产品网格 2 列（移动）/ 3 列（平板）/ 4 列（桌面），间距 16px。详情页左图右信息（各 50%），信息栏固定在视口内。列表页禁止任何超过 200px 高的装饰区块。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮/输入/图片 8px · 徽标 999px</td></tr>
+            <tr><td>图片比例</td><td>固定 1:1 或 3:4、object-fit cover、无滤镜</td></tr>
+            <tr><td>价格</td><td>18px/700 墨色；原价 14px 划线灰，间距 8px</td></tr>
+            <tr><td>折扣</td><td>999px 金标签、12px/600、墨色字</td></tr>
+            <tr><td>信任条</td><td>12px 灰字 + 16px 线性图标、间距 24px</td></tr>
+            <tr><td>吸附条</td><td>移动端顶部 1px 线、阴影 0 -4px 12px 黑 6%、常驻</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Buy Button</h3>
+            <p class="style-body-comp-role">购买与加入购物车。品牌绿填充、白字、8px 圆角、无描边，16px/600、padding 12px 24px，无阴影。hover 时填充加深到 #006b50；按下缩放 0.98。全宽版本用于详情页，固定版本用于移动端底部吸附条。禁止用低饱和绿或描边款式。</p>
+            <button type="button" class="shop-btn">购买</button>
+          </div>
+          <div class="comp-item">
+            <h3>Product Card</h3>
+            <p class="style-body-comp-role">产品卡。白底、8px 圆角、1px #e3e3e3 描边、内边距 16px。图片区固定 aspect-ratio 1:1 或 3:4、8px 圆角、无滤镜。图片下方 14px 商品名（最多两行）、18px/700 价格与 14px 划线灰原价并排。hover 时阴影升到 0 4px 12px 黑 8%，图片放大 1.02。hero 里那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Price Stack</h3>
+            <p class="style-body-comp-role">价格与折扣标记。现价 18px/700 墨色；原价 14px/400 灰（#6b7280）加 line-through，与现价之间留 8px；折扣用 999px 的金色标签（12px/600、墨色文字、padding 2px 8px）。三者必须在同一行且在移动端不换行溢出。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Trust Row</h3>
+            <p class="style-body-comp-role">信任标识条。三个横向排列的 12px 灰字配 16px 线性图标（免运费、30 天退换、正品保障），间距 24px，图标色用品牌绿。放在购买按钮下方或产品图旁边，不加边框。</p>
+            <div class="shop-trust">
+              <span class="shop-trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.5"><path d="M2 8h8M8 4l4 4-4 4"/></svg>免运费</span>
+              <span class="shop-trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg>30 天退换</span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Sticky Buy Bar</h3>
+            <p class="style-body-comp-role">移动端吸附购买条。顶部 1px #e3e3e3 描边、白底、内边距 12px 16px、阴影 0 -4px 12px 黑 6%。左侧显示 18px/700 价格（可含折扣标签），右侧一个全宽的 Buy Button。始终可见，不随滚动隐藏。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>白或浅灰底，保证产品图准确</li>
+              <li>图片固定 1:1 或 3:4 比例</li>
+              <li>价格是页面对比最高的元素</li>
+              <li>主按钮只用品牌绿且足够饱和</li>
+              <li>原价划线放在现价旁</li>
+              <li>信任标识用小图标配 12px 文字</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用深色主背景</li>
+              <li>不要在列表页加大面积装饰</li>
+              <li>不要用低对比价格色</li>
+              <li>不要让 CTA 低饱和</li>
+              <li>不要给产品图加滤镜或色彩叠加</li>
+              <li>不要用不规则图片比例</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>产品摄影是唯一图像，必须白底或极浅底、无滤镜无色彩叠加、统一比例。允许同一商品的多角度图与细节特写。不使用场景图作主图、装饰插画与图标墙。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="shopify-clean">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的价格层级、图片比例与品牌绿纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，价格最高对比、固定图片比例与「主按钮只用品牌绿」必须原样保留；深色主背景一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

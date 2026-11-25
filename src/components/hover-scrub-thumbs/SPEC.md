@@ -1,0 +1,59 @@
+# 悬停刷帧缩略 — HoverScrubThumbs
+
+一张 300×480 的推荐视频列表卡：标题「Recommended」下面排三行视频，每行左侧是一块 146×92 的缩略图，缩略图里用 Canvas 画出一段会动的画面（日出海面、骑车穿过河岸、花朵绽放）。光标在缩略图上左右移动时，画面按光标所在的横向位置连续推进——越往右画面越靠后；同时底部浮出一条红色进度条和一枚跟着光标走的当前时间气泡，右下角的时长角标暂时让位。光标移开、键盘焦点离开，画面就退回各自的封面帧。
+
+## 布局与材质
+
+- 场景卡 300×480px，圆角 32px，overflow 裁切，内边距 18px 16px，底色固定为浅灰 #F8F9FB、文字 #1B1E28（这两项不随配色方案切换）。外圈 `box-shadow: 0 0 0 1px var(--ux-line), 0 30px 60px -36px var(--ux-shadow-strong)`。
+- 场景令牌提供浅色与深色两套（`light-dark()`，由宿主的 color-scheme 决定）：浅色 surface #FFFFFF、surface-2 #F5F3EF、ink #16151B、ink-2 #57535F、ink-3 #8E8A97、line rgba(22,21,27,.09)、accent #6A57F2；深色 surface #13141C、surface-2 #1A1B25、ink #F4F0E8、ink-2 rgba(244,240,232,.68)、ink-3 rgba(244,240,232,.42)、line rgba(255,255,255,.08)、accent #B7A4FF，强阴影 rgba(0,0,0,.72)。
+- 标题「Recommended」16px/字重 850、字距 -0.02em，外边距 2px 4px 12px。列表为纵向 flex，条目间距 12px。
+- 每行是横向 flex，间距 10px，顶端对齐：左侧缩略图 146×92px、flex none、圆角 12px、overflow hidden、底色 #000、`cursor: ew-resize`、`touch-action: pan-y`；内部一块 `<canvas>` 铺满 100%×100%、display block。缩略图获得焦点时 `box-shadow: 0 0 0 3px #4C6EF5`。
+- 缩略图内叠三层 UI：右下角时长角标（absolute right 6px bottom 8px，内边距 1px 5px，圆角 4px，底色 rgba(0,0,0,.7)，白字 700 9.5px/1.4 等宽字体栈 ui-monospace, SFMono-Regular, Menlo, monospace，opacity 过渡 .2s）；底部进度条（absolute left/right 0 bottom 0，高 3px，底色 rgba(255,255,255,.3)，opacity 0→1 过渡 .2s），条内填充块 `i` 底色 #FA5252、宽度为进度百分比；顶部时间气泡（absolute top 6px，内边距 2px 6px，圆角 5px，底色 rgba(0,0,0,.75)，白字 700 9.5px/1.4 等宽字体，`transform: translateX(-50%)`，opacity 0→1 过渡 .15s，pointer-events none）。
+- 右侧文案块：标题 13px/800、行高 1.3、`word-break: keep-all`；副标题 10.5px/600、上外边距 3px、色 #7A7F92、`word-break: keep-all`。
+- Canvas 的位图尺寸为 146×92 乘以设备像素比（`Math.min(2, devicePixelRatio)`），再用 `ctx.scale(dpr, dpr)` 按 CSS 像素作图，保证高分屏不糊。字体栈：正文用系统无衬线；角标与气泡用等宽字体栈。
+
+## 数据
+
+- 固定三行视频，每行写死「标题 / 副标题 / 时长秒数」：① Sunrise time-lapse — 3 minutes of sun rising over the sea — 192 秒；② Bike commute — A morning ride along the river — 254 秒；③ The moment it blooms — Six hours in one minute — 61 秒。
+- 每行还有两个写死值：一个「封面帧位置」COVER（依次 0.85、0.45、0.95，指画面参数轴上的位置），以及该行缩略图要画的场景函数。
+- 三个场景的画面参数全部写死在代码里，用 Canvas 2D 逐帧绘制，不引用任何位图：
+  - 海面日出：竖向线性渐变，天空自 mix([20,24,60]→[120,190,255])、海面自 mix([90,50,90]→[255,214,165]) 按 t 插值；太阳圆心 x=73、y=70-52t、半径 11+2t、色 mix([255,120,80]→[255,240,200])；海面自 y=64 起铺到画布底部、色 mix([20,30,70]→[40,110,190])；再画 5 道高光横条（色 rgba(255,230,180,0.3+0.4t)，自 x=55 起每道右移 2px、下移 5px，宽 36-4k、高 1.6px）。
+  - 河岸骑行：整幅天空 #BDE0FE；7 座半圆山丘 #95D5B2（半径 26、中心 y=56、间距 46，沿 t 以 260px 的位移滚动并回绕）；水面 #4DABF7 占 y=62 起 10px；人行道 #ADB5BD 占 y=72 起 20px；车道虚线 #F8F9FA（宽 12、高 2、间距 24，随 t 以 192px 周期回绕）；自行车两个轮子半径 7、描边 #212529 线宽 1.6（辐条角度 40t），车身折线同色，骑手身体椭圆 #FA5252（4×7，旋转 0.3rad）、头盔圆 #FFD8A8（半径 4）；车整体 x=18+104t。
+  - 花朵绽放：竖向渐变 #2B2D42→#141522；茎线 #51CF66 线宽 3、二次贝塞尔；一片叶 #40C057（11×4 椭圆，旋转 -0.5）；花瓣 7 片，展开量 open=t²(3-2t)，每片长度 6+16open、宽 3+5open，颜色 hsl(330+4k, 80%, 55%+15open)；花心圆 #FFD43B 半径 2+4open。
+- 时长格式化为「分:秒」：秒数四舍五入后取 floor(s/60) 与两位秒，如 192 秒显示为 3:12。
+
+## 操作和动效
+
+- 指针在缩略图上移动（pointermove）：目标参数 t 取 (clientX - 缩略图左边界) / 缩略图宽度，并夹到 0～1。画面按 t 连续绘制，底部进度条宽度 = t×100%，顶部气泡文本 = 格式化(t×时长)，气泡水平位置 = clamp(18, t×146, 146-18)px，`aria-valuenow` 同步为 round(t×时长)。刷帧期间缩略图加上 is-on 类：进度条与气泡淡入（各 .2s/.15s），时长角标淡出。
+- 画面用「目标值 + 当前值」双值跟随：每帧当前值按 `cur += (want - cur) × 0.35` 逼近目标，差值小于 0.002 时直接吸附到目标并停止续帧；每帧用当前值重绘场景，因此画面是「慢半拍」跟手而不是硬切。绘制由 requestAnimationFrame 驱动，同一缩略图同一时刻最多挂一个帧请求。
+- 指针移出缩略图（pointerleave）或缩略图失去焦点（blur）：目标值回到该行的封面帧位置，is-on 移除，进度条与气泡淡出、时长角标恢复显示。
+- 键盘：在缩略图上按 ←/→，目标值 ±0.1 并夹到 0～1（未激活时从 0 起算），按下时阻止默认滚动；键盘操作同样进入 is-on 状态，显示进度条与时间气泡。
+- 无障碍：缩略图是 `role="slider"`、`tabindex="0"`，`aria-valuemin="0"`、`aria-valuemax` 为该行时长秒数、`aria-valuenow` 随刷帧更新，`aria-label` 为「<视频标题> preview, skim side to side」；焦点可见时套 3px #4C6EF5 的外圈阴影。
+- `prefers-reduced-motion`（或 options.reducedMotion=true）下：帧间插值系数由 0.35 改为 1，画面一次性跳到目标位置，不再做连续补间；进度条、气泡与 aria-valuenow 仍随指针实时更新。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；缩略图画面用 Canvas 2D 按帧绘制，其余界面用 DOM 与 CSS 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 HoverScrubThumbs。从零创建四个文件：HoverScrubThumbs.tsx、HoverScrubThumbsEngine.js、motion-runtime.ts、HoverScrubThumbsEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态时改为直接跳到目标画面参数。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；指针扫过缩略图时画面连续变化、进度条与时间气泡同步；移开或失焦回到封面帧；←/→ 键可推进画面；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { HoverScrubThumbs } from "./HoverScrubThumbs";
+
+export default function App() {
+  return <HoverScrubThumbs />;
+}
+```

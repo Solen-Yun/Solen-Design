@@ -1,0 +1,9 @@
+node_modules/
+dist*/
+docs-dist/
+.DS_Store
+*.log
+.zcode/
+
+# Local agent rules — not for the repo
+AGENTS.md

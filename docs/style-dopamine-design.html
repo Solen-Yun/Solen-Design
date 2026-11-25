@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多巴胺设计 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body dopa">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 113 · 浅色版面</p>
+        <h1>多巴胺设计 <span class="style-card-en">DOPAMINE DESIGN</span></h1>
+        <p class="page-lead">高饱和撞色加圆润大字：让界面看起来像在笑。</p>
+        <div class="style-card-tags"><span>四支高饱和撞色</span><span>900 字重大标题</span><span>全圆角彩色投影</span><span>允许 emoji</span></div>
+      </header>
+
+      <section class="dopa-hero">
+        <div class="dopa-hero-copy">
+          <p>多巴胺设计要的是情绪冲击：粉、紫、黄、蓝四支高饱和色并置，标题推到 5xl 到 7xl 加 900 字重，按钮全圆角加彩色投影，卡片用双色渐变，一切都圆润、都大、都亮。</p>
+          <p>它的规则主要是禁令——禁止大面积灰、禁止低饱和马卡龙色、禁止严肃商务排版、禁止衬线字体。允许 emoji 与趣味图标点缀，这在别的风格里是被禁的，在这里是语气的一部分。</p>
+        </div>
+        <div class="dopa-demo">
+          <span class="dopa-blob dopa-blob--a" aria-hidden="true"></span>
+          <span class="dopa-blob dopa-blob--b" aria-hidden="true"></span>
+          <div class="dopa-card">
+            <span class="dopa-card-tag">✨ 新版上线</span>
+            <p class="dopa-card-title">今天也很</p>
+            <p class="dopa-card-text">快来试试这版界面，颜色比昨天多了一支。</p>
+            <button type="button" class="dopa-btn">冲鸭</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff006e"></span><span class="palette-name">Hot Pink</span><code>#ff006e</code></li>
+          <li><span class="swatch-chip" style="background:#8338ec"></span><span class="palette-name">Electric Violet</span><code>#8338ec</code></li>
+          <li><span class="swatch-chip" style="background:#ffbe0b"></span><span class="palette-name">Sunny Yellow</span><code>#ffbe0b</code></li>
+          <li><span class="swatch-chip" style="background:#3a86ff"></span><span class="palette-name">Vivid Blue</span><code>#3a86ff</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><span class="palette-name">Mint</span><code>#06d6a0</code></li>
+          <li><span class="swatch-chip" style="background:#fb5607"></span><span class="palette-name">Tangerine</span><code>#fb5607</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>热粉是第一主色与主按钮，整套风格最强的情绪信号；电紫是第二主色，与热粉构成渐变与撞色关系；阳光黄做高亮与徽标，用于需要跳出的信息；活力蓝是第三撞色与链接，画面里最冷的一支；薄荷绿管成功与「完成」状态，面积较小；橘红是最热的一支，用于强调与倒计时。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">页面底。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff006e"></span><div><strong>Hot Pink</strong><span class="swatch-role">第一主色与主按钮。整套风格最强的情绪信号。</span></div><code>#ff006e</code><code>--color-hot-pink</code></li>
+          <li><span class="swatch-chip" style="background:#8338ec"></span><div><strong>Electric Violet</strong><span class="swatch-role">第二主色，与热粉构成渐变与撞色关系。</span></div><code>#8338ec</code><code>--color-electric-violet</code></li>
+          <li><span class="swatch-chip" style="background:#ffbe0b"></span><div><strong>Sunny Yellow</strong><span class="swatch-role">高亮与徽标，用于需要跳出的信息。</span></div><code>#ffbe0b</code><code>--color-sunny-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#3a86ff"></span><div><strong>Vivid Blue</strong><span class="swatch-role">第三撞色与链接，是画面里最冷的一支。</span></div><code>#3a86ff</code><code>--color-vivid-blue</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><div><strong>Mint</strong><span class="swatch-role">成功与「完成」状态，面积较小。</span></div><code>#06d6a0</code><code>--color-mint</code></li>
+        </ul>
+        <p class="style-body-note">彩色投影三档：粉 <code>0 8px 30px rgba(255,0,110,0.40)</code>、hover <code>0 12px 40px rgba(255,0,110,0.60)</code>、紫 <code>0 16px 50px rgba(131,56,236,0.35)</code>。绝不大面积用灰。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一无衬线 Inter，只用 700 与 900。标题 44 到 64px 并压紧字距，字块要够重才有冲击。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="dopa-specimen-title">Dopamine Design</p>
+            <p class="specimen-meta">Inter — 全站无衬线。替代栈：'Segoe UI', system-ui, sans-serif · 700/900 · display 64px 行高 1.02</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>64px</td><td>1.02</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>900</td><td>44px</td><td>1.05</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>30px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>22px</td><td>1.25</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>18px</td><td>1.5</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>15px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 24px，区块间距 96px。允许大量装饰色块溢出与旋转。元素间距至少 20px，留白中等——多巴胺靠颜色不靠空旷。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮 999px · 输入 16px · 徽标 999px</td></tr>
+            <tr><td>标题</td><td>44–64px / 900、字距 -0.03em</td></tr>
+            <tr><td>卡片</td><td>电紫→活力蓝对角渐变、24px 圆角、投影 0 16px 50px 紫 35%</td></tr>
+            <tr><td>装饰块</td><td>120–320px 不规则圆、20% 不透明度、单屏 ≤3 个</td></tr>
+            <tr><td>emoji</td><td>只出现在徽标里，16px</td></tr>
+            <tr><td>过渡</td><td>200ms，hover scale 1.05</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Dopamine Button</h3>
+            <p class="style-body-comp-role">主行动按钮。热粉填充、白字、999px 全圆角、无描边，18px/700、padding 16px 32px，彩色投影 0 8px 30px 粉 40%。hover 时投影扩到 40px 并加深到 60%、放大 1.05、上浮 2px；按下缩到 0.95。过渡 200ms。</p>
+            <button type="button" class="dopa-btn">点我</button>
+          </div>
+          <div class="comp-item">
+            <h3>Gradient Card</h3>
+            <p class="style-body-comp-role">内容卡与功能卡。电紫到活力蓝的对角渐变填充、24px 圆角、无描边、内边距 32px，投影 0 16px 50px 紫 35%。左上角放一个白 20% 底的全圆角标签（14px/600）并带轻微模糊。hover 时投影扩到 60px、放大 1.02——hero 里那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bold Input</h3>
+            <p class="style-body-comp-role">输入框。白底、16px 圆角、2px 电紫 20% 描边、padding 14px 20px、15px/700 字。标签电紫 15px/700 置于上方 8px。聚焦时描边转热粉并加 4px 的热粉 15% 外环。</p>
+            <input class="dopa-input" type="text" placeholder="说点什么…">
+          </div>
+          <div class="comp-item">
+            <h3>Emoji Badge</h3>
+            <p class="style-body-comp-role">带 emoji 的标签。阳光黄或薄荷绿填充、999px 全圆角、无描边、14px/700、padding 6px 14px，前面放一个 16px 的 emoji 或趣味图标。这是本风格唯一允许 emoji 的地方。</p>
+            <span class="dopa-badge">🎉 上线了</span>
+          </div>
+          <div class="comp-item">
+            <h3>Blob Shape</h3>
+            <p class="style-body-comp-role">装饰色块。不规则圆（border-radius 取 60% 40% 55% 45% 这样的四值）、尺寸 120 到 320px、填一支高饱和色并降到 20% 不透明度，绝对定位在区块角落，允许溢出。单屏最多三个——hero 里那两块就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>高饱和撞色并置</li>
+              <li>标题推到大字号加 900 字重</li>
+              <li>按钮全圆角加彩色投影</li>
+              <li>卡片用双色渐变</li>
+              <li>允许 emoji 与趣味图标</li>
+              <li>动效 200ms，带 1.05 的放大</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要大面积用灰</li>
+              <li>不要用低饱和马卡龙色</li>
+              <li>不要做严肃商务排版</li>
+              <li>不要用衬线字体</li>
+              <li>不要用锐利直角</li>
+              <li>不要一次上五种以上撞色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>高饱和插画、几何图形、3D 渲染的糖果色物件。允许 emoji 作为视觉元素。不使用低饱和摄影、严肃企业照与灰调插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="dopamine-design">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的撞色、圆角按钮与 emoji 纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，900 字重大标题、彩色圆角投影与「emoji 只在徽标」必须原样保留；大面积灰或低饱和马卡龙一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

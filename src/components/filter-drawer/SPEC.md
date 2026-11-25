@@ -1,0 +1,77 @@
+# 筛选抽屉实时计数 — FilterDrawer
+
+一张 300×480 的移动端商品列表卡：顶部「Dresses」标题、行尾一枚 Filter 胶囊按钮（右上角挂一个数字角标），下面是两列商品网格，每件是一块渐变衣身缩略图加名称与价格。点 Filter 从底部升起抽屉——背景压暗、抽屉盖住下半屏——里面是价格双柄区间滑杆、颜色胶囊、尺码胶囊、Reset 和底部「Show N items」大按钮；拖动滑杆或勾选条件时，按钮上的计数实时变化，Apply 后列表按条件刷新、命中的卡片错峰弹入，被选条件变成顶部一排可单独摘掉的黑色胶囊。
+
+## 布局与材质
+
+- 300×480px 场景卡，圆角 32px，溢出裁切；底色 `var(--ux-surface)`，外圈 1px `var(--ux-line)` 描边加 `0 30px 60px -36px var(--ux-shadow-strong)` 阴影。
+- 顶栏：绝对定位 left/right 0、top 0、z-index 2、内边距 20px 16px 8px、底色 `var(--ux-surface)`。行内 flex 垂直居中、gap 6px：标题 h3「Dresses」18px/900；计数 small margin-right auto、12px/800、取 `var(--ux-ink-3)`、tabular-nums。
+  - Filter 按钮：相对定位、inline-flex、gap 5px、高 32px、内边距 0 12px、圆角 999px、底色 `var(--ux-surface-2)`、`inset 0 0 0 1px var(--ux-line)`、11.5px/850；前面一枚 13×13 内联 SVG（三条横线 `M1.5 3h10 M3.5 6.5h6 M5.5 10h2`，描边 currentColor 1.6 圆头）。
+  - 角标 `i`：绝对定位 right -3px、top -4px、min-width 16px、高 16px、内边距 0 4px、圆角 8px、底色 `var(--ux-accent)`、白字 9px/900、line-height 16px、transform scale(0)，过渡 transform .3s `cubic-bezier(.3,1.7,.5,1)`；有条件时加 `.is-on` 恢复原大小。
+  - 已选条件行：flex、gap 5px、换行，min-height 0、margin-top 0，过渡 margin .3s；非空时 margin-top 9px。每个胶囊 inline-flex、gap 4px、高 26px、内边距 0 6px 0 10px、圆角 999px、底色 `var(--ux-ink)`、文字 `var(--ux-surface)`、10.5px/800，入场动画 `u305-in .35s cubic-bezier(.3,1.6,.5,1)`（从 scale(.6)、opacity 0）；尾部一枚 9×9 的 × 图标（`M1.5 1.5l6 6M7.5 1.5l-6 6`，描边 1.6 圆头，opacity .7）。
+- 商品网格：绝对定位 left/right 12px、bottom 0、top `var(--top, 64px)`，两列网格、gap 9px、align-content start、纵向可滚动、隐藏滚动条、内边距底 16px，过渡 top .3s。
+  - 商品卡：过渡 opacity .3s、transform .35s `cubic-bezier(.3,1.3,.5,1)`；不匹配时 display none；命中时播 `u305-pop .45s cubic-bezier(.3,1.3,.5,1)`（从 opacity 0、scale(.9) translateY(8px)）。
+    - 缩略图：display block、高 118px、圆角 14px，底色为「主色 → 主色 70% 混黑」的 160° 线性渐变；`::after` 叠一个 46×84px、圆角 16px 16px 26px 26px、rgba(255,255,255,.55) 的衣身剪影，居中偏上 18px。
+    - 名称：display block、margin-top 6px、11px/800，形如「Black · S/M/L」。
+    - 价格：11px/850、取 `var(--ux-ink-2)`、tabular-nums，形如「$49」。
+- 遮罩：绝对定位 inset 0、z-index 3、底色 rgba(10,10,20,.4)、opacity 0、pointer-events none，过渡 opacity .3s；抽屉打开时 opacity 1 并接管点击。
+- 抽屉：绝对定位 left/right 0、bottom 0、z-index 4、内边距 10px 16px 16px、圆角 24px 24px 0 0、底色 `var(--ux-surface)`、阴影 `0 -12px 30px -14px rgba(0,0,0,.35)`，初始 `transform: translateY(105%)`，过渡 transform .45s `cubic-bezier(.3,1.1,.4,1)`；打开时 transform 归零。
+  - 抓手：宽 36px、高 4px、margin 0 auto 8px、圆角 2px、底色 `var(--ux-surface-3)`。
+  - 抽屉头：flex 两端对齐、15px/900，左侧文字「Filter」，右侧 Reset 按钮高 28px、内边距 0 10px、圆角 8px、无底色、11px/800、取 `var(--ux-ink-3)`。
+  - 分组标题 h5：margin 14px 0 0、11px/850、取 `var(--ux-ink-2)`、flex 两端对齐；Price 一行右端是价格区间文字（字重 800、取 `var(--ux-ink)`、tabular-nums）。
+  - 价格滑杆：相对定位、高 30px、margin 4px 8px 0、touch-action none；底轨 `::before` 绝对定位 left/right 0、top 13px、高 4px、圆角 2px、底色 `var(--ux-surface-3)`；已选区间条绝对定位 top 13px、高 4px、圆角 2px、底色 `var(--ux-ink)`；两个 20×20px 圆形手柄绝对定位 top 5px、margin-left -10px、白底、阴影 `0 0 0 1px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.25)`、cursor grab，`role="slider"`，aria-label 分别是「Minimum price」「Maximum price」。
+  - 颜色组：flex、gap 7px、margin-top 8px、可换行。每个色卡按钮 inline-flex、gap 6px、高 32px、内边距 0 10px 0 6px、圆角 999px、底色 `var(--ux-surface-2)`、`inset 0 0 0 1px var(--ux-line)`、11px/800；前面一枚 20×20px 圆点，内描边 1px rgba(0,0,0,.12)；按下时描边加粗成 `inset 0 0 0 2px var(--ux-ink)`。
+  - 尺码组：flex、gap 7px、margin-top 8px、可换行。每个尺码按钮 44×34px、圆角 10px、底色 `var(--ux-surface-2)`、`inset 0 0 0 1px var(--ux-line)`、12px/850；按下时描边加粗成 `inset 0 0 0 2px var(--ux-ink)`。
+  - 主按钮：display block、宽 100%、高 48px、margin-top 18px、圆角 14px、底色 `var(--ux-ink)`、文字 `var(--ux-surface)`、13px/850，过渡 opacity .2s；禁用时 opacity .3、cursor not-allowed。按钮文字是「Show N items」，其中 N 用 `b` 包住（tabular-nums），数字变化时该 `b` 播 `u305-rl .3s cubic-bezier(.3,1.5,.5,1)`（从 translateY(60%)、opacity 0 翻滚上来）；无命中时文字为「No matching items」。
+- 场景令牌用 `light-dark()` 写两套（浅色 | 深色，跟随宿主 `prefers-color-scheme`）：`--ux-surface` #FFFFFF | #13141C；`--ux-surface-2` #F5F3EF | #1A1B25；`--ux-surface-3` #EAE7E1 | #252632；`--ux-ink` #16151B | #F4F0E8；`--ux-ink-2` #57535F | rgba(244,240,232,.68)；`--ux-ink-3` #8E8A97 | rgba(244,240,232,.42)；`--ux-line` rgba(22,21,27,.09) | rgba(255,255,255,.08)；`--ux-accent` #6A57F2 | #B7A4FF；`--ux-shadow-strong` rgba(40,30,80,.3) | rgba(0,0,0,.72)。
+- 字体：整卡继承宿主字体栈（根层不声明 font-family）；场景固定 300px 宽，容器变窄时整景按比例缩小，不做自适应重排。
+
+## 数据
+
+- 颜色 4 种：Black #27272A、Ivory #F5F0E6、Sage #9CB59A、Rose #F2A9B8；尺码 3 档：S、M、L。
+- 商品 10 件写死，每件是「颜色序号 / 价格系数 / 拥有的尺码」：`Black 4.9 SML`、`Ivory 3.9 SM`、`Sage 5.9 ML`、`Rose 6.9 SML`、`Black 8.9 M`、`Ivory 2.9 SML`、`Sage 10.9 SM`、`Rose 3.4 L`、`Ivory 7.4 ML`、`Black 2.5 S`。商品名称由颜色名加「 · 」加尺码串组成（如「Sage · M/L」）。
+- 价格显示规则：系数乘 10 后四舍五入取整，前面加 `$`，即 49、39、59、69、89、29、109、34、74、25。
+- 价格区间边界写死为 2 到 12，滑杆按此区间取百分比位置；默认全区间、颜色与尺码都不选。
+- 文案写死：标题「Dresses」、抽屉标题「Filter」、分组「Price」「Color」「Size」、按钮「Reset」、主按钮「Show N items」与「No matching items」。
+- 无外部数据请求，缩略图全部用 CSS 渐变绘制。
+
+## 操作和动效
+
+- 点 Filter：遮罩淡入、抽屉自下而上滑起，抽屉内的条件先同步成当前已应用的一套并重算一次计数（此时计数翻滚动画不触发）。
+- 价格手柄拖动：pointerdown 捕获指针，pointermove 按轨道左边缘与指针的水平比例换算价格，值四舍五入到 0.5；最小手柄不超过「最大价 - 1」，最大手柄不低于「最小价 + 1」，每帧更新区间条宽度、两端手柄位置、价格区间文字与按钮计数。手柄同时支持键盘：左右方向键各调 0.5，阻止默认滚动。
+- 点颜色或尺码胶囊：多选开关，按下态描边加粗；计数实时重算。
+- 点 Reset：把价格区间恢复为 2–12、清空颜色与尺码选择，只重算计数不改列表。
+- 点「Show N items」：把当前条件固化为已应用条件，列表按条件过滤——不匹配的卡片直接隐藏，匹配的卡片去掉旧动画后重新播入场动画并按顺序延迟 0.05s 错峰；顶栏计数同步为命中件数，已应用条件变成顶部胶囊行，Filter 角标显示胶囊数量（大于 0 时出现）。随后抽屉收起、焦点回到 Filter 按钮。没有命中时主按钮禁用，无法 Apply。
+- 点顶部条件胶囊：只摘掉这一条条件（颜色/尺码从已应用集合里移除，价格条件则恢复全区间），随后重新同步、重新过滤列表。
+- 点遮罩或按 Escape：关闭抽屉，不改条件。
+- 组件没有自动播放和循环动画。
+- `prefers-reduced-motion`：抽屉位移、遮罩淡入淡出、网格 top 过渡全部归零；卡片弹入、胶囊入场和计数翻滚动画关闭，状态照常切换。
+- 键盘：所有控件都是原生 button，可 Tab 聚焦、回车触发；focus-visible 为 2px `var(--ux-accent)` 外圈、偏移 2px；滑杆手柄用 role="slider" 暴露并以 aria-valuetext 播报当前价格。
+- 无障碍：色卡与尺码用 aria-pressed 标记选中态，Filter 按钮用 aria-expanded 标记抽屉开关，抽屉用 role="dialog"，条件胶囊的 aria-label 形如「Black — remove filter」。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 FilterDrawer。从零创建四个文件：FilterDrawer.tsx、FilterDrawerEngine.js、motion-runtime.ts、FilterDrawerEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态仍保留完整状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或「自行补齐核心」的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；双柄拖动与键盘调节、区间与颜色尺码多选、实时计数、Apply 后过滤与错峰入场、单个条件可摘除、Escape 关闭均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { FilterDrawer } from "./FilterDrawer";
+
+export default function App() {
+  return <FilterDrawer />;
+}
+```

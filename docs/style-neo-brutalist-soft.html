@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>柔和野兽派 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body nbsoft">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 35 · 浅色版面</p>
+        <h1>柔和野兽派 <span class="style-card-en">NEO-BRUTALIST SOFT</span></h1>
+        <p class="page-lead">骨架仍是硬阴影与零圆角，但换成灰边、灰影与粉彩色。</p>
+        <div class="style-card-tags"><span>2px 灰描边</span><span>20% 灰硬阴影</span><span>粉彩强调</span><span>零圆角保留</span></div>
+      </header>
+
+      <section class="nbsoft-hero">
+        <div class="nbsoft-hero-copy">
+          <p>柔和野兽派保留了野兽派的骨架：零圆角、硬偏移阴影、按下时位移等于偏移并归零。但它把三个最刺眼的参数降了一档——边框从 4px 纯黑降到 2px gray-800，阴影从纯黑降到 20% 的黑，配色从霓虹换成粉彩（pink-400 而非 #ff006e）。</p>
+          <p>结果是一套可以放进企业产品里的野兽派：仍然有物理感，但不再喊叫。底色也从纯白退到浅灰。右边这张卡是真的——hover 看描边变柔粉，按下去阴影照旧归零。</p>
+        </div>
+        <div class="nbsoft-demo">
+          <div class="nbsoft-card-demo">
+            <span class="nbsoft-tag nbsoft-tag--pink">SOFT</span>
+            <p class="nbsoft-demo-title">物理感，但不喊叫。</p>
+            <p class="nbsoft-demo-body">灰边、灰影、粉彩，一档一档降下来。</p>
+            <button type="button" class="nbsoft-btn">PRESS GENTLY</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Deep Grey</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><span class="palette-name">Soft Pink</span><code>#f472b6</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><span class="palette-name">Sky</span><code>#38bdf8</code></li>
+          <li><span class="swatch-chip" style="background:#a3e635"></span><span class="palette-name">Lime</span><code>#a3e635</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><span class="palette-name">Amber</span><code>#fbbf24</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f5"></span><span class="palette-name">Light Ground</span><code>#f5f5f5</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深灰替代纯黑做文字、边框与阴影基准——长时间阅读更舒服；浅灰底让白卡有依托；柔粉是 pink-400 的柔和版，管主强调与选中态但不做大面积填充；青柠管 hover 高亮与成功，天蓝管链接，与柔粉形成冷暖对位；琥珀频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Deep Grey</strong><span class="swatch-role">文字、边框与阴影基准。比纯黑柔一档，长时间阅读更舒服。</span></div><code>#1a1a1a</code><code>--color-deep-grey</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f5"></span><div><strong>Light Ground</strong><span class="swatch-role">页面画布。不用纯白，让白卡片有依托。</span></div><code>#f5f5f5</code><code>--color-light-ground</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">卡片填充，只在浅灰底上出现。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#f472b6"></span><div><strong>Soft Pink</strong><span class="swatch-role">主强调与选中态。pink-400 的柔和版，不做主按钮的大面积填充。</span></div><code>#f472b6</code><code>--color-soft-pink</code></li>
+          <li><span class="swatch-chip" style="background:#a3e635"></span><div><strong>Lime</strong><span class="swatch-role">hover 高亮与成功状态，用于小面积标签。</span></div><code>#a3e635</code><code>--color-lime</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><div><strong>Sky</strong><span class="swatch-role">链接与信息标记，与柔粉形成冷暖对位。</span></div><code>#38bdf8</code><code>--color-sky</code></li>
+          <li><span class="swatch-chip" style="background:#fbbf24"></span><div><strong>Amber</strong><span class="swatch-role">提醒与高亮底，出现频率最低。</span></div><code>#fbbf24</code><code>--color-amber</code></li>
+        </ul>
+        <p class="style-body-note">阴影降档公式：<code>4px 4px 0 rgba(0,0,0,0.20)</code>、hover <code>6px 6px 0 rgba(0,0,0,0.24)</code>、按下归零——硬偏移保留，只是不再纯黑。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，500 到 800 三档。标题 800 但不全大写——这是与硬核野兽派的分界。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="nbsoft-specimen-title">降一档的野兽派</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 500 / 700 / 800 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="nbsoft-specimen-label">正文与标签。0123456789</p>
+            <p class="specimen-meta">正文 15–18px / 500 / 行高 1.55；标签 13px / 700 / 0.04em；文字一律深灰 #1a1a1a</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>800</td><td>44px</td><td>1.1</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>800</td><td>32px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>500</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>500</td><td>15px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>13px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 80px。允许元素轻微错位 4px 制造手工感，但不做旋转。卡片垂直错落 8px，整体保持整齐。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0——骨架不动</td></tr>
+            <tr><td>边框</td><td>2px gray-800，不用纯黑</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>错位</td><td>垂直错落 8px、水平 4px，不旋转</td></tr>
+            <tr><td>区块间距</td><td>80px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Soft Block Button</h3>
+            <p class="style-body-comp-role">主行动按钮。白底、深灰文字、2px gray-800 描边、零圆角、4px 灰色硬阴影（黑 20%），15px/700、padding 12px 24px。hover 时填充换成柔粉、文字转白、阴影扩到 6px，不上浮也不过量位移；按下时位移 4px 4px 且阴影归零。过渡 150ms ease-out。</p>
+            <button type="button" class="nbsoft-btn">SOFT PRESS</button>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Brutal Card</h3>
+            <p class="style-body-comp-role">内容卡与功能卡。白底、2px gray-800 描边、零圆角、内边距 24px、4px 灰色硬阴影；标题 24px/700 深灰，正文 15px/500 灰 60%。hover 时上浮 2px、阴影扩到 6px、描边转柔粉。过渡 150ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Quiet Input</h3>
+            <p class="style-body-comp-role">表单输入。白底、2px gray-800 描边、零圆角、padding 10px 14px、15px 字；聚焦时描边转天蓝并加 4px 的灰硬阴影，不改变盒子尺寸。</p>
+            <label class="nbsoft-field"><span>备注</span><input type="text" value="不喊叫的物理感"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Pastel Tag</h3>
+            <p class="style-body-comp-role">标签与状态。粉彩填充（柔粉、青柠、天蓝或琥珀之一，取 15% 透明度作底）、零圆角、2px gray-800 描边、13px/700、padding 2px 8px；文字用深灰，不用白色。演示卡左上角与下面这排都是它。</p>
+            <p class="nbsoft-tag-row">
+              <span class="nbsoft-tag nbsoft-tag--pink">进行中</span>
+              <span class="nbsoft-tag nbsoft-tag--lime">已就绪</span>
+              <span class="nbsoft-tag nbsoft-tag--sky">信息</span>
+              <span class="nbsoft-tag nbsoft-tag--amber">提醒</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>2px gray-800 边框，不用纯黑</li>
+              <li>阴影用 20% 黑而不是实色</li>
+              <li>粉彩强调，每屏不超过两种</li>
+              <li>保持零圆角与硬偏移阴影</li>
+              <li>浅灰底，不用纯白</li>
+              <li>过渡 150ms，短促</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用圆角</li>
+              <li>不要用纯黑边框</li>
+              <li>不要用高饱和纯色</li>
+              <li>不要用纯黑背景</li>
+              <li>不要用渐变</li>
+              <li>不要用模糊阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几何图形与粗描边图标。允许把照片处理成粉彩双色调后加 2px 描边。不使用柔和渐变的摄影与装饰插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neo-brutalist-soft">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的降档参数、粉彩规则与保留的骨架。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，2px 灰边、20% 灰影与零圆角必须原样保留；圆角或纯黑边框出现即越界。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

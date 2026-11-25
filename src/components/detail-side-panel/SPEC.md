@@ -1,0 +1,62 @@
+# 列表详情侧栏 — DetailSidePanel
+
+制作「列表详情侧栏」场景：一张 340×340 的客户名单看板，左上是 "Customers" 标题，下面是可点击的客户行；点任意一行，右侧滑出一块 208px 宽的详情侧板，压在名单上方，同时被点的那一行保持高亮并保留左侧强调竖条。侧板顶部有三个小圆钮（上一个、下一个、关闭）和一个 "N of 5" 计数，下方是当前客户的资料页——大号首字母头像、姓名、「公司 · 套餐」副行、两格关键数据（Lifetime value / Seats）、以及 Recent activity 两条活动记录。Prev/Next 在五位客户之间翻页，翻页时旧页向上退场、新页从下方推入；点关闭钮或点侧板外的遮罩收起侧板，焦点回到刚才那一行。
+
+## 布局与材质
+
+- 340×340px 场景卡，圆角 30px，溢出裁切。场景根是固定 340×340 的容器（`display:grid; place-items:center` 居中），卡片视觉画在容器内部；卡片底色为表面色，外圈 1px 线色描边，下方 0 30px 60px -36px 强阴影。背景没有纹理，是纯色平面。
+- 场景令牌用 CSS `light-dark()` 双值函数写两套，随宿主的 `color-scheme` 切换（展示页默认浅色）：表面 `--ux-surface` #FFFFFF / #13141C，次级面 `--ux-surface-2` #F5F3EF / #1A1B25，三级面 `--ux-surface-3` #EAE7E1 / #252632，墨色 `--ux-ink` #16151B / #F4F0E8，次级墨色 `--ux-ink-2` #57535F / rgba(244,240,232,.68)，三级墨色 `--ux-ink-3` #8E8A97 / rgba(244,240,232,.42)，线 `--ux-line` rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 `--ux-line-2` rgba(22,21,27,.17) / rgba(255,255,255,.16)，强调色 `--ux-accent` #6A57F2 / #B7A4FF，强调浅底 `--ux-accent-soft` rgba(106,87,242,.12) / rgba(183,164,255,.15)，强调字色 `--ux-accent-ink` #FFFFFF / #0B0C12，薄荷 `--ux-mint` #119C72 / #7EE8C0，警告 `--ux-warn` #D6731E / #FFB26B，危险 `--ux-danger` #D93A55 / #FF7D8C，玻璃 `--ux-glass` rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃边 `--ux-glass-line` rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 `--ux-shadow` rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 `--ux-shadow-strong` rgba(40,30,80,.3) / rgba(0,0,0,.72)，渐变 `--ux-grad` linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A) / linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)。组件不声明 `font-family`，整段继承宿主页面字体；按钮统一 `font: inherit`，数字用 `font-variant-numeric: tabular-nums`。
+- 标题在卡片内左 18px、上 18px：16px/字重 900、字距 -0.03em。名单容器绝对定位在左 10px、右 10px、上 52px、下 10px，无默认 margin/padding 与列表符号。
+- 每个客户行是整行按钮：flex 布局、align-items center、gap 10px、宽 100%、高 52px、内边距 0 10px、圆角 13px、无背景无描边、文本左对齐、颜色取墨色。悬停（或脚本加的 `.g-hov` 类）底色变 `--ux-surface-2`，过渡 0.2s；选中态 `.is-on` 底色为 `color-mix(in srgb, var(--ux-accent) 10%, transparent)`，并用 `inset 3px 0 0 var(--ux-accent)` 在左缘压一条 3px 强调竖条。
+- 行内三段：32×32 圆形头像（`display:grid; place-items:center`，白字 12px/850，底色为该客户的固定色）；中间文字块（`flex:1; min-width:0`），主名 12px/850，次行公司名 10px/650 三级墨色；末尾 `em` 套餐胶囊，内边距 2px 7px、圆角 999px、底色 `--ux-surface-2`、9.5px/850 次级墨色。
+- 遮罩 `.u273-ov` 铺满卡片，底色 rgba(10,10,20,.12)，初始 opacity 0 且 `pointer-events:none`；卡片加 `.is-open` 后 opacity 1 并接管指针。
+- 侧板绝对定位在右 8px、上 8px、下 8px，宽 208px，圆角 22px，底色 `--ux-surface`，外圈 1px 线色描边加 -16px 0 40px -18px rgba(0,0,0,.35) 投影，竖向 flex 布局并裁切溢出；关闭态 `transform: translateX(calc(100% + 16px))`（完全移到卡片外再留 16px 余量），过渡 transform 0.45s cubic-bezier(.3,1.1,.4,1)。
+- 侧板工具条：内边距 10px 10px 6px，flex、gap 3px。三个按钮各 28×28、圆角 8px、底色 `--ux-surface-2`、色 `--ux-ink-2`，内嵌 11×11 线性描边 SVG（上一位为上折箭头，下一位为下折箭头，关闭为 2.5→8.5 斜叉），描边宽 1.8、端点与拐角圆角；禁用时 opacity 0.35、光标恢复默认。计数文字 10px/800 三级墨色，等宽数字，靠左并与按钮留 6px 间距。
+- 侧板正文区 `flex:1; overflow:hidden`，内容页绝对定位铺满，内边距 6px 14px 14px。资料页里头像放大到 44×44、字号 16px；姓名为 15px/900 的 `h4`（上距 10px）；副行 10.5px/650 三级墨色，写「公司 · 套餐」。关键数据是 1fr 1fr 两列网格、列间距 6px、上距 12px，每格内边距 8px 9px、圆角 10px、底色 `--ux-surface-2`，标签 9px/800 三级墨色，数值 12px/900 等宽数字。小标题 `h5` 上距 14px、下距 6px，10px/850 三级墨色。活动条目 flex、gap 7px、上距 5px，10.5px/700 次级墨色，条目前一枚 6px 强调色圆点。
+- 场景没有断点级布局变化。整景按 340px 固定尺寸绘制，容器变窄时由运行时整体等比缩放（最小比例 0，比例上限 1），内容不重排；`options.height` 只改场景高度。
+
+## 数据
+
+- 客户名单写死 5 条，字段为 [姓名, 公司, 套餐, 累计付费, 席位数]：Seoyeon Kim / Studio Moment / Pro / $1,284 / 3；Junho Lee / Plant Lab / Team / $3,920 / 12；Haeun Park / Daily Florist / Free / $0 / 0；Minjun Choi / Runway Coffee / Pro / $642 / 2；Yuna Jung / Notebook Club / Team / $2,160 / 7。
+- 头像底色按行序写死 5 个：#EC4899、#0EA5E9、#10B981、#F59E0B、#8B5CF6；头像里的文字是姓名首字母。
+- 活动池写死 3 条：Upgraded their plan、Invited 2 teammates、Changed payment method。每位客户取其中 2 条：当客户序号 i 与活动序号 k 满足 (i+k) % 3 === 2 时跳过该条，其余两条按池顺序列出。
+- 资料页固定字段文案：Lifetime value（值为累计付费）、Seats（值为席位数）、Recent activity。侧板计数显示「序号 of 5」，即当前客户在 5 人中的位置。
+- 除上述写死内容外无外部数据源，组件不请求任何接口。
+
+## 操作和动效
+
+- 点名单任意一行：直接换出该客户的资料页，侧板自右侧滑入（transform 0.45s cubic-bezier(.3,1.1,.4,1)），遮罩淡入 0.3s，被点的行加 `.is-on` 高亮，其余行取消高亮；每行同步写 `aria-current`（选中为 "true"，其余为 "false"）。重复点同一行且侧板已开时不重播，直接返回。
+- 侧板上的下一个（↓ 折角）按钮切到后一位客户，上一个（↑ 折角）按钮切到前一位。切换时新资料页从反方向 40px 外侧滑入、旧页向另一侧 40px 外侧淡出：位移过渡 0.4s cubic-bezier(.3,1.1,.4,1)、透明度过渡 0.3s，旧页在 420ms 后被移除。下一个方向为新页从下方 40px 进、旧页向上去 40px；上一个方向相反。首次打开（无旧页）时直接替换，不做位移动画。
+- 计数文字随切换更新为「N of 5」。到第一位时上一个按钮置为 disabled，到最后一位时下一个按钮置为 disabled（opacity 0.35 且不再响应）。
+- 关闭钮或点遮罩空白处收起侧板：侧板滑回卡片外、遮罩淡出，焦点回到被选中的那一行（focus 时带 preventScroll，不打断页面滚动）。
+- 键盘：在侧板打开状态下，Esc 关闭；J 或 j 等同点下一个，K 或 k 等同点上一个（等价于点按钮，禁用时无效）。名单行是原生按钮，可用 Tab 到达。
+- 焦点样式：名单行 `focus-visible` 为 2px 强调色外框、偏移 -2px（画在行内）；侧板与行内其他按钮统一 2px 强调色外框、偏移 2px。
+- 无障碍：侧板 `aside` 初始 `aria-hidden="true"`，打开后置为 "false"；侧板正文容器带 `aria-live="polite"`，换页时内容变化会被读出；三个工具钮分别带 aria-label "Previous customer"、"Next customer"、"Close panel"；遮罩 `aria-hidden="true"`。
+- `prefers-reduced-motion: reduce` 下，侧板位移、资料页位移与遮罩透明度三者的过渡全部关闭，翻页改为直接替换，侧板仍然滑入到位（状态完整可见）。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 DetailSidePanel。从零创建四个文件：DetailSidePanel.tsx、DetailSidePanelEngine.js、motion-runtime.ts、DetailSidePanelEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留侧板开合、翻页与高亮的完整状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；打开、翻页、关闭、焦点回归与键盘快捷键均有正确状态；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { DetailSidePanel } from "./DetailSidePanel";
+
+export default function App() {
+  return <DetailSidePanel />;
+}
+```

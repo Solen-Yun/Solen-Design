@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>故障艺术风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body glitch">
+      <div class="glitch-bed" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 55 · 深色版面</p>
+        <h1 class="glitch-split" data-text="故障艺术风">故障艺术风</h1>
+        <p class="page-lead">画面在出错：RGB 分离、屏幕撕裂、丢帧，全都刻意保留。</p>
+        <div class="style-card-tags"><span>RGB 双向分离</span><span>transition-none</span><span>skew 撕裂按压</span><span>粗左边框卡片</span></div>
+      </header>
+
+      <section class="glitch-hero">
+        <div class="glitch-hero-copy">
+          <p>故障艺术风把数字错误当成美学：等宽字体全大写加宽字距，文字用 3px 的洋红与青双向 text-shadow 做 RGB 色彩分离，所有状态切换用 transition-none（帧丢失的断裂感），按钮按下时用 skew-x 加 scale-y 制造屏幕撕裂，卡片靠 4 到 8px 的粗左边框标记、hover 时换色。</p>
+          <p>它的禁令同样绝对：不许圆角、不许平滑过渡动画、不许毛玻璃与柔和渐变、不许 CMY 三色以外的装饰色、不许衬线或常规无衬线——只有等宽，阴影只能是纯色块。右边这张卡是真的——左边框会硬切颜色。</p>
+        </div>
+        <div class="glitch-demo">
+          <div class="glitch-card-demo">
+            <p class="glitch-card-title">SIGNAL LOST</p>
+            <p class="glitch-card-body">FRAME_DROP // 0x0A4F — 左边框 hover 硬切。</p>
+            <button type="button" class="glitch-btn">TEAR IT</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><span class="palette-name">Yellow</span><code>#ffff00</code></li>
+          <li><span class="swatch-chip" style="background:#ff0506"></span><span class="palette-name">Alarm Red</span><code>#ff0506</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Glitch Black</span><code>#0a0a0a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>纯黑让青与洋红的分离显出重影；青是 RGB 分离的左侧通道与主文字色；洋红是右侧通道与警告色；黄是 CMY 的第三支，管高亮与丢帧标记；白只用于文字与实心色块；警报红管崩溃，频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Glitch Black</strong><span class="swatch-role">页面底。纯到让青与洋红的分离显出重影。</span></div><code>#0a0a0a</code><code>--color-glitch-black</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Cyan</strong><span class="swatch-role">RGB 分离的左侧通道，也是主文字色。</span></div><code>#00ffff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Magenta</strong><span class="swatch-role">RGB 分离的右侧通道与警告色。</span></div><code>#ff00ff</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><div><strong>Yellow</strong><span class="swatch-role">CMY 的第三支，用于高亮与丢帧标记。</span></div><code>#ffff00</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">只用于文字与实心色块，绝不作底色。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff0506"></span><div><strong>Alarm Red</strong><span class="swatch-role">错误与崩溃状态，出现频率最低。</span></div><code>#ff0506</code><code>--color-alarm-red</code></li>
+        </ul>
+        <p class="style-body-note">阴影只能是纯色块：<code>4px 4px 0 #00ffff</code> 与 <code>4px 4px 0 #ff00ff</code>；没有模糊。RGB 分离 <code>3px 0 #ff00ff / -3px 0 #00ffff</code>，hover 加倍到 6px。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一等宽字体 JetBrains Mono：标题 900 字重加全大写加 0.06em 字距，正文 400。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="glitch-specimen-title">GLITCH 0123456789</p>
+            <p class="specimen-meta">JetBrains Mono — 全站唯一等宽。替代栈：ui-monospace, 'Courier New', monospace · 400 / 900 · 行高 1（display）、字距 0.06em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="glitch-specimen-label">ERR // 0x0A4F // FRAME DROP</p>
+            <p class="specimen-meta">正文 14–18px / 400 / 行高 1.5；标签 12px / 400 / 0.16em；文字青色 #00ffff，白色只做文字与色块</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>900</td><td>64px</td><td>1</td><td>0.06em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>900</td><td>40px</td><td>1.05</td><td>0.06em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>900</td><td>26px</td><td>1.15</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>400</td><td>12px</td><td>1.4</td><td>0.16em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1280px、容器内边距 16px，区块间距 48px。允许元素错位 2 到 8px 制造不稳定的感觉，但信息层级保持清晰。所有状态变化必须瞬时，页面整体可以每 4 秒抖一次。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>左边框</td><td>卡片 4–8px 粗左边框，只换色不变宽</td></tr>
+            <tr><td>卡片内边距</td><td>20px</td></tr>
+            <tr><td>元素间距</td><td>12px</td></tr>
+            <tr><td>扫描线</td><td>3px 间隔白 4% 横线 + 2% 错位噪点</td></tr>
+            <tr><td>动效</td><td>全部 transition-none；丢帧抖动每 4 秒 60ms</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>RGB Split Text</h3>
+            <p class="style-body-comp-role">RGB 分离文字（核心组件）。等宽 900 字重全大写，正常文字为白或青，叠两层伪元素副本：一层偏移 -3px 用洋红、一层偏移 +3px 用青，不透明度 80%；静置时分离量 3px；hover 时分离量硬切到 6px 并加 1px 的垂直抖动（steps(1) 两帧）。绝不用模糊或平滑过渡。本页 H1 就是它——移上去抖一下。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tear Button</h3>
+            <p class="style-body-comp-role">撕裂按钮。青或洋红填充、黑字、零圆角、2px 同色描边、14px/900 全大写 0.16em、padding 10px 24px，硬阴影 4px 4px 0 对色；hover 时填充硬切到另一色（transition-none）；按下时 skewX(-6deg) 加 scaleY(0.9) 制造屏幕撕裂并位移 2px 2px。所有状态切换 transition-none。</p>
+            <button type="button" class="glitch-btn">CRASH IT</button>
+          </div>
+          <div class="comp-item">
+            <h3>Marked Card</h3>
+            <p class="style-body-comp-role">粗左边框卡片。深灰 #111 填充、零圆角、4 到 8px 的左边框（青或洋红）、内边距 20px，无阴影；hover 时左边框换色从青到洋红（硬切），标题文字同步换色；边框宽度不变——变化只在颜色。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scanline Bed + Error Readout</h3>
+            <p class="style-body-comp-role">扫描线与噪点底：全页固定覆盖两层——一层 repeating-linear-gradient 画 3px 间隔的白色 4% 横线，另一层用噪点图做 2% 的错位噪点；pointer-events: none；可选每 4 秒一次 60ms 的整体位移抖动——本页每一寸都叠着它。错误读数：12px 等宽全大写 0.16em，青色或警报红，格式固定为「ERR // 0x0A4F // FRAME DROP」；放在区块角落作环境信息；真正的错误提示必须同时给出可读的自然语言。</p>
+            <p class="glitch-readout">ERR // 0x0A4F // FRAME DROP</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>等宽字体，全大写加宽字距</li>
+              <li>用双向 text-shadow 做 RGB 分离</li>
+              <li>所有状态切换 transition-none</li>
+              <li>按下用 skew-x 加 scale-y 撕裂</li>
+              <li>阴影只能是纯色块</li>
+              <li>装饰色只用 CMY</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何圆角</li>
+              <li>不要用平滑过渡动画</li>
+              <li>不要用毛玻璃或柔和渐变</li>
+              <li>不要用 CMY 之外的装饰色</li>
+              <li>不要用衬线或常规无衬线</li>
+              <li>不要用柔和模糊阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>故障图像：像素化的截图、错位的色带、压缩伪影、扫描线。允许把照片做 RGB 通道位移与块状压缩。不使用写实摄影、柔和插画与自然图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="glitch-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 RGB 分离、撕裂按压与扫描线底。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，RGB 分离、transition-none 与 CMY 限色必须原样保留；平滑过渡即背叛。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

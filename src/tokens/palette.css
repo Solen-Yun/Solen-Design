@@ -1,0 +1,82 @@
+/* Raw color scales — primitives. Prefer the semantic tokens in semantic.css.
+   `gray` is a pure neutral ramp with no hue. 50 is lightest, 950 is darkest. */
+
+:root {
+  /* Neutral (pure gray) */
+  --sd-gray-50: #fafafa;
+  --sd-gray-100: #f0f0f0;
+  --sd-gray-200: #e3e3e3;
+  --sd-gray-300: #cdcdcd;
+  --sd-gray-400: #a1a1a1;
+  --sd-gray-500: #737373;
+  --sd-gray-600: #565656;
+  --sd-gray-700: #404040;
+  --sd-gray-800: #282828;
+  --sd-gray-900: #171717;
+  --sd-gray-950: #0b0b0b;
+
+  /* Steel blue (accent ramp) */
+  --sd-steel-50: #f2f6fa;
+  --sd-steel-100: #e3edf5;
+  --sd-steel-200: #c5d9ea;
+  --sd-steel-300: #9dbdd8;
+  --sd-steel-400: #6f9cc1;
+  --sd-steel-500: #4d7fa8;
+  --sd-steel-600: #3d6689;
+  --sd-steel-700: #33526e;
+  --sd-steel-800: #2b4258;
+  --sd-steel-900: #253748;
+  --sd-steel-950: #16222e;
+
+  /* Green (success) */
+  --sd-green-50: #ecfdf5;
+  --sd-green-100: #d1fae5;
+  --sd-green-200: #a7f3d0;
+  --sd-green-300: #6ee7b7;
+  --sd-green-400: #34d399;
+  --sd-green-500: #10b981;
+  --sd-green-600: #059669;
+  --sd-green-700: #047857;
+  --sd-green-800: #065f46;
+  --sd-green-900: #064e3b;
+  --sd-green-950: #022c22;
+
+  /* Red (danger) */
+  --sd-red-50: #fef2f2;
+  --sd-red-100: #fee2e2;
+  --sd-red-200: #fecaca;
+  --sd-red-300: #fca5a5;
+  --sd-red-400: #f87171;
+  --sd-red-500: #ef4444;
+  --sd-red-600: #dc2626;
+  --sd-red-700: #b91c1c;
+  --sd-red-800: #991b1b;
+  --sd-red-900: #7f1d1d;
+  --sd-red-950: #450a0a;
+
+  /* Orange (warning) */
+  --sd-orange-50: #fff7ed;
+  --sd-orange-100: #ffedd5;
+  --sd-orange-200: #fed7aa;
+  --sd-orange-300: #fdba74;
+  --sd-orange-400: #fb923c;
+  --sd-orange-500: #f97316;
+  --sd-orange-600: #ea580c;
+  --sd-orange-700: #c2410c;
+  --sd-orange-800: #9a3412;
+  --sd-orange-900: #7c2d12;
+  --sd-orange-950: #431407;
+
+  /* Sky (info) */
+  --sd-sky-50: #f0f9ff;
+  --sd-sky-100: #e0f2fe;
+  --sd-sky-200: #bae6fd;
+  --sd-sky-300: #7dd3fc;
+  --sd-sky-400: #38bdf8;
+  --sd-sky-500: #0ea5e9;
+  --sd-sky-600: #0284c7;
+  --sd-sky-700: #0369a1;
+  --sd-sky-800: #075985;
+  --sd-sky-900: #0c4a6e;
+  --sd-sky-950: #082f49;
+}

@@ -1,0 +1,105 @@
+/* Default element styling, built on tokens.
+   Deliberately quiet — components (buttons, cards, dialogs…) live in the
+   components layer, added later. */
+
+body {
+  font-family: var(--sd-font-sans);
+  font-size: var(--sd-font-size-base);
+  line-height: var(--sd-leading-base);
+  background-color: var(--sd-canvas);
+  color: var(--sd-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings — sizes from tokens; spacing is the app's job */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--sd-weight-semibold);
+  text-wrap: balance;
+}
+h1 { font-size: var(--sd-font-size-4xl); line-height: var(--sd-leading-4xl); }
+h2 { font-size: var(--sd-font-size-3xl); line-height: var(--sd-leading-3xl); }
+h3 { font-size: var(--sd-font-size-2xl); line-height: var(--sd-leading-2xl); }
+h4 { font-size: var(--sd-font-size-xl);  line-height: var(--sd-leading-xl); }
+h5 { font-size: var(--sd-font-size-lg);  line-height: var(--sd-leading-lg); }
+h6 { font-size: var(--sd-font-size-base); line-height: var(--sd-leading-base); }
+
+p, li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--sd-accent-strong);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--sd-accent-strong) 40%, transparent);
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+strong, b {
+  font-weight: var(--sd-weight-semibold);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--sd-border);
+}
+
+blockquote {
+  border-left: 3px solid var(--sd-border-strong);
+  padding-inline-start: var(--sd-space-4);
+  color: var(--sd-ink-muted);
+}
+
+code {
+  font-family: var(--sd-font-mono);
+  font-size: 0.875em;
+  background: var(--sd-fill);
+  padding: 0.15em 0.4em;
+  border-radius: var(--sd-radius-sm);
+}
+
+pre {
+  background: var(--sd-fill);
+  padding: var(--sd-space-4);
+  border-radius: var(--sd-radius-lg);
+  overflow-x: auto;
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--sd-accent) 30%, transparent);
+}
+
+/* Form fields — bare but presentable */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="color"]),
+textarea,
+select {
+  border: 1px solid var(--sd-border-strong);
+  border-radius: var(--sd-radius-md);
+  padding: calc(var(--sd-space-2) - 1px) var(--sd-space-3);
+  background: var(--sd-surface);
+  color: var(--sd-ink);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--sd-ink-muted);
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+progress {
+  accent-color: var(--sd-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}

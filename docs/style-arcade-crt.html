@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>街机 CRT — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body crt">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 82 · 深色版面</p>
+        <h1>街机 CRT <span class="style-card-en">ARCADE CRT</span></h1>
+        <p class="page-lead">一块还亮着的街机显示器：扫描线、曲面、荧光与色散。</p>
+        <div class="style-card-tags"><span>全屏扫描线</span><span>高饱和荧光色</span><span>霓虹光晕阴影</span><span>RGB 色散边缘</span></div>
+      </header>
+
+      <section class="crt-hero">
+        <div class="crt-hero-copy">
+          <p>街机 CRT 模拟 80 到 90 年代的街机显示器：全屏扫描线覆盖层、桶形曲面（用轻微 scale 与圆角模拟）、高饱和荧光色、以及 RGB 色散造成的边缘彩边。它的技术配方是固定的——所有内容区都必须叠扫描线、字体必须是等宽或像素、只用高饱和荧光色、阴影只能是霓虹光晕、渐变只能是霓虹到暗。</p>
+          <p>禁令同样固定：不许柔和低饱和、不许衬线或常规无衬线正文、不许超过 4px 的圆角、不许细微阴影。右边这块面板是真的：标题带文字发光，hover 时描边与光晕都会涨。</p>
+        </div>
+        <div class="crt-demo">
+          <div class="crt-panel">
+            <p class="crt-panel-title">INSERT COIN</p>
+            <p class="crt-readout">SCORE 0012400 / HI 0098000</p>
+            <div class="crt-actions">
+              <button type="button" class="crt-btn crt-btn--magenta">1P START</button>
+              <button type="button" class="crt-btn crt-btn--green">CONTINUE</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#39ff14"></span><span class="palette-name">Phosphor Green</span><code>#39ff14</code></li>
+          <li><span class="swatch-chip" style="background:#050505"></span><span class="palette-name">Screen Black</span><code>#050505</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff2a2a"></span><span class="palette-name">Alert Red</span><code>#ff2a2a</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><span class="palette-name">Coin Yellow</span><code>#ffff00</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>老式绿磷屏的荧光绿管主文字与荧光；近纯黑的屏黑让荧光层看起来在自发光；品红是 RGB 色散的暖侧与「加分」状态；青是色散的冷侧与数据；警报红管生命值与失败，是屏幕上最刺的颜色；金币黄管分数、金币与高亮，用于「闪一下」的地方。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#050505"></span><div><strong>Screen Black</strong><span class="swatch-role">显示器底。近纯黑，让荧光层看起来在自发光。</span></div><code>#050505</code><code>--color-screen-black</code></li>
+          <li><span class="swatch-chip" style="background:#39ff14"></span><div><strong>Phosphor Green</strong><span class="swatch-role">主文字与荧光。老式绿磷屏的颜色。</span></div><code>#39ff14</code><code>--color-phosphor-green</code></li>
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Magenta</strong><span class="swatch-role">RGB 色散的暖侧与「加分」状态。</span></div><code>#ff00ff</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Cyan</strong><span class="swatch-role">RGB 色散的冷侧与数据。</span></div><code>#00ffff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff2a2a"></span><div><strong>Alert Red</strong><span class="swatch-role">生命值与失败，是屏幕上最刺的颜色。</span></div><code>#ff2a2a</code><code>--color-alert-red</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><div><strong>Coin Yellow</strong><span class="swatch-role">分数、金币与高亮，用于「闪一下」的地方。</span></div><code>#ffff00</code><code>--color-coin-yellow</code></li>
+        </ul>
+        <p class="style-body-note">发光只用霓虹：<code>0 0 20px rgba(57,255,20,0.60)</code>、<code>0 0 20px rgba(255,0,255,0.55)</code> 与文字 <code>0 0 8px rgba(57,255,20,0.70)</code>。细微阴影不存在。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>像素或等宽 Press Start 2P，行高必须放到 1.9 否则像素字会粘成一团。替代栈用 'Courier New'、ui-monospace。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="crt-specimen-title">ARCADE CRT 0123</p>
+            <p class="specimen-meta">Press Start 2P — 像素等宽。替代栈：'Courier New', ui-monospace, monospace · 400 · 行高 1.9 · 标签 0.12em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Press Start 2P</td><td>400</td><td>36px</td><td>1.35</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Press Start 2P</td><td>400</td><td>26px</td><td>1.4</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Press Start 2P</td><td>400</td><td>18px</td><td>1.5</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Press Start 2P</td><td>400</td><td>14px</td><td>1.9</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Press Start 2P</td><td>400</td><td>12px</td><td>1.9</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Press Start 2P</td><td>400</td><td>10px</td><td>1.6</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1120px、容器内边距 16px，区块间距 64px。整体像一块屏幕内的布局，元素可以贴边。所有内容都在 Tube Frame 之内，外层留出 16 到 24px 的「边框」当作显像管外壳。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 4px · 按钮/输入 2px · 显像管 24px</td></tr>
+            <tr><td>扫描线</td><td>3px 间距 1px 黑 45%，pointer-events: none</td></tr>
+            <tr><td>管框</td><td>24px 圆角、2px 深灰边、inset 80px 暗角 + 120px 溢光</td></tr>
+            <tr><td>面板</td><td>屏黑 90%、1px 荧光绿 40%、发光 0 0 20px 绿 60%</td></tr>
+            <tr><td>读数</td><td>10px 等宽全大写 0.12em、数值金币黄</td></tr>
+            <tr><td>过渡</td><td>80ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Scanline Overlay</h3>
+            <p class="style-body-comp-role">扫描线覆盖层（签名）。全页固定覆盖一层 repeating-linear-gradient，每 3px 一条 1px 的黑色 45% 横线，pointer-events: none。可选再加一条每 3 秒从上到下扫过的亮带（亮 8%、周期 3s、linear）。这层必须覆盖所有内容区，缺了它就不是 CRT——本页背景就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tube Frame</h3>
+            <p class="style-body-comp-role">显像管外框。页面最外层容器：24px 圆角、2px 深灰边框、inset 0 0 80px 黑 60%（模拟显像管暗角）加外层 0 0 120px 荧光绿 8% 的溢出光。内部再套一层 scale(0.995) 的轻微桶形错觉。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Neon Panel</h3>
+            <p class="style-body-comp-role">内容面板。屏黑 90% 填充、4px 圆角、1px 荧光绿 40% 描边、内边距 20px，外发光 0 0 20px 荧光绿 60%。标题 26px 带 0 0 8px 文字发光，正文 12px 荧光绿 85%。hover 时描边升到 80%、发光扩到 32px。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Arcade Button</h3>
+            <p class="style-body-comp-role">行动按钮。品红或荧光绿填充、屏黑文字、2px 圆角、12px 全大写 0.12em、padding 10px 20px，外发光 0 0 16px 同色 60%。hover 时发光扩到 28px 并加一道 60ms 的 RGB 色散抖动；按下时位移 1px 且发光收到 8px。过渡 80ms linear。</p>
+            <button type="button" class="crt-btn crt-btn--magenta">PRESS</button>
+          </div>
+          <div class="comp-item">
+            <h3>Score Readout</h3>
+            <p class="style-body-comp-role">分数与状态读数。10px 等宽全大写 0.12em，荧光绿或金币黄，带 0 0 8px 文字发光。格式为「SCORE 0012400 / HI 0098000」，数值部分用金币黄。它可以在区块角落常驻，像街机的计分条。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Chromatic Edge</h3>
+            <p class="style-body-comp-role">色散边缘。给标题或按钮叠两层文本副本：一层偏移 -2px 用品红、一层 +2px 用青，混合模式 screen，不透明度 60%。静置时偏移 2px，hover 时硬切到 3px 并抖动一次。</p>
+            <p class="crt-chroma-demo" aria-hidden="true">GAME OVER</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>全屏叠扫描线</li>
+              <li>等宽或像素字体</li>
+              <li>只用高饱和荧光色</li>
+              <li>阴影只能是霓虹光晕</li>
+              <li>渐变只能霓虹到暗</li>
+              <li>圆角不超过 4px（显像管除外）</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和低饱和色</li>
+              <li>不要用衬线或常规无衬线正文</li>
+              <li>不要用超过 4px 的圆角</li>
+              <li>不要用细微阴影</li>
+              <li>不要用非霓虹到暗的渐变</li>
+              <li>不要漏掉扫描线</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>街机与复古游戏的像素图、屏幕截图、低分辨率渲染。图像必须带扫描线与轻微色散。不使用现代高清摄影与平滑插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="arcade-crt">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的扫描线覆盖、管框暗角与霓虹光晕。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，扫描线覆盖层、荧光光晕与像素字体行高 1.9 必须原样保留；细微阴影或柔和色一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

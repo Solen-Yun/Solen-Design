@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>纸艺手作 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body paper">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 111 · 浅色版面</p>
+        <h1>纸艺手作 <span class="style-card-en">PAPER CRAFT</span></h1>
+        <p class="page-lead">一层层剪好的纸叠起来：每层都有一点阴影，每张都歪一点点。</p>
+        <div class="style-card-tags"><span>4px 固定偏移硬影</span><span>层叠最多三层</span><span>只剪一边</span><span>角贴跨过边缘 8px</span></div>
+      </header>
+
+      <section class="paper-hero">
+        <div class="paper-hero-copy">
+          <p>纸艺手作模拟剪纸与层叠纸片：纸白底上放明快的纸艺色块，每块纸片带 4px 固定的偏移硬阴影（黑 8%）表示它离桌面有一点距离，圆角取 12 到 16px 但配合 1 度的微旋转显得不完美，层叠靠多个绝对定位的纸片加不同阴影深度实现。</p>
+          <p>它禁止深色背景、禁止发光与霓虹阴影、禁止金属与玻璃质感——纸不反光。</p>
+        </div>
+        <div class="paper-demo">
+          <div class="paper-stack">
+            <span class="paper-sheet paper-sheet--indigo" aria-hidden="true"></span>
+            <span class="paper-sheet paper-sheet--mint" aria-hidden="true"></span>
+            <div class="paper-card">
+              <span class="paper-sticker" aria-hidden="true"></span>
+              <p class="paper-card-title">手作的一周</p>
+              <p class="paper-card-text">每张纸都歪一点点，剪痕只留一边。</p>
+              <button type="button" class="paper-btn">贴 上</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#e85d75"></span><span class="palette-name">Rose Paper</span><code>#e85d75</code></li>
+          <li><span class="swatch-chip" style="background:#fdf6ee"></span><span class="palette-name">Paper White</span><code>#fdf6ee</code></li>
+          <li><span class="swatch-chip" style="background:#5cb8a5"></span><span class="palette-name">Mint Paper</span><code>#5cb8a5</code></li>
+          <li><span class="swatch-chip" style="background:#f5c040"></span><span class="palette-name">Marigold Paper</span><code>#f5c040</code></li>
+          <li><span class="swatch-chip" style="background:#6b7fb5"></span><span class="palette-name">Indigo Paper</span><code>#6b7fb5</code></li>
+          <li><span class="swatch-chip" style="background:#2d2d2d"></span><span class="palette-name">Ink</span><code>#2d2d2d</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>玫红是第一纸色，给主按钮、最上层的纸片与关键强调；纸白是页面底与最大的那张底纸；薄荷绿是第二纸色，用于次级区块与「自然」语义；明黄是四支纸色里最跳的一支，做高亮与徽标；靛蓝是冷侧纸色，用于信息与第三层；墨色管文字与剪纸轮廓，不是纯黑。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fdf6ee"></span><div><strong>Paper White</strong><span class="swatch-role">页面底与最大的那张底纸。</span></div><code>#fdf6ee</code><code>--color-paper-white</code></li>
+          <li><span class="swatch-chip" style="background:#e85d75"></span><div><strong>Rose Paper</strong><span class="swatch-role">第一纸色：主按钮、最上层的纸片与关键强调。</span></div><code>#e85d75</code><code>--color-rose-paper</code></li>
+          <li><span class="swatch-chip" style="background:#5cb8a5"></span><div><strong>Mint Paper</strong><span class="swatch-role">第二纸色，用于次级区块与「自然」语义。</span></div><code>#5cb8a5</code><code>--color-mint-paper</code></li>
+          <li><span class="swatch-chip" style="background:#f5c040"></span><div><strong>Marigold Paper</strong><span class="swatch-role">高亮与徽标，是四支纸色里最跳的一支。</span></div><code>#f5c040</code><code>--color-marigold-paper</code></li>
+          <li><span class="swatch-chip" style="background:#6b7fb5"></span><div><strong>Indigo Paper</strong><span class="swatch-role">冷侧纸色，用于信息与第三层。</span></div><code>#6b7fb5</code><code>--color-indigo-paper</code></li>
+          <li><span class="swatch-chip" style="background:#2d2d2d"></span><div><strong>Ink</strong><span class="swatch-role">文字与剪纸轮廓。不是纯黑。</span></div><code>#2d2d2d</code><code>--color-ink</code></li>
+        </ul>
+        <p class="style-body-note">纸的影子固定：<code>4px 4px 0 rgba(0,0,0,0.08)</code>、<code>6px 6px 0 rgba(0,0,0,0.10)</code>，按钮 <code>3px 3px 0 rgba(0,0,0,0.10)</code>。绝不用发光或霓虹阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>圆润无衬线 Quicksand。字形不能太尖，纸艺里没有尖锐的笔画。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="paper-specimen-title">Paper Craft</p>
+            <p class="specimen-meta">Quicksand — 圆润无衬线。替代栈：'Trebuchet MS', 'Segoe UI', sans-serif · 500/700 · display 46px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Quicksand</td><td>700</td><td>46px</td><td>1.15</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Quicksand</td><td>700</td><td>34px</td><td>1.25</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Quicksand</td><td>500</td><td>26px</td><td>1.35</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Quicksand</td><td>500</td><td>20px</td><td>1.6</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Quicksand</td><td>500</td><td>16px</td><td>1.7</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Quicksand</td><td>700</td><td>13px</td><td>1.5</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 96px。元素允许 ±1.5 度旋转与 8px 错位。层叠深度最多三层。整页保持纸白底，色块像贴上去的纸片。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 16px · 按钮/输入 12px · 贴纸 999px</td></tr>
+            <tr><td>硬影</td><td>4px 4px 0 黑 8%（层 2 用 6px、层 3 用 8px）</td></tr>
+            <tr><td>旋转</td><td>卡片 +1°，层叠 -1 / 0 / +1.5°</td></tr>
+            <tr><td>层叠</td><td>固定三层，每层偏移 8px</td></tr>
+            <tr><td>剪痕</td><td>只在一边，5–8 个顶点、各偏 2–4px</td></tr>
+            <tr><td>角贴</td><td>32–56px、跨过边缘 8px、硬影 3px 3px 0 黑 10%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Paper Card</h3>
+            <p class="style-body-comp-role">纸片卡片（核心组件）。纸白或一支纸色填充、16px 圆角、无描边、内边距 28px，硬阴影 4px 4px 0 黑 8%。整张卡 rotate(1deg)。hover 时上浮 2px、阴影扩到 6px 且旋转归零。过渡 300ms ease-out。hero 里的就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stacked Sheets</h3>
+            <p class="style-body-comp-role">层叠纸片。三层绝对定位的圆角矩形，每层比上一层偏移 8px 并加深阴影（4px → 6px → 8px），角度各异（-1、0、+1.5 度）。只有最上层承载内容，其余两层填不同纸色。层数固定三层，再多会显得脏——hero 里底下那两张靛蓝与薄荷就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Craft Button</h3>
+            <p class="style-body-comp-role">行动按钮。纸色填充、纸白文字、12px 圆角、无描边、16px/700、padding 12px 28px，硬阴影 3px 3px 0 黑 10%。hover 时阴影扩到 5px 并上浮 1px；按下时阴影归零并下沉 1px。过渡 150ms ease-out。</p>
+            <button type="button" class="paper-btn">贴上去</button>
+          </div>
+          <div class="comp-item">
+            <h3>Cut Edge</h3>
+            <p class="style-body-comp-role">剪边装饰。用 clip-path 的多边形在纸片的一边做出手工剪痕（5 到 8 个顶点，各点偏移 2 到 4px），或用一个半圆的扇贝边重复。它必须只有一边有剪痕——四边都剪会失去「剪」的感觉。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Corner Sticker</h3>
+            <p class="style-body-comp-role">角贴与圆点贴纸。32 到 56px 的圆或半圆，填一支纸色，带 3px 3px 0 黑 10% 的硬阴影，压在纸片角上并跨过边缘 8px。它是最能表现「手工贴上去」的元素，单屏 2 到 4 处——hero 卡左上那颗就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>纸白底，纸色块贴上去</li>
+              <li>4px 固定偏移硬阴影表示离桌面</li>
+              <li>圆角 12 到 16px 配 1 度微旋转</li>
+              <li>层叠最多三层，阴影逐层加深</li>
+              <li>只有一边有剪痕</li>
+              <li>角贴贴纸跨过边缘 8px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用深色或黑色背景</li>
+              <li>不要用发光或霓虹阴影</li>
+              <li>不要用金属或玻璃质感</li>
+              <li>不要四边都做剪痕</li>
+              <li>不要层叠超过三层</li>
+              <li>不要用尖锐字形</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>剪纸插画、分层纸片构图、纸纹理摄影。图像可以是多层纸片拼出的场景，必须有明确的手工剪痕。不使用写实摄影、金属与玻璃质感、发光图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="paper-craft">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的层叠纸片、硬影与剪边纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，4px 固定偏移硬影、层叠最多三层与「只剪一边」必须原样保留；发光阴影或四边剪痕一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

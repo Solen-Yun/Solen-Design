@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outrun 复古未来 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body outrun">
+      <div class="outrun-horizon" aria-hidden="true">
+        <span class="outrun-sun"></span>
+        <span class="outrun-palm outrun-palm--l"></span>
+        <span class="outrun-palm outrun-palm--r"></span>
+        <span class="outrun-gridfloor"></span>
+      </div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 41 · 深色版面</p>
+        <h1>Outrun 复古未来 <span class="style-card-en">OUTRUN</span></h1>
+        <p class="page-lead">洋红与青的落日、椰树剪影、向地平线冲刺的透视网格。</p>
+        <div class="style-card-tags"><span>双色霓虹发光</span><span>网格永不静止</span><span>条纹落日</span><span>椰树剪影</span></div>
+      </header>
+
+      <section class="outrun-hero">
+        <div class="outrun-hero-copy">
+          <p>Outrun 是 80 年代赛车与合成器美学：洋红（#ff006e）与紫（#a020f0）的霓虹、青（#00d4ff）的天空、近黑底、透视网格地面、椰树与跑车剪影。它有两条必须遵守的动效规则——第一，发光必须是双色的（洋红加青），单色发光在它看来是「不够 Outrun」。</p>
+          <p>第二，网格背景绝不能静止，必须用 background-position 的位移制造向地平线冲刺的速度幻觉，缺了它整个风格就失去核心。下面的按钮是真的——悬停它，看双霓虹一起亮。</p>
+        </div>
+        <div class="outrun-demo">
+          <div class="outrun-card-demo">
+            <span class="outrun-chip">MIDNIGHT DRIVE</span>
+            <p class="outrun-demo-title">油门到底。</p>
+            <p class="outrun-demo-body">网格永远在冲向地平线。</p>
+            <button type="button" class="outrun-btn">IGNITION</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff006e"></span><span class="palette-name">Magenta</span><code>#ff006e</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><span class="palette-name">Violet</span><code>#a020f0</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><span class="palette-name">Neon Cyan</span><code>#00d4ff</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b35"></span><span class="palette-name">Sunset Orange</span><code>#ff6b35</code></li>
+          <li><span class="swatch-chip" style="background:#9f9aff"></span><span class="palette-name">Pale Violet</span><code>#9f9aff</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Near Black</span><code>#0a0a0a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>洋红是第一霓虹——主按钮、地平线与关键强调；紫做层叠光晕与天空渐变；青画天空、网格线与数据，与洋红构成色散关系；近黑让霓虹有地方发光；落日橙填渐变中段；淡紫是最亮的一站，做文字反光与最高光。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ff006e"></span><div><strong>Magenta</strong><span class="swatch-role">第一霓虹色：主按钮、地平线与关键强调。</span></div><code>#ff006e</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#a020f0"></span><div><strong>Violet</strong><span class="swatch-role">第二霓虹色，用于层叠光晕与天空渐变。</span></div><code>#a020f0</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#00d4ff"></span><div><strong>Neon Cyan</strong><span class="swatch-role">天空、网格线与数据。与洋红构成色散关系。</span></div><code>#00d4ff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Near Black</strong><span class="swatch-role">页面底与剪影。让霓虹有地方发光。</span></div><code>#0a0a0a</code><code>--color-near-black</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b35"></span><div><strong>Sunset Orange</strong><span class="swatch-role">落日与暖侧高光，用于渐变的中段。</span></div><code>#ff6b35</code><code>--color-sunset-orange</code></li>
+          <li><span class="swatch-chip" style="background:#9f9aff"></span><div><strong>Pale Violet</strong><span class="swatch-role">文字反光与最高光，最亮的一站。</span></div><code>#9f9aff</code><code>--color-pale-violet</code></li>
+        </ul>
+        <p class="style-body-note">双色霓虹是硬规则：<code>0 0 20px #ff006e, 0 0 40px #00d4ff</code>，加强档 <code>0 0 28px #ff006e, 0 0 60px #00d4ff</code>；文字发光 <code>0 0 10px rgba(255,0,110,0.70)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>粗无衬线 Inter：标题 900 字重并有紧字距；小标签全大写加 0.22em 宽字距，是 80 年代的做法。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="outrun-specimen-title">OUTRUN 0123456789</p>
+            <p class="specimen-meta">Inter — 粗无衬线。替代栈：'Arial Black', Helvetica, sans-serif · 700 / 900 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="outrun-specimen-label">HIGHWAY 87 // NIGHT</p>
+            <p class="specimen-meta">全大写 700；标签 14px / 700 / 0.22em；文字白色，标题带洋红文字发光</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>900</td><td>68px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>900</td><td>48px</td><td>1.1</td><td>-0.02em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>34px</td><td>1.2</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>700</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>700</td><td>14px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>14px</td><td>1.4</td><td>0.22em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1240px、容器内边距 24px，区块间距 96px。首屏常为透视网格地面加落日加居中的大标题。允许元素与网格重叠，但文字必须始终在光晕之上保持可读。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片、按钮与输入框 4px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>区块间距</td><td>96px</td></tr>
+            <tr><td>落日条带</td><td>高 160–240px，圆形落日 120px，被 8 条黑线切开</td></tr>
+            <tr><td>透视网格</td><td>perspective(320px) rotateX(62deg)，40px 格、2s linear 循环</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Outrun Button</h3>
+            <p class="style-body-comp-role">行动按钮。洋红填充、白字、4px 圆角、无描边、14px/700 全大写 0.22em、padding 12px 28px，静态带 0 0 12px 洋红。hover 时叠加双霓虹光晕 0 0 20px 洋红 与 0 0 40px 青（Dual Neon Glow），并上浮 2px；按下时缩到 0.97 且光晕收到 8px。过渡 200ms。</p>
+            <button type="button" class="outrun-btn">FULL THROTTLE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Chrome Card</h3>
+            <p class="style-body-comp-role">内容卡。近黑 80% 填充、4px 圆角、1px 洋红 35% 描边、内边距 24px，外发光 0 0 20px 洋红 40%；标题用洋红到淡紫的横向渐变文字（background-clip: text），正文白 75%。hover 时双霓虹光晕启动，过渡 300ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Perspective Grid + Sunset Band</h3>
+            <p class="style-body-comp-role">透视网格地面（签名组件）：transform: perspective(320px) rotateX(62deg) 的平面，铺 40px 间隔的青 20% 网格线；必须用 background-position 的 Y 轴位移让它向观察者冲来（周期 2s、linear、无限循环），完全静止就失去了风格核心；prefers-reduced-motion 时静止。落日条带：高 160 到 240px，从近黑经紫到洋红再到落日橙，中间放一个 120px 的圆形落日并叠 8 条水平黑线切开。本页顶部的地平线即这两个组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Palm Silhouette</h3>
+            <p class="style-body-comp-role">椰树与跑车剪影。纯黑剪影（单色 path），放在地平线两侧，高度 120 到 280px，边缘可以有 1px 的洋红描边作为霓虹轮廓；纯装饰，不承载交互。地平线两侧的两棵椰树就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>洋红、紫、青三色霓虹</li>
+              <li>发光必须双色（洋红加青）</li>
+              <li>透视网格必须持续移动</li>
+              <li>粗无衬线加宽字距标签</li>
+              <li>近黑底，不用亮白</li>
+              <li>落日条带带水平切纹</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮白色背景</li>
+              <li>不要做现代简约风</li>
+              <li>不要省略霓虹发光</li>
+              <li>不要用柔和低饱和配色</li>
+              <li>不要只用单色发光</li>
+              <li>不要让网格背景完全静止</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>80 年代合成器视觉：落日、椰树、跑车、城市天际线、网格地面。允许把照片处理成双色调剪影。不使用明亮白底、现代摄影与柔和渐变。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="outrun">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的双色霓虹、冲刺网格与条纹落日。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双色发光与「网格永不静止」必须原样保留；网格静止即失去核心。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

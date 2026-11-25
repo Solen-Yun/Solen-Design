@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>几何大胆风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body gbold">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 20 · 浅色版面</p>
+        <h1>几何大胆风 <span class="style-card-en">GEOMETRIC BOLD</span></h1>
+        <p class="page-lead">巨大的圆、方块与三角在版面上相撞，字体大得像海报。</p>
+        <div class="style-card-tags"><span>160px 海报字</span><span>形状必须重叠</span><span>纯色三原色</span><span>贴齐隐形网格</span></div>
+      </header>
+
+      <section class="gbold-hero">
+        <div class="gbold-shape gbold-circle" aria-hidden="true"></div>
+        <div class="gbold-shape gbold-square" aria-hidden="true"></div>
+        <div class="gbold-shape gbold-tri" aria-hidden="true"></div>
+        <div class="gbold-hero-copy">
+          <p>几何大胆风把版式当成海报：字大到 160px、色块纯到红蓝黄、形状只有圆、方、三角三种，而且必须互相重叠。所有元素绝对定位，允许旋转 6 到 12 度制造动势。</p>
+          <p>圆角只有两个合法值——完全直角或完全圆，没有中间态。它的难度在秩序：形状再多也必须落在一条隐形网格上，色块面积必须有明显的主次，最大的一块不超过屏幕 40%。hover 时形状再多转 3 度——只加动势，不加缩放。</p>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><span class="palette-name">Red</span><code>#ff0000</code></li>
+          <li><span class="swatch-chip" style="background:#0000ff"></span><span class="palette-name">Blue</span><code>#0000ff</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><span class="palette-name">Yellow</span><code>#ffff00</code></li>
+          <li><span class="swatch-chip" style="background:#6c3b00"></span><span class="palette-name">Ochre</span><code>#6c3b00</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑白成对，不做灰度中间层。红是主强调与焦点形状，全屏面积不超过 25%；蓝做第二色块与红形成对位，面积小于红；黄只给标签与小型形状，面积最小；赭是唯一的暗暖色，专门压在黄色上写文字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">主文字、最大色块与形状描边。海报需要最极端的对比。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">画布与反白文字。与黑成对，不做灰度中间层。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><div><strong>Red</strong><span class="swatch-role">主强调与焦点形状。全屏面积不超过 25%。</span></div><code>#ff0000</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#0000ff"></span><div><strong>Blue</strong><span class="swatch-role">第二色块，用于与红形成对位，面积小于红。</span></div><code>#0000ff</code><code>--color-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffff00"></span><div><strong>Yellow</strong><span class="swatch-role">高亮点缀，用于标签与小型形状，面积最小。</span></div><code>#ffff00</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#6c3b00"></span><div><strong>Ochre</strong><span class="swatch-role">唯一的暗暖色，用于需要压在黄色上的文字。</span></div><code>#6c3b00</code><code>--color-ochre</code></li>
+        </ul>
+        <p class="style-body-note">没有阴影——形状靠重叠堆叠：<code>elevation: none</code>。文字永远在最上层，与背景保持至少 7:1 对比。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，只用 700 与 900 两档。海报字的行高压到 0.88，让字块本身成为形状；display 字号 160px、字距 -0.045em，行宽由内容决定而非容器。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="gbold-specimen-title">巨大如海报 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：Helvetica Neue, Arial, sans-serif · 700 / 900 · 行高 0.88（display）、字距 -0.045em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="gbold-specimen-label">正文也用粗体。0123456789</p>
+            <p class="specimen-meta">正文 18px / 700 / 行高 1.5；大写标签 14px / 700 / 0.1em；文字一律纯黑</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>900</td><td>160px</td><td>0.88</td><td>-0.045em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>900</td><td>80px</td><td>0.92</td><td>-0.035em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>40px</td><td>0.98</td><td>-0.02em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>24px</td><td>1.1</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>700</td><td>18px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>14px</td><td>1.3</td><td>0.1em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1440px、12 栏、24px 间距。区块间距 192px，形状允许溢出容器边缘。首屏常见为巨型标题压在两个重叠形状上。整页滚动平滑，不做视差。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+          <li><span class="spacing-bar" style="width:192px"></span><code>192</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>只有 0 或 999px（形状全圆），没有中间态</td></tr>
+            <tr><td>网格</td><td>12 栏、24px 间距，所有落点贴齐栏线或栏中点</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>192px——海报需要呼吸</td></tr>
+            <tr><td>最大色块</td><td>不超过屏幕 40%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Shape Block</h3>
+            <p class="style-body-comp-role">几何形状与色块。只用圆、正方、等腰三角三种；填纯色（黑、红、蓝、黄之一），无描边无阴影，允许与其它形状重叠 20% 到 40%，可旋转 6 到 12 度。同一屏最多四种形状，其中一种面积必须明显更大。首屏那组重叠形状即此组件——hover 时多转 3 度。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Poster Headline</h3>
+            <p class="style-body-comp-role">主标题字块。160px、900 字重、行高 0.88、字距 -0.045em，行宽由内容决定；允许三行堆叠并与形状重叠，但文字必须始终在最上层且与背景保持至少 7:1 对比。可整体旋转 -2 到 2 度。本页大标题即按此设定。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Block Button</h3>
+            <p class="style-body-comp-role">行动按钮。纯黑或纯红填充、白字、直角、无阴影；14px/700、0.1em 字距、padding 16px 32px、2px 描边（与填充同色）。hover 时填充与文字互换；按下时整体向右下偏移 4px 并保持无阴影。过渡 120ms。</p>
+            <button type="button" class="gbold-btn">SEE THE POSTER</button>
+          </div>
+          <div class="comp-item">
+            <h3>Grid Scaffold</h3>
+            <p class="style-body-comp-role">隐形网格。12 栏、24px 间距、内容上限 1440px；所有形状与文字块必须贴齐栏线或其中点，重叠允许但落点必须在网格上。允许一条 1px 的辅助线贯穿整页，但只在设计稿中显示。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只用圆、方、三角三种形状</li>
+              <li>圆角只有 0 或全圆两个值</li>
+              <li>标题 160px、行高 0.88</li>
+              <li>形状允许重叠 20% 到 40%</li>
+              <li>所有元素贴齐 12 栏网格</li>
+              <li>最大色块不超过屏幕 40%</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用中间圆角</li>
+              <li>不要用渐变与柔和阴影</li>
+              <li>不要把文字放在形状下面</li>
+              <li>不要用超过四种形状</li>
+              <li>不要让三个色块面积相等</li>
+              <li>不要用写实插画或摄影做主视觉</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几何图形本身即是图像，不用摄影。允许将照片处理成纯色双色调后作为形状填充。不使用渐变、柔和阴影与写实插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="geometric-bold">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的三形纪律、面积层级与网格落点。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，三形三原色、0.88 行高与「重叠但贴齐网格」必须原样保留；文字永远压在形状上面。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

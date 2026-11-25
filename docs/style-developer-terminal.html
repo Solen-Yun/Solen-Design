@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>终端风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body term">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 120 · 深色版面</p>
+        <h1>终端风 <span class="style-card-en">TERMINAL</span></h1>
+        <p class="page-lead">整个网站就是一次终端会话：命令、输出、注释、状态栏。</p>
+        <div class="style-card-tags"><span>全站等宽</span><span>命令 + 输出成对</span><span>注释 # 开头</span><span>steps(1) 光标</span></div>
+      </header>
+
+      <section class="term-hero">
+        <div class="term-panel">
+          <p class="term-path">~/projects/solen</p>
+          <p class="term-cmd"><span class="term-prompt">$</span> build --styles</p>
+          <p class="term-out">generating 133 style documents…</p>
+          <p class="term-out">wrote ai/components/*.json</p>
+          <p class="term-note"># 提示词逐字保留，索引自动生成</p>
+          <p class="term-cmd"><span class="term-prompt">$</span> verify --links<span class="term-cursor" aria-hidden="true"></span></p>
+        </div>
+        <div class="term-statusbar">
+          <span class="term-mono">SOLEN · MAIN</span>
+          <span class="term-mono">CPU 12% · 14:02</span>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#4af626"></span><span class="palette-name">Phosphor Green</span><code>#4af626</code></li>
+          <li><span class="swatch-chip" style="background:#0a0e12"></span><span class="palette-name">Terminal Black</span><code>#0a0e12</code></li>
+          <li><span class="swatch-chip" style="background:#8be9fd"></span><span class="palette-name">Cyan</span><code>#8be9fd</code></li>
+          <li><span class="swatch-chip" style="background:#ff79c6"></span><span class="palette-name">Magenta</span><code>#ff79c6</code></li>
+          <li><span class="swatch-chip" style="background:#ffb86c"></span><span class="palette-name">Amber</span><code>#ffb86c</code></li>
+          <li><span class="swatch-chip" style="background:#6272a4"></span><span class="palette-name">Comment Grey</span><code>#6272a4</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>荧光绿是主文字与光标，整套风格唯一的识别色，像老 CRT 的磷光；极深的蓝黑让绿色看起来在发光而不是在反光；青是第一强调，管路径、链接与关键词；品红是第二强调，管函数名与命令；琥珀是第三强调，管警告与参数，终端里最多用到这一档；蓝灰管注释、元数据与禁用状态，永远比正文暗一档。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0e12"></span><div><strong>Terminal Black</strong><span class="swatch-role">页面底。极深的蓝黑，让绿色看起来在发光而不是在反光。</span></div><code>#0a0e12</code><code>--color-terminal-black</code></li>
+          <li><span class="swatch-chip" style="background:#4af626"></span><div><strong>Phosphor Green</strong><span class="swatch-role">主文字与光标。整套风格唯一的识别色，像老 CRT 的磷光。</span></div><code>#4af626</code><code>--color-phosphor</code></li>
+          <li><span class="swatch-chip" style="background:#8be9fd"></span><div><strong>Cyan</strong><span class="swatch-role">第一强调：路径、链接与关键词。语法高亮里的字符串色。</span></div><code>#8be9fd</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff79c6"></span><div><strong>Magenta</strong><span class="swatch-role">第二强调：函数名与命令。</span></div><code>#ff79c6</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#ffb86c"></span><div><strong>Amber</strong><span class="swatch-role">第三强调：警告与参数。终端里最多用到这一档。</span></div><code>#ffb86c</code><code>--color-amber</code></li>
+          <li><span class="swatch-chip" style="background:#6272a4"></span><div><strong>Comment Grey</strong><span class="swatch-role">注释、元数据与禁用状态。永远比正文暗一档。</span></div><code>#6272a4</code><code>--color-comment-grey</code></li>
+        </ul>
+        <p class="style-body-note">终端是平的：<code>none — the terminal is flat</code>；唯一的光效是焦点环 <code>0 0 0 1px #4af626</code>。绝不用渐变与玻璃态。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 JetBrains Mono，无一例外。所有层级靠字号与颜色区分，不靠字族。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="term-specimen-title">$ ./run --verbose</p>
+            <p class="specimen-meta">JetBrains Mono — 全站等宽。替代栈：ui-monospace, 'SF Mono', Menlo, monospace · 400/700 · 标签 0.08em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading</td><td>JetBrains Mono</td><td>700</td><td>28px</td><td>1.25</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>JetBrains Mono</td><td>700</td><td>20px</td><td>1.3</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>JetBrains Mono</td><td>400</td><td>16px</td><td>1.55</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>JetBrains Mono</td><td>400</td><td>14px</td><td>1.6</td><td><code>--text-body</code></tr>
+            <tr><td>body-sm</td><td>JetBrains Mono</td><td>400</td><td>13px</td><td>1.55</td><td><code>--text-body-sm</code></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>12px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1100px、容器内边距 16px，区块间距 32px。整页像一次滚动的会话记录：从 $ 命令开始，向下是输出、注释、下一组命令。行宽控制在 100 字符以内，保持终端阅读习惯。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 2px</td></tr>
+            <tr><td>面板</td><td>#0f141a 底、1px #1f2937 描边、内边距 16px</td></tr>
+            <tr><td>命令块</td><td>13px 等宽、行高 1.6、输出缩进 16px、组间 16px</td></tr>
+            <tr><td>光标</td><td>8×16px 荧光绿、1 秒 steps(1) 硬切、一屏一个</td></tr>
+            <tr><td>状态栏</td><td>固定底部、高 24px、荧光绿 15% 底</td></tr>
+            <tr><td>列表</td><td>固定列宽、列间 8px、行高 24px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Command Block</h3>
+            <p class="style-body-comp-role">命令与输出的成对结构（核心组件）。命令行以 $ 开头，$ 与命令之间 8px，命令用白色或荧光绿；输出行缩进 16px、颜色稍暗。命令与输出之间无空行，两组之间空 16px。整块用 13px 等宽、行高 1.6，无需边框与背景——hero 里那块就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Terminal Panel</h3>
+            <p class="style-body-comp-role">面板与分区块。#0f141a 填充、2px 圆角、1px #1f2937 描边、内边距 16px，无阴影。面板顶部可放一行 12px 蓝灰的路径标头（如 ~/projects）。面板之间 16px。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Cursor Block</h3>
+            <p class="style-body-comp-role">闪烁光标。8px × 16px 的荧光绿实体块，跟在标题末尾或输入位的文字之后，每 1 秒以 steps(1) 硬切显示与隐藏（不做淡入淡出）。同一屏最多出现一个。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Status Bar</h3>
+            <p class="style-body-comp-role">tmux 式状态栏。固定在视口底部、高 24px、荧光绿 15% 底、顶部 1px #1f2937 描边。左侧显示会话名与分支（12px 全大写 0.08em），右侧显示时间与 CPU 占位。整条不加圆角。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Aligned List</h3>
+            <p class="style-body-comp-role">ls 式对齐列表与表格。列表用等宽对齐成三到四列（权限/大小/时间/名称），列间用 8px 稳定间隔，不靠 tab 而是靠固定列宽。表头用蓝灰全大写 12px，下方一条 1px #1f2937 分隔线。行高 24px。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>全站等宽字体，无例外</li>
+              <li>近黑底配荧光绿文字</li>
+              <li>内容是命令加输出的成对结构</li>
+              <li>注释以 # 开头并用蓝灰</li>
+              <li>列表按列宽对齐</li>
+              <li>光标用 steps(1) 硬切闪烁</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用无衬线或衬线字体</li>
+              <li>不要用白色或浅色背景</li>
+              <li>不要用渐变与玻璃态</li>
+              <li>不要用摄影与插画</li>
+              <li>不要超过四种强调色</li>
+              <li>不要用厚阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>没有图像。只有字符、ASCII 图形与块字符进度条。允许把进度条做成 ███░░ 式的字符画。不使用图标（会破坏纯字符假设），需要指示时用 → 与 » 这类字符。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="developer-terminal">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的命令块、光标硬切与状态栏。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，全站等宽、命令加输出成对与 steps(1) 光标必须原样保留；浅底或衬线字体一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全屏滚动布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body fullscroll">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 04 · 分镜版面</p>
+        <h1>全屏滚动布局 <span class="style-card-en">SNAP SCROLL</span></h1>
+        <p class="page-lead">一屏一个场景，滚动一下换一幕：页面即分镜。</p>
+        <div class="style-card-tags"><span>一屏一幕</span><span>强制吸附</span><span>错落进场</span><span>场景进度</span><span>黑白交替</span></div>
+      </header>
+
+      <section class="scene-intro">
+        <p>全屏滚动布局把每个 section 做成 100vh 的独立场景，用 scroll-snap 强制吸附（scroll-snap-type: y mandatory），再配 scroll-behavior: smooth。它的成败全在细节：内容绝不能溢出单屏、必须给滚动提示、动画必须轻、锁定滚动的时间不能太长。</p>
+        <p>最容易被忽略的一条是过渡延迟必须错落——如果所有元素同时进场，景深消失，页面就会像幻灯片而不是场景。下面是一个能真的滚起来的三幕舞台，注意每个场景里的元素是依次进场的。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>容器 scroll-snap-type: y mandatory，场景高度 100%（真机上为 100dvh，避免手机地址栏跳动），相邻场景黑白交替形成剪辑感。右侧圆点即场景进度，可点击跳转；底部滚动提示常驻，最后一个场景自动换成「回到顶部」。在舞台里滚一滚。</p>
+        <div class="snap-stage">
+          <section class="scene scene--ink">
+            <div class="scene-inner">
+              <span class="scene-label reveal">Scene 01 · 开场</span>
+              <p class="scene-title reveal">一屏一个场景</p>
+              <p class="scene-body reveal">每个 section 是一幕独立场景，scroll-snap 强制吸附，滚动一下就换一幕，页面自己会讲故事。</p>
+              <button type="button" class="scene-cta reveal">开始滚动</button>
+            </div>
+          </section>
+          <section class="scene scene--paper">
+            <div class="scene-inner">
+              <span class="scene-label reveal">Scene 02 · 数据</span>
+              <p class="scene-title reveal">错落制造景深</p>
+              <p class="scene-body reveal">进场延迟按 80ms 步进、上限 320ms：标签先落，标题跟上，正文和按钮收尾。同时进场是硬禁令。</p>
+              <p class="scene-stat reveal"><strong>80ms</strong>相邻元素的延迟步进</p>
+            </div>
+          </section>
+          <section class="scene scene--turn">
+            <div class="scene-inner">
+              <span class="scene-label reveal">Scene 03 · 转折</span>
+              <p class="scene-title reveal">用颜色打破节奏</p>
+              <p class="scene-body reveal">黑白交替是最常用的节奏工具；到了情绪转折的一幕，用品红把节奏剪断——每屏最多一个行动按钮。</p>
+              <button type="button" class="scene-cta scene-cta--turn reveal">回到叙事主线</button>
+            </div>
+          </section>
+          <div class="scene-dots" role="group" aria-label="场景进度"></div>
+          <button type="button" class="scene-cue">
+            <svg class="scene-cue-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v14m0 0 5-5m-5 5-5-5"/></svg>
+            <span class="scene-cue-text">继续滚动</span>
+          </button>
+        </div>
+        <p class="scene-stage-note">舞台为固定高度的演示视口；真机上场景高 100dvh、容器全屏，规则不变。进度点与提示文字由 IntersectionObserver 驱动，滚出视口的场景会在滚回来时重播进场。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Curtain Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Stage White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#6366f1"></span><span class="palette-name">Indigo</span><code>#6366f1</code></li>
+          <li><span class="swatch-chip" style="background:#ec4899"></span><span class="palette-name">Magenta</span><code>#ec4899</code></li>
+          <li><span class="swatch-chip" style="background:#14b8a6"></span><span class="palette-name">Teal</span><code>#14b8a6</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><span class="palette-name">Amber</span><code>#f59e0b</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>幕布黑是场景默认底，无纹理无渐变，让每屏的内容自己成立；舞台白是反色场景，黑白交替是最常用的节奏工具。靛蓝跨所有场景承担主行动与进度指示；品红只在情绪转折的一幕出现；青绿是数据与功能场景的「理性」一侧；琥珀出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Curtain Black</strong><span class="swatch-role">场景默认底。无纹理无渐变，让每屏的内容自己成立。</span></div><code>#000000</code><code>--color-curtain-black</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Stage White</strong><span class="swatch-role">反色场景底。黑白场景交替是这套布局最常用的节奏工具。</span></div><code>#ffffff</code><code>--color-stage-white</code></li>
+          <li><span class="swatch-chip" style="background:#6366f1"></span><div><strong>Indigo</strong><span class="swatch-role">主行动与进度指示，跨所有场景保持一致。</span></div><code>#6366f1</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#ec4899"></span><div><strong>Magenta</strong><span class="swatch-role">情绪转折场景的强调色，用于打破黑白节奏。</span></div><code>#ec4899</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#14b8a6"></span><div><strong>Teal</strong><span class="swatch-role">数据与功能场景，作为「理性」的一侧。</span></div><code>#14b8a6</code><code>--color-teal</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><div><strong>Amber</strong><span class="swatch-role">提示与行动号召，出现频率最低。</span></div><code>#f59e0b</code><code>--color-amber</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Curtain Black <code>#000000</code>，1 Stage White <code>#ffffff</code>，2 Scene Image（整幅照片，允许 20% 暗角）。阴影两级：卡片 <code>0 16px 40px rgba(0,0,0,0.30)</code>，按钮 <code>0 8px 20px rgba(99,102,241,0.30)</code>；灰字统一 <code>#a1a1aa</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。场景标题 44 到 64px 配紧字距，小标签 12px 全大写 0.12em；正文行宽不超过 40 字符。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="scene-specimen-title">全屏滚动，Snap Scroll</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 400–700 · 字距 -0.03em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>64px</td><td>1.05</td><td>-0.03em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>700</td><td>44px</td><td>1.1</td><td>-0.025em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>28px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>18px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy（这套布局唯一一次放宽密度）。上限 1120px，每个 section 100dvh 且 scroll-snap-align: start，容器 scroll-snap-type: y mandatory；内容垂直居中、单列、行宽不超过 40 字符。场景之间不加留白与分隔线——吸附本身就是分隔。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>场景高度</td><td>100vh（移动端 100dvh）</td></tr>
+            <tr><td>卡片圆角</td><td>20px</td></tr>
+            <tr><td>按钮圆角</td><td>999px 全圆角</td></tr>
+            <tr><td>输入框圆角</td><td>12px</td></tr>
+            <tr><td>场景内边距</td><td>48px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>页面网格上限</td><td>1120px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Snap Section</h3>
+            <p class="style-body-comp-role">全屏场景容器。100vh（移动端 100dvh）、scroll-snap-align: start、内容垂直居中、最大宽度 1120px、内边距 48px；内容必须单屏看完，不允许内部再滚动。相邻场景底色交替形成剪辑感。布局实演的三幕都是它。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Staggered Reveal</h3>
+            <p class="style-body-comp-role">场景内元素进场。场景进入视口时，元素以 80ms 间隔上浮淡入（translateY 24px → 0、opacity 0 → 1、600ms ease-out），延迟上限 320ms。滚出视口再滚回来会重播。实演里每幕的标签、标题、正文、按钮就是按这个步进进场的。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scroll Cue</h3>
+            <p class="style-body-comp-role">滚动提示，必须存在。固定在视口底部居中、距底 32px：24px 细箭头加 12px 全大写 0.12em 提示文字，2 秒往复淡入淡出；最后一个场景自动换成「回到顶部」。舞台底部那个就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scene Progress</h3>
+            <p class="style-body-comp-role">场景进度指示。固定在右侧中部，竖排 8px 圆点、间距 12px；当前场景的圆点拉伸为 24px 短竖条并填充靛蓝，其余白 30%。点击跳转对应场景，smooth 但不做长时锁定。舞台右缘那排点即此。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scene CTA</h3>
+            <p class="style-body-comp-role">场景内行动按钮。靛蓝填充、白字、999px 全圆角、16px/500、padding 14px 32px，阴影 0 8px 20px 靛蓝 30%。hover 提亮并上浮 2px，按下缩放 0.98；每个场景最多一个。转折场景允许换成强调色的变体。</p>
+            <p class="scene-comp-row">
+              <button type="button" class="scene-cta">主行动</button>
+              <button type="button" class="scene-cta scene-cta--turn">转折场景</button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用 scroll-snap-type: y mandatory 吸附</li>
+              <li>一屏内容必须装得下</li>
+              <li>必须有滚动提示</li>
+              <li>进场延迟按 80ms 错落</li>
+              <li>移动端用 100dvh</li>
+              <li>场景底色交替形成剪辑感</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让内容溢出单屏</li>
+              <li>不要省略滚动提示</li>
+              <li>不要用过于复杂的动画</li>
+              <li>不要长时间锁定滚动</li>
+              <li>不要忽略移动端体验</li>
+              <li>不要让所有元素同一延迟进场</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>每个图像场景用一张全幅照片或渲染图，必须能承载白色或黑色文字（自带明暗区）。允许 20% 的暗角遮罩。不用装饰插画与图标墙。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="full-scroll">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的吸附规则、错落进场参数、进度与提示组件。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，mandatory 吸附、80ms 错落进场与常驻滚动提示必须原样保留；移动端一律 100dvh；每个场景最多一个行动按钮。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script type="module" src="./style-scene.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

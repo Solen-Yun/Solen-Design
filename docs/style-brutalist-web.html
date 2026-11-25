@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网页粗野主义 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body bweb">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 85 · 浅色版面</p>
+        <h1>网页粗野主义 <span class="style-card-en">BRUTALIST WEB</span></h1>
+        <p class="page-lead">回到 1993 年的 HTML：系统字体、蓝下划线链接、纯白底、零装饰。</p>
+        <div class="style-card-tags"><span>纯白底</span><span>蓝下划线链接</span><span>1px 边框分区</span><span>零圆角零阴影</span></div>
+      </header>
+
+      <section class="bweb-hero">
+        <div class="bweb-hero-copy">
+          <p>网页粗野主义不是「难看」，而是拒绝被设计：纯白底（#ffffff）、系统字体栈（无衬线正文配 Times New Roman 标题）、蓝色 #0000ff 下划线链接作为唯一交互语言、1px 实线边框做结构、零圆角、零阴影、零渐变与背景图、间距压到最小。它的价值判断是内容优先于形式——任何为了好看而增加的东西都被视为负担。</p>
+          <p>这也是它与新野兽派的区别：新野兽派靠粗边与硬阴影造风格，网页粗野主义连风格都不要。</p>
+        </div>
+        <div class="bweb-demo">
+          <div class="bweb-rulebox">
+            <p class="bweb-h">index.html</p>
+            <p>这是一段纯文本。它的密度接近 <a href="#0" onclick="return false">一个排版良好的 txt 文件</a>。没有阴影，没有圆角，没有渐变。</p>
+            <table class="bweb-table" role="presentation">
+              <tr><td>1993</td><td>HTML</td></tr>
+              <tr><td>2013</td><td>flat</td></tr>
+            </table>
+            <button type="button" class="bweb-btn">提交</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#0000ff"></span><span class="palette-name">Link Blue</span><code>#0000ff</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><span class="palette-name">Red</span><code>#ff0000</code></li>
+          <li><span class="swatch-chip" style="background:#008000"></span><span class="palette-name">Green</span><code>#008000</code></li>
+          <li><span class="swatch-chip" style="background:#d60099"></span><span class="palette-name">Magenta</span><code>#d60099</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>纯黑做正文与标题，不做灰度修饰；所有区块的底都是纯白，绝不用米色或灰白；链接蓝是唯一的主交互色，未访问用它，访问后转 #551a8b；红管警告与错误，来自浏览器默认语义；绿管成功与「OK」，同样来自浏览器默认；品红是已访问链接的变体与特殊标记，出现频率极低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">所有区块的底。纯白，绝不用米色或灰白。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">正文与标题。纯黑，不做灰度修饰。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#0000ff"></span><div><strong>Link Blue</strong><span class="swatch-role">唯一的主交互色。未访问链接用它，访问后转 #551a8b。</span></div><code>#0000ff</code><code>--color-link-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><div><strong>Red</strong><span class="swatch-role">警告与错误，浏览器默认语义。</span></div><code>#ff0000</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#008000"></span><div><strong>Green</strong><span class="swatch-role">成功与「OK」，同样来自浏览器默认。</span></div><code>#008000</code><code>--color-green</code></li>
+          <li><span class="swatch-chip" style="background:#d60099"></span><div><strong>Magenta</strong><span class="swatch-role">已访问链接的变体与特殊标记，出现频率极低。</span></div><code>#d60099</code><code>--color-magenta</code></li>
+        </ul>
+        <p class="style-body-note">层次为零：<code>none — shadows are forbidden</code>。没有第二层表面——分区靠 1px 边框。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用衬线 Times New Roman（浏览器默认），不加字距、不做字重处理，因为 1993 年没有这些；正文用系统无衬线栈或等宽，默认、无修饰、随系统变化。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="bweb-specimen-title">Brutalist Web 0123</p>
+            <p class="specimen-meta">Times New Roman — 标题衬线。替代栈：'Songti SC', Georgia, serif · 400/700 · 40px/700 display</p>
+          </div>
+          <div class="type-specimen">
+            <p class="bweb-specimen-body">正文用系统字体栈，默认无修饰。</p>
+            <p class="specimen-meta">system-ui — 正文无衬线。替代栈：'Segoe UI', Arial, Helvetica, sans-serif · 400/700 · 行高 1.5</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Times New Roman</td><td>700</td><td>40px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Times New Roman</td><td>700</td><td>32px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Times New Roman</td><td>700</td><td>24px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>system-ui</td><td>400</td><td>18px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>system-ui</td><td>400</td><td>16px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>system-ui</td><td>400</td><td>14px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 720px、容器内边距 16px，区块间距 24px。单栏、紧排、不用网格系统。元素之间用 1px 边框分隔而不是留白。整页读起来应该像一个排版良好的纯文本文件。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>分区</td><td>1px 实线黑边（或 50% 灰）、内边距 12px、可多层嵌套</td></tr>
+            <tr><td>链接</td><td>#0000ff 下划线、无过渡、hover 无变化、访问后 #551a8b</td></tr>
+            <tr><td>表格</td><td>1px 实线 collapse、单元格 padding 4px 8px</td></tr>
+            <tr><td>正文列</td><td>≤720px、行高 1.5、段距 12px、左对齐</td></tr>
+            <tr><td>层次</td><td>零阴影、零渐变、零背景图</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Bare Link</h3>
+            <p class="style-body-comp-role">链接（唯一交互语言）。内联文本、色 #0000ff、带下划线（text-decoration: underline）、无背景无边框无过渡。hover 时保持同样样式（浏览器默认行为即可），不加上划线、不改透明、不做位移。已访问转 #551a8b。</p>
+            <p><a href="#0" onclick="return false">这只是一个链接。</a></p>
+          </div>
+          <div class="comp-item">
+            <h3>Bare Button</h3>
+            <p class="style-body-comp-role">提交按钮。浏览器默认按钮外观（或 1px 实线黑边加白底）、零圆角、14px 系统字体、padding 4px 12px。不加悬停动画、不加阴影。它的「朴素」是刻意的。</p>
+            <button type="button" class="bweb-btn">确定</button>
+          </div>
+          <div class="comp-item">
+            <h3>Rule Block</h3>
+            <p class="style-body-comp-role">1px 边框分区。用 1px 实线黑边（#000000 或 50% 灰）画出区块边界，内边距 12px。整页可以有多层嵌套边框，像早期 HTML 的 table 布局。绝不用阴影或底色分区。hero 里的框就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Default List</h3>
+            <p class="style-body-comp-role">列表与表格。使用浏览器默认的 ul / ol 缩进与项目符号，表格用 1px 实线边框（border-collapse: collapse）、单元格 padding 4px 8px、无斑马纹无圆角。</p>
+            <ul class="bweb-list">
+              <li>内容优先于形式</li>
+              <li>链接是唯一交互</li>
+              <li>边框承担结构</li>
+            </ul>
+          </div>
+          <div class="comp-item">
+            <h3>Dense Text Column</h3>
+            <p class="style-body-comp-role">正文栏。最大宽度 720px、行高 1.5（不放大）、段间距 12px、段首不缩进。左对齐，不使用首字下沉或任何排版装饰。密度接近纯文本文件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>纯白底，不用米色或灰白</li>
+              <li>系统字体栈，不做字体设计</li>
+              <li>蓝下划线链接作为主交互</li>
+              <li>1px 实线边框分区</li>
+              <li>零圆角、零阴影、零渐变</li>
+              <li>间距压到最小</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何圆角</li>
+              <li>不要用投影或文字阴影</li>
+              <li>不要用渐变或背景图</li>
+              <li>不要给链接加过渡动画</li>
+              <li>不要用装饰性字体</li>
+              <li>不要为了好看而加元素</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几乎不用图像。允许未优化的原生图片（不做圆角、不加遮罩、不加滤镜），alt 文字必须完整。不使用装饰插画、全幅背景图与任何经过艺术处理的图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="brutalist-web">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的系统字体、蓝链接与 1px 边框结构。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，纯白底、蓝下划线链接与零阴影必须原样保留；圆角或过渡动画一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+# 圆形揭示暗色模式 — CircularThemeSwitch
+
+制作「圆形揭示暗色模式」：一张 340×340 的仪表盘页面被画成亮、暗两张完全同构的静态页面，暗色那层用 clip-path 圆裁开叠在上面。点按页头右侧的太阳图标按钮后，以按钮中心为圆心、暗色页面以 .7s cubic-bezier(.65,0,.35,1) 从半径 0 扩散到 520px 铺满整卡；可见层的图标是月亮（相对太阳旋 -90°）；再点一次从当前圆心反向收回。页面内容：品牌 Pulse 与菜单 Dashboard / Reports、标题 "October summary"、三格 KPI（Visits 18.4k / Sign-ups 1,206 / Conversion 6.5%）与一条 Weekly visits 面积曲线图。任一时刻只有当前可见层的按钮可 Tab、可聚焦。
+
+## 布局与材质
+
+- 卡片 340×340px、圆角 30px、溢出裁切；外圈 0 0 0 1px 线色描边加 0 30px 60px -36px 强阴影。卡本身不设底色，底色由两层页面提供。
+- 两层页面均绝对填充、内边距 14px 16px，各自的文字/底色走同一组局部变量。亮层：--bg #F7F7FA、--fg #14151A、--card #FFFFFF、--mut #7A7D8C、--ln #E7E8EE、--ac #4F46E5。暗层：--bg #0D0E14、--fg #ECEDF5、--card #171925、--mut #8C90A6、--ln #262938、--ac #A5B4FC。这套配色是写死常量，不随系统深浅色变化。
+- 暗层初始 clip-path: circle(0px at var(--cx, 300px) var(--cy, 30px))，即圆心默认 (300px, 30px)（页头右端按钮位置），aria-hidden；激活态半径 520px、接管指针事件；clip-path 过渡 .7s cubic-bezier(.65,0,.35,1)。DOM 顺序暗层在亮层之后，天然盖在其上；两层内容逐字相同，仅变量配色不同。
+- 导航行：高 32px、列间距 12px、垂直居中、11px/字重 750、mut 色。品牌 Pulse 13px/字重 900、fg 色、右margin auto；行首一枚 14×14 圆点、纯 --ac 实底；菜单依次 Dashboard、Reports；行尾切换按钮 32×32、圆角 10px、card 底、内嵌 0 0 0 1px ln 描边、内容居中，16×16 图标：亮层为太阳（viewBox 0 0 16 16，中心 cx 8 cy 8 r3 实心圆，加 8 根 1.5px 圆头芒线——上下左右各长 1.4、四条斜向各长 1），暗层为月牙填充 path（M13.5 9.8A5.6 5.6 0 0 1 6.2 2.5a5.6 5.6 0 1 0 7.3 7.3z）；暗层内图标恒 rotate(-90deg)，transform 过渡 .6s cubic-bezier(.3,1.4,.5,1)。
+- 标题 "October summary"：边距 16px 0 10px、20px、字重 900、字距 -0.035em。
+- KPI 三列网格：列距 7px；每格内边距 9px 10px、圆角 12px、card 底、内嵌 1px ln 描边；标签 9.5px/字重 800、mut 色；数值 15px/字重 900、tabular-nums。三格数据：Visits 18.4k、Sign-ups 1,206、Conversion 6.5%。
+- 图表卡：上边距 8px、内边距 10px 12px、圆角 14px、card 底、内嵌 1px ln 描边；标签 "Weekly visits" 9.5px/字重 800、mut 色；内联 SVG viewBox 0 0 280 112、宽 100%、高 112px、preserveAspectRatio none。曲线 path：M0 84 C30 70 50 92 80 66 S130 40 160 54 S220 20 280 26，2.5px --ac 描边、无端点帽；面积 path 在其后接 L280 112 L0 112 Z 闭合，填充 --ac 的垂直渐变（x1/y1 = 0、x2/y2 = 1，stop offset 0 为 --ac 35% 透明度、offset 1 为 0）。渐变 id 每实例加 5 位随机后缀（亮暗层各一份），避免同页多实例重名。
+- 字体随页面继承无衬线。
+
+## 数据
+
+- KPI 三格：Visits 18.4k、Sign-ups 1,206、Conversion 6.5%。
+- 导航与标题：Pulse、Dashboard、Reports、October summary、Weekly visits。
+- 写死的无障碍文案：切换按钮 aria-label "Switch to dark mode" / "Switch to light mode"，随状态互换；aria-pressed 同步。
+- 曲线为写死的 SVG path（见布局），无运行时数据、无图标之外的内联素材。
+
+## 操作和动效
+
+- 点击任一当前可见层的切换按钮：取该按钮中心换算成场景坐标（以 340 除以场景实际渲染宽得到缩放比），写入 --cx / --cy 作为扩散圆心；随后暗显状态取反并同步——根节点 is-on 切换、两层 aria-hidden 互换（隐藏层不响应指针）、两枚按钮的 tabIndex 只保留可见层那枚为 0、按钮 aria-label 在 "Switch to dark mode" / "Switch to light mode" 间切换、aria-pressed 同步；最后把焦点移到新激活层的按钮（preventScroll）。
+- 扩散/收回完全由 clip-path 过渡承担：.7s cubic-bezier(.65,0,.35,1)，半径 0 ↔ 520px（520px 保证从任意圆心覆盖 340×340 对角）。
+- 图标旋转感来自暗层图标恒定 -90°、过渡 .6s cubic-bezier(.3,1.4,.5,1)：层级切换时新旧图标交替显隐，呈现旋转换面。
+- 键盘与无障碍：切换按钮为原生 button，focus-visible 2px --ac 外圈偏移 2px；隐藏层整体 aria-hidden、不可聚焦；两层页面本身是纯展示容器，除两枚切换按钮外无其他交互元素、无 JS 计时器。
+- prefers-reduced-motion / options.reducedMotion：clip-path 过渡关闭，明暗瞬时切换；无 JS 计时器参与动画，状态与焦点行为不变；场景根打上 data-reduced-motion。surface 会随容器宽度把整景等比缩小（缩放不超过 1）。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形与运动参数均以上述文字为准；界面用 DOM 与 CSS，太阳/月亮与曲线用内联 SVG，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 CircularThemeSwitch。从零创建四个文件：CircularThemeSwitch.tsx、CircularThemeSwitchEngine.js、motion-runtime.ts、CircularThemeSwitchEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下明暗切换与焦点管理仍完整可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；以按钮为圆心的扩散与收回正确、图标旋转换面；同页多实例渐变 id 不冲突；焦点始终在可见层按钮上；浅色深色页面两套配色正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { CircularThemeSwitch } from "./CircularThemeSwitch";
+
+export default function App() {
+  return <CircularThemeSwitch />;
+}
+```

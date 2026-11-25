@@ -1,0 +1,57 @@
+/* Semantic tokens — the ones you're meant to use.
+   Light & dark come from light-dark(): they follow `color-scheme`,
+   which defaults to the user's system setting and can be overridden
+   on :root or any subtree. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --sd-canvas: light-dark(var(--sd-gray-50), var(--sd-gray-950));
+  --sd-surface: light-dark(#ffffff, var(--sd-gray-900));
+  --sd-surface-raised: light-dark(#ffffff, var(--sd-gray-800));
+  --sd-fill: light-dark(var(--sd-gray-100), var(--sd-gray-800)); /* subtle filled background: code, chips, hovers */
+
+  /* Text */
+  --sd-ink: light-dark(var(--sd-gray-900), var(--sd-gray-50));
+  --sd-ink-muted: light-dark(var(--sd-gray-500), var(--sd-gray-400));
+
+  /* Borders */
+  --sd-border: light-dark(var(--sd-gray-200), var(--sd-gray-800));
+  --sd-border-strong: light-dark(var(--sd-gray-300), var(--sd-gray-700));
+
+  /* Accent (steel blue) */
+  --sd-accent: light-dark(var(--sd-steel-500), var(--sd-steel-400));
+  --sd-accent-strong: light-dark(var(--sd-steel-700), var(--sd-steel-300)); /* readable accent for text/icons on canvas */
+  --sd-accent-soft: light-dark(var(--sd-steel-100), var(--sd-steel-950));  /* tinted background */
+  --sd-on-accent: var(--sd-gray-950);                                      /* text/icon on accent fills */
+
+  /* Status — solid fill, readable text, tinted background */
+  --sd-success:      light-dark(var(--sd-green-600), var(--sd-green-400));
+  --sd-success-text: light-dark(var(--sd-green-700), var(--sd-green-300));
+  --sd-success-soft: light-dark(var(--sd-green-100), var(--sd-green-950));
+
+  --sd-warning:      light-dark(var(--sd-orange-500), var(--sd-orange-400));
+  --sd-warning-text: light-dark(var(--sd-orange-700), var(--sd-orange-300));
+  --sd-warning-soft: light-dark(var(--sd-orange-100), var(--sd-orange-950));
+
+  --sd-danger:       light-dark(var(--sd-red-600), var(--sd-red-400));
+  --sd-danger-text:  light-dark(var(--sd-red-700), var(--sd-red-300));
+  --sd-danger-soft:  light-dark(var(--sd-red-100), var(--sd-red-950));
+
+  --sd-info:         light-dark(var(--sd-sky-500), var(--sd-sky-400));
+  --sd-info-text:    light-dark(var(--sd-sky-700), var(--sd-sky-300));
+  --sd-info-soft:    light-dark(var(--sd-sky-100), var(--sd-sky-950));
+}
+
+/* Optional explicit theme hook. Set `data-theme="dark"` (or "light") on any
+   element to pin that subtree's theme — the CSS tokens follow it, and so do
+   the React components. Comes after :root so it wins at equal specificity. */
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}

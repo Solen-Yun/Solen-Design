@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>垂直时间线布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body vtimeline">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 06 · 编年版面</p>
+        <h1>垂直时间线布局 <span class="style-card-en">VERTICAL TIMELINE</span></h1>
+        <p class="page-lead">一条贯穿的线，把时间钉在上面：左右交替，节奏由节点控制。</p>
+        <div class="style-card-tags"><span>连接线不断</span><span>节点等大</span><span>左右交替</span><span>节点卡片联动</span></div>
+      </header>
+
+      <section class="vtimeline-intro">
+        <p>垂直时间线是把「先后」变成「上下」的布局：一条 2px 的连接线居中贯穿，节点按时间顺序排列，桌面上左右交替，移动端收成单侧。它有三条技术纪律——连接线不能断、节点尺寸必须一致、移动端必须放弃双侧交替。</p>
+        <p>视觉上连接线要足够弱（板岩 25%），让节点和卡片承担注意力；节点 hover 时圆环放大并填充主色，卡片同时抬升，两者必须联动而不是只有卡片动。下面是一条按规格跑的时间线——把指针放上去试试联动。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>上限 960px。桌面为中央线加左右交替（各 44% 宽、间隙 12%），节点在每张卡片靠近中线的一侧；移动端收成单侧左对齐，线移到最左 16px 处。节点之间至少 48px，最多不超过 96px。用按钮切换视口宽度，看双侧怎么收成单侧。</p>
+        <div class="vtimeline-stage-bar" role="group" aria-label="预览视口宽度">
+          <button type="button" data-stage="desktop" aria-pressed="true">桌面 · 左右交替</button>
+          <button type="button" data-stage="mobile" aria-pressed="false">手机 · 单侧</button>
+        </div>
+        <div class="vtimeline-stage" data-stage-view="desktop">
+          <div class="vtl" role="presentation">
+            <div class="vtl-row">
+              <div class="vtl-card">
+                <span class="vtl-time">2024 · Q1</span>
+                <p class="vtl-title">立项与调研</p>
+                <p class="vtl-body">定下三个候选方向，访谈 12 位用户，产出第一份需求清单。</p>
+              </div>
+              <span class="vtl-node done" aria-hidden="true"></span>
+              <div class="vtl-spacer" aria-hidden="true"></div>
+            </div>
+            <div class="vtl-row">
+              <div class="vtl-spacer" aria-hidden="true"></div>
+              <span class="vtl-node done" aria-hidden="true"></span>
+              <div class="vtl-card">
+                <span class="vtl-time">2024 · Q3</span>
+                <p class="vtl-title">原型与内测</p>
+                <p class="vtl-body">首个可点击原型跑通全流程，两轮内测收集了 47 条反馈。</p>
+              </div>
+            </div>
+            <div class="vtl-row">
+              <div class="vtl-card">
+                <span class="vtl-time">2025 · Q2</span>
+                <p class="vtl-title">公开发布</p>
+                <p class="vtl-body">文档站与示例页同步上线，首周拿到 300 个真实使用报告。</p>
+              </div>
+              <span class="vtl-node current" aria-hidden="true"></span>
+              <div class="vtl-spacer" aria-hidden="true"></div>
+            </div>
+            <div class="vtl-row">
+              <div class="vtl-spacer" aria-hidden="true"></div>
+              <span class="vtl-node pending" aria-hidden="true"></span>
+              <div class="vtl-card">
+                <span class="vtl-time">2025 · Q4</span>
+                <p class="vtl-title">下一个版本</p>
+                <p class="vtl-body">计划把设计令牌开放成可配置层，日程待评审确认。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1e293b"></span><span class="palette-name">Slate</span><code>#1e293b</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><span class="palette-name">Haze</span><code>#f8fafc</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><span class="palette-name">Primary Blue</span><code>#3b82f6</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><span class="palette-name">Done Green</span><code>#10b981</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><span class="palette-name">Pending Amber</span><code>#f59e0b</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><span class="palette-name">Alert Red</span><code>#ef4444</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>板岩承担标题、主文字与那根 25% 的连接线；雾灰是页面底，让白卡片浮起来。主蓝表示「你在这里」，完成绿给已经过去的节点，待办保持白底或琥珀点缀，警报红出现即表示时间线有断点。连接线永远足够弱，注意力属于节点与卡片。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1e293b"></span><div><strong>Slate</strong><span class="swatch-role">标题与主文字。连接线也用它，但只有 25% 不透明度。</span></div><code>#1e293b</code><code>--color-slate</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><div><strong>Haze</strong><span class="swatch-role">页面底与交替区块。让白卡片浮起来。</span></div><code>#f8fafc</code><code>--color-haze</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><div><strong>Primary Blue</strong><span class="swatch-role">当前节点、主按钮与链接。时间线里表示「你在这里」。</span></div><code>#3b82f6</code><code>--color-primary-blue</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><div><strong>Done Green</strong><span class="swatch-role">已经过去的节点与已完成里程碑。</span></div><code>#10b981</code><code>--color-done-green</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><div><strong>Pending Amber</strong><span class="swatch-role">即将到来与需要注意的节点。</span></div><code>#f59e0b</code><code>--color-pending-amber</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><div><strong>Alert Red</strong><span class="swatch-role">延期与失败的节点，出现即表示时间线有断点。</span></div><code>#ef4444</code><code>--color-alert-red</code></li>
+        </ul>
+        <p class="style-body-note">阴影三档：卡片 <code>0 2px 8px rgba(15,23,42,0.06)</code>、hover <code>0 8px 24px rgba(15,23,42,0.10)</code>、当前节点 <code>0 0 0 4px rgba(59,130,246,0.20)</code>。连接线是 2px 的板岩 25%，从第一节点画到最后一个节点，不许断裂。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。时间与序号用 12px 全大写加 0.06em 字距，标题 22px/600，正文 15px / 行高 1.5——时间线的内容密度不高，字要读得从容。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="vtl-specimen-title">2024 → 2025，编年到此</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.01em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="vtl-specimen-label">2024 · Q1 — 时间标签与序号</p>
+            <p class="specimen-meta">时间标签 12px / 600 / 0.06em 全大写；正文 13–15px / 行高 1.55；文字一律板岩 #1e293b</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>28px</td><td>1.2</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>22px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>600</td><td>18px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>500</td><td>15px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>13px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>12px</td><td>1.4</td><td>0.06em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 960px，区块间距 48px，卡片内边距 24px；桌面双侧各占 44% 宽、中间间隙 12%；移动端单侧左对齐，线在最左 16px。节点间距至少 48px、最多 96px。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>12px（节点 999px 全圆）</td></tr>
+            <tr><td>节点直径</td><td>20px，描边 2px，全部一致</td></tr>
+            <tr><td>卡片内边距</td><td>24px，与节点间隔 24px</td></tr>
+            <tr><td>双侧宽度</td><td>各 44%，中间间隙 12%</td></tr>
+            <tr><td>节点间距</td><td>48px 到 96px</td></tr>
+            <tr><td>移动端线位</td><td>最左 16px 处</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Timeline Node</h3>
+            <p class="style-body-comp-role">时间线上的节点圆环。20px 圆、2px 板岩 30% 描边、白底，垂直对齐连接线。当前节点填主蓝并加 4px 的主蓝 20% 外环；过去节点填完成绿；待办保持白底。hover 时圆环放大到 1.25 并填充主色，与卡片联动（卡片同时上浮 2px）。过渡 150ms。</p>
+            <p class="vtl-comp-note">到布局实演里悬停任意一行，节点与卡片一起动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Timeline Card</h3>
+            <p class="style-body-comp-role">时间节点卡片。白底、12px 圆角、1px #e2e8f0 描边、内边距 24px，阴影 0 2px 8px；卡片占单侧栏 100% 宽，与节点之间留 24px。上方 12px 全大写时间标签（灰色），下方 18px/600 标题与 13px 正文。hover 时上浮 2px、阴影扩到 24px。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Connector Line</h3>
+            <p class="style-body-comp-role">中央连接线。2px 宽、板岩 25%、居中贯穿整个时间线，用伪元素从第一节点画到最后一个节点，不允许断裂；若两个节点间距超过 96px，说明内容过长，应拆分而不是拉长线。布局实演里那条线就是它。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Time Filter</h3>
+            <p class="style-body-comp-role">时间筛选器。横向一排胶囊按钮，高 32px、padding 0 14px、12px/600；默认白底 1px 描边，选中态主蓝填白字。用于按年或阶段筛选节点，切换时节点列表做 200ms 的错峰淡入。</p>
+            <p class="vtl-filter-demo" role="presentation">
+              <span class="vtl-pill on">全部</span><span class="vtl-pill">2024</span><span class="vtl-pill">2025</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>连接线不许断裂或错位</li>
+              <li>节点尺寸全部一致</li>
+              <li>移动端收成单侧</li>
+              <li>每个节点必须有时间或序号</li>
+              <li>节点与卡片交互联动</li>
+              <li>节点间距 48 到 96px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让连接线断开</li>
+              <li>不要用不一致的节点尺寸</li>
+              <li>不要在移动端保留双侧交替</li>
+              <li>不要省略时间标识</li>
+              <li>不要让内容过长拉长连接线</li>
+              <li>不要只让卡片动而节点不动</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以图标与头像为主，允许每个节点配一张 16:10 的小图。不使用全幅背景图，时间线需要干净的纵向空间。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="timeline-vertical">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的连接线纪律、节点状态与响应式收边。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，连接线不断、节点等大、移动端单侧与「节点卡片联动」必须原样保留。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

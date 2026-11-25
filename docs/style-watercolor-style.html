@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水彩画风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body wcolor">
+      <div class="wcolor-wash wcolor-wash--a" aria-hidden="true"></div>
+      <div class="wcolor-wash wcolor-wash--b" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 33 · 浅色版面</p>
+        <h1>水彩画风 <span class="style-card-en">WATERCOLOR STYLE</span></h1>
+        <p class="page-lead">纸上的三层晕染：颜色从不描边，只在边缘化开。</p>
+        <div class="style-card-tags"><span>没有硬边</span><span>晕染圆斑</span><span>衬线斜体标题</span><span>纸白底</span></div>
+      </header>
+
+      <section class="wcolor-hero">
+        <div class="wcolor-hero-copy">
+          <p>水彩画风的关键是「没有硬边」。所有色块都是半径极大的模糊圆，彼此叠压形成晕染；卡片的渐变从对角淡入淡出，边缘再叠一层 1px 的极淡描边暗示纸张。底色是暖纸白（#faf8f5），主色是偏灰的蓝（#4a6fa5）。</p>
+          <p>标题用衬线斜体，正文行高拉到 1.7。它不使用投影来分层，而是靠「颜色在纸上扩散的面积」——hover 时卡片内部的色斑放大并加深，像水在湿纸上继续晕开。右边这张卡是真的，移上去看水继续化开。</p>
+        </div>
+        <div class="wcolor-demo">
+          <div class="wash-card-demo">
+            <span class="wcolor-blob" aria-hidden="true"></span>
+            <p class="wcolor-demo-title">颜色在纸上化开。</p>
+            <p class="wcolor-demo-body">三层晕染叠出中间色，从不描边。</p>
+            <button type="button" class="wcolor-btn">继续上色</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#4a6fa5"></span><span class="palette-name">Watercolor Blue</span><code>#4a6fa5</code></li>
+          <li><span class="swatch-chip" style="background:#faf8f5"></span><span class="palette-name">Paper White</span><code>#faf8f5</code></li>
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><span class="palette-name">Peach</span><code>#e8a87c</code></li>
+          <li><span class="swatch-chip" style="background:#85cdca"></span><span class="palette-name">Water Teal</span><code>#85cdca</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><span class="palette-name">Rose</span><code>#c38d94</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><span class="palette-name">Ochre</span><code>#d4a373</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>偏灰的蓝像颜料被水稀释过一次，承担主行动、标题与文字；暖纸白模拟水彩纸的底色；蜜桃是暖色晕染的第一层，出现在标题区与卡片一角；水青是冷色晕染，与蜜桃叠压成中间色；玫瑰透明度最低，只用来加深中心；赭石多用于纸边的细线。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#4a6fa5"></span><div><strong>Watercolor Blue</strong><span class="swatch-role">主行动、标题与文字。偏灰的蓝，像颜料被水稀释过一次。</span></div><code>#4a6fa5</code><code>--color-watercolor-blue</code></li>
+          <li><span class="swatch-chip" style="background:#faf8f5"></span><div><strong>Paper White</strong><span class="swatch-role">页面画布。暖白，用来模拟水彩纸的底色。</span></div><code>#faf8f5</code><code>--color-paper-white</code></li>
+          <li><span class="swatch-chip" style="background:#e8a87c"></span><div><strong>Peach</strong><span class="swatch-role">暖色晕染的第一层，出现在标题区与卡片一角。</span></div><code>#e8a87c</code><code>--color-peach</code></li>
+          <li><span class="swatch-chip" style="background:#85cdca"></span><div><strong>Water Teal</strong><span class="swatch-role">冷色晕染，与蜜桃叠压成中间色。</span></div><code>#85cdca</code><code>--color-water-teal</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><div><strong>Rose</strong><span class="swatch-role">第三层晕染，透明度最低，只用来加深中心。</span></div><code>#c38d94</code><code>--color-rose</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><div><strong>Ochre</strong><span class="swatch-role">纸边与分隔，多用于 10% 到 20% 透明度的细线。</span></div><code>#d4a373</code><code>--color-ochre</code></li>
+        </ul>
+        <p class="style-body-note">阴影只有柔光两档：卡片 <code>0 10px 30px rgba(74,111,165,0.10)</code>、hover <code>0 12px 40px rgba(74,111,165,0.18)</code>——分层主要靠晕染面积。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题、引文与导航字标用 Cormorant Garamond，多用斜体——衬线斜体是水彩最自然的文字表情；正文与说明用 Inter 保持中性，避免与衬线标题抢戏。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="wcolor-specimen-title">纸上三层晕染</p>
+            <p class="specimen-meta">Cormorant Garamond — 标题与引文。替代栈：Georgia, 'Songti SC', serif · 400 / 500 · 多用斜体</p>
+          </div>
+          <div class="type-specimen">
+            <p class="wcolor-specimen-label">正文与说明文字。0123456789</p>
+            <p class="specimen-meta">Inter — 正文与说明。替代栈：system-ui, -apple-system, sans-serif · 300 / 400 · 行高 1.7</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cormorant Garamond</td><td>400</td><td>60px</td><td>1.2</td><td>—</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Cormorant Garamond</td><td>400</td><td>44px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cormorant Garamond</td><td>500</td><td>26px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>300</td><td>17px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>400</td><td>13px</td><td>1.5</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1080px、容器内边距 32px，区块间距 128px。版面留白极多，文字块宽度控制在 34em 以内。允许标题跨栏并与晕染圆叠压。图片可用 24px 圆角或不规则裁切。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+          <li><span class="spacing-bar" style="width:192px"></span><code>192</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px、按钮与晕染 999px、输入框 16px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>128px</td></tr>
+            <tr><td>晕染圆</td><td>直径 256–384px、模糊 64px，整页不超过三块</td></tr>
+            <tr><td>文字块宽度</td><td>34em 以内</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Wash Button</h3>
+            <p class="style-body-comp-role">主行动按钮。蓝到水青的横向渐变（80% 不透明）、白字、999px 全圆角、无描边；字级 17px、衬线、padding 16px 32px，阴影 0 10px 30px 蓝 20%。hover 时渐变升到 90%、阴影扩到 40px、上浮 2px；按下缩放 0.98 并让阴影收回到 10px。过渡 500ms ease-in-out。</p>
+            <button type="button" class="wcolor-btn">WASH ON</button>
+          </div>
+          <div class="comp-item">
+            <h3>Wash Card</h3>
+            <p class="style-body-comp-role">作品卡与内容卡。蜜桃 20% 到白到水青 20% 的三段对角渐变、24px 圆角、1px 蓝 10% 描边、内边距 32px、10px 模糊，内部右上角放一块 96px 的水青 30% 模糊圆。hover 时两端渐变升到 30%、圆斑放大 1.5 倍并加深到 40%、阴影扩到 40px。过渡 500ms，圆斑 700ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Wash Input</h3>
+            <p class="style-body-comp-role">表单与写作输入。白 60% 填充、1px 蓝 20% 描边、16px 圆角、padding 16px 20px、15px 衬线；占位符用蓝 40%。聚焦时描边升到 40%、填充升到 80%、加一层 0 10px 30px 蓝 10% 的柔光。过渡 300ms。</p>
+            <label class="wcolor-field"><span>写一句</span><input type="text" value="水把颜色带走"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Color Wash</h3>
+            <p class="style-body-comp-role">背景晕染层。二到三块直径 256px 到 384px 的圆，填充蜜桃、水青或玫瑰的 20% 到 30%，模糊 64px，随意分布在页面两角与中心，彼此可叠压；不使用动画；整页不超过三块。本页两角的两块就是它。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有色块都是大半径模糊圆，没有硬边</li>
+              <li>标题用衬线斜体</li>
+              <li>hover 让色斑放大与加深</li>
+              <li>纸白底，不用冷白</li>
+              <li>每页晕染圆不超过三块</li>
+              <li>动效 500ms，色斑 700ms</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用硬边描边或锐利几何</li>
+              <li>不要用高饱和原色</li>
+              <li>不要用投影作为主要分层手段</li>
+              <li>不要在正文用衬线加粗</li>
+              <li>不要让晕染遮住文字</li>
+              <li>不要用三块以上的晕染叠在一起</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>水彩原作、晕染质感、纸质纹理。允许在照片上叠一层纸纹并降低饱和度。不使用锐利摄影、硬边图形、3D 渲染与霓虹色。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="watercolor-style">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的晕染公式、纸面色板与慢动效。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，「没有硬边」、三块晕染上限与衬线斜体标题必须原样保留；投影不是它的分层手段。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

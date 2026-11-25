@@ -1,0 +1,72 @@
+# 弹跳地图图钉 — MapPinDrop
+
+一张 340×350 的地图选点卡：整张卡片就是一张底图——米黄色的地块、绿色的公园、蓝色的河流和白色的道路——顶部悬着「Tap the map to pick a spot」的胶囊提示，底部压着一张地址卡片。点地图任意空白处，一枚红色图钉从上方 220px 处落下、砸进地面、回弹一次，地面阴影随高度由小变大再收定，落点周围荡开一圈红色涟漪；底部卡片随即上滑，露出地址与「Choose this spot」按钮。点图钉可拔掉重选。
+
+## 布局与材质
+
+- 场景卡 340×350px，圆角 28px，overflow:hidden。底色 var(--ux-surface)（浅色 #FFFFFF / 深色 #13141C）；外圈 0 0 0 1px var(--ux-line) 描边，加 0 30px 60px -36px var(--ux-shadow-strong) 阴影。
+- 底图是一张铺满卡片的原生 button（type=button、aria-label="Map, tap to drop a pin"、border:0、padding:0、cursor:crosshair），背景 color-mix(in srgb,#E9E5DA 70%,var(--ux-surface))，内含一张 viewBox="0 0 340 350"、preserveAspectRatio="none" 的内联 SVG（aria-hidden）：
+  - 街区 5 块，填充 color-mix(in srgb,#D9D3C4 70%,var(--ux-surface-3))：rect(14,20,96,70,r8)、rect(130,20,80,120,r8)、rect(230,30,100,60,r8)、rect(14,110,96,90,r8)、rect(130,160,80,60,r8)。
+  - 公园 1 块，填充 color-mix(in srgb,#9BD48D 60%,var(--ux-surface))：rect(230,110,96,90,r12)。
+  - 河流 path「M-10 300 C80 250 160 330 360 270」，无填充，描边 color-mix(in srgb,#7CC4F5 75%,var(--ux-surface))，线宽 22px，圆头。
+  - 主干道 4 条，描边 var(--ux-surface)、线宽 9px、圆头：「M0 100 H340」「M120 0 V350」「M220 0 V260」「M0 210 C120 200 220 230 340 214」。
+  - 支路 3 条，描边同上、线宽 5px：「M60 100 V210」「M270 90 V110」「M170 140 V160」。
+- 提示胶囊 `.u344-tip`：绝对定位 left:50%、top:14px、translateX(-50%)，内边距 7px 12px，圆角 999px，背景 var(--ux-surface)，阴影 0 6px 16px -8px var(--ux-shadow-strong)，12px/字重 700、色 var(--ux-ink-2)，white-space:nowrap、pointer-events:none，opacity 过渡 0.3s；根节点进入 .has 态后淡出到 0。
+- 涟漪 `.u344-rip`：绝对定位 60×24px、margin:-12px 0 0 -30px、圆角 50%、2px 描边 var(--ux-danger)（#D93A55 / #FF7D8C），默认 opacity:0；触发时加 .go 跑 0.8s 的 var(--ux-ease)=cubic-bezier(.22,1,.36,1) 动画：0% 为 opacity .9、scale .2，100% 为 opacity 0、scale 1.6。
+- 地面阴影 `.u344-sh`：绝对定位 22×8px、margin:-4px 0 0 -11px、圆角 50%、背景 rgba(0,0,0,.35)、filter:blur(1.5px)，默认 hidden。
+- 图钉 `.u344-pin`：原生 button，绝对定位 36×48px、margin:-46px 0 0 -18px（钉尖对准落点），border:0、background:none、cursor:pointer、z-index:2，默认 hidden；内含 viewBox="0 0 36 48" 的 SVG，主体 path「M18 2C9.2 2 3 8.6 3 17c0 11 15 29 15 29s15-18 15-29C33 8.6 26.8 2 18 2z」填 #F03E3E，内圈 circle cx=18 cy=17 r=6 填 #fff，SVG 带 drop-shadow(0 3px 3px rgba(0,0,0,.25))；aria-label="Remove the pin"。
+- 地址卡片 `.u344-card`：绝对定位 left:12px、right:12px、bottom:12px，flex 居中、gap 10px，内边距 12px 12px 12px 14px，圆角 18px，背景 var(--ux-surface)，阴影 0 0 0 1px var(--ux-line) 加 0 16px 30px -14px var(--ux-shadow-strong)，z-index:3，role="status"；初始 transform:translateY(120%)，过渡 0.55s var(--ux-spring)=cubic-bezier(.34,1.56,.64,1)，.has 态下 transform:none。
+  - 标题 b：块级、14px/字重 800、单行省略。
+  - 副题 span：12px/字重 650、色 var(--ux-ink-3)。
+  - 按钮 `.u344-ok`：高 36px、内边距 0 12px、圆角 11px、背景 var(--ux-ink)、色 var(--ux-page)、12.5px/字重 750；确认后加 .done，背景改为 var(--ux-mint)（#119C72 / #7EE8C0）、文字色 var(--ux-accent-ink)。
+- 场景令牌用 CSS light-dark() 双值（浅色在前）：--ux-page #FFFFFF/#0B0C12；--ux-surface #FFFFFF/#13141C；--ux-surface-2 #F5F3EF/#1A1B25；--ux-surface-3 #EAE7E1/#252632；--ux-ink #16151B/#F4F0E8；--ux-ink-2 #57535F/rgba(244,240,232,.68)；--ux-ink-3 #8E8A97/rgba(244,240,232,.42)；--ux-line rgba(22,21,27,.09)/rgba(255,255,255,.08)；--ux-line-2 rgba(22,21,27,.17)/rgba(255,255,255,.16)；--ux-accent #6A57F2/#B7A4FF；--ux-accent-2 #2F8FE0/#7DB4FF；--ux-accent-soft rgba(106,87,242,.12)/rgba(183,164,255,.15)；--ux-accent-ink #FFFFFF/#0B0C12；--ux-mint #119C72/#7EE8C0；--ux-warn #D6731E/#FFB26B；--ux-danger #D93A55/#FF7D8C；--ux-glass rgba(255,255,255,.58)/rgba(255,255,255,.07)；--ux-glass-line rgba(255,255,255,.85)/rgba(255,255,255,.18)；--ux-shadow rgba(40,30,80,.14)/rgba(0,0,0,.45)；--ux-shadow-strong rgba(40,30,80,.3)/rgba(0,0,0,.72)；--ux-grad linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)/linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)；--ux-ease cubic-bezier(.22,1,.36,1)；--ux-spring cubic-bezier(.34,1.56,.64,1)。
+- 本组件不声明 font-family，文字沿用宿主页面字体；深浅两套色由 light-dark() 依 color-scheme 解析，不额外使用 prefers-color-scheme 媒体查询。
+- 响应式：场景固定 340×350 逻辑尺寸；容器更窄时整景按比例缩放（缩放系数 = min(1, 容器宽/340)），不重排、不裁切。options.height 改的是场景外框高度，卡片本身仍按 340×350 绘制并在框内居中。
+
+## 数据
+
+- 无外部数据源，地址写死在引擎里，共 4 组，按落点位置选取：索引 = (x>170?1:0) + (y>160?2:0)。
+  1. 41 Yeonmujang-gil, Seongsu — Café · 6 min walk
+  2. 12-4 Euljiro 3-ga — Printing alley · 11 min walk
+  3. 98 Hannam-daero — Bus stop · 3 min walk
+  4. 7 Poeun-ro, Mangwon — Han River park gate · 9 min walk
+- 提示文案「Tap the map to pick a spot」与按钮文案「Choose this spot」写死在模板里；按钮确认后改为「Set as the meeting spot」。
+- 落点坐标来自点击事件，x 夹在 20–320px、y 夹在 56–260px，并取整；键盘触发的点击（detail 为 0）固定落在 (170,150)。
+
+## 操作和动效
+
+- 点地图落钉：把图钉、阴影、涟漪三者一起定位到点击点（图钉、阴影、涟漪共享同一坐标基准），图钉与阴影解除 hidden，写入地址文案，按钮文字复位为「Choose this spot」并去掉 .done，根节点加 .has——提示胶囊淡出、底部卡片以 0.55s 弹簧曲线上滑到位。
+- 落钉动画：图钉跑一条 760ms、cubic-bezier(.55,0,1,.45) 的关键帧序列——起点 translateY(-220px) 且 opacity 0；10% 处 translateY(-200px) 且 opacity 1；55% 处 translateY(0) scale(1.15,.82)（ease-out）；75% 处 translateY(-22px) scale(.95,1.05)（ease-in）；90% 处 translateY(0) scale(1.05,.95)；末帧 none。
+- 阴影动画：同样 760ms，scale(.2)/opacity .2 起，55% 处 scale(1.2)/opacity 1，75% 处 scale(.7)/opacity .6，末帧 none、opacity 1——阴影随图钉高度由小放大再收定。
+- 涟漪：落钉后 400ms 触发（先移除 .go、强制回流、再加 .go），0.8s 内从 scale .2 扩到 scale 1.6 并淡出。
+- 点图钉拔除：根节点去掉 .has，卡片先滑回画面外；图钉跑一条 520ms、cubic-bezier(.4,0,.8,.4) 的序列——起点 none，20% 处 translateY(8px) scale(1.1,.85)，末帧 translateY(-260px) rotate(25deg) 且 opacity 0；阴影 400ms 内 opacity 1→0、scale 降到 .2；图钉动画结束后图钉与阴影一起 hidden。
+- 确认落点：点「Choose this spot」后按钮文字改为「Set as the meeting spot」并加 .done（配色切成薄荷绿）。
+- prefers-reduced-motion：不播落钉、拔钉与涟漪动画，图钉直接就位、拔除时立即隐藏；地址卡片仍会上滑、按钮仍会变色。options.reducedMotion 在挂载时读取一次并覆盖系统偏好；减少动态开启时，宿主层把场景内的 CSS 动画与过渡时长归零。
+- 键盘与无障碍：底图是原生 button，回车或空格可触发一次落钉（落在 (170,150)）；图钉是原生 button，回车或空格拔除；确认按钮为原生 button；地址卡片 role="status"，内容变化会被读屏播报；涟漪与阴影 aria-hidden。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 350 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；场景用 DOM 与 CSS 绘制，地图与图钉用内联 SVG，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 MapPinDrop。从零创建四个文件：MapPinDrop.tsx、MapPinDropEngine.js、motion-runtime.ts、MapPinDropEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的落点、地址与确认状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；落钉位置、阴影缩放与涟漪时序正确；拔钉与卡片上滑/收起正确；减少动态时直接就位；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { MapPinDrop } from "./MapPinDrop";
+
+export default function App() {
+  return <MapPinDrop />;
+}
+```

@@ -1,0 +1,68 @@
+# 乱码解码标题 — TextScrambleDecode
+
+制作「乱码解码标题」场景组件：一张 340×296 的标题卡，铺着极淡的扫描线纹理。顶部眉标是一枚薄荷绿状态点加等宽字体的 `DECODE`，右侧一个状态徽标写着 `Decoded`。中间是 30px 的大标题：每个字母槽里先塞满随机符号，从左到右逐位落定成真正的字符，落定瞬间字符闪成 accent 色再淡回墨色。底部两枚控件组：左边三枚等宽序号键 `01` `02` `03` 换句子，右边 `Slow` `Normal` `Fast` 三档速度决定下一次解码的快慢。
+
+## 布局与材质
+
+- 场景 340×296px，圆角 28px，overflow 裁切，竖向 flex 布局，内边距 22px 20px 18px，底色取表面色，盒子阴影为 `0 0 0 1px var(--ux-line)` 加 `0 30px 60px -36px var(--ux-shadow-strong)`。
+- 场景令牌写在根层，浅色/深色两套由 `light-dark()` 切换：`--ux-surface` #FFFFFF / #13141C，`--ux-surface-2` #F5F3EF / #1A1B25，`--ux-surface-3` #EAE7E1 / #252632，`--ux-ink` #16151B / #F4F0E8，`--ux-ink-2` #57535F / rgba(244,240,232,.68)，`--ux-ink-3` #8E8A97 / rgba(244,240,232,.42)，`--ux-line` rgba(22,21,27,.09) / rgba(255,255,255,.08)，`--ux-line-2` rgba(22,21,27,.17) / rgba(255,255,255,.16)，`--ux-accent` #6A57F2 / #B7A4FF，`--ux-accent-2` #2F8FE0 / #7DB4FF，`--ux-accent-soft` rgba(106,87,242,.12) / rgba(183,164,255,.15)，`--ux-accent-ink` #FFFFFF / #0B0C12，`--ux-mint` #119C72 / #7EE8C0，`--ux-warn` #D6731E / #FFB26B，`--ux-danger` #D93A55 / #FF7D8C，`--ux-glass` rgba(255,255,255,.58) / rgba(255,255,255,.07)，`--ux-glass-line` rgba(255,255,255,.85) / rgba(255,255,255,.18)，`--ux-shadow` rgba(40,30,80,.14) / rgba(0,0,0,.45)，`--ux-shadow-strong` rgba(40,30,80,.3) / rgba(0,0,0,.72)，`--ux-grad` 为 120° 渐变（浅色 #7B61FF → #3D8BFF 55% → #1FB89A；深色 #B7A4FF → #7DB4FF 55% → #A5F2D3）；另有两个自定义缓动 `--ux-ease: cubic-bezier(.22,1,.36,1)` 与 `--ux-spring: cubic-bezier(.34,1.56,.64,1)`。
+- 扫描线纹理：根层伪元素 `::before` 铺满整个场景，`pointer-events: none`，底纹为 `repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--ux-ink) 3.5%, transparent) 3px 4px)`——即每 4px 一条 1px 的极淡横线。
+- 眉标 `.u245-k`：flex 居中对齐、间距 8px、字体 `600 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace`、字距 .12em、颜色 `--ux-ink-3`；文字为 `DECODE`。行首圆点 `i` 为 7×7px 圆形、底色 `--ux-mint`、外圈 `0 0 0 3px color-mix(in srgb, var(--ux-mint) 22%, transparent)`，过渡 background-color .3s 与 box-shadow .3s；圆点还有一层 `::after`（inset -1px、1.5px solid var(--ux-accent) 的圆环、初始 opacity 0）。场景进入运行态（根节点带 `.is-run`）时圆点底色换成 `--ux-accent`、外圈换成 accent 18%，圆环播放 `u245-ping 1s cubic-bezier(.2,.6,.4,1) infinite`（0% scale 1 / opacity .75 → 100% scale 2.6 / opacity 0）。眉标右端的 `b` 状态徽标 `margin-left: auto`、字重 600、颜色 `--ux-ink-2`，带 `role="status"`。
+- 大标题 `.u245-h`：距上 18px、`min-height: 112px`、30px、行高 1.22、字重 820、字距 -0.045em、颜色 `--ux-ink`、`cursor: default`；标题本身不指定字体族，随宿主继承。
+- 标题内部结构：整段按空格拆成单词，每个单词是一个 `white-space: nowrap` 的 `span.u245-w`（`aria-hidden="true"`），单词之间是真实的空格文本节点。每个字符是一个 `span.u245-c`（position relative、inline-block），内含两个叠放元素：`<b>` 是最终字符（字重继承、颜色过渡 color .6s var(--ux-ease)），`<i>` 是滚动符号（绝对定位 left 50% / top .08em、`translateX(-50%)`、字体 `600 .82em/1.2 ui-monospace, SFMono-Regular, Menlo, monospace`、颜色 `--ux-accent`、初始 opacity 0）。
+- 字符状态由类名切换：`.z`（未开始）与 `.s`（正在乱码）都把 `<b>` 设为 `visibility: hidden`，`.s` 还把符号 `<i>` 的 opacity 提到 .9；`.f`（刚落定的一帧）把 `<b>` 染成 `--ux-accent` 且取消颜色过渡。
+- 底部工具条 `.u245-ft`：`margin-top: auto` 贴底，flex、居中对齐、两端分布、间距 10px。两枚分组 `.u245-ps`、`.u245-sps` 都是 flex、间距 4px、内边距 4px、圆角 14px、底色 `--ux-surface-2`。
+- 按钮 `.u245-p`、`.u245-sp`：高 32px、无边框、圆角 10px、透明底、12.5px、字重 700、颜色 `--ux-ink-3`，过渡 background-color .25s、color .25s、transform .35s var(--ux-spring)；hover 时文字转 `--ux-ink`，按下时 `transform: scale(.92)`；选中态（`aria-pressed="true"`）底色改为 `--ux-surface`、文字改为 `--ux-ink`，并加 `0 0 0 1px var(--ux-line), 0 4px 10px -6px var(--ux-shadow-strong)` 阴影。序号键 `.u245-p` 宽 34px 且用等宽字体；速度键 `.u245-sp` 内边距 0 9px。
+- 组件自身不声明 font-family，字体继承宿主；建议实现时使用 `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto, "Noto Sans KR", sans-serif`，等宽部分按代码写死为 `ui-monospace, SFMono-Regular, Menlo, monospace`。
+- 响应式：`createSurface` 的 `responsive` 为 false，场景固定 340×296 逻辑像素；容器窄于 340px 时整景等比缩放，`options.height` 覆盖场景高度。
+
+## 数据
+
+- 写死 3 条标题文案，与三枚序号键一一对应：
+  1. `We read the signal hidden in noise`
+  2. `Scattered data becomes a story`
+  3. `Complex work, folded into one line`
+- 乱码符号集写死为 23 个字符：`! < > - _ / [ ] { } = + ~ ^ ? # % & @ $ 0 1`（含符号与数字 0、1）。符号每 55ms 换一个，取值来自该集合内的随机下标。
+- 三档速度写死为总时长毫秒数：Slow 1800、Normal 1100、Fast 640；初始为 Normal（1100ms）。
+- 写死文案：眉标 `DECODE`，状态徽标运行中为 `Decoding`、结束后为 `Decoded`；序号键文字 `01` `02` `03`，其无障碍名为 `First line`、`Second line`、`Third line`；速度键文字 `Slow`、`Normal`、`Fast`。分组无障碍名为 `Pick a line` 与 `Decode speed`。
+- 无写死的接口数据或随机句子；随机只出现在乱码符号上。
+
+## 操作和动效
+
+- 挂载即自动播放：先构建第 1 条标题的字符槽，再执行一次解码；每切换序号键或鼠标悬停标题都会重新播放一次解码。
+- 解码算法（逐帧用 requestAnimationFrame 推进）：每个字符槽预先随机一个开始延迟 `a = random() × dur × 0.3`，和一个落定时刻 `r = dur × (0.32 + 0.68 × i / (n - 1)) + random() × 90`，其中 i 是字符在整句中的序号、n 是字符总数；因此越靠后的字符落定越晚，最后一个字符在 dur 附近落定，首个字符在 dur 的 32% 处开始落定。
+- 每帧推进时：已过 `a` 的字符从 `.z` 切到 `.s`（露出滚动符号、藏起真实字符），并按 55ms 一次的节奏替换符号；已过 `r` 的字符直接置为 `.f`——真实字符显示并染成 accent 色，40ms 后移除 `.f`，颜色在 0.6s 内以 `cubic-bezier(.22,1,.36,1)` 淡回墨色。全部字符落定后帧循环停止，根节点去掉 `.is-run`（状态点回到薄荷色、涟漪停止），状态徽标写回 `Decoded`。
+- 点序号键：切换选中态（`aria-pressed`），重建该句的字符槽并立刻重新解码；正在解码时点别的序号键会取消上一轮帧循环。
+- 点速度键：只改下一轮解码使用的总时长（`dur`），不会打断正在进行的这一轮；当前轮仍按它开始时算好的时刻表走完。
+- 鼠标悬停标题（`pointerenter`）：若当前没有在解码，就用当前这句再解码一遍；解码进行中悬停不打断。
+- 状态点与状态徽标：解码开始时根节点加 `.is-run`，圆点换成 accent 色并持续向外扩散涟漪，状态徽标写 `Decoding`；结束后双双复位。
+- 无障碍：标题容器写 `aria-label`（内容为完整句子），内部逐字元素 `aria-hidden`；状态徽标 `role="status"`；两枚分组是 `role="group"` 并带 `aria-label`；每个按钮用 `aria-pressed` 表达选中态，按钮本身可聚焦、可回车触发。
+- `prefers-reduced-motion: reduce` 时：不进入逐帧解码，所有字符槽直接显示最终字符、符号不出现，状态徽标保持 `Decoded`，涟漪动画停止；圆点也不再变色。
+- 销毁时释放帧回调、定时器、观察器与全部监听器；场景宽高随 `options.height`（默认 296）与容器宽度实时重算。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 296 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、数据与运动参数均以上述文字为准；界面用 DOM 与 CSS，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 TextScrambleDecode。从零创建四个文件：TextScrambleDecode.tsx、TextScrambleDecodeEngine.js、motion-runtime.ts、TextScrambleDecodeEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 296），options.reducedMotion 覆盖系统偏好；减少动态时仍保留完整的句子、序号与速度状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；解码从左到右逐位落定、落定闪色、悬停重放、三档速度、序号切换均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { TextScrambleDecode } from "./TextScrambleDecode";
+
+export default function App() {
+  return <TextScrambleDecode />;
+}
+```

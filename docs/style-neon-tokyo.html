@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>霓虹东京 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ntok">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 110 · 深色版面</p>
+        <h1>霓虹东京 <span class="style-card-en">NEON TOKYO</span></h1>
+        <p class="page-lead">雨后的歌舞伎町：招牌一层压一层，光倒映在湿沥青上。</p>
+        <div class="style-card-tags"><span>多层光晕叠加</span><span>招牌叠层 -4px</span><span>卡片 80% 玻璃</span><span>湿地反光</span></div>
+      </header>
+
+      <section class="ntok-hero">
+        <div class="ntok-hero-copy">
+          <p>霓虹东京与赛博朋克霓虹的区别在于「真实城市」而不是科幻：它模拟歌舞伎町的夜景，招牌一层压一层、多色霓虹边框交替、光晕多层叠加、湿沥青反光。底色是深夜蓝黑到紫黑的渐变，主色霓虹粉，辅以青、橙与紫。</p>
+          <p>卡片用 80% 半透明加深模糊模拟玻璃反射，粗体无衬线配日文假名作装饰元素，标题可做粉到青的渐变文字。</p>
+        </div>
+        <div class="ntok-demo">
+          <div class="ntok-signs">
+            <span class="ntok-sign ntok-sign--pink">ラーメン</span>
+            <span class="ntok-sign ntok-sign--cyan">OPEN 24H</span>
+            <span class="ntok-sign ntok-sign--orange">焼鳥</span>
+            <span class="ntok-sign ntok-sign--violet">BAR</span>
+          </div>
+          <div class="ntok-card">
+            <p class="ntok-card-title">歌舞伎町</p>
+            <p class="ntok-card-text">雨刚停。招牌的光落在湿路面上，又被踩碎一次。</p>
+            <button type="button" class="ntok-btn">ENTER</button>
+          </div>
+          <div class="ntok-wet" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff1493"></span><span class="palette-name">Neon Pink</span><code>#ff1493</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a1a"></span><span class="palette-name">Night Blue Black</span><code>#0a0a1a</code></li>
+          <li><span class="swatch-chip" style="background:#00f0ff"></span><span class="palette-name">Neon Cyan</span><code>#00f0ff</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b00"></span><span class="palette-name">Neon Orange</span><code>#ff6b00</code></li>
+          <li><span class="swatch-chip" style="background:#bc13fe"></span><span class="palette-name">Neon Violet</span><code>#bc13fe</code></li>
+          <li><span class="swatch-chip" style="background:#97b6ff"></span><span class="palette-name">Pale Blue</span><code>#97b6ff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>霓虹粉是主色，管招牌、主按钮与最主要的发光；像雨后没有星星的夜空做页面底；霓虹青是第二霓虹色，管数据、链接与冷侧光；霓虹橙模拟暖色招牌与灯笼；霓虹紫用于让招牌层失去统一色；淡蓝是文字的反光与次级高亮，最柔的一支。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0a0a1a"></span><div><strong>Night Blue Black</strong><span class="swatch-role">页面底。像雨后没有星星的夜空。</span></div><code>#0a0a1a</code><code>--color-night-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ff1493"></span><div><strong>Neon Pink</strong><span class="swatch-role">主色：招牌、主按钮与最主要的发光。</span></div><code>#ff1493</code><code>--color-neon-pink</code></li>
+          <li><span class="swatch-chip" style="background:#00f0ff"></span><div><strong>Neon Cyan</strong><span class="swatch-role">第二霓虹色：数据、链接与冷侧光。</span></div><code>#00f0ff</code><code>--color-neon-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b00"></span><div><strong>Neon Orange</strong><span class="swatch-role">第三霓虹色，模拟暖色招牌与灯笼。</span></div><code>#ff6b00</code><code>--color-neon-orange</code></li>
+          <li><span class="swatch-chip" style="background:#bc13fe"></span><div><strong>Neon Violet</strong><span class="swatch-role">第四霓虹色，用于让招牌层失去统一色。</span></div><code>#bc13fe</code><code>--color-neon-violet</code></li>
+          <li><span class="swatch-chip" style="background:#97b6ff"></span><div><strong>Pale Blue</strong><span class="swatch-role">文字的反光与次级高亮，最柔的一支。</span></div><code>#97b6ff</code><code>--color-pale-blue</code></li>
+        </ul>
+        <p class="style-body-note">光晕三档：粉 <code>0 0 12px / 0 0 28px</code>、青同规格、混色 <code>0 0 16px / 0 0 32px / 0 0 48px</code>。绝不只用一个霓虹色。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>粗无衬线 Inter，标题 900 字重压紧字距。可与日文假名混排，假名作装饰用；数据与坐标用 JetBrains Mono——赛博那一侧的字体。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ntok-specimen-title">NEON TOKYO 0123</p>
+            <p class="specimen-meta">Inter — 粗无衬线。替代栈：'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif · 700/900 · display 54px</p>
+          </div>
+          <div class="type-specimen">
+            <p class="ntok-specimen-label">SHIBUYA · 35.6595° N</p>
+            <p class="specimen-meta">JetBrains Mono — 数据与坐标。替代栈：ui-monospace, monospace · 400 · 字距 0.16em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>54px</td><td>1.1</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>38px</td><td>1.15</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>28px</td><td>1.25</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>15px</td><td>1.55</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>13px</td><td>1.6</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.5</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1240px、容器内边距 16px，区块间距 64px。允许招牌叠层与元素重叠，圆角保持小值（2 到 8px）。整页保持暗场，霓虹只在需要被看到的地方亮。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 8px · 按钮 4px · 招牌 2px</td></tr>
+            <tr><td>招牌叠层</td><td>3–5 块、120–200×40–64px、负边距 -4px</td></tr>
+            <tr><td>卡片</td><td>rgba(10,10,26,0.8) + 8px 模糊 + 1px 粉 50% 描边</td></tr>
+            <tr><td>湿地反光</td><td>60–120px 高、scaleY(-1) + blur 8px、10–20% 不透明度</td></tr>
+            <tr><td>渐变标题</td><td>粉→青、background-clip: text、filter: drop-shadow</td></tr>
+            <tr><td>过渡</td><td>120ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Sign Card</h3>
+            <p class="style-body-comp-role">招牌卡片（核心组件）。深夜蓝黑 80% 填充、8px 模糊、8px 圆角、1px 霓虹粉 50% 描边、内边距 24px，多层光晕（粉 12px、粉 28px）。标题 38px/900 霓虹粉并带 0 0 10px 粉 60% 的文字发光；正文 13px 白 80%。hover 时描边换青、光晕转混色（粉加青加紫）。hero 里那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gradient Headline</h3>
+            <p class="style-body-comp-role">渐变标题。背景为粉到青的横向渐变配 background-clip: text 与透明字色，再加 0 0 10px 粉 40% 的文字发光（用 filter: drop-shadow 而不是 text-shadow，因为文字已透明）。只用于首屏标题，单页最多一处。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sign Stack</h3>
+            <p class="style-body-comp-role">招牌叠层。3 到 5 块窄长的招牌（各 120 到 200px 宽、40 到 64px 高）垂直叠放，各自不同底色（粉、青、橙、紫之一）、2px 圆角、不同光晕，块与块之间负边距 -4px 让它们挤在一起。每块里放 12px 全大写的短字。它模拟歌舞伎町的招牌墙——hero 左侧那列就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Wet Reflection</h3>
+            <p class="style-body-comp-role">湿地反光。在区块底部放一条 60 到 120px 高的区域，把上方的霓虹色以 10% 到 20% 不透明度垂直翻转模糊地重复一次（用 transform: scaleY(-1) 加 blur 8px 与线性渐变遮罩淡出）。它让页面像刚下过雨。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Neon Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 霓虹粉 60% 描边、4px 圆角、11px 等宽全大写 0.16em、padding 10px 24px，光晕 0 0 12px 粉 60%。hover 时填充粉 12%、描边升到 100%、光晕扩到 28px；按下时位移 1px 且光晕收到 6px。过渡 120ms linear。</p>
+            <button type="button" class="ntok-btn">进去</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>深夜蓝黑到紫黑的渐变底</li>
+              <li>多色霓虹边框交替</li>
+              <li>光晕多层叠加</li>
+              <li>招牌叠层模拟招牌墙</li>
+              <li>卡片 80% 半透明加深模糊</li>
+              <li>湿沥青反光</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用白天摄影与自然风景</li>
+              <li>不要用大圆角</li>
+              <li>不要用柔和插画</li>
+              <li>不要只用单色霓虹</li>
+              <li>不要让光晕盖过文字</li>
+              <li>不要做科幻感的界面元素</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>城市夜景摄影：招牌、巷道、雨后的路面、自动贩卖机、霓虹倒影。必须高对比、多色光源。允许把照片压成粉青双色调。不使用白天摄影、自然风景与柔和插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neon-tokyo">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的招牌叠层、多层光晕与湿地反光。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，多色霓虹交替、招牌负边距叠层与湿地反光必须原样保留；单色霓虹或大圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+# Solen Design
+
+A cool, minimal design system: plain CSS at its core, with framework entries for React, Vue, Svelte, Solid, Preact and vanilla DOM. Calm porcelain neutrals, a quiet steel-blue accent, light & dark built in.
+
+464 components live in src/components/ with live demos in the docs workbench (npm run dev → /docs/).
+
+This file is an index. Per-component full details (props, usage, source, recreation prompt) live in:
+- ai/components/<id>.json — machine-readable, one component per file
+- ai/search-index.json — lightweight lookups
+
+## Tokens & theming
+
+- src/tokens/semantic.css — the tokens to use (--sd-canvas, --sd-ink, --sd-accent, …); palette.css holds raw scales, scales.css holds type, spacing, radius, shadow, motion
+- Light & dark are one system via light-dark() and color-scheme; data-theme pins a subtree; override any token as a plain CSS variable
+
+## Components
+
+### 文字排版
+
+- 工程文字特效（tech-text）
+- 内联词组变形（inline-text-morph）
+- 里程表数字（counter）
+- 弧线跑马灯（curved-loop）
+- 字符浪潮文字（ascii-text）
+- 数字递增（count-up）
+- 模糊聚焦文字（blur-text）
+- 解密文字（decrypted-text）
+- 环形环绕文字（circular-text）
+- 立体层深文字（depth-text）
+- 毛刺震动文字（fuzzy-text）
+- 轮换翻转词组（rotating-text）
+- 坠落堆积文字（falling-text）
+- 残影回声文字（echo-text）
+- 故障色偏文字（glitch-text）
+- 滚动速度跑马灯（scroll-velocity）
+- 折纸展开文字（fold-text）
+- 粒子聚散文字（particle-text）
+- 流动渐变文字（gradient-text）
+- 逐字拆分入场（split-text）
+- 随机扰动文字（scrambled-text）
+- 色网遮罩标题（masked-heading）
+- 曲线路径文字流（text-loop）
+- 流光扫过文字（shiny-text）
+- 打字机文字（text-type）
+- 滚动显影文字（scroll-reveal）
+- 字符洗牌入场（shuffle）
+- 滚动浮层文字（scroll-float）
+- 翻牌航班板（split-flap-text）
+- 描边自绘文字（stroke-text）
+- 指压变形文字（text-pressure）
+- 距离感应字重（variable-proximity）
+- 逐词对焦（true-focus）
+- 光标拖尾印章（text-cursor）
+- 扭曲折射文字（warp-text）
+- 剧透刮开（spoiler-reveal）
+- 手绘批注（hand-annotations）
+- 逐词聚焦引言（blur-in-quote）
+- 波浪路径文字（text-on-wave-path）
+- 逐词动态字幕（kinetic-captions）
+- 阅读聚焦句（reading-focus）
+- 字母散聚（letters-scatter）
+- 邻近加权字母（proximity-weight）
+- 信号故障标题（glitch-title）
+- 文字透景视频标题（video-text-title）
+- 打字机轮换关键词（typewriter-rotating-words）
+- 字体配对与字阶（font-pairing）
+- 通讯录索引刷选（index-scrubber）
+- 荧光笔扫句（marker-highlight）
+- 滚动填色长句（word-fill-paragraph）
+- 乱码解码标题（text-scramble-decode）
+- 逐行揭示标语（line-mask-reveal）
+- 轮换示例 AI 输入框（ai-prompt-hero）
+- 自打字终端演示（terminal-demo）
+- 可溯源 AI 答案（cited-ai-answer）
+- 流光渐变标题（shimmer-gradient-text）
+- 大标题收缩（collapsing-large-title）
+- 无障碍显示面板（a11y-panel）
+
+### 交互控件
+
+- 像素日夜开关（pixel-toggle）
+- 立体按压按钮（tactile-push-button）
+- 捏压开关（squish-switch）
+- 胶囊弹出下拉菜单（blister-dropdown）
+- 流体提示气泡（fluid-tooltip）
+- 玻璃标签栏展开菜单（glass-tab-menu）
+- 柔光环形菜单展开（soft-action-wheel）
+- 环形菜单交错展开（staggered-radial-menu）
+- 脑形滑块粒子增强（galaxy-effort-slider）
+- 模型思考强度滑块（reasoning-effort-slider）
+- Agent 对话输入框（deep-agent-composer）
+- 验证码输入验证（otp-verification）
+- 分享邀请面板（share-invite）
+- 访问申请展开（bouncy-access-request）
+- 产品热点标注（product-hotspots）
+- 蜘蛛牵引切歌（spider-music-player）
+- 镜面流光按钮（specular-button）
+- 果冻导航（gooey-nav）
+- 弹簧展开卡片导航（card-nav）
+- 弹性放大程序坞（dock）
+- 滚轮弧形选择器（option-wheel）
+- 弹性分步器（stepper）
+- 橡胶拉伸滑块（elastic-slider）
+- 液态横幅菜单（flowing-menu）
+- 交错滑入菜单（staggered-menu）
+- 气泡环形展开菜单（bubble-menu）
+- 上浮填充胶囊导航（pill-nav）
+- 弧形输入条（curved-input）
+- 可甩卡片堆（stack）
+- 液态玻璃图标排（glass-icons）
+- 翻盖文件夹（folder）
+- 弹入通知列表（animated-list）
+- 铃铛胶囊开关（bell-toggle）
+- 工具调用计时芯片（call-chip）
+- 弹入验证码槽（code-slots）
+- 彗尾刻度拨盘（comet-dial）
+- 弹簧翻卡（flip-card）
+- 浮出便签云文件夹（folder-float）
+- 引信撤销按钮（fuse-button）
+- 滑翔高亮选择器（glide-select）
+- 按压蓄力按钮（hold-button）
+- 果冻单选芯片组（jelly-radio）
+- 格波加载行（lattice-loader）
+- 揉纸持握变形（paper-crumple）
+- 浪升星星评分（peek-rating）
+- 多源提示输入条（prompt-bar）
+- 脉冲点赞爱心（pulse-heart）
+- 生成阶段媒体框（refine-frame）
+- 橡胶分段控件（rubber-segment）
+- 拖拽微调数字芯片（scrub-field）
+- 滑动确认把手（slide-commit）
+- 弹弓发送按钮（sling-button）
+- 晃动液位计（slosh-gauge）
+- 弹簧勾选行（spring-check）
+- 任务状态变形符（status-mark）
+- 撕副券票据（tear-ticket）
+- 思考折叠行（thought-line）
+- 录音均衡胶囊（voice-pill）
+- 尾流条形滑块（wake-slider）
+- 热态连发提示组（warm-tooltip）
+- 滚动章节号（chapter-number-roll）
+- 变脸满意度滑杆（emoji-feedback-slider）
+- 五种下划线悬停（underline-styles）
+- 候位邀请排名（waitlist-position）
+- 长按消息预览（long-press-peek）
+- 云朵自动保存指示（autosave-indicator）
+- 挂锁开合开关（padlock-toggle）
+- 火箭回顶按钮（back-to-top-rocket）
+- 随杯型变化的咖啡杯（coffee-cup-size）
+- 拆丝带开礼盒（gift-box）
+- 地址搜索填单（address-search）
+- 页面反馈图钉（feedback-pins）
+- 域名可用性搜索（domain-search）
+- 用量预警仪表（usage-meter）
+- 撕联折扣券（coupon-tear）
+- 自适应联系表单（conditional-contact）
+- 商品对比托盘（compare-tray）
+- 筛选重排画廊（filter-shuffle-grid）
+- 链接缩短折叠（link-shortener）
+- 先问后开通知（notification-priming）
+- 移动端下钻菜单（mobile-drill-menu）
+- 团队成员邀请流（team-invite）
+- 域名连接步骤（domain-connect）
+- 退订挽留对话框（cancel-save-offer）
+- 预约时段拆分确认（slot-booking）
+- 按钮变形订阅表单（morphing-button-form）
+- 包管理器安装页签（install-command-tabs）
+- 可筛选更新日志（changelog-filter）
+- 输入名删确认（type-to-delete）
+- 评论 @ 提及列表（mention-comment）
+- 语言切换文案互换（locale-switch）
+- 邮箱纠错补全（email-typo-fix）
+- 星级分布筛选（rating-breakdown）
+- 文章会员付费墙（article-paywall）
+- 分享权限对话框（share-dialog）
+- 最新购买通知（recent-purchase-toast）
+- 未保存更改条（unsaved-changes-bar）
+- 投票重排需求板（feature-vote-board）
+- 报错跳转表单（form-error-jump）
+- 跟滚分类胶囊条（category-chip-scrollspy）
+- 购物车抽屉（cart-drawer）
+- API 试用示例（api-playground）
+- 卷帘揭示页脚（reveal-footer）
+- AI 摘要划线折叠（ai-tldr）
+- 一键通行密钥登录（passkey-signin）
+- 优惠码订单摘要（promo-code-summary）
+- Cookie 同意横幅（cookie-consent）
+- 吸底购买横条（sticky-buy-sheet）
+- 划词分享提示条（quote-share-tooltip）
+- 客服气泡聊天窗（support-chat-widget）
+- 自动轮播功能页签（auto-feature-tabs）
+- 光边注册号召（glow-border-cta）
+- 国旗区号手机号输入（phone-country-input）
+- 席位价格计算器（seat-price-calculator）
+- 点按验证徽章（trust-badges）
+- 搜索预览实时跟随（seo-preview）
+- 截单倒计时配送承诺（delivery-cutoff）
+- 集章咖啡卡（stamp-card）
+
+### 动效交互
+
+- 转账光雾确认（transfer-glow）
+- 文字选区开花（selection-flower）
+- 文字选区调色器（notes-text-color）
+- 折边滚动表情选择器（folded-emoji-scroll）
+- 日历惯性拖拽（velocity-drag）
+- 多光标页面搭建（multi-cursor-builder）
+- 选框拖拽缩放（bounding-box-resize）
+- 弹性面板缩放（elastic-panel-resize）
+- 包装撕开粒子消散（matcha-powder-reveal）
+- 弹性图片对比（image-compare）
+- 滚动入场包装器（animated-content）
+- 点击火花（click-spark）
+- 准星光标（crosshair）
+- 光标点亮网格（cursor-grid）
+- 滚动淡入包装器（fade-content）
+- 扫光悬停（glare-hover）
+- 渐进边缘模糊（gradual-blur）
+- 图片拖尾（image-trail）
+- 磁吸容器（magnet）
+- 滚动全幅展开（scroll-expand）
+- 锁定准星光标（target-cursor）
+- 流星描边（star-border）
+- 胶片颗粒噪点（noise）
+- 标志跑马灯（logo-loop）
+- 像素溶解切换（pixel-transition）
+- 像素波浪换装（pixel-swap）
+- 流体泼墨光标（splash-cursor）
+- 幽魂烟雾光标（ghost-cursor）
+- 柔光光标（glow-cursor）
+- 粒子蜂群光标（swarm-cursor）
+- 液态金属光标（blob-cursor）
+- 像素流体拖尾（pixel-trail）
+- 弹簧丝带拖尾（ribbons）
+- 液态融合球（meta-balls）
+- 电弧边框（electric-border）
+- 贴纸撕揭（sticker-peel）
+- 果冻膨胀网格（elastic-mesh）
+- 方块阵列注视（cubes）
+- 轨道环绕图片（orbit-images）
+- 躲避指针容器（dodge-field）
+- 碎纸机列表（shredder）
+- 滑动行操作（swipe-row）
+- 下滑消失吐司（swipe-toast）
+- 波纹翻块画（tile-flip-wave）
+- 滚动驱动大字带（scroll-marquee-rows）
+- 解锁成就徽章（achievement-badges）
+- 无限追加信息流（infinite-feed）
+- 液体波浪引导页（liquid-wave-onboarding）
+- 连续打卡火苗（streak-flame）
+- 经验条升级（level-up-xp）
+- 时间轴点亮（timeline-light-up）
+- 照片堆展开（stack-to-fan）
+- 悬停刷帧缩略（hover-scrub-thumbs）
+- 降临节日历（advent-doors）
+- 滚筒时间选择器（drum-time-picker）
+- 百叶翻页轮播（blinds-slice-slider）
+- 放大镜看腕表（product-loupe）
+- 形变巨型菜单（mega-menu-morph）
+- 流场涡旋（flow-field）
+- 速度倾斜列表（velocity-skew-list）
+- 旋转圆形文字徽章（circular-text-badge）
+- 画中画角抛（pip-corner-throw）
+- 光标藏句（secret-text-mask）
+- 旋转开罐汽水（soda-can）
+- 光标星座网格（particle-network）
+- 锁孔穿越（keyhole-zoom）
+- 拖拽吸附卡轮播（drag-card-carousel）
+- 滚动词立方（word-cube）
+- 三档底部抽屉（bottom-sheet-detents）
+- 入边方向浮层（direction-aware-tiles）
+- 按住录音滑动取消（voice-record-button）
+- 指尖旋转奖轮（prize-wheel）
+- 分段变色滚动（section-color-shift）
+- 透视代码镜（xray-code-lens）
+- 照片拖尾（photo-trail）
+- 滚动热搜榜（trending-search-roll）
+- 刮刮乐（scratch-card）
+- 跟随光标的极光背景（aurora-mesh）
+- 滚动画出行程（scroll-draw-route）
+- 弹簧调参台（spring-tuner）
+- 拖入垃圾桶（drag-to-trash）
+- 目标形变光标（morphing-cursor）
+- 层叠山峦视差（parallax-mountains）
+- 滚动组装设备（exploded-assembly）
+- 商品详情展开（detail-expand）
+- 裂缝展开照片（clip-reveal-photos）
+- 抖动指针测速（speed-gauge）
+- 照片跟随作品列表（hover-preview-list）
+- 跟随滚动目录（scrollspy-toc）
+- 视差浮动 UI hero（floating-ui-hero）
+- 拖拽响应式预览（responsive-preview）
+- 闪光公告胶囊（announcement-pill）
+- 错峰滚动入场卡（stagger-reveal-grid）
+- 滚动展开视频（scroll-expand-video）
+- 排名互换条形赛（bar-chart-race）
+- 竖滚横移画轴（horizontal-pin-track）
+- 滚动立起产品屏（tilt-to-flat-screen）
+- 光标辉光卡边（glow-border-cards）
+- 滚动收缩卡堆（sticky-stack-cards）
+- 滚动停靠迷你播放器（docking-mini-player）
+- 动态便当功能格（bento-features）
+- 滚动隐藏页头（hide-on-scroll-header）
+- 首屏逐级入场（hero-stagger-intro）
+- 开盖唤醒笔记本（laptop-lid）
+- 按住星光加速（starfield-warp）
+- 计数站点预载（site-preloader）
+
+### 卡片布局
+
+- 标签叠放展开（stacked-metadata）
+- 墨水扩散图片轮播（ink-spread-carousel）
+- 弹性图片手风琴（image-accordion）
+- 拖甩照片卡片（card-swap）
+- 线条侧边栏（line-sidebar）
+- 帆船滚动目录（sailing-toc）
+- 渐变卡片环形轮播（gradient-ring-cards）
+- 列表卡片堆叠切换（collection-layout-morph）
+- 品牌海报三联卡片（brand-poster-cards）
+- AI 品牌封面三联卡片（ai-brand-cover-cards）
+- 渐变卡片跟随（gradient-cover-wall）
+- 鼠标感应线条（brand-line-cards）
+- 玻璃文件夹展开（glass-folder）
+- 揉皱纸张展开（crumpled-paper）
+- 无限螺旋画廊（infinite-spiral）
+- 玻璃导航条（glass-navbar）
+- 分叉导航菜单（branched-menu）
+- 双列好评墙（testimonial-columns）
+- 悬停展开画廊（accordion-gallery）
+- 弹跳散开照片扇（bounce-cards）
+- 五式滑动卡片轮播（carousel）
+- 聚光显色卡片网格（chroma-grid）
+- 环形图片转盘（circular-carousel）
+- 弧形拖拽画廊（circular-gallery）
+- 撕裂熔融图片卡（decay-card）
+- 纵深轨道卡片流（depth-carousel）
+- 半球穹顶画廊（dome-gallery）
+- 透视漂移砖墙（drift-wall）
+- 液态玻璃边缘轮播（flex-carousel）
+- 翻滚海报墙（flying-posters）
+- 全息闪卡（holo-card）
+- 弹簧瀑布流（masonry）
+- 位移熔接图轮播（morph-slider）
+- 像素闪烁卡片（pixel-card）
+- 全息图案资料卡（profile-card）
+- 镜面金属证件卡（reflective-card）
+- 滚动钉住卡片堆（scroll-stack）
+- 指针聚光卡片（spotlight-card）
+- 悬浮倾斜展示卡（tilted-card）
+- 指向性辉光边框（border-glow）
+- 边缘流光便当格（magic-bento）
+- 液态玻璃面板（glass-surface）
+- 折射玻璃透镜（fluid-glass）
+- 螺旋图片环带（spiral-image-ring）
+- 立体卡片轮换堆（card-stack-swap）
+- 工牌吊绳（lanyard）
+- 模型展台（model-viewer）
+- 平台感知下载区（platform-download）
+- 侧展照片条（accordion-image-panels）
+- 跟文手机屏（sticky-phone-screens）
+- 轻点式故事流（story-progress）
+- 卡片展开详情（shared-element-detail）
+- 卷帘页面转场（page-transition-curtain）
+- 排序飞行行（sort-flip-list）
+- 今日不再弹窗（today-popup）
+- 网格列表形变（grid-list-flip）
+- 筛选抽屉实时计数（filter-drawer）
+- 堆块页面生成器（block-page-builder）
+- 胶片式测速审计（page-speed-audit）
+- 列表详情侧栏（detail-side-panel）
+- 门店定位联动（store-locator）
+- 模糊加载相册（blur-up-gallery）
+- 拖拽看板卡片（kanban-drag）
+- 轮换客户标志墙（logo-wall-cycle）
+- 实时订单表格（live-orders-table）
+- 报名头像堆叠（avatar-stack-join）
+- 差异对比价格表（plan-compare-table）
+- 推入导航栈（push-navigation-stack）
+- 分帘菜单文字（split-curtain-menu）
+
+### 图形图表
+
+- 液体注入卡片（shader-flood）
+- 字符鲨鱼与鱼群（ascii-sharks）
+- 专辑封面隧道（album-cover-tunnel）
+- 无限菜单球（infinite-menu）
+- 粒子纹理三联（particle-texture-trio）
+- 点阵波纹与旋涡（dot-matrix-trio）
+- 字符鲨鱼追踪价格路径（hammerhead-chart）
+- 思考步骤粒子变形（thinking-particles）
+- 轨道与点阵动效（cosmic-panels）
+- 蓝色棱纹流动背景（blue-fluted-glass）
+- 点阵加载（ai-image-generation）
+- 分步自动化流程（automation-flow）
+- 等距数据方块图（iso-block-chart）
+- 预算气泡重排（regrouping-bubbles）
+- 体积光束（light-rays）
+- 双色光扇（side-rays）
+- 电弧水晶球（crystalized-ball）
+- 抖动显影帷幕（dither-veil）
+- 闪电标志（electric-logo）
+- 液态金属漆（metallic-paint）
+- 水波折射扰动（ripple-distortion）
+- 镜头失焦图形（shape-blur）
+- 光缆球体（strands）
+- 激光流光（laser-flow）
+- 半调网点显影（halftone-reveal）
+- 酸性方格波光（acid-squares）
+- 航标玻璃丝带（aero-shards）
+- 环升粒子场（antigravity）
+- 极光顶幕（aurora）
+- 像素颜料漩涡（balatro）
+- 球池物理场（ballpit）
+- 暗河光带（beams）
+- 色带流动（color-bends）
+- 曲面荧屏等离子（crt-warp）
+- 暗幕丝绸光（dark-veil）
+- 抖动波纹场（dither）
+- 透镜点阵场（dot-field）
+- 果冻点阵弹簧（dot-grid）
+- 故障终端雨（faulty-terminal）
+- 磁流体尖峰（ferrofluid）
+- 光纤波带（floating-lines）
+- 磁力发光线（flux-lines）
+- 星场跃迁（galaxy）
+- 纤维光雾层（ghost-fibers）
+- 渐变字符雾（gradient-ascii）
+- 百叶聚光（gradient-blinds）
+- 缎面光浪（gradient-waves）
+- 颗粒渐变流（grainient）
+- 网格扭曲显影（grid-distortion）
+- 斜墙砖光（grid-motion）
+- 扫描网格房（grid-scan）
+- 全息砖墙（holo-mosaic）
+- 夜路光尾跃迁（hyperspeed）
+- 虹彩液面（iridescence）
+- 字符闪烁场（letter-glitch）
+- 光瀑隧道（lightfall）
+- 追光闪电（lightning）
+- 光柱旋涡（light-pillar）
+- 光纤彗星隧道（light-tunnel）
+- 线浪光带（line-waves）
+- 液态铬波（liquid-chrome）
+- 流光液场（liquid-ether）
+- 呼吸光环（orb）
+- 星尘粒子场（particles）
+- 魔环脉冲（magic-rings）
+- 磁针阵列（magnet-lines）
+- 微板条海（micro-slats）
+- 白热熔丝（molten-metal）
+- 绸缎半调纹（pattern-waves）
+- 像素星云（pixel-blast）
+- 像素雪花（pixel-snow）
+- 缎光褶皱（plasma）
+- 等离子双带（plasma-wave）
+- 棱镜光谱（prism）
+- 棱镜爆辉（prismatic-burst）
+- 雷达余辉（radar）
+- 涟漪网格（ripple-grid）
+- 扫描干涉线（scanner）
+- 形块漂移墙（shape-grid）
+- 形状波涌（shape-waves）
+- 缎面褶光（silk）
+- 切片色浪（sliced-waves）
+- 柔和极光（soft-aurora）
+- 纤维流丝（threads）
+- 等高线地形（topography）
+- 丝浪回弹（waves）
+- 网织光丝（web-threads）
+- 同步光标小多图（synced-multiples）
+- 月度词云重排（word-cloud）
+- 拖点回归线（regression-drag）
+- 年份温度山脊图（ridgeline）
+- 月度弦图（chord-diagram）
+- 可刷选平行坐标（parallel-coords）
+- 点阵地球（dot-globe）
+- 地图聚合拆分（map-clusters）
+- 季度增长气泡（growth-bubbles）
+- 呼吸等高线（topographic-contours）
+- 人口金字塔逐年（population-pyramid）
+- 点阵波纹（dot-grid-wave）
+- 部门满意度斜线图（slope-chart）
+- 像素溶解轮播（pixel-dissolve-slider）
+- 弹跳地图图钉（map-pin-drop）
+- 北上樱花六边形图（bloom-hex-map）
+- 翻格华夫图（waffle-chart）
+- 环绕集成轨道（integration-orbit）
+- 图片压缩优化器（image-optimizer）
+- 噪声生图生成器（ai-image-generate）
+- 调色板生成器（palette-generator）
+- 服务状态页（status-page）
+- 网格光束背景（grid-beam-hero）
+- 星标历史按钮（repo-star-button）
+- 圆形揭示暗色模式（circular-theme-switch）
+- 光标放大程序坞（magnify-dock）
+
+## 网站风格
+
+风格目录在 docs/style.html，内置视觉风格/布局模式分类切换（?cat=layout 直达布局模式），两组卡片各自带一条分类筛选条（视觉风格 15 类、布局模式 6 类，分类标记写在卡片的 data-cat 上）；详情页 docs/style-<id>.html；每套风格的设计文档（复现提示词）：
+
+- 量化线场（quantized-line-field）— docs/styles/quantized-line-field.md
+- 新野兽派（neo-brutalist）— docs/styles/neo-brutalist.md
+- 编辑杂志风（editorial-magazine）— docs/styles/editorial-magazine.md
+- 新拟物派（neumorphism）— docs/styles/neumorphism.md
+- 企业简洁风（corporate-clean）— docs/styles/corporate-clean.md
+- 极简扁平风（minimal-flat）— docs/styles/minimal-flat.md
+- 柔和界面风（soft-ui）— docs/styles/soft-ui.md
+- 自然有机风（organic-natural）— docs/styles/organic-natural.md
+- 现代渐变风（modern-gradient）— docs/styles/modern-gradient.md
+- 玻璃拟态（glassmorphism）— docs/styles/glassmorphism.md
+- 暗黑模式（dark-mode）— docs/styles/dark-mode.md
+- 粘土拟态（claymorphism）— docs/styles/claymorphism.md
+- 像素艺术风（pixel-art）— docs/styles/pixel-art.md
+- 包豪斯风格（bauhaus）— docs/styles/bauhaus.md
+- 瑞士国际风格（swiss-style）— docs/styles/swiss-style.md
+- 赛博朋克霓虹（cyberpunk-neon）— docs/styles/cyberpunk-neon.md
+- 复古怀旧风（retro-vintage）— docs/styles/retro-vintage.md
+- 装饰艺术风格（art-deco）— docs/styles/art-deco.md
+- 桌面毛玻璃（desktop-vibrancy）— docs/styles/desktop-vibrancy.md
+- 几何大胆风（geometric-bold）— docs/styles/geometric-bold.md
+- 文档工作台风（doc-workspace）— docs/styles/doc-workspace.md
+- 金融科技风（fintech-clean）— docs/styles/fintech-clean.md
+- 系统原生风（system-native）— docs/styles/system-native.md
+- 霓虹复古（vaporwave）— docs/styles/vaporwave.md
+- 千禧风格（y2k）— docs/styles/y2k.md
+- 孟菲斯风格（memphis）— docs/styles/memphis.md
+- 拟物设计（skeuomorphism）— docs/styles/skeuomorphism.md
+- 吉卜力风格（ghibli-style）— docs/styles/ghibli-style.md
+- 材料设计（material-design）— docs/styles/material-design.md
+- 流利设计（fluent-design）— docs/styles/fluent-design.md
+- 漫画风格（comic-style）— docs/styles/comic-style.md
+- 铅笔手绘风（sketch-style）— docs/styles/sketch-style.md
+- 水彩画风（watercolor-style）— docs/styles/watercolor-style.md
+- 合成波（synthwave）— docs/styles/synthwave.md
+- 柔和野兽派（neo-brutalist-soft）— docs/styles/neo-brutalist-soft.md
+- 俏皮野兽派（neo-brutalist-playful）— docs/styles/neo-brutalist-playful.md
+- 新艺术运动风（art-nouveau）— docs/styles/art-nouveau.md
+- 超现实主义风（surrealism）— docs/styles/surrealism.md
+- 浮世绘数字风（ukiyo-e-digital）— docs/styles/ukiyo-e-digital.md
+- 哥特式风（gothic）— docs/styles/gothic.md
+- Outrun 复古未来（outrun）— docs/styles/outrun.md
+- 暗黑学院风（dark-academia）— docs/styles/dark-academia.md
+- 田园核风（cottagecore）— docs/styles/cottagecore.md
+- Risograph 印画风（risograph）— docs/styles/risograph.md
+- 机甲风（mecha）— docs/styles/mecha.md
+- 哥特萝莉风（gothic-lolita）— docs/styles/gothic-lolita.md
+- 赛博中华风（cyber-chinese）— docs/styles/cyber-chinese.md
+- 酸性平面设计（acid-graphics）— docs/styles/acid-graphics.md
+- 手绘涂鸦风（hand-drawn-doodle）— docs/styles/hand-drawn-doodle.md
+- 瑞士海报风（swiss-poster）— docs/styles/swiss-poster.md
+- 水彩艺术风（watercolor-art）— docs/styles/watercolor-art.md
+- 油画印象派风（impressionist-oil）— docs/styles/impressionist-oil.md
+- 沉浸摄影（immersive-photo）— docs/styles/immersive-photo.md
+- 拼贴艺术风（collage-art）— docs/styles/collage-art.md
+- 故障艺术风（glitch-art）— docs/styles/glitch-art.md
+- 视觉小说风（visual-novel）— docs/styles/visual-novel.md
+- 少女漫画风（shoujo-manga）— docs/styles/shoujo-manga.md
+- 赛博动漫风（cyber-anime）— docs/styles/cyber-anime.md
+- 像素动漫风（pixel-anime）— docs/styles/pixel-anime.md
+- 日系清新风（japanese-fresh）— docs/styles/japanese-fresh.md
+- 霓虹武士风（neon-samurai）— docs/styles/neon-samurai.md
+- 魔法阵风（magic-circle）— docs/styles/magic-circle.md
+- 赛博和风（cyber-wafuu）— docs/styles/cyber-wafuu.md
+- 蒸汽朋克（steampunk）— docs/styles/steampunk.md
+- 波普艺术（pop-art）— docs/styles/pop-art.md
+- 太阳朋克（solarpunk）— docs/styles/solarpunk.md
+- 日式 RPG（jrpg）— docs/styles/jrpg.md
+- 暖色仪表盘（warm-dashboard）— docs/styles/warm-dashboard.md
+- 霓虹渐变（neon-gradient）— docs/styles/neon-gradient.md
+- 液态玻璃（liquid-glass）— docs/styles/liquid-glass.md
+- 北欧极简风（scandinavian）— docs/styles/scandinavian.md
+- 赛璐璐动画风（cel-shading）— docs/styles/cel-shading.md
+- 电影视频首屏（cinematic-video-hero）— docs/styles/cinematic-video-hero.md
+- 侘寂风（wabi-sabi）— docs/styles/wabi-sabi.md
+- 枯山水（zen-garden）— docs/styles/zen-garden.md
+- 科幻 HUD（sci-fi-hud）— docs/styles/sci-fi-hud.md
+- 可爱极简（kawaii-minimal）— docs/styles/kawaii-minimal.md
+- 动力学构成主义（kinetic-constructivism）— docs/styles/kinetic-constructivism.md
+- 故障广播（broadcast-glitch）— docs/styles/broadcast-glitch.md
+- 动力学排印（kinetic-typography）— docs/styles/kinetic-typography.md
+- 黑色电影（film-noir）— docs/styles/film-noir.md
+- 街机 CRT（arcade-crt）— docs/styles/arcade-crt.md
+- Frutiger Aero（frutiger-aero）— docs/styles/frutiger-aero.md
+- 反设计（anti-design）— docs/styles/anti-design.md
+- 网页粗野主义（brutalist-web）— docs/styles/brutalist-web.md
+- 全息渐变（holographic）— docs/styles/holographic.md
+- 生成艺术（generative-art）— docs/styles/generative-art.md
+- 粒子系统（particle）— docs/styles/particle.md
+- VHS 美学（vhs-aesthetic）— docs/styles/vhs-aesthetic.md
+- 赤陶暖调（terracotta）— docs/styles/terracotta.md
+- 单色极简（monochrome）— docs/styles/monochrome.md
+- 水墨画风（ink-wash）— docs/styles/ink-wash.md
+- 中世纪现代（mid-century-modern）— docs/styles/mid-century-modern.md
+- 构成主义（constructivism）— docs/styles/constructivism.md
+- 欧普艺术（op-art）— docs/styles/op-art.md
+- 伊斯兰几何（islamic-geometric）— docs/styles/islamic-geometric.md
+- 印度节庆（indian-festive）— docs/styles/indian-festive.md
+- 粉彩哥特（pastel-goth）— docs/styles/pastel-goth.md
+- 极繁主义（maximalism）— docs/styles/maximalism.md
+- 中世纪手抄本（medieval-manuscript）— docs/styles/medieval-manuscript.md
+- 涂鸦街头（graffiti-street）— docs/styles/graffiti-street.md
+- 大理石奢华（marble-luxury）— docs/styles/marble-luxury.md
+- 维多利亚植物（victorian-botanical）— docs/styles/victorian-botanical.md
+- 立体主义（cubism）— docs/styles/cubism.md
+- 热带天堂（tropical-paradise）— docs/styles/tropical-paradise.md
+- 开发者平台风（dev-platform）— docs/styles/dev-platform.md
+- 巫术核心（witchcore）— docs/styles/witchcore.md
+- 霓虹东京（neon-tokyo）— docs/styles/neon-tokyo.md
+- 纸艺手作（paper-craft）— docs/styles/paper-craft.md
+- 工程蓝图（blueprint）— docs/styles/blueprint.md
+- 多巴胺设计（dopamine-design）— docs/styles/dopamine-design.md
+- 任务控制台风（task-console）— docs/styles/task-console.md
+- 清爽电商（shopify-clean）— docs/styles/shopify-clean.md
+- 奢品零售（luxury-retail）— docs/styles/luxury-retail.md
+- 鲜活市集（fresh-market）— docs/styles/fresh-market.md
+- 数据密集（data-dense）— docs/styles/data-dense.md
+- 超大字体排版（oversized-typography）— docs/styles/oversized-typography.md
+- 终端风（developer-terminal）— docs/styles/developer-terminal.md
+- 论文排版风（latex-paper）— docs/styles/latex-paper.md
+- 学术科普风（science-journal）— docs/styles/science-journal.md
+- 韩式极简（korean-minimal）— docs/styles/korean-minimal.md
+- 非洲纺织（african-textile）— docs/styles/african-textile.md
+- 创意工作室风（studio-bold）— docs/styles/studio-bold.md
+- 暗色画廊风（gallery-dark）— docs/styles/gallery-dark.md
+- 暖感有机风（warm-organic）— docs/styles/warm-organic.md
+- 发布会主题（launch-keynote）— docs/styles/launch-keynote.md
+- 奢华画册（luxe-lookbook）— docs/styles/luxe-lookbook.md
+- 着色器渐变（shader-gradient）— docs/styles/shader-gradient.md
+- 粉彩应用风（pastel-ui）— docs/styles/pastel-ui.md
+- 移动编辑风（mobile-editorial）— docs/styles/mobile-editorial.md
+- 柔和工具风（soft-utility）— docs/styles/soft-utility.md
+- 镭射箔（diffraction-foil）— docs/styles/diffraction-foil.md
+- 电子纸（e-ink）— docs/styles/e-ink.md
+- 便当盒布局（bento-layout）— docs/styles/bento-layout.md（布局模式）
+- 瀑布流布局（masonry-layout）— docs/styles/masonry-layout.md（布局模式）
+- 分屏布局（split-layout）— docs/styles/split-layout.md（布局模式）
+- 全屏滚动布局（full-scroll）— docs/styles/full-scroll.md（布局模式）
+- 仪表盘布局（dashboard-layout）— docs/styles/dashboard-layout.md（布局模式）
+- 垂直时间线布局（timeline-vertical）— docs/styles/timeline-vertical.md（布局模式）
+- F 型布局（f-pattern-layout）— docs/styles/f-pattern-layout.md（布局模式）
+- Z 型布局（z-pattern-layout）— docs/styles/z-pattern-layout.md（布局模式）
+- 圣杯布局（holy-grail-layout）— docs/styles/holy-grail-layout.md（布局模式）
+- 非对称网格（asymmetric-grid）— docs/styles/asymmetric-grid.md（布局模式）
+- 视差滚动（parallax-sections）— docs/styles/parallax-sections.md（布局模式）
+- 滚动叙事（scrollytelling）— docs/styles/scrollytelling.md（布局模式）
+- 视差杂志（parallax-editorial）— docs/styles/parallax-editorial.md（布局模式）
+- 横滚画廊（horizontal-gallery）— docs/styles/horizontal-gallery.md（布局模式）
+- 卡片堆叠布局（card-stack）— docs/styles/card-stack.md（布局模式）
+- 固定侧边栏布局（sidebar-fixed）— docs/styles/sidebar-fixed.md（布局模式）
+- 杂志网格布局（magazine-grid）— docs/styles/magazine-grid.md（布局模式）
+- 全屏英雄区布局（hero-fullscreen）— docs/styles/hero-fullscreen.md（布局模式）
+
+英文版同名加 .en 后缀。
+
+## Agents
+
+- ai/SKILL.md — integration notes
+- ai/scripts/solen.mjs — CLI: list · search · show · pull
+- npm run ai:build — regenerate the JSON surface

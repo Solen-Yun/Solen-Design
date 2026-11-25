@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>液态玻璃 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body lglass">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 70 · 混合版面</p>
+        <h1>液态玻璃 <span class="style-card-en">LIQUID GLASS</span></h1>
+        <p class="page-lead">玻璃让背景透过、在边缘微微弯折，随触碰轻轻回弹。</p>
+        <div class="style-card-tags"><span>SVG 位移折射</span><span>1px 定向高光</span><span>420ms 弹性回位</span><span>正文留在实色面</span></div>
+      </header>
+
+      <section class="lglass-hero">
+        <div class="lglass-hero-copy">
+          <p>液态玻璃由清晰背景、薄透的中性色表面、细小的定向边缘高光和克制的折射共同构成。把它留给悬浮导航、搜索、播放控件和临时菜单；正文与信息卡保持稳定、易读。支持的环境必须默认使用 SVG 位移滤镜，让背景在玻璃边缘产生可见弯折；纯透明白加 blur 只是降级，不是完整液态玻璃。</p>
+          <p>曲面边缘使用折射曲线与平坦中心，可保留极轻色散。深浅背景都须照顾文字对比；点击时短促压缩，拖动时轻微伸展，释放后约 420ms 平顺回到原位。</p>
+        </div>
+        <div class="lglass-demo">
+          <div class="lglass-scene" role="presentation">
+            <span class="lglass-scene-lines" aria-hidden="true"></span>
+            <div class="lglass-dock">
+              <span class="lglass-dock-item is-on">Home</span>
+              <span class="lglass-dock-item">Search</span>
+              <span class="lglass-dock-item">Play</span>
+            </div>
+            <div class="lglass-menu">
+              <span class="lglass-menu-title">_quick actions</span>
+              <span class="lglass-menu-row is-focus">New capture</span>
+              <span class="lglass-menu-row">Share…</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#F3F2ED"></span><span class="palette-name">Paper</span><code>#F3F2ED</code></li>
+          <li><span class="swatch-chip" style="background:#202929"></span><span class="palette-name">Graphite Ink</span><code>#202929</code></li>
+          <li><span class="swatch-chip" style="background:#25414A"></span><span class="palette-name">Deep Sea Scene</span><code>#25414A</code></li>
+          <li><span class="swatch-chip" style="background:#E4EFEB"></span><span class="palette-name">Salt Mist</span><code>#E4EFEB</code></li>
+          <li><span class="swatch-chip" style="background:#FFFFFF"></span><span class="palette-name">Glancing Light</span><code>#FFFFFF</code></li>
+          <li><span class="swatch-chip" style="background:#557B79"></span><span class="palette-name">Sage Focus</span><code>#557B79</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>安静的暖纸底让悬浮玻璃与文字都保持清楚；墨色承担标题、正文与浅背景控件的主要文字；深海蓝绿是玻璃需要透过和折射的场景底，深色浮层在此用白字；盐雾绿是轻量的蓝绿表面色，用于着色材质的柔和底片，而非外发光；掠射光沿玻璃上缘画一条一像素高光，显出曲面方向；鼠尾草绿做焦点环与少量状态提示，维持足够对比。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#F3F2ED"></span><div><strong>Paper</strong><span class="swatch-role">安静、低对比的主页面底色，使悬浮玻璃和文字保持清楚。</span></div><code>#F3F2ED</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#202929"></span><div><strong>Graphite Ink</strong><span class="swatch-role">标题、正文和浅色背景控件中的主要文字颜色。</span></div><code>#202929</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#25414A"></span><div><strong>Deep Sea Scene</strong><span class="swatch-role">玻璃需要透过和折射的照片、色调或线条背景；深色浮层在此处使用白字。</span></div><code>#25414A</code><code>--color-glass-scene</code></li>
+          <li><span class="swatch-chip" style="background:#E4EFEB"></span><div><strong>Salt Mist</strong><span class="swatch-role">轻量的蓝绿色表面色，用于着色材质的柔和底片，而非外发光。</span></div><code>#E4EFEB</code><code>--color-glass-mist</code></li>
+          <li><span class="swatch-chip" style="background:#FFFFFF"></span><div><strong>Glancing Light</strong><span class="swatch-role">沿玻璃上缘或受光侧的一像素高光，显出曲面方向。</span></div><code>#FFFFFF</code><code>--color-glass-glint</code></li>
+          <li><span class="swatch-chip" style="background:#557B79"></span><div><strong>Sage Focus</strong><span class="swatch-role">浅色背景控件的焦点环及少量操作状态提示，维持足够对比。</span></div><code>#557B79</code><code>--color-focus</code></li>
+        </ul>
+        <p class="style-body-note">悬浮控件影 <code>0 8px 24px rgba(19,37,41,0.12), inset 0 1px 0 rgba(255,255,255,0.72)</code>；临时面板 <code>0 16px 40px rgba(19,37,41,0.18)</code>。玻璃只用于确有内容可透过的位置。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>使用平台系统字体保持自然亲切；标题以字号、留白和中等字重建立层级，不使用描边或发光。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="lglass-specimen-title">Liquid Glass 0123</p>
+            <p class="specimen-meta">System UI — 平台系统字体。替代栈：-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif · 400–600 · display 字距 -0.045em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>System UI</td><td>500</td><td>56px</td><td>1.05</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>System UI</td><td>500</td><td>40px</td><td>1.12</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>System UI</td><td>600</td><td>28px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>System UI</td><td>500</td><td>20px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>System UI</td><td>400</td><td>16px</td><td>1.55</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>System UI</td><td>400</td><td>14px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>System UI</td><td>500</td><td>12px</td><td>1.35</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、区块间距 88px。用温暖浅纸面组织页面，以明亮细节照片、等高线或网格作为预览画布，验证深浅背景。内容按「稳定正文 → 玻璃操作层」建立层级；导航和短菜单少量悬浮，信息主体保留清晰实色底。窄屏将同一底栏保持为可触的胶囊控件并为系统安全区留白。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:88px"></span><code>88</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>胶囊控件 999px · 卡片 24px · 菜单 28px</td></tr>
+            <tr><td>触达区域</td><td>≥44px</td></tr>
+            <tr><td>折射边带</td><td>8–24px 曲面边带，中心平坦</td></tr>
+            <tr><td>按压/回弹</td><td>110ms 压缩到 0.96 · 420ms 弹性归位</td></tr>
+            <tr><td>玻璃模糊</td><td>适中，边缘高光保持静态</td></tr>
+            <tr><td>降级</td><td>不支持折射时用磨砂 + 细高光</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Floating Glass Bar</h3>
+            <p class="style-body-comp-role">主导航与场景切换。胶囊底栏高 56–64px，可触区域至少 44px。放在有色照片或内容上：清透状态使用低浓度表面染色、默认启用的真实背景位移折射和一像素定向高光。中心保持平坦，折射集中在约 8–24px 的曲面边带；允许克制的色散。选中片随拖动横向移动，按下压到 0.96，释放后约 420ms 回弹到位。键盘焦点使用清楚的双像素焦点环。hero 里的底栏就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Clear Glass Button</h3>
+            <p class="style-body-comp-role">照片或媒体上方的轻量操作。胶囊形，至少 44px 高，使用低浓度表面、真实边缘折射和极细上缘高光；仅在不支持折射时使用轻柔模糊。优先用深场景上的白色标签；亮背景上切换到深色标签和中性着色表面。按下约 110ms 轻压至 0.96，松开以 420ms 左右弹性过渡恢复。避免在没有可见背景内容时使用清透款。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tinted Glass Menu</h3>
+            <p class="style-body-comp-role">短菜单和临时选项。22–28px 圆角，以更不透明的暖白或灰绿色层承载短标签、选项和图标。背景模糊控制在适中范围，外投影轻柔，顶部只留一条细高光。菜单内文字始终使用墨色；长说明和复杂设置另放在稳定的实色内容面板。hero 右下的菜单就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Search Field</h3>
+            <p class="style-body-comp-role">照片和有色场景上的搜索。圆角胶囊、至少 44px 高，外层略着色并提供柔和模糊；输入与结果文字使用深墨色，避免空心或低对比占位符。边缘高光保持静态，焦点用独立的高对比灰绿色外环表达，不以发光代替焦点反馈。</p>
+            <input class="lglass-search" type="text" placeholder="搜索场景…">
+          </div>
+          <div class="comp-item">
+            <h3>Solid Reading Card</h3>
+            <p class="style-body-comp-role">说明正文、表格与长内容。使用稳定的暖白实色面板、22–24px 圆角和 24px 内边距。最多配一条低对比中性分隔线和轻柔外阴影，不做玻璃折射，以免滚动背景干扰阅读。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>仅把清透玻璃放在确有内容可透过的导航和控件上</li>
+              <li>根据亮暗背景选择白色或墨色标签</li>
+              <li>用一像素定向高光和轻微位移表达玻璃曲面</li>
+              <li>让菜单等短内容稍着色以提升对比</li>
+              <li>保持正文与复杂信息在稳定的实色面上</li>
+              <li>按下约 110ms 轻压，松开约 420ms 回弹</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用彩虹边、霓虹描边或彩色发光模拟折射</li>
+              <li>不要把清透玻璃铺满卡片、正文和整个页面</li>
+              <li>不要在无细节的纯色背景上铺清透玻璃</li>
+              <li>不要让高光和折射损害文字与焦点对比</li>
+              <li>不要持续随机改变边框圆角</li>
+              <li>不要把滤镜支持视为所有浏览器一致</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>给清透玻璃提供可见的背景细节：照片、低对比地貌线、色调变化或几何网格都可以。把纹理放在悬浮控制下方，让直线和细节在玻璃边缘发生轻微位移，中心则保持平静。不要用彩虹渐变、霓虹字或只靠模糊的空白单色底充当折射。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="liquid-glass">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的位移折射、定向高光与回弹时序。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，位移折射、一像素定向高光与 420ms 回弹必须原样保留；彩虹边或铺满全页的清透玻璃一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

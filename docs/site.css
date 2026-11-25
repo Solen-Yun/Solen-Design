@@ -1,0 +1,2131 @@
+/* Docs workbench chrome — dev-only, not part of the library.
+   Unlayered, so it wins over the library's layers.
+
+   Spacing rhythm — every gap in this file comes from the library's own
+   scale, so the workbench previews the spacing tokens it documents:
+     3 = 12px   inside a control
+     4 = 16px   inside a component, between samples
+     5 = 20px   inside a sidebar block
+     6 = 24px   card padding, grid gap, title → its content
+     10 = 40px  page padding
+     12 = 48px  page head → next block, between page sections
+   Nothing wider than 48px between blocks, nothing tighter than 16px
+   between siblings.
+*/
+
+/* ============================ Palette ============================ */
+
+/* The workbench runs on plain black and white. The library keeps its
+   steel-blue accent for product use; the docs chrome borrows the neutral
+   ramp instead, so nothing here carries a hue. */
+:root {
+  --sd-accent: light-dark(var(--sd-gray-900), var(--sd-gray-100));
+  --sd-accent-strong: light-dark(var(--sd-gray-800), var(--sd-gray-300));
+  --sd-accent-soft: light-dark(var(--sd-gray-100), var(--sd-gray-900));
+  --sd-on-accent: light-dark(var(--sd-gray-50), var(--sd-gray-950));
+}
+
+/* The brand mark ships in two variants — ink for light surfaces, reverse for
+   dark ones. Only the matching one is shown. */
+.mark-swap .mark-dark {
+  display: none;
+}
+:root[data-theme='dark'] .mark-swap .mark-light {
+  display: none;
+}
+:root[data-theme='dark'] .mark-swap .mark-dark {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .mark-swap .mark-light {
+    display: none;
+  }
+  :root:not([data-theme='light']) .mark-swap .mark-dark {
+    display: block;
+  }
+}
+
+/* ============================ Layout ============================ */
+
+.layout {
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr) 19rem;
+  min-height: 100vh;
+  /* 顶部留白让开悬浮导航条：上边距 + 条高 + 间隙 */
+  padding: 5.25rem var(--sd-space-5) 0;
+  /* Own stacking context. Everything the pages render - gallery cards,
+     their WebGL previews, 3D transforms - is trapped inside this context
+     at z 0, so no composited layer can escape upward and paint over the
+     fixed navbar (body-level, z 50). */
+  position: relative;
+  z-index: 0;
+}
+/* Pages that skip the rail (the gallery) get their column back. */
+.layout:not(:has(.rail)) {
+  grid-template-columns: 17rem minmax(0, 1fr);
+}
+/* Pages without the contextual sidebar (home) drop the middle column. */
+.layout.no-subnav {
+  grid-template-columns: minmax(0, 1fr) 19rem;
+}
+.layout.no-subnav:not(:has(.rail)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ============================ Sidebar ============================ */
+
+.sidebar {
+  position: sticky;
+  top: 5rem;
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  padding: var(--sd-space-6) var(--sd-space-5);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  margin-right: var(--sd-space-4);
+}
+
+/* --- brand mark (shared by navbar and rail) --- */
+
+.mark {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--sd-radius-lg);
+  background: var(--sd-fill);
+}
+.mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- top navigation bar — floating glass navbar --- */
+
+.iconbar {
+  /* Site chrome overrides: non-active nav labels ship at 62% alpha and the
+     shared glass token at 72% — both wash out over the hero beams. Scoped
+     here so the gallery cards keep their translucency. */
+  /* Opaque on purpose: the hero beams render behind the bar and even a
+     3% bleed reads as smudge under the labels. Zero transmission. */
+  --ios-glass-strong: light-dark(#ffffff, rgb(36 36 38));
+  position: fixed;
+  top: var(--sd-space-4);
+  left: 50%;
+  /* Own composited layer. The gallery cards carry a backdrop-filter, which
+     promotes each of them to its own layer; in this Chromium build those
+     layers then paint straight over this fixed bar regardless of z-index,
+     and the bar's opaque background blends away. Promoting the bar keeps
+     it above them (translateZ must ride along with the centering). */
+  transform: translateX(-50%) translateZ(0);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  height: 3.25rem;
+  padding: 0 var(--sd-space-3);
+  width: calc(100% - 2.5rem);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  /* No backdrop-filter here either - see the liquid-glass skin below: a
+     filtered fixed bar lets the compositor blend the bar's own opaque
+     background away, so the page content shows through it. */
+  box-shadow: var(--sd-shadow-sm);
+  transition: width 0.35s var(--sd-ease);
+}
+/* Non-active nav labels: the component inlines --gn-muted at 62% on its own
+   root, so the override must land on that element with !important to win. */
+.iconbar .gooey-nav {
+  --gn-muted: rgba(24, 24, 27, 0.86) !important;
+}
+/* 往下滑动后收短为居中胶囊 */
+.iconbar.is-compact {
+  width: min(38rem, calc(100% - 2rem));
+}
+.iconbar-spacer {
+  flex: 1 1 0;
+}
+.iconbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-3);
+  text-decoration: none;
+  color: var(--sd-ink);
+}
+.iconbar-brand .mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--sd-radius-md);
+  background: none;
+}
+.iconbar-brand-name {
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-semibold);
+  letter-spacing: -0.01em;
+}
+/* 四个板块项的分段控件（见 chrome.js）：纯 DOM 链接，不用果冻导航——
+   它的 WebGL 画布放进这条固定定位条后，条一收缩画布挪位，合成器会把
+   画布层损坏成不透明白矩形、还会把条自己的背景透掉。 */
+.iconbar-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--sd-radius-full);
+  background: var(--ios-fill);
+  box-shadow: inset 0 0 0 1px var(--ios-glass-border);
+}
+.iconbar-item {
+  display: inline-flex;
+  align-items: center;
+  height: 2.25rem;
+  padding: 0 var(--sd-space-4);
+  border-radius: var(--sd-radius-full);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--sd-duration-fast) var(--sd-ease),
+    color var(--sd-duration-fast) var(--sd-ease);
+}
+.iconbar-seg .iconbar-item {
+  height: 2rem;
+}
+.iconbar-item:hover {
+  background: var(--sd-fill);
+  color: var(--sd-ink);
+}
+.iconbar-seg .iconbar-item.active {
+  background: var(--sd-surface);
+  color: var(--sd-ink);
+  font-weight: var(--sd-weight-medium);
+  box-shadow:
+    inset 0 0 0 1px var(--ios-glass-border),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.iconbar-seg .iconbar-item.active:hover {
+  background: var(--sd-surface);
+}
+.iconbar-end {
+  margin-left: auto;
+}
+
+/* --- nav --- */
+
+.sidebar > nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin-top: var(--sd-space-4);
+  display: grid;
+  gap: var(--sd-space-1);
+  align-content: start;
+  scrollbar-width: none;
+}
+
+.sidebar nav::-webkit-scrollbar,
+.sidebar {
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-group-label {
+  margin: var(--sd-space-5) 0 var(--sd-space-2);
+  padding: 0 var(--sd-space-3);
+  font-size: var(--sd-font-size-xs);
+  font-weight: var(--sd-weight-semibold);
+  line-height: var(--sd-leading-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sd-ink-muted);
+}
+.nav-group-label:first-child {
+  margin-top: 0;
+}
+
+/* Sidebar finder — iOS-style segmented control for category filtering;
+   chrome.js renders the list from the registry through it. */
+.side-finder {
+  display: grid;
+  gap: var(--sd-space-2);
+  padding: 0 var(--sd-space-3);
+  margin-top: var(--sd-space-3);
+  margin-bottom: var(--sd-space-2);
+}
+.side-cats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--sd-fill);
+  box-shadow: inset 0 0 0 1px var(--sd-border);
+}
+.side-cat {
+  display: grid;
+  place-items: center;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--sd-ink-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.side-cat:hover {
+  color: var(--sd-ink);
+}
+.side-cat.is-on {
+  background: var(--sd-surface);
+  color: var(--sd-ink);
+  box-shadow: inset 0 0 0 1px var(--sd-border), var(--sd-shadow-sm);
+}
+.side-cat:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}
+.side-cat svg {
+  width: 18px;
+  height: 18px;
+}
+.side-cat-aa {
+  font-size: 13px;
+  font-weight: var(--sd-weight-semibold);
+  line-height: 1;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sd-space-3);
+  padding: var(--sd-space-2) var(--sd-space-3);
+  border-radius: var(--sd-radius-md);
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+  text-decoration: none;
+  transition:
+    background-color var(--sd-duration-fast) var(--sd-ease),
+    color var(--sd-duration-fast) var(--sd-ease);
+}
+.nav-item::before {
+  content: "";
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-border-strong);
+  transition: background-color var(--sd-duration-fast) var(--sd-ease);
+}
+.nav-item:hover {
+  background: var(--sd-fill);
+  color: var(--sd-ink);
+}
+.nav-item.active {
+  background: var(--sd-accent-soft);
+  color: var(--sd-accent-strong);
+  font-weight: var(--sd-weight-medium);
+}
+.nav-item.active::before {
+  background: var(--sd-accent);
+}
+.nav-item[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* Docs-page sidebar — grouped nav */
+.side-group {
+  margin: var(--sd-space-5) var(--sd-space-3) var(--sd-space-1);
+  font-size: var(--sd-font-size-xs);
+  font-weight: var(--sd-weight-semibold);
+  color: var(--sd-ink);
+}
+
+/* 文档页侧边栏条目很少，去掉卡片外框，只留导航本身。 */
+.layout:has(#docs-body) .sidebar {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+/* 文档页整版收拢居中：侧栏、正文、目录互相贴近，不铺满全宽。 */
+.layout:has(#docs-body) {
+  grid-template-columns: auto minmax(0, 1fr);
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* Docs page — article + right-hand table of contents */
+.docs-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 11rem;
+  gap: var(--sd-space-10);
+  align-items: start;
+  width: 100%;
+}
+.docs-split .content {
+  max-width: 44rem;
+  justify-self: center;
+}
+
+/* Scrollbars are never shown anywhere in the docs — scrollers keep working
+   (wheel, touch, drag) but no bar is drawn, matching the clean iOS look. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* GlassNavbar demo stage — scrollable, but the scrollbar stays invisible */
+.gnb-stage {
+  height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  border-radius: 16px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.toc {
+  position: sticky;
+  top: 5rem;
+  display: grid;
+  gap: var(--sd-space-2);
+}
+.toc-label {
+  margin: 0 0 var(--sd-space-1);
+  font-size: var(--sd-font-size-xs);
+  font-weight: var(--sd-weight-semibold);
+  color: var(--sd-ink);
+}
+.toc nav {
+  display: grid;
+  gap: var(--sd-space-2);
+}
+.toc a {
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+  text-decoration: none;
+}
+.toc a:hover {
+  color: var(--sd-ink);
+}
+
+/* 帆船目录（航线与船由 toc-ship.js 注入）：左侧让出船道，
+   当前项向右让位 28px，航线在船心处右弯，尺寸与组件引擎一致。 */
+.toc {
+  padding-left: 48px;
+}
+.toc .ship-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.toc .ship {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+/* 航线的 d 属性逐帧重写，会拖着整块目录文字跟着重绘；提成独立图层，
+   把重绘圈在航线内部，滚动时目录文字不再反复栅格化（深色下表现为闪黑块）。 */
+.toc .ship-route {
+  will-change: transform;
+}
+.toc .ship-ripple {
+  opacity: 0;
+}
+.toc a {
+  transition: transform .32s cubic-bezier(.22, 1, .36, 1), color .32s cubic-bezier(.22, 1, .36, 1);
+}
+.toc a[aria-current="location"] {
+  color: var(--sd-ink);
+  transform: translateX(20px);
+}
+.toc[hidden] {
+  display: none;
+}
+.docs-split:has(.toc[hidden]) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.nav-empty {
+  margin: 0;
+  padding: var(--sd-space-2) var(--sd-space-3);
+  border-radius: var(--sd-radius-md);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  opacity: 0.6;
+}
+
+/* ============================ Content ============================ */
+
+.content {
+  width: 100%;
+  padding: var(--sd-space-10) var(--sd-space-10) var(--sd-space-16);
+  /* Own stacking context. The gallery cards carry a backdrop-filter, which
+     promotes each of them to its own composited layer; those layers can
+     otherwise be painted over the fixed navbar no matter how high the
+     bar's z-index is. Containing them here keeps the bar on top. */
+  position: relative;
+  z-index: 0;
+}
+
+/* 文档正文节奏：reset 清零了所有 margin，这里给文档页补回段落呼吸。 */
+/* 文档正文节奏：reset 清零了所有 margin，这里给文档页补回段落呼吸。
+   长阅读正文深色下降一档亮度（gray-300），纯白只留给标题，减少整页眩光。 */
+#docs-body p {
+  margin: 0 0 1.25em;
+  color: light-dark(var(--sd-gray-900), var(--sd-gray-300));
+}
+#docs-body pre {
+  margin: 0 0 1.5em;
+}
+#docs-body ul {
+  margin: 0 0 1.5em;
+  padding-left: 1.4em;
+  color: light-dark(var(--sd-gray-900), var(--sd-gray-300));
+  display: grid;
+  gap: var(--sd-space-2);
+}
+#docs-body .changelog-hl {
+  margin: 0 0 1em;
+  font-weight: var(--sd-weight-medium);
+  color: var(--sd-ink);
+}
+#docs-body .page-head {
+  margin-bottom: var(--sd-space-8);
+}
+/* 长文随笔：行距放宽，短句独立成段时才有停顿感。 */
+.essay p {
+  line-height: 1.9;
+}
+/* 长文小节标记比文档标题轻一档，只当进度锚点用（喂给右侧目录与帆船）。 */
+.essay h3 {
+  margin-top: var(--sd-space-8);
+  margin-bottom: var(--sd-space-3);
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-medium);
+  color: var(--sd-ink-muted);
+}
+.page-head .essay-date {
+  margin-top: var(--sd-space-2);
+  font-size: var(--sd-font-size-xs);
+  color: var(--sd-ink-muted);
+}
+
+.page-head-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sd-space-6);
+}
+.page-head-main {
+  min-width: 0;
+}
+.page-head-action {
+  flex-shrink: 0;
+}
+.copy-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-surface);
+  padding: var(--sd-space-1) var(--sd-space-4);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink);
+}
+.copy-menu-button:hover {
+  border-color: var(--sd-border-strong);
+  color: var(--sd-accent-strong);
+}
+/* Toolbar: preview/code tabs on the left, copy-for-AI on the right */
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sd-space-4);
+  margin-top: var(--sd-space-6);
+  margin-bottom: var(--sd-space-4);
+}
+.view-tabs {
+  display: inline-flex;
+  gap: var(--sd-space-1);
+  padding: 3px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-surface);
+}
+.view-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  padding: var(--sd-space-1) var(--sd-space-4);
+  border-radius: var(--sd-radius-full);
+  background: transparent;
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  transition:
+    background-color var(--sd-duration-fast) var(--sd-ease),
+    color var(--sd-duration-fast) var(--sd-ease);
+}
+.view-tabs button:hover {
+  color: var(--sd-ink);
+}
+.view-tabs button.active {
+  background: var(--sd-accent-soft);
+  color: var(--sd-accent-strong);
+  font-weight: var(--sd-weight-medium);
+}
+
+/* The frame the demo sits in — one fixed size for every component. */
+
+/* Code tab — install / dependencies / source / usage in one panel */
+.code-view {
+  display: grid;
+  /* A definite track — long unbroken lines (embedded data, base64) would
+     otherwise size the column to max-content and blow the page open. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sd-space-6);
+}
+.code-view-label {
+  margin-bottom: var(--sd-space-3);
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-semibold);
+}
+
+/* Copy button floating in a bare code block's corner */
+.code-copy-wrap {
+  position: relative;
+}
+.code-copy-wrap .copy-icon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+}
+.code-view-picker {
+  display: flex;
+  margin-bottom: var(--sd-space-3);
+}
+
+.page-head h1 {
+  font-size: var(--sd-font-size-3xl);
+  line-height: var(--sd-leading-3xl);
+  letter-spacing: -0.02em;
+}
+/* "Used by this workbench" badge beside a component title */
+.title-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: var(--sd-space-3);
+  padding: 0 var(--sd-space-3);
+  height: 1.75rem;
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--sd-accent) 35%, transparent);
+  font-size: var(--sd-font-size-xs);
+  line-height: 1;
+  font-weight: var(--sd-weight-medium);
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: var(--sd-accent-strong);
+}
+.page-head p {
+  margin-top: var(--sd-space-4);
+  max-width: 44rem;
+  font-size: var(--sd-font-size-base);
+  line-height: var(--sd-leading-base);
+  color: var(--sd-ink-muted);
+}
+
+.content section + section,
+.content .page-panel + section {
+  margin-top: var(--sd-space-12);
+}
+.page-panel {
+  min-width: 0;
+}
+.content section > h2 {
+  font-size: var(--sd-font-size-xl);
+  line-height: var(--sd-leading-xl);
+  letter-spacing: -0.01em;
+  padding-bottom: var(--sd-space-3);
+  margin-bottom: var(--sd-space-6);
+  border-bottom: 1px solid var(--sd-border);
+}
+.content section > h3 {
+  margin-top: var(--sd-space-8);
+  margin-bottom: var(--sd-space-4);
+  font-size: var(--sd-font-size-lg);
+  line-height: var(--sd-leading-lg);
+  letter-spacing: -0.01em;
+  font-weight: var(--sd-weight-semibold);
+}
+
+/* ============================ Home hero ============================ */
+
+/* 首页封面：跟随工作台明暗主题（theme.js 钉浅色 → 恒浅色；恢复双主题后
+   暗场自动回来）。浅色时画布与页面同底色、光经 lightMode 印成软彩墨；
+   深色时整页压暗、白光辉光。字标用同侧的灰阶端点。 */
+body:has(#home-rays) {
+  background: light-dark(#f2f2f7, #101014);
+}
+.home-content {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 5.25rem);
+  padding: 0;
+}
+.home-hero-rays {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  /* Decorative backdrop — always painted under the top nav (z-50) and
+     the hero content (z-1); it never intercepts pointer events. */
+  pointer-events: none;
+}
+/* 字标与运行计时纵向成列，整体抬到光束层之上。 */
+.home-hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: var(--sd-space-8);
+}
+.home-hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 1.05;
+  font-weight: var(--sd-weight-semibold);
+  letter-spacing: -0.03em;
+  color: light-dark(var(--sd-gray-900), var(--sd-gray-100));
+}
+/* 底部跑马灯带：固定视口底边，裁掉 jacket 自带的整屏高度，
+   文字用 currentColor 随主题。弧线版：SVG 视框顶对齐（jacket 改
+   flex-start），条带高度按「路径最深点 + 字面下延」随宽度走
+   （11.6vw 起步），保证任何宽度都不裁字。 */
+.home-marquee {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--sd-space-8);
+  height: clamp(200px, 16vw, 420px);
+  overflow: hidden;
+  z-index: 1;
+  /* Decorative only — never block clicks on the hero CTAs above it. */
+  pointer-events: none;
+  color: light-dark(var(--sd-gray-900), var(--sd-gray-100));
+}
+.home-marquee .curved-loop-jacket {
+  min-height: 100%;
+  align-items: flex-start;
+}
+
+/* ============================ Preview frame ============================ */
+
+.preview {
+  padding: var(--sd-space-6);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+}
+.preview > .grid {
+  gap: var(--sd-space-4);
+}
+
+/* ============================ Theme toggle ============================ */
+
+/* 导航栏右侧的明暗切换：双图标随模式显隐（is-dark 由 theme.js 维护），
+   深色态显示太阳（切回浅色），浅色态显示月亮（切到深色） */
+.theme-toggle .theme-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle.is-dark .theme-icon-sun {
+  display: block;
+}
+
+.theme-toggle.is-dark .theme-icon-moon {
+  display: none;
+}
+
+.theme-toggle:not(.is-dark) .theme-icon-sun {
+  display: none;
+}
+
+.theme-toggle:not(.is-dark) .theme-icon-moon {
+  display: block;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--sd-space-3);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  text-decoration: none;
+}
+.back-link:hover {
+  color: var(--sd-accent-strong);
+}
+
+/* Demo stage and actions */
+
+.demo-hint {
+  margin-bottom: var(--sd-space-4);
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+}
+/* Preview — the frame is the viewport and the backdrop: one fixed size for
+   every component, its own background, and the scene scaled into it. */
+.demo-stage {
+  --demo-frame-width: 980px;
+  --demo-frame-height: 620px;
+  position: relative;
+  display: grid;
+  /* A definite track keeps fixed-width scenes (1280px canvases and the
+     like) from stretching the column and defeating the runtime scale. */
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  width: min(var(--demo-frame-width), 100%);
+  height: var(--demo-frame-height);
+  margin-inline: auto;
+  /* The frame the components live in: a rounded panel whose backdrop is
+     fixed per component — each docs page sets it inline to the backdrop
+     the component suits, so it does not follow light/dark mode. The
+     scenes inside are transparent, so this is what shows through. */
+  background: #ffffff;
+  /* Ink follows the frame's pinned color-scheme, so components that
+     inherit text colour (canvas scenes, plain DOM) read correctly on
+     both light and dark frames regardless of the workbench theme. */
+  color: var(--sd-ink);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  overflow: hidden;
+}
+/* The component keeps its own design size; demo-fit.jsx scales it into the
+   frame as one unit, so every scene — whatever its aspect — ends up filling
+   the frame instead of sitting at full size inside it. The scene's own
+   backdrop is transparent (see demo-fit.jsx), so the frame's background is
+   what shows through. */
+.demo-fit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.demo-fit-inner {
+  display: flex;
+  /* Centre scenes that size themselves; full-width ones still fill. */
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  transform-origin: top left;
+}
+.demo-fit-inner > [data-motion-component] {
+  width: 100%;
+}
+.demo-stage > [data-motion-component] {
+  width: 100%;
+}
+.demo-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--sd-space-2);
+  margin-top: var(--sd-space-4);
+}
+.demo-actions button,
+.demo-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  background: none;
+  padding: var(--sd-space-2) var(--sd-space-3);
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+  text-decoration: none;
+}
+.demo-actions button:hover,
+.demo-actions a:hover {
+  color: var(--sd-accent-strong);
+}
+/* The demo's replay control — a fixed dark pill, independent of site theme. */
+.demo-actions .replay-button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--sd-gray-950);
+  border-radius: var(--sd-radius-lg);
+  background: var(--sd-gray-900);
+  color: var(--sd-gray-50);
+  font-weight: var(--sd-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--sd-duration-fast) var(--sd-ease);
+}
+.demo-actions .replay-button:hover {
+  background: var(--sd-gray-800);
+}
+.demo-actions .replay-button:active {
+  background: var(--sd-gray-950);
+}
+.demo-actions .replay-button svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ============================ Component page ============================ */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sd-space-2);
+  margin: var(--sd-space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tag {
+  padding: 2px var(--sd-space-3);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-fill);
+  font-size: var(--sd-font-size-xs);
+  line-height: var(--sd-leading-xs);
+  color: var(--sd-ink-muted);
+}
+
+/* Code */
+
+.code {
+  margin: 0;
+  font-size: var(--sd-font-size-sm);
+}
+.code code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+/* stacked blocks keep a rhythm instead of sitting flush */
+.code + .code {
+  margin-top: var(--sd-space-4);
+}
+
+/* Source viewer: framework picker, file pill, copy actions */
+
+.source {
+  display: grid;
+  gap: var(--sd-space-4);
+}
+.source-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sd-space-4);
+}
+.source-label {
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+}
+.source-framework {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  /* 无水平内边距：让 "React ▾" 文字与安装/代码等标题左对齐 */
+  padding: var(--sd-space-1) 0;
+  background: none;
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-medium);
+  color: var(--sd-ink);
+}
+.source-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  padding: var(--sd-space-1) var(--sd-space-2);
+  background: none;
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+}
+.source-copy:hover {
+  color: var(--sd-accent-strong);
+}
+.copy-done {
+  margin-left: var(--sd-space-2);
+  color: var(--sd-accent-strong);
+}
+
+.file-code {
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+  overflow: hidden;
+}
+.file-code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sd-space-3);
+  padding: var(--sd-space-2) var(--sd-space-3);
+  background: var(--sd-surface);
+  border-bottom: 1px solid var(--sd-border);
+}
+.file-code-picker {
+  position: relative;
+}
+.file-code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-md);
+  background: var(--sd-fill);
+  padding: var(--sd-space-1) var(--sd-space-3);
+  font-size: var(--sd-font-size-sm);
+  font-family: var(--sd-font-mono);
+  color: var(--sd-ink);
+}
+.file-code-file {
+  font-size: var(--sd-font-size-sm);
+  font-family: var(--sd-font-mono);
+  color: var(--sd-ink-muted);
+}
+.manager-tabs {
+  display: flex;
+  gap: var(--sd-space-1);
+}
+.manager-tabs button {
+  border: 0;
+  padding: var(--sd-space-1) var(--sd-space-3);
+  border-radius: var(--sd-radius-md);
+  background: transparent;
+  font-size: var(--sd-font-size-sm);
+  font-family: var(--sd-font-mono);
+  color: var(--sd-ink-muted);
+}
+.manager-tabs button:hover {
+  color: var(--sd-ink);
+}
+.manager-tabs button.active {
+  background: var(--sd-fill);
+  color: var(--sd-ink);
+  font-weight: var(--sd-weight-semibold);
+}
+.section-note {
+  margin-bottom: var(--sd-space-4);
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+}
+.file-code-name {
+  padding: var(--sd-space-2) var(--sd-space-4);
+  background: var(--sd-surface);
+  border-bottom: 1px solid var(--sd-border);
+  font-size: var(--sd-font-size-xs);
+  font-family: var(--sd-font-mono);
+  color: var(--sd-ink-muted);
+}
+.file-code-body {
+  max-height: 28rem;
+  overflow: auto;
+  margin: 0;
+  border-radius: 0;
+  /* Base64 payloads and one-line JSON have no spaces to break on. */
+  overflow-wrap: anywhere;
+}
+.file-code-chevron {
+  color: var(--sd-ink-muted);
+  transition: rotate var(--sd-duration-fast) var(--sd-ease);
+}
+.file-code-pill[aria-expanded="true"] .file-code-chevron,
+.source-framework[aria-expanded="true"] .file-code-chevron {
+  rotate: 180deg;
+}
+.file-code-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 5;
+  margin: 0;
+  padding: var(--sd-space-1);
+  list-style: none;
+  min-width: 13rem;
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-md);
+  box-shadow: var(--sd-shadow-md);
+}
+.file-code-menu button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: var(--sd-space-2) var(--sd-space-3);
+  border-radius: var(--sd-radius-sm);
+  background: transparent;
+  font-size: var(--sd-font-size-sm);
+  font-family: var(--sd-font-mono);
+  text-align: left;
+  color: var(--sd-ink);
+}
+.file-code-menu button:hover {
+  background: var(--sd-fill);
+}
+.copy-icon {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: var(--sd-radius-sm);
+  background: none;
+  color: var(--sd-ink-muted);
+}
+.copy-icon:hover {
+  background: var(--sd-fill);
+  color: var(--sd-ink);
+}
+
+/* Dependencies */
+
+.dep-list {
+  display: grid;
+  gap: var(--sd-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dep-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sd-space-4);
+}
+.dep-list code {
+  font-size: var(--sd-font-size-sm);
+}
+.dep-list span {
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+}
+
+/* Prompt */
+
+/* Section heading with an action on the right */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sd-space-4);
+  padding-bottom: var(--sd-space-3);
+  margin-bottom: var(--sd-space-6);
+  border-bottom: 1px solid var(--sd-border);
+}
+.section-head > h2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.section-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  background: none;
+  padding: var(--sd-space-1) var(--sd-space-2);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+}
+.section-action:hover {
+  color: var(--sd-accent-strong);
+}
+
+/* Recreation prompt — the full spec, scrollable */
+.prompt-text {
+  max-height: 26rem;
+  overflow: auto;
+  margin: 0;
+  padding: var(--sd-space-5) var(--sd-space-6);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  white-space: pre-wrap;
+  /* Long unbroken payloads (embedded colour data, base64) must wrap. */
+  overflow-wrap: anywhere;
+  color: var(--sd-ink);
+  font-family: var(--sd-font-sans);
+}
+
+/* Inside the file-code frame the header carries the chrome, so the body
+   drops its own border and radius. */
+.prompt-code .prompt-text {
+  max-height: 30rem;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Usage snippets */
+.usage + .usage {
+  margin-top: var(--sd-space-4);
+}
+.usage-label {
+  margin-bottom: var(--sd-space-2);
+  font-size: var(--sd-font-size-xs);
+  font-weight: var(--sd-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sd-ink-muted);
+}
+.copy-btn {
+  justify-self: start;
+  border: 1px solid var(--sd-border-strong);
+  border-radius: var(--sd-radius-md);
+  padding: var(--sd-space-1) var(--sd-space-4);
+  background: var(--sd-surface-raised);
+  font-size: var(--sd-font-size-xs);
+  line-height: var(--sd-leading-xs);
+  color: var(--sd-ink);
+}
+.copy-btn:hover {
+  border-color: var(--sd-accent);
+  color: var(--sd-accent-strong);
+}
+
+/* API table */
+
+.api-group {
+  margin-bottom: var(--sd-space-2);
+  font-size: var(--sd-font-size-xs);
+  font-weight: var(--sd-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sd-ink-muted);
+}
+.api-group + .api-table {
+  margin-bottom: var(--sd-space-6);
+}
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--sd-font-size-sm);
+}
+.api-table th,
+.api-table td {
+  padding: var(--sd-space-3) var(--sd-space-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--sd-border);
+}
+.api-table th {
+  font-weight: var(--sd-weight-semibold);
+  color: var(--sd-ink-muted);
+  font-size: var(--sd-font-size-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.api-table td code {
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+.api-table td:last-child {
+  color: var(--sd-ink-muted);
+}
+
+/* Prev / next — component switcher at the end of a detail page */
+.page-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sd-space-4);
+  margin-top: var(--sd-space-12);
+}
+.page-nav-link {
+  display: grid;
+  gap: var(--sd-space-1);
+  padding: var(--sd-space-5) var(--sd-space-6);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+  text-decoration: none;
+}
+.page-nav-link:hover {
+  border-color: var(--sd-accent);
+}
+.page-nav-label {
+  font-size: var(--sd-font-size-xs);
+  line-height: var(--sd-leading-xs);
+  color: var(--sd-ink-muted);
+}
+.page-nav-name {
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  font-weight: var(--sd-weight-semibold);
+  color: var(--sd-ink);
+}
+.page-nav-next {
+  text-align: right;
+}
+
+/* ============================ Component gallery ============================ */
+
+.comp-grid {
+  /* Masonry — cards keep their natural height (each preview runs at its
+     own size) and flow into balanced columns instead of one uniform grid. */
+  column-width: 13rem;
+  column-gap: var(--sd-space-6);
+  /* Own stacking context, so the glass cards' composited layers stay
+     inside the gallery and cannot be painted over the fixed navbar. */
+  position: relative;
+  z-index: 0;
+}
+.comp-card {
+  display: block;
+  break-inside: avoid;
+  margin-block-end: var(--sd-space-6);
+  overflow: hidden;
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow var(--sd-duration-base) var(--sd-ease),
+    border-color var(--sd-duration-base) var(--sd-ease),
+    translate var(--sd-duration-base) var(--sd-ease);
+}
+a.comp-card:hover {
+  box-shadow: var(--sd-shadow-md);
+  border-color: var(--sd-border-strong);
+  translate: 0 -2px;
+}
+.comp-preview {
+  /* 封面图：按图自己的高度排，卡片长短由封面决定。 */
+  display: block;
+  max-height: 260px;
+  overflow: hidden;
+  background: var(--sd-fill);
+  border-bottom: 1px solid var(--sd-border);
+}
+
+.comp-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.comp-body {
+  display: grid;
+  /* Same definite-track guard as .demo-stage — wide fixed-size scenes must
+     not stretch the card column past the card frame. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sd-space-2);
+  padding: var(--sd-space-4) var(--sd-space-5) var(--sd-space-5);
+}
+.comp-name {
+  font-size: var(--sd-font-size-lg);
+  font-weight: var(--sd-weight-semibold);
+}
+.comp-desc {
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+}
+
+/* ============================ Token previews ============================ */
+
+.grid { display: grid; gap: var(--sd-space-6); }
+.chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--sd-space-4);
+}
+.chip {
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+  overflow: hidden;
+  font-size: var(--sd-font-size-xs);
+}
+.chip .c { height: 3rem; }
+.chip .l {
+  padding: var(--sd-space-2) var(--sd-space-3);
+  background: var(--sd-surface);
+  color: var(--sd-ink-muted);
+  font-family: var(--sd-font-mono);
+  font-size: 0.6875rem;
+}
+.ramp { display: flex; gap: var(--sd-space-1); align-items: center; }
+.ramp .name {
+  width: 4.5rem;
+  flex-shrink: 0;
+  font-size: var(--sd-font-size-xs);
+  color: var(--sd-ink-muted);
+  font-family: var(--sd-font-mono);
+}
+.ramp .swatch { flex: 1; height: 2rem; border-radius: var(--sd-radius-sm); }
+.row { display: flex; align-items: center; gap: var(--sd-space-4); }
+.row .label {
+  width: 14rem;
+  flex-shrink: 0;
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  font-family: var(--sd-font-mono);
+}
+.space-bar {
+  height: 1rem;
+  background: var(--sd-accent-soft);
+  border: 1px solid var(--sd-border-strong);
+}
+.type-sample { font-weight: var(--sd-weight-semibold); }
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sd-space-5);
+  align-items: center;
+}
+.radius-box,
+.shadow-card {
+  width: 7rem;
+  height: 4.5rem;
+  background: var(--sd-surface-raised);
+  border: 1px solid var(--sd-border);
+  display: grid;
+  place-items: center;
+  font-size: var(--sd-font-size-xs);
+  color: var(--sd-ink-muted);
+  font-family: var(--sd-font-mono);
+}
+
+/* ============================ Base element samples ============================ */
+
+.prose { max-width: 44rem; }
+/* Paragraph rhythm — the reset zeroes margins, so consecutive paragraphs
+   would butt into a wall of text. */
+.prose p + p { margin-top: var(--sd-space-4); }
+.prose > * + * { margin-top: var(--sd-space-4); }
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--sd-space-5);
+  align-items: center;
+}
+
+/* ============================ Standalone preview ============================ */
+
+body.standalone {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--sd-space-8);
+}
+
+/* ============================ Right rail ============================ */
+
+.rail {
+  position: sticky;
+  top: 5rem;
+  height: calc(100vh - 6rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sd-space-5);
+  min-width: 0;
+  padding: var(--sd-space-6) var(--sd-space-5) var(--sd-space-16) var(--sd-space-2);
+}
+.rail-card {
+  flex-shrink: 0;
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  overflow: hidden;
+}
+.rail-banner {
+  display: grid;
+  place-items: center;
+  height: 7.5rem;
+  background:
+    radial-gradient(120% 170% at 18% 0%, var(--sd-accent-soft), transparent 62%),
+    linear-gradient(150deg, var(--sd-accent-soft), var(--sd-surface-raised));
+  font-size: var(--sd-font-size-lg);
+  font-weight: var(--sd-weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--sd-accent-strong);
+}
+.rail-body {
+  display: grid;
+  gap: var(--sd-space-3);
+  padding: var(--sd-space-5);
+}
+.rail-title {
+  font-size: var(--sd-font-size-lg);
+  line-height: var(--sd-leading-lg);
+  font-weight: var(--sd-weight-semibold);
+}
+.rail-text {
+  margin: 0;
+  font-size: var(--sd-font-size-sm);
+  line-height: var(--sd-leading-sm);
+  color: var(--sd-ink-muted);
+}
+.rail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sd-space-3);
+}
+.rail-note {
+  font-size: var(--sd-font-size-xs);
+  color: var(--sd-ink-muted);
+}
+/* Contact buttons — WeChat / Channels codes live in a shared modal. */
+.rail-contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sd-space-4);
+  margin-top: var(--sd-space-3);
+}
+.rail-contact-btn {
+  display: grid;
+  justify-items: center;
+  gap: var(--sd-space-2);
+  padding: var(--sd-space-3) 0;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+  background: var(--sd-fill);
+  color: var(--sd-ink);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.rail-contact-btn:hover {
+  border-color: var(--sd-border-strong);
+  background: var(--sd-surface-raised);
+}
+.rail-contact-btn:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}
+.rail-contact-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+.rail-contact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.rail-contact-icon img {
+  width: 24px;
+  height: 24px;
+}
+.rail-contact-label {
+  font-size: var(--sd-font-size-sm);
+  font-weight: var(--sd-weight-medium);
+}
+.rail-contact-item {
+  display: grid;
+  gap: var(--sd-space-2);
+  align-content: start;
+}
+.rail-contact-text {
+  margin: 0;
+  font-size: var(--sd-font-size-xs);
+  line-height: var(--sd-leading-xs);
+  color: var(--sd-ink-muted);
+  text-align: left;
+}
+/* QR modal — one shared dialog, opened from the rail's contact buttons. */
+.qr-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: var(--sd-space-5);
+}
+.qr-modal[hidden] {
+  display: none;
+}
+.qr-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.55);
+}
+.qr-modal-panel {
+  position: relative;
+  width: min(360px, 100%);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: var(--sd-space-5);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+  box-shadow: var(--sd-shadow-lg, 0 24px 48px rgb(0 0 0 / 0.3));
+  text-align: center;
+}
+.qr-modal-close {
+  position: absolute;
+  top: var(--sd-space-3);
+  right: var(--sd-space-3);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sd-fill);
+  color: var(--sd-ink-muted);
+  cursor: pointer;
+}
+.qr-modal-close:hover {
+  color: var(--sd-ink);
+}
+.qr-modal-close:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}
+.qr-modal-close svg {
+  width: 14px;
+  height: 14px;
+}
+.qr-modal-title {
+  margin: 0 0 var(--sd-space-3);
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-semibold);
+  color: var(--sd-ink);
+}
+.qr-modal-image {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-lg);
+}
+.qr-modal.is-wide .qr-modal-panel {
+  width: min(720px, 100%);
+}
+.qr-modal-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: var(--sd-space-4);
+}
+.qr-modal-figure {
+  margin: 0;
+  display: grid;
+  gap: var(--sd-space-2);
+  align-content: start;
+}
+.qr-modal-figure-label {
+  font-size: var(--sd-font-size-xs);
+  color: var(--sd-ink-muted);
+}
+
+/* Customize panel — live option controls under the preview */
+.customize {
+  margin-top: var(--sd-space-5);
+  padding: var(--sd-space-5);
+  background: var(--sd-surface);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius-2xl);
+}
+.customize-title {
+  margin-bottom: var(--sd-space-4);
+  font-size: var(--sd-font-size-base);
+  font-weight: var(--sd-weight-semibold);
+}
+.customize-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sd-space-4);
+}
+.customize-head .customize-title {
+  margin-bottom: 0;
+}
+.customize-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sd-space-2);
+  border: 0;
+  background: none;
+  padding: var(--sd-space-2) var(--sd-space-3);
+  font-size: var(--sd-font-size-sm);
+  color: var(--sd-ink-muted);
+  cursor: pointer;
+}
+.customize-reset:hover {
+  color: var(--sd-accent-strong);
+}
+.customize-reset svg {
+  width: 1em;
+  height: 1em;
+}
+.customize-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--sd-space-3);
+  padding: 0.875rem 1rem;
+  background: var(--sd-fill);
+  border-radius: 0.875rem;
+  font-size: var(--sd-font-size-sm);
+  transition: background-color var(--sd-duration-fast) var(--sd-ease);
+}
+.control:hover {
+  background: color-mix(in srgb, var(--sd-accent) 5%, var(--sd-fill));
+}
+
+/* Slider cards keep the reference's single-row layout: label, track, value. */
+.control:has(input[type="range"]) .control-label {
+  flex: 0 0 auto;
+}
+.control:has(input[type="range"]) .control-value {
+  color: var(--sd-ink);
+  font-weight: var(--sd-weight-semibold);
+}
+.control:has(input[type="range"]) input[type="range"] {
+  flex: 1;
+  min-inline-size: 0;
+}
+.control-label {
+  flex: 1;
+  color: var(--sd-ink);
+  white-space: nowrap;
+}
+
+/* Range — engineering track: accent fill, hairline base, faint ruler ticks,
+   and a capsule thumb. --pct is kept in sync by chrome.js. */
+.control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  inline-size: 100%;
+  block-size: 1.5rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.control input[type="range"]:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+/* Recessed slot: always darker than the card, white ticks inside — both
+   themes read the same way, exactly like the reference. */
+.control input[type="range"]::-webkit-slider-runnable-track {
+  block-size: 1.5rem;
+  border-radius: 0.75rem;
+  background:
+    repeating-linear-gradient(to right, rgb(255 255 255 / 28%) 0 1px, transparent 1px 9px) left center / calc(100% - 0.375rem) 1rem no-repeat 0.1875rem 0;
+  background-color: color-mix(in srgb, var(--sd-gray-950) 32%, var(--sd-fill));
+  box-shadow: inset 0 1px 3px color-mix(in srgb, var(--sd-gray-950) 35%, transparent);
+}
+.control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  inline-size: 0.4375rem;
+  block-size: 1.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: #ffffff;
+  box-shadow: 0 1px 5px color-mix(in srgb, var(--sd-gray-950) 55%, transparent);
+}
+.control input[type="range"]::-moz-range-track {
+  block-size: 1.5rem;
+  border-radius: 0.75rem;
+  background:
+    repeating-linear-gradient(to right, rgb(255 255 255 / 28%) 0 1px, transparent 1px 9px) left center / calc(100% - 0.375rem) 1rem no-repeat 0.1875rem 0;
+  background-color: color-mix(in srgb, var(--sd-gray-950) 32%, var(--sd-fill));
+  box-shadow: inset 0 1px 3px color-mix(in srgb, var(--sd-gray-950) 35%, transparent);
+}
+.control input[type="range"]::-moz-range-thumb {
+  inline-size: 0.4375rem;
+  block-size: 1.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: #ffffff;
+  box-shadow: 0 1px 5px color-mix(in srgb, var(--sd-gray-950) 55%, transparent);
+}
+.control-value {
+  color: var(--sd-ink);
+  font-weight: var(--sd-weight-semibold);
+}
+.control:has(input[type="range"]) input[type="range"] {
+  flex-basis: 100%;
+}
+.control-label {
+  flex: 1;
+  color: var(--sd-ink);
+  white-space: nowrap;
+}
+
+/* Range — engineering track: accent fill, hairline base, faint ruler ticks,
+   and a capsule thumb. --pct is kept in sync by chrome.js. */
+.control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  inline-size: 100%;
+  block-size: 1.25rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.control input[type="range"]:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+.control input[type="range"]::-webkit-slider-runnable-track {
+  block-size: 1.25rem;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(var(--sd-accent), var(--sd-accent)) left center / var(--pct, 50%) 0.25rem no-repeat,
+    linear-gradient(color-mix(in srgb, var(--sd-ink) 30%, transparent), color-mix(in srgb, var(--sd-ink) 30%, transparent)) left center / 100% 0.25rem no-repeat,
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--sd-ink) 22%, transparent) 0 1px, transparent 1px 9px) left center / calc(100% - 0.25rem) 0.75rem no-repeat 0.125rem 0;
+}
+.control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  inline-size: 0.375rem;
+  block-size: 1.25rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: var(--sd-surface);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sd-ink) 45%, transparent),
+    0 1px 4px color-mix(in srgb, var(--sd-gray-950) 40%, transparent);
+  transition: box-shadow var(--sd-duration-fast) var(--sd-ease);
+}
+.control input[type="range"]:hover::-webkit-slider-thumb {
+  box-shadow:
+    0 0 0 1px var(--sd-accent),
+    0 1px 6px color-mix(in srgb, var(--sd-gray-950) 45%, transparent);
+}
+.control input[type="range"]::-moz-range-track {
+  block-size: 1.25rem;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(color-mix(in srgb, var(--sd-ink) 30%, transparent), color-mix(in srgb, var(--sd-ink) 30%, transparent)) left center / 100% 0.25rem no-repeat,
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--sd-ink) 22%, transparent) 0 1px, transparent 1px 9px) left center / calc(100% - 0.25rem) 0.75rem no-repeat 0.125rem 0;
+}
+.control input[type="range"]::-moz-range-progress {
+  block-size: 0.25rem;
+  border-radius: 0.125rem;
+  background: var(--sd-accent);
+}
+.control input[type="range"]::-moz-range-thumb {
+  inline-size: 0.375rem;
+  block-size: 1.25rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: var(--sd-surface);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sd-ink) 45%, transparent),
+    0 1px 4px color-mix(in srgb, var(--sd-gray-950) 40%, transparent);
+}
+.control-value {
+  flex-shrink: 0;
+  min-width: 3.5em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--sd-ink-muted);
+}
+
+/* Switch — quieter track, precise knob, squish on press. */
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: 2.5rem;
+  block-size: 1.375rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-border-strong);
+  box-shadow: inset 0 1px 2px color-mix(in srgb, var(--sd-gray-950) 14%, transparent);
+  cursor: pointer;
+  transition: background-color var(--sd-duration-fast) var(--sd-ease);
+}
+.switch:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}
+.switch-knob {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  inline-size: 1rem;
+  block-size: 1rem;
+  border-radius: var(--sd-radius-full);
+  background: var(--sd-surface);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--sd-gray-950) 30%, transparent);
+  transition: translate var(--sd-duration-fast) var(--sd-ease), inline-size var(--sd-duration-fast) var(--sd-ease);
+}
+.switch:active .switch-knob {
+  inline-size: 1.125rem;
+}
+.switch.on {
+  background: var(--sd-accent);
+}
+.switch.on .switch-knob {
+  translate: 1.125rem 0;
+}
+.switch.on:active .switch-knob {
+  translate: 1rem 0;
+}
+
+/* Color — compact rounded swatch. */
+.control input[type="color"] {
+  flex-shrink: 0;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  padding: 0.25rem;
+  border: 1px solid var(--sd-border-strong);
+  border-radius: 0.625rem;
+  background: var(--sd-surface);
+  cursor: pointer;
+  box-shadow: inset 0 1px 2px color-mix(in srgb, var(--sd-gray-950) 14%, transparent);
+}
+.control-hex {
+  flex-shrink: 1;
+  min-width: 0;
+  padding: 0.1875rem 0.5rem;
+  border: 1px solid var(--sd-border);
+  border-radius: 0.5rem;
+  background: var(--sd-surface);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--sd-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.control input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.control input[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0.375rem;
+}
+.control input[type="color"]::-moz-color-swatch {
+  border: 0;
+  border-radius: 0.375rem;
+}
+.control-input {
+  flex-shrink: 1;
+  width: 8rem;
+  min-width: 0;
+  padding: 0.3125rem 0.5625rem;
+  border: 1px solid var(--sd-border);
+  border-radius: 0.5625rem;
+  background: var(--sd-surface);
+  color: var(--sd-ink);
+  font: inherit;
+  transition: border-color var(--sd-duration-fast) var(--sd-ease);
+}
+.control-input:focus {
+  border-color: var(--sd-accent);
+}
+.control-input:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 1px;
+}
+@media (max-width: 48rem) {
+  .customize-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================ Narrow screens ============================ */
+
+@media (max-width: 80rem) {
+  .layout { grid-template-columns: 17rem minmax(0, 1fr); }
+  .layout.no-subnav { grid-template-columns: minmax(0, 1fr); }
+  .rail { display: none; }
+  .docs-split { grid-template-columns: minmax(0, 1fr); }
+  .toc { display: none; }
+}
+
+@media (max-width: 56rem) {
+  /* Single column: the navbar joins the flow as the first strip.
+     The variant selectors must be restated here — their base rules are
+     more specific than a bare `.layout` and would otherwise win. */
+  .layout,
+  .layout:not(:has(.rail)),
+  .layout.no-subnav,
+  .layout.no-subnav:not(:has(.rail)) {
+    grid-template-columns: 1fr;
+    padding: var(--sd-space-4) var(--sd-space-4) 0;
+  }
+  .iconbar {
+    position: static;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin: 0 0 var(--sd-space-3);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .iconbar.is-compact {
+    width: auto;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    margin: 0 0 var(--sd-space-3);
+    border: 1px solid var(--sd-border);
+    border-radius: var(--sd-radius-2xl);
+  }
+  .sidebar > nav { overflow: visible; }
+  .content { padding: var(--sd-space-6) var(--sd-space-5) var(--sd-space-16); }
+}
+
+/* Copy-for-AI menu — after the .file-code-menu rules so the layout wins */
+.copy-menu {
+  min-width: 13rem;
+}
+.copy-menu button {
+  display: flex;
+  align-items: center;
+  gap: var(--sd-space-3);
+  font-family: var(--sd-font-sans);
+}
+.copy-menu-icon {
+  display: grid;
+  place-items: center;
+  color: var(--sd-ink-muted);
+}
+
+/* ============================ Liquid Glass shell skin ============================ */
+
+/* iOS 26 Liquid Glass — 工作台壳层皮肤。docs.css 只被工作台页面加载，
+   这里的一切都不会影响组件库本身（src/tokens 与 src/components 不动）；
+   工作台内用到的组件实例（如侧边栏分叉菜单）经作用域覆盖跟随本皮肤。 */
+
+:root {
+  --ios-blue: light-dark(#007aff, #0a84ff);
+  --ios-green: light-dark(#34c759, #30d158);
+  --ios-separator: light-dark(rgb(60 60 67 / 0.29), rgb(84 84 88 / 0.65));
+  --ios-fill: light-dark(rgb(120 120 128 / 0.16), rgb(120 120 128 / 0.32));
+  --ios-canvas: light-dark(#f2f2f7, #000000);
+  --ios-glass: light-dark(rgb(255 255 255 / 0.55), rgb(28 28 30 / 0.55));
+  --ios-glass-strong: light-dark(rgb(255 255 255 / 0.72), rgb(36 36 38 / 0.68));
+  --ios-glass-border: light-dark(rgb(255 255 255 / 0.65), rgb(255 255 255 / 0.14));
+  --ios-specular: rgb(255 255 255 / 0.3);
+}
+
+body {
+  background: var(--ios-canvas);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 顶部悬浮导航条：实底胶囊。
+   backdrop-filter 被去掉：在这块玻璃上做背景模糊没有意义（底色本来就是
+   不透明的），而且 Chromium 在「fixed + backdrop-filter + 背景卡片」的
+   组合下会把元素自身的不透明背景也一起透掉——滚动后组件卡片会直接
+   压在导航条上，激活项的白字也会糊在浅色卡片上看不清。 */
+.iconbar {
+  background: var(--ios-glass-strong);
+  border: 1px solid var(--ios-glass-border);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 var(--ios-specular),
+    0 8px 32px rgb(0 0 0 / 0.14);
+}
+
+/* 侧边栏：iOS 分组玻璃卡。文档页（#docs-body）的侧边栏保持无框，
+   分叉菜单实例裸放在画布上，不套壳。 */
+.layout:not(:has(#docs-body)) .sidebar {
+  background: var(--ios-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--ios-glass-border);
+  border-radius: 20px;
+  box-shadow:
+    inset 0 1px 0 var(--ios-specular),
+    0 4px 16px rgb(0 0 0 / 0.08);
+}
+
+/* 文档页大标题：iOS Large Title */
+.page-head h1 {
+  font-weight: 700;
+  letter-spacing: -0.022em;
+}
+
+/* 开关：iOS 系统绿 */
+.switch {
+  background: var(--ios-fill);
+}
+.switch.on {
+  background: var(--ios-green);
+}
+.switch-knob {
+  background: #ffffff;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.15), 0 1px 1px rgb(0 0 0 / 0.16);
+}
+.switch:focus-visible {
+  outline: 2px solid var(--ios-blue);
+}
+
+/* 滑杆与拾色器：iOS 蓝 */
+.control input[type="range"],
+.control input[type="color"] {
+  accent-color: var(--ios-blue);
+}
+
+/* 组件卡：玻璃卡面 + 发丝分隔。
+   注意：卡面不能带 backdrop-filter——它会把每张卡提升成独立合成层，
+   在部分 Chromium 合成路径里这些层会无视 z-index 直接盖过 fixed 定位的
+   导航条。玻璃观感由半透明底色与描边承担，模糊省掉。 */
+.comp-card {
+  background: var(--ios-glass-strong);
+  border: 1px solid var(--ios-glass-border);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 var(--ios-specular),
+    0 2px 10px rgb(0 0 0 / 0.06);
+}
+.comp-card:hover {
+  border-color: var(--ios-glass-border);
+}
+.comp-preview {
+  border-bottom: 1px solid var(--ios-separator);
+}
+
+/* 调参控件卡：iOS 填充色 */
+.control {
+  background: var(--ios-fill);
+  border-radius: 12px;
+}
+.control:hover {
+  background: color-mix(in srgb, var(--ios-blue) 8%, var(--ios-fill));
+}

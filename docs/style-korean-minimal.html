@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>韩式极简 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body kmin">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 99 · 浅色版面</p>
+        <h1>韩式极简 <span class="style-card-en">KOREAN MINIMAL</span></h1>
+        <p class="page-lead">暖白、粉彩、大圆角：克制但不冷，像一间光线很好的房间。</p>
+        <div class="style-card-tags"><span>暖白底不用纯白</span><span>低饱和粉彩</span><span>圆角 16–24px</span><span>永不全大写</span></div>
+      </header>
+
+      <section class="kmin-hero">
+        <div class="kmin-hero-copy">
+          <p>韩式极简来自 K-beauty 与韩国建筑的双重影响：留白要大（内边距 32 到 64px），底色是暖白而不是纯白，主文字用石板蓝而不是黑，强调色全部是低饱和的粉彩（藕粉、鼠尾草绿、米沙）。圆角偏大，边框极细，阴影几乎不可见。</p>
+          <p>它有两条很容易被忽略的禁令——不许全大写、不许宽字距，因为这两者在这套语言里被视为强势。右边这张呼吸卡是真的：hover 时阴影缓缓扩散、卡片上浮 2px。</p>
+        </div>
+        <div class="kmin-demo">
+          <div class="kmin-card">
+            <span class="kmin-chip">笔记</span>
+            <p class="kmin-card-title">光线很好的房间</p>
+            <p class="kmin-card-text">暖白、石板蓝与一点藕粉，安静但不冷淡。</p>
+            <button type="button" class="kmin-btn">开始记录</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#3d4a5c"></span><span class="palette-name">Slate Blue</span><code>#3d4a5c</code></li>
+          <li><span class="swatch-chip" style="background:#faf9f7"></span><span class="palette-name">Warm White</span><code>#faf9f7</code></li>
+          <li><span class="swatch-chip" style="background:#d4a5a5"></span><span class="palette-name">Blush</span><code>#d4a5a5</code></li>
+          <li><span class="swatch-chip" style="background:#a8c5b8"></span><span class="palette-name">Sage</span><code>#a8c5b8</code></li>
+          <li><span class="swatch-chip" style="background:#e8d4b8"></span><span class="palette-name">Sand</span><code>#e8d4b8</code></li>
+          <li><span class="swatch-chip" style="background:#b9b08a"></span><span class="palette-name">Olive</span><code>#b9b08a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>石板蓝比黑柔，长时间阅读不压迫，做主文字与标题；带一点米调的暖白是整套风格的地基，做页面画布；藕粉是第一强调，用于标签、情感语义与细节描边；鼠尾草绿是第二强调与成功状态，常以 10% 底出现；米沙做暖色区块与图片衬底，制造温度差；橄榄是最暗的一支粉彩，用于边框与次级标记。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#faf9f7"></span><div><strong>Warm White</strong><span class="swatch-role">页面画布。带一点米调的暖白，是整套风格的地基。</span></div><code>#faf9f7</code><code>--color-warm-white</code></li>
+          <li><span class="swatch-chip" style="background:#3d4a5c"></span><div><strong>Slate Blue</strong><span class="swatch-role">主文字与标题。比黑柔，长时间阅读不压迫。</span></div><code>#3d4a5c</code><code>--color-slate-blue</code></li>
+          <li><span class="swatch-chip" style="background:#d4a5a5"></span><div><strong>Blush</strong><span class="swatch-role">第一强调，用于标签、情感语义与细节描边。</span></div><code>#d4a5a5</code><code>--color-blush</code></li>
+          <li><span class="swatch-chip" style="background:#a8c5b8"></span><div><strong>Sage</strong><span class="swatch-role">第二强调与成功状态，常以 10% 底出现。</span></div><code>#a8c5b8</code><code>--color-sage</code></li>
+          <li><span class="swatch-chip" style="background:#e8d4b8"></span><div><strong>Sand</strong><span class="swatch-role">暖色区块与图片衬底，用于制造温度差。</span></div><code>#e8d4b8</code><code>--color-sand</code></li>
+          <li><span class="swatch-chip" style="background:#b9b08a"></span><div><strong>Olive</strong><span class="swatch-role">最暗的一支粉彩，用于边框与次级标记。</span></div><code>#b9b08a</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">阴影几乎不可见：<code>0 2px 8px rgba(61,74,92,0.04)</code>，hover <code>0 6px 20px rgba(61,74,92,0.07)</code>。边框永远 1px 的 10%。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Pretendard，只用 300 到 500。永不全大写、永不宽字距，行高 1.75 保证呼吸。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="kmin-specimen-title">Korean Minimal</p>
+            <p class="specimen-meta">Pretendard — 全站唯一字体。替代栈：'Apple SD Gothic Neo', 'PingFang SC', system-ui, sans-serif · 300–500 · 行高 1.75</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Pretendard</td><td>300</td><td>34px</td><td>1.3</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Pretendard</td><td>400</td><td>26px</td><td>1.4</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Pretendard</td><td>500</td><td>20px</td><td>1.45</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Pretendard</td><td>400</td><td>16px</td><td>1.75</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Pretendard</td><td>400</td><td>14px</td><td>1.75</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Pretendard</td><td>500</td><td>12px</td><td>1.5</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1040px、容器内边距 32 到 64px，区块间距 128px。单栏或非对称双栏（5:7），右侧留大片空白。元素间距至少 24px，行宽不超过 34em。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮/输入 16px · 图片 20px · 胶囊 999px</td></tr>
+            <tr><td>内边距</td><td>32–64px，留白要大</td></tr>
+            <tr><td>边框</td><td>1px 石板蓝 10%–12%</td></tr>
+            <tr><td>粉彩标签</td><td>12% 底、999px 圆角、13px/500、文字用石板蓝</td></tr>
+            <tr><td>图片容器</td><td>20px 圆角、衬底米沙或藕粉 12%</td></tr>
+            <tr><td>过渡</td><td>400ms ease-out</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Soft Button</h3>
+            <p class="style-body-comp-role">主行动按钮。石板蓝填充、暖白文字、16px 圆角、无描边、无阴影，15px/400、padding 14px 32px。hover 时填充提亮 6%；按下时填充压暗一档并轻微缩到 0.99。过渡 400ms ease-out，慢但不拖。</p>
+            <button type="button" class="kmin-btn">开始</button>
+          </div>
+          <div class="comp-item">
+            <h3>Breathing Card</h3>
+            <p class="style-body-comp-role">内容卡与作品卡。白底、24px 圆角、1px 石板蓝 10% 描边、内边距 32px，阴影 0 2px 8px 石板蓝 4%。标题 26px/400，正文 14px/400 行高 1.75，色为石板蓝 70%。hover 时阴影扩到 20px、上浮 2px。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gentle Input</h3>
+            <p class="style-body-comp-role">表单输入。白底、16px 圆角、1px 石板蓝 12% 描边、padding 12px 18px、15px 字。占位符石板蓝 35%。聚焦时描边转石板蓝 40% 并加 3px 的藕粉 15% 外环，不改变尺寸。</p>
+            <input class="kmin-input" type="text" placeholder="写点什么…">
+          </div>
+          <div class="comp-item">
+            <h3>Pastel Chip</h3>
+            <p class="style-body-comp-role">分类与筛选标记。999px 全圆角、12% 粉彩底（藕粉、鼠尾草绿或米沙）、无描边、13px/500、padding 6px 14px，文字用石板蓝而非彩色。选中态底升到 22%。</p>
+            <span class="kmin-chip">笔记</span>
+          </div>
+          <div class="comp-item">
+            <h3>Photo Bed</h3>
+            <p class="style-body-comp-role">图片容器。20px 圆角、衬底用米沙或藕粉 12%、内边距 0、overflow hidden。图片本身不加边框，允许 4:5 或 1:1 比例。hover 时图片放大 1.03，容器阴影加深。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖白底，不用纯白</li>
+              <li>主文字用石板蓝</li>
+              <li>强调只用低饱和粉彩</li>
+              <li>圆角 16 到 24px</li>
+              <li>边框 1px 的 10%</li>
+              <li>永不全大写、永不宽字距</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用高饱和纯色</li>
+              <li>不要用 2px 以上边框</li>
+              <li>不要用全大写与宽字距</li>
+              <li>不要用深色或黑色背景</li>
+              <li>不要过度装饰与堆叠元素</li>
+              <li>不要用霓虹或荧光色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>自然光下的静物与人像，色调偏暖，饱和度低。允许粉彩衬底。不使用高对比摄影、冷光与 UI 插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="korean-minimal">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的暖白底、粉彩纪律与大留白。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，暖白底、石板蓝正文与「永不全大写」必须原样保留；纯白底或全大写一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拟物设计 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body skeuo">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 27 · 浅色版面</p>
+        <h1>拟物设计 <span class="style-card-en">SKEUOMORPHISM</span></h1>
+        <p class="page-lead">每个控件都是一件实物：皮革、木头、金属，有厚度也有高光。</p>
+        <div class="style-card-tags"><span>双内阴影加渐变</span><span>皮革与木纹</span><span>黄铜扣件</span><span>凹陷与凸起分明</span></div>
+      </header>
+
+      <section class="skeuo-hero">
+        <div class="skeuo-hero-copy">
+          <p>拟物设计把界面做成实物：面板像皮革或木纹，按钮像金属片，纸张像米色信纸。它的技术核心是「双内阴影加一段渐变」——顶部 inset 0 1px 0 白色 70% 是受光面，底部 inset 0 -1px 0 黑色 12% 是转折暗线，外阴影提供离地高度，再叠一层 3% 的纹理点阵作为材质。</p>
+          <p>它在新拟物与扁平之间走了第三条路：不靠单色，而靠光与材质。代价是每个组件都需要精细调光，粗糙实现会立刻显得廉价。右边这块面板是真的——按钮可以按下去，旋钮可以转。</p>
+        </div>
+        <div class="skeuo-demo">
+          <div class="skeuo-panel-demo">
+            <p class="skeuo-panel-title">DEVICE PANEL</p>
+            <p class="skeuo-panel-body">皮革底、黄铜扣、金属片。</p>
+            <button type="button" class="skeuo-btn">ENGAGE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#8b7355"></span><span class="palette-name">Leather</span><code>#8b7355</code></li>
+          <li><span class="swatch-chip" style="background:#d4c4a8"></span><span class="palette-name">Wood</span><code>#d4c4a8</code></li>
+          <li><span class="swatch-chip" style="background:#c0c0c0"></span><span class="palette-name">Metal</span><code>#c0c0c0</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5dc"></span><span class="palette-name">Paper</span><code>#f5f5dc</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><span class="palette-name">Brass</span><code>#c9a227</code></li>
+          <li><span class="swatch-chip" style="background:#5c4033"></span><span class="palette-name">Dark Brown</span><code>#5c4033</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>做旧皮革承担深色面板与主按钮，带细微颗粒纹理；浅木与纸板比皮革亮两档，做卡片；金属面必须有纵向渐变才有反射感；米色信纸做页面底；黄铜管扣件、刻度与选中状态；深棕是文字与压印凹槽，像烧灼与刻痕；森林绿是老式仪表的绿色刻度，管成功与「已启用」。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#8b7355"></span><div><strong>Leather</strong><span class="swatch-role">深色面板与主按钮底，模拟做旧皮革。带细微颗粒纹理。</span></div><code>#8b7355</code><code>--color-leather</code></li>
+          <li><span class="swatch-chip" style="background:#d4c4a8"></span><div><strong>Wood</strong><span class="swatch-role">卡片与浅色面板，模拟浅木与纸板。比皮革亮两档。</span></div><code>#d4c4a8</code><code>--color-wood</code></li>
+          <li><span class="swatch-chip" style="background:#c0c0c0"></span><div><strong>Metal</strong><span class="swatch-role">按钮与滑块的金属面，必须配纵向渐变才有反射感。</span></div><code>#c0c0c0</code><code>--color-metal</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5dc"></span><div><strong>Paper</strong><span class="swatch-role">页面与信纸底色，模拟米色书写纸。</span></div><code>#f5f5dc</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><div><strong>Brass</strong><span class="swatch-role">金属扣件与主强调，用于图标、刻度与选中状态。</span></div><code>#c9a227</code><code>--color-brass</code></li>
+          <li><span class="swatch-chip" style="background:#5c4033"></span><div><strong>Dark Brown</strong><span class="swatch-role">深色文字与压印凹槽，模拟烧灼与刻痕。</span></div><code>#5c4033</code><code>--color-dark-brown</code></li>
+          <li><span class="swatch-chip" style="background:#2e5a3c"></span><div><strong>Forest</strong><span class="swatch-role">成功与「已启用」状态，像老式仪表的绿色刻度。</span></div><code>#2e5a3c</code><code>--color-forest</code></li>
+        </ul>
+        <p class="style-body-note">凸与凹是两套阴影：凸起面板 <code>0 8px 16px rgba(0,0,0,0.2)</code> 加顶高光与底暗线；凹陷 <code>inset 0 2px 6px rgba(0,0,0,0.25)</code> 加底部反光。混用即穿帮。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与带刻度的标签用 Georgia——衬线让文字像被印在材质上而不是浮在屏幕上；界面文字与数值用 Verdana，略带方正的无衬线像老设备的面板字。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="skeuo-specimen-title">拟物设计，DEVICE</p>
+            <p class="specimen-meta">Georgia — 标题与带刻度的标签。替代栈：'Times New Roman', 'Songti SC', serif · 400 / 700 · 大写标签 0.1em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="skeuo-specimen-label">界面文字与数值。0123456789</p>
+            <p class="specimen-meta">Verdana — 界面文字与数值。替代栈：'Segoe UI', system-ui, sans-serif · 400 / 700 · 字级 12–16px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Georgia</td><td>700</td><td>40px</td><td>1.15</td><td>—</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Georgia</td><td>700</td><td>30px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Georgia</td><td>400</td><td>22px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Verdana</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Verdana</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Verdana</td><td>700</td><td>12px</td><td>1.4</td><td>0.1em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 64px。整体像一台设备的面板：分区用凹槽与凸起代替留白，工具栏可带皮革底，内容区像纸张。控件之间至少 12px，保证阴影不互相污染。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px、按钮 8px、输入框 6px、旋钮 999px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px（控件间至少 12px）</td></tr>
+            <tr><td>区块间距</td><td>64px</td></tr>
+            <tr><td>纹理点阵</td><td>radial-gradient 5px 网格，不透明度 3% 到 8%</td></tr>
+            <tr><td>页头条</td><td>深棕填充、底部 3px 黄铜边线、无圆角</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Metal Button</h3>
+            <p class="style-body-comp-role">主行动按钮。纵向金属渐变（#d8d8d8 到 #a8a8a8）、深棕文字、8px 圆角、1px #7a7a7a 描边，阴影 0 3px 6px 黑 25% 加 inset 0 1px 0 白 85%；字级 14px/700、字距 0.1em、padding 10px 24px。hover 时渐变整体提亮 6%、外阴影加深；按下时渐变反向（上暗下亮）并换成内阴影。过渡 150ms。</p>
+            <button type="button" class="skeuo-btn">PRESS PLATE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Leather Panel</h3>
+            <p class="style-body-comp-role">深色面板与工具栏。皮革色填充配 3% 点阵纹理、12px 圆角、内边距 24px，阴影 0 8px 16px 黑 20% 加顶边白 70% 高光与底边黑 12% 暗线；面板内文字用米色，标签 12px/700、0.1em 字距，像刻上去的。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Inset Well</h3>
+            <p class="style-body-comp-role">输入框与凹槽区域。木色填充、6px 圆角、1px #b8a88c 描边，阴影全部朝内：inset 0 2px 6px 黑 25% 加 inset 0 -1px 0 白 45%，形成凹陷；padding 8px 12px、14px 字。聚焦时内阴影加深到 8px 并加 2px 黄铜外环。</p>
+            <label class="skeuo-field"><span>铭牌刻字</span><input type="text" value="MODEL-1987"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Brass Knob + Ribbon Header</h3>
+            <p class="style-body-comp-role">滑块与旋钮控件：24px 圆形、镜像径变（135deg，#e8d48a 到 #9a7a1e）、1px #7a5f14 描边，阴影带内高光与内暗缘；hover 时旋转 8 度，按下时内阴影加深——右侧面板角落那颗就是。页头与分区标题条：深棕填充、底部 3px 黄铜边线、无圆角、内边距 12px 24px，顶部 1px 白 15% 高光；标题 22px 衬线、米色、字距 0.1em，左对齐并带 24px 图标位——本页每个 h2 前的深棕条即此。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>每个控件都要有顶高光与底暗线</li>
+              <li>用材质纹理，但不超过 8% 不透明度</li>
+              <li>凸起用外阴影，凹陷用内阴影</li>
+              <li>金属面必须有纵向渐变</li>
+              <li>文字用衬线，像刻进材质</li>
+              <li>控件间距至少 12px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯扁平色块</li>
+              <li>不要省略阴影与高光</li>
+              <li>不要用过简的线条图标</li>
+              <li>不要用现代渐变与玻璃态</li>
+              <li>不要让纹理超过 8%</li>
+              <li>不要把凹陷与凸起的阴影混用</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>真实材质照片：皮革纹理、木纹、金属拉丝、装订线。允许把纹理以 3% 到 8% 的不透明度叠在面板上。不使用扁平插画与现代渐变，它们会毁掉材质假设。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="skeuomorphism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的材质调光、双内阴影与凸凹规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，顶高光与底暗线、凸凹阴影分离与 8% 纹理上限必须原样保留；调光粗糙会立刻廉价。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

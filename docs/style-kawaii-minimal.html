@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>可爱极简 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body kawaii">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 77 · 浅色版面</p>
+        <h1>可爱极简 <span class="style-card-en">KAWAII MINIMAL</span></h1>
+        <p class="page-lead">圆、粉彩、大留白、一点点弹跳：可爱但不吵。</p>
+        <div class="style-card-tags"><span>暖白底粉彩点缀</span><span>999px 全圆角</span><span>hover 1.05 弹跳</span><span>留白过半</span></div>
+      </header>
+
+      <section class="kawaii-hero">
+        <div class="kawaii-hero-copy">
+          <p>可爱极简把日本 kawaii 文化里的「柔软」与极简主义的「克制」缝在一起：暖白底、粉彩强调、全圆角或 24px 大圆角、柔和阴影、圆润无衬线、极多留白。它允许弹跳——hover 放大到 1.05、按下缩到 0.95，这是它唯一被允许的夸张。</p>
+          <p>禁止深色背景、禁止发光与霓虹、禁止高饱和荧光色、禁止粗黑边框、禁止信息过密。可爱在这里靠比例与温度，不靠堆装饰。右边这张软卡是真的：hover 会轻轻上浮，按钮会弹。</p>
+        </div>
+        <div class="kawaii-demo">
+          <div class="kawaii-card">
+            <span class="kawaii-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#f47abd" stroke-width="2" stroke-linecap="round"><path d="M12 21 C7 16 4 12.5 4 9 A5 5 0 0 1 12 6 A5 5 0 0 1 20 9 C20 12.5 17 16 12 21 Z"/></svg></span>
+            <p class="kawaii-card-title">今天也要好好吃饭</p>
+            <p class="kawaii-card-text">圆润的插画、柔和的粉色、足够的留白。</p>
+            <button type="button" class="kawaii-btn">抱抱</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#f9a8d4"></span><span class="palette-name">Pink</span><code>#f9a8d4</code></li>
+          <li><span class="swatch-chip" style="background:#fff7ed"></span><span class="palette-name">Warm White</span><code>#fff7ed</code></li>
+          <li><span class="swatch-chip" style="background:#a78bfa"></span><span class="palette-name">Lavender</span><code>#a78bfa</code></li>
+          <li><span class="swatch-chip" style="background:#67e8f9"></span><span class="palette-name">Sky</span><code>#67e8f9</code></li>
+          <li><span class="swatch-chip" style="background:#fde68a"></span><span class="palette-name">Butter</span><code>#fde68a</code></li>
+          <li><span class="swatch-chip" style="background:#f47abd"></span><span class="palette-name">Deep Pink</span><code>#f47abd</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>粉是主色，管主按钮、选中态与图标底，整套风格的可爱感由它承担；带橙调的暖白比纯白更有体温；薰衣草紫管次级行动与分类标记；天蓝是唯一偏冷的粉彩，管信息与「新」标记；奶油黄管高亮与庆祝状态，面积最小；深粉是粉的加深版，用于需要更高对比的文字与图标。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fff7ed"></span><div><strong>Warm White</strong><span class="swatch-role">页面底。带一点橙调的暖白，比纯白更有体温。</span></div><code>#fff7ed</code><code>--color-warm-white</code></li>
+          <li><span class="swatch-chip" style="background:#f9a8d4"></span><div><strong>Pink</strong><span class="swatch-role">主色：主按钮、选中态与图标底。整套风格的可爱感由它承担。</span></div><code>#f9a8d4</code><code>--color-pink</code></li>
+          <li><span class="swatch-chip" style="background:#a78bfa"></span><div><strong>Lavender</strong><span class="swatch-role">第二色，用于次级行动与分类标记。</span></div><code>#a78bfa</code><code>--color-lavender</code></li>
+          <li><span class="swatch-chip" style="background:#67e8f9"></span><div><strong>Sky</strong><span class="swatch-role">信息与「新」标记，是唯一偏冷的粉彩。</span></div><code>#67e8f9</code><code>--color-sky</code></li>
+          <li><span class="swatch-chip" style="background:#fde68a"></span><div><strong>Butter</strong><span class="swatch-role">高亮与庆祝状态，面积最小。</span></div><code>#fde68a</code><code>--color-butter</code></li>
+          <li><span class="swatch-chip" style="background:#f47abd"></span><div><strong>Deep Pink</strong><span class="swatch-role">粉色的加深版，用于需要更高对比的文字与图标。</span></div><code>#f47abd</code><code>--color-deep-pink</code></li>
+        </ul>
+        <p class="style-body-note">柔和阴影带粉：<code>0 4px 12px rgba(249,168,212,0.18)</code>，hover <code>0 8px 24px rgba(249,168,212,0.28)</code>。粉彩强调每屏不超过两种。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Nunito：圆润无衬线、字重不超过 700，行高 1.7 保证呼吸。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="kawaii-specimen-title">Kawaii Minimal 0123</p>
+            <p class="specimen-meta">Nunito — 圆润无衬线。替代栈：'Segoe UI', 'PingFang SC', system-ui, sans-serif · 400–700 · 行高 1.7</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Nunito</td><td>700</td><td>34px</td><td>1.25</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Nunito</td><td>700</td><td>26px</td><td>1.35</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Nunito</td><td>500</td><td>20px</td><td>1.45</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Nunito</td><td>400</td><td>17px</td><td>1.7</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Nunito</td><td>400</td><td>15px</td><td>1.7</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Nunito</td><td>500</td><td>13px</td><td>1.5</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 960px、容器内边距 24px，区块间距 128px。单栏或两列卡片，元素间距至少 24px。留白占比目标五成以上，因为「空」是这套风格可爱的一部分。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 面板 32px · 按钮/输入 999px</td></tr>
+            <tr><td>阴影</td><td>0 4px 12px 粉 18%，hover 0 8px 24px 粉 28%</td></tr>
+            <tr><td>弹跳</td><td>hover 1.05、active 0.95、200ms 回弹曲线</td></tr>
+            <tr><td>卡片内边距</td><td>32px，左上可放 40px 图标圆</td></tr>
+            <tr><td>粉彩强调</td><td>每屏不超过两种</td></tr>
+            <tr><td>留白</td><td>占比五成以上</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Bouncy Button</h3>
+            <p class="style-body-comp-role">行动按钮。粉色填充、白色文字、999px 全圆角、无描边、17px/700、padding 14px 28px，阴影 0 4px 12px 粉 18%。hover 时放大到 1.05、阴影扩到 24px；按下缩到 0.95。过渡 200ms cubic-bezier(0.34, 1.56, 0.64, 1)，这条带回弹的曲线是这套风格的签名。</p>
+            <button type="button" class="kawaii-btn">捏一下</button>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Card</h3>
+            <p class="style-body-comp-role">内容卡。白底、24px 圆角、1px 粉 200（#fbcfe8）描边或无描边、内边距 32px，阴影 0 4px 12px 粉 18%。左上角可放一个 40px 的粉彩图标底（999px 圆角）。hover 时上浮 4px、阴影扩到 24px。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pill Input</h3>
+            <p class="style-body-comp-role">输入框。白底、999px 全圆角、1px 粉 200 描边、padding 12px 20px、15px 字。占位符粉 400（#f9a8d4）的 60%。聚焦时描边转粉 400 并加 3px 的粉 20% 外环。</p>
+            <input class="kawaii-input" type="text" placeholder="写一句悄悄话…">
+          </div>
+          <div class="comp-item">
+            <h3>Pastel Chip</h3>
+            <p class="style-body-comp-role">分类与状态标签。999px 全圆角、粉彩 15% 底（粉、薰衣草、天蓝或奶油黄）、无描边、13px/500、padding 6px 14px，文字用深粉或深灰而不是白。</p>
+            <span class="kawaii-chip kawaii-chip--sky">新 · NEW</span>
+          </div>
+          <div class="comp-item">
+            <h3>Gentle Avatar</h3>
+            <p class="style-body-comp-role">头像与图标容器。999px 全圆、尺寸 32 到 64px、粉彩底加 1px 白 60% 描边，内放 16 到 24px 的白色或深粉图标。hover 时旋转 6 度并放大 1.08。</p>
+            <span class="kawaii-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="10" r="3.4"/><path d="M5 20 C6.5 15.8 9 14 12 14 C15 14 17.5 15.8 19 20"/></svg></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖白底，不用深色</li>
+              <li>全圆角或 24px 大圆角</li>
+              <li>粉彩强调，每屏不超过两种</li>
+              <li>hover 1.05、active 0.95 的弹跳</li>
+              <li>阴影柔和且带粉色</li>
+              <li>留白占五成以上</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用深色或黑色背景</li>
+              <li>不要用发光与霓虹</li>
+              <li>不要用高饱和荧光色</li>
+              <li>不要用粗黑边框</li>
+              <li>不要信息过密</li>
+              <li>不要用锐利直角</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>圆润的插画：动物、食物、植物，线条粗而圆、平涂粉彩。允许真实摄影但必须柔和、暖调、高留白。不使用冷硬几何、暗调摄影与写实图标墙。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="kawaii-minimal">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的软卡、弹跳按钮与粉彩纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，全圆角、粉色柔和阴影与回弹曲线必须原样保留；深色背景或荧光色一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

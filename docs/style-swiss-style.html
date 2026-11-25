@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>瑞士国际风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body swiss">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 15 · 浅色版面</p>
+        <h1>瑞士国际风格 <span class="style-card-en">SWISS INTERNATIONAL</span></h1>
+        <p class="page-lead">网格、左对齐、无衬线、三原色——让结构本身成为装饰。</p>
+        <div class="style-card-tags"><span>严格网格</span><span>左对齐</span><span>唯一红强调</span><span>无卡片框</span></div>
+      </header>
+
+      <section class="swiss-hero">
+        <div class="swiss-hero-copy">
+          <p>瑞士国际风格来自 1950 年代的平面设计：一切对齐到一张严格的网格，文字一律左对齐（从不居中），字体只用无衬线的常规与粗体两档，装饰被彻底删掉，只留下黑、白与三原色。页面的秩序来自栏线与留白的节奏，而不是卡片边框。</p>
+          <p>交互也保持结构感：hover 时左侧的引导线从灰变红、底色轻微变灰，等于把那条结构线「激活」，而不是加阴影或位移。下面就是一张按规格跑的索引列表——把指针放上去，看那条线变红。</p>
+        </div>
+        <div class="swiss-index" role="presentation">
+          <div class="swiss-row"><span class="swiss-num">01</span><span class="swiss-row-title">网格与栏线</span></div>
+          <div class="swiss-row"><span class="swiss-num">02</span><span class="swiss-row-title">两档字重</span></div>
+          <div class="swiss-row"><span class="swiss-num">03</span><span class="swiss-row-title">一个字符宽的红</span></div>
+          <div class="swiss-row"><span class="swiss-num">04</span><span class="swiss-row-title">结构线激活</span></div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><span class="palette-name">Signal Red</span><code>#ff0000</code></li>
+          <li><span class="swatch-chip" style="background:#0057b8"></span><span class="palette-name">Ultramarine</span><code>#0057b8</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><span class="palette-name">Cadmium Yellow</span><code>#ffcc00</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4d4"></span><span class="palette-name">Rule Grey</span><code>#d4d4d4</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑承担全部结构与文字，白是画布且不做灰度渐变。红是唯一强调色：编号、激活线、关键数据，面积控制在一个字符宽；蓝给链接，与红同屏时只出现一种；黄只做大面积分区色块，不参与强调。结构线默认 #d4d4d4，激活才变红。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">正文、标题与栏线。瑞士风格允许纯黑，因为它追求印刷级对比。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">页面画布，不做任何灰度渐变。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><div><strong>Signal Red</strong><span class="swatch-role">唯一的强调色：编号、激活线、关键数据。面积控制在一个字符宽。</span></div><code>#ff0000</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#0057b8"></span><div><strong>Ultramarine</strong><span class="swatch-role">链接与可点击标记。与红同屏时只出现一种。</span></div><code>#0057b8</code><code>--color-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><div><strong>Cadmium Yellow</strong><span class="swatch-role">大面积色块与海报式区块，用于分区而非强调。</span></div><code>#ffcc00</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4d4"></span><div><strong>Rule Grey</strong><span class="swatch-role">结构线的默认色，hover 时被「激活」为红。</span></div><code>#d4d4d4</code><code>--color-rule</code></li>
+        </ul>
+        <p class="style-body-note">和包豪斯一样是一套没有阴影的系统：<code>elevation: none</code>。分隔用 1px 或 2px 黑线，不用卡片框；层次完全由字号与栏宽承担。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Helvetica Neue，只用 400 与 700 两档，层级完全由字号与栏宽承担。字号跨度大：11px 到 88px。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="swiss-specimen-title">瑞士国际风格，88</p>
+            <p class="specimen-meta">Helvetica Neue — 全站唯一字体。替代栈：Inter, Arial, 'Helvetica Neue', sans-serif · 400 / 700 · 字距 -0.03em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="swiss-specimen-label">正文与标签。0123456789</p>
+            <p class="specimen-meta">正文 15–20px / 400 / 行高 1.5；大写标签 11px / 700 / 0.08em；数字编号永远红色</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>88px</td><td>0.98</td><td>-0.03em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>700</td><td>56px</td><td>1</td><td>-0.02em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>32px</td><td>1.05</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>20px</td><td>1.4</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>15px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>11px</td><td>1.3</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。12 栏、上限 1200px、栏间距 24px。所有内容左对齐、贴齐栏线，标题可跨 8 栏以上。区块间距 96px，允许一条 1px 黑线贯穿整宽作为分隔。页面拒绝居中排版与卡片容器。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>列表行高</td><td>64px，内边距左 16px</td></tr>
+            <tr><td>结构线</td><td>左侧 2px 竖线，默认 #d4d4d4</td></tr>
+            <tr><td>色块内边距</td><td>48px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Structural List Row</h3>
+            <p class="style-body-comp-role">列表、目录与索引行。无背景、无圆角、无阴影：左侧 2px 竖线默认 #d4d4d4，行高 64px，内边距左 16px；编号 11px/700 红色，标题 20px/700 左对齐。hover 时竖线变红、背景变 #f0f0f0，过渡 200ms；不做位移。上方索引列表即此组件。</p>
+            <p class="swiss-note">把指针放到上面任意一行，看结构线被激活。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Section Label</h3>
+            <p class="style-body-comp-role">栏目编号与分类标签。11px、700 字重、0.08em 字距、全大写；编号与标题之间用一条 24px 的黑色短线连接。不接受胶囊形状与圆角。</p>
+            <p class="swiss-label-demo"><span class="swiss-num">05</span><span class="swiss-label-rule"></span><span>SECTION LABEL</span></p>
+          </div>
+          <div class="comp-item">
+            <h3>Inline Button</h3>
+            <p class="style-body-comp-role">行动按钮与链接按钮。无填充、无描边、无圆角，左对齐，文字 13px/700 全大写 0.08em，下方一条 2px 黑线。hover 时线变红、文字保持黑色，200ms；按下时线加粗到 3px，不做其他变化。</p>
+            <button type="button" class="swiss-inline-btn">READ THE MANIFESTO</button>
+          </div>
+          <div class="comp-item">
+            <h3>Color Field</h3>
+            <p class="style-body-comp-role">分区色块与海报区。整块填充红、蓝或黄，无圆角、无阴影、无渐变；块内文字一律白色或黑色（按对比度选），字号至少 32px/700，左对齐并贴齐色块内边距 48px。色块在一屏内不超过一块。</p>
+            <div class="swiss-field" role="presentation">
+              <p>一块黄，一屏只允许一次。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>一切左对齐，永不居中</li>
+              <li>只用 400 与 700 两档字重</li>
+              <li>红作为唯一强调，控制在一个字符宽</li>
+              <li>分隔用 1px 或 2px 黑线，不用卡片框</li>
+              <li>hover 激活结构线，不加阴影与位移</li>
+              <li>字号跨度大：11px 到 88px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用圆角</li>
+              <li>不要用阴影与渐变</li>
+              <li>不要居中排版</li>
+              <li>不要让红与蓝同时作为强调</li>
+              <li>不要用超过两档字重</li>
+              <li>不要用卡片包裹内容</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>黑白摄影、几何构图、大字号排版本身即是图像。允许整版单色块。不使用彩色摄影、插画、图标墙与任何柔和过渡。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="swiss-style">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的网格纪律、结构线交互与两档字重。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，左对齐、两档字重、唯一红强调与「激活结构线」的交互必须原样保留；不用卡片框。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

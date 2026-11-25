@@ -1,0 +1,55 @@
+# 部门满意度斜线图 — SlopeChart
+
+制作「部门满意度斜线图」：一张 340×340 的斜线图（slope graph）卡片。画面里立着两根细竖轴（"Last yr" 与 "This yr"），8 条团队/部门的斜线在两轴之间连接两年的数值——上升为绿、下降为红；线两端带 4px 圆点，轴外侧写「名称 数值」。首次滚入视口时，各线从左向右依次描画，右端点与右侧标签随后弹出。顶部标题旁有 Score/Rank 两段式切换：Score 按原始分值定位、Rank 按名次定位，切换时全部线条与标签以 650ms 缓动重排到新位置。悬停任一条线：其余线淡到 14% 透明度、高亮线加粗，底部胶囊实时给出「Eng 72 → 81 (+9)」式读数。
+
+## 布局与材质
+
+- 340×340px 场景，圆角 30px，溢出裁切。底色表面色（浅色 #FFFFFF、深色 #13141C）、文字墨色（浅色 #16151B、深色 #F4F0E8），外圈 1px 线色描边（浅色 rgba(22,21,27,.09)、深色 rgba(255,255,255,.08)），下方 0 30px 60px -36px 强阴影。窄容器时整景按 transform:scale 等比缩小。
+- 头部绝对定位 left 20px、right 18px、top 16px，两端对齐垂直居中：标题 "Team satisfaction" 14px/字重 900；右侧 Score/Rank 分段控件为胶囊外框（内边距 3px、圆角 999px、背景次级表面色 #F5F3EF/#1A1B25、内描边 1px 线色），内部两枚按钮各内边距 4px 11px、圆角 999px、字号 11px/字重 800、文字次级墨色（浅色 #57535F、深色 rgba(244,240,232,.68)）；选中项反色为墨底、表面色文字；背景/文字颜色 0.2s 过渡；focus-visible 时 2px accent（浅色 #6A57F2、深色 #B7A4FF）外圈、外扩 2px。
+- 图表是一张 340×340、viewBox 0 0 340 340 的 SVG 铺底。两根竖轴 x=112 与 x=228、从 y=66 到 y=276，线色取令牌线色、宽 2px；轴顶标签 "Last yr"/"This yr" 位于 (112,58)/(228,58)，10.5px/字重 800、三级墨色（浅色 #8E8A97、深色 rgba(244,240,232,.42)）、水平居中。
+- 每条斜线：线宽 2.4、圆头，两端各一枚 r=4 圆点；左标签 text-anchor:end 在 x=103（轴左 9px），右标签在 x=237，纵向相对锚点下移 3.8px 使文字与线端垂直居中；标签 11px/字重 700 次级墨色，数值 tspan 字重 900 主墨色。每条线另叠一条 14px 宽、完全透明的命中线（同一几何），扩大悬停判定面积。
+- 信息胶囊：水平居中、距底 14px，内边距 6px 12px、圆角 999px、背景次级表面色、内描边 1px 线色、字号 11px/字重 800、tabular-nums、不换行。
+- 场景令牌浅色深色两套（light-dark() 随 prefers-color-scheme 切换），如上；组件未声明字体栈，文字继承页面字体。
+
+## 数据
+
+- 写死 8 个团队与两年分值（Last yr → This yr）：Eng 72 → 81（升，绿）、Design 68 → 74（升，绿）、Sales 75 → 63（降，红）、Mktg 61 → 70（升，绿）、HR 70 → 66（降，红）、Finance 58 → 60（升，绿）、Support 52 → 69（升，绿）、Planning 66 → 58（降，红）。上升线 #10B981、下降线 #F43F5E。
+- 名次由分值实时推导（同分并列按稳定排序）：去年名次 Eng #2、Design #4、Sales #1、Mktg #6、HR #3、Finance #7、Support #8、Planning #5；今年名次 Eng #1、Design #2、Sales #6、Mktg #3、HR #5、Finance #7、Support #4、Planning #8。
+- Score 模式纵坐标：值域 50–85 线性映射到 y=270–74（y = 270 − (v−50)÷35×196）；Rank 模式：名次 1–8 映射到 y=76–265（y = 76 + (名次−1)×27）。
+- 写死文案：默认胶囊 "Hover a line to compare"；悬停时 "<名称> <去年> → <今年> (+差值)"，差值带符号、升绿降红；Rank 模式数值显示为 "#名次"。除以上内容外无其他写死数据。
+
+## 操作和动效
+
+- 首次滚入视口的入场描画：每条线以 pathLength=1 归一的 strokeDasharray 画——dashoffset 从 1 到 0，时长 520ms、cubic-bezier(.4,0,.2,1)，第 i 条延迟 200 + i×110ms（即 200ms 到 970ms 依次开画）；每条画完后 460ms，右端圆点从 scale(0) 弹到 1、右标签同步淡入，各 300ms。由 IntersectionObserver 触发，只播一次（触发后即断开观察器），动画结束清除 dash 内联样式；环境无 IntersectionObserver 时直接显示完整图表。
+- Score/Rank 切换：点击即切换选中态（aria-pressed 同步），全部线条端点与标签位置从当前值向目标值插值 650ms，缓动为 easeInOutCubic（前半 4k³、后半 1−(−2k+2)³/2）；线端与标签同帧到位，无跳变。
+- 标签防重叠：每轴的 8 个标签按目标间距 14px 迭代推挤（最多 30 轮，上下对半分开），只挪标签不挪线端，保证 Rank 模式下名次扎堆时也全部可读。
+- 悬停：pointerenter/leave 命中线或其 14px 命中区即高亮该团队——容器加 is-f，其余线透明度降到 0.14（0.25s 过渡），高亮线保持 1 且线宽从 2.4 加到 3.4；底部胶囊更新为该团队读数（数值 tabular-nums 对齐）；移出后恢复全部线与默认文案。
+- prefers-reduced-motion 下：入场不播描画动画，图表完整直出；切换评分/名次直接跳到目标布局，无 650ms 过渡。options.reducedMotion 覆盖系统偏好。
+- 无障碍：分段控件 role="group"、aria-label "View"，成员为原生按钮并以 aria-pressed 表达选中；信息胶囊 aria-live="polite"，悬停读数对屏幕阅读器同样播报；SVG 线条可经指针交互，键盘用户依赖胶囊播报。
+- 更新 options 不重挂载组件，支持同页多实例互不干扰；卸载时取消帧动画并断开观察器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、数据与运动参数均以上述文字为准；斜线、圆点与轴全部用内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SlopeChart。从零创建四个文件：SlopeChart.tsx、SlopeChartEngine.js、motion-runtime.ts、SlopeChartEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下图表与读数仍完整可用。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；滚入描画顺序与错峰正确；Score/Rank 双向切换插值平滑、标签互不重叠；悬停高亮与读数正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SlopeChart } from "./SlopeChart";
+
+export default function App() {
+  return <SlopeChart />;
+}
+```

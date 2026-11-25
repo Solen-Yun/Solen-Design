@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>复古怀旧风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body retro">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 17 · 浅色版面</p>
+        <h1>复古怀旧风 <span class="style-card-en">RETRO VINTAGE</span></h1>
+        <p class="page-lead">旧纸张不会浮起：一切安静地待着，只有颜色在缓慢氧化。</p>
+        <div class="style-card-tags"><span>棕褐主色</span><span>奶油纸底</span><span>禁止浮起</span><span>慢过渡</span></div>
+      </header>
+
+      <section class="retro-hero">
+        <div class="retro-hero-copy">
+          <p>复古怀旧风模拟的是印刷品的年代感：棕褐主色、奶油纸底、粗边框、老式排版（全大写加宽字距的衬线标题）。它有两条几乎所有其它风格都没有的禁令——第一，任何元素都不做 scale 或 translate-y，因为旧纸张不会浮起（Antique Stillness）；第二，过渡时长不得快于 150ms，因为氧化是地质过程（Slow Passage）。</p>
+          <p>颜色全部低饱和、偏黄，四支辅色（砖红、深绿、沙、橄榄）来自七十年代的印刷油墨。右边这张卡可以悬停——但只有描边会加深，元素一动不动，这是这套风格最重要的品格。</p>
+        </div>
+        <div class="retro-demo">
+          <div class="paper-card-demo">
+            <span class="stamp-badge-demo">EST. 1974</span>
+            <p class="retro-demo-title">纸上的年代感。</p>
+            <div class="retro-ticket-rule" aria-hidden="true"></div>
+            <p class="retro-demo-body">描边会加深，纸不会动。印刷红、包装绿、旧沙色，全都来自那台老印刷机。</p>
+            <button type="button" class="letterpress-btn">SUBSCRIBE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#8b4513"></span><span class="palette-name">Sepia</span><code>#8b4513</code></li>
+          <li><span class="swatch-chip" style="background:#f5e6d3"></span><span class="palette-name">Cream</span><code>#f5e6d3</code></li>
+          <li><span class="swatch-chip" style="background:#c94c4c"></span><span class="palette-name">Brick</span><code>#c94c4c</code></li>
+          <li><span class="swatch-chip" style="background:#2e4a3f"></span><span class="palette-name">Forest</span><code>#2e4a3f</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><span class="palette-name">Sand</span><code>#d4a373</code></li>
+          <li><span class="swatch-chip" style="background:#816904"></span><span class="palette-name">Olive</span><code>#816904</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>整套系统的年代感全部来自棕褐这一支：标题、边框与主强调都是它。奶油纸底比纯白暖两档，砖红是印刷红而非屏幕红，深绿是七十年代常见的包装绿，沙色让层次不依赖对比，橄榄只给标签与邮戳式装饰，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#8b4513"></span><div><strong>Sepia</strong><span class="swatch-role">标题、边框与主强调。整套系统的年代感全部来自这支棕。</span></div><code>#8b4513</code><code>--color-sepia</code></li>
+          <li><span class="swatch-chip" style="background:#f5e6d3"></span><div><strong>Cream</strong><span class="swatch-role">页面画布。模拟泛黄的纸，比纯白暖两档。</span></div><code>#f5e6d3</code><code>--color-cream</code></li>
+          <li><span class="swatch-chip" style="background:#c94c4c"></span><div><strong>Brick</strong><span class="swatch-role">警示与重点标记，用印刷红而非屏幕红。</span></div><code>#c94c4c</code><code>--color-brick</code></li>
+          <li><span class="swatch-chip" style="background:#2e4a3f"></span><div><strong>Forest</strong><span class="swatch-role">次级强调与深色区块。七十年代常见的包装绿。</span></div><code>#2e4a3f</code><code>--color-forest</code></li>
+          <li><span class="swatch-chip" style="background:#d4a373"></span><div><strong>Sand</strong><span class="swatch-role">暖色区块与分隔，用于让层次不依赖对比。</span></div><code>#d4a373</code><code>--color-sand</code></li>
+          <li><span class="swatch-chip" style="background:#816904"></span><div><strong>Olive</strong><span class="swatch-role">标签与邮戳式装饰，出现频率最低。</span></div><code>#816904</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">没有投影——一切平贴在纸上：<code>elevation: none</code>，最多一圈 <code>inset 0 0 0 1px rgba(139,69,19,0.25)</code> 的压印线。过渡一律 300ms ease-out，绝不快于 150ms。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>两套字各司其职：标题与字标用衬线 Playfair Display，多用全大写与 0.16em 宽字距，衬线的笔画对比是复古印刷的关键；正文用中性的 Inter，行高拉高到 1.65，模拟旧书的排字。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="retro-specimen-title">复古怀旧风，RETRO VINTAGE</p>
+            <p class="specimen-meta">Playfair Display — 标题与字标。替代栈：Georgia, 'Songti SC', serif · 400 / 700 / 900 · 大写标签字距 0.16em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="retro-specimen-label">正文与说明文字。0123456789</p>
+            <p class="specimen-meta">Inter — 正文与说明。替代栈：'Courier New', system-ui, sans-serif · 400 / 500 · 正文行高 1.65，模拟旧书排字</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Playfair Display</td><td>900</td><td>56px</td><td>1.1</td><td>0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Playfair Display</td><td>700</td><td>40px</td><td>1.15</td><td>0.01em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Playfair Display</td><td>400</td><td>28px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>17px</td><td>1.65</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.65</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>13px</td><td>1.4</td><td>0.16em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 32px，区块间距 96px。允许居中的老式对称版面（这与现代左对齐不同），标题常与细线装饰成组。信息可以密，但每块之间用装饰横条隔开。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片与按钮圆角</td><td>4px（邮戳 999px 全圆）</td></tr>
+            <tr><td>边框</td><td>2px 起，棕褐色系</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>装饰横条</td><td>高 32px，替代大片留白</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Letterpress Button</h3>
+            <p class="style-body-comp-role">行动按钮。棕褐填充、奶油文字、2px 同色描边、4px 圆角、无阴影；15px/500、全大写、0.16em 字距、padding 14px 28px。hover 时填充换成深一档的棕并保持位置不变（不位移不缩放）；按下时改为 2px 描边的透明按钮。过渡 300ms ease-out，绝不快于 150ms。</p>
+            <button type="button" class="letterpress-btn">ORDER NOW</button>
+          </div>
+          <div class="comp-item">
+            <h3>Paper Card</h3>
+            <p class="style-body-comp-role">内容卡与菜单卡。奶油底提亮一档、2px 棕褐 25% 描边、4px 圆角、内边距 32px；内部可加 1px 虚线分隔（模拟票券）；标题衬线 28px 全大写 0.16em。hover 只加深描边到 40%，元素不动。上方演示卡即此组件。</p>
+            <p class="retro-comp-note">悬停试试：只有描边在氧化，纸一动不动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stamp Badge</h3>
+            <p class="style-body-comp-role">标签与邮戳式标记。橄榄或砖红填充、奶油文字、999px 全圆角、无描边，12px/500、全大写、0.16em 字距、padding 4px 12px；可叠一层内阴影模拟压印（inset 0 1px 0 白 30%）。</p>
+            <p class="retro-stamp-row">
+              <span class="stamp-badge-demo">FIRST ISSUE</span>
+              <span class="stamp-badge-demo stamp-badge--brick">LIMITED</span>
+            </p>
+          </div>
+          <div class="comp-item">
+            <h3>Ticker Rule</h3>
+            <p class="style-body-comp-role">分隔与装饰横条。高 32px，棕褐底上重复小花纹（圆点或斜线），或 2px 纯棕褐实线；用于区块之间，替代大片留白，页边宽度 24px。不做滚动动画。</p>
+            <div class="ticker-rule-demo" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有元素保持静止，不做位移与缩放</li>
+              <li>过渡不短于 150ms</li>
+              <li>标题全大写、0.16em 宽字距</li>
+              <li>边框 2px 起，用棕色系</li>
+              <li>配色全部低饱和偏黄</li>
+              <li>用纸纹与压印暗示年代</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何 scale 或 translate-y</li>
+              <li>不要用快于 150ms 的过渡</li>
+              <li>不要用现代渐变与玻璃态</li>
+              <li>不要用霓虹或高饱和色</li>
+              <li>不要用极简扁平语言</li>
+              <li>不要用大圆角</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>老照片、印刷品扫描、木刻版画。允许叠一层纸纹与 5% 的泛黄。图像边缘可以是粗描边框或邮票齿孔。不使用现代摄影、3D 渲染与高饱和色。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="retro-vintage">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的静止原则、慢过渡与油墨色板。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，「旧纸张不会浮起」与 150ms 下限必须原样保留；配色全部低饱和偏黄，阴影退场。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

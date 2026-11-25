@@ -1,0 +1,16 @@
+/* Solen Design — entry point.
+   Everything lives in cascade layers (`sd.tokens`, `sd.base`, `sd.components`),
+   so any unlayered CSS in the host app always wins over the library. */
+
+@layer sd.tokens, sd.base, sd.components;
+
+@import "./tokens/palette.css" layer(sd.tokens);
+@import "./tokens/semantic.css" layer(sd.tokens);
+@import "./tokens/scales.css" layer(sd.tokens);
+@import "./base/reset.css" layer(sd.base);
+@import "./base/elements.css" layer(sd.base);
+/* The component stylesheets live in src/components/<id>/ and each one
+   declares `@layer sd.components` itself — a component's entry file
+   imports its own stylesheet, so they reach the build that way rather
+   than from here. Keeping them in the layer is what lets the host's own
+   CSS win: unlayered CSS beats every @layer. */

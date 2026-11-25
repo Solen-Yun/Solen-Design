@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学术科普风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body scij">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 122 · 浅色版面</p>
+        <h1>学术科普风 <span class="style-card-en">SCIENCE JOURNAL</span></h1>
+        <p class="page-lead">一条窄衬线栏讲论证，边注放旁白，图表突破版心放证据。</p>
+        <div class="style-card-tags"><span>正文 42rem 窄栏</span><span>边注浮右缘</span><span>图表 64rem 突破</span><span>booktabs 表格</span></div>
+      </header>
+
+      <section class="scij-hero">
+        <div class="scij-column">
+          <h3 class="scij-h">注意力如何分配</h3>
+          <p class="scij-body">一段长文的说服力取决于读者的注意力落在哪里。窄栏把行长压到可扫读的范围，让每一次换行都成为一个决策点。<sup class="scij-sup"><a href="#0" onclick="return false">1</a></sup></p>
+          <aside class="scij-sidenote"><span class="scij-sn-mark">1</span>边注在小屏折叠为浅灰内联块。</aside>
+          <p class="scij-body">而图表可以突破版心，占据两倍宽度，把证据推到读者眼前。<sup class="scij-sup"><a href="#0" onclick="return false">2</a></sup></p>
+        </div>
+        <figure class="scij-figure">
+          <div class="scij-chart" role="img" aria-label="图表：注意力随时间分布">
+            <span class="scij-bar" style="height:34%"></span>
+            <span class="scij-bar" style="height:58%"></span>
+            <span class="scij-bar" style="height:82%"></span>
+            <span class="scij-bar" style="height:66%"></span>
+            <span class="scij-bar scij-bar--hot" style="height:94%"></span>
+          </div>
+          <figcaption class="scij-caption">图 1：注意力随阅读推进的分布，峰值出现在第四段。</figcaption>
+        </figure>
+        <table class="scij-table">
+          <caption>表 1：版心与图表的宽度比</caption>
+          <thead>
+            <tr><th>元素</th><th class="scij-num">宽度</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>正文</td><td class="scij-num">42rem</td><td>一行约 70 字符</td></tr>
+            <tr><td>图表</td><td class="scij-num">64rem</td><td>突破版心居中</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1f2933"></span><span class="palette-name">Ink</span><code>#1f2933</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Paper</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#2a7ae2"></span><span class="palette-name">Academic Blue</span><code>#2a7ae2</code></li>
+          <li><span class="swatch-chip" style="background:#e4572e"></span><span class="palette-name">Chart Orange</span><code>#e4572e</code></li>
+          <li><span class="swatch-chip" style="background:#6b7280"></span><span class="palette-name">Muted Grey</span><code>#6b7280</code></li>
+          <li><span class="swatch-chip" style="background:#f3f4f6"></span><span class="palette-name">Grey Block</span><code>#f3f4f6</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深灰蓝比纯黑更适合长文，做正文与标题；纯白无纹理做页面底，论文不需要气氛；学术蓝只给链接、上标引用与关键强调三处；图表橙管数据强调与图表主序列，绝不用于界面装饰；灰做图注、边注与元信息，永远是第三层级；浅灰块是小屏边注折叠块与代码块底。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Paper</strong><span class="swatch-role">页面底。纯白无纹理，论文不需要气氛。</span></div><code>#ffffff</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#1f2933"></span><div><strong>Ink</strong><span class="swatch-role">正文与标题。深灰蓝，比纯黑更适合长文。</span></div><code>#1f2933</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#2a7ae2"></span><div><strong>Academic Blue</strong><span class="swatch-role">链接、上标引用与关键强调。只有这三个用途。</span></div><code>#2a7ae2</code><code>--color-academic-blue</code></li>
+          <li><span class="swatch-chip" style="background:#e4572e"></span><div><strong>Chart Orange</strong><span class="swatch-role">数据强调与图表主序列，绝不用于界面装饰。</span></div><code>#e4572e</code><code>--color-chart-orange</code></li>
+          <li><span class="swatch-chip" style="background:#6b7280"></span><div><strong>Muted Grey</strong><span class="swatch-role">图注、边注与元信息。永远是第三层级。</span></div><code>#6b7280</code><code>--color-muted-grey</code></li>
+          <li><span class="swatch-chip" style="background:#f3f4f6"></span><div><strong>Grey Block</strong><span class="swatch-role">小屏的边注折叠块与代码块底。</span></div><code>#f3f4f6</code><code>--color-grey-block</code></li>
+        </ul>
+        <p class="style-body-note">层次靠发丝线与留白：<code>none — hairlines and whitespace do the work</code>，最高只允许 <code>0 1px 2px rgba(31,41,51,0.05)</code>。禁用任何渐变。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>正文与标题必须衬线 Source Serif，行高 1.75 是长文可读性的下限，不可压缩；Inter 仅用于 UI 控件标签与元信息，正文绝不使用无衬线。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="scij-specimen-title">注意力的分配</p>
+            <p class="specimen-meta">Source Serif — 正文与标题。替代栈：Georgia, 'Songti SC', serif · 400/600 · 行高 1.75</p>
+          </div>
+          <div class="type-specimen">
+            <p class="scij-specimen-label">FIG. 1 · READING</p>
+            <p class="specimen-meta">Inter — 仅 UI 标签。替代栈：system-ui, sans-serif · 12–13px、字距 0.06em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Source Serif</td><td>600</td><td>36px</td><td>1.2</td><td><code>--text-display</code></tr>
+            <tr><td>heading-lg</td><td>Source Serif</td><td>600</td><td>28px</td><td>1.25</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>Source Serif</td><td>600</td><td>21px</td><td>1.35</td><td><code>--text-heading</code></tr>
+            <tr><td>body-lg</td><td>Source Serif</td><td>400</td><td>17px</td><td>1.75</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Source Serif</td><td>400</td><td>15px</td><td>1.75</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。正文版心 42rem、图表 64rem、页面上限 1024px。区块间距 64px，标题上方留 48px。分割一律 1px #e5e7eb 的 hairline。整页单栏，不做侧栏导航。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 6px · 按钮 4px · 图表 0</td></tr>
+            <tr><td>正文栏</td><td>42rem、居中、17px 衬线、行高 1.75、段距 24px</td></tr>
+            <tr><td>边注</td><td>大屏浮右缘 24px 外、宽 200px、12px 灰；小屏折叠浅灰块</td></tr>
+            <tr><td>图表</td><td>64rem 居中、图注 13px 灰、「图 N：」开头</td></tr>
+            <tr><td>表格</td><td>顶 2px、表头下 1px、底 2px，单元格 8px 12px</td></tr>
+            <tr><td>引用</td><td>12px 上标学术蓝、不换行、与正文间距 2px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Reading Column</h3>
+            <p class="style-body-comp-role">正文窄栏（核心结构）。max-width 42rem（672px）、左右各 24px 内边距、居中。正文 17px 衬线、行高 1.75、段间距 24px、段首不缩进。绝不允许正文全宽铺满——全宽只属于图表。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sidenote</h3>
+            <p class="style-body-comp-role">边注（旁白）。大屏（1280px 以上）绝对定位到正文右缘外侧 24px、宽 200px、12px 灰字、行高 1.5；小屏折叠为正文内的浅灰块（#f3f4f6）、4px 圆角、内边距 12px、12px 灰字。锚点用上标数字。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Evidence Figure</h3>
+            <p class="style-body-comp-role">图表（突破版心）。max-width 64rem（1024px）、居中，比正文宽出一倍。图注 13px 灰、以「图 N：」开头，与图之间 12px。图表区域零圆角、无边框。这是唯一允许突破版心的元素——hero 里那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Booktabs Table</h3>
+            <p class="style-body-comp-role">booktabs 风格表格。顶部 2px 墨色横线、表头下 1px 墨色横线、底部 2px 墨色横线，中间绝无竖线与斑马纹。单元格内边距 8px 12px、14px 衬线，数值列右对齐并用等宽数字。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Citation Sup</h3>
+            <p class="style-body-comp-role">上标引用。正文后跟 12px 上标数字（学术蓝、不换行、与正文间距 2px），文末参考文献列按编号排列，每条 13px、含标题与出处。点击上标跳转到条目并高亮 2 秒。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>正文窄栏 42rem、行高 1.75</li>
+              <li>正文必须衬线，无衬线只给 UI</li>
+              <li>边注在大屏浮到右缘、小屏折叠</li>
+              <li>图表突破版心到 64rem</li>
+              <li>表格用 booktabs，无竖线无斑马纹</li>
+              <li>分割只用 1px hairline</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何渐变</li>
+              <li>不要用重阴影</li>
+              <li>不要用大圆角</li>
+              <li>不要让正文全宽铺满</li>
+              <li>不要用多彩装饰与大色块</li>
+              <li>不要给表格加竖线与斑马纹</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图表即图像：散点、折线、网络、注意力热图，必须带坐标轴与图注。允许作者照片。不使用装饰摄影、插画与背景图，气氛在这套语言里没有位置。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="science-journal">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的窄栏、边注与图表突破规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，42rem 窄栏、64rem 图表与 booktabs 表格必须原样保留；正文铺满全宽或表格加竖线一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

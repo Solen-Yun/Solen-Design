@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>波普艺术 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body pop">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 65 · 浅色版面</p>
+        <h1>波普艺术 <span class="style-card-en">POP ART</span></h1>
+        <p class="page-lead">粗黑轮廓、Ben-Day 网点、喊出来的对话框：漫画印在画布上。</p>
+        <div class="style-card-tags"><span>4px 粗黑边框</span><span>45° Ben-Day 网点</span><span>900 字重全大写</span><span>硬阴影 4px 4px 0</span></div>
+      </header>
+
+      <section class="pop-hero">
+        <div class="pop-hero-copy">
+          <p>波普艺术来自沃霍尔与利希滕斯坦：4px 粗黑边框包住一切，背景铺 Ben-Day 网点（等距圆点），颜色是高饱和的平涂黄、粉、蓝，文字用 900 字重全大写像漫画标题，按钮与卡片带 4px 4px 0 黑的硬阴影。它禁止渐变（一切必须平涂）、禁止低饱和与灰调、禁止 2px 以下细边框、禁止全圆角。</p>
+          <p>右边这张网点卡是真的：45 度 Ben-Day 网点，hover 时网点换色、阴影扩到 6px；气泡是全站唯一允许圆角的元素。</p>
+        </div>
+        <div class="pop-demo">
+          <div class="pop-dot-card">
+            <p class="pop-demo-title">WOW!</p>
+            <p class="pop-demo-text">漫画印在画布上。</p>
+            <button type="button" class="pop-btn">BANG</button>
+          </div>
+          <div class="pop-bubble">矢量不如网点！</div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ffdd00"></span><span class="palette-name">Pop Yellow</span><code>#ffdd00</code></li>
+          <li><span class="swatch-chip" style="background:#ff69b4"></span><span class="palette-name">Pop Pink</span><code>#ff69b4</code></li>
+          <li><span class="swatch-chip" style="background:#00bfff"></span><span class="palette-name">Pop Blue</span><code>#00bfff</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#a486ff"></span><span class="palette-name">Light Violet</span><code>#a486ff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>波普黄是主底色与最大色块，整套风格的亮度来源；粉是第二主色，常与黄直接相撞；蓝是第三撞色与对话气泡底；黑勾出一切形状——4px 轮廓、硬阴影与文字都由它承担；白是画布与网点底色，也用于反白文字；浅紫是第四撞色，出现频率最低，用来打破黄粉蓝的固定组合。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffdd00"></span><div><strong>Pop Yellow</strong><span class="swatch-role">主底色与最大色块。整套风格的亮度来源。</span></div><code>#ffdd00</code><code>--color-pop-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#ff69b4"></span><div><strong>Pop Pink</strong><span class="swatch-role">第二主色，常与黄直接相撞。</span></div><code>#ff69b4</code><code>--color-pop-pink</code></li>
+          <li><span class="swatch-chip" style="background:#00bfff"></span><div><strong>Pop Blue</strong><span class="swatch-role">第三撞色与对话气泡底。</span></div><code>#00bfff</code><code>--color-pop-blue</code></li>
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">4px 轮廓、硬阴影与文字。一切形状都由它勾出。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">画布与网点底色，也用于反白文字。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#a486ff"></span><div><strong>Light Violet</strong><span class="swatch-role">第四撞色，出现频率最低，用于打破黄粉蓝的固定组合。</span></div><code>#a486ff</code><code>--color-light-violet</code></li>
+        </ul>
+        <p class="style-body-note">硬阴影只有黑：<code>4px 4px 0 #000000</code>，hover 扩到 <code>6px 6px 0</code>，按下归零。网点必须清晰——模糊网点等于丢掉风格。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>只有 900 一个字重，全大写。标题 56 到 80px、行高 0.95，像漫画封面。替代栈用 Arial Black、Impact。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="pop-specimen-title">POP ART 0123456789</p>
+            <p class="specimen-meta">Inter — 只有 900，全大写。替代栈：'Arial Black', Impact, sans-serif · display 行高 0.95 · 字距 -0.02em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>80px</td><td>0.95</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>56px</td><td>1</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>900</td><td>40px</td><td>1.05</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>900</td><td>20px</td><td>1.35</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>900</td><td>16px</td><td>1.4</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>900</td><td>16px</td><td>1.3</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 24px，区块间距 96px。允许元素重叠与旋转 -2 到 2 度。整页以大色块分区（黄、白、粉），每个区块必须至少有网点或粗边，不能出现无装饰的空区。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 2px · 气泡 24px（唯一例外）</td></tr>
+            <tr><td>边框</td><td>一律 4px solid 黑，禁 2px 以下</td></tr>
+            <tr><td>网点</td><td>6px 间距、1.5px 半径、45 度角、100% 撞色</td></tr>
+            <tr><td>硬阴影</td><td>4px 4px 0 黑，hover 6px，按下归零</td></tr>
+            <tr><td>标题</td><td>56–80px、900、行高 0.95，可旋转 ±2°</td></tr>
+            <tr><td>过渡</td><td>100ms linear</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Comic Headline</h3>
+            <p class="style-body-comp-role">漫画式标题（核心）。56 到 80px、900 字重、全大写、行高 0.95、字距 -0.02em，颜色黑或白。可叠 2px 的文字描边（-webkit-text-stroke）与 4px 4px 0 黑的偏移阴影，形成漫画标题的立体感。允许旋转 -2 到 2 度。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pop Button</h3>
+            <p class="style-body-comp-role">行动按钮。波普黄或粉填充、黑字、4px 黑边、2px 圆角、16px/900 全大写、padding 12px 28px，硬阴影 4px 4px 0 黑。hover 时填充硬切到另一撞色、阴影扩到 6px；按下时位移 4px 4px 且阴影归零。过渡 100ms linear。</p>
+            <button type="button" class="pop-btn">BANG!</button>
+          </div>
+          <div class="comp-item">
+            <h3>Ben-Day Bed</h3>
+            <p class="style-body-comp-role">Ben-Day 网点底（签名）。用 radial-gradient 做 6px 间距、1.5px 半径的圆点，颜色取撞色之一（黄、粉或蓝）的 100%，铺在白底上。网格角度 45 度（避免摩尔纹）。它必须清晰可见——网点是利希滕斯坦的签名，模糊它就等于丢掉风格。本页背景与演示卡都是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Speech Bubble</h3>
+            <p class="style-body-comp-role">对话气泡。白或黄填充、4px 黑边、24px 圆角（气泡是唯一允许圆角的元素）、内边距 20px，硬阴影 4px 4px 0 黑。尾巴用两个伪元素画：一个 4px 黑边三角、一个覆盖描边的白三角。文字 20px/900 全大写。hero 右下那个就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Dot Card</h3>
+            <p class="style-body-comp-role">网点内容卡。白底叠 45 度 Ben-Day 网点、4px 黑边、2px 圆角、内边距 24px，硬阴影 4px 4px 0 黑。标题 40px/900，正文 16px/900。hover 时网点颜色换到另一撞色、阴影扩到 6px。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>4px 粗黑边框包住一切</li>
+              <li>Ben-Day 网点作背景纹理</li>
+              <li>高饱和平涂，绝不用渐变</li>
+              <li>900 字重全大写标题</li>
+              <li>硬阴影 4px 4px 0 黑</li>
+              <li>对话气泡承载引语</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变</li>
+              <li>不要用低饱和或灰色系</li>
+              <li>不要用 2px 以下边框</li>
+              <li>不要用全圆角（气泡除外）</li>
+              <li>不要做极简无装饰的页面</li>
+              <li>不要把网点做糊</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>波普化图像：把照片压成 4 到 6 个平涂色块加黑轮廓（像丝网印刷），或处理成网点单色。允许重复排列同一张图（沃霍尔式）。不使用渐变图像、写实摄影与极简构图。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="pop-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的粗黑轮廓、Ben-Day 网点与硬阴影。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，4px 粗黑边、清晰网点与 900 全大写必须原样保留；渐变或灰色系一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

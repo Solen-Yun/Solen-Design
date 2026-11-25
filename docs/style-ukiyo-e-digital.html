@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浮世绘数字风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ukiyo">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 39 · 浅色版面</p>
+        <h1>浮世绘数字风 <span class="style-card-en">UKIYO-E DIGITAL</span></h1>
+        <p class="page-lead">靛蓝、朱红、金箔压在粗线条里：一版套一版的木刻。</p>
+        <div class="style-card-tags"><span>三色套印</span><span>3px 粗描边</span><span>硬边偏移位移</span><span>零圆角零模糊</span></div>
+      </header>
+
+      <section class="ukiyo-hero">
+        <div class="ukiyo-hero-copy">
+          <p>浮世绘数字风来自日本木版画的套色工艺：靛蓝、朱红、金箔三色为主，形用粗线条勾出，色块平涂，构图取北斋式的斜向动势与波浪纹。它的交互语言也照搬版画——hover 时元素做硬边偏移位移（像第二版印歪了一点），绝不允许柔和模糊。</p>
+          <p>禁令很硬：不许渐变阴影与柔和模糊、不许透明度与玻璃效果、不许西式圆角与圆形按钮、不许霓虹、不许弹簧回弹与丝滑动效。右边这张版画卡是真的——移上去看第二版印歪的那一下。</p>
+        </div>
+        <div class="ukiyo-demo">
+          <div class="woodblock-demo">
+            <span class="ukiyo-seal" aria-hidden="true">版</span>
+            <p class="ukiyo-demo-title">神奈川冲浪里</p>
+            <p class="ukiyo-demo-body">套版偏移 2px，像第二版印歪了一点。</p>
+            <button type="button" class="ukiyo-btn">钤印</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="ukiyo-waves" aria-hidden="true"><svg viewBox="0 0 600 60" preserveAspectRatio="none"><path d="M0 30 Q 25 0 50 30 T 100 30 T 150 30 T 200 30 T 250 30 T 300 30 T 350 30 T 400 30 T 450 30 T 500 30 T 550 30 T 600 30" fill="none" stroke="#1a3055" stroke-width="3"/><path d="M0 52 Q 25 26 50 52 T 100 52 T 150 52 T 200 52 T 250 52 T 300 52 T 350 52 T 400 52 T 450 52 T 500 52 T 550 52 T 600 52" fill="none" stroke="#2a5a8c" stroke-width="3"/></svg></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a3055"></span><span class="palette-name">Indigo</span><code>#1a3055</code></li>
+          <li><span class="swatch-chip" style="background:#d4553a"></span><span class="palette-name">Vermilion</span><code>#d4553a</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><span class="palette-name">Gold Leaf</span><code>#c9a227</code></li>
+          <li><span class="swatch-chip" style="background:#2a5a8c"></span><span class="palette-name">Ultramarine</span><code>#2a5a8c</code></li>
+          <li><span class="swatch-chip" style="background:#747800"></span><span class="palette-name">Young Grass</span><code>#747800</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e1"></span><span class="palette-name">Washi</span><code>#f5f0e1</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>靛蓝是木版画里的「蓝摺」——文字、粗线条与深色区块都归它；米白和纸做底，所有色块压在它上面；朱红是画面里唯一的暖色重音，管印章、日出与警示；金箔面积必须小，像贴上去的；群青比主靛更亮，画水与远景；若草管植物与苔，频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a3055"></span><div><strong>Indigo</strong><span class="swatch-role">主色：文字、粗线条与深色区块。木版画里的「蓝摺」。</span></div><code>#1a3055</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e1"></span><div><strong>Washi</strong><span class="swatch-role">纸底。米白的和纸色，所有色块压在它上面。</span></div><code>#f5f0e1</code><code>--color-washi</code></li>
+          <li><span class="swatch-chip" style="background:#d4553a"></span><div><strong>Vermilion</strong><span class="swatch-role">第一强调：印章、日出与警示。是画面里唯一的暖色重音。</span></div><code>#d4553a</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#c9a227"></span><div><strong>Gold Leaf</strong><span class="swatch-role">贵重与高光，面积必须小，像贴上去的金箔。</span></div><code>#c9a227</code><code>--color-gold-leaf</code></li>
+          <li><span class="swatch-chip" style="background:#2a5a8c"></span><div><strong>Ultramarine</strong><span class="swatch-role">第二层蓝，用于水与远景，比主靛更亮。</span></div><code>#2a5a8c</code><code>--color-ultramarine</code></li>
+          <li><span class="swatch-chip" style="background:#747800"></span><div><strong>Young Grass</strong><span class="swatch-role">植物与苔，出现频率最低。</span></div><code>#747800</code><code>--color-young-grass</code></li>
+        </ul>
+        <p class="style-body-note">阴影只有套版偏移：<code>4px 4px 0 #1a3055</code>、hover <code>6px 6px 0 #1a3055</code>；按下归零。没有模糊，没有透明度。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用粗衬线并放宽字距，像版画上的题签；正文同族但更细，行高 1.7。标签一律 0.2em 宽字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ukiyo-specimen-title">浮世一梦，0123</p>
+            <p class="specimen-meta">Noto Serif SC — 标题粗衬线。替代栈：'Songti SC', Georgia, serif · 600 / 700 · 字距 0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="ukiyo-specimen-label">正文与题签。0123456789</p>
+            <p class="specimen-meta">正文 16–20px / 600 / 行高 1.7；标签 16px / 700 / 0.2em；文字一律靛蓝 #1a3055</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>60px</td><td>1.15</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>46px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>600</td><td>34px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>600</td><td>20px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>600</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>16px</td><td>1.5</td><td>0.2em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1100px、容器内边距 24px，区块间距 112px。允许斜向构图与元素错位（模拟套版），但正文保持可读。零圆角贯穿全站。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片与按钮 0，只有印章 4px</td></tr>
+            <tr><td>描边</td><td>3px 靛蓝粗线勾形</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>112px</td></tr>
+            <tr><td>波浪纹</td><td>3px 圆弧线、高 48–120px，单屏不超过两处</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Woodblock Card</h3>
+            <p class="style-body-comp-role">版画卡片（核心组件）。和纸填充、零圆角、3px 靛蓝描边、内边距 32px，硬阴影 4px 4px 0 靛蓝；顶部或底部用 4px 的朱红横条压边。hover 时硬阴影扩到 6px 并整体位移 2px 2px（模拟第二版印歪），过渡 150ms linear。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Seal Button</h3>
+            <p class="style-body-comp-role">行动按钮。朱红填充、和纸文字、零圆角（绝不是圆形）、3px 靛蓝描边、20px/700、字距 0.2em、padding 14px 32px，硬阴影 4px 4px 0 靛蓝。hover 时阴影扩到 6px 且整体位移 2px 2px；按下时阴影归零并下沉。过渡 120ms linear。</p>
+            <button type="button" class="ukiyo-btn">捺 印</button>
+          </div>
+          <div class="comp-item">
+            <h3>Wave Pattern + Gold Seal</h3>
+            <p class="style-body-comp-role">波浪纹装饰：用重复的圆弧画出北斋式波浪，线宽 3px、靛蓝或群青，高度 48 到 120px；只出现在区块的上下边，单屏不超过两处——标题下那条就是。印章标记：32px 见方的朱红或金箔方块（4px 圆角）、内嵌 20px 的和纸色衬线单字、边缘做 1px 的残缺；用于标记章节与「已阅」——演示卡右上角那枚就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Cartouche Label</h3>
+            <p class="style-body-comp-role">题签标签。靛蓝填充、和纸文字、零圆角、16px/700、字距 0.2em、padding 6px 14px，左侧加一条 3px 金箔竖线；用于栏目名与编号，位置常在区块左上。</p>
+            <span class="ukiyo-cartouche">其ノ一</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>靛蓝、朱红、金箔三色为主</li>
+              <li>3px 粗描边勾形</li>
+              <li>硬边偏移阴影，零模糊</li>
+              <li>零圆角，绝不圆形按钮</li>
+              <li>hover 做版画式偏移位移</li>
+              <li>粗衬线配宽字距</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变阴影或柔和模糊</li>
+              <li>不要用透明度与玻璃效果</li>
+              <li>不要用西式圆角与圆形按钮</li>
+              <li>不要用霓虹或高饱和现代色</li>
+              <li>不要用弹簧回弹</li>
+              <li>不要用丝滑的现代动效</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>木版画风插画：波浪、富士、花鸟、人物侧面，必须粗描边加平涂。允许把照片处理成三色木刻效果。不使用柔和渐变、写实摄影与玻璃质感。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="ukiyo-e-digital">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的三色套印、粗线勾形与版画式偏移。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，三色套印、3px 粗线与零圆角零模糊必须原样保留；柔和阴影即穿帮。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新拟物派 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body neumorph">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="raised-btn" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 04 · 浅色版面</p>
+        <h1>新拟物派 <span class="style-card-en">NEUMORPHISM</span></h1>
+        <p class="page-lead">元素和背景同色，只有两个方向的阴影在说明它凸起还是凹陷。</p>
+        <div class="style-card-tags"><span>双向阴影</span><span>同色基底</span><span>固定光源</span><span>凹凸物理</span><span>柔和圆角</span></div>
+      </header>
+
+      <section class="neumorph-hero">
+        <div class="neumorph-hero-copy">
+          <p>新拟物派用一束固定的光塑造所有界面：光源在左上，所以每个元素都有左上白色高光与右下冷灰暗影。元素本身与背景同色，一旦换了深浅就立刻失去材质感。</p>
+          <p>凸起用外阴影对，凹陷用 inset 阴影对，按下就是把凸起翻成凹陷。这套系统里没有边框、没有实色填充、没有强烈对比，全部层次由两段模糊值承担，字号与字重必须比常规更保守，否则内容会压过材质。右边是一块可交互的材质面板：按钮、开关和输入框都是真的。</p>
+        </div>
+        <div class="soft-card neumorph-demo">
+          <p class="neumorph-demo-title">材质面板</p>
+          <button type="button" class="raised-btn">RAISED ACTION</button>
+          <button type="button" class="soft-toggle" data-switch role="switch" aria-checked="true" aria-label="演示开关"><span class="soft-toggle-knob"></span></button>
+          <label class="recessed-field"><input type="text" placeholder="Type something…"></label>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#e0e5ec"></span><span class="palette-name">Base</span><code>#e0e5ec</code></li>
+          <li><span class="swatch-chip" style="background:#b8bcc2"></span><span class="palette-name">Shadow Grey</span><code>#b8bcc2</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Highlight</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#6d5dfc"></span><span class="palette-name">Blurple</span><code>#6d5dfc</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><span class="palette-name">Coral</span><code>#ff6b6b</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><span class="palette-name">Mint</span><code>#4ecdc4</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>页面与所有元素共用一块 #e0e5ec 基底，凸起和凹陷都从它出发，不允许任何元素换底色。Blurple 是唯一允许压在基底上的饱和色，面积控制在按钮与图标内；Coral 出现即表示不可逆。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#e0e5ec"></span><div><strong>Base</strong><span class="swatch-role">页面与所有元素的共同颜色。凸起和凹陷都从它出发，不允许任何元素换底色。</span></div><code>#e0e5ec</code><code>--color-base</code></li>
+          <li><span class="swatch-chip" style="background:#b8bcc2"></span><div><strong>Shadow Grey</strong><span class="swatch-role">右下阴影色。唯一允许用来表达凹陷的颜色，不用于文字或边框。</span></div><code>#b8bcc2</code><code>--color-shadow-grey</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Highlight</strong><span class="swatch-role">左上高光色。以模糊阴影形式出现，不直接作为面板填充。</span></div><code>#ffffff</code><code>--color-highlight</code></li>
+          <li><span class="swatch-chip" style="background:#6d5dfc"></span><div><strong>Blurple</strong><span class="swatch-role">主行动与选中态。全系统唯一允许压在基底上的饱和色，面积控制在按钮与图标内。</span></div><code>#6d5dfc</code><code>--color-blurple</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><div><strong>Coral</strong><span class="swatch-role">警示与删除操作。出现即表示不可逆，不做装饰用途。</span></div><code>#ff6b6b</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#4ecdc4"></span><div><strong>Mint</strong><span class="swatch-role">成功与数据正向变化。与珊瑚同屏时面积不得超过其一。</span></div><code>#4ecdc4</code><code>--color-mint</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Base 与 1 Raised 同为 <code>#e0e5ec</code>——凸起面板靠外阴影区分而非换色。阴影只有四组：<code>8px 8px 16px #b8bcc2, -8px -8px 16px #ffffff</code>（凸起）、inset 版（凹陷）、模糊减半（hover）与 inset 减半（按下）。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体，字重克制——材质已经是主角，字体再加戏会显得廉价。深色文字只出现在内容层，界面层用中灰。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="neumorph-specimen-serif">新拟物派，Neumorphism</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：Nunito, system-ui, -apple-system, sans-serif · 400 / 500 / 600 · 字距 -0.01em（display）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>36px</td><td>1.15</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>28px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>20px</td><td>1.4</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px，12 栏，容器内边距 24px；区块间距 96px，卡片间距 32px 起。版面必须留白充足，元素之间至少一个阴影的模糊半径的距离，否则阴影互相叠加会显脏。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>24px</td></tr>
+            <tr><td>按钮与输入框圆角</td><td>16px</td></tr>
+            <tr><td>胶囊圆角</td><td>999px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>边框</td><td>无——材质必须连续</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Raised Button</h3>
+            <p class="style-body-comp-role">主行动按钮。与背景同色填充、无描边、16px 圆角、双阴影凸起。字级 14px、字重 500、深灰字。hover 时两段模糊减半到 4px，模拟手指靠近遮光；按下时整对翻成 inset，位移为 0。过渡 200ms ease-out。首屏面板里那枚即此组件。</p>
+            <button type="button" class="raised-btn">RAISED ACTION</button>
+          </div>
+          <div class="comp-item">
+            <h3>Recessed Input</h3>
+            <p class="style-body-comp-role">输入框与搜索。与背景同色填充、inset 双阴影、16px 圆角、padding 12px 16px，占位符用中灰。聚焦时保持凹陷，只把阴影色相转向紫罗兰 30% 透明度，不移动元素。</p>
+            <label class="recessed-field"><input type="text" placeholder="Search…"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Card</h3>
+            <p class="style-body-comp-role">内容卡片与统计块。凸起双阴影、24px 圆角、内边距 32px、无描边无换色。卡片之间至少留 32px，否则两套阴影会互相污染。hover 时阴影模糊减半并整体上浮 2px，表示可点击。首屏面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Soft Toggle</h3>
+            <p class="style-body-comp-role">开关与分段控件。轨道凹陷（inset 对、16px 圆角、高 32px），旋钮凸起（外阴影对、直径 24px、与轨道同色）。开启时旋钮填紫罗兰，关闭时与基底同色。切换过渡 200ms，只动阴影与位置，不用缩放。首屏面板里有一枚可点的。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有元素与背景同色，深浅差异只由阴影承担</li>
+              <li>固定单一光源：左上高光、右下暗影，全站一致</li>
+              <li>凸起用外阴影对，凹陷用 inset 对，不混用</li>
+              <li>圆角 16px 起，卡片用 24px</li>
+              <li>hover 时减小阴影模糊，模拟手靠近遮光</li>
+              <li>字重不超过 600，让材质当主角</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯黑阴影，会立刻变成脏灰</li>
+              <li>不要在深色背景上做新拟物，没有可用光</li>
+              <li>不要加实色边框，材质不再连续</li>
+              <li>不要让元素换底色来区分层级</li>
+              <li>不要用锐利描边图标或高对比插画</li>
+              <li>不要把两套阴影的元素放得比阴影模糊半径更近</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>不用摄影。材质本身是内容：可用同色系的柔和图形、极浅的线性图标，或与基底同色的产品渲染。任何强对比、深色背景、纯白图标都会破坏统一光源的假设。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neumorphism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的配色职责、字体规则、间距与组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="raised-btn" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，同色基底、固定光源与凸起/凹陷的阴影对必须原样保留；元素间距不得小于阴影模糊半径。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

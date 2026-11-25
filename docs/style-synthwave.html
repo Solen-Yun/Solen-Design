@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>合成波 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body synth">
+      <div class="synth-horizon" aria-hidden="true">
+        <span class="synth-sun"></span>
+        <span class="synth-gridfloor"></span>
+      </div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 34 · 深色版面</p>
+        <h1>合成波 <span class="style-card-en">SYNTHWAVE</span></h1>
+        <p class="page-lead">日落渐变压在网格地平线上，霓虹从内外两侧同时发光。</p>
+        <div class="style-card-tags"><span>双向霓虹发光</span><span>条纹日落</span><span>透视网格</span><span>Arcade Pulse</span></div>
+      </header>
+
+      <section class="synth-hero">
+        <div class="synth-hero-copy">
+          <p>合成波是 80 年代合成器音乐的视觉：粉紫青霓虹、橙到粉到紫的日落渐变、向地平线汇聚的透视网格、复古科技字体。它有两条标志性动效规则——第一是 Arcade Pulse，霓虹边框与发光元素在 hover 时脉冲或闪烁，像街机的 CRT 被触碰后通电。</p>
+          <p>第二是 Multidimensional Neon，按钮必须同时有内嵌青光的 inset 阴影与外侧粉光的外阴影，两根霓虹灯管从相反方向发光，hover 时一起加强——单方向发光在这里是错的。下面的按钮是真的，移上去让两根灯管一起通电。</p>
+        </div>
+        <div class="synth-demo">
+          <div class="synth-card-demo">
+            <span class="synth-chip">OUTRUN 1987</span>
+            <p class="synth-demo-title">双向通电。</p>
+            <p class="synth-demo-body">青光向内，粉光向外，缺一半就不成立。</p>
+            <button type="button" class="synth-btn">DRIVE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><span class="palette-name">Magenta</span><code>#ff00ff</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><span class="palette-name">Cyan</span><code>#00ffff</code></li>
+          <li><span class="swatch-chip" style="background:#f67d50"></span><span class="palette-name">Sunset Orange</span><code>#f67d50</code></li>
+          <li><span class="swatch-chip" style="background:#ff6ec7"></span><span class="palette-name">Pink</span><code>#ff6ec7</code></li>
+          <li><span class="swatch-chip" style="background:#7b68ee"></span><span class="palette-name">Violet</span><code>#7b68ee</code></li>
+          <li><span class="swatch-chip" style="background:#1a0b2e"></span><span class="palette-name">Deep Violet</span><code>#1a0b2e</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>洋红是第一霓虹——外发光的粉侧与主按钮；青是第二霓虹——内发光的青侧与网格线；深紫底深到让两层霓虹都能被看见；日落渐变从橙经粉到紫，橙是落日与地平线的交界。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ff00ff"></span><div><strong>Magenta</strong><span class="swatch-role">第一霓虹色：外发光的粉侧与主按钮。</span></div><code>#ff00ff</code><code>--color-magenta</code></li>
+          <li><span class="swatch-chip" style="background:#00ffff"></span><div><strong>Cyan</strong><span class="swatch-role">第二霓虹色：内发光的青侧与网格线。</span></div><code>#00ffff</code><code>--color-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#1a0b2e"></span><div><strong>Deep Violet Base</strong><span class="swatch-role">页面底。深到让两层霓虹都能被看见。</span></div><code>#1a0b2e</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#ff6ec7"></span><div><strong>Pink</strong><span class="swatch-role">日落渐变的中段与次级强调。</span></div><code>#ff6ec7</code><code>--color-pink</code></li>
+          <li><span class="swatch-chip" style="background:#7b68ee"></span><div><strong>Violet</strong><span class="swatch-role">渐变的过渡站，把粉接到深紫。</span></div><code>#7b68ee</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#f67d50"></span><div><strong>Sunset Orange</strong><span class="swatch-role">渐变顶端与暖侧高光，落日与地平线的交界。</span></div><code>#f67d50</code><code>--color-sunset-orange</code></li>
+        </ul>
+        <p class="style-body-note">双向霓虹是硬规则：<code>0 0 15px rgba(255,0,255,0.40), inset 0 0 10px rgba(0,255,255,0.20)</code>，hover 加强到 30px 与 20px；文字发光 <code>0 0 12px rgba(255,0,255,0.70)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>Orbitron——复古科技感的几何无衬线，全大写并放宽字距；标签一律 0.2em 宽字距，标题 46 到 66px 带 0.04em 字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="synth-specimen-title">SYNTHWAVE 0123456789</p>
+            <p class="specimen-meta">Orbitron — 复古科技几何无衬线。替代栈：'Arial Black', 'Trebuchet MS', sans-serif · 700 / 900 · 字距 0.04em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="synth-specimen-label">NEON DRIVE // GRID ON</p>
+            <p class="specimen-meta">全大写 700；标签 13px / 700 / 0.2em；文字白色，标题带洋红文字发光</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>900</td><td>66px</td><td>1.05</td><td>0.04em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>900</td><td>46px</td><td>1.1</td><td>0.04em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>32px</td><td>1.2</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>700</td><td>16px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>700</td><td>13px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>13px</td><td>1.4</td><td>0.2em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1280px、容器内边距 24px，区块间距 96px。首屏常为居中的大标题压在日落与网格地平线上。允许元素与网格重叠，但文字必须始终在发光之上保持可读。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片、按钮与输入框 8px</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>区块间距</td><td>96px</td></tr>
+            <tr><td>日落带</td><td>高 240–360px，圆形落日 120–200px，被 8–12 条黑线切开</td></tr>
+            <tr><td>透视网格</td><td>perspective(320px) rotateX(60deg)，青色 25% 线</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Multidimensional Button</h3>
+            <p class="style-body-comp-role">主行动按钮（双向霓虹）。深紫填充、白字、8px 圆角、1px 洋红 60% 描边，13px/700 全大写 0.2em、padding 12px 28px；必须同时带 0 0 15px 洋红 40% 的外发光与 inset 0 0 10px 青 20% 的内发光。hover 时两层一起加强到 30px 与 20px，并触发 Arcade Pulse（1.2s 内往复一次）。过渡 200ms。</p>
+            <button type="button" class="synth-btn">NEON DRIVE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Neon Card</h3>
+            <p class="style-body-comp-role">内容卡。深紫 80% 填充、8px 圆角、1px 青 35% 描边、内边距 24px，双向外发光（青 12px、洋红 24px）；标题 32px/700 带 0 0 12px 洋红文字发光，正文 13px 白 80%；hover 时描边升到 70% 并触发一次脉冲。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sunset Horizon + Virtual Grid</h3>
+            <p class="style-body-comp-role">日落与地平线（签名）：一条从橙经粉到紫的垂直渐变带，高 240 到 360px，中间一个被 8 到 12 条水平黑线切开的圆形落日；下方接透视网格，网格线青色 25%。虚拟网格（仅在接近时激活）：透视网格铺满区块下缘，默认 30% 不透明度、不位移；只有父级 hover 时才升到 70% 并开始缓慢向前位移（6s linear 循环）——静止状态下网格绝不能有动画。本页顶部的日落与地平线即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Chip Label</h3>
+            <p class="style-body-comp-role">霓虹标签。透明底、1px 青描边、8px 圆角、13px/700 全大写 0.2em、padding 4px 10px，文字青色带 0 0 8px 青 60% 发光；hover 时描边转洋红、发光换色。演示卡左上角的标签即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>粉紫青霓虹配色</li>
+              <li>橙到粉到紫的日落渐变</li>
+              <li>霓虹必须双向发光（inset 加 outer）</li>
+              <li>hover 触发 Arcade Pulse</li>
+              <li>网格只在接近时激活</li>
+              <li>全大写几何科技字体</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮白色背景</li>
+              <li>不要做现代简约风</li>
+              <li>不要省略霓虹发光</li>
+              <li>不要用过于正式的字体</li>
+              <li>不要用单向霓虹光</li>
+              <li>不要让网格在静止时移动</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>合成器视觉：落日、棕榈剪影、跑车、城市天际线、网格地面、复古科技设备。允许把照片压成粉紫双色调。不使用明亮白底、现代摄影与极简构图。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="synthwave">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的双向霓虹、条纹日落与 Arcade Pulse。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双向发光、条纹落日与「网格静止不动」必须原样保留；单向霓虹即错。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

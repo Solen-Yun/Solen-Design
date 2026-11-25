@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>超现实主义风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body surreal">
+      <span class="surreal-orb surreal-orb--a" aria-hidden="true"></span>
+      <span class="surreal-orb surreal-orb--b" aria-hidden="true"></span>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 38 · 深色版面</p>
+        <h1>超现实主义风 <span class="style-card-en">SURREALISM</span></h1>
+        <p class="page-lead">梦境里的时间：一切都慢，一切都稍微歪着，光从不该来的方向来。</p>
+        <div class="style-card-tags"><span>700–1000ms 梦境时间</span><span>skew 不 scale</span><span>玫瑰色光晕阴影</span><span>融化与漂浮</span></div>
+      </header>
+
+      <section class="surreal-hero">
+        <div class="surreal-hero-copy">
+          <p>超现实主义借用达利的语汇：午夜蓝与沙漠金的意外配色、不合逻辑的空间关系、融化与变形的形状、以及从不该来的方向打来的光。它有两条独有的时间与位移规则——第一，所有过渡必须是 700 到 1000ms 的 ease-in-out（Timeless Easing），因为梦境的时间是弹性的。</p>
+          <p>第二，hover 绝不允许 scale，只能用 skew 与 rotate 扭曲现实。阴影也不能是黑色，必须用玫瑰或金色的漫射光晕——黑色阴影会瞬间把梦叫醒。右边这块面板是歪的，悬停它，让它慢慢回正。</p>
+        </div>
+        <div class="surreal-demo">
+          <div class="melting-panel-demo">
+            <p class="surreal-demo-title">时间在这里是弹性的。</p>
+            <p class="surreal-demo-body">光晕是玫瑰色的，从不该来的方向漫过来。</p>
+            <button type="button" class="surreal-btn">落入梦中</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a3e"></span><span class="palette-name">Midnight Blue</span><code>#1a1a3e</code></li>
+          <li><span class="swatch-chip" style="background:#d4a574"></span><span class="palette-name">Desert Gold</span><code>#d4a574</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><span class="palette-name">Dusty Rose</span><code>#c38d94</code></li>
+          <li><span class="swatch-chip" style="background:#4a3f6b"></span><span class="palette-name">Violet</span><code>#4a3f6b</code></li>
+          <li><span class="swatch-chip" style="background:#90ba6d"></span><span class="palette-name">Moss</span><code>#90ba6d</code></li>
+          <li><span class="swatch-chip" style="background:#f0ece4"></span><span class="palette-name">Bone</span><code>#f0ece4</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>午夜蓝深到接近黑但仍保留蓝的呼吸；骨白像梦里发灰的骨白；沙漠金是天上那束不该存在的阳光；尘玫瑰是所有投影的替代色——黑色阴影被禁止；深紫用于融化的形体；苔绿是唯一的一抹生机，打破梦的窒息感。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a3e"></span><div><strong>Midnight Blue</strong><span class="swatch-role">页面底与主色。深到接近黑，但仍保留蓝的呼吸。</span></div><code>#1a1a3e</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#f0ece4"></span><div><strong>Bone</strong><span class="swatch-role">文字与浅色块。像梦里发灰的骨白。</span></div><code>#f0ece4</code><code>--color-bone</code></li>
+          <li><span class="swatch-chip" style="background:#d4a574"></span><div><strong>Desert Gold</strong><span class="swatch-role">暖侧强调与光晕色。天上那束不该存在的阳光。</span></div><code>#d4a574</code><code>--color-desert-gold</code></li>
+          <li><span class="swatch-chip" style="background:#c38d94"></span><div><strong>Dusty Rose</strong><span class="swatch-role">第二强调与阴影的替代色。所有投影都用它而不是黑。</span></div><code>#c38d94</code><code>--color-dusty-rose</code></li>
+          <li><span class="swatch-chip" style="background:#4a3f6b"></span><div><strong>Violet</strong><span class="swatch-role">深紫用于融化的形体与层叠阴影。</span></div><code>#4a3f6b</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#90ba6d"></span><div><strong>Moss</strong><span class="swatch-role">唯一的一抹生机，出现频率最低，用来打破梦的窒息感。</span></div><code>#90ba6d</code><code>--color-moss</code></li>
+        </ul>
+        <p class="style-body-note">阴影只有光晕：玫瑰 <code>0 24px 60px rgba(195,141,148,0.22)</code>、金 <code>0 12px 40px rgba(212,165,116,0.28)</code>——<code>black shadows are forbidden</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站衬线 Cormorant Garamond，标题允许斜体——细笔画的衬线在深底上像被手写上去的。行高拉到 1.8，让文字在梦里慢下来。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="surreal-specimen-title">梦境里的时间</p>
+            <p class="specimen-meta">Cormorant Garamond — 全站衬线。替代栈：'EB Garamond', Georgia, 'Songti SC', serif · 300 / 400 / 600 · 行高 1.8（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="surreal-specimen-label">正文与标签文字。0123456789</p>
+            <p class="specimen-meta">正文 18–22px / 400 / 行高 1.8；标签 15px / 600 / 0.1em；文字一律骨白 #f0ece4</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>300</td><td>58px</td><td>1.1</td><td>0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>400</td><td>42px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>30px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>22px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>18px</td><td>1.8</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>15px</td><td>1.5</td><td>0.1em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px、容器内边距 24px，区块间距 144px。严禁严格对称网格：允许元素偏离网格 16 到 48px、允许重叠、允许旋转 -3 到 3 度。但阅读顺序必须仍然清晰——梦境可以歪，不能读不懂。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:144px"></span><code>144</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 32px、按钮与光球 999px、输入框 24px</td></tr>
+            <tr><td>卡片内边距</td><td>36px</td></tr>
+            <tr><td>元素间距</td><td>28px</td></tr>
+            <tr><td>区块间距</td><td>144px——梦与梦之间隔得很远</td></tr>
+            <tr><td>偏移</td><td>偏离网格 16–48px、旋转 -3 到 3 度</td></tr>
+            <tr><td>光球</td><td>24–160px 径向渐变，颜色 2000ms 缓慢扩散，单屏最多四个</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Melting Panel</h3>
+            <p class="style-body-comp-role">卡片与内容面板。紫色 40% 填充、32px 圆角、1px 沙漠金 20% 描边、内边距 36px，外加一层玫瑰色漫射光晕，绝不使用黑色阴影；默认整体旋转 -1 度并轻微 skewX(-1.5deg)。hover 时旋转到 1 度、skew 归零、光晕扩到 80px，过渡 1000ms ease-in-out。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Distorted Button</h3>
+            <p class="style-body-comp-role">行动按钮。沙漠金填充、午夜蓝文字、999px 全圆角、无描边，18px/600、0.1em 字距、padding 14px 36px，光晕 0 12px 40px 金 28%。hover 时 skewX(-6deg) 并 rotate(-2deg)、光晕扩到 60px，绝不允许 scale；按下时 skew 归零并整体下沉 2px。过渡 700ms ease-in-out。</p>
+            <button type="button" class="surreal-btn">DISTORT</button>
+          </div>
+          <div class="comp-item">
+            <h3>Color Orb + Soft Field</h3>
+            <p class="style-body-comp-role">装饰光球：24px 到 160px 的圆形，径向渐变从沙漠金或玫瑰的中心渐隐到透明，无边框，绝对定位在卡片边缘并允许溢出 20% 到 40%；颜色在 2000ms 内缓慢扩散与收缩（Color Melting），绝不允许 transition-none；单屏最多四个——本页两角各有一个。输入框：午夜蓝 60% 填充、24px 圆角、1px 紫罗兰 40% 描边；聚焦时描边转沙漠金 60% 并加 3px 金 15% 外环，过渡 700ms。</p>
+            <label class="surreal-field"><span>梦的注脚</span><input type="text" value="1931 年的那个下午"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Floating Epoch</h3>
+            <p class="style-body-comp-role">漂浮的层级错位。把同一内容复制成两到三层，每层偏移 8 到 16px、各自不同透明度（100%、45%、20%）与不同角度（-3、0、+4 度）；仅用于标题或首屏主视觉，营造「同一个东西在时间里被看见三次」的错觉。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有过渡 700 到 1000ms ease-in-out</li>
+              <li>hover 用 skew 与 rotate，不用 scale</li>
+              <li>阴影一律用玫瑰或金色光晕</li>
+              <li>午夜蓝配沙漠金的反常配色</li>
+              <li>形状允许融化与变形</li>
+              <li>标题可用斜体衬线</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用过于明亮的纯色</li>
+              <li>不要用严格对称的网格</li>
+              <li>不要做现代极简的无装饰设计</li>
+              <li>不要用刺眼的霓虹</li>
+              <li>不要用 hover:scale-105</li>
+              <li>不要用黑色投影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>融化的钟表、漂浮的石头、室内长出的海、比例错位的物体。图像必须带不合逻辑的空间关系与来自错误方向的投影。不使用写实纪实摄影与扁平图标。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="surrealism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的梦境时间、扭曲规则与光晕阴影。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，700–1000ms、skew 不 scale 与「黑色阴影禁止」必须原样保留；快速过渡会叫醒梦。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

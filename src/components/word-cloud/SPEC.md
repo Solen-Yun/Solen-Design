@@ -1,0 +1,85 @@
+# 月度词云重排 — WordCloud
+
+一张 340×340 的咖啡评论词云卡。头部左侧是标题「Café review keywords」，右侧是 Jan / Apr / Jul 三档月份开关；中间是 22 个评论关键词组成的云，词的字号由当月提及频次决定，围绕画面中心的螺旋轨迹互相错开地排布；底部一行读数与四个分类图例。切换月份时整片云打散重排：留下来的词滑到新位次和新字号，新出现的词从偏右偏下的小尺寸弹入，消失的词缩小并淡出。悬停或聚焦任意一个词、任意一枚图例，同分类的词保持高亮、其余压暗，读数行给出该词当月提及数、与上月的差值，或该分类的提及总数。
+
+## 布局与材质
+
+- 场景 340×340 逻辑像素，圆角 30px，overflow hidden，底色 var(--ux-surface)（浅色 #FFFFFF，深色 #13141C），文字色 var(--ux-ink)（浅色 #16151B，深色 #F4F0E8）。外圈 1px var(--ux-line) 描边加 `0 30px 60px -36px var(--ux-shadow-strong)` 阴影（浅色 rgba(40,30,80,.3)，深色 rgba(0,0,0,.72)）。
+- 头部绝对定位 left 20px / right 16px / top 16px，flex 两端对齐、垂直居中，z-index 2。标题 13.5px / 字重 900。
+- 月份开关组 role="group"、aria-label="Month"，flex 排列，内边距 3px、圆角 999px、底色 var(--ux-surface-2)（浅色 #F5F3EF，深色 #1A1B25）、内阴影 `inset 0 0 0 1px var(--ux-line)`。三个按钮文案 Jan / Apr / Jul，padding 4px 11px、圆角 999px、透明底、文字 var(--ux-ink-2)（浅色 #57535F，深色 rgba(244,240,232,.68)）11px / 800，背景与文字色各过渡 0.2s；选中态 .is-on 底色 var(--ux-ink)、文字 var(--ux-surface)（浅色即白底黑字，深色即米底深字）。每个按钮带 aria-pressed，focus-visible 为 2px solid var(--ux-accent)、偏移 2px。
+- 词层是一张覆盖全卡的自由画布：每个词是一个绝对定位（left 0、top 0）的 button，字号基准 34px、字重 850、行高 1.15、字距 -0.02em、white-space nowrap、颜色取所属分类色 var(--c)、cursor default、transform-origin 0 0；过渡为 transform .75s cubic-bezier(.3,1.15,.4,1) 与 opacity .4s，并置 will-change: transform。退场的词加 .is-out：opacity 0、pointer-events none。
+- 底部绝对定位 left 14px / right 14px / bottom 12px，纵向排列、居中、gap 6px，z-index 2。读数行 10.5px / 800 / var(--ux-ink-2) / tabular-nums / 不换行，带 aria-live="polite"。图例行 flex、gap 2px；每个图例按钮 padding 3px 7px、圆角 8px、透明底、文字 var(--ux-ink-2) 10px / 750、cursor default，悬停或聚焦时底色换成 var(--ux-surface-2) 且不描边；前置色点为 7×7px 圆、margin-right 4px，底色即分类色。
+- 高亮态：根节点加 .is-f 时所有词 opacity .14；同分类的词加 .is-hl 保持 opacity 1；已退场的词仍为 0。
+- 场景令牌（`light-dark()` 写两套，跟随宿主的 color-scheme 切换）：surface #FFFFFF/#13141C、surface-2 #F5F3EF/#1A1B25、surface-3 #EAE7E1/#252632、ink #16151B/#F4F0E8、ink-2 #57535F/rgba(244,240,232,.68)、ink-3 #8E8A97/rgba(244,240,232,.42)、line rgba(22,21,27,.09)/rgba(255,255,255,.08)、line-2 rgba(22,21,27,.17)/rgba(255,255,255,.16)、accent #6A57F2/#B7A4FF、accent-2 #2F8FE0/#7DB4FF、accent-soft rgba(106,87,242,.12)/rgba(183,164,255,.15)、accent-ink #FFFFFF/#0B0C12、mint #119C72/#7EE8C0、warn #D6731E/#FFB26B、danger #D93A55/#FF7D8C、glass rgba(255,255,255,.58)/rgba(255,255,255,.07)、glass-line rgba(255,255,255,.85)/rgba(255,255,255,.18)、shadow rgba(40,30,80,.14)/rgba(0,0,0,.45)、shadow-strong rgba(40,30,80,.3)/rgba(0,0,0,.72)。
+- 字体：组件不写死字体栈，继承宿主页体；排版时用 getComputedStyle(root).fontFamily 取当前字体去量词宽，所以字体异步加载完成后必须再排一次版。响应式：不设媒体查询断点；容器窄于 340px 时整景按 340 逻辑宽等比缩小（比例 = min(1, 可用宽/340)），options.height 改写场景高度（默认 340）。
+
+## 数据
+
+- 22 个词写死，每个词记录名称、分类下标与三个月（1 月 / 4 月 / 7 月）的提及数：
+
+| 词 | 分类 | 1月 | 4月 | 7月 |
+|----|------|----|----|----|
+| americano | Drinks | 90 | 80 | 95 |
+| latte | Drinks | 70 | 65 | 40 |
+| hot cocoa | Drinks | 60 | 12 | 0 |
+| strawberry | Drinks | 20 | 75 | 15 |
+| cold brew | Drinks | 12 | 35 | 85 |
+| lemonade | Drinks | 0 | 22 | 60 |
+| mulled wine | Drinks | 45 | 0 | 0 |
+| shaved ice | Desserts | 0 | 15 | 80 |
+| cake | Desserts | 55 | 50 | 35 |
+| croffle | Desserts | 40 | 45 | 30 |
+| macaron | Desserts | 25 | 35 | 20 |
+| cherry menu | Desserts | 0 | 70 | 0 |
+| terrace | Space | 6 | 55 | 50 |
+| window seat | Space | 35 | 30 | 25 |
+| outlets | Space | 40 | 40 | 40 |
+| air con | Space | 0 | 6 | 65 |
+| cozy | Space | 55 | 10 | 0 |
+| vibe | Space | 65 | 70 | 60 |
+| friendly | Service | 50 | 55 | 50 |
+| wait time | Service | 30 | 45 | 55 |
+| price | Service | 35 | 30 | 35 |
+| parking | Service | 25 | 25 | 30 |
+
+- 四个分类：Drinks（7 词）、Desserts（5 词）、Space（6 词）、Service（4 词），配色依次 #6366F1、#EC4899、#0D9488、#D97706，图例按此顺序排列。
+- 字号由当月提及数换算：size(v) = 11 + (v/95)^0.85 × 22（px），于是 6 次约 13.1px、95 次为 33px；实际渲染时字号写进 transform 的 scale 里（scale = size/34），按钮本身保持 34px 基准。
+- 排布参数写死：中心 (170, 166)，可用框 x 14–326、y 52–284。只排当月提及数大于 0 的词，按提及数从大到小依次放置。
+
+## 操作和动效
+
+- 螺旋排布：按 850 字重的计算字号量出词宽（宽度再加 4px 留白）并取词高 = 字号 × 1.15；从 t=0 起以 0.12 为步长扫到 140，螺旋半径 r = 3.2t，候选位置 x = 170 + r·cos(t)×1.45 − w/2、y = 166 + r·sin(t) − h/2；超出可用框就跳过，与已放置的词框横向至少留 3px、纵向至少留 1px 才落位。
+- 切换月份：点击月份按钮后重建当月排版并重排所有词。每个词的过渡延迟按 (下标 mod 7) × 0.025s 取值，形成 0–150ms 的错峰；位移与缩放走 transform .75s cubic-bezier(.3,1.15,.4,1)。
+- 新词入场：此前不可见、当月出现的词先以 transition:none 落在最终位置偏移 (右 20×scale、上 12×scale) 处、缩放 0.2，强制回流后恢复过渡，再滑向最终位置与最终缩放，视觉上像从右下角轻轻弹出。
+- 退场：当月提及数为 0 的词加 .is-out（opacity 0、pointer-events none、tabIndex −1），同时把 transform 设为「原位置偏移 (右 20×scale、上 10×scale)、缩放 0.3」，即先缩小右移再淡出。
+- 悬停与聚焦：指针进入或键盘聚焦某个词时，以该词所属分类为高亮集；指针进入或聚焦图例时以该分类为高亮集。命中集内的词 opacity 1，其余压到 .14。读数行随之改写：无悬停时是「Hover a word」；指向词时是「{词} · {当月次数} mentions」，若不是第一个月还追加「({±与上月之差})」；指向图例时是「{分类名} · {该分类当月次数合计} mentions」。切月时若正有悬停，读数会立刻按新月刷新。
+- 减少动态：挂载时读取一次 `prefers-reduced-motion: reduce`（options.reducedMotion 优先）。开启时过渡延迟归零、新词跳过弹入的起始变换直接就位，运行时把所有 transition-duration 归零，于是整云瞬时切换，完整布局与高亮状态仍然可见。
+- 无障碍：每个词都是原生 button，可见时 tabIndex 0 并带 aria-label「{词} {当月次数}」，退场时 tabIndex −1；词获得焦点时 2px solid var(--ux-accent) 描边、偏移 2px、圆角 4px；月份按钮 aria-pressed 同步；图例按钮可聚焦并以底色变化表示聚焦；读数行 aria-live="polite"。
+- 多实例：每个实例各自持有词表与排版，互不干扰；卸载时释放帧回调、计时器、观察器与监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；界面用 DOM 与 CSS 排布，词宽测量借一个离屏 canvas 的 2D 上下文，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 WordCloud。从零创建四个文件：WordCloud.tsx、WordCloudEngine.js、motion-runtime.ts、WordCloudEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。motion-runtime.ts 负责创建隔离的 shadow root 与样式层、按容器宽度等比缩放、把 options.reducedMotion 与系统偏好合成同一个判定，并登记在销毁时统一清掉的帧回调、计时器、观察器与事件监听。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 340），options.reducedMotion 覆盖系统偏好；减少动态时词云瞬时重排，不做位移与缩放过渡，但最终位置、字号与高亮状态不变。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；三个月切换后词的位次、字号与进出场正确且不重叠；悬停与图例联动正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { WordCloud } from "./WordCloud";
+
+export default function App() {
+  return <WordCloud />;
+}
+```

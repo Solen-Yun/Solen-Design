@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>赛博动漫风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body canime">
+      <div class="canime-hex" aria-hidden="true"></div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 58 · 深色版面</p>
+        <h1>赛博动漫风 <span class="style-card-en">CYBER ANIME</span></h1>
+        <p class="page-lead">驾驶舱 HUD 加动漫光效：斜切角、八角网格、三层霓虹。</p>
+        <div class="style-card-tags"><span>四角 L 形支架</span><span>六边形网格</span><span>三层霓虹叠加</span><span>180–280ms 微交互</span></div>
+      </header>
+
+      <section class="canime-hero">
+        <div class="canime-hero-copy">
+          <p>赛博动漫把机甲驾驶舱的 HUD 与动漫的光效语言合在一起：主容器四角带斜切角标，背景用六边形网格而不是方形网格，霓虹是多层叠加而非单层发光，微交互像座舱按钮——hover 快速上浮、按下压实、光晕在 180 到 280ms 内 amplify。</p>
+          <p>它的禁令很硬：不许柔和粉彩与自然有机色、不许衬线、不许全圆角（一切形状必须带角）、不许浅色主背景、不许弹跳弹簧动画。右边这块支架面板是真的——四角有 L 形支架，hover 时三层霓虹一起放大。</p>
+        </div>
+        <div class="canime-demo">
+          <div class="canime-panel-demo">
+            <span class="canime-bracket canime-bracket--tl" aria-hidden="true"></span>
+            <span class="canime-bracket canime-bracket--tr" aria-hidden="true"></span>
+            <span class="canime-bracket canime-bracket--bl" aria-hidden="true"></span>
+            <span class="canime-bracket canime-bracket--br" aria-hidden="true"></span>
+            <p class="canime-panel-tag">UNIT-07 // SYNC 98%</p>
+            <p class="canime-demo-title">三层霓虹，一起通电。</p>
+            <div class="canime-readout" role="presentation">
+              <span class="canime-readout-label">SYNC</span>
+              <span class="canime-readout-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="canime-readout-val">98%</span>
+            </div>
+            <button type="button" class="canime-btn">SYNC NOW</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#7c3aed"></span><span class="palette-name">Frame Violet</span><code>#7c3aed</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><span class="palette-name">Neon Teal</span><code>#06d6a0</code></li>
+          <li><span class="swatch-chip" style="background:#ff006e"></span><span class="palette-name">Neon Pink</span><code>#ff006e</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><span class="palette-name">Electric Blue</span><code>#38bdf8</code></li>
+          <li><span class="swatch-chip" style="background:#51b1ff"></span><span class="palette-name">Pale Blue</span><code>#51b1ff</code></li>
+          <li><span class="swatch-chip" style="background:#0f0f1a"></span><span class="palette-name">Deep Violet Black</span><code>#0f0f1a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>带紫的近黑让霓虹与紫主色都能发光；机体紫承担边框、主按钮与座舱框架；霓虹青是第一层光晕与「系统在线」；霓虹粉是第二层，管警报与高能状态；电蓝管链接与数据高亮，与青形成冷暖过渡；淡蓝是第三层光晕与文字高光，最亮的一站。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0f0f1a"></span><div><strong>Deep Violet Black</strong><span class="swatch-role">页面底。带紫的近黑，让霓虹与紫主色都能发光。</span></div><code>#0f0f1a</code><code>--color-deep-violet-black</code></li>
+          <li><span class="swatch-chip" style="background:#7c3aed"></span><div><strong>Frame Violet</strong><span class="swatch-role">主色：边框、主按钮与座舱框架。</span></div><code>#7c3aed</code><code>--color-frame-violet</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><div><strong>Neon Teal</strong><span class="swatch-role">第一层光晕与「系统在线」状态。</span></div><code>#06d6a0</code><code>--color-neon-teal</code></li>
+          <li><span class="swatch-chip" style="background:#ff006e"></span><div><strong>Neon Pink</strong><span class="swatch-role">第二层光晕，用于警报与高能状态。</span></div><code>#ff006e</code><code>--color-neon-pink</code></li>
+          <li><span class="swatch-chip" style="background:#38bdf8"></span><div><strong>Electric Blue</strong><span class="swatch-role">链接与数据高亮，与青形成冷暖过渡。</span></div><code>#38bdf8</code><code>--color-electric-blue</code></li>
+          <li><span class="swatch-chip" style="background:#51b1ff"></span><div><strong>Pale Blue</strong><span class="swatch-role">第三层光晕与文字高光，最亮的一站。</span></div><code>#51b1ff</code><code>--color-pale-blue</code></li>
+        </ul>
+        <p class="style-body-note">三层霓虹：<code>0 0 12px #7c3aed, 0 0 24px rgba(6,214,160,0.35), 0 0 48px rgba(255,0,110,0.20)</code>；amplify 档 <code>0 0 18px / 0 0 36px / 0 0 72px</code>。切角统一 10px 或 12px。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>几何无衬线 Chakra Petch，带科技切角感——全大写并放宽字距 0.16em，像 HUD 标签；数值、坐标与状态码用 JetBrains Mono——座舱里的读数必须是等宽的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="canime-specimen-title">CYBER ANIME 0123456789</p>
+            <p class="specimen-meta">Chakra Petch — 几何无衬线。替代栈：'Segoe UI', 'Arial Narrow', sans-serif · 400–700 · 标签 0.16em 全大写</p>
+          </div>
+          <div class="type-specimen">
+            <p class="canime-specimen-label">SYNC 98% // GRID LOCKED</p>
+            <p class="specimen-meta">JetBrains Mono — 数值与状态码。替代栈：ui-monospace, 'Courier New', monospace · 400 / 700 · 字距 0.16em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Chakra Petch</td><td>700</td><td>40px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Chakra Petch</td><td>700</td><td>28px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Chakra Petch</td><td>600</td><td>20px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Chakra Petch</td><td>400</td><td>15px</td><td>1.55</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Chakra Petch</td><td>400</td><td>13px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1320px、容器内边距 16px，面板间距 12px，形成密集座舱。允许面板以 1px 线拼接。所有切角固定 10px 或 12px，混用即为错误。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0（状态灯 999px）</td></tr>
+            <tr><td>支架</td><td>四角 2px 机体紫、16px L 形 + 切角 10/12px</td></tr>
+            <tr><td>面板内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>12px</td></tr>
+            <tr><td>六边形网格</td><td>32px 单元、1px 线、机体紫 8%</td></tr>
+            <tr><td>微交互</td><td>180–280ms，光晕 amplify、上浮 2px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Bracket Panel</h3>
+            <p class="style-body-comp-role">斜切角面板（核心组件）。紫 8% 填充、零圆角、1px 机体紫 40% 描边、内边距 24px；四角各用两条伪元素画 L 形支架（2px 机体紫、长 16px），并用 clip-path 切掉右上与左下各 12px 形成斜切；外发光三层：紫 12px、青 24px 35%、粉 48px 20%。hover 时发光 amplify 到 18/36/72px，整体上浮 2px，过渡 220ms。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>HUD Button</h3>
+            <p class="style-body-comp-role">主行动按钮。机体紫填充、白字、零圆角、1px 浅蓝 30% 描边，clip-path 切掉左上与右下各 10px；11px 等宽全大写 0.16em、padding 12px 28px，三层发光。hover 时填充提亮到 #8b4ff5、发光 amplify；按下时位移 1px 并让发光收到 8/16/28px。过渡 180ms。</p>
+            <button type="button" class="canime-btn">SYNC NOW</button>
+          </div>
+          <div class="comp-item">
+            <h3>Hex Field</h3>
+            <p class="style-body-comp-role">六边形背景网格。用两层 repeating-linear-gradient 各转 60 度叠出六边形网格，线宽 1px、机体紫 8%，单元尺寸 32px；全页固定覆盖，pointer-events: none；它必须比方形网格更弱，否则会压过内容——本页背景就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Holo Projection + Status Readout</h3>
+            <p class="style-body-comp-role">全息投影面板：青色 8% 填充、1px 青 30% 描边、零圆角、16px 模糊，叠 4px 间隔的青色扫描线（8%），边缘 clip-path 切出轻微梯形（上窄下宽 4%）；允许轻微上下浮动 2px（4s 循环）。状态读数条：高 28px、1px 机体紫 25% 描边，左段等宽标签、中段分段条（10 格、间隔 2px）、右段数值；正常青、警告粉、离线灰；分段条必须以离散格填充，不用连续渐变——演示卡里那条就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>四角 L 形支架加斜切角</li>
+              <li>六边形网格而非方形</li>
+              <li>霓虹三层叠加</li>
+              <li>微交互 180 到 280ms</li>
+              <li>深底加半透明面板</li>
+              <li>几何无衬线或等宽</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用柔和粉彩与自然色</li>
+              <li>不要用衬线字体</li>
+              <li>不要用全圆角</li>
+              <li>不要用浅色主背景</li>
+              <li>不要用弹跳弹簧动画</li>
+              <li>不要混用两种切角尺寸</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>动漫角色与机体的霓虹剪影、全息投影、数据可视化与 HUD 叠层。允许把角色立绘处理成双色调加发光边缘。不使用柔和粉彩、自然风景与写实人像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cyber-anime">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 L 形支架、六边形网格与三层霓虹。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，L 形支架、六边形网格与三层霓虹必须原样保留；全圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

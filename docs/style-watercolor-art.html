@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水彩艺术风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body wcart">
+      <span class="wcart-wash wcart-wash--a" aria-hidden="true"></span>
+      <span class="wcart-wash wcart-wash--b" aria-hidden="true"></span>
+      <span class="wcart-sprig wcart-sprig--a" aria-hidden="true"></span>
+      <span class="wcart-sprig wcart-sprig--b" aria-hidden="true"></span>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 51 · 浅色版面</p>
+        <h1>水彩艺术风 <span class="style-card-en">WATERCOLOR ART</span></h1>
+        <p class="page-lead">颜料在水里散开：边缘是渗的，颜色是层叠的，纸是湿的。</p>
+        <div class="style-card-tags"><span>颜料池化</span><span>渗化边缘</span><span>纸纹叠加</span><span>极低透明度层叠</span></div>
+      </header>
+
+      <section class="wcart-hero">
+        <div class="wcart-hero-copy">
+          <p>水彩艺术风模拟真实水彩的物理行为：颜料从中心向边缘池化（用 radial-gradient 做按钮）、边缘不规则地渗开、颜色以极低不透明度层层叠加、纸面有颗粒纹理（feTurbulence）。它的技术参数刻意压到极低——边框只有 8% 到 18% 不透明度、阴影极柔且带色、圆角 24px 以上。</p>
+          <p>禁令也很明确：禁止硬边偏移阴影、禁止 2px 以上粗边框、禁止纯黑与霓虹、禁止等宽字体、禁止全大写，因为水彩里没有尖锐的东西。右边这枚湿按钮是真的——悬停它，颜料继续往纸里渗。</p>
+        </div>
+        <div class="wcart-demo">
+          <div class="wash-card-demo">
+            <span class="wcard-sprig wcart-sprig--c" aria-hidden="true"></span>
+            <p class="wcart-demo-title">湿画法的第二层。</p>
+            <p class="wcart-demo-body">三层层叠之后，边缘是不匀的。</p>
+            <button type="button" class="wcart-btn">再上一层</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#d4a0a0"></span><span class="palette-name">Blush</span><code>#d4a0a0</code></li>
+          <li><span class="swatch-chip" style="background:#7bb8d4"></span><span class="palette-name">Water Blue</span><code>#7bb8d4</code></li>
+          <li><span class="swatch-chip" style="background:#8cc5a8"></span><span class="palette-name">Leaf Green</span><code>#8cc5a8</code></li>
+          <li><span class="swatch-chip" style="background:#c3a0d4"></span><span class="palette-name">Petal Violet</span><code>#c3a0d4</code></li>
+          <li><span class="swatch-chip" style="background:#e8c87a"></span><span class="palette-name">Gamboge</span><code>#e8c87a</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f0"></span><span class="palette-name">Wet Paper</span><code>#faf6f0</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>薄薄的赭红是主色——主按钮与主要色块；带纹理的暖白模拟水彩纸；水蓝画水与天空的意象；叶绿管植物语义与成功状态；花紫管情绪化强调与花卉点缀；藤黄是高光与阳光的一层，最常做叠加色。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#d4a0a0"></span><div><strong>Blush</strong><span class="swatch-role">主色：主按钮与主要色块，像一层薄薄的赭红。</span></div><code>#d4a0a0</code><code>--color-blush</code></li>
+          <li><span class="swatch-chip" style="background:#faf6f0"></span><div><strong>Wet Paper</strong><span class="swatch-role">页面底。带纹理的暖白，模拟水彩纸。</span></div><code>#faf6f0</code><code>--color-wet-paper</code></li>
+          <li><span class="swatch-chip" style="background:#7bb8d4"></span><div><strong>Water Blue</strong><span class="swatch-role">第二色，用于水与天空的意象。</span></div><code>#7bb8d4</code><code>--color-water-blue</code></li>
+          <li><span class="swatch-chip" style="background:#8cc5a8"></span><div><strong>Leaf Green</strong><span class="swatch-role">植物语义与成功状态。</span></div><code>#8cc5a8</code><code>--color-leaf-green</code></li>
+          <li><span class="swatch-chip" style="background:#c3a0d4"></span><div><strong>Petal Violet</strong><span class="swatch-role">情绪化强调与花卉点缀。</span></div><code>#c3a0d4</code><code>--color-petal-violet</code></li>
+          <li><span class="swatch-chip" style="background:#e8c87a"></span><div><strong>Gamboge</strong><span class="swatch-role">高光与阳光的一层，最常作为叠加色。</span></div><code>#e8c87a</code><code>--color-gamboge</code></li>
+        </ul>
+        <p class="style-body-note">柔影带色：卡片 <code>0 4px 20px rgba(212,160,160,0.30)</code>、hover <code>0 10px 40px rgba(212,160,160,0.50)</code>、按下 <code>inset 0 2px 4px rgba(90,62,62,0.10)</code>。纸纹全页覆盖 2%–4%。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站衬线 Cormorant Garamond，字距 0.14em 放宽，行高 1.85。禁止等宽与全大写。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="wcart-specimen-title">湿 纸 上 的 颜 料</p>
+            <p class="specimen-meta">Cormorant Garamond — 全站衬线。替代栈：'EB Garamond', Georgia, 'Songti SC', serif · 300 / 400 / 600 · 行高 1.85（body）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="wcart-specimen-label">正文与画注。0123456789</p>
+            <p class="specimen-meta">正文 18–22px / 400 / 行高 1.85；标签 15px / 600 / 0.14em；文字一律深赭 #5a3e3e</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>300</td><td>54px</td><td>1.15</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>400</td><td>40px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>400</td><td>30px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>22px</td><td>1.8</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>18px</td><td>1.85</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>15px</td><td>1.6</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1060px、容器内边距 24px，区块间距 128px。允许元素轻微错位与旋转（-2 到 2 度）。色块可以溢出容器边缘一点，像颜料画出了界。留白宽松，密度低于常规。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 32px、按钮与输入框 24px</td></tr>
+            <tr><td>边框</td><td>只有 1px、8% 到 18% 不透明度</td></tr>
+            <tr><td>卡片内边距</td><td>36px</td></tr>
+            <tr><td>元素间距</td><td>28px</td></tr>
+            <tr><td>纸纹</td><td>全页固定 2%–4% 噪点，multiply，pointer-events none</td></tr>
+            <tr><td>植物点缀</td><td>64–160px、40%–60% 透明度，单屏最多三处</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Wet Button</h3>
+            <p class="style-body-comp-role">行动按钮（颜料池化）。藕粉填充并叠一层 radial-gradient（中心亮 110%、边缘降到 90%）模拟颜料池化、24px 圆角、1px 藕粉 18% 描边、衬线 15px、字距 0.14em、padding 16px 40px，阴影 0 4px 20px 藕粉 30% 加 inset 0 1px 0 白 20%。hover 时填充加深到 #c99595、阴影扩到 40px；按下缩到 0.98 并加内阴影。过渡 500ms ease-in-out。</p>
+            <button type="button" class="wcart-btn">上 一 层</button>
+          </div>
+          <div class="comp-item">
+            <h3>Wash Card</h3>
+            <p class="style-body-comp-role">内容卡（多色层叠）。白底上叠两层极淡色块（第一层 10% 藕粉、第二层 8% 水蓝，各自用 radial-gradient 从一角散开）、32px 圆角、1px 藕粉 12% 描边、内边距 36px，柔阴影 0 4px 20px 藕粉 30%；三层叠加后边缘应显得不匀，模仿湿画法。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bleed Edge + Paper Grain</h3>
+            <p class="style-body-comp-role">渗化边缘装饰：用 SVG 的 feTurbulence 加 feDisplacementMap（baseFrequency 0.02、scale 8）作用在色块或图片边缘上，让边界轻微抖动与晕开；只作用于装饰块，绝不作用于文字。纸纹叠加层：全页固定覆盖一层 2% 到 4% 不透明度的噪点纹理，pointer-events: none，混合模式 multiply；这层让所有色块看起来是画在纸上的。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Botanical Sprig</h3>
+            <p class="style-body-comp-role">植物水彩点缀。一枝 64 到 160px 的水彩叶或花（半透明、边缘渗开），颜色取叶绿或花紫并降到 40% 到 60%，置于卡片角落或标题旁；单屏最多三处。本页角落的三枝就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>边框只有 8% 到 18% 不透明度</li>
+              <li>用 radial-gradient 做颜料池化</li>
+              <li>叠一层 2% 到 4% 的纸纹</li>
+              <li>圆角 24px 以上</li>
+              <li>阴影极柔且带色</li>
+              <li>过渡 500ms ease-in-out</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用硬边偏移阴影</li>
+              <li>不要用 2px 以上边框</li>
+              <li>不要用纯黑或霓虹色</li>
+              <li>不要用等宽字体</li>
+              <li>不要用全大写文字</li>
+              <li>不要给文字加渗化滤镜</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>水彩画与湿画法插画：植物、风景、静物，必须有渗化边缘与颜色层叠。允许把照片处理成水彩效果。不使用硬边矢量插画、高饱和图像与纯黑背景。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="watercolor-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的池化公式、渗化边缘与纸纹层。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，极淡层叠、带色柔影与纸纹叠加必须原样保留；硬边阴影一出现即出画。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

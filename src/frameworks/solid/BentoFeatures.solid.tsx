@@ -1,0 +1,13 @@
+/** @jsxImportSource solid-js */
+import { onMount, onCleanup, createEffect } from "solid-js";
+import { mountBentoFeatures, type BentoFeaturesOptions } from "../../components/bento-features/BentoFeaturesEngine.js";
+import type { MotionController } from "../../components/bento-features/motion-runtime";
+
+export function BentoFeatures(props: { options?: BentoFeaturesOptions; class?: string }) {
+  let host!: HTMLDivElement;
+  let controller: MotionController | undefined;
+  onMount(() => { controller = mountBentoFeatures(host, props.options); });
+  createEffect(() => { const options = props.options; controller?.update(options ?? {}); });
+  onCleanup(() => controller?.destroy());
+  return <div ref={host} class={props.class} data-motion-component="bento-features" />;
+}

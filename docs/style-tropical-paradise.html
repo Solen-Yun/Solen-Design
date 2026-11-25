@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>热带天堂 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body trop">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 107 · 浅色版面</p>
+        <h1>热带天堂 <span class="style-card-en">TROPICAL PARADISE</span></h1>
+        <p class="page-lead">棕榈叶、芒果黄、珊瑚红：一张度假村的海报。</p>
+        <div class="style-card-tags"><span>暖黄底 + 蓝绿</span><span>圆角 16–24px</span><span>阴影带蓝绿色</span><span>棕榈叶遮挡构图</span></div>
+      </header>
+
+      <section class="trop-hero">
+        <div class="trop-hero-copy">
+          <p>热带天堂来自度假村的视觉：暖黄底、蓝绿主色、珊瑚红与芒果黄作强调、叶绿作植物。圆角放大到 16 至 24px 甚至全圆，传达柔和的度假感；阴影带颜色而不是灰；标题用圆润的大字并压紧字距；hover 用明快的亮色变化。</p>
+          <p>棕榈叶与花瓣是主要图形，允许大面积遮挡构图。</p>
+        </div>
+        <div class="trop-demo">
+          <span class="trop-sun" aria-hidden="true"></span>
+          <svg class="trop-frond" viewBox="0 0 240 240" fill="none" stroke="#4caf50" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <path d="M10 236 C60 190 120 130 200 60" />
+            <path d="M52 200 C44 176 40 156 44 132" />
+            <path d="M78 178 C72 152 74 130 84 108" />
+            <path d="M106 152 C106 128 114 108 128 90" />
+            <path d="M134 124 C142 104 158 88 176 76" />
+            <path d="M60 196 C74 190 88 190 100 196" />
+            <path d="M88 166 C102 158 118 158 130 164" />
+            <path d="M116 132 C132 124 148 126 160 134" />
+            <path d="M146 98 C160 92 174 94 186 102" />
+          </svg>
+          <div class="trop-card">
+            <p class="trop-card-title">Isla Verde</p>
+            <p class="trop-card-text">七天的行程，三片海滩，早餐永远在露台上。</p>
+            <button type="button" class="trop-btn">订 下</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#00897b"></span><span class="palette-name">Teal</span><code>#00897b</code></li>
+          <li><span class="swatch-chip" style="background:#fffde7"></span><span class="palette-name">Warm Yellow</span><code>#fffde7</code></li>
+          <li><span class="swatch-chip" style="background:#ff6f61"></span><span class="palette-name">Coral</span><code>#ff6f61</code></li>
+          <li><span class="swatch-chip" style="background:#ffc107"></span><span class="palette-name">Mango</span><code>#ffc107</code></li>
+          <li><span class="swatch-chip" style="background:#4caf50"></span><span class="palette-name">Leaf</span><code>#4caf50</code></li>
+          <li><span class="swatch-chip" style="background:#a09314"></span><span class="palette-name">Olive</span><code>#a09314</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>蓝绿是主色，管主按钮、文字与海水的语义；像阳光下的沙地的暖黄做页面底；珊瑚红是第一强调，给主 CTA 与花；芒果黄是第二强调与高亮，像果肉与阳光；叶绿管棕榈叶与植物语义；橄榄是压在黄上的文字，也是沙的暗部。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fffde7"></span><div><strong>Warm Yellow</strong><span class="swatch-role">页面底。像阳光下的沙地。</span></div><code>#fffde7</code><code>--color-warm-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#00897b"></span><div><strong>Teal</strong><span class="swatch-role">主色：主按钮、文字与海水的语义。</span></div><code>#00897b</code><code>--color-teal</code></li>
+          <li><span class="swatch-chip" style="background:#ff6f61"></span><div><strong>Coral</strong><span class="swatch-role">第一强调：主 CTA 与花。</span></div><code>#ff6f61</code><code>--color-coral</code></li>
+          <li><span class="swatch-chip" style="background:#ffc107"></span><div><strong>Mango</strong><span class="swatch-role">第二强调与高亮，像果肉与阳光。</span></div><code>#ffc107</code><code>--color-mango</code></li>
+          <li><span class="swatch-chip" style="background:#4caf50"></span><div><strong>Leaf</strong><span class="swatch-role">棕榈叶与植物语义。</span></div><code>#4caf50</code><code>--color-leaf</code></li>
+          <li><span class="swatch-chip" style="background:#a09314"></span><div><strong>Olive</strong><span class="swatch-role">压在黄上的文字，也是沙的暗部。</span></div><code>#a09314</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">阴影带蓝绿：<code>0 4px 20px rgba(0,137,123,0.20)</code>，hover <code>0 10px 32px rgba(0,137,123,0.28)</code>。绝不用灰黑阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>圆润无衬线 Nunito，标题用 800 并压紧字距到 -0.02em。字形不能尖，度假不该有棱角。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="trop-specimen-title">Tropical Paradise</p>
+            <p class="specimen-meta">Nunito — 圆润无衬线。替代栈：'Trebuchet MS', 'PingFang SC', system-ui, sans-serif · 400–800 · display 52px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Nunito</td><td>800</td><td>52px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Nunito</td><td>800</td><td>38px</td><td>1.25</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Nunito</td><td>700</td><td>28px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Nunito</td><td>400</td><td>20px</td><td>1.6</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Nunito</td><td>400</td><td>16px</td><td>1.65</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Nunito</td><td>700</td><td>13px</td><td>1.45</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1160px、容器内边距 24px，区块间距 96px。允许棕榈叶与光斑大面积遮挡构图。圆角统一偏好大值（16 到 24px 或全圆），绝不低于 12px。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/图片 24px · 按钮 999px · 输入 16px，绝不低于 12px</td></tr>
+            <tr><td>棕榈叶</td><td>160–400px、8–12 片羽叶、叶绿 60–100%、单屏 1–2 片</td></tr>
+            <tr><td>光斑</td><td>120–240px 径向渐变 + 3–5 个 24–48px 小斑、20%</td></tr>
+            <tr><td>阴影</td><td>0 4px 20px 蓝绿 20%，hover 0 10px 32px</td></tr>
+            <tr><td>卡片 hover</td><td>阴影扩到 32px、上浮 4px、图片放大 1.03</td></tr>
+            <tr><td>过渡</td><td>180ms ease-out</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Island Button</h3>
+            <p class="style-body-comp-role">行动按钮。珊瑚红填充、白字、999px 全圆角、无描边、16px/700、padding 14px 32px，彩色阴影 0 4px 20px 蓝绿 20%。hover 时填充转芒果黄、文字转橄榄、阴影扩到 32px；按下缩放 0.97。过渡 180ms ease-out。</p>
+            <button type="button" class="trop-btn">立即预订</button>
+          </div>
+          <div class="comp-item">
+            <h3>Resort Card</h3>
+            <p class="style-body-comp-role">内容卡与行程卡。白底、24px 圆角、无描边、内边距 28px，彩色阴影 0 4px 20px 蓝绿 20%。标题 28px/700 蓝绿，正文 16px 行高 1.65。图片 24px 圆角铺满卡宽、4:3。hover 时阴影扩到 32px、上浮 4px，图片放大 1.03。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Palm Frond</h3>
+            <p class="style-body-comp-role">棕榈叶装饰（签名）。一片 160 到 400px 的棕榈叶（用 SVG path 画 8 到 12 片羽状小叶），填叶绿的 60% 到 100%，允许从页面角上斜插进来并遮挡部分内容。它是最能标识这套风格的图形，单屏 1 到 2 片——hero 左侧那片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sun Circle</h3>
+            <p class="style-body-comp-role">太阳与光斑。一个 120 到 240px 的圆，填芒果黄到珊瑚红的径向渐变，不透明度 70%，配 3 到 5 个更小的光斑（各 24 到 48px、20% 不透明度）。放在区块角落作为氛围，不做动画或只做极慢的明暗呼吸——hero 右上那颗就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pill Field</h3>
+            <p class="style-body-comp-role">表单输入。白底、999px 全圆角、1px 蓝绿 25% 描边、padding 12px 22px、16px 字。占位符蓝绿 50%。聚焦时描边转蓝绿 80% 并加 3px 的蓝绿 15% 外环。</p>
+            <input class="trop-input" type="email" placeholder="订阅度假小报…">
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>暖黄底配蓝绿与珊瑚红</li>
+              <li>圆角 16 到 24px 或全圆</li>
+              <li>阴影带蓝绿颜色而不是灰</li>
+              <li>棕榈叶大面积遮挡构图</li>
+              <li>标题圆润大字并压紧字距</li>
+              <li>hover 用明快亮色变化</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用暗调或冷色摄影</li>
+              <li>不要用锐利直角</li>
+              <li>不要用灰黑阴影</li>
+              <li>不要用小于 12px 的圆角</li>
+              <li>不要用衬线字体</li>
+              <li>不要超过两片棕榈叶</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>度假场景摄影：海滩、棕榈、水果、泳池、热带植物。必须高亮、暖调、饱和。允许俯拍平铺。不使用暗调摄影、冷色图像与写实人物特写。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="tropical-paradise">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的圆角纪律、彩色阴影与棕榈叶装饰。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，圆角 ≥12px、蓝绿彩色阴影与棕榈叶装饰必须原样保留；灰黑阴影或锐角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

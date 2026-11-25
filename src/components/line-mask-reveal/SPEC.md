@@ -1,0 +1,62 @@
+# 逐行揭示标语 — LineMaskReveal
+
+制作「逐行揭示标语」场景：一张 340×330 的营销标语卡。顶部左右两段等宽排布的等宽字体眉标，中部是三行一组的超大标语——切换时旧行向上滑出遮罩、新行自下而上带着 4° 微旋逐行落进各自的遮罩行，行间错峰 95ms；末行落定 950ms 后，一条 accent 色的手绘感下划线沿 SVG 路径描出，线宽自适应末行文字长度。底部有 "01 / 03" 页码计数、Replay 重播按钮和前后翻页圆钮，共三组标语可循环切换。
+
+## 布局与材质
+
+- 340×330px 场景卡，圆角 28px，溢出裁切，纵向 flex 三段式——眉标行、固定高 178px 的标题区、margin-top:auto 的底部操作行——段落间距稳定，不随标语内容变化。内边距 22px 22px 18px，背景表面色，外圈 1px 线色描边、下方 0 30px 60px -36px 强阴影。窄容器时整景按 min(1, 可用宽/340) 等比缩放。
+- 眉标行：两段 span "SS26 · CAMPAIGN" 与 "LOOKBOOK" 两端对齐，字体栈 ui-monospace、SFMono-Regular、Menlo、monospace，600 字重、11px/1、字距 0.14em、三级墨色。
+- 标题区：上边距 22px、固定高 178px、relative。三组标语块全部绝对定位叠放在同一容器里；每行是一个 overflow:hidden 的遮罩行（底部留 0.06em 内边距，防止字尾下伸部被裁），内层文字 span 44px、行高 1.04、字重 860、字距 -0.055em，各自携带行序变量 --i 供错峰延迟使用，常态 translateY(108%) rotate(4deg)（transform-origin 0 100%），第三行文字固定为 accent 色。
+- 下划线 SVG：绝对定位 left -4px、top 150px、高 22px、overflow visible（让 4px 圆头描边完整可见），宽由脚本设为 max(80, 末行文字实测宽 + 10)px；视图 0 0 210 22，路径 M3 14c30-8 62-9 96-5s70 6 108-4，描边 accent、4px 圆头；stroke-dasharray 240、初始 offset 240（完全隐藏），复位时 0.2s ease 归位，描画时以 0.7s cubic-bezier(.6,0,.2,1) 从 240 过渡到 0。
+- 底部操作行 margin-top:auto、横向 flex、间距 8px：页码计数 "01 / 03"（等宽字体 600、12px/1、tabular-nums、三级墨色，当前页两位数字为主墨色并 padStart 补零）；Replay 胶囊高 38px、内边距 0 14px、圆角 999px、surface-2 底、13px/700 次级墨色；前/后翻页圆钮 38×38px 正圆——后进钮墨色底配页面底色图标，后退钮 surface-2 底配主墨色图标，各内嵌 16px、描边 2.2px 的 chevron SVG；三个按钮常态即挂 0.35s 弹性过渡（cubic-bezier(.34,1.56,.64,1)），按压时缩放 0.9、松手弹性回弹。
+- 场景令牌浅色/深色两套（light-dark() 切换：浅色表面 #FFFFFF、墨色 #16151B、accent #6A57F2；深色表面 #13141C、墨色 #F4F0E8、accent #B7A4FF），另带一枚页面底色令牌（浅色 #FFFFFF、深色 #0B0C12）用于圆钮图标配色。字体栈继承页面，眉标与页码用等宽栈。
+
+## 数据
+
+- 三组标语写死，每组固定三行：
+  1. Dress light, / walk / further
+  2. A room where / the light / lingers
+  3. Start small, / make things / that last
+- 眉标写死两段：SS26 · CAMPAIGN、LOOKBOOK。
+- 页码写死总数 03，当前页从 01 起。
+
+## 操作和动效
+
+- 首帧挂载即（requestAnimationFrame 回调内）显示第 1 组：三行从遮罩下方逐行升起，过渡 0.9s cubic-bezier(.2,.9,.2,1)、按行序延迟 i×95ms；950ms 后（减少动态时立即）根节点加上描画态，下划线以 0.7s 描出。
+- 三组标语块常驻 DOM、绝对定位叠放，仅靠 is-in/is-out 两类切换姿态：翻页时旧组行以 0.55s cubic-bezier(.6,0,.4,1)、按行序延迟 i×55ms 向上滑出（translateY(-108%) rotate(-2deg)），新组行依次升入，既非旧组也非新组的块两类全摘、静止在遮罩下方待命。
+- 翻页：点后进/后退圆钮按模 3 循环切换（01→02→03→01）；页码同步换成 01/02/03，标题的 aria-label 更新为三行以空格连写的完整标语。
+- Replay：对当前组重播——旧行先滑出，520ms 后新行再落位，随后下划线重描；页码不变。
+- 描画细节：下划线 SVG 元素常驻标题容器、不随组切换重建；每组入位时先取末行文字实测宽度加 10px（下限 80px）设置下划线宽度，使线长贴合末行；切换开始时先摘掉描画态并清掉旧的描画延时，让下划线以 0.2s ease 的复位过渡回到未描状态，等待下一轮描画，快速连续翻页不会误描上一组的线。
+- 防闪帧：入场块先把自身置为 visibility:hidden 并瞬移到静止姿态，强制回流后在下一帧恢复可见并加上入场类，避免行在旧位置闪现一帧。
+- 快速连点：翻页、重播共用同一个切换入口，每次调用先清掉上一轮的描画延时计时器再重设滑出/入场类，状态始终以最后一次点击为准，不会叠加半途的动画。
+- 页码计数每次切换都用两位补零格式重写当前组号（01/02/03），分母 03 固定不变；三组标语块插入在下划线 SVG 之前，SVG 始终是标题容器的最后一个子节点，切换不增删节点。
+- 键盘与无障碍：Replay/翻页均为原生按钮可 Tab 聚焦，后退与前进按钮各带 aria-label "Previous copy"/"Next copy"；三组标语块 aria-hidden，由标题元素的 aria-label 承载可读文案；下划线 SVG 与按钮图标 aria-hidden。
+- prefers-reduced-motion 下：行滑入滑出不再过渡（直接落位/直接消失）、下划线立即描完、重播的 520ms 等待取消。
+- options.height 调整场景高度（默认 330），options.reducedMotion 覆盖系统偏好。支持同页多实例；卸载时清除描画延时计时器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 330 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、遮罩与描线参数均以上述文字为准；下划线用内联 SVG path 描画，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 LineMaskReveal。从零创建四个文件：LineMaskReveal.tsx、LineMaskRevealEngine.js、motion-runtime.ts、LineMaskRevealEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态时三组标语仍可切换、终态完整。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；逐行错峰入出、下划线自适应描画、翻页循环与 Replay 重播正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { LineMaskReveal } from "./LineMaskReveal";
+
+export default function App() {
+  return <LineMaskReveal />;
+}
+```

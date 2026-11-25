@@ -1,0 +1,132 @@
+// Plain DOM implementation — no iframe, no runtime eval.
+import { createSurface } from "./motion-runtime";
+
+export function mountMentionComment(target, options = {}) {
+  const scope = createSurface(
+    target,
+    {
+      width: 340,
+      height: 340,
+      responsive: false,
+      markup: `
+<div class="ux u268">
+  <div class="u268-hd">Comments</div>
+  <div class="u268-th"><i aria-hidden="true"></i><div><b>Solen</b><span>New landing page draft is up. Focus on the first screen, please!</span></div></div>
+  <div class="u268-bx"><div class="u268-mr" aria-hidden="true"></div><textarea class="u268-ta" placeholder="Leave a comment. Use @ to mention a teammate" aria-label="Comment" aria-autocomplete="list" spellcheck="false"></textarea></div>
+  <div class="u268-pp" role="listbox" aria-label="Teammates"></div>
+  <div class="u268-ft"><small>Will be notified</small><span class="u268-av"></span><button type="button" class="u268-sd">Send</button></div>
+</div>
+`,
+      css: `
+
+.u268{--ux-surface:light-dark(#FFFFFF,#13141C);--ux-surface-2:light-dark(#F5F3EF,#1A1B25);--ux-surface-3:light-dark(#EAE7E1,#252632);--ux-ink:light-dark(#16151B,#F4F0E8);--ux-ink-2:light-dark(#57535F,rgba(244,240,232,.68));--ux-ink-3:light-dark(#8E8A97,rgba(244,240,232,.42));--ux-line:light-dark(rgba(22,21,27,.09),rgba(255,255,255,.08));--ux-line-2:light-dark(rgba(22,21,27,.17),rgba(255,255,255,.16));--ux-accent:light-dark(#6A57F2,#B7A4FF);--ux-accent-2:light-dark(#2F8FE0,#7DB4FF);--ux-accent-soft:light-dark(rgba(106,87,242,.12),rgba(183,164,255,.15));--ux-accent-ink:light-dark(#FFFFFF,#0B0C12);--ux-mint:light-dark(#119C72,#7EE8C0);--ux-warn:light-dark(#D6731E,#FFB26B);--ux-danger:light-dark(#D93A55,#FF7D8C);--ux-glass:light-dark(rgba(255,255,255,.58),rgba(255,255,255,.07));--ux-glass-line:light-dark(rgba(255,255,255,.85),rgba(255,255,255,.18));--ux-shadow:light-dark(rgba(40,30,80,.14),rgba(0,0,0,.45));--ux-shadow-strong:light-dark(rgba(40,30,80,.3),rgba(0,0,0,.72));--ux-grad:light-dark(linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A),linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3));position:relative;width:340px;height:340px;border-radius:30px;overflow:hidden;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line),0 30px 60px -36px var(--ux-shadow-strong);color:var(--ux-ink)}
+.u268-hd{position:absolute;left:20px;top:20px;font-size:15px;font-weight:900}
+.u268-th{position:absolute;left:16px;right:16px;top:52px;display:flex;gap:9px;padding:11px 12px;border-radius:14px;background:var(--ux-surface-2)}
+.u268-th i{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#A5B4FC,#6366F1)}
+.u268-th div{flex:1}
+.u268-th b{display:block;font-size:11px;font-weight:850}
+.u268-th span{display:block;margin-top:2px;font-size:11px;line-height:1.45;font-weight:600;color:var(--ux-ink-2)}
+.u268-bx{position:absolute;left:16px;right:16px;top:130px;height:120px;border-radius:15px;background:var(--ux-surface);box-shadow:inset 0 0 0 1.5px var(--ux-line);transition:box-shadow .2s}
+.u268-bx:focus-within{box-shadow:inset 0 0 0 2px var(--ux-accent)}
+.u268-mr,.u268-ta{position:absolute;inset:0;margin:0;padding:12px 13px;border:0;font:inherit;font-size:12.5px;line-height:1.6;font-weight:600;letter-spacing:0;white-space:pre-wrap;word-wrap:break-word;overflow:hidden;box-sizing:border-box}
+.u268-mr{color:transparent;pointer-events:none}
+.u268-mr mark{color:transparent;background:color-mix(in srgb,var(--ux-accent) 18%,transparent);border-radius:5px;box-shadow:0 0 0 2px color-mix(in srgb,var(--ux-accent) 18%,transparent)}
+.u268-ta{background:none;color:var(--ux-ink);resize:none;outline:none;caret-color:var(--ux-accent)}
+.u268-ta::placeholder{color:var(--ux-ink-3);font-weight:600}
+.u268-pp{position:absolute;z-index:3;width:178px;padding:5px;border-radius:13px;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line),0 16px 32px -12px var(--ux-shadow-strong);transform-origin:12px 0;transform:scale(.9) translateY(-4px);opacity:0;pointer-events:none;transition:transform .2s cubic-bezier(.3,1.6,.5,1),opacity .12s}
+.u268.is-pop .u268-pp{transform:none;opacity:1;pointer-events:auto}
+.u268-op{display:flex;align-items:center;gap:8px;width:100%;height:34px;padding:0 7px;border:0;border-radius:9px;background:none;color:var(--ux-ink);font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;text-align:left}
+.u268-op[hidden]{display:none}
+.u268-op.is-on,.u268-op:hover,.u268-op.g-hov{background:var(--ux-surface-2)}
+.u268-op i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:9.5px;font-weight:850}
+.u268-op span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.u268-op span b{font-weight:900;color:var(--ux-accent)}
+.u268-op small{font-size:9.5px;font-weight:750;color:var(--ux-ink-3)}
+.u268-no{padding:9px;font-size:10.5px;font-weight:700;color:var(--ux-ink-3)}
+.u268-ft{position:absolute;left:16px;right:16px;bottom:18px;display:flex;align-items:center;gap:8px}
+.u268-ft small{font-size:10px;font-weight:800;color:var(--ux-ink-3);white-space:nowrap}
+.u268-av{display:flex;flex:1;padding-left:6px;min-height:26px;align-items:center}
+.u268-av i{width:26px;height:26px;margin-left:-6px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:10px;font-weight:850;box-shadow:0 0 0 2.5px var(--ux-surface);animation:u268-in .4s cubic-bezier(.3,1.7,.5,1)}
+@keyframes u268-in{from{transform:scale(0)}}
+.u268-sd{height:34px;padding:0 15px;border:0;border-radius:11px;background:var(--ux-ink);color:var(--ux-surface);font:inherit;font-size:12px;font-weight:850;cursor:pointer}
+.u268 button:focus-visible{outline:2px solid var(--ux-accent);outline-offset:1px}
+@media (prefers-reduced-motion: reduce){.u268-pp{transition:none}.u268-av i{animation:none}}
+
+body{display:grid;place-items:center}
+`,
+    },
+    options,
+  );
+  const { document, window, requestAnimationFrame, IntersectionObserver, matchMedia } = scope;
+
+  (function () {
+(function () {
+  var root = document.querySelector('.u268');
+  var bx = root.querySelector('.u268-bx'), mr = root.querySelector('.u268-mr'), ta = root.querySelector('.u268-ta'), pp = root.querySelector('.u268-pp'), av = root.querySelector('.u268-av');
+  var PP = [['Seoyeon Kim', 'Design', '#EC4899'], ['Seojun Park', 'Engineering', '#0EA5E9'], ['Doyun Lee', 'Product', '#10B981'], ['Haeun Choi', 'Marketing', '#F59E0B'], ['Minjae Jung', 'Engineering', '#8B5CF6']];
+  var O = PP.map(function (p, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'u268-op'; b.setAttribute('role', 'option'); b.tabIndex = -1;
+    b.innerHTML = '<i style="background:' + p[2] + '">' + p[0].charAt(0) + '</i><span></span><small></small>'; b.querySelector('small').textContent = p[1];
+    b.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    b.addEventListener('click', function () { insert(i); });
+    pp.appendChild(b); return b;
+  });
+  var none = document.createElement('div'); none.className = 'u268-no'; none.textContent = 'No matching teammates'; none.hidden = true; pp.appendChild(none);
+  var at = -1, sel = 0, vis = [];
+  // 겹쳐 둔 거울 상자에 같은 글을 그려 멘션 배경과 커서 위치를 얻습니다
+  function mirror(upto) {
+    var v = ta.value, out = '', re = new RegExp('@(' + PP.map(function (p) { return p[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'g'), last = 0, m;
+    var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
+    while ((m = re.exec(v))) { out += esc(v.slice(last, m.index)) + '<mark>' + esc(m[0]) + '</mark>'; last = m.index + m[0].length; }
+    mr.innerHTML = out + esc(v.slice(last)) + '​';
+    if (upto == null) return null;
+    var tmp = document.createElement('div'); tmp.className = 'u268-mr'; tmp.style.visibility = 'hidden'; tmp.innerHTML = esc(v.slice(0, upto)) + '<span>@</span>'; bx.appendChild(tmp);
+    var s = tmp.querySelector('span'), p = { x: s.offsetLeft, y: s.offsetTop + s.offsetHeight }; tmp.remove(); return p;
+  }
+  function people() {
+    av.innerHTML = ''; var seen = {};
+    PP.forEach(function (p) { if (ta.value.indexOf('@' + p[0]) >= 0 && !seen[p[0]]) { seen[p[0]] = 1; var i = document.createElement('i'); i.style.background = p[2]; i.textContent = p[0].charAt(0); i.title = p[0]; av.appendChild(i); } });
+  }
+  function close() { at = -1; root.classList.remove('is-pop'); ta.removeAttribute('aria-activedescendant'); }
+  function update() {
+    var pos = ta.selectionStart, v = ta.value, k = v.lastIndexOf('@', pos - 1);
+    var q = k >= 0 ? v.slice(k + 1, pos) : null;
+    if (k < 0 || /\s/.test(q) || (k > 0 && !/\s/.test(v[k - 1]))) { mirror(); close(); people(); return; }
+    at = k; var p = mirror(k);
+    vis = [];
+    O.forEach(function (o, i) {
+      var name = PP[i][0], j = q ? name.toLowerCase().indexOf(q.toLowerCase()) : 0, ok = !q || j >= 0;
+      o.hidden = !ok; if (!ok) return; vis.push(i);
+      var sp = o.querySelector('span'); sp.innerHTML = '';
+      if (q) { sp.appendChild(document.createTextNode(name.slice(0, j))); var b = document.createElement('b'); b.textContent = name.slice(j, j + q.length); sp.appendChild(b); sp.appendChild(document.createTextNode(name.slice(j + q.length))); } else sp.textContent = name;
+    });
+    none.hidden = vis.length > 0; sel = 0; hl();
+    // 커서 바로 아래, 상자 밖으로 넘치지 않게 둡니다
+    var bxl = bx.offsetLeft, bxt = bx.offsetTop, x = Math.min(bxl + p.x, 340 - 16 - 178), y = bxt + p.y + 4;
+    pp.style.left = x + 'px'; pp.style.top = y + 'px';
+    root.classList.add('is-pop'); people();
+  }
+  function hl() { O.forEach(function (o, i) { o.classList.toggle('is-on', vis[sel] === i); }); }
+  function insert(i) {
+    if (at < 0) return;
+    var v = ta.value, pos = ta.selectionStart, txt = '@' + PP[i][0] + ' ';
+    ta.value = v.slice(0, at) + txt + v.slice(pos); var c = at + txt.length; ta.focus({ preventScroll: true }); ta.setSelectionRange(c, c);
+    close(); mirror(); people();
+  }
+  ta.addEventListener('input', update);
+  ta.addEventListener('click', update);
+  ta.addEventListener('keydown', function (e) {
+    if (at < 0 || !vis.length) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); sel = (sel + 1) % vis.length; hl(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); sel = (sel - 1 + vis.length) % vis.length; hl(); }
+    else if (e.key === 'Enter' || e.key === 'Tab') { e.preventDefault(); insert(vis[sel]); }
+    else if (e.key === 'Escape') close();
+  });
+  ta.addEventListener('scroll', function () { mr.scrollTop = ta.scrollTop; });
+  ta.addEventListener('blur', function () { setTimeout(close, 150); });
+})();
+  })();
+
+  scope.ready();
+  return scope.controller;
+}

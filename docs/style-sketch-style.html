@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>铅笔手绘风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body sketch">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 32 · 浅色版面</p>
+        <h1>铅笔手绘风 <span class="style-card-en">SKETCH STYLE</span></h1>
+        <p class="page-lead">线不是画直的：虚线、波浪、轻微歪斜，像在纸上随手勾出来的。</p>
+        <div class="style-card-tags"><span>虚线与波浪边</span><span>±1 度歪斜</span><span>排线阴影</span><span>150ms 短促</span></div>
+      </header>
+
+      <section class="sketch-hero">
+        <div class="sketch-hero-copy">
+          <p>铅笔手绘风的关键是「拒绝完美」。所有边框都是虚线或波浪线，卡片允许 -1 度倾斜，hover 时回到 0 度，阴影用交叉排线而不是实色模糊。纸底是暖米（#f5f0e8），主色是铅笔灰（#2c2c2c），强调色像彩色铅笔一样只有四支且不饱和。</p>
+          <p>动效必须短促（150 到 200ms），因为铅笔的反馈是「画下去」，不是「飘起来」。这条风格最容易被做坏的地方是——把不规则做得太规律，反而变成装饰图案。下面这张便签是真的，拿正它试试。</p>
+        </div>
+        <div class="sketch-note-demo">
+          <span class="sketch-ring" aria-hidden="true"></span>
+          <p class="sketch-note-title">随手一勾。</p>
+          <p class="sketch-note-body">便签歪了 1 度，hover 时会被摆正。</p>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><span class="palette-name">Pencil Grey</span><code>#2c2c2c</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e8"></span><span class="palette-name">Paper</span><code>#f5f0e8</code></li>
+          <li><span class="swatch-chip" style="background:#e74c3c"></span><span class="palette-name">Vermilion</span><code>#e74c3c</code></li>
+          <li><span class="swatch-chip" style="background:#3498db"></span><span class="palette-name">Lake Blue</span><code>#3498db</code></li>
+          <li><span class="swatch-chip" style="background:#27ae60"></span><span class="palette-name">Grass</span><code>#27ae60</code></li>
+          <li><span class="swatch-chip" style="background:#f39c12"></span><span class="palette-name">Amber</span><code>#f39c12</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>铅笔灰承担全部线条、文字与描边——带一点暖，模拟 2B 铅笔；米黄纸底比纯白更像速写本；朱红像红笔批注，管重点标记与提醒；湖蓝是最冷静的一支彩色铅笔，管链接；草绿管完成与勾选；琥珀做荧光笔式的强调底色。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><div><strong>Pencil Grey</strong><span class="swatch-role">全部线条、文字与描边。带一点暖的灰，模拟 2B 铅笔。</span></div><code>#2c2c2c</code><code>--color-pencil</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e8"></span><div><strong>Paper</strong><span class="swatch-role">页面画布。偏黄的米色，比纯白更像速写本。</span></div><code>#f5f0e8</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#e74c3c"></span><div><strong>Vermilion</strong><span class="swatch-role">重点标记与提醒，像红笔批注。</span></div><code>#e74c3c</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#3498db"></span><div><strong>Lake Blue</strong><span class="swatch-role">链接与次级标记，是最冷静的一支彩色铅笔。</span></div><code>#3498db</code><code>--color-lake-blue</code></li>
+          <li><span class="swatch-chip" style="background:#27ae60"></span><div><strong>Grass</strong><span class="swatch-role">完成与勾选，用于手绘对勾与状态。</span></div><code>#27ae60</code><code>--color-grass</code></li>
+          <li><span class="swatch-chip" style="background:#f39c12"></span><div><strong>Amber</strong><span class="swatch-role">标注与高亮底色，用于荧光笔式的强调。</span></div><code>#f39c12</code><code>--color-amber</code></li>
+        </ul>
+        <p class="style-body-note">阴影是硬偏移不是模糊：便签 <code>5px 5px 0 rgba(44,44,44,0.15)</code>、hover <code>8px 8px 0 rgba(44,44,44,0.20)</code>；需要体积的插图用 <code>45°/-45°、间距 6px</code> 的交叉排线填充。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与手写标注用 Caveat——笔迹感是这套风格的人格，缺了就只剩虚线边框；正文用 Georgia——衬线正文比手写体更耐读，形成手写标题与印刷正文的对照。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="sketch-specimen-title">拒绝完美，0123456789</p>
+            <p class="specimen-meta">Caveat — 标题与手写标注。替代栈：'Comic Sans MS', 'Segoe Script', cursive · 400 / 700 · 大写标签 0.1em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="sketch-specimen-label">正文用衬线，耐读。0123456789</p>
+            <p class="specimen-meta">Georgia — 正文。替代栈：'Songti SC', serif · 400 / 700 · 行高 1.7，与手写标题成对照</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Caveat</td><td>700</td><td>56px</td><td>1.15</td><td>—</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Caveat</td><td>700</td><td>40px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Caveat</td><td>400</td><td>28px</td><td>1.25</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Georgia</td><td>400</td><td>18px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Georgia</td><td>400</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Caveat</td><td>400</td><td>18px</td><td>1.3</td><td>0.1em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1080px、容器内边距 24px，区块间距 96px。元素允许 ±1 度倾斜制造手写感，但同一区块内倾斜方向要一致。留白可以不完全对称，像手账贴纸的排布。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片、按钮与输入框 2px；手绘圈 40% 60% 70% 30%</td></tr>
+            <tr><td>边框</td><td>按钮虚线 2px、卡片实线 2px、输入框底部波浪 2px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>倾斜</td><td>±1 度，同区块方向一致</td></tr>
+            <tr><td>下划线</td><td>2px 虚线或单周期波浪，比文字宽 8%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Sketch Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、2px 虚线铅笔灰描边、2px 圆角、衬线斜体加粗、0.1em 字距、padding 12px 32px，阴影 4px 4px 0 铅笔灰 15%。hover 时填充硬切为铅笔灰、文字转纸色、阴影扩到 6px 并上浮 4px、旋转 1 度；按下时位移 4px 4px、旋转 -2 度、阴影归零。过渡 150ms。</p>
+            <button type="button" class="sketch-btn">画一笔</button>
+          </div>
+          <div class="comp-item">
+            <h3>Sketch Card</h3>
+            <p class="style-body-comp-role">内容卡与便签。纸底、2px 实线铅笔灰描边（卡片允许实线，按钮用虚线）、2px 圆角、内边距 32px，默认倾斜 -1 度，阴影 5px 5px 0 铅笔灰 15%；hover 时旋转回到 0 度、上浮 4px、阴影扩到 8px，过渡 200ms；右上角可放 32px 的手绘圈，hover 时出现并放大到 1.25。上方便签即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sketch Input</h3>
+            <p class="style-body-comp-role">表单与写作输入。透明底、仅底部 2px 波浪线（用 repeating-linear-gradient 模拟）、无左右描边、padding 8px 4px、16px 衬线；聚焦时波浪线转湖蓝并加粗到 3px，不改变盒子尺寸，不加外环。</p>
+            <label class="sketch-field"><span>写一句</span><input type="text" value="今天也没画直"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Hand Underline + Cross Hatched Shadow</h3>
+            <p class="style-body-comp-role">手绘下划线：一条 2px 的虚线或单周期 SVG 波浪线，长度比文字宽出 8%、下沉 2px、允许 1 度倾斜；hover 时从长度 0 展开到 100%，时长 200ms，用 steps 或线性缓动而不是弹簧——下方标题下那条就是。排线阴影：一层 45 度与 -45 度的 1px 线条重复图案（间距 6px、铅笔灰 15%），不加模糊；仅用于需要「体积」的插图，界面元素用硬偏移即可。</p>
+            <p class="sketch-underline-demo">被手绘下划线标记的一句话</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>边框用虚线或波浪，不用完美直线</li>
+              <li>卡片允许 ±1 度倾斜</li>
+              <li>阴影用硬偏移或排线，不用模糊</li>
+              <li>纸色底，不用纯白</li>
+              <li>动效 150 到 200ms，短促直接</li>
+              <li>标题用手写体，正文用衬线</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用完美直线与对称圆角</li>
+              <li>不要用纯白背景</li>
+              <li>不要用渐变与玻璃模糊</li>
+              <li>不要用高饱和色</li>
+              <li>不要用超过 200ms 的平滑动画</li>
+              <li>不要让不规则变得有规律</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>手绘线稿、铅笔草稿、便签涂鸦。允许把照片处理成线稿后再上色。不使用写实摄影、渐变与任何平滑的矢量插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="sketch-style">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的虚线规则、歪斜限度与排线阴影。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，虚线波浪、±1 度歪斜与「不规则不能变规律」必须原样保留；完美直线即出戏。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

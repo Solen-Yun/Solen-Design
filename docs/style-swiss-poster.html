@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>瑞士海报风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body sposter">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 50 · 浅色版面</p>
+        <h1>瑞士海报风 <span class="style-card-en">SWISS POSTER</span></h1>
+        <p class="page-lead">字大到成为图形，区块紧贴不留缝，层级靠尺寸与色块。</p>
+        <div class="style-card-tags"><span>120–180px 海报字</span><span>gap-0 紧贴网格</span><span>2px 黑线分隔</span><span>极端非对称</span></div>
+      </header>
+
+      <section class="sposter-hero">
+        <div class="sposter-hero-copy">
+          <p>瑞士海报风是国际主义风格的海报分支：与常规瑞士风格的区别在于它把字推到海报尺度——字大到成为图形本身，行宽与栏宽由内容决定，允许单字占半屏。它的版面规则极其硬：黑白为主，原色只作色块强调；区域之间用 2px 黑线分隔而不是留白，元素之间 gap-0 紧贴。</p>
+          <p>圆角不超过 2px。禁止装饰性字体与等宽字体、禁止渐变、禁止虚线边框。下面这张「海报」是真的——每个区块紧贴，缝隙全靠 2px 黑线。</p>
+        </div>
+      </section>
+
+      <div class="sposter-board" role="presentation">
+        <div class="sposter-cell sposter-cell--title">
+          <p class="sposter-giant">POSTER</p>
+        </div>
+        <div class="sposter-cell sposter-cell--red">
+          <p>字大到</p>
+          <p>成为图形。</p>
+        </div>
+        <div class="sposter-cell sposter-cell--body">
+          <p>行宽与栏宽由内容决定，允许单字占半屏；区域之间用 2px 黑线分隔而不是留白，元素之间 gap-0 紧贴。</p>
+        </div>
+        <div class="sposter-cell sposter-cell--black">
+          <p>一张纸</p>
+          <p>只讲一件事。</p>
+        </div>
+        <div class="sposter-cell sposter-cell--action">
+          <button type="button" class="sposter-btn">SEE THE PRINT</button>
+        </div>
+      </div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><span class="palette-name">Red</span><code>#ff0000</code></li>
+          <li><span class="swatch-chip" style="background:#0057b8"></span><span class="palette-name">Blue</span><code>#0057b8</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><span class="palette-name">Yellow</span><code>#ffcc00</code></li>
+          <li><span class="swatch-chip" style="background:#6c3b00"></span><span class="palette-name">Ochre</span><code>#6c3b00</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑承担文字、分隔线与最大色块——海报的骨架全靠它；白是画布与反白文字，与黑成对不做灰阶；红标记最重要的信息，面积不超过一屏 20%；蓝常与红形成对角关系；黄是高亮条，给需要跳出的细节；赭是唯一暗暖色，压在黄色块上写字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Black</strong><span class="swatch-role">文字、分隔线与最大色块。海报的骨架全靠它。</span></div><code>#000000</code><code>--color-black</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">画布与反白文字。与黑成对，不做灰阶过渡。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff0000"></span><div><strong>Red</strong><span class="swatch-role">第一强调色块。用于标记最重要的信息，面积不超过一屏 20%。</span></div><code>#ff0000</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#0057b8"></span><div><strong>Blue</strong><span class="swatch-role">第二强调色块，常与红形成对角关系。</span></div><code>#0057b8</code><code>--color-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><div><strong>Yellow</strong><span class="swatch-role">第三强调与高亮条，用于需要跳出的细节。</span></div><code>#ffcc00</code><code>--color-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#6c3b00"></span><div><strong>Ochre</strong><span class="swatch-role">唯一暗暖色，用于压在黄色块上的文字。</span></div><code>#6c3b00</code><code>--color-ochre</code></li>
+        </ul>
+        <p class="style-body-note">没有投影——<code>nothing floats on a poster</code>。分隔靠 2px 纯黑实线：绝不用虚线，也绝不用留白代替线。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，只用 700 与 900。海报标题 120 到 180px、行高压到 0.85，字块本身就是图形。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="sposter-specimen-title">海报尺度 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：Helvetica, 'Arial Black', sans-serif · 700 / 900 · 行高 0.85（display）、字距 -0.045em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="sposter-specimen-label">正文与标签。0123456789</p>
+            <p class="specimen-meta">正文 18px / 700 / 行高 1.4；大写标签 14px / 700 / 0.04em；文字一律纯黑</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>900</td><td>180px</td><td>0.85</td><td>-0.045em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>900</td><td>120px</td><td>0.88</td><td>-0.04em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>900</td><td>72px</td><td>0.92</td><td>-0.03em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>40px</td><td>1</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>700</td><td>18px</td><td>1.4</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>14px</td><td>1.3</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 0px，密度 compact。上限 1440px、零间距、12 栏、区域用 2px 线分隔。海报允许极端非对称：标题占 10 栏、正文占 2 栏。禁止居中的对称排版，也禁止用留白代替分隔线。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:0px"></span><code>0</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:40px"></span><code>40</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>不超过 2px</td></tr>
+            <tr><td>网格</td><td>12 栏、gap-0，区域由 2px 黑线切割</td></tr>
+            <tr><td>区域字号</td><td>色块内文字最小 24px，一区一色</td></tr>
+            <tr><td>区域内边距</td><td>24px</td></tr>
+            <tr><td>标题尺度</td><td>120–180px、行高 0.85，可占 10 栏</td></tr>
+            <tr><td>分隔线</td><td>2px 纯黑实线，横跨或纵贯</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Poster Headline</h3>
+            <p class="style-body-comp-role">海报主标题（核心）。120 到 180px、900 字重、行高 0.85、字距 -0.045em，字块左对齐或贴顶部，允许单行占满 1440px 宽；可与色块重叠（文字永远在上），与相邻区块之间不加空隙而是用 2px 黑线分割。上方海报区的大字即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Flush Grid + Color Field</h3>
+            <p class="style-body-comp-role">紧贴网格：12 栏网格、gap 为 0，区域之间只用 2px 黑线分隔；每个区域填纯色，区域内边距 24px；禁止用间距做分隔——在瑞士海报里线就是间距。色块区域：整块填一支原色或纯黑，零圆角、无描边，块内文字按对比取黑或白、最小 24px，一块只用一色。上方整块海报区就是这两个组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Block Button</h3>
+            <p class="style-body-comp-role">行动按钮。纯黑填充、白字、零圆角、无描边、无阴影，14px/700、字距 0.04em、padding 16px 40px。hover 时填充硬切到原红；按下时填充换原蓝并位移 2px 2px（模拟套印偏移）。过渡 120ms linear。</p>
+            <button type="button" class="sposter-btn">PRINT IT</button>
+          </div>
+          <div class="comp-item">
+            <h3>Rule Divider</h3>
+            <p class="style-body-comp-role">2px 分隔线。2px 纯黑实线，横跨或纵贯，用于切割区域；绝不用虚线（这在瑞士语言里等于软弱），也绝不用留白代替线。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>字大到成为图形（120 到 180px）</li>
+              <li>黑白为主，原色只作色块</li>
+              <li>区域用 2px 黑线分隔，gap 为 0</li>
+              <li>行高压到 0.85 到 0.92</li>
+              <li>允许极端非对称</li>
+              <li>圆角不超过 2px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用装饰性字体或等宽字体</li>
+              <li>不要用超过 2px 的圆角</li>
+              <li>不要用渐变</li>
+              <li>不要用虚线边框</li>
+              <li>不要用间距代替分隔线</li>
+              <li>不要做居中的对称排版</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>黑白摄影、几何构成、单色图形。图像必须能被裁剪成严格的矩形并贴齐网格，允许高对比双色调叠加一支原色。不使用柔和摄影、插画与装饰图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="swiss-poster">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的海报字尺度、gap-0 网格与色块规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，海报字尺度、2px 黑线分隔与 gap-0 必须原样保留；留白代替分隔线即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

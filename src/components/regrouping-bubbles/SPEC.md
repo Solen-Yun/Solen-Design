@@ -1,0 +1,34 @@
+创建一个可独立运行的预算气泡重排组件（340×340 卡片内的 Canvas 气泡聚类图），完整实现下面列出的画面、数据和动效。
+
+画面与排版
+- 卡片 340×340px，圆角 30px，overflow hidden。背景 --ux-surface（明 #FFFFFF / 暗 #13141C），文字 --ux-ink（明 #16151B / 暗 #F4F0E8），外圈 1px 描线 --ux-line（明 rgba(22,21,27,.09) / 暗 rgba(255,255,255,.08)），阴影 0 30px 60px -36px --ux-shadow-strong。字体栈 Pretendard, -apple-system, "Segoe UI", Roboto, sans-serif，场景以 grid place-items center 包裹、在容器内水平居中，窄容器整景等比缩小。
+- 顶部居中一个胶囊分段控件（top 16px，padding 3px，圆角 999px，背景 --ux-surface-2 明 #F5F3EF / 暗 #1A1B25，内阴影 1px 描线）：三个按钮 All / By team / By status（12px/800，padding 6px 14px，未选中文字 --ux-ink-2），背后一个深色胶囊滑块（背景 --ux-ink），选中项文字变 --ux-surface。滑块 left/width 以 .35s cubic-bezier(.3,1.3,.5,1) 过渡。容器 role="group" aria-label="Group by"，按钮用 aria-pressed 同步。
+- 主体是 340×340 的 Canvas（role="img"，aria-label "Project bubble chart"），以 devicePixelRatio（上限 2）绘制。36 个项目气泡，半径由预算决定：r = 4.5 + √v × 5，v 在 0.4–5.0B 之间按 pow(rnd,1.6) 偏斜分布；按团队着色：Design #F472B6、Engineering #6366F1、Marketing #F59E0B、Operations #10B981。每个气泡左上有一枚 0.35r 的白色高光圆（rgba(255,255,255,.28)）。
+- 卡片底部 14px 处一行图例（10.5px/750，--ux-ink-2）：四个团队名，各带 8px 圆点色标。
+- 每个组上方跟随一枚白色胶囊标签（10.5px/800，tabular-nums，1px 描线，padding 2px 8px）：组名 + 「 · 」+ 该组预算总和（toFixed(1) + B）；All 模式显示 All 36 projects · 总和。标签 x 取组成员质心并夹在卡片内（边距 4px），y 取组成员最高点上方 24px（不低于 52px），以 opacity .3s 过渡出现隐藏。
+
+数据
+- 团队成员数 [8, 12, 9, 7]（Design/Engineering/Marketing/Operations），状态数 [10, 16, 10]（Planning/In progress/Done）；状态序列用种子 7 的 LCG（seed = seed × 16807 % 2147483647）洗牌后逐个分配给气泡。初始位置同样由该随机序列生成（x = 170 ± 110，y = 180 ± 100）。固定种子保证每次加载布局一致。
+
+可操作状态
+- 切换三个 Tab 重新分组：All 一个质心 (170,178)；By team 四个质心 (98,122)(242,122)(98,240)(242,240)；By status 三个质心 (64,182)(170,182)(276,182)。
+- 物理运动：每帧对每个气泡加指向质心的弹簧加速度 ×(5×dt)，速度乘 exp(-5×dt) 阻尼，位置按速度 ×dt×1.6 积分；再做 3 轮两两碰撞分离（最小间距 rA + rB + 1.5，各退一半）；最后夹进边界（x: r+4 → 340-r-4，y: r+56 → 340-r-34）。切 Tab 时给所有气泡加 ±30 的随机速度冲击让气泡「抖开」再聚拢。
+- 帧循环在总动能 |vx|+|vy| < 8 连续 30 帧后自动休眠；页面不可见或卡片滚出视口（IntersectionObserver）时暂停，恢复时继续。dt 上限 0.033s。
+- 悬停气泡：该气泡描 2px 圆环（颜色取当前文字色），其余气泡降为 0.45 透明度；同时在气泡上方弹深色胶囊 tooltip（背景 --ux-ink、文字 --ux-surface、10.5px/700、圆角 10px，translate(-50%,-100%) 定位于气泡顶上方 6px，x 夹在 ±70 内）：第一行加粗 Project N，第二行 团队 · 状态 · 预算B。pointermove/pointerdown 拾取（按缩放比换算坐标），pointerleave 清除。
+- prefers-reduced-motion 或 options.reducedMotion 为真时：切换 Tab 不播动画，直接连续迭代 400 步（每步 0.033s）落到最终聚簇位置后绘制；悬停高亮、tooltip 与标签照常工作。
+
+独立实现与六框架交付
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、数据分布与运动参数均以上述文字为准；图形用 Canvas 绘制，界面元素用 DOM 与 CSS，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 RegroupingBubbles。从零创建四个文件：RegroupingBubbles.tsx、RegroupingBubblesEngine.js、motion-runtime.ts、RegroupingBubblesEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。组件的布局、样式、图形和物理算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- options.height 调整场景高度（默认 340），options.reducedMotion 覆盖系统偏好。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；鼠标可切换 Tab 与悬停气泡；减少动态下最终聚簇位置与动画结束一致；动画结束后帧循环休眠不空转；多实例互不干扰，卸载后停止所有任务。
+
+生成完成后的使用示例
+import { RegroupingBubbles } from "./RegroupingBubbles";
+
+export default function App() {
+  return <RegroupingBubbles />;
+}

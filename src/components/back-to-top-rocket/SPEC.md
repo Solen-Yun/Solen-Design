@@ -1,0 +1,68 @@
+# 火箭回顶按钮 — BackToTopRocket
+
+一张 340×340 的阅读卡：卡内是一篇可滚动的小文章，标题「How small habits add up」、阅读时长「4 min read」、5 段正文，中间夹一块粉紫渐变的装饰图。右下角浮着一枚 52×52 的圆形按钮，按钮外圈是一道按阅读进度充填的紫色圆环，环内默认是一支向上的箭头。往下滚过 120px 圆钮才滑入；点它时箭头淡出、换成一枚火箭，火箭点火升空冲出画面，同时文章用 900ms 的缓动滚回顶部，最后火箭消失、箭头复原。
+
+## 布局与材质
+
+- 场景卡 340×340px，圆角 28px，overflow:hidden。底色 var(--ux-surface)（浅色 #FFFFFF / 深色 #13141C）；外圈 0 0 0 1px var(--ux-line) 描边，加 0 30px 60px -36px var(--ux-shadow-strong) 阴影。
+- 卡内是一层绝对定位铺满的可滚动文章层，同时是焦点目标：tabindex="0"、aria-label="Article, scroll to read"、outline:none。内边距 22px 22px 60px（底部留白给浮钮），滚动条隐藏（scrollbar-width:none 与 ::-webkit-scrollbar{display:none}）。
+- 文章标题 h3：22px、字重 880、字距 -0.04em、margin 0。副题 small：块级，12px、字重 700、色 var(--ux-ink-3)，外边距 4px 0 14px。正文 p：14.5px、行高 1.75、色 var(--ux-ink-2)、下外边距 14px。
+- 正文之间嵌一块装饰图（无文字、aria-hidden）：块级、高 110px、下外边距 14px、圆角 16px，背景 linear-gradient(135deg,#FFE3E3,#E5DBFF)。
+- 回顶按钮：绝对定位右 16px、下 16px，52×52px，正圆，无边框，背景 var(--ux-ink)（#16151B / #F4F0E8），前景 var(--ux-page)（#FFFFFF / #0B0C12），阴影 0 12px 24px -10px var(--ux-shadow-strong)。未浮现时 opacity:0、transform:translateY(20px) scale(.6)、pointer-events:none；浮现态 opacity:1、transform:none、pointer-events:auto，透明度过渡 0.3s、位移与缩放过渡 0.5s var(--ux-spring)=cubic-bezier(.34,1.56,.64,1)。
+- 按钮内是一张 52×52 的内联 SVG，分三组图形：
+  - 进度环 circle cx=26 cy=26 r=24：无填充，描边 var(--ux-accent)（#6A57F2 / #B7A4FF），线宽 3px，圆头，自身再旋转 -90°，使起点落在 12 点方向。
+  - 上箭头 path「M26 34V18M19 25l7-7 7 7」：无填充，描边 currentColor，线宽 2.4px，圆头圆角，opacity 过渡 0.2s。
+  - 火箭组 g（默认 opacity:0）：箭身 path「M26 13c4 3 5 9 4 16h-8c-1-7 0-13 4-16z」与两片尾翼 path「M22 26l-3 6h4zM30 26l3 6h-4z」填 currentColor；舷窗 circle cx=26 cy=22 r=2.2 填 var(--ux-accent)；尾焰 path「M23 33h6l-3 7z」填 #FF922B，transform-box:fill-box、transform-origin:50% 0。
+- 场景令牌用 CSS light-dark() 双值（浅色在前）：--ux-page #FFFFFF/#0B0C12；--ux-surface #FFFFFF/#13141C；--ux-surface-2 #F5F3EF/#1A1B25；--ux-surface-3 #EAE7E1/#252632；--ux-ink #16151B/#F4F0E8；--ux-ink-2 #57535F/rgba(244,240,232,.68)；--ux-ink-3 #8E8A97/rgba(244,240,232,.42)；--ux-line rgba(22,21,27,.09)/rgba(255,255,255,.08)；--ux-line-2 rgba(22,21,27,.17)/rgba(255,255,255,.16)；--ux-accent #6A57F2/#B7A4FF；--ux-accent-2 #2F8FE0/#7DB4FF；--ux-accent-soft rgba(106,87,242,.12)/rgba(183,164,255,.15)；--ux-accent-ink #FFFFFF/#0B0C12；--ux-mint #119C72/#7EE8C0；--ux-warn #D6731E/#FFB26B；--ux-danger #D93A55/#FF7D8C；--ux-glass rgba(255,255,255,.58)/rgba(255,255,255,.07)；--ux-glass-line rgba(255,255,255,.85)/rgba(255,255,255,.18)；--ux-shadow rgba(40,30,80,.14)/rgba(0,0,0,.45)；--ux-shadow-strong rgba(40,30,80,.3)/rgba(0,0,0,.72)；--ux-grad linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)/linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)；--ux-spring cubic-bezier(.34,1.56,.64,1)。
+- 本组件不声明 font-family，文字沿用宿主页面字体；深浅两套色由 light-dark() 依 color-scheme 解析，不额外使用 prefers-color-scheme 媒体查询。
+- 响应式：场景固定 340×340 逻辑尺寸；容器更窄时整景按比例缩放（缩放系数 = min(1, 容器宽/340)），不重排、不裁切。options.height 改的是场景外框高度，卡片本身仍按 340×340 绘制并在框内居中。
+
+## 数据
+
+- 无外部数据源，文章内容写死在引擎里。
+- 标题「How small habits add up」，副题「4 min read」。
+- 5 段正文按顺序追加到文章层，第 2 段之后插入那块渐变装饰图：
+  1. Pick one tiny thing to do at the same time every day. A glass of water, one page of a book, a single stretch is enough.
+  2. For the first week, focus only on not skipping it rather than on results. Once you keep a log, you will hate leaving a gap.
+  3. In the second week, grow it just a little. One page becomes two, one glass becomes two.
+  4. After a month, your body remembers the habit before your willpower does. That is the time to add one more.
+  5. What matters is not starting big. Start small and it lasts.
+- 进度环的周长由半径现算：2π×24 ≈ 150.80px，作为 stroke-dasharray 的实线长度；剩余长度由 stroke-dashoffset 表示。
+
+## 操作和动效
+
+- 滚动：文章层 scroll 事件（passive）用 requestAnimationFrame 合并更新。取 p = scrollTop/(scrollHeight−clientHeight)（分母为 0 时 p=0），写入 stroke-dashoffset = 150.80×(1−p)，环从 12 点方向顺时针填满一圈表示读完。
+- 浮现：scrollTop > 120 时给根节点加 .show，圆钮以 opacity 0.3s、transform 0.5s 弹簧曲线入场；退回 120 以下则反向收回。飞行过程中不切换 show 状态。
+- 点击回顶：飞行中再次点击无效。点击后根节点加 .fly——箭头的 opacity 在 0.2s 内淡到 0，火箭组 opacity 立刻显示为 1，尾焰以 0.12s linear infinite alternate 在 scaleY(1) 与 scaleY(1.6) 之间抖动。
+- 火箭升空：火箭组跑一条 900ms、cubic-bezier(.6,0,.8,.4) 的关键帧序列——起始 none，15% 处 translateY(4px)，末帧 translateY(-260px)，即从按钮上方 260px 处飞离画面。
+- 滚动回顶：与升空同时开始，用 requestAnimationFrame 逐帧推进，总时长 900ms，缓动为 easeInOutCubic（k<0.5 取 4k³，否则 1−(−2k+2)³/2），每帧把 scrollTop 设为起点×(1−e)。
+- 收尾：滚动到位后停 200ms，移除 .fly——箭头恢复不透明、火箭隐藏、尾焰停止抖动，并立即重算一次环与浮现状态。
+- prefers-reduced-motion：不播放升空关键帧，回顶时长降为 1ms（瞬时回到顶部），其余状态（环进度、浮现、文案）照常。options.reducedMotion 在挂载时读取一次并覆盖系统偏好；减少动态开启时，宿主层把场景内的 CSS 动画与过渡时长归零。
+- 键盘与无障碍：文章层可 Tab 聚焦，用方向键、PageUp/PageDown 原生滚动；回顶按钮是原生 button，aria-label="Back to top"，空格或回车触发；按钮内的 SVG 整体 aria-hidden。场景根不设 role。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；场景用 DOM 与 CSS 绘制，火箭与箭头用内联 SVG，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 BackToTopRocket。从零创建四个文件：BackToTopRocket.tsx、BackToTopRocketEngine.js、motion-runtime.ts、BackToTopRocketEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的进度环、浮现与回顶状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；滚动时圆钮浮现与进度环比例正确；点击后点火升空、滚回顶部、按钮复原的序列完整；减少动态时瞬时回顶；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { BackToTopRocket } from "./BackToTopRocket";
+
+export default function App() {
+  return <BackToTopRocket />;
+}
+```

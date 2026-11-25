@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>极繁主义 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body maxi">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 101 · 深色版面</p>
+        <h1>极繁主义 <span class="style-card-en">MAXIMALISM</span></h1>
+        <p class="page-lead">多就是多：撞色、双层边框、多层阴影、图案叠图案。</p>
+        <div class="style-card-tags"><span>五支撞色并用</span><span>双层虚线粗边</span><span>多层错位实色影</span><span>零圆角</span></div>
+      </header>
+
+      <section class="maxi-hero">
+        <div class="maxi-hero-copy">
+          <p>极繁主义是对极简的正面反抗：深紫底上铺满高饱和撞色（玫红、金黄、蓝、紫、薄荷），边框用 border-double 或虚线粗边，阴影是多层错位的实色（4px 金黄加 8px 蓝），背景可叠对角渐变，标题用 6xl 以上的全大写加宽字距，元素允许 rotate 与 skew。</p>
+          <p>它禁止灰度中性色作主色——灰在极繁里等于缺席。唯一的克制是「每一层都必须可见且不互相糊掉」。</p>
+        </div>
+        <div class="maxi-demo">
+          <div class="maxi-panel">
+            <span class="maxi-pattern" aria-hidden="true"></span>
+            <span class="maxi-sticker" aria-hidden="true">NEW<br>2026</span>
+            <p class="maxi-panel-label">MIXED TYPE BLOCK</p>
+            <p class="maxi-panel-title">MORE</p>
+            <p class="maxi-panel-sub">五支撞色一起上墙</p>
+            <button type="button" class="maxi-btn">GO LOUD</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#d4145a"></span><span class="palette-name">Rose</span><code>#d4145a</code></li>
+          <li><span class="swatch-chip" style="background:#1a0a2e"></span><span class="palette-name">Deep Violet Base</span><code>#1a0a2e</code></li>
+          <li><span class="swatch-chip" style="background:#ffbe0b"></span><span class="palette-name">Gold</span><code>#ffbe0b</code></li>
+          <li><span class="swatch-chip" style="background:#3a86ff"></span><span class="palette-name">Blue</span><code>#3a86ff</code></li>
+          <li><span class="swatch-chip" style="background:#8338ec"></span><span class="palette-name">Violet</span><code>#8338ec</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><span class="palette-name">Mint</span><code>#06d6a0</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深紫底深到能让五支撞色同时跳出来；玫红是第一撞色，给主区块与最抢眼的标题；金黄是撞色里最亮的一支，做第一层阴影与高亮；蓝是第二层阴影与冷侧色块；紫是渐变的中间站与第三撞色；薄荷是第四撞色与成功状态。灰度中性色一律不作主色。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a0a2e"></span><div><strong>Deep Violet Base</strong><span class="swatch-role">页面底。深到能让五支撞色同时跳出来。</span></div><code>#1a0a2e</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#d4145a"></span><div><strong>Rose</strong><span class="swatch-role">第一撞色：主区块与最抢眼的标题。</span></div><code>#d4145a</code><code>--color-rose</code></li>
+          <li><span class="swatch-chip" style="background:#ffbe0b"></span><div><strong>Gold</strong><span class="swatch-role">第一层阴影与高亮，是撞色里最亮的一支。</span></div><code>#ffbe0b</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#3a86ff"></span><div><strong>Blue</strong><span class="swatch-role">第二层阴影与冷侧色块。</span></div><code>#3a86ff</code><code>--color-blue</code></li>
+          <li><span class="swatch-chip" style="background:#8338ec"></span><div><strong>Violet</strong><span class="swatch-role">渐变的中间站与第三撞色。</span></div><code>#8338ec</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#06d6a0"></span><div><strong>Mint</strong><span class="swatch-role">第四撞色与成功状态。</span></div><code>#06d6a0</code><code>--color-mint</code></li>
+        </ul>
+        <p class="style-body-note">双层影 <code>4px 4px 0 #ffbe0b, 8px 8px 0 #3a86ff</code>，hover 加第三层 <code>12px 12px 0 #8338ec</code>。按下归零。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>粗无衬线 Inter，标题 6xl 以上、全大写、字距 0.24em。大与小之间的落差本身是装饰。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="maxi-specimen-title">MAXIMALISM</p>
+            <p class="specimen-meta">Inter — 粗无衬线。替代栈：'Arial Black', Helvetica, sans-serif · 700/900 · display 88px 行高 0.95</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>88px</td><td>0.95</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>60px</td><td>1</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>700</td><td>40px</td><td>1.1</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>700</td><td>28px</td><td>1.35</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>700</td><td>20px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>900</td><td>14px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1280px、容器内边距 24px，区块间距 64px。允许大量重叠、旋转与溢出。混乱必须有节奏：大块撞色与小贴纸交替出现，视线不至于无处可落。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 0 · 贴纸 999px</td></tr>
+            <tr><td>描边</td><td>4px double 金蓝，或 3px dashed 金</td></tr>
+            <tr><td>阴影</td><td>双层 4px 金 + 8px 蓝，hover 加 12px 紫</td></tr>
+            <tr><td>旋转</td><td>面板 -1°、贴纸 -8 到 8°、文字 -3/0/+2°</td></tr>
+            <tr><td>图案层</td><td>8–12% 不透明度、永远不承载内容</td></tr>
+            <tr><td>贴纸</td><td>48–72px、跨出卡片 12px、单屏 3–5 个</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Layered Panel</h3>
+            <p class="style-body-comp-role">多层面板（核心组件）。撞色填充、零圆角、4px 金与蓝的双层描边（border-double 或两层 box-shadow inset）、内边距 28px，外阴影 4px 金黄加 8px 蓝。整体 rotate(-1deg)。内部再叠一层对角渐变（玫红→紫→蓝，不透明度 25%）与一层图案（点或斜线，不透明度 10%）。hover 时阴影扩到三层（加 12px 紫）。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stacked Button</h3>
+            <p class="style-body-comp-role">行动按钮。玫红填充、金黄文字、零圆角、3px 虚线金黄描边、20px/900 全大写、字距 0.24em、padding 14px 32px，外阴影 4px 金黄加 8px 蓝。hover 时填充硬切到紫、阴影扩到 12px；按下时位移 8px 8px 且阴影收到 4px。过渡 120ms linear。</p>
+            <button type="button" class="maxi-btn">LOUD</button>
+          </div>
+          <div class="comp-item">
+            <h3>Pattern Overlay</h3>
+            <p class="style-body-comp-role">图案叠层。用 repeating-linear-gradient（45 度斜线，8px 间隔）或 radial-gradient（6px 点阵）叠在区块上，颜色取一支撞色、不透明度 8% 到 12%。图案层永远不承载内容，它的职责是让平面不平。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sticker Badge</h3>
+            <p class="style-body-comp-role">贴纸徽章。48 到 72px 的全圆或星形，填一支撞色、2px 金黄描边、旋转 -8 到 8 度，压在卡片边缘并跨出 12px。里面放 11px 全大写的两行字（如「NEW / 2026」）。单屏 3 到 5 个——hero 右上那颗就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Mixed Type Block</h3>
+            <p class="style-body-comp-role">混合字体块。同一区块内故意混用尺寸与朝向：88px 的标题、28px 的副标、14px 的标签，各自带不同的旋转（-3、0、+2 度）与不同底色条。文字不是被排版，而是被贴上墙。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>五支高饱和撞色并用</li>
+              <li>双层或虚线粗边框</li>
+              <li>多层错位实色阴影</li>
+              <li>图案叠图案</li>
+              <li>标题 6xl 以上全大写</li>
+              <li>允许 rotate 与 skew</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用灰度中性色作主色</li>
+              <li>不要让层与层糊在一起</li>
+              <li>不要用极简留白</li>
+              <li>不要用单层阴影</li>
+              <li>不要用圆角</li>
+              <li>不要只用一个强调色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>高饱和拼贴：图案、插画、照片、贴纸全部混用，且必须互相重叠。允许把照片压成高饱和双色调再叠图案。不使用灰度摄影、极简构图与留白式的图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="maximalism">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的多层阴影、贴纸徽章与撞色纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，五支撞色并用、多层实色影与零圆角必须原样保留；灰色主调或单层阴影一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

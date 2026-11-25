@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文档工作台风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body dws">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 21 · 浅色版面</p>
+        <h1>文档工作台风 <span class="style-card-en">DOC WORKSPACE</span></h1>
+        <p class="page-lead">米色纸面上的一篇文档，界面退到看不见，只剩内容。</p>
+        <div class="style-card-tags"><span>米色纸面</span><span>hover 只变底色</span><span>拖拽手柄</span><span>708px 窄栏</span></div>
+      </header>
+
+      <section class="dws-hero">
+        <div class="dws-page" role="presentation">
+          <div class="dws-row on"><span class="dws-handle"></span><p>文档工作台风是为长时间阅读与写作服务的界面。它用一层米色纸面代替纯白，把文字压到柔和的墨黑。</p></div>
+          <div class="dws-row"><span class="dws-handle"></span><p>交互的信噪比被刻意压到最低：hover 只让背景变暗一点，150ms 内完成，没有位移、没有缩放、没有阴影跳变。</p></div>
+          <div class="dws-row"><span class="dws-handle"></span><p>标志性的细节是拖拽手柄：hover 时从透明变为可见，提示「这块可以移动」。</p></div>
+          <div class="dws-callout"><span class="dws-callout-icon">i</span><p>允许一种柔和强调底色，但同一页面只用一种。</p></div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#37352f"></span><span class="palette-name">Ink</span><code>#37352f</code></li>
+          <li><span class="swatch-chip" style="background:#f7f6f3"></span><span class="palette-name">Paper</span><code>#f7f6f3</code></li>
+          <li><span class="swatch-chip" style="background:#efedea"></span><span class="palette-name">Hover Grey</span><code>#efedea</code></li>
+          <li><span class="swatch-chip" style="background:#e9e7e4"></span><span class="palette-name">Hairline</span><code>#e9e7e4</code></li>
+          <li><span class="swatch-chip" style="background:#2eaadc"></span><span class="palette-name">Link Blue</span><code>#2eaadc</code></li>
+          <li><span class="swatch-chip" style="background:#eb5757"></span><span class="palette-name">Marker Red</span><code>#eb5757</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨色偏暖，纯黑会让纸面显得脏；米色纸面既是画布也是 hover 前后的基准色；hover 灰只比纸面暗一点，做到「能感觉到但不打扰」；发丝线永远 1px、永远这么浅；链接蓝是整套系统里唯一明确跳出来的颜色，红出现即表示内容有风险。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#37352f"></span><div><strong>Ink</strong><span class="swatch-role">正文、标题与图标。这套风格的墨色偏暖，纯黑会让纸面显得脏。</span></div><code>#37352f</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f7f6f3"></span><div><strong>Paper</strong><span class="swatch-role">页面画布。整站默认背景，也是 hover 前后的基准色。</span></div><code>#f7f6f3</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#efedea"></span><div><strong>Hover Grey</strong><span class="swatch-role">hover 与选中底色。只比纸面暗一点，做到「能感觉到但不打扰」。</span></div><code>#efedea</code><code>--color-hover-grey</code></li>
+          <li><span class="swatch-chip" style="background:#e9e7e4"></span><div><strong>Hairline</strong><span class="swatch-role">表格线、分隔线与输入框描边。永远 1px，永远这么浅。</span></div><code>#e9e7e4</code><code>--color-hairline</code></li>
+          <li><span class="swatch-chip" style="background:#2eaadc"></span><div><strong>Link Blue</strong><span class="swatch-role">链接与可点击引用。是整套系统里唯一明确跳出来的颜色。</span></div><code>#2eaadc</code><code>--color-link-blue</code></li>
+          <li><span class="swatch-chip" style="background:#eb5757"></span><div><strong>Marker Red</strong><span class="swatch-role">删除与错误提示。出现即表示内容有风险。</span></div><code>#eb5757</code><code>--color-marker-red</code></li>
+        </ul>
+        <p class="style-body-note">除弹层外一律无阴影；弹层也只有一层 <code>0 8px 24px rgba(15,15,15,0.12)</code>。纸面上没有任何漂浮感。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体，系统栈优先——文档工具最重要的指标是渲染稳定。层级由字号（12 到 32px）与 400/500/600 三档字重承担，正文字号 14 到 16px、行高 1.6。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="dws-specimen-title">米色纸面上的一篇文档</p>
+            <p class="specimen-meta">ui-sans-serif — 全站唯一字体。替代栈：Inter, -apple-system, 'Segoe UI', 'PingFang SC', sans-serif · 400 / 500 / 600 · 字距 -0.01em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="dws-specimen-label">正文与说明。0123456789</p>
+            <p class="specimen-meta">正文 14–16px / 400 / 行高 1.6；标签 12px / 500 / 0.02em；文字一律暖墨 #37352f</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>32px</td><td>1.2</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>20px</td><td>1.4</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.02em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。单栏、正文宽度 708px 上限、左右内边距 24px 到 96px。区块间距 48px，块内元素间距 8px。所有内容左对齐，标题不居中。允许侧边栏 240px 与正文并列，但正文宽度不随之缩小。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>4px（胶囊标签 999px）</td></tr>
+            <tr><td>正文宽度</td><td>708px 上限，行长不超过 80 字符</td></tr>
+            <tr><td>块内边距</td><td>4px 8px（行）、16px（卡）</td></tr>
+            <tr><td>元素间距</td><td>8px</td></tr>
+            <tr><td>区块间距</td><td>48px</td></tr>
+            <tr><td>分隔线</td><td>一律 1px #e9e7e4</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Block Row</h3>
+            <p class="style-body-comp-role">文档块、页面树与设置项。透明底、无边框、4px 圆角、padding 4px 8px、行高 1.6、14px 字；hover 时背景变 #efedea，150ms 颜色过渡，不做任何位移；左侧拖拽手柄宽 16px，默认透明，hover 与聚焦时可见。上方那页文档的每一行都是它。</p>
+            <p class="dws-comp-note">悬停任意一行：底色微暗，手柄现身。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Ghost Button</h3>
+            <p class="style-body-comp-role">工具栏按钮与次级行动。透明底、无描边、4px 圆角、13px/500 字、padding 4px 8px、图标 16px 线性、与文字间距 6px；hover 背景 #efedea，按下 #e3e1db。禁止上浮与缩放，只变颜色，150ms。</p>
+            <button type="button" class="dws-ghost">☰ 目录</button>
+            <button type="button" class="dws-ghost">⭐ 收藏</button>
+          </div>
+          <div class="comp-item">
+            <h3>Inline Input</h3>
+            <p class="style-body-comp-role">行内编辑与搜索。透明底、无描边、padding 4px 8px、正文同字号；聚焦时只加一层 1px #e9e7e4 的底边线，不加外环、不改背景；占位符用 60% 墨色。</p>
+            <label class="dws-input"><span>搜索</span><input type="text" value="阅读与写作"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Callout Block</h3>
+            <p class="style-body-comp-role">提示、引用与说明块。浅灰底 #efedea、4px 圆角、padding 12px 16px、左侧留 8px 图标位、文字 14px/1.6；允许一种柔和强调底色（蓝、黄、红任选其一），但同一页面只用一种。上方文档末尾的提示块即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用米纸 #f7f6f3 做画布，正文墨色 #37352f</li>
+              <li>hover 只变背景色，150ms，无位移无缩放</li>
+              <li>拖拽手柄 hover 时从透明变可见</li>
+              <li>分隔线一律 1px #e9e7e4</li>
+              <li>正文宽度 708px 上限，行长不超过 80 字符</li>
+              <li>圆角不超过 4px，除胶囊标签外</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变背景</li>
+              <li>不要用重阴影，除弹层外一律无阴影</li>
+              <li>不要用任何 translate 或 scale 动画</li>
+              <li>不要用 hover 边框或阴影跳变</li>
+              <li>不要用 8px 以上的圆角</li>
+              <li>不要给按钮加上浮效果，文档没有漂浮感</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几乎不用装饰性图像。允许内容截图、图表与嵌入的媒体块，且必须与文档同宽、直角或 4px 圆角。不使用背景图、插画与图标墙，它们会把纸面变成海报。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="doc-workspace">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的纸面色板、低信噪比交互与拖拽手柄。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，米纸画布、150ms 只变底色与 708px 窄栏必须原样保留；任何漂浮感都是bug。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

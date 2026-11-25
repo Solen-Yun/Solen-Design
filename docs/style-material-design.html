@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>材料设计 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body material">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 29 · 浅色版面</p>
+        <h1>材料设计 <span class="style-card-en">MATERIAL DESIGN</span></h1>
+        <p class="page-lead">纸与墨的隐喻：元素有海拔，动效有物理，网格是 8dp。</p>
+        <div class="style-card-tags"><span>海拔分层</span><span>8dp 网格</span><span>250ms 标准曲线</span><span>按压涟漪</span></div>
+      </header>
+
+      <section class="material-hero">
+        <div class="material-hero-copy">
+          <p>Material Design 的核心不是外观而是两条物理假设：第一，界面由「纸」组成，纸有海拔（elevation），层级靠阴影深度表达而不是靠边框；第二，动效必须遵循同一组曲线——cubic-bezier(0.4, 0, 0.2, 1)，250ms，减速进入。</p>
+          <p>所有尺寸落在 8dp 网格上，主色大胆（紫 #6200ee），次色作为点缀（青 #03dac6）。按钮按下必须缩到 0.98 并加深阴影——这是它认为的「触感真实性」。右边这张卡可以悬停：海拔从 1 升到 4，卡片位置不变，阴影本身就是反馈。</p>
+        </div>
+        <div class="material-demo">
+          <div class="material-card-demo">
+            <p class="material-demo-title">海拔即层级。</p>
+            <p class="material-demo-body">阴影在变深，位置没有动。</p>
+            <button type="button" class="material-btn">CONTINUE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#6200ee"></span><span class="palette-name">Material Violet</span><code>#6200ee</code></li>
+          <li><span class="swatch-chip" style="background:#03dac6"></span><span class="palette-name">Teal</span><code>#03dac6</code></li>
+          <li><span class="swatch-chip" style="background:#ff0266"></span><span class="palette-name">Pink</span><code>#ff0266</code></li>
+          <li><span class="swatch-chip" style="background:#ffde03"></span><span class="palette-name">Amber</span><code>#ffde03</code></li>
+          <li><span class="swatch-chip" style="background:#00c853"></span><span class="palette-name">Green</span><code>#00c853</code></li>
+          <li><span class="swatch-chip" style="background:#c12700"></span><span class="palette-name">Rust</span><code>#c12700</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>材料紫是整套系统的识别色——主行动、选中态与浮动按钮；青是次色，只做点缀、进度与浮动按钮上的图标；粉、琥珀、绿、锈红各管一种语义，出现在状态标记上。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#6200ee"></span><div><strong>Material Violet</strong><span class="swatch-role">主行动、选中态与浮动按钮。整套系统的识别色。</span></div><code>#6200ee</code><code>--color-violet</code></li>
+          <li><span class="swatch-chip" style="background:#03dac6"></span><div><strong>Teal</strong><span class="swatch-role">次色，用于强调、进度与浮动按钮上的图标。</span></div><code>#03dac6</code><code>--color-teal</code></li>
+          <li><span class="swatch-chip" style="background:#ff0266"></span><div><strong>Pink</strong><span class="swatch-role">错误与删除。材料规范里的语义色之一。</span></div><code>#ff0266</code><code>--color-pink</code></li>
+          <li><span class="swatch-chip" style="background:#ffde03"></span><div><strong>Amber</strong><span class="swatch-role">警告与需要注意的状态。</span></div><code>#ffde03</code><code>--color-amber</code></li>
+          <li><span class="swatch-chip" style="background:#00c853"></span><div><strong>Green</strong><span class="swatch-role">成功与完成，通常出现在对勾与进度环上。</span></div><code>#00c853</code><code>--color-green</code></li>
+          <li><span class="swatch-chip" style="background:#c12700"></span><div><strong>Rust</strong><span class="swatch-role">严肃警告与不可逆操作的确认态。</span></div><code>#c12700</code><code>--color-rust</code></li>
+        </ul>
+        <p class="style-body-note">海拔四级阴影：<code>1</code> <code>0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)</code>、<code>2</code> <code>0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)</code>、<code>4</code> <code>0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)</code>、<code>8</code> <code>0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Roboto：按钮与标签用 500 加 0.08em 字距并全大写，标题用 400 的大字号——层级全靠字号与海拔，不靠装饰。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="material-specimen-title">纸与墨的隐喻</p>
+            <p class="specimen-meta">Roboto — 全站唯一字体。替代栈：'Helvetica Neue', system-ui, sans-serif · 400 / 500 / 700 · 大写标签 0.08em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="material-specimen-label">CONTINUE · UNDO · 0123456789</p>
+            <p class="specimen-meta">正文 14–16px / 400 / 行高 1.5；按钮与标签 500 / 0.08em 全大写；文字一律纯黑</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>400</td><td>45px</td><td>1.17</td><td>—</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>400</td><td>34px</td><td>1.2</td><td>—</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>400</td><td>24px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>20px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1200px，一切尺寸取 8 的倍数（间距 8、16、24、32）。12 栏网格、栏间距 16dp，卡片与列表用 16dp 内边距。内容左对齐，工具栏固定在顶部、浮动按钮固定在右下。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:40px"></span><code>40</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:80px"></span><code>80</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片、按钮与输入框 4px；浮动按钮 999px</td></tr>
+            <tr><td>卡片内边距</td><td>16px</td></tr>
+            <tr><td>元素间距</td><td>8px</td></tr>
+            <tr><td>区块间距</td><td>40px</td></tr>
+            <tr><td>浮动按钮</td><td>56px 圆形，右下 16dp，海拔 4</td></tr>
+            <tr><td>动效</td><td>统一 250ms cubic-bezier(0.4, 0, 0.2, 1)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Contained Button</h3>
+            <p class="style-body-comp-role">主行动按钮。材料紫填充、白字、4px 圆角、无描边，14px/500、0.08em 字距、全大写、padding 10px 24px，海拔 2 的三层阴影。hover 时填充提亮到 #7528e5 并升到海拔 4；按下缩到 0.98、海拔降到 8 并加一道中心扩散的白色 20% 涟漪（250ms 内扩散到 2.5 倍半径）。过渡 250ms cubic-bezier(0.4, 0, 0.2, 1)。</p>
+            <button type="button" class="material-btn">CONTAINED</button>
+          </div>
+          <div class="comp-item">
+            <h3>Elevated Card</h3>
+            <p class="style-body-comp-role">内容卡与列表容器。白底、4px 圆角、内边距 16px，海拔 1 的双层阴影，无边框；hover 时海拔升到 4（阴影加深、模糊扩大），卡片位置不变——材料规范里海拔变化本身就是反馈。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Floating Action</h3>
+            <p class="style-body-comp-role">浮动主操作按钮。56px 圆形、材料紫填充、白色 24px 图标、海拔 4，位于视口右下 16dp；hover 时海拔升到 8 并提亮；按下缩到 0.96。图标与边缘间距严格 16px。本页右下角有一颗。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Outlined Field + Snackbar</h3>
+            <p class="style-body-comp-role">文本输入：透明底、1px #9e9e9e 描边、4px 圆角、padding 12px 16px、16px 字，标签浮动在描边上；聚焦时描边变 2px 材料紫、标签转紫、加 0 0 0 4px 的紫 12% 光环；错误态描边转粉并显示辅助文字。轻提示：深灰 #323232 填充、白字、海拔 6，出现在视口底部居中、距底 16dp，右侧放青绿色文字的动作按钮，显示 4 秒后自动消失。</p>
+            <label class="material-field"><span>电子邮件</span><input type="text" value="name@material.dev"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>层级靠海拔阴影，不靠边框</li>
+              <li>一切尺寸落在 8dp 网格</li>
+              <li>动效统一 250ms 与标准减速曲线</li>
+              <li>按钮按下缩到 0.98 并加深阴影</li>
+              <li>hover 时卡片海拔必须变化</li>
+              <li>主色大胆，次色只作点缀</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用不一致的阴影深度</li>
+              <li>不要用过于柔和的配色</li>
+              <li>不要省略交互反馈</li>
+              <li>不要打破 8dp 网格</li>
+              <li>不要用非标准缓动曲线</li>
+              <li>不要让卡片 hover 时阴影不变</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以图标、插画与产品截图为主。图标必须是 Material Symbols 风格的实心或线性图形，尺寸落在 8dp 网格上。不使用写实摄影与装饰性大图。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="material-design">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的海拔系统、8dp 网格与标准动效曲线。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，海拔四级阴影、8dp 网格与 250ms 标准曲线必须原样保留；按压必须缩到 0.98。</p>
+      </section>
+
+      <button type="button" class="material-fab" aria-label="新建" title="浮动主操作（FAB）演示">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

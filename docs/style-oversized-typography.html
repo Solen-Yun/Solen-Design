@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>超大字体排版 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body otype">
+      <div class="otype-nav">
+        <span class="otype-mono">INDEX</span>
+        <span class="otype-mono">WORK</span>
+        <span class="otype-mono">ABOUT</span>
+        <span class="otype-mono otype-mono--accent">CONTACT →</span>
+      </div>
+
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 119 · 浅色版面</p>
+        <h1>超大字体排版 <span class="style-card-en">OVERSIZED TYPOGRAPHY</span></h1>
+        <p class="page-lead">字就是版面：用 clamp() 让它随视口长满宽度，其余全退开。</p>
+        <div class="style-card-tags"><span>clamp() 连续缩放</span><span>三档配色</span><span>等宽小字 0.2em</span><span>零圆角零投影</span></div>
+      </header>
+
+      <section class="otype-hero">
+        <p class="otype-fluid">TYPE IS<br>THE <span class="otype-outline">LAYOUT</span></p>
+        <p class="otype-lede">标题用 clamp(3rem, 12vw, 10rem) 随视口连续缩放并顶满宽度，名字与主张本身就是首屏，图像退为点缀。</p>
+        <div class="otype-index">
+          <div class="otype-row">
+            <span class="otype-mono">01</span>
+            <span class="otype-row-name">界面排印</span>
+            <span class="otype-mono">TYPE</span>
+            <span class="otype-mono">2026</span>
+          </div>
+          <div class="otype-row">
+            <span class="otype-mono">02</span>
+            <span class="otype-row-name">流式标题系统</span>
+            <span class="otype-mono">SYSTEM</span>
+            <span class="otype-mono">2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><span class="palette-name">Ink</span><code>#0a0a0a</code></li>
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><span class="palette-name">Warm White</span><code>#fafaf8</code></li>
+          <li><span class="swatch-chip" style="background:#ff4d00"></span><span class="palette-name">International Orange</span><code>#ff4d00</code></li>
+          <li><span class="swatch-chip" style="background:#71717a"></span><span class="palette-name">Mid Grey</span><code>#71717a</code></li>
+          <li><span class="swatch-chip" style="background:#e4e4e7"></span><span class="palette-name">Rule Grey</span><code>#e4e4e7</code></li>
+          <li><span class="swatch-chip" style="background:#18181b"></span><span class="palette-name">Off Black</span><code>#18181b</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>极深的黑在暖白上对比最强，做文字与 hairline；微暖的白让大字不显得冷，做页面底；国际橙是唯一强调色，只落在「一个词、一条线、一个按钮」上，绝不出现在第二处语义上；中灰管元信息、标注与页脚小字；规则灰管 hairline 分隔线与极浅分区底；偏黑只比墨亮一档，做反色区块。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><div><strong>Warm White</strong><span class="swatch-role">页面底。微暖的白，让大字不显得冷。</span></div><code>#fafaf8</code><code>--color-warm-white</code></li>
+          <li><span class="swatch-chip" style="background:#0a0a0a"></span><div><strong>Ink</strong><span class="swatch-role">文字与 hairline。极深的黑，在暖白上对比最强。</span></div><code>#0a0a0a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ff4d00"></span><div><strong>International Orange</strong><span class="swatch-role">唯一强调色：一个词、一条线、一个按钮。绝不出现在第二处语义上。</span></div><code>#ff4d00</code><code>--color-international-orange</code></li>
+          <li><span class="swatch-chip" style="background:#71717a"></span><div><strong>Mid Grey</strong><span class="swatch-role">元信息、标注与页脚小字。</span></div><code>#71717a</code><code>--color-mid-grey</code></li>
+          <li><span class="swatch-chip" style="background:#e4e4e7"></span><div><strong>Rule Grey</strong><span class="swatch-role">hairline 分隔线与极浅的分区底。</span></div><code>#e4e4e7</code><code>--color-rule-grey</code></li>
+          <li><span class="swatch-chip" style="background:#18181b"></span><div><strong>Off Black</strong><span class="swatch-role">反色区块底，只比墨亮一档。</span></div><code>#18181b</code><code>--color-off-black</code></li>
+        </ul>
+        <p class="style-body-note">层次只靠字号：<code>none — hierarchy comes from size alone</code>。禁用渐变、圆角卡片堆砌与任何投影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用无衬线 Inter 900 并压到行高 0.85、字距 -0.05em；导航、标注与元信息一律用 JetBrains Mono 11 到 12px 等宽全大写加宽字距，与大标题形成 10 倍以上的尺寸对立。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="otype-specimen-title">TYPE IS THE LAYOUT</p>
+            <p class="specimen-meta">Inter — 标题。替代栈：'Helvetica Neue', system-ui, sans-serif · 900 · clamp(3rem, 12vw, 10rem)</p>
+          </div>
+          <div class="type-specimen">
+            <p class="otype-specimen-mono">INDEX · WORK · ABOUT</p>
+            <p class="specimen-meta">JetBrains Mono — 导航与标注。替代栈：ui-monospace, 'Courier New', monospace · 11px 全大写 0.2em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>900</td><td>160px</td><td>0.85</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>900</td><td>96px</td><td>0.88</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>500</td><td>48px</td><td>1.05</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>24px</td><td>1.4</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>16px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.5</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1600px、容器内边距 32px，区块间距 160px。首屏只有一段巨大的名字或主张，占据视口 60% 以上。导航固定顶部、极薄、只有等宽小字。留白是主要构图手段。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>标题</td><td>clamp(3rem, 12vw, 10rem)、900、行高 0.85、字距 -0.05em</td></tr>
+            <tr><td>小字</td><td>11–12px 等宽全大写 0.2em，无中间第三档</td></tr>
+            <tr><td>区块分隔</td><td>1px 墨 15% border-top + 160px 留白</td></tr>
+            <tr><td>索引行</td><td>编号/名/类别/年份 四段，下边框 1px 墨 15%</td></tr>
+            <tr><td>行动标记</td><td>国际橙填充或橙字加 →，箭头只从属于文字</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Fluid Headline</h3>
+            <p class="style-body-comp-role">流式超大标题（核心）。font-size: clamp(3rem, 12vw, 10rem)、900 字重、行高 0.85、字距 -0.05em，左对齐并顶满容器宽度。允许单个词换成国际橙或用 -webkit-text-stroke 做成描边字（作为第二行）。绝不设固定字级——固定字级在窄屏会溢出、宽屏会显小。hero 里那三行就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Mono Label</h3>
+            <p class="style-body-comp-role">等宽小标签。11 到 12px 等宽、全大写、字距 0.2em、中灰或墨。用于导航、区块编号（01 / 02）、元信息与页脚。它是大标题之外的唯一文字尺寸，不许出现中间的第三档。</p>
+            <span class="otype-mono">SECTION 01</span>
+          </div>
+          <div class="comp-item">
+            <h3>Hairline Section</h3>
+            <p class="style-body-comp-role">hairline 区块分隔。区块之间用 1px 墨色 15% 的 border-top 加 160px 的垂直留白。绝不用阴影或色块分区分隔——分隔与留白就是全部。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Orange Arrow</h3>
+            <p class="style-body-comp-role">国际橙行动标记。国际橙填充、白字、零圆角、16px/500、padding 14px 28px。或更常见的形式：一行国际橙文字加一个右箭头符号（→），箭头只作为文字的从属，绝不单独出现。</p>
+            <span class="otype-mono otype-mono--accent">CONTACT →</span>
+          </div>
+          <div class="comp-item">
+            <h3>Index Row</h3>
+            <p class="style-body-comp-role">作品索引行。每行用 1px 墨色 15% 的下边框分为四段：编号（等宽 11px）、项目名（48px/500）、类别（等宽 11px）、年份（等宽 11px）。hover 时整行文字换国际橙、项目名不换字号不位移——hero 里那两行就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>标题用 clamp() 连续缩放</li>
+              <li>只用近黑、暖白与国际橙</li>
+              <li>小字一律等宽全大写 0.2em</li>
+              <li>区块用 hairline 加 160px 留白</li>
+              <li>零圆角、零投影</li>
+              <li>允许描边字做第二行</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变背景或渐变文字</li>
+              <li>不要堆砌圆角卡片</li>
+              <li>不要用任何投影</li>
+              <li>不要引入第二种强调色</li>
+              <li>不要用装饰图标代替文字</li>
+              <li>不要给标题设固定字级</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图像退为点缀：小尺寸、单张、无边框。允许作品截图与肖像。不使用大图横幅与画廊网格，任何图像的视觉重量都必须低于字。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="oversized-typography">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 clamp 标题、三档配色与 hairline 分隔。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，clamp() 连续缩放、三档配色与零投影必须原样保留；渐变或圆角卡片堆砌一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

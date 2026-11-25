@@ -1,0 +1,2433 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网站风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-catalog">
+      <header class="page-head">
+        <h1>网站风格</h1>
+        <p class="page-lead">站上收录的生成式风格。每一套都能在线看效果，设计文档可以直接复制交给你的 Agent。</p>
+      </header>
+
+      <div class="style-catseg" role="group" aria-label="风格分类">
+        <button type="button" data-cat="visual" aria-pressed="true">视觉风格</button>
+        <button type="button" data-cat="layout" aria-pressed="false">布局模式</button>
+      </div>
+
+      <p class="style-sr-only" data-filter-status aria-live="polite"></p>
+
+      <div class="style-filters" data-collection="visual" role="group" aria-label="按分类筛选视觉风格"></div>
+
+      <section class="style-grid" data-collection="visual">
+        <a class="style-card" href="style-quantized-line-field.html" data-cat="minimal motion">
+          <span class="style-card-thumb field-thumb-row" aria-hidden="true">
+            <span class="field-card field-mini" data-static data-ink="#202220" style="background:#eeeeeb"><canvas></canvas></span>
+            <span class="field-card field-mini" data-static data-ink="#fafaf8" style="background:#2152e7"><canvas></canvas></span>
+            <span class="field-card field-mini" data-static data-ink="#fafaf8" style="background:#111212"><canvas></canvas></span>
+            <span class="thumb-strip"><span style="background:#212121"></span><span style="background:#525252"></span><span style="background:#b8b8b8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">量化线场 <span class="style-card-en">Quantized Line Field</span></span>
+            <span class="style-card-desc">把一张标记的明暗翻译成四档竖线，结构和留白都交给它。</span>
+            <span class="style-card-tags"><span>竖线</span><span>四档线宽</span><span>亮度场</span><span>品牌卡片</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-neo-brutalist.html" data-cat="brutal geometry">
+          <span class="style-card-thumb brutal-thumb" aria-hidden="true">
+            <span class="brutal-thumb-slab">
+              <span class="brutal-thumb-chip">BRUTAL</span>
+              <span class="brutal-thumb-bar"></span>
+              <span class="brutal-thumb-line"></span>
+              <span class="brutal-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#e2e2e2"></span><span style="background:#3e3e3e"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">新野兽派 <span class="style-card-en">Neo-Brutalism</span></span>
+            <span class="style-card-desc">黑框、硬阴影、零圆角：界面由一块块压不扁的实体组成。</span>
+            <span class="style-card-tags"><span>硬阴影</span><span>零圆角</span><span>等宽标签</span><span>物理交互</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-editorial-magazine.html" data-cat="minimal luxe">
+          <span class="style-card-thumb editorial-thumb" aria-hidden="true">
+            <span class="editorial-thumb-slab">
+              <span class="editorial-thumb-label">EDITORIAL</span>
+              <span class="editorial-thumb-title">留白即层次。</span>
+              <span class="editorial-thumb-line"></span>
+              <span class="editorial-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1c1c1c"></span><span style="background:#717171"></span><span style="background:#727272"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">编辑杂志风 <span class="style-card-en">Editorial Magazine</span></span>
+            <span class="style-card-desc">暖米纸上的衬线杂志版面，秩序来自留白与一条发丝线，而不是分栏装饰。</span>
+            <span class="style-card-tags"><span>衬线标题</span><span>发丝线</span><span>留白</span><span>单一暖色点缀</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-neumorphism.html" data-cat="material">
+          <span class="style-card-thumb neumorph-thumb" aria-hidden="true">
+            <span class="neumorph-thumb-card">
+              <span class="neumorph-thumb-btn">NEUMORPH</span>
+              <span class="neumorph-thumb-track"><span class="neumorph-thumb-knob"></span></span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">新拟物派 <span class="style-card-en">Neumorphism</span></span>
+            <span class="style-card-desc">元素和背景同色，只有两个方向的阴影在说明它凸起还是凹陷。</span>
+            <span class="style-card-tags"><span>双向阴影</span><span>同色基底</span><span>固定光源</span><span>凹凸物理</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-corporate-clean.html" data-cat="product minimal">
+          <span class="style-card-thumb corporate-thumb" aria-hidden="true">
+            <span class="corporate-thumb-card">
+              <span class="corporate-thumb-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              </span>
+              <span class="corporate-thumb-bar"></span>
+              <span class="corporate-thumb-line"></span>
+              <span class="corporate-thumb-badge">BETA</span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">企业简洁风 <span class="style-card-en">Corporate Clean</span></span>
+            <span class="style-card-desc">克制的商务蓝，一切为可读性与信任感让路。</span>
+            <span class="style-card-tags"><span>商务蓝</span><span>浅描边</span><span>微交互</span><span>信任感</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-minimal-flat.html" data-cat="minimal geometry">
+          <span class="style-card-thumb flat-thumb" aria-hidden="true">
+            <span class="flat-thumb-card">
+              <span class="flat-thumb-chip">FLAT</span>
+              <span class="flat-thumb-bar"></span>
+              <span class="flat-thumb-line"></span>
+              <span class="flat-thumb-line short"></span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">极简扁平风 <span class="style-card-en">Minimal Flat</span></span>
+            <span class="style-card-desc">黑白两色、零阴影、大量留白，一切装饰都被删掉。</span>
+            <span class="style-card-tags"><span>黑白两色</span><span>零阴影</span><span>色块层级</span><span>反转交互</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-soft-ui.html" data-cat="material minimal">
+          <span class="style-card-thumb soft-thumb" aria-hidden="true">
+            <span class="soft-thumb-card">
+              <span class="icon-chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.9-4.5-9.4-8.2C.4 9.8 1.7 5.8 5.1 5.1c1.9-.4 3.9.7 5 2.3L12 9.6l1.9-2.2c1.1-1.6 3.1-2.7 5-2.3 3.4.7 4.7 4.7 2.5 7.7C18.9 16.5 12 21 12 21z"/></svg></span>
+              <span class="soft-thumb-bar"></span>
+              <span class="soft-thumb-line"></span>
+              <span class="soft-thumb-line short"></span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">柔和界面风 <span class="style-card-en">Soft UI</span></span>
+            <span class="style-card-desc">大圆角、彩色柔光阴影、低饱和配色，让人第一眼就想点。</span>
+            <span class="style-card-tags"><span>彩色柔光</span><span>大圆角</span><span>低饱和</span><span>浮起交互</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-organic-natural.html" data-cat="nature material">
+          <span class="style-card-thumb organic-thumb" aria-hidden="true">
+            <span class="organic-thumb-slab">
+              <span class="blob-badge">ORGANIC</span>
+              <span class="organic-thumb-block"></span>
+              <span class="organic-thumb-title">手作陶器</span>
+              <span class="organic-thumb-line"></span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">自然有机风 <span class="style-card-en">Natural Organic</span></span>
+            <span class="style-card-desc">大地色、纸与布的质感、不规则的形状——像手工做出来的东西。</span>
+            <span class="style-card-tags"><span>大地色</span><span>大圆角</span><span>blob 形状</span><span>纸感</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-modern-gradient.html" data-cat="glass motion">
+          <span class="style-card-thumb gradient-thumb" aria-hidden="true">
+            <span class="gradient-thumb-card">
+              <span class="gradient-thumb-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span>
+              <span class="gradient-thumb-bar"></span>
+              <span class="gradient-thumb-line"></span>
+            </span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">现代渐变风 <span class="style-card-en">Modern Gradient</span></span>
+            <span class="style-card-desc">深靛夜空上的一束紫粉光，玻璃卡片把光切成层次。</span>
+            <span class="style-card-tags"><span>深靛底</span><span>玻璃拟态</span><span>流动渐变</span><span>极光光斑</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-glassmorphism.html" data-cat="glass">
+          <span class="style-card-thumb glass-thumb" aria-hidden="true">
+            <span class="glass-thumb-card">
+              <span class="glass-thumb-chip">GLASS</span>
+              <span class="glass-thumb-bar"></span>
+              <span class="glass-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#121212"></span><span style="background:#989898"></span><span style="background:#bbbbbb"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">玻璃拟态 <span class="style-card-en">Glassmorphism</span></span>
+            <span class="style-card-desc">夜色光斑上的 8% 白玻璃，模糊、描边与三层阴影缺一不可。</span>
+            <span class="style-card-tags"><span>夜景光斑</span><span>8% 填充</span><span>40px 模糊</span><span>香槟金强调</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-dark-mode.html" data-cat="minimal product">
+          <span class="style-card-thumb darkmode-thumb" aria-hidden="true">
+            <span class="darkmode-thumb-card">
+              <span class="darkmode-thumb-bar"></span>
+              <span class="darkmode-thumb-line"></span>
+              <span class="darkmode-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#171717"></span><span style="background:#7b7b7b"></span><span style="background:#9b9b9b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">暗黑模式 <span class="style-card-en">Dark Mode</span></span>
+            <span class="style-card-desc">深板岩底上的一支蓝，靠内发光而不是投影说明层次。</span>
+            <span class="style-card-tags"><span>三级明度</span><span>描边分层</span><span>内高光</span><span>状态色克制</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-claymorphism.html" data-cat="material">
+          <span class="style-card-thumb clay-thumb" aria-hidden="true">
+            <span class="clay-thumb-card">
+              <span class="clay-thumb-chip">NEW</span>
+              <span class="clay-thumb-bar"></span>
+              <span class="clay-thumb-line"></span>
+              <span class="clay-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#c5c5c5"></span><span style="background:#f2f2f2"></span><span style="background:#e0e0e0"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">粘土拟态 <span class="style-card-en">Claymorphism</span></span>
+            <span class="style-card-desc">像捏出来的一块软糖：超大圆角、内外双阴影、按下去会扁。</span>
+            <span class="style-card-tags"><span>超大圆角</span><span>内外双阴影</span><span>粉彩色相</span><span>压扁交互</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-pixel-art.html" data-cat="pixel">
+          <span class="style-card-thumb pixel-thumb" aria-hidden="true">
+            <span class="pixel-thumb-card">
+              <span class="pixel-thumb-chip">8-BIT</span>
+              <span class="pixel-thumb-bar"></span>
+              <span class="pixel-thumb-line"></span>
+              <span class="pixel-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1d1d1d"></span><span style="background:#3c3c3c"></span><span style="background:#979797"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">像素艺术风 <span class="style-card-en">Pixel Art</span></span>
+            <span class="style-card-desc">没有过渡的世界：所有状态变化都是硬切，像 8-bit 游戏机。</span>
+            <span class="style-card-tags"><span>零圆角</span><span>4px 黑框</span><span>调色板硬切</span><span>无过渡</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-bauhaus.html" data-cat="geometry art">
+          <span class="style-card-thumb bauhaus-thumb" aria-hidden="true">
+            <span class="bauhaus-thumb-square"></span>
+            <span class="bauhaus-thumb-dot"></span>
+            <span class="bauhaus-thumb-tri"></span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#363636"></span><span style="background:#c8c8c8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">包豪斯风格 <span class="style-card-en">Bauhaus</span></span>
+            <span class="style-card-desc">形式追随功能：圆、方、三角与三原色，其余一律删掉。</span>
+            <span class="style-card-tags"><span>基本几何</span><span>三原色</span><span>零阴影</span><span>左对齐</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-swiss-style.html" data-cat="geometry minimal">
+          <span class="style-card-thumb swiss-thumb" aria-hidden="true">
+            <span class="swiss-thumb-block">
+              <span class="swiss-thumb-num">01</span>
+              <span class="swiss-thumb-bar"></span>
+              <span class="swiss-thumb-line"></span>
+              <span class="swiss-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#363636"></span><span style="background:#c8c8c8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">瑞士国际风格 <span class="style-card-en">Swiss International</span></span>
+            <span class="style-card-desc">网格、左对齐、无衬线、三原色——让结构本身成为装饰。</span>
+            <span class="style-card-tags"><span>严格网格</span><span>左对齐</span><span>唯一红强调</span><span>无卡片框</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-cyberpunk-neon.html" data-cat="cyber retro">
+          <span class="style-card-thumb cyber-thumb" aria-hidden="true">
+            <span class="cyber-thumb-card">
+              <span class="cyber-thumb-bar"></span>
+              <span class="cyber-thumb-line"></span>
+              <span class="cyber-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#c9c9c9"></span><span style="background:#494949"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赛博朋克霓虹 <span class="style-card-en">Cyberpunk Neon</span></span>
+            <span class="style-card-desc">近黑底上的霓虹光管：只有发光，没有阴影。</span>
+            <span class="style-card-tags"><span>发光代替阴影</span><span>近黑底</span><span>扫描线</span><span>青主品红对</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-retro-vintage.html" data-cat="retro">
+          <span class="style-card-thumb retro-thumb" aria-hidden="true">
+            <span class="retro-thumb-card">
+              <span class="retro-thumb-stamp">EST. 1974</span>
+              <span class="retro-thumb-bar"></span>
+              <span class="retro-thumb-line"></span>
+              <span class="retro-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#505050"></span><span style="background:#e8e8e8"></span><span style="background:#676767"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">复古怀旧风 <span class="style-card-en">Retro Vintage</span></span>
+            <span class="style-card-desc">旧纸张不会浮起：一切安静地待着，只有颜色在缓慢氧化。</span>
+            <span class="style-card-tags"><span>棕褐主色</span><span>奶油纸底</span><span>禁止浮起</span><span>慢过渡</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-art-deco.html" data-cat="art luxe">
+          <span class="style-card-thumb deco-thumb" aria-hidden="true">
+            <span class="deco-thumb-card">
+              <span class="deco-thumb-crest"></span>
+              <span class="deco-thumb-bar"></span>
+              <span class="deco-thumb-line"></span>
+              <span class="deco-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1b1b1b"></span><span style="background:#aeaeae"></span><span style="background:#f3f3f3"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">装饰艺术风格 <span class="style-card-en">Art Deco</span></span>
+            <span class="style-card-desc">金色几何线条压在深底上，对称到近乎仪式感。</span>
+            <span class="style-card-tags"><span>金色细线</span><span>轴对称</span><span>衬线宽字距</span><span>放射装饰</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-desktop-vibrancy.html" data-cat="glass product">
+          <span class="style-card-thumb dvib-thumb" aria-hidden="true">
+            <span class="dvib-thumb-win">
+              <span class="dvib-thumb-bar"><i></i><i></i><i></i></span>
+              <span class="dvib-thumb-body">
+                <span class="dvib-thumb-side"><i></i><i></i><i></i></span>
+                <span class="dvib-thumb-lines"><i></i><i></i><i></i></span>
+              </span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1c1c1c"></span><span style="background:#737373"></span><span style="background:#3a3a3a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">桌面毛玻璃 <span class="style-card-en">Desktop Vibrancy</span></span>
+            <span class="style-card-desc">三层深灰、系统级模糊、几乎没有装饰——像一台安静的桌面应用。</span>
+            <span class="style-card-tags"><span>三层深灰</span><span>通透侧栏</span><span>1px 分隔线</span><span>只动颜色</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-geometric-bold.html" data-cat="geometry">
+          <span class="style-card-thumb gbold-thumb" aria-hidden="true">
+            <span class="gbold-thumb-circle"></span>
+            <span class="gbold-thumb-square"></span>
+            <span class="gbold-thumb-dot"></span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#363636"></span><span style="background:#ededed"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">几何大胆风 <span class="style-card-en">Geometric Bold</span></span>
+            <span class="style-card-desc">巨大的圆、方块与三角在版面上相撞，字体大得像海报。</span>
+            <span class="style-card-tags"><span>160px 海报字</span><span>形状重叠</span><span>纯色三原色</span><span>隐形网格</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-doc-workspace.html" data-cat="minimal product">
+          <span class="style-card-thumb dws-thumb" aria-hidden="true">
+            <span class="dws-thumb-page">
+              <span class="dws-thumb-row t"></span>
+              <span class="dws-thumb-row h"></span>
+              <span class="dws-thumb-row"></span>
+              <span class="dws-thumb-row"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#353535"></span><span style="background:#939393"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">文档工作台风 <span class="style-card-en">Doc Workspace</span></span>
+            <span class="style-card-desc">米色纸面上的一篇文档，界面退到看不见，只剩内容。</span>
+            <span class="style-card-tags"><span>米色纸面</span><span>hover 只变底色</span><span>拖拽手柄</span><span>窄栏阅读</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-fintech-clean.html" data-cat="product">
+          <span class="style-card-thumb fintech-thumb" aria-hidden="true">
+            <span class="fintech-thumb-card">
+              <span class="fintech-thumb-icon"></span>
+              <span class="fintech-thumb-bar"></span>
+              <span class="fintech-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#696969"></span><span style="background:#212121"></span><span style="background:#f9f9f9"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">金融科技风 <span class="style-card-en">Fintech Clean</span></span>
+            <span class="style-card-desc">紫、深海军蓝与一层网格底纹：把金融基础设施画成工程图纸。</span>
+            <span class="style-card-tags"><span>40px 网格底纹</span><span>两段叠加阴影</span><span>深海军蓝正文</span><span>紫只给行动</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-system-native.html" data-cat="minimal product">
+          <span class="style-card-thumb snative-thumb" aria-hidden="true">
+            <span class="snative-thumb-card">
+              <span class="snative-thumb-media"></span>
+              <span class="snative-thumb-bar"></span>
+              <span class="snative-thumb-line"></span>
+              <span class="snative-thumb-pill"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f5f5f5"></span><span style="background:#616161"></span><span style="background:#1d1d1d"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">系统原生风 <span class="style-card-en">System Native</span></span>
+            <span class="style-card-desc">大量留白、一颗系统蓝、慢到刚好的动效：让产品自己说话。</span>
+            <span class="style-card-tags"><span>留白优先</span><span>一颗系统蓝</span><span>500ms 缓动</span><span>产品图主角</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-vaporwave.html" data-cat="retro cyber">
+          <span class="style-card-thumb vapor-thumb" aria-hidden="true">
+            <span class="vapor-thumb-card">
+              <span class="vapor-thumb-bar"></span>
+              <span class="vapor-thumb-line"></span>
+              <span class="vapor-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#070707"></span><span style="background:#969696"></span><span style="background:#a5a5a5"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">霓虹复古 <span class="style-card-en">Neon Retro</span></span>
+            <span class="style-card-desc">粉紫青三色渐变、扫描线、故障位移：一个坏掉的 1987 年系统。</span>
+            <span class="style-card-tags"><span>粉青双色重影</span><span>扫描线网格</span><span>宽字距</span><span>慢漂浮</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-y2k.html" data-cat="retro">
+          <span class="style-card-thumb y2k-thumb" aria-hidden="true">
+            <span class="y2k-thumb-card">
+              <span class="y2k-thumb-bar"></span>
+              <span class="y2k-thumb-line"></span>
+              <span class="y2k-thumb-line short"></span>
+            </span>
+            <span class="y2k-thumb-bubble"></span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#8e8e8e"></span><span style="background:#c0c0c0"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">千禧风格 <span class="style-card-en">Y2K</span></span>
+            <span class="style-card-desc">铬金属、透明塑料、彩虹渐变：一个对未来过度乐观的界面。</span>
+            <span class="style-card-tags"><span>多段铬渐变</span><span>透明塑料壳</span><span>玻璃气泡</span><span>彩虹只给一处</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-memphis.html" data-cat="geometry retro">
+          <span class="style-card-thumb memphis-thumb" aria-hidden="true">
+            <span class="memphis-thumb-card">
+              <span class="memphis-thumb-orn"></span>
+              <span class="memphis-thumb-bar"></span>
+              <span class="memphis-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#8a8a8a"></span><span style="background:#bebebe"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">孟菲斯风格 <span class="style-card-en">Memphis</span></span>
+            <span class="style-card-desc">撞色、粗边、几何乱飞：把 1981 年米兰那群人的玩笑做成界面。</span>
+            <span class="style-card-tags"><span>4px 黑描边</span><span>hover 各自乱动</span><span>颜色硬切</span><span>锯齿分隔</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-skeuomorphism.html" data-cat="material">
+          <span class="style-card-thumb skeuo-thumb" aria-hidden="true">
+            <span class="skeuo-thumb-panel">
+              <span class="skeuo-thumb-bar"></span>
+              <span class="skeuo-thumb-btn"></span>
+              <span class="skeuo-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f3f3f3"></span><span style="background:#767676"></span><span style="background:#a1a1a1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">拟物设计 <span class="style-card-en">Skeuomorphism</span></span>
+            <span class="style-card-desc">每个控件都是一件实物：皮革、木头、金属，有厚度也有高光。</span>
+            <span class="style-card-tags"><span>双内阴影加渐变</span><span>皮革与木纹</span><span>黄铜扣件</span><span>凸凹分明</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-ghibli-style.html" data-cat="handdrawn nature">
+          <span class="style-card-thumb ghibli-thumb" aria-hidden="true">
+            <span class="ghibli-thumb-cloud"></span>
+            <span class="ghibli-thumb-card">
+              <span class="ghibli-thumb-dot"></span>
+              <span class="ghibli-thumb-bar"></span>
+              <span class="ghibli-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#bdbdbd"></span><span style="background:#e5e5e5"></span><span style="background:#4c4c4c"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">吉卜力风格 <span class="style-card-en">Ghibli Style</span></span>
+            <span class="style-card-desc">手绘的天空与草地，暖到发甜的绿，一切都慢半拍。</span>
+            <span class="style-card-tags"><span>手作痕迹</span><span>0.8 度倾斜</span><span>暖棕代黑</span><span>慢缓动</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-material-design.html" data-cat="material product">
+          <span class="style-card-thumb material-thumb" aria-hidden="true">
+            <span class="material-thumb-card"></span>
+            <span class="material-thumb-fab"></span>
+            <span class="thumb-strip"><span style="background:#262626"></span><span style="background:#ababab"></span><span style="background:#fafafa"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">材料设计 <span class="style-card-en">Material Design</span></span>
+            <span class="style-card-desc">纸与墨的隐喻：元素有海拔，动效有物理，网格是 8dp。</span>
+            <span class="style-card-tags"><span>海拔分层</span><span>8dp 网格</span><span>250ms 标准曲线</span><span>按压涟漪</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-fluent-design.html" data-cat="material glass">
+          <span class="style-card-thumb fluent-thumb" aria-hidden="true">
+            <span class="fluent-thumb-card">
+              <span class="fluent-thumb-icon"></span>
+              <span class="fluent-thumb-bar"></span>
+              <span class="fluent-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#656565"></span><span style="background:#f2f2f2"></span><span style="background:#1f1f1f"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">流利设计 <span class="style-card-en">Fluent Design</span></span>
+            <span class="style-card-desc">光、深度、动效、材质、尺度：五个元素叠出一套跨平台的界面语汇。</span>
+            <span class="style-card-tags"><span>亚克力面板</span><span>2px 圆角克制</span><span>焦点环带 offset</span><span>快速响应</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-comic-style.html" data-cat="handdrawn">
+          <span class="style-card-thumb comic-thumb" aria-hidden="true">
+            <span class="comic-thumb-panel">
+              <span class="comic-thumb-burst">POW!</span>
+              <span class="comic-thumb-bar"></span>
+              <span class="comic-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#1a1a1a"></span><span style="background:#5e5e5e"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">漫画风格 <span class="style-card-en">Comic Style</span></span>
+            <span class="style-card-desc">粗墨线、硬阴影、对话气泡与爆炸字：屏幕上的一本漫画分镜。</span>
+            <span class="style-card-tags"><span>4px 墨线</span><span>套印硬阴影</span><span>对话气泡</span><span>100ms 跳切</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-sketch-style.html" data-cat="handdrawn">
+          <span class="style-card-thumb sketch-thumb" aria-hidden="true">
+            <span class="sketch-thumb-circle"></span>
+            <span class="sketch-thumb-note">
+              <span class="sketch-thumb-bar"></span>
+              <span class="sketch-thumb-line"></span>
+              <span class="sketch-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#2c2c2c"></span><span style="background:#6c6c6c"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">铅笔手绘风 <span class="style-card-en">Sketch Style</span></span>
+            <span class="style-card-desc">线不是画直的：虚线、波浪、轻微歪斜，像在纸上随手勾出来的。</span>
+            <span class="style-card-tags"><span>虚线与波浪边</span><span>±1 度歪斜</span><span>排线阴影</span><span>短促动效</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-watercolor-style.html" data-cat="handdrawn">
+          <span class="style-card-thumb wcolor-thumb" aria-hidden="true">
+            <span class="wcolor-thumb-wash"></span>
+            <span class="wcolor-thumb-wash2"></span>
+            <span class="wcolor-thumb-card">
+              <span class="wcolor-thumb-bar"></span>
+              <span class="wcolor-thumb-line"></span>
+              <span class="wcolor-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f8f8f8"></span><span style="background:#6b6b6b"></span><span style="background:#b2b2b2"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">水彩画风 <span class="style-card-en">Watercolor Style</span></span>
+            <span class="style-card-desc">纸上的三层晕染：颜色从不描边，只在边缘化开。</span>
+            <span class="style-card-tags"><span>没有硬边</span><span>晕染圆斑</span><span>衬线斜体标题</span><span>纸白底</span></span>
+          </span>
+        </a>
+      <a class="style-card" href="style-synthwave.html" data-cat="cyber retro">
+          <span class="style-card-thumb synth-thumb" aria-hidden="true">
+            <span class="synth-thumb-sun"></span>
+            <span class="synth-thumb-floor"></span>
+            <span class="synth-thumb-card">
+              <span class="synth-thumb-bar"></span>
+              <span class="synth-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#111111"></span><span style="background:#494949"></span><span style="background:#c9c9c9"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">合成波 <span class="style-card-en">Synthwave</span></span>
+            <span class="style-card-desc">日落渐变压在网格地平线上，霓虹从内外两侧同时发光。</span>
+            <span class="style-card-tags"><span>双向霓虹发光</span><span>条纹日落</span><span>透视网格</span><span>Arcade Pulse</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-neo-brutalist-soft.html" data-cat="brutal">
+          <span class="style-card-thumb nbsoft-thumb" aria-hidden="true">
+            <span class="nbsoft-thumb-card">
+              <span class="nbsoft-thumb-chip">SOFT</span>
+              <span class="nbsoft-thumb-bar"></span>
+              <span class="nbsoft-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f5f5f5"></span><span style="background:#939393"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">柔和野兽派 <span class="style-card-en">Neo-Brutalist Soft</span></span>
+            <span class="style-card-desc">骨架仍是硬阴影与零圆角，但换成灰边、灰影与粉彩色。</span>
+            <span class="style-card-tags"><span>2px 灰描边</span><span>20% 灰硬阴影</span><span>粉彩强调</span><span>零圆角保留</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-neo-brutalist-playful.html" data-cat="brutal">
+          <span class="style-card-thumb nbplay-thumb" aria-hidden="true">
+            <span class="nbplay-thumb-card">
+              <span class="nbplay-thumb-squares"><i></i><i></i><i></i></span>
+              <span class="nbplay-thumb-bar"></span>
+              <span class="nbplay-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#8a8a8a"></span><span style="background:#b1b1b1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">俏皮野兽派 <span class="style-card-en">Neo-Brutalist Playful</span></span>
+            <span class="style-card-desc">黑框硬影的骨架不变，但换上五支糖果色，还允许歪一点。</span>
+            <span class="style-card-tags"><span>彩色硬阴影</span><span>hover 换色</span><span>歪 -2 到 3 度</span><span>300ms 弹簧</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-art-nouveau.html" data-cat="art nature">
+          <span class="style-card-thumb nouveau-thumb" aria-hidden="true">
+            <span class="nouveau-thumb-arch"></span>
+            <span class="nouveau-thumb-vine"></span>
+            <span class="nouveau-thumb-bloom"></span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#444444"></span><span style="background:#a1a1a1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">新艺术运动风 <span class="style-card-en">Art Nouveau</span></span>
+            <span class="style-card-desc">没有一条直线：藤蔓、长发、花茎都按植物生长的逻辑弯。</span>
+            <span class="style-card-tags"><span>禁止直角</span><span>藤蔓与花朵</span><span>波浪分隔</span><span>慢律动</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-surrealism.html" data-cat="art motion">
+          <span class="style-card-thumb surreal-thumb" aria-hidden="true">
+            <span class="surreal-thumb-orb"></span>
+            <span class="surreal-thumb-panel">
+              <span class="surreal-thumb-bar"></span>
+              <span class="surreal-thumb-line"></span>
+              <span class="surreal-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1d1d1d"></span><span style="background:#ababab"></span><span style="background:#999999"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">超现实主义风 <span class="style-card-en">Surrealism</span></span>
+            <span class="style-card-desc">梦境里的时间：一切都慢，一切都稍微歪着，光从不该来的方向来。</span>
+            <span class="style-card-tags"><span>梦境时间</span><span>skew 不 scale</span><span>玫瑰光晕阴影</span><span>融化漂浮</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-ukiyo-e-digital.html" data-cat="art culture">
+          <span class="style-card-thumb ukiyo-thumb" aria-hidden="true">
+            <span class="ukiyo-thumb-seal">版</span>
+            <span class="ukiyo-thumb-card">
+              <span class="ukiyo-thumb-bar"></span>
+              <span class="ukiyo-thumb-line"></span>
+              <span class="ukiyo-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#2e2e2e"></span><span style="background:#6e6e6e"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">浮世绘数字风 <span class="style-card-en">Ukiyo-e Digital</span></span>
+            <span class="style-card-desc">靛蓝、朱红、金箔压在粗线条里：一版套一版的木刻。</span>
+            <span class="style-card-tags"><span>三色套印</span><span>3px 粗描边</span><span>硬边偏移位移</span><span>零圆角零模糊</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-gothic.html" data-cat="art culture">
+          <span class="style-card-thumb gothic-thumb" aria-hidden="true">
+            <span class="gothic-thumb-arch"></span>
+            <span class="gothic-thumb-rose"></span>
+            <span class="thumb-strip"><span style="background:#232323"></span><span style="background:#323232"></span><span style="background:#a1a1a1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">哥特式风 <span class="style-card-en">Gothic</span></span>
+            <span class="style-card-desc">尖拱、玫瑰窗、手抄本边饰：一座还没点灯的大教堂。</span>
+            <span class="style-card-tags"><span>尖拱框架</span><span>玫瑰花窗</span><span>手抄本边饰</span><span>首字下沉</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-outrun.html" data-cat="cyber retro">
+          <span class="style-card-thumb outrun-thumb" aria-hidden="true">
+            <span class="outrun-thumb-sun"></span>
+            <span class="outrun-thumb-floor"></span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#3e3e3e"></span><span style="background:#aaaaaa"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">Outrun 复古未来 <span class="style-card-en">Outrun</span></span>
+            <span class="style-card-desc">洋红与青的落日、椰树剪影、向地平线冲刺的透视网格。</span>
+            <span class="style-card-tags"><span>双色霓虹发光</span><span>网格永不静止</span><span>条纹落日</span><span>椰树剪影</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-dark-academia.html" data-cat="luxe retro">
+          <span class="style-card-thumb academia-thumb" aria-hidden="true">
+            <span class="academia-thumb-card"></span>
+            <span class="academia-thumb-seal"></span>
+            <span class="academia-thumb-line"></span>
+            <span class="thumb-strip"><span style="background:#2e2e2e"></span><span style="background:#f0f0f0"></span><span style="background:#767676"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">暗黑学院风 <span class="style-card-en">Dark Academia</span></span>
+            <span class="style-card-desc">深棕皮革、墨绿书脊、暗金烫印：一间只在夜里开放的图书馆。</span>
+            <span class="style-card-tags"><span>三色旧书调</span><span>烫金字距</span><span>纸面光晕</span><span>烛光节奏</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-cottagecore.html" data-cat="nature">
+          <span class="style-card-thumb cottage-thumb" aria-hidden="true">
+            <span class="cottage-thumb-leaf"></span>
+            <span class="cottage-thumb-card">
+              <span class="cottage-thumb-line"></span>
+              <span class="cottage-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#808080"></span><span style="background:#d5d5d5"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">田园核风 <span class="style-card-en">Cottagecore</span></span>
+            <span class="style-card-desc">亚麻、花园、手缝的边：一个想住进去的乡下午后。</span>
+            <span class="style-card-tags"><span>亚麻与花色</span><span>刺绣式装饰</span><span>掀纸 0.8 度</span><span>缝线分隔</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-risograph.html" data-cat="handdrawn art">
+          <span class="style-card-thumb riso-thumb" aria-hidden="true">
+            <span class="riso-thumb-card">
+              <span class="riso-thumb-bar"></span>
+              <span class="riso-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f5f5f5"></span><span style="background:#8e8e8e"></span><span style="background:#606060"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">Risograph 印画风 <span class="style-card-en">Risograph</span></span>
+            <span class="style-card-desc">两个墨版印歪了：套印错位加网点，才是 Riso 的样子。</span>
+            <span class="style-card-tags"><span>双向套印错位</span><span>multiply 叠印</span><span>100ms 机械节奏</span><span>网点对位标</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-mecha.html" data-cat="pixel cyber">
+          <span class="style-card-thumb mecha-thumb" aria-hidden="true">
+            <span class="mecha-thumb-panel">
+              <span class="mecha-thumb-bar"></span>
+              <span class="mecha-thumb-gauge"><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#262626"></span><span style="background:#c1c1c1"></span><span style="background:#565656"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">机甲风 <span class="style-card-en">Mecha</span></span>
+            <span class="style-card-desc">驾驶舱面板：切角金属、粗边框、警告黄与军绿。</span>
+            <span class="style-card-tags"><span>clip-path 切角</span><span>4px 警告黄边条</span><span>铭牌等宽字</span><span>硬阴影</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-gothic-lolita.html" data-cat="culture art">
+          <span class="style-card-thumb glolita-thumb" aria-hidden="true">
+            <span class="glolita-thumb-frame"></span>
+            <span class="glolita-thumb-cross">✝</span>
+            <span class="thumb-strip"><span style="background:#1a1a1a"></span><span style="background:#282828"></span><span style="background:#333333"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">哥特萝莉风 <span class="style-card-en">Gothic Lolita</span></span>
+            <span class="style-card-desc">黑缎带、蕾丝边、十字与玫瑰：暗色浪漫的精细装饰。</span>
+            <span class="style-card-tags"><span>蕾丝扇边框</span><span>缎带燕尾按钮</span><span>对称玫瑰十字</span><span>浅灰白非纯白</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-cyber-chinese.html" data-cat="cyber culture">
+          <span class="style-card-thumb cchina-thumb" aria-hidden="true">
+            <span class="cchina-thumb-seal">核</span>
+            <span class="cchina-thumb-panel">
+              <span class="cchina-thumb-bar"></span>
+              <span class="cchina-thumb-line"></span>
+              <span class="cchina-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#6e6e6e"></span><span style="background:#aaaaaa"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赛博中华风 <span class="style-card-en">Cyber Chinese</span></span>
+            <span class="style-card-desc">朱红与金压在霓虹青紫上：灯笼挂在赛博街道。</span>
+            <span class="style-card-tags"><span>朱红金 × 霓虹青紫</span><span>格窗直角</span><span>扫描光带</span><span>印章云纹</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-acid-graphics.html" data-cat="geometry art">
+          <span class="style-card-thumb acid-thumb" aria-hidden="true">
+            <span class="acid-thumb-card">
+              <span class="acid-thumb-tick"><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="acid-thumb-bar"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#c4c4c4"></span><span style="background:#e7e7e7"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">酸性平面设计 <span class="style-card-en">Acid Graphics</span></span>
+            <span class="style-card-desc">荧光绿压在纯黑上，字被拉扯变形，一切都在高频振动。</span>
+            <span class="style-card-tags"><span>平面荧光色</span><span>skew 扭曲字</span><span>100ms 反馈</span><span>硬边阴影</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-hand-drawn-doodle.html" data-cat="handdrawn">
+          <span class="style-card-thumb doodle-thumb" aria-hidden="true">
+            <span class="doodle-thumb-tape"></span>
+            <span class="doodle-thumb-note">
+              <span class="doodle-thumb-line"></span>
+              <span class="doodle-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#fefefe"></span><span style="background:#d6d6d6"></span><span style="background:#8a8a8a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">手绘涂鸦风 <span class="style-card-en">Hand-Drawn Doodle</span></span>
+            <span class="style-card-desc">笔记本上的随手涂画：虚线、彩色马克笔、胶带与图钉。</span>
+            <span class="style-card-tags"><span>虚线边框</span><span>彩色实心阴影</span><span>胶带图钉</span><span>150ms 线性</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-swiss-poster.html" data-cat="geometry art">
+          <span class="style-card-thumb sposter-thumb" aria-hidden="true">
+            <span class="sposter-thumb-grid">
+              <span class="sposter-thumb-block t"><i></i></span>
+              <span class="sposter-thumb-block r"></span>
+              <span class="sposter-thumb-block bl"></span>
+              <span class="sposter-thumb-block br"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#363636"></span><span style="background:#000000"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">瑞士海报风 <span class="style-card-en">Swiss Poster</span></span>
+            <span class="style-card-desc">字大到成为图形，区块紧贴不留缝，层级靠尺寸与色块。</span>
+            <span class="style-card-tags"><span>120–180px 海报字</span><span>gap-0 紧贴网格</span><span>2px 黑线分隔</span><span>极端非对称</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-watercolor-art.html" data-cat="handdrawn">
+          <span class="style-card-thumb wcart-thumb" aria-hidden="true">
+            <span class="wcart-thumb-wash"></span>
+            <span class="wcart-thumb-wash2"></span>
+            <span class="wcart-thumb-card"></span>
+            <span class="wcart-thumb-sprig"></span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#ababab"></span><span style="background:#adadad"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">水彩艺术风 <span class="style-card-en">Watercolor Art</span></span>
+            <span class="style-card-desc">颜料在水里散开：边缘是渗的，颜色是层叠的，纸是湿的。</span>
+            <span class="style-card-tags"><span>颜料池化</span><span>渗化边缘</span><span>纸纹叠加</span><span>极淡层叠</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-impressionist-oil.html" data-cat="handdrawn art">
+          <span class="style-card-thumb impress-thumb" aria-hidden="true">
+            <span class="impress-thumb-dab"></span>
+            <span class="impress-thumb-dab2"></span>
+            <span class="impress-thumb-card"></span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#b2b2b2"></span><span style="background:#3b3b3b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">油画印象派风 <span class="style-card-en">Impressionist Oil</span></span>
+            <span class="style-card-desc">厚涂的颜料与斑驳的光：界面像一张还没干的画布。</span>
+            <span class="style-card-tags"><span>厚涂双层阴影</span><span>笔触纹理</span><span>点彩光斑</span><span>按下下沉 3px</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-immersive-photo.html" data-cat="product luxe">
+          <span class="style-card-thumb iphoto-thumb" aria-hidden="true">
+            <span class="iphoto-thumb-glow"></span>
+            <span class="iphoto-thumb-caption">
+              <span class="iphoto-thumb-tag">SERIES · DUSK</span>
+              <span class="iphoto-thumb-title"></span>
+              <span class="iphoto-thumb-meta"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0d0d0d"></span><span style="background:#b5b5b5"></span><span style="background:#f1f1f1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">沉浸摄影 <span class="style-card-en">Immersive Photo</span></span>
+            <span class="style-card-desc">照片就是界面：它不装饰内容，它就是内容本身。</span>
+            <span class="style-card-tags"><span>全幅照片主角</span><span>可读性遮罩</span><span>Ken Burns 漂移</span><span>唯一琥珀强调</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-collage-art.html" data-cat="handdrawn">
+          <span class="style-card-thumb collage-thumb" aria-hidden="true">
+            <span class="collage-thumb-tape"></span>
+            <span class="collage-thumb-scrap">
+              <span class="collage-thumb-line"></span>
+              <span class="collage-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#6c6c6c"></span><span style="background:#888888"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">拼贴艺术风 <span class="style-card-en">Collage Art</span></span>
+            <span class="style-card-desc">剪下来、撕开口、歪着贴上去：一页手工拼贴的杂志内页。</span>
+            <span class="style-card-tags"><span>撕纸毛边</span><span>三字体交替</span><span>胶带标签条</span><span>±3 度拼贴</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-glitch-art.html" data-cat="motion cyber">
+          <span class="style-card-thumb glitch-thumb" aria-hidden="true">
+            <span class="glitch-thumb-card">
+              <span class="glitch-thumb-bar"></span>
+              <span class="glitch-thumb-line"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#c9c9c9"></span><span style="background:#494949"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">故障艺术风 <span class="style-card-en">Glitch Art</span></span>
+            <span class="style-card-desc">画面在出错：RGB 分离、屏幕撕裂、丢帧，全都刻意保留。</span>
+            <span class="style-card-tags"><span>RGB 双向分离</span><span>transition-none</span><span>skew 撕裂按压</span><span>粗左边框卡片</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-visual-novel.html" data-cat="glass culture">
+          <span class="style-card-thumb vnovel-thumb" aria-hidden="true">
+            <span class="vnovel-thumb-name">千夏</span>
+            <span class="vnovel-thumb-panel">
+              <span class="vnovel-thumb-line"></span>
+              <span class="vnovel-thumb-choice"></span>
+              <span class="vnovel-thumb-choice"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#202020"></span><span style="background:#6f6f6f"></span><span style="background:#717171"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">视觉小说风 <span class="style-card-en">Visual Novel</span></span>
+            <span class="style-card-desc">半透明的对话框浮在场景上，一切为「读下去」让路。</span>
+            <span class="style-card-tags"><span>85% 对话框</span><span>渐变名牌</span><span>高光扫过选项</span><span>行高 1.8 长读</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-shoujo-manga.html" data-cat="culture handdrawn">
+          <span class="style-card-thumb shoujo-thumb" aria-hidden="true">
+            <span class="shoujo-thumb-flower"></span>
+            <span class="shoujo-thumb-star"></span>
+            <span class="shoujo-thumb-card">
+              <span class="shoujo-thumb-line"></span>
+              <span class="shoujo-thumb-line short"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f7f7f7"></span><span style="background:#c7c7c7"></span><span style="background:#e4e4e4"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">少女漫画风 <span class="style-card-en">Shoujo Manga</span></span>
+            <span class="style-card-desc">樱花粉、网点、花瓣边框、缎带标题：每一格都在心动。</span>
+            <span class="style-card-tags"><span>缎带标题横幅</span><span>蕾丝扇边卡</span><span>柔光四角星</span><span>25–35% 网点</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-cyber-anime.html" data-cat="cyber pixel">
+          <span class="style-card-thumb canime-thumb" aria-hidden="true">
+            <span class="canime-thumb-panel">
+              <span class="canime-thumb-bar"></span>
+              <span class="canime-thumb-gauge"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#101010"></span><span style="background:#555555"></span><span style="background:#a6a6a6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赛博动漫风 <span class="style-card-en">Cyber Anime</span></span>
+            <span class="style-card-desc">驾驶舱 HUD 加动漫光效：斜切角、八角网格、三层霓虹。</span>
+            <span class="style-card-tags"><span>四角 L 形支架</span><span>六边形网格</span><span>三层霓虹叠加</span><span>快速微交互</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-pixel-anime.html" data-cat="pixel">
+          <span class="style-card-thumb panime-thumb" aria-hidden="true">
+            <span class="panime-thumb-dialog">
+              <span class="panime-thumb-line"></span>
+              <span class="panime-thumb-line panime-thumb-line--short"></span>
+              <span class="panime-thumb-hp"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#242424"></span><span style="background:#868686"></span><span style="background:#d6d6d6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">像素动漫风 <span class="style-card-en">Pixel Anime</span></span>
+            <span class="style-card-desc">一屏 GBA 时代的 JRPG：对话框有角块，动画只有 15 帧。</span>
+            <span class="style-card-tags"><span>4px 边框四角方块</span><span>分段状态条</span><span>Framerate Drop</span><span>零模糊零圆角</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-japanese-fresh.html" data-cat="minimal culture">
+          <span class="style-card-thumb jfresh-thumb" aria-hidden="true">
+            <span class="jfresh-thumb-card">
+              <span class="jfresh-thumb-title"></span>
+              <span class="jfresh-thumb-text"></span>
+              <span class="jfresh-thumb-text"></span>
+              <span class="jfresh-thumb-stem"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#fafafa"></span><span style="background:#a8a8a8"></span><span style="background:#c9c9c9"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">日系清新风 <span class="style-card-en">Japanese Fresh</span></span>
+            <span class="style-card-desc">「間」是主要设计工具：留白比元素更重要，字重永远不到 400。</span>
+            <span class="style-card-tags"><span>留白六成以上</span><span>字重 200/300</span><span>1px 暖灰线 30%</span><span>500ms 慢呼吸</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-neon-samurai.html" data-cat="cyber culture">
+          <span class="style-card-thumb nsam-thumb" aria-hidden="true">
+            <span class="nsam-thumb-plate">
+              <span class="nsam-thumb-title"></span>
+              <span class="nsam-thumb-text"></span>
+              <span class="nsam-thumb-text"></span>
+              <span class="nsam-thumb-slash"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#090909"></span><span style="background:#4d4d4d"></span><span style="background:#c1c1c1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">霓虹武士风 <span class="style-card-en">Neon Samurai</span></span>
+            <span class="style-card-desc">一刀的斜线、朱红鸟居、霓虹发光：浮世绘撞进了霓虹街。</span>
+            <span class="style-card-tags"><span>斩击线收细</span><span>鸟居区块框架</span><span>甲片 16px 切角</span><span>纵深只用发光</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-magic-circle.html" data-cat="art culture">
+          <span class="style-card-thumb mcir-thumb" aria-hidden="true">
+            <span class="mcir-thumb-circle"></span>
+            <span class="thumb-strip"><span style="background:#0b0b0b"></span><span style="background:#1f1f1f"></span><span style="background:#c1c1c1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">魔法阵风 <span class="style-card-en">Magic Circle</span></span>
+            <span class="style-card-desc">同心环、六芒星、符文沿圆周排列：一条还没启动的法阵。</span>
+            <span class="style-card-tags"><span>3–5 层同心环</span><span>hover 旋转 180°</span><span>符文沿圆周排布</span><span>按下缩到 0.95</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-cyber-wafuu.html" data-cat="cyber culture">
+          <span class="style-card-thumb cwaf-thumb" aria-hidden="true">
+            <span class="cwaf-thumb-card">
+              <span class="cwaf-thumb-title"></span>
+              <span class="cwaf-thumb-text"></span>
+              <span class="cwaf-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#090909"></span><span style="background:#373737"></span><span style="background:#a1a1a1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赛博和风 <span class="style-card-en">Cyber Wafuu</span></span>
+            <span class="style-card-desc">青海波与电路同源，金缮的裂纹成了发光的边框。</span>
+            <span class="style-card-tags"><span>障子格栅卡片</span><span>金缮裂纹发光</span><span>青海波叠电路</span><span>hover 只浮 1–2px</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-steampunk.html" data-cat="retro art">
+          <span class="style-card-thumb steam-thumb" aria-hidden="true">
+            <span class="steam-thumb-panel">
+              <span class="steam-thumb-title"></span>
+              <span class="steam-thumb-text"></span>
+              <span class="steam-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#212121"></span><span style="background:#a2a2a2"></span><span style="background:#7d7d7d"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">蒸汽朋克 <span class="style-card-en">Steampunk</span></span>
+            <span class="style-card-desc">黄铜、铜管、铆钉与齿轮：一台还在冒气的维多利亚机器。</span>
+            <span class="style-card-tags"><span>铆钉面板</span><span>黄铜渐变按钮</span><span>齿轮 20s 慢转</span><span>压力表盘读数</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-pop-art.html" data-cat="art handdrawn">
+          <span class="style-card-thumb pop-thumb" aria-hidden="true">
+            <span class="pop-thumb-card">
+              <span class="pop-thumb-title"></span>
+              <span class="pop-thumb-text"></span>
+              <span class="pop-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#d4d4d4"></span><span style="background:#8e8e8e"></span><span style="background:#9b9b9b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">波普艺术 <span class="style-card-en">Pop Art</span></span>
+            <span class="style-card-desc">粗黑轮廓、Ben-Day 网点、喊出来的对话框：漫画印在画布上。</span>
+            <span class="style-card-tags"><span>4px 粗黑边框</span><span>45° Ben-Day 网点</span><span>900 字重全大写</span><span>硬阴影 4px 4px 0</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-solarpunk.html" data-cat="nature cyber">
+          <span class="style-card-thumb sun-thumb" aria-hidden="true">
+            <span class="sun-thumb-card">
+              <span class="sun-thumb-dot"></span>
+              <span class="sun-thumb-title"></span>
+              <span class="sun-thumb-text"></span>
+              <span class="sun-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f2f2f2"></span><span style="background:#b8b8b8"></span><span style="background:#c1c1c1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">太阳朋克 <span class="style-card-en">Solarpunk</span></span>
+            <span class="style-card-desc">乐观的生态未来：植物与技术不是对立，而是长在一起。</span>
+            <span class="style-card-tags"><span>叶绿配金黄</span><span>绿到金暖渐变</span><span>24px 大圆角</span><span>深赭代替黑</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-jrpg.html" data-cat="pixel culture">
+          <span class="style-card-thumb jrpg-thumb" aria-hidden="true">
+            <span class="jrpg-thumb-window">
+              <span class="jrpg-thumb-title"></span>
+              <span class="jrpg-thumb-row is-active"></span>
+              <span class="jrpg-thumb-row"></span>
+              <span class="jrpg-thumb-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#171717"></span><span style="background:#414141"></span><span style="background:#c1c1c1"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">日式 RPG <span class="style-card-en">JRPG</span></span>
+            <span class="style-card-desc">斜面边框、金色标题、蓝底渐变：一个 1995 年的菜单窗口。</span>
+            <span class="style-card-tags"><span>2px 边框斜面浮雕</span><span>金色标题选中</span><span>分段血条</span><span>90ms 硬切</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-warm-dashboard.html" data-cat="product nature">
+          <span class="style-card-thumb wdash-thumb" aria-hidden="true">
+            <span class="wdash-thumb-card">
+              <span class="wdash-thumb-label"></span>
+              <span class="wdash-thumb-val"></span>
+              <span class="wdash-thumb-spark"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#a9a9a9"></span><span style="background:#f8f8f8"></span><span style="background:#8b8b8b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">暖色仪表盘 <span class="style-card-en">Warm Dashboard</span></span>
+            <span class="style-card-desc">陶土色底配奶油白卡片：数据界面也可以有体温。</span>
+            <span class="style-card-tags"><span>陶土底 + 奶油卡</span><span>漫射阴影</span><span>四色图表序列</span><span>边框 ≤1px</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-neon-gradient.html" data-cat="cyber motion">
+          <span class="style-card-thumb ngrad-thumb" aria-hidden="true">
+            <span class="ngrad-thumb-card">
+              <span class="ngrad-thumb-dot"></span>
+              <span class="ngrad-thumb-title"></span>
+              <span class="ngrad-thumb-text"></span>
+              <span class="ngrad-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0d0d0d"></span><span style="background:#727272"></span><span style="background:#939393"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">霓虹渐变 <span class="style-card-en">Neon Gradient</span></span>
+            <span class="style-card-desc">深紫底上一张张渐变卡片，边缘发着光。</span>
+            <span class="style-card-tags"><span>双极渐变 135°</span><span>发光与渐变同色</span><span>渐变文字 ≤2 处</span><span>bg-size 200%</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-liquid-glass.html" data-cat="glass">
+          <span class="style-card-thumb lglass-thumb" aria-hidden="true">
+            <span class="lglass-thumb-lines"></span>
+            <span class="lglass-thumb-dock"><i></i><i></i><i></i><i></i></span>
+            <span class="thumb-strip"><span style="background:#f2f2f2"></span><span style="background:#3c3c3c"></span><span style="background:#ececec"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">液态玻璃 <span class="style-card-en">Liquid Glass</span></span>
+            <span class="style-card-desc">玻璃让背景透过、在边缘微微弯折，随触碰轻轻回弹。</span>
+            <span class="style-card-tags"><span>SVG 位移折射</span><span>1px 定向高光</span><span>420ms 弹性回位</span><span>正文留实色面</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-scandinavian.html" data-cat="minimal">
+          <span class="style-card-thumb scandi-thumb" aria-hidden="true">
+            <span class="scandi-thumb-card">
+              <span class="scandi-thumb-title"></span>
+              <span class="scandi-thumb-text"></span>
+              <span class="scandi-thumb-text"></span>
+              <span class="scandi-thumb-stem"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f1f1f1"></span><span style="background:#959595"></span><span style="background:#727272"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">北欧极简风 <span class="style-card-en">Scandinavian</span></span>
+            <span class="style-card-desc">暖灰白、细线条、极慢的过渡：把「安静」做成可测量的参数。</span>
+            <span class="style-card-tags"><span>字重只有 200/300</span><span>2px 圆角</span><span>700ms ease-in-out</span><span>饱和度 &lt;30%</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-cel-shading.html" data-cat="handdrawn art">
+          <span class="style-card-thumb cel-thumb" aria-hidden="true">
+            <span class="cel-thumb-card">
+              <span class="cel-thumb-title"></span>
+              <span class="cel-thumb-text"></span>
+              <span class="cel-thumb-text"></span>
+              <span class="cel-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#fafafa"></span><span style="background:#5f5f5f"></span><span style="background:#1b1b1b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赛璐璐动画风 <span class="style-card-en">Cel Shading</span></span>
+            <span class="style-card-desc">粗墨线、平涂、硬阴影：手绘动画的每一帧都只有两种颜色。</span>
+            <span class="style-card-tags"><span>3px 墨线描边</span><span>平涂不渐变</span><span>按下挤压变形</span><span>75ms linear</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-cinematic-video-hero.html" data-cat="product motion">
+          <span class="style-card-thumb cine-thumb" aria-hidden="true">
+            <span class="cine-thumb-stage">
+              <span class="cine-thumb-line"></span>
+              <span class="cine-thumb-no"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#060606"></span><span style="background:#c1c1c1"></span><span style="background:#efefef"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">电影视频首屏 <span class="style-card-en">Cinematic Video Hero</span></span>
+            <span class="style-card-desc">一帧海报先到，然后画面开始动——像预告片的第一镜。</span>
+            <span class="style-card-tags"><span>poster 即 LCP</span><span>入视才 load</span><span>文字压遮罩</span><span>关键信息在 DOM</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-wabi-sabi.html" data-cat="minimal nature">
+          <span class="style-card-thumb wabi-thumb" aria-hidden="true">
+            <span class="wabi-thumb-card">
+              <span class="wabi-thumb-title"></span>
+              <span class="wabi-thumb-text"></span>
+              <span class="wabi-thumb-text"></span>
+              <span class="wabi-thumb-bowl"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ededed"></span><span style="background:#737373"></span><span style="background:#949494"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">侘寂风 <span class="style-card-en">Wabi-Sabi</span></span>
+            <span class="style-card-desc">不完美、不恒常、不完整：让材质和时间替设计说话。</span>
+            <span class="style-card-tags"><span>泛黄暖纸底</span><span>1px 细线 30%</span><span>留白近乎奢侈</span><span>允许不完美</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-zen-garden.html" data-cat="minimal nature">
+          <span class="style-card-thumb zen-thumb" aria-hidden="true">
+            <span class="zen-thumb-stone">
+              <span class="zen-thumb-title"></span>
+              <span class="zen-thumb-text"></span>
+              <span class="zen-thumb-text"></span>
+            </span>
+            <span class="zen-thumb-moss zen-thumb-moss--a"></span>
+            <span class="zen-thumb-moss zen-thumb-moss--b"></span>
+            <span class="thumb-strip"><span style="background:#f3f3f3"></span><span style="background:#949494"></span><span style="background:#525252"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">枯山水 <span class="style-card-en">Zen Garden</span></span>
+            <span class="style-card-desc">白砂、苔石、耙纹：留白不是空的，是被梳理过的。</span>
+            <span class="style-card-tags"><span>白砂底 + 苔绿</span><span>1px 边框 30%</span><span>留白 240px 起步</span><span>过渡 1000ms</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-sci-fi-hud.html" data-cat="cyber product">
+          <span class="style-card-thumb hud-thumb" aria-hidden="true">
+            <span class="hud-thumb-panel">
+              <span class="hud-thumb-bar"><i></i></span>
+              <span class="hud-thumb-dot"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#060606"></span><span style="background:#939393"></span><span style="background:#9b9b9b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">科幻 HUD <span class="style-card-en">Sci-Fi HUD</span></span>
+            <span class="style-card-desc">深空底上的一层发光数据：面板半透明，角标是 L 形，灯一直在脉冲。</span>
+            <span class="style-card-tags"><span>L 形四角角标</span><span>等宽大写 0.16em</span><span>状态灯脉冲</span><span>交互必发光</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-kawaii-minimal.html" data-cat="minimal culture">
+          <span class="style-card-thumb kawaii-thumb" aria-hidden="true">
+            <span class="kawaii-thumb-card">
+              <span class="kawaii-thumb-dot"></span>
+              <span class="kawaii-thumb-title"></span>
+              <span class="kawaii-thumb-text"></span>
+              <span class="kawaii-thumb-text"></span>
+              <span class="kawaii-thumb-pill"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f8f8f8"></span><span style="background:#bcbcbc"></span><span style="background:#999999"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">可爱极简 <span class="style-card-en">Kawaii Minimal</span></span>
+            <span class="style-card-desc">圆、粉彩、大留白、一点点弹跳：可爱但不吵。</span>
+            <span class="style-card-tags"><span>暖白底粉彩点缀</span><span>999px 全圆角</span><span>hover 1.05 弹跳</span><span>留白过半</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-kinetic-constructivism.html" data-cat="motion geometry">
+          <span class="style-card-thumb kin-thumb" aria-hidden="true">
+            <span class="kin-thumb-bar"></span>
+            <span class="kin-thumb-disc"></span>
+            <span class="kin-thumb-tri"></span>
+            <span class="kin-thumb-blocks"><i></i><i></i></span>
+            <span class="thumb-strip"><span style="background:#e9e9e9"></span><span style="background:#4b4b4b"></span><span style="background:#131313"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">动力学构成主义 <span class="style-card-en">Kinetic Constructivism</span></span>
+            <span class="style-card-desc">几何图元不是被摆放的，而是被装上轴的：圆在公转，三角在摆动。</span>
+            <span class="style-card-tags"><span>五图元三原色</span><span>圆公转 12–24s</span><span>方块错峰行进</span><span>只动 transform</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-broadcast-glitch.html" data-cat="motion cyber">
+          <span class="style-card-thumb bcgl-thumb" aria-hidden="true">
+            <span class="bcgl-thumb-panel">
+              <span class="bcgl-thumb-bars"><i style="background:#ededed"></i><i style="background:#f5e000"></i><i style="background:#00e5d8"></i><i style="background:#1c8f3a"></i><i style="background:#c027bd"></i><i style="background:#ff2e4c"></i><i style="background:#2243ff"></i></span>
+              <span class="bcgl-thumb-title"></span>
+              <span class="bcgl-thumb-text"></span>
+              <span class="bcgl-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0b0b0b"></span><span style="background:#5d5d5d"></span><span style="background:#b3b3b3"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">故障广播 <span class="style-card-en">Broadcast Glitch</span></span>
+            <span class="style-card-desc">信号正在断：扫描线在爬，RGB 在抖，色条偶尔扫过。</span>
+            <span class="style-card-tags"><span>滚动扫描线</span><span>三支信号色</span><span>steps() 硬切</span><span>SMPTE 彩条签名</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-kinetic-typography.html" data-cat="motion minimal">
+          <span class="style-card-thumb ktyp-thumb" aria-hidden="true">
+            <span class="ktyp-thumb-word">T<b>Y</b>PE</span>
+            <span class="thumb-strip"><span style="background:#0b0b0b"></span><span style="background:#f1f1f1"></span><span style="background:#6d6d6d"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">动力学排印 <span class="style-card-en">Kinetic Typography</span></span>
+            <span class="style-card-desc">字就是界面：它逐个到场、字重会呼吸、宽度跟着滚动速度伸展。</span>
+            <span class="style-card-tags"><span>字母遮罩上升</span><span>可变字重呼吸</span><span>只动 transform/opacity</span><span>一屏一个主效</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-film-noir.html" data-cat="art retro">
+          <span class="style-card-thumb noir-thumb" aria-hidden="true">
+            <span class="noir-thumb-card">
+              <span class="noir-thumb-title"></span>
+              <span class="noir-thumb-text"></span>
+              <span class="noir-thumb-text"></span>
+              <span class="noir-thumb-mark"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#f5f5f5"></span><span style="background:#434343"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">黑色电影 <span class="style-card-en">Film Noir</span></span>
+            <span class="style-card-desc">一束斜光切开黑房间：其余全部藏在阴影里。</span>
+            <span class="style-card-tags"><span>斜光渐变</span><span>深灰阶分层</span><span>猩红只一处</span><span>衬线斜体标题</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-arcade-crt.html" data-cat="pixel retro">
+          <span class="style-card-thumb crt-thumb" aria-hidden="true">
+            <span class="crt-thumb-panel">
+              <span class="crt-thumb-title"></span>
+              <span class="crt-thumb-line"></span>
+              <span class="crt-thumb-line"></span>
+              <span class="crt-thumb-coin"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#050505"></span><span style="background:#c4c4c4"></span><span style="background:#494949"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">街机 CRT <span class="style-card-en">Arcade CRT</span></span>
+            <span class="style-card-desc">一块还亮着的街机显示器：扫描线、曲面、荧光与色散。</span>
+            <span class="style-card-tags"><span>全屏扫描线</span><span>高饱和荧光色</span><span>霓虹光晕阴影</span><span>RGB 色散边缘</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-frutiger-aero.html" data-cat="retro glass">
+          <span class="style-card-thumb aero-thumb" aria-hidden="true">
+            <span class="aero-thumb-panel">
+              <span class="aero-thumb-title"></span>
+              <span class="aero-thumb-text"></span>
+              <span class="aero-thumb-text"></span>
+            </span>
+            <span class="aero-thumb-bubble aero-thumb-bubble--a"></span>
+            <span class="aero-thumb-bubble aero-thumb-bubble--b"></span>
+            <span class="thumb-strip"><span style="background:#c1c1c1"></span><span style="background:#ffffff"></span><span style="background:#adadad"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">Frutiger Aero <span class="style-card-en">Frutiger Aero</span></span>
+            <span class="style-card-desc">天蓝玻璃、水滴与草叶：一个相信科技会让世界更清透的年代。</span>
+            <span class="style-card-tags"><span>天蓝渐变铺底</span><span>玻璃亮边高光</span><span>0.95 果冻按压</span><span>气泡草叶点缀</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-anti-design.html" data-cat="brutal geometry">
+          <span class="style-card-thumb anti-thumb" aria-hidden="true">
+            <span class="anti-thumb-num">84</span>
+            <span class="anti-thumb-frame"></span>
+            <span class="anti-thumb-block"></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#363636"></span><span style="background:#ededed"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">反设计 <span class="style-card-en">Anti-Design</span></span>
+            <span class="style-card-desc">把界面设计的所有规矩一次违反掉，但每一条都违反得有意。</span>
+            <span class="style-card-tags"><span>4–8px 不对称粗框</span><span>最高饱和原色</span><span>8px 硬偏移</span><span>混乱必须可复现</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-brutalist-web.html" data-cat="brutal minimal">
+          <span class="style-card-thumb bweb-thumb" aria-hidden="true">
+            <span class="bweb-thumb-box">
+              <span class="bweb-thumb-title"></span>
+              <span class="bweb-thumb-text"></span>
+              <span class="bweb-thumb-text"></span>
+              <span class="bweb-thumb-link"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#121212"></span><span style="background:#000000"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">网页粗野主义 <span class="style-card-en">Brutalist Web</span></span>
+            <span class="style-card-desc">回到 1993 年的 HTML：系统字体、蓝下划线链接、纯白底、零装饰。</span>
+            <span class="style-card-tags"><span>纯白底</span><span>蓝下划线链接</span><span>1px 边框分区</span><span>零圆角零阴影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-holographic.html" data-cat="glass motion">
+          <span class="style-card-thumb holo-thumb" aria-hidden="true">
+            <span class="holo-thumb-orb holo-thumb-orb--a"></span>
+            <span class="holo-thumb-card">
+              <span class="holo-thumb-foil"></span>
+              <span class="holo-thumb-title"></span>
+              <span class="holo-thumb-text"></span>
+              <span class="holo-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0c0c0c"></span><span style="background:#727272"></span><span style="background:#aaaaaa"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">全息渐变 <span class="style-card-en">Holographic</span></span>
+            <span class="style-card-desc">彩虹色谱在深空底上随角度流动：像镭射膜在光里翻转。</span>
+            <span class="style-card-tags"><span>三色以上渐变</span><span>Spectrum Shift</span><span>深空底光球</span><span>禁纯色块</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-generative-art.html" data-cat="motion geometry">
+          <span class="style-card-thumb gen-thumb" aria-hidden="true">
+            <span class="gen-thumb-arc"></span>
+            <span class="gen-thumb-dot"></span>
+            <span class="gen-thumb-card">
+              <span class="gen-thumb-title"></span>
+              <span class="gen-thumb-text"></span>
+              <span class="gen-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#555555"></span><span style="background:#949494"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">生成艺术 <span class="style-card-en">Generative Art</span></span>
+            <span class="style-card-desc">一切由函数画出来：噪声、参数与缓动生成一个不重复的界面。</span>
+            <span class="style-card-tags"><span>种子可复现</span><span>HSL 旋转派生</span><span>全站等宽</span><span>数学缓动驱动</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-particle.html" data-cat="motion cyber">
+          <span class="style-card-thumb part-thumb" aria-hidden="true">
+            <svg class="part-thumb-links" viewBox="0 0 220 190" preserveAspectRatio="none"><line x1="56" y1="52" x2="130" y2="92" stroke="#64c8ff" stroke-width="1" opacity="0.4"/><line x1="130" y1="92" x2="66" y2="126" stroke="#a78bfa" stroke-width="1" opacity="0.3"/></svg>
+            <span class="part-thumb-dot part-thumb-dot--a"></span>
+            <span class="part-thumb-dot part-thumb-dot--b"></span>
+            <span class="part-thumb-dot part-thumb-dot--c"></span>
+            <span class="part-thumb-card">
+              <span class="part-thumb-title"></span>
+              <span class="part-thumb-text"></span>
+              <span class="part-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0e0e0e"></span><span style="background:#b7b7b7"></span><span style="background:#999999"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">粒子系统 <span class="style-card-en">Particle</span></span>
+            <span class="style-card-desc">深空里漂浮的点与连线：数据在流动，界面只是玻璃。</span>
+            <span class="style-card-tags"><span>距离阈值连线</span><span>玻璃卡承载内容</span><span>光晕代替投影</span><span>离屏自动暂停</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-vhs-aesthetic.html" data-cat="retro motion">
+          <span class="style-card-thumb vhs-thumb" aria-hidden="true">
+            <span class="vhs-thumb-panel">
+              <span class="vhs-thumb-title"></span>
+              <span class="vhs-thumb-text"></span>
+              <span class="vhs-thumb-text"></span>
+              <span class="vhs-thumb-tc">00:12:47</span>
+            </span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#494949"></span><span style="background:#c9c9c9"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">VHS 美学 <span class="style-card-en">VHS Aesthetic</span></span>
+            <span class="style-card-desc">一盘看了二十年的录像带：色偏、噪点、时间码在闪。</span>
+            <span class="style-card-tags"><span>洋红青双向偏移</span><span>常驻时间码</span><span>扫描线 + 噪点</span><span>失真是介质</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-terracotta.html" data-cat="nature material">
+          <span class="style-card-thumb terra-thumb" aria-hidden="true">
+            <span class="terra-thumb-card">
+              <span class="terra-thumb-pot"></span>
+              <span class="terra-thumb-title"></span>
+              <span class="terra-thumb-text"></span>
+              <span class="terra-thumb-text"></span>
+              <span class="terra-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#747474"></span><span style="background:#aaaaaa"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">赤陶暖调 <span class="style-card-en">Terracotta</span></span>
+            <span class="style-card-desc">赤陶、沙、奶油：地中海的午后，一切都在阳光里慢慢干。</span>
+            <span class="style-card-tags"><span>大地色系</span><span>暖阴影非灰黑</span><span>按下压印不缩放</span><span>禁一切冷色</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-monochrome.html" data-cat="minimal">
+          <span class="style-card-thumb mono-thumb" aria-hidden="true">
+            <span class="mono-thumb-card">
+              <span class="mono-thumb-title"></span>
+              <span class="mono-thumb-text"></span>
+              <span class="mono-thumb-text"></span>
+              <span class="mono-thumb-line"></span>
+              <span class="mono-thumb-label"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#fafafa"></span><span style="background:#111111"></span><span style="background:#e5e5e5"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">单色极简 <span class="style-card-en">Monochrome</span></span>
+            <span class="style-card-desc">没有颜色：层次全靠五档灰、字重与负空间。</span>
+            <span class="style-card-tags"><span>五档灰无色相</span><span>字重 ≤500</span><span>700ms 只改颜色</span><span>1px 结构</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-ink-wash.html" data-cat="handdrawn art">
+          <span class="style-card-thumb inkwash-thumb" aria-hidden="true">
+            <span class="inkwash-thumb-card">
+              <span class="inkwash-thumb-title"></span>
+              <span class="inkwash-thumb-text"></span>
+              <span class="inkwash-thumb-text"></span>
+              <span class="inkwash-thumb-seal"></span>
+              <span class="inkwash-thumb-rule"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f5f5f5"></span><span style="background:#2c2c2c"></span><span style="background:#4b4b4b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">水墨画风 <span class="style-card-en">Ink Wash</span></span>
+            <span class="style-card-desc">墨分五色，纸留大片空白：气韵在没画的地方。</span>
+            <span class="style-card-tags"><span>墨线 1px 20%</span><span>留白即内容</span><span>印章唯一彩色</span><span>hover 只渗不位移</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-mid-century-modern.html" data-cat="retro geometry">
+          <span class="style-card-thumb mcm-thumb" aria-hidden="true">
+            <span class="mcm-thumb-card">
+              <span class="mcm-thumb-title"></span>
+              <span class="mcm-thumb-text"></span>
+              <span class="mcm-thumb-text"></span>
+              <span class="mcm-thumb-btn"></span>
+            </span>
+            <span class="mcm-thumb-star"></span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#737373"></span><span style="background:#5e5e5e"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">中世纪现代 <span class="style-card-en">Mid-Century Modern</span></span>
+            <span class="style-card-desc">1950 年代的原子时代：星芒、有机曲线、饱和暖色平涂。</span>
+            <span class="style-card-tags"><span>饱和暖色平涂</span><span>宽字距标签</span><span>星芒签名装饰</span><span>2px 风格色描边</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-constructivism.html" data-cat="geometry art">
+          <span class="style-card-thumb cstm-thumb" aria-hidden="true">
+            <span class="cstm-thumb-plane"></span>
+            <span class="cstm-thumb-card">
+              <span class="cstm-thumb-title"></span>
+              <span class="cstm-thumb-text"></span>
+              <span class="cstm-thumb-text"></span>
+              <span class="cstm-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#e9e9e9"></span><span style="background:#2b2b2b"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">构成主义 <span class="style-card-en">Constructivism</span></span>
+            <span class="style-card-desc">红与黑切进纸里：一切都在斜着喊。</span>
+            <span class="style-card-tags"><span>严格三色</span><span>只有 900 字重</span><span>4px 黑边硬阴影</span><span>角度只用三档</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-op-art.html" data-cat="geometry art">
+          <span class="style-card-thumb opart-thumb" aria-hidden="true">
+            <span class="opart-thumb-rings"></span>
+            <span class="opart-thumb-pair"><i></i><i></i></span>
+            <span class="opart-thumb-btn"></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#000000"></span><span style="background:#5b5b5b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">欧普艺术 <span class="style-card-en">Op Art</span></span>
+            <span class="style-card-desc">黑白条纹让静止的页面看起来在动——眼睛被图案骗了。</span>
+            <span class="style-card-tags"><span>纯黑白高对比</span><span>8px 等宽图案</span><span>振动色对等面积</span><span>严格网格居中</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-islamic-geometric.html" data-cat="art culture">
+          <span class="style-card-thumb ig-thumb" aria-hidden="true">
+            <span class="ig-thumb-card">
+              <span class="ig-thumb-medal"></span>
+              <span class="ig-thumb-title"></span>
+              <span class="ig-thumb-text"></span>
+              <span class="ig-thumb-text"></span>
+              <span class="ig-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ececec"></span><span style="background:#363636"></span><span style="background:#a8a8a8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">伊斯兰几何 <span class="style-card-en">Islamic Geometric</span></span>
+            <span class="style-card-desc">无限延展的镶嵌图案、金与深蓝、严格的对称：装饰即秩序。</span>
+            <span class="style-card-tags"><span>深蓝金象牙三色</span><span>镶嵌无缝重复</span><span>2px 金线边框</span><span>严格对称居中</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-indian-festive.html" data-cat="culture art">
+          <span class="style-card-thumb fest-thumb" aria-hidden="true">
+            <span class="fest-thumb-card">
+              <span class="fest-thumb-mandala"></span>
+              <span class="fest-thumb-title"></span>
+              <span class="fest-thumb-text"></span>
+              <span class="fest-thumb-text"></span>
+              <span class="fest-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f8f8f8"></span><span style="background:#5f5f5f"></span><span style="background:#aeaeae"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">印度节庆 <span class="style-card-en">Indian Festive</span></span>
+            <span class="style-card-desc">朱红、藏红花橙、金线曼陀罗：排灯节的一盏灯。</span>
+            <span class="style-card-tags"><span>象牙底朱红藏红花</span><span>金色大量使用</span><span>曼陀罗与油灯</span><span>允许铺满重叠</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-pastel-goth.html" data-cat="art luxe">
+          <span class="style-card-thumb pgoth-thumb" aria-hidden="true">
+            <span class="pgoth-thumb-card">
+              <span class="pgoth-thumb-band"></span>
+              <span class="pgoth-thumb-title"></span>
+              <span class="pgoth-thumb-text"></span>
+              <span class="pgoth-thumb-text"></span>
+              <span class="pgoth-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#212121"></span><span style="background:#b3b3b3"></span><span style="background:#b7b7b7"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">粉彩哥特 <span class="style-card-en">Pastel Goth</span></span>
+            <span class="style-card-desc">骷髅长在薰衣草色的糖霜里：暗的内核，软的表面。</span>
+            <span class="style-card-tags"><span>深紫近黑底</span><span>哥特元素粉彩化</span><span>圆角 12–16px</span><span>边框粉彩 30%</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-maximalism.html" data-cat="art geometry">
+          <span class="style-card-thumb maxi-thumb" aria-hidden="true">
+            <span class="maxi-thumb-panel">
+              <span class="maxi-thumb-title"></span>
+              <span class="maxi-thumb-text"></span>
+              <span class="maxi-thumb-text"></span>
+              <span class="maxi-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#101010"></span><span style="background:#424242"></span><span style="background:#bfbfbf"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">极繁主义 <span class="style-card-en">Maximalism</span></span>
+            <span class="style-card-desc">多就是多：撞色、双层边框、多层阴影、图案叠图案。</span>
+            <span class="style-card-tags"><span>五支撞色并用</span><span>双层虚线粗边</span><span>多层错位实色影</span><span>零圆角</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-medieval-manuscript.html" data-cat="art culture">
+          <span class="style-card-thumb mscript-thumb" aria-hidden="true">
+            <span class="mscript-thumb-frame">
+              <span class="mscript-thumb-rubric"></span>
+              <span class="mscript-thumb-title"></span>
+              <span class="mscript-thumb-initial"></span>
+              <span class="mscript-thumb-text"></span>
+              <span class="mscript-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#e7e7e7"></span><span style="background:#323232"></span><span style="background:#a8a8a8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">中世纪手抄本 <span class="style-card-en">Medieval Manuscript</span></span>
+            <span class="style-card-desc">羊皮纸、双线边框、金红首字：一页被手指翻旧的书。</span>
+            <span class="style-card-tags"><span>双线边框 3+1px</span><span>泥金首字 4 倍</span><span>全页衬线</span><span>页边藤蔓</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-graffiti-street.html" data-cat="handdrawn art">
+          <span class="style-card-thumb graf-thumb" aria-hidden="true">
+            <span class="graf-thumb-panel">
+              <span class="graf-thumb-title"></span>
+              <span class="graf-thumb-text"></span>
+              <span class="graf-thumb-text"></span>
+              <span class="graf-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1c1c1c"></span><span style="background:#5d5d5d"></span><span style="background:#b6b6b6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">涂鸦街头 <span class="style-card-en">Graffiti Street</span></span>
+            <span class="style-card-desc">喷漆罐在砖墙上：撞色、粗边、随手歪着的字。</span>
+            <span class="style-card-tags"><span>错位砖墙纹理</span><span>900 全大写随机旋转</span><span>零模糊喷漆晕边</span><span>4px 粗边硬影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-marble-luxury.html" data-cat="luxe minimal">
+          <span class="style-card-thumb marble-thumb" aria-hidden="true">
+            <span class="marble-thumb-card">
+              <span class="marble-thumb-index"></span>
+              <span class="marble-thumb-title"></span>
+              <span class="marble-thumb-text"></span>
+              <span class="marble-thumb-text"></span>
+              <span class="marble-thumb-rule"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#acacac"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">大理石奢华 <span class="style-card-en">Marble Luxury</span></span>
+            <span class="style-card-desc">大理石白、古金细线、极细衬线：一切都在说「不急」。</span>
+            <span class="style-card-tags"><span>古金只作 1px 线</span><span>衬线仅 300/400</span><span>字距 ≥0.2em</span><span>零圆角零阴影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-victorian-botanical.html" data-cat="art nature">
+          <span class="style-card-thumb vbot-thumb" aria-hidden="true">
+            <span class="vbot-thumb-card">
+              <span class="vbot-thumb-title"></span>
+              <span class="vbot-thumb-text"></span>
+              <span class="vbot-thumb-text"></span>
+              <span class="vbot-thumb-leaf"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f6f6f6"></span><span style="background:#424242"></span><span style="background:#6a6a6a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">维多利亚植物 <span class="style-card-en">Victorian Botanical</span></span>
+            <span class="style-card-desc">钢笔线描的枝叶、旧纸、暗绿与金：一页自然史图鉴。</span>
+            <span class="style-card-tags"><span>1px 不填充线描</span><span>边框 1px 30% 暗绿</span><span>hover 描边转金</span><span>圆角 8px</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-cubism.html" data-cat="art geometry">
+          <span class="style-card-thumb cub-thumb" aria-hidden="true">
+            <span class="cub-thumb-frags"><i></i><i></i><i></i></span>
+            <span class="cub-thumb-title">Trois</span>
+            <span class="thumb-strip"><span style="background:#dddddd"></span><span style="background:#454545"></span><span style="background:#575757"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">立体主义 <span class="style-card-en">Cubism</span></span>
+            <span class="style-card-desc">把同一件东西从三个角度看，再压回一个平面。</span>
+            <span class="style-card-tags"><span>clip-path 切碎面</span><span>多视角叠加</span><span>2px 粗边</span><span>无渐变无阴影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-tropical-paradise.html" data-cat="nature luxe">
+          <span class="style-card-thumb trop-thumb" aria-hidden="true">
+            <span class="trop-thumb-sun"></span>
+            <span class="trop-thumb-card">
+              <span class="trop-thumb-title"></span>
+              <span class="trop-thumb-text"></span>
+              <span class="trop-thumb-text"></span>
+              <span class="trop-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#fcfcfc"></span><span style="background:#6b6b6b"></span><span style="background:#8d8d8d"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">热带天堂 <span class="style-card-en">Tropical Paradise</span></span>
+            <span class="style-card-desc">棕榈叶、芒果黄、珊瑚红：一张度假村的海报。</span>
+            <span class="style-card-tags"><span>暖黄底 + 蓝绿</span><span>圆角 16–24px</span><span>阴影带蓝绿色</span><span>棕榈叶遮挡构图</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-dev-platform.html" data-cat="product">
+          <span class="style-card-thumb devp-thumb" aria-hidden="true">
+            <span class="devp-thumb-card">
+              <span class="devp-thumb-title"></span>
+              <span class="devp-thumb-text"></span>
+              <span class="devp-thumb-text"></span>
+              <span class="devp-thumb-code"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f8f8f8"></span><span style="background:#5d5d5d"></span><span style="background:#d6d6d6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">开发者平台风 <span class="style-card-en">Dev Platform</span></span>
+            <span class="style-card-desc">灰度做结构，蓝只做交互，颜色永远带语义。</span>
+            <span class="style-card-tags"><span>五档灰阶承担结构</span><span>蓝只给可点击元素</span><span>圆角统一 6px</span><span>动效 80ms 内</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-witchcore.html" data-cat="art culture">
+          <span class="style-card-thumb witch-thumb" aria-hidden="true">
+            <span class="witch-thumb-card">
+              <span class="witch-thumb-moons"><i></i><i></i><i></i><i></i></span>
+              <span class="witch-thumb-title"></span>
+              <span class="witch-thumb-text"></span>
+              <span class="witch-thumb-text"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0c0c0c"></span><span style="background:#262626"></span><span style="background:#a8a8a8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">巫术核心 <span class="style-card-en">Witchcore</span></span>
+            <span class="style-card-desc">月相、塔罗、紫水晶与金符文：一次摆在深夜桌面上的占卜。</span>
+            <span class="style-card-tags"><span>深紫到午夜黑渐变</span><span>金符文 8px 微光</span><span>月相与塔罗语汇</span><span>星尘缓慢闪烁</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-neon-tokyo.html" data-cat="cyber retro">
+          <span class="style-card-thumb ntok-thumb" aria-hidden="true">
+            <span class="ntok-thumb-signs"><i></i><i></i><i></i></span>
+            <span class="ntok-thumb-card">
+              <span class="ntok-thumb-line"></span>
+              <span class="ntok-thumb-line ntok-thumb-line--2"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0b0b0b"></span><span style="background:#4f4f4f"></span><span style="background:#bebebe"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">霓虹东京 <span class="style-card-en">Neon Tokyo</span></span>
+            <span class="style-card-desc">雨后的歌舞伎町：招牌一层压一层，光倒映在湿沥青上。</span>
+            <span class="style-card-tags"><span>多层光晕叠加</span><span>招牌叠层 -4px</span><span>卡片 80% 玻璃</span><span>湿地反光</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-paper-craft.html" data-cat="material handdrawn">
+          <span class="style-card-thumb paper-thumb" aria-hidden="true">
+            <span class="paper-thumb-card">
+              <span class="paper-thumb-sticker"></span>
+              <span class="paper-thumb-title"></span>
+              <span class="paper-thumb-text"></span>
+              <span class="paper-thumb-text"></span>
+            </span>
+            <span class="paper-thumb-sheet"></span>
+            <span class="thumb-strip"><span style="background:#f7f7f7"></span><span style="background:#7c7c7c"></span><span style="background:#a3a3a3"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">纸艺手作 <span class="style-card-en">Paper Craft</span></span>
+            <span class="style-card-desc">一层层剪好的纸叠起来：每层都有一点阴影，每张都歪一点点。</span>
+            <span class="style-card-tags"><span>4px 固定偏移硬影</span><span>层叠最多三层</span><span>只剪一边</span><span>角贴跨边缘 8px</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-blueprint.html" data-cat="product geometry">
+          <span class="style-card-thumb bp-thumb" aria-hidden="true">
+            <span class="bp-thumb-card">
+              <span class="bp-thumb-fig"></span>
+              <span class="bp-thumb-title"></span>
+              <span class="bp-thumb-text"></span>
+              <span class="bp-thumb-text"></span>
+            </span>
+            <span class="bp-thumb-callout"></span>
+            <span class="thumb-strip"><span style="background:#373737"></span><span style="background:#ffffff"></span><span style="background:#878787"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">工程蓝图 <span class="style-card-en">Blueprint</span></span>
+            <span class="style-card-desc">蓝底白线：网格、坐标、标注、尺寸线，一张还没施工的图。</span>
+            <span class="style-card-tags"><span>8px + 80px 双层网格</span><span>全站等宽</span><span>标注用橙色</span><span>零圆角纯色填充</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-dopamine-design.html" data-cat="geometry motion">
+          <span class="style-card-thumb dopa-thumb" aria-hidden="true">
+            <span class="dopa-thumb-card">
+              <span class="dopa-thumb-tag"></span>
+              <span class="dopa-thumb-title"></span>
+              <span class="dopa-thumb-text"></span>
+              <span class="dopa-thumb-text"></span>
+              <span class="dopa-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#3e3e3e"></span><span style="background:#bfbfbf"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">多巴胺设计 <span class="style-card-en">Dopamine Design</span></span>
+            <span class="style-card-desc">高饱和撞色加圆润大字：让界面看起来像在笑。</span>
+            <span class="style-card-tags"><span>四支高饱和撞色</span><span>900 字重大标题</span><span>全圆角彩色投影</span><span>允许 emoji</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-task-console.html" data-cat="product retro">
+          <span class="style-card-thumb tcon-thumb" aria-hidden="true">
+            <span class="tcon-thumb-card">
+              <span class="tcon-thumb-title"></span>
+              <span class="tcon-thumb-text"></span>
+              <span class="tcon-thumb-text"></span>
+            </span>
+            <span class="tcon-thumb-btn"></span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#6f6f6f"></span><span style="background:#717171"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">任务控制台风 <span class="style-card-en">Task Console</span></span>
+            <span class="style-card-desc">近黑底、1px 白线、一支靛紫渐变：精密仪器般的工作界面。</span>
+            <span class="style-card-tags"><span>分层只用白 3%/6%</span><span>边框 1px 白 10%</span><span>hover 只改不透明度</span><span>动效 ≤150ms</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-shopify-clean.html" data-cat="product minimal">
+          <span class="style-card-thumb shop-thumb" aria-hidden="true">
+            <span class="shop-thumb-card">
+              <span class="shop-thumb-img"></span>
+              <span class="shop-thumb-name"></span>
+              <span class="shop-thumb-price"></span>
+              <span class="shop-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#626262"></span><span style="background:#e3e3e3"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">清爽电商 <span class="style-card-en">Clean Commerce</span></span>
+            <span class="style-card-desc">产品图说了算：界面只负责让价格和按钮无法被错过。</span>
+            <span class="style-card-tags"><span>价格对比度最高</span><span>图片固定 1:1 / 3:4</span><span>主按钮只用品牌绿</span><span>列表页禁装饰</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-luxury-retail.html" data-cat="luxe product">
+          <span class="style-card-thumb luxr-thumb" aria-hidden="true">
+            <span class="luxr-thumb-rule"></span>
+            <span class="luxr-thumb-shot"></span>
+            <span class="luxr-thumb-name"></span>
+            <span class="luxr-thumb-price"></span>
+            <span class="luxr-thumb-btn"></span>
+            <span class="thumb-strip"><span style="background:#f9f9f9"></span><span style="background:#acacac"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">奢品零售 <span class="style-card-en">Luxury Retail</span></span>
+            <span class="style-card-desc">暖白、3:4 的产品大图、细边框按钮：价格不必喊出来。</span>
+            <span class="style-card-tags"><span>产品图至少 3:4</span><span>金只在线与图标</span><span>按钮细边反色</span><span>无促销标签</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-fresh-market.html" data-cat="nature product">
+          <span class="style-card-thumb mkt-thumb" aria-hidden="true">
+            <span class="mkt-thumb-card">
+              <span class="mkt-thumb-shot"></span>
+              <span class="mkt-thumb-name"></span>
+              <span class="mkt-thumb-price"></span>
+            </span>
+            <span class="mkt-thumb-pill"></span>
+            <span class="thumb-strip"><span style="background:#f9f9f9"></span><span style="background:#868686"></span><span style="background:#dedede"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">鲜活市集 <span class="style-card-en">Fresh Market</span></span>
+            <span class="style-card-desc">暖奶油、南瓜橙、菜叶绿：一个让人想买菜的界面。</span>
+            <span class="style-card-tags"><span>暖奶油底 + 南瓜橙</span><span>主按钮全圆角</span><span>淡绿分类药丸</span><span>阴影极轻带绿调</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-data-dense.html" data-cat="product">
+          <span class="style-card-thumb dense-thumb" aria-hidden="true">
+            <span class="dense-thumb-table">
+              <span class="dense-thumb-head"></span>
+              <span class="dense-thumb-row"><span class="dense-thumb-cell"></span><span class="dense-thumb-cell"></span></span>
+              <span class="dense-thumb-row"><span class="dense-thumb-cell"></span><span class="dense-thumb-cell"></span></span>
+              <span class="dense-thumb-row"><span class="dense-thumb-cell"></span><span class="dense-thumb-cell"></span></span>
+            </span>
+            <span class="dense-thumb-tag"></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#fafafa"></span><span style="background:#7b7b7b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">数据密集 <span class="style-card-en">Data Dense</span></span>
+            <span class="style-card-desc">每像素都用来放数据：字号 10 到 12px，间距 4px 一跳，没有装饰。</span>
+            <span class="style-card-tags"><span>字号 10–12px</span><span>行高固定 28px</span><span>数字等宽右对齐</span><span>交替行色分层</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-oversized-typography.html" data-cat="motion minimal">
+          <span class="style-card-thumb otype-thumb" aria-hidden="true">
+            <span class="otype-thumb-word">TY<b>P</b>E</span>
+            <span class="otype-thumb-row"><span></span><span></span></span>
+            <span class="thumb-strip"><span style="background:#fafafa"></span><span style="background:#0a0a0a"></span><span style="background:#6d6d6d"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">超大字体排版 <span class="style-card-en">Oversized Typography</span></span>
+            <span class="style-card-desc">字就是版面：用 clamp() 让它随视口长满宽度，其余全退开。</span>
+            <span class="style-card-tags"><span>clamp() 连续缩放</span><span>三档配色</span><span>等宽小字 0.2em</span><span>零圆角零投影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-developer-terminal.html" data-cat="product retro">
+          <span class="style-card-thumb term-thumb" aria-hidden="true">
+            <span class="term-thumb-panel">
+              <span class="term-thumb-line"></span>
+              <span class="term-thumb-line term-thumb-line--out"></span>
+              <span class="term-thumb-line term-thumb-line--note"></span>
+              <span class="term-thumb-line"></span><span class="term-thumb-cursor"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#0d0d0d"></span><span style="background:#c2c2c2"></span><span style="background:#d6d6d6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">终端风 <span class="style-card-en">Terminal</span></span>
+            <span class="style-card-desc">整个网站就是一次终端会话：命令、输出、注释、状态栏。</span>
+            <span class="style-card-tags"><span>全站等宽</span><span>命令 + 输出成对</span><span>注释 # 开头</span><span>steps(1) 光标</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-latex-paper.html" data-cat="minimal product">
+          <span class="style-card-thumb papertex-thumb" aria-hidden="true">
+            <span class="papertex-thumb-abs">
+              <span class="papertex-thumb-line"></span>
+              <span class="papertex-thumb-line"></span>
+            </span>
+            <span class="papertex-thumb-h"></span>
+            <span class="papertex-thumb-table"><span class="papertex-thumb-cell"></span><span class="papertex-thumb-cell"></span></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#111111"></span><span style="background:#484848"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">论文排版风 <span class="style-card-en">Academic Paper</span></span>
+            <span class="style-card-desc">Computer Modern 的比例、编号的层级、三线表的克制：一张纸。</span>
+            <span class="style-card-tags"><span>全文衬线</span><span>1 / 1.1 编号</span><span>booktabs 三线表</span><span>零圆角零阴影</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-science-journal.html" data-cat="minimal product">
+          <span class="style-card-thumb scij-thumb" aria-hidden="true">
+            <span class="scij-thumb-col">
+              <span class="scij-thumb-h"></span>
+              <span class="scij-thumb-text"></span>
+              <span class="scij-thumb-text"></span>
+            </span>
+            <span class="scij-thumb-chart"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#717171"></span><span style="background:#727272"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">学术科普风 <span class="style-card-en">Science Journal</span></span>
+            <span class="style-card-desc">一条窄衬线栏讲论证，边注放旁白，图表突破版心放证据。</span>
+            <span class="style-card-tags"><span>正文 42rem 窄栏</span><span>边注浮右缘</span><span>图表 64rem 突破</span><span>booktabs 表格</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-korean-minimal.html" data-cat="minimal culture">
+          <span class="style-card-thumb kmin-thumb" aria-hidden="true">
+            <span class="kmin-thumb-card">
+              <span class="kmin-thumb-chip"></span>
+              <span class="kmin-thumb-title"></span>
+              <span class="kmin-thumb-text"></span>
+              <span class="kmin-thumb-text"></span>
+              <span class="kmin-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f9f9f9"></span><span style="background:#afafaf"></span><span style="background:#494949"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">韩式极简 <span class="style-card-en">Korean Minimal</span></span>
+            <span class="style-card-desc">暖白、粉彩、大圆角：克制但不冷，像一间光线很好的房间。</span>
+            <span class="style-card-tags"><span>暖白底不用纯白</span><span>低饱和粉彩</span><span>圆角 16–24px</span><span>永不全大写</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-african-textile.html" data-cat="culture art">
+          <span class="style-card-thumb aftex-thumb" aria-hidden="true">
+            <span class="aftex-thumb-card">
+              <span class="aftex-thumb-band"></span>
+              <span class="aftex-thumb-title"></span>
+              <span class="aftex-thumb-text"></span>
+              <span class="aftex-thumb-text"></span>
+              <span class="aftex-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1c1c1c"></span><span style="background:#656565"></span><span style="background:#c8c8c8"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">非洲纺织 <span class="style-card-en">African Textile</span></span>
+            <span class="style-card-desc">肯特布的经纬、阿迪雷的染痕：颜色与结构一起织出来。</span>
+            <span class="style-card-tags"><span>深木底 + 肯特橙</span><span>交替条纹织纹带</span><span>4px 粗边</span><span>0.24em 宽字距</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-studio-bold.html" data-cat="geometry">
+          <span class="style-card-thumb sbold-thumb" aria-hidden="true">
+            <span class="sbold-thumb-title"><span>Impact</span></span>
+            <span class="sbold-thumb-btn"></span>
+            <span class="sbold-thumb-block"></span>
+            <span class="sbold-thumb-block"></span>
+            <span class="thumb-strip"><span style="background:#1a1a1a"></span><span style="background:#8a8a8a"></span><span style="background:#f5f5f5"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">创意工作室风 <span class="style-card-en">Studio Bold</span></span>
+            <span class="style-card-desc">字大到撑满屏幕，色块直接切换，直角保持自信。</span>
+            <span class="style-card-tags"><span>标题 96–128px</span><span>深浅底色切换</span><span>零圆角</span><span>珊瑚单强调</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-gallery-dark.html" data-cat="luxe minimal">
+          <span class="style-card-thumb gdark-thumb" aria-hidden="true">
+            <span class="gdark-thumb-photo"></span>
+            <span class="gdark-thumb-label"></span>
+            <span class="gdark-thumb-line"></span>
+            <span class="thumb-strip"><span style="background:#0a0a0a"></span><span style="background:#9c9c9c"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">暗色画廊风 <span class="style-card-en">Gallery Dark</span></span>
+            <span class="style-card-desc">近黑的展厅里只有照片发光，其余一切退到看不见。</span>
+            <span class="style-card-tags"><span>近黑底 #0a0a0a</span><span>展签琥珀元信息</span><span>全幅无遮罩</span><span>只有 1px 描边</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-warm-organic.html" data-cat="nature material">
+          <span class="style-card-thumb worg-thumb" aria-hidden="true">
+            <span class="worg-thumb-card">
+              <span class="worg-thumb-pebble"></span>
+              <span class="worg-thumb-title"></span>
+              <span class="worg-thumb-text"></span>
+              <span class="worg-thumb-text"></span>
+              <span class="worg-thumb-btn"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f1f1f1"></span><span style="background:#7c7c7c"></span><span style="background:#848484"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">暖感有机风 <span class="style-card-en">Warm Organic</span></span>
+            <span class="style-card-desc">陶土红、橄榄绿、暖白纸：一个像被手摸过的界面。</span>
+            <span class="style-card-tags"><span>暖白纸底</span><span>陶土红主强调</span><span>橄榄绿点缀</span><span>圆角统一 8px</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-launch-keynote.html" data-cat="product motion">
+          <span class="style-card-thumb lkey-thumb" aria-hidden="true">
+            <span class="lkey-thumb-label"></span>
+            <span class="lkey-thumb-title"></span>
+            <span class="lkey-thumb-btn"></span>
+            <span class="lkey-thumb-device"></span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#878787"></span><span style="background:#f5f5f5"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">发布会主题 <span class="style-card-en">Launch Keynote</span></span>
+            <span class="style-card-desc">纯黑舞台，产品自己发光，一屏一个主张，滚动即播放。</span>
+            <span class="style-card-tags"><span>纯黑舞台</span><span>电蓝单强调</span><span>一屏一主张</span><span>滚动擦洗帧序列</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-luxe-lookbook.html" data-cat="luxe minimal">
+          <span class="style-card-thumb luxe-thumb" aria-hidden="true">
+            <span class="luxe-thumb-film"></span>
+            <span class="luxe-thumb-title"></span>
+            <span class="luxe-thumb-grid"><span class="luxe-thumb-cell"></span><span class="luxe-thumb-cell"></span></span>
+            <span class="luxe-thumb-gold"></span>
+            <span class="thumb-strip"><span style="background:#f5f5f5"></span><span style="background:#121212"></span><span style="background:#7e7e7e"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">奢华画册 <span class="style-card-en">Luxe Lookbook</span></span>
+            <span class="style-card-desc">瓷白、墨黑、一点哑光金：奢侈来自删掉的部分。</span>
+            <span class="style-card-tags"><span>瓷白底</span><span>哑光金唯一强调</span><span>全站方角</span><span>1px hairline 分栏</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-shader-gradient.html" data-cat="motion glass">
+          <span class="style-card-thumb shgr-thumb" aria-hidden="true">
+            <span class="shgr-thumb-field"></span>
+            <span class="shgr-thumb-panel"></span>
+            <span class="shgr-thumb-btn"></span>
+            <span class="thumb-strip"><span style="background:#090909"></span><span style="background:#6f6f6f"></span><span style="background:#afafaf"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">着色器渐变 <span class="style-card-en">Shader Gradient</span></span>
+            <span class="style-card-desc">一块真的在计算的虹彩场，玻璃面板浮在上面。</span>
+            <span class="style-card-tags"><span>实时 WebGL 片元着色器</span><span>DPR 封顶 2</span><span>离屏暂停 rAF</span><span>UI 只用一支紫</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-pastel-ui.html" data-cat="material minimal">
+          <span class="style-card-thumb pui-thumb" aria-hidden="true">
+            <span class="pui-thumb-card">
+              <span class="pui-thumb-tag"></span>
+              <span class="pui-thumb-title"></span>
+              <span class="pui-thumb-text"></span>
+              <span class="pui-thumb-text"></span>
+              <span class="pui-thumb-cluster"><span class="pui-thumb-dot"></span><span class="pui-thumb-dot"></span><span class="pui-thumb-dot"></span></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f9f9f9"></span><span style="background:#595959"></span><span style="background:#e6e6e6"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">粉彩应用风 <span class="style-card-en">Pastel UI</span></span>
+            <span class="style-card-desc">暖奶油底上一层层淡色分组：友好，但每个字都读得清。</span>
+            <span class="style-card-tags"><span>暖奶油底</span><span>粉彩只做分组</span><span>触控目标 44px</span><span>单列 480px</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-mobile-editorial.html" data-cat="minimal product">
+          <span class="style-card-thumb med-thumb" aria-hidden="true">
+            <span class="med-thumb-strip"><span class="med-thumb-card"><span class="med-thumb-img"></span></span><span class="med-thumb-card"><span class="med-thumb-img"></span></span></span>
+            <span class="med-thumb-story"><span class="med-thumb-tag"></span><span class="med-thumb-title"></span><span class="med-thumb-text"></span></span>
+            <span class="thumb-strip"><span style="background:#fdfdfd"></span><span style="background:#919191"></span><span style="background:#d2d2d2"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">移动编辑风 <span class="style-card-en">Mobile Editorial</span></span>
+            <span class="style-card-desc">把杂志的节奏压进手机：衬线标题、暖纸面、单列流。</span>
+            <span class="style-card-tags"><span>衬线标题 + 无衬线正文</span><span>珊瑚唯一强行动色</span><span>单列 480px</span><span>底部固定导航</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-soft-utility.html" data-cat="material product">
+          <span class="style-card-thumb sutil-thumb" aria-hidden="true">
+            <span class="sutil-thumb-card">
+              <span class="sutil-thumb-icon"></span>
+              <span class="sutil-thumb-title"></span>
+              <span class="sutil-thumb-note"></span>
+              <span class="sutil-thumb-bar"><span></span></span>
+            </span>
+            <span class="sutil-thumb-chips"><span class="sutil-thumb-chip"></span><span class="sutil-thumb-chip"></span><span class="sutil-thumb-chip"></span><span class="sutil-thumb-chip"></span></span>
+            <span class="thumb-strip"><span style="background:#f7f7f7"></span><span style="background:#525252"></span><span style="background:#cdcdcd"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">柔和工具风 <span class="style-card-en">Soft Utility</span></span>
+            <span class="style-card-desc">效率工具也可以温和：深青压住信息，柔色安抚手感。</span>
+            <span class="style-card-tags"><span>深青主色</span><span>柔色只做分类</span><span>圆角 12–16px</span><span>动效 200ms</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-diffraction-foil.html" data-cat="glass motion">
+          <span class="style-card-thumb foil-thumb" aria-hidden="true">
+            <span class="foil-thumb-card"><span class="foil-thumb-face"></span><span class="foil-thumb-line"></span></span>
+            <span class="foil-thumb-strip"></span>
+            <span class="foil-thumb-btn"></span>
+            <span class="thumb-strip"><span style="background:#0c0c0c"></span><span style="background:#a3a3a3"></span><span style="background:#c9c9c9"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">镭射箔 <span class="style-card-en">Diffraction Foil</span></span>
+            <span class="style-card-desc">光就是油墨：让银箔按光栅方程响应一盏共享的灯。</span>
+            <span class="style-card-tags"><span>λ = d × |dot(h, k)| / m</span><span>共享 300px 指针灯</span><span>整页一个 WebGL2 上下文</span><span>CSS 平替跟随同灯</span></span>
+          </span>
+        </a>
+        <a class="style-card" href="style-e-ink.html" data-cat="minimal product">
+          <span class="style-card-thumb eink-thumb" aria-hidden="true">
+            <span class="eink-thumb-row"><span class="eink-thumb-index"></span><span class="eink-thumb-line"></span><span class="eink-thumb-num"></span></span>
+            <span class="eink-thumb-row"><span class="eink-thumb-index"></span><span class="eink-thumb-line"></span><span class="eink-thumb-num"></span></span>
+            <span class="eink-thumb-chart"><span class="eink-thumb-bar" style="height:60%"></span><span class="eink-thumb-bar" style="height:90%"></span><span class="eink-thumb-bar" style="height:45%"></span></span>
+            <span class="thumb-strip"><span style="background:#f3f3f3"></span><span style="background:#212121"></span><span style="background:#e4e4e4"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">电子纸 <span class="style-card-en">E-Ink</span></span>
+            <span class="style-card-desc">暖纸白承载墨色信息，灰阶和点阵只在需要分组的地方出现。</span>
+            <span class="style-card-tags"><span>暖纸底 + 墨色字</span><span>数字列对齐</span><span>细规则分组</span><span>状态配文字与形状</span></span>
+          </span>
+        </a>
+
+      </section>
+
+      <div class="style-filters" data-collection="layout" role="group" aria-label="按分类筛选布局模式" hidden></div>
+
+      <section class="style-grid" data-collection="layout" hidden>
+        <a class="style-card" href="style-bento-layout.html" data-cat="grid">
+          <span class="style-card-thumb bento-thumb" aria-hidden="true">
+            <span class="bento-thumb-a"></span>
+            <span class="bento-thumb-b"></span>
+            <span class="bento-thumb-c"></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">便当盒布局 <span class="style-card-en">Bento Grid</span></span>
+            <span class="style-card-desc">大小不一的卡片共用一张网格，尺寸本身就是层级。</span>
+            <span class="style-card-tags"><span>尺寸层级</span><span>4 栏网格</span><span>24px 圆角</span><span>锚点卡</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-masonry-layout.html" data-cat="grid">
+          <span class="style-card-thumb masonry-thumb" aria-hidden="true">
+            <span class="masonry-thumb-a"></span>
+            <span class="masonry-thumb-b"></span>
+            <span class="masonry-thumb-c"></span>
+            <span class="masonry-thumb-d"></span>
+            <span class="masonry-thumb-e"></span>
+            <span class="masonry-thumb-f"></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">瀑布流布局 <span class="style-card-en">Masonry Layout</span></span>
+            <span class="style-card-desc">高度不一的卡片顺着列往下淌，扫描线永远不是水平的。</span>
+            <span class="style-card-tags"><span>高度错落</span><span>图片主体</span><span>单一间距</span><span>hover 只动图</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-split-layout.html" data-cat="hero">
+          <span class="style-card-thumb split-thumb" aria-hidden="true">
+            <span class="split-thumb-a"><i></i><i></i><i></i><b></b></span>
+            <span class="split-thumb-b"><i></i><i></i><i></i><b></b></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">分屏布局 <span class="style-card-en">Split Layout</span></span>
+            <span class="style-card-desc">两块内容各占一半，靠对比产生张力，靠平衡避免刺眼。</span>
+            <span class="style-card-tags"><span>两半对照</span><span>反色按钮</span><span>非对称 2:3</span><span>移动堆叠</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-full-scroll.html" data-cat="scroll">
+          <span class="style-card-thumb scroll-thumb" aria-hidden="true">
+            <span class="scroll-thumb-a"><i></i></span>
+            <span class="scroll-thumb-b"><i></i></span>
+            <span class="scroll-thumb-c"><i></i></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">全屏滚动布局 <span class="style-card-en">Snap Scroll</span></span>
+            <span class="style-card-desc">一屏一个场景，滚动一下换一幕：页面即分镜。</span>
+            <span class="style-card-tags"><span>一屏一幕</span><span>强制吸附</span><span>错落进场</span><span>场景进度</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-dashboard-layout.html" data-cat="app">
+          <span class="style-card-thumb dash-thumb" aria-hidden="true">
+            <span class="dash-thumb-rail"><i></i><i></i><i></i></span>
+            <span class="dash-thumb-body">
+              <span class="dash-thumb-kpis"><i></i><i></i><i></i></span>
+              <span class="dash-thumb-chart"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#181818"></span><span style="background:#6f6f6f"></span><span style="background:#919191"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">仪表盘布局 <span class="style-card-en">Dashboard Layout</span></span>
+            <span class="style-card-desc">指标先行：先给数字，再给图，最后才给细节。</span>
+            <span class="style-card-tags"><span>KPI 三件事</span><span>tabular-nums</span><span>2:1 图表区</span><span>44px 行高</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-timeline-vertical.html" data-cat="sequence">
+          <span class="style-card-thumb vtimeline-thumb" aria-hidden="true">
+            <span class="vtl-thumb-line"></span>
+            <span class="vtl-thumb-card l1"></span>
+            <span class="vtl-thumb-node n1"></span>
+            <span class="vtl-thumb-card r1"></span>
+            <span class="vtl-thumb-node n2"></span>
+            <span class="vtl-thumb-card l2"></span>
+            <span class="vtl-thumb-node n3"></span>
+            <span class="thumb-strip"><span style="background:#282828"></span><span style="background:#7b7b7b"></span><span style="background:#919191"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">垂直时间线布局 <span class="style-card-en">Vertical Timeline</span></span>
+            <span class="style-card-desc">一条贯穿的线，把时间钉在上面：左右交替，节奏由节点控制。</span>
+            <span class="style-card-tags"><span>连接线不断</span><span>节点等大</span><span>左右交替</span><span>节点卡片联动</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-f-pattern-layout.html" data-cat="flow">
+          <span class="style-card-thumb fpat-thumb" aria-hidden="true">
+            <span class="fpat-thumb-head">
+              <span class="fpat-thumb-title"></span>
+              <span class="fpat-thumb-lead"></span>
+            </span>
+            <span class="fpat-thumb-row r1">
+              <span class="fpat-thumb-bar"></span>
+              <span class="fpat-thumb-lines"><i></i><i></i></span>
+            </span>
+            <span class="fpat-thumb-row r2">
+              <span class="fpat-thumb-bar b"></span>
+              <span class="fpat-thumb-lines"><i></i><i></i></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#f9f9f9"></span><span style="background:#1b1b1b"></span><span style="background:#5f5f5f"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">F 型布局 <span class="style-card-en">F-Pattern Layout</span></span>
+            <span class="style-card-desc">按眼动轨迹排版：先横扫顶部，再下移横扫，最后沿左缘直落。</span>
+            <span class="style-card-tags"><span>关键词前置</span><span>34em 行宽</span><span>左缘竖条</span><span>极简强调</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-z-pattern-layout.html" data-cat="flow">
+          <span class="style-card-thumb zpat-thumb" aria-hidden="true">
+            <span class="zpat-thumb-header">
+              <span class="zpat-thumb-logo"></span>
+              <span class="zpat-thumb-btn"></span>
+            </span>
+            <span class="zpat-thumb-diag">
+              <span class="zpat-thumb-lines"><i></i><i></i></span>
+              <span class="zpat-thumb-vis"></span>
+            </span>
+            <span class="zpat-thumb-band"><i></i></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#6f6f6f"></span><span style="background:#171717"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">Z 型布局 <span class="style-card-en">Z-Pattern Layout</span></span>
+            <span class="style-card-desc">视线走 Z 字形：左上到右上，斜穿到左下，再落到右下。</span>
+            <span class="style-card-tags"><span>三段固定结构</span><span>CTA 在终点</span><span>页头中留空</span><span>高对比牵引</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-holy-grail-layout.html" data-cat="app grid">
+          <span class="style-card-thumb hgrail-thumb" aria-hidden="true">
+            <span class="hgrail-thumb-top"></span>
+            <span class="hgrail-thumb-cols">
+              <span class="hgrail-thumb-side"></span>
+              <span class="hgrail-thumb-mid">
+                <span class="hgrail-thumb-card"></span>
+                <span class="hgrail-thumb-card hgrail-thumb-card--2"></span>
+              </span>
+              <span class="hgrail-thumb-side hgrail-thumb-side--r"></span>
+            </span>
+            <span class="hgrail-thumb-bottom"></span>
+            <span class="thumb-strip"><span style="background:#f4f4f4"></span><span style="background:#7b7b7b"></span><span style="background:#282828"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">圣杯布局 <span class="style-card-en">Holy Grail Layout</span></span>
+            <span class="style-card-desc">页头、三栏、页脚：网页布局的原型，二十五年没过时。</span>
+            <span class="style-card-tags"><span>240/弹性/280</span><span>grid 等高</span><span>sticky 页头</span><span>窄屏折叠</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-asymmetric-grid.html" data-cat="grid">
+          <span class="style-card-thumb asym-thumb" aria-hidden="true">
+            <span class="asym-thumb-block asym-thumb-block--ink"></span>
+            <span class="asym-thumb-block asym-thumb-block--red"></span>
+            <span class="asym-thumb-block asym-thumb-block--yellow"></span>
+            <span class="thumb-strip"><span style="background:#ffffff"></span><span style="background:#626262"></span><span style="background:#0f0f0f"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">非对称网格 <span class="style-card-en">Asymmetric Grid</span></span>
+            <span class="style-card-desc">列宽不相等、元素互相压着：张力来自失衡，而不是来自装饰。</span>
+            <span class="style-card-tags"><span>1fr 2.2fr 0.6fr</span><span>负位移重叠</span><span>字号差 10 倍</span><span>硬阴影 6px 6px 0</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-parallax-sections.html" data-cat="scroll">
+          <span class="style-card-thumb psec-thumb" aria-hidden="true">
+            <span class="psec-thumb-veil"></span>
+            <span class="psec-thumb-card">
+              <span class="psec-thumb-title"></span>
+              <span class="psec-thumb-text"></span>
+              <span class="psec-thumb-text"></span>
+            </span>
+            <span class="psec-thumb-cue"></span>
+            <span class="thumb-strip"><span style="background:#373737"></span><span style="background:#fafafa"></span><span style="background:#7b7b7b"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">视差滚动 <span class="style-card-en">Parallax Sections</span></span>
+            <span class="style-card-desc">每一屏都是一张定住的背景，内容从上面滑过去。</span>
+            <span class="style-card-tags"><span>100vh × bg-fixed</span><span>80% 海军遮罩</span><span>90% 白卡承载</span><span>160px 渐变缝合</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-scrollytelling.html" data-cat="scroll sequence">
+          <span class="style-card-thumb scr-thumb" aria-hidden="true">
+            <span class="scr-thumb-canvas"><i></i><i></i><i></i><i></i></span>
+            <span class="thumb-strip"><span style="background:#111111"></span><span style="background:#6a6a6a"></span><span style="background:#6f6f6f"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">滚动叙事 <span class="style-card-en">Scrollytelling</span></span>
+            <span class="style-card-desc">滚动手势就是时间轴：画面钉住，文字一步步走过，每步换一个状态。</span>
+            <span class="style-card-tags"><span>sticky 画布 100vh</span><span>离散切换</span><span>只改 transform/opacity</span><span>数值有静态 DOM</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-parallax-editorial.html" data-cat="scroll">
+          <span class="style-card-thumb ped-thumb" aria-hidden="true">
+            <span class="ped-thumb-img"></span>
+            <span class="ped-thumb-lines">
+              <span class="ped-thumb-line ped-thumb-line--cap"></span>
+              <span class="ped-thumb-line"></span>
+              <span class="ped-thumb-line"></span>
+            </span>
+            <span class="ped-thumb-quote"></span>
+            <span class="thumb-strip"><span style="background:#f0f0f0"></span><span style="background:#565656"></span><span style="background:#171717"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">视差杂志 <span class="style-card-en">Parallax Editorial</span></span>
+            <span class="style-card-desc">暖纸上的长文，前后景以不同速度移动，翻页被拉成一段旅程。</span>
+            <span class="style-card-tags"><span>砖红首字下沉</span><span>视差只用 transform</span><span>sticky 图文交叠</span><span>行宽 ≤75 字符</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-horizontal-gallery.html" data-cat="scroll">
+          <span class="style-card-thumb hgal-thumb" aria-hidden="true">
+            <span class="hgal-thumb-art hgal-thumb-art--a"></span>
+            <span class="hgal-thumb-art hgal-thumb-art--b"></span>
+            <span class="hgal-thumb-art hgal-thumb-art--c"></span>
+            <span class="hgal-thumb-no">NO.01</span>
+            <span class="thumb-strip"><span style="background:#fcfcfc"></span><span style="background:#686868"></span><span style="background:#1a1a1a"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">横滚画廊 <span class="style-card-en">Horizontal Gallery</span></span>
+            <span class="style-card-desc">白盒展厅：作品沿一条横向轨道排开，看展变成一次散步。</span>
+            <span class="style-card-tags"><span>snap-x 吸附轨道</span><span>图注在图外</span><span>sticky 章节首格</span><span>分割线只有 1px</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-card-stack.html" data-cat="sequence">
+          <span class="style-card-thumb cstack-thumb" aria-hidden="true">
+            <span class="cstack-thumb-deck">
+              <span class="cstack-thumb-card"></span>
+              <span class="cstack-thumb-card"></span>
+              <span class="cstack-thumb-card"></span>
+            </span>
+            <span class="thumb-strip"><span style="background:#1b1b1b"></span><span style="background:#696969"></span><span style="background:#a2a2a2"></span><span style="background:#ffffff"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">卡片堆叠布局 <span class="style-card-en">Card Stack</span></span>
+            <span class="style-card-desc">三张卡片前后错开叠着，用 Z 轴而不是排布说明顺序。</span>
+            <span class="style-card-tags"><span>Z 轴层级</span><span>12px 偏移</span><span>缩放分层</span><span>位置指示器</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-sidebar-fixed.html" data-cat="app">
+          <span class="style-card-thumb sfixed-thumb" aria-hidden="true">
+            <span class="sfixed-thumb-rail"><span></span><span></span><span></span><span></span></span>
+            <span class="sfixed-thumb-main">
+              <span class="sfixed-thumb-bar"></span>
+              <span class="sfixed-thumb-cards">
+                <span class="sfixed-thumb-card"></span>
+                <span class="sfixed-thumb-card"></span>
+                <span class="sfixed-thumb-card"></span>
+              </span>
+            </span>
+            <span class="thumb-strip"><span style="background:#282828"></span><span style="background:#7b7b7b"></span><span style="background:#919191"></span><span style="background:#ffffff"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">固定侧边栏布局 <span class="style-card-en">Fixed Sidebar</span></span>
+            <span class="style-card-desc">一条常驻的深色侧栏，主区只负责滚动内容。</span>
+            <span class="style-card-tags"><span>240px 常驻栏</span><span>56px 工具栏</span><span>12px 圆角</span><span>150ms 过渡</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-magazine-grid.html" data-cat="grid">
+          <span class="style-card-thumb mgrid-thumb" aria-hidden="true">
+            <span class="mgrid-thumb-block mgrid-thumb-lead"></span>
+            <span class="mgrid-thumb-block mgrid-thumb-story"></span>
+            <span class="mgrid-thumb-block mgrid-thumb-brief"></span>
+            <span class="mgrid-thumb-block mgrid-thumb-quote"></span>
+            <span class="mgrid-thumb-block mgrid-thumb-deep"></span>
+            <span class="thumb-strip"><span style="background:#1a1a1a"></span><span style="background:#5f5f5f"></span><span style="background:#848484"></span><span style="background:#ffffff"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">杂志网格布局 <span class="style-card-en">Magazine Grid</span></span>
+            <span class="style-card-desc">大块讲主故事，小块填次要，尺寸就是优先级。</span>
+            <span class="style-card-tags"><span>grid-template-areas</span><span>头条 2×2</span><span>衬线标题</span><span>栏目分色</span></span>
+          </span>
+        </a>
+
+        <a class="style-card" href="style-hero-fullscreen.html" data-cat="hero">
+          <span class="style-card-thumb hfull-thumb" aria-hidden="true">
+            <span class="hfull-thumb-glow"></span>
+            <span class="hfull-thumb-title"></span>
+            <span class="hfull-thumb-sub"></span>
+            <span class="hfull-thumb-cta"></span>
+            <span class="thumb-strip"><span style="background:#000000"></span><span style="background:#8a8a8a"></span><span style="background:#b1b1b1"></span><span style="background:#ffffff"></span></span>
+          </span>
+          <span class="style-card-body">
+            <span class="style-card-name">全屏英雄区布局 <span class="style-card-en">Full-Screen Hero</span></span>
+            <span class="style-card-desc">一整屏的画面先说话，文字只是画面上的标注。</span>
+            <span class="style-card-tags"><span>100vh 满屏</span><span>40% 遮罩</span><span>96px 标题</span><span>反色按钮</span></span>
+          </span>
+        </a>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>像素艺术风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body pixel">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 13 · 浅色版面</p>
+        <h1>像素艺术风 <span class="style-card-en">PIXEL ART</span></h1>
+        <p class="page-lead">没有过渡的世界：所有状态变化都是硬切，像 8-bit 游戏机。</p>
+        <div class="style-card-tags"><span>零圆角</span><span>4px 黑框</span><span>调色板硬切</span><span>transition-none</span></div>
+      </header>
+
+      <section class="pixel-hero">
+        <div class="pixel-hero-copy">
+          <p>像素艺术风的美学来自硬件限制：只有几种颜色、没有抗锯齿、没有过渡。落到网页上就是三条硬规则——零圆角、4px 纯黑边框、4px 零模糊的偏移阴影。最关键的一条是 transition-none：像素游戏是状态机而不是动画引擎，hover 与按下必须瞬间完成，任何淡入淡出都会毁掉这个错觉。</p>
+          <p>交互语义也照搬游戏：hover 直接把调色板里的某一个颜色换成另一个（红的按钮变蓝），按下时元素位移 4px 且阴影归零，像按钮被真正按到底。右边的按钮和卡片都按这个规则跑——移上去、按下去试试。</p>
+        </div>
+        <div class="pixel-demo">
+          <div class="pixel-card-demo">
+            <span class="pixel-label">LEVEL 1</span>
+            <p class="pixel-demo-title">硬切，不淡入。</p>
+            <p class="pixel-demo-body">状态机，不是动画引擎。</p>
+            <button type="button" class="pixel-btn">START</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1c2c"></span><span class="palette-name">Deep Indigo</span><code>#1a1c2c</code></li>
+          <li><span class="swatch-chip" style="background:#ff004d"></span><span class="palette-name">Pixel Red</span><code>#ff004d</code></li>
+          <li><span class="swatch-chip" style="background:#00e436"></span><span class="palette-name">Pixel Green</span><code>#00e436</code></li>
+          <li><span class="swatch-chip" style="background:#29adff"></span><span class="palette-name">Pixel Blue</span><code>#29adff</code></li>
+          <li><span class="swatch-chip" style="background:#ffec27"></span><span class="palette-name">Pixel Yellow</span><code>#ffec27</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Paper</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>调色板就六支，不许调出界。深靛承担全部结构：边框、阴影、正文与导航；纸白只与深靛配对，不做灰度过渡。红管主行动与危险，蓝管链接与 hover 替换，绿管成功与生命值，黄只给需要立刻被看到的小元素。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1c2c"></span><div><strong>Deep Indigo</strong><span class="swatch-role">所有边框、阴影、深色区块与正文。8-bit 调色板里最暗的一档。</span></div><code>#1a1c2c</code><code>--color-deep-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Paper</strong><span class="swatch-role">面板填充。只与深靛配对，不做灰度过渡。</span></div><code>#ffffff</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#ff004d"></span><div><strong>Pixel Red</strong><span class="swatch-role">主行动与危险动作。hover 时会被换成像素蓝。</span></div><code>#ff004d</code><code>--color-pixel-red</code></li>
+          <li><span class="swatch-chip" style="background:#00e436"></span><div><strong>Pixel Green</strong><span class="swatch-role">成功与生命值，游戏语义里的正向状态。</span></div><code>#00e436</code><code>--color-pixel-green</code></li>
+          <li><span class="swatch-chip" style="background:#29adff"></span><div><strong>Pixel Blue</strong><span class="swatch-role">链接、选中态与 hover 替换色。</span></div><code>#29adff</code><code>--color-pixel-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ffec27"></span><div><strong>Pixel Yellow</strong><span class="swatch-role">金币、得分与高亮，用于需要立刻被看到的小元素。</span></div><code>#ffec27</code><code>--color-pixel-yellow</code></li>
+        </ul>
+        <p class="style-body-note">阴影只有两档硬偏移：<code>4px 4px 0 #1a1c2c</code> 与 hover 的 <code>4px 4px 0 #ff004d</code>；按下时归零。没有第三档，也没有模糊。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与按钮用像素字体 Press Start 2P，全大写；正文用等宽字体保持可读。字距必须偏宽，否则像素会粘在一起。字号只取 8-bit 值：10、12、16、24、32。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="pixel-specimen-title">PIXEL ART 0123456789</p>
+            <p class="specimen-meta">Press Start 2P — 标题与按钮。替代栈：'Courier New', ui-monospace, monospace · 400 · 字距 0.05em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="pixel-specimen-label">正文用等宽字体。0123456789</p>
+            <p class="specimen-meta">正文 12–16px / 400 / 行高 1.7；大写标签 10px / 0.12em；文字一律深靛 #1a1c2c</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Press Start 2P</td><td>400</td><td>32px</td><td>1.2</td><td>0.05em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Press Start 2P</td><td>400</td><td>24px</td><td>1.3</td><td>0.05em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>monospace</td><td>400</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>monospace</td><td>400</td><td>12px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Press Start 2P</td><td>400</td><td>10px</td><td>1.4</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1024px、容器内边距 24px，区块间距 64px。所有尺寸取 4 的倍数，元素按 4px 网格对齐。允许用点阵棋盘格作为区块背景，但面积不超过一屏的 30%。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0——卡片、按钮、输入框</td></tr>
+            <tr><td>边框</td><td>4px 深靛，绝不用细边框</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>导航高度</td><td>56px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Pixel Button</h3>
+            <p class="style-body-comp-role">主行动按钮。像素红填充、纸白字、4px 深靛边框、零圆角、4px 硬偏移阴影；字级 12px、全大写、字距 0.12em。hover 时填充硬切到像素蓝、阴影硬切到像素红；按下时位移 4px 4px 且阴影归零。全程 transition-none。</p>
+            <button type="button" class="pixel-btn">INSERT COIN</button>
+          </div>
+          <div class="comp-item">
+            <h3>Pixel Card</h3>
+            <p class="style-body-comp-role">内容卡与关卡卡片。纸白填充、4px 深靛边框、零圆角、24px 内边距、4px 硬阴影；标题 24px 全大写，正文 12px 等宽。hover 时边框与阴影硬切到像素红、标题同步变红，元素本身不位移。上方演示卡即此组件。</p>
+            <p class="pixel-comp-note">移上去看调色板替换——没有淡入。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pixel Input</h3>
+            <p class="style-body-comp-role">输入框。纸白填充、4px 深靛边框、零圆角、padding 12px 16px、12px 等宽全大写，占位符用深靛 50%。聚焦时用 2px 像素蓝的内描边（inset 0 0 0 2px），不改外框尺寸。</p>
+            <label class="pixel-field"><span>PLAYER NAME</span><input type="text" value="SOLEN" maxlength="8"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Pixel Nav</h3>
+            <p class="style-body-comp-role">顶部导航。深靛填充、底部 4px 像素红边框、白字全大写、字距 0.05em；链接 12px，hover 直接换成纸白（硬切），选中项用像素黄。高度 56px，无圆角无阴影。页面底部这条即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>零圆角、4px 边框、4px 硬阴影</li>
+              <li>全程 transition-none，状态硬切</li>
+              <li>hover 做调色板替换，不做淡入</li>
+              <li>按下位移等于阴影偏移量</li>
+              <li>字号取 8-bit 值：10、12、16、24、32</li>
+              <li>所有尺寸是 4 的倍数</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用任何圆角</li>
+              <li>不要用渐变或柔和阴影</li>
+              <li>不要用 transition-* 除 none</li>
+              <li>不要用细边框</li>
+              <li>不要在 hover 里做 opacity 过渡</li>
+              <li>不要用超出调色板的颜色</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>像素画与 8-bit 图标是唯一图像语言。允许把照片降采样成像素图。不使用矢量插画、柔和摄影与任何抗锯齿图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="pixel-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的调色板、硬切交互与 4px 网格。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，零圆角、4px 黑框、硬切状态与 4 的倍数网格必须原样保留；调色板不许出界。</p>
+      </section>
+    </main>
+
+    <div class="pixel-nav" aria-hidden="true">
+      <span>STAGE</span><span>ITEMS</span><span class="on">STATUS</span><span>SAVE</span>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>系统原生风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body snative">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 23 · 浅色版面</p>
+        <h1>系统原生风 <span class="style-card-en">SYSTEM NATIVE</span></h1>
+        <p class="page-lead">大量留白、一颗系统蓝、慢到刚好的动效：让产品自己说话。</p>
+        <div class="style-card-tags"><span>留白优先</span><span>一颗系统蓝</span><span>500ms 缓动</span><span>产品图主角</span></div>
+      </header>
+
+      <section class="snative-hero">
+        <div class="snative-hero-copy">
+          <p>系统原生风的核心不是元素，而是比例：内容占的面积远小于留白，产品图是唯一的主角。底色用偏冷的浅灰（#f5f5f7）代替纯白，卡片比它白一档浮起来。颜色只允许一支系统蓝（#0071e3）用于行动，其余全是灰阶。</p>
+          <p>圆角克制而统一，按钮全圆角、卡片 24px、输入框 12px。动效是这套风格的签名：500ms 与一段缓入缓出的曲线，hover 时轻微上浮、阴影扩散，快一点就变成普通网页，慢一点就拖沓。右边这张产品卡是真的——悬停它，感受那个节奏。</p>
+        </div>
+        <div class="snative-demo">
+          <div class="snative-card-demo">
+            <span class="snative-media" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
+            <p class="snative-demo-title">安静到只剩产品。</p>
+            <p class="snative-demo-body">留白至少是内容高度的一半。</p>
+            <button type="button" class="snative-btn">进一步了解</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Native Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f7"></span><span class="palette-name">Native Grey</span><code>#f5f5f7</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#0071e3"></span><span class="palette-name">System Blue</span><code>#0071e3</code></li>
+          <li><span class="swatch-chip" style="background:#34c759"></span><span class="palette-name">Success Green</span><code>#34c759</code></li>
+          <li><span class="swatch-chip" style="background:#ff3b30"></span><span class="palette-name">Alert Red</span><code>#ff3b30</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>灰阶承担一切结构：原生灰做画布让白卡有依托，纯黑留给深色满屏区块，把产品图推到最前。系统蓝是唯一强调色，一屏只允许一处；绿与红只做小面积状态标记。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Native Black</strong><span class="swatch-role">正文、标题与深色满屏区块。深色区块用来把产品图推到最前。</span></div><code>#000000</code><code>--color-native-black</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f7"></span><div><strong>Native Grey</strong><span class="swatch-role">页面画布。比纯白柔一档，让白色卡片有依托。</span></div><code>#f5f5f7</code><code>--color-native-grey</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">卡片与浮层填充。只在灰底之上出现。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#0071e3"></span><div><strong>System Blue</strong><span class="swatch-role">唯一强调色：主 CTA、链接与选中态。一屏只允许一处。</span></div><code>#0071e3</code><code>--color-system-blue</code></li>
+          <li><span class="swatch-chip" style="background:#34c759"></span><div><strong>Success Green</strong><span class="swatch-role">成功与在线状态，小面积标记。</span></div><code>#34c759</code><code>--color-success-green</code></li>
+          <li><span class="swatch-chip" style="background:#ff3b30"></span><div><strong>Alert Red</strong><span class="swatch-role">错误与删除，出现即代表不可撤销。</span></div><code>#ff3b30</code><code>--color-alert-red</code></li>
+        </ul>
+        <p class="style-body-note">阴影轻到几乎看不见：卡片 <code>0 4px 12px rgba(0,0,0,0.04)</code>、hover <code>0 20px 40px rgba(0,0,0,0.08)</code>、按钮光晕 <code>0 4px 14px rgba(0,113,227,0.30)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 SF Pro Display：大标题 600 配紧字距，正文 400 保持中性，字级偏大（17px 起）——系统界面的正文字号，不是网页的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="snative-specimen-title">让产品自己说话</p>
+            <p class="specimen-meta">SF Pro Display — 全站唯一字体。替代栈：-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif · 400–700 · 字距 -0.025em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="snative-specimen-label">正文与说明文字。0123456789</p>
+            <p class="specimen-meta">正文 17px / 400 / 行高 1.55；标签 12px / 400 / 0.01em；正文 #1d1d1f，次级 #86868b</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>600</td><td>80px</td><td>1.05</td><td>-0.025em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>600</td><td>56px</td><td>1.1</td><td>-0.02em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>40px</td><td>1.15</td><td>-0.015em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>500</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>17px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>400</td><td>12px</td><td>1.4</td><td>0.01em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1080px，容器内边距 24px。区块间距 128px 起，留白至少是内容高度的一半。每屏只讲一件事：一个标题、一句副标题、两个链接。产品区可满屏且反色。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+          <li><span class="spacing-bar" style="width:192px"></span><code>192</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>按钮 999px 全圆、卡片 24px、输入框 12px、产品图 18px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>元素间距</td><td>24px</td></tr>
+            <tr><td>区块间距</td><td>128px 起</td></tr>
+            <tr><td>导航高度</td><td>48px，白 80% + backdrop-blur 20px</td></tr>
+            <tr><td>产品图</td><td>192px 见方，原生灰底</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Pill Button</h3>
+            <p class="style-body-comp-role">主行动——Buy、Learn more。系统蓝填充、白字、999px 全圆角、无描边；字级 17px、500 字重、padding 12px 24px，阴影 0 4px 14px 蓝 30%。hover 时填充提亮到 #0077ed、上浮 2px、阴影扩到 20px 40%；按下缩放 0.96。过渡 500ms，缓动 cubic-bezier(0.25, 0.1, 0.25, 1)。</p>
+            <button type="button" class="snative-btn">Buy</button>
+          </div>
+          <div class="comp-item">
+            <h3>Product Card</h3>
+            <p class="style-body-comp-role">产品卡与功能卡。白底、24px 圆角、内边距 32px、阴影 0 4px 12px 4%；内容居中：上方 192px 见方的产品图（18px 圆角、原生灰底），下面 24px/600 标题与 14px 灰字。hover 时上浮 4px、阴影扩到 0 20px 40px 8%、产品图放大 1.05，过渡 500ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Search Field</h3>
+            <p class="style-body-comp-role">搜索与输入。原生灰底、12px 圆角、无描边、padding 12px 16px、17px 字；聚焦时加 2px 系统蓝焦点环，不改变尺寸。</p>
+            <label class="snative-field"><span>搜索</span><input type="text" value="设计令牌"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Vibrancy Nav</h3>
+            <p class="style-body-comp-role">顶部导航。高 48px、白色 80% 不透明、backdrop-blur 20px、底部 1px 灰 50% 描边；链接 12px、字重 400、间距 32px，hover 转 50% 灰；右侧最多一个纯文字 CTA。</p>
+            <div class="snative-nav" role="presentation">
+              <span class="snative-brand">SOLEN</span>
+              <span class="snative-links"><span>概述</span><span>规格</span><span class="cta">购买</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>留白优先，元素稀疏到近乎空</li>
+              <li>只用一支系统蓝，#0071e3</li>
+              <li>动效 500ms，缓入缓出</li>
+              <li>按钮全圆角、卡片 24px、输入 12px</li>
+              <li>标题 600 字重配紧字距</li>
+              <li>背景用原生灰而不是纯白</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用多个强调色</li>
+              <li>不要用渐变背景</li>
+              <li>不要用重阴影</li>
+              <li>不要把内容挤在一起</li>
+              <li>不要用装饰性插画或图标墙</li>
+              <li>不要让圆角混用超过三档</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>产品渲染与实拍是唯一的主角：满屏、居中、背景纯净（黑、白或原生灰）。允许缓慢的视差与缩放。不使用插画、图标墙、渐变背景或人物特写。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="system-native">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的比例纪律、单强调色与 500ms 动效签名。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，留白比例、一颗系统蓝与 500ms 缓动必须原样保留；圆角不许超过三档。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

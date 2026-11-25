@@ -1,0 +1,78 @@
+# 排名互换条形赛 — BarChartRace
+
+制作「排名互换条形赛」场景组件：一张 340×340 的销量排名卡。标题行写着 `Drink sales ranking` 与单位 `Unit: 10k cups`，右下方压着一个巨大的年份水印（2019 起，每年一格）；中间是八条饮品的横向条形，前六名排在可视区里、后面两条沉在卡片底部之外。随着时间推进，条形一边变长一边向上滑动，超过上一名时两者平滑交换位置；数值标签跟着刷新，底部时间轴上的滑块同步右移。播放键控制自动推进，拖动时间轴可以任意擦洗到某一年。
+
+## 布局与材质
+
+- 场景 340×340px，圆角 30px，overflow 裁切，底色取表面色，文字色取墨色，盒子阴影为 `0 0 0 1px var(--ux-line)` 加 `0 30px 60px -36px var(--ux-shadow-strong)`。
+- 场景令牌写在根层，浅色/深色两套由 `light-dark()` 切换：`--ux-surface` #FFFFFF / #13141C，`--ux-surface-2` #F5F3EF / #1A1B25，`--ux-surface-3` #EAE7E1 / #252632，`--ux-ink` #16151B / #F4F0E8，`--ux-ink-2` #57535F / rgba(244,240,232,.68)，`--ux-ink-3` #8E8A97 / rgba(244,240,232,.42)，`--ux-line` rgba(22,21,27,.09) / rgba(255,255,255,.08)，`--ux-line-2` rgba(22,21,27,.17) / rgba(255,255,255,.16)，`--ux-accent` #6A57F2 / #B7A4FF，`--ux-accent-2` #2F8FE0 / #7DB4FF，`--ux-accent-soft` rgba(106,87,242,.12) / rgba(183,164,255,.15)，`--ux-accent-ink` #FFFFFF / #0B0C12，`--ux-mint` #119C72 / #7EE8C0，`--ux-warn` #D6731E / #FFB26B，`--ux-danger` #D93A55 / #FF7D8C，`--ux-glass` rgba(255,255,255,.58) / rgba(255,255,255,.07)，`--ux-glass-line` rgba(255,255,255,.85) / rgba(255,255,255,.18)，`--ux-shadow` rgba(40,30,80,.14) / rgba(0,0,0,.45)，`--ux-shadow-strong` rgba(40,30,80,.3) / rgba(0,0,0,.72)，`--ux-grad` 为 120° 渐变（浅色 #7B61FF → #3D8BFF 55% → #1FB89A；深色 #B7A4FF → #7DB4FF 55% → #A5F2D3）。
+- 标题行 `.u246-hd`：绝对定位 left 20px / right 20px / top 18px，flex、两端分布、基线对齐。标题 `b` 为 14px、字重 900；单位 `span` 为 10.5px、字重 700、颜色 `--ux-ink-3`。
+- 年份水印 `.u246-yr`：绝对定位 right 18px / bottom 56px，58px、字重 900、字距 -0.05em、行高 1、颜色 `--ux-ink`、透明度 .1、`font-variant-numeric: tabular-nums`、`pointer-events: none`；容器带 `aria-live="polite"`，年份变化会被读屏播报。
+- 图表区 `.u246-ch`：绝对定位 left 16px / right 20px / top 48px，高 228px，overflow 裁切——排到第 7、8 名的行会被裁在可视区之外。
+- 名次行 `.u246-r`：绝对定位 left 0 / right 0 / top 0，高 30px，flex 垂直居中，`will-change: transform`。名称 `b` 固定宽 78px、右对齐、右内边距 8px、11.5px、字重 800、单行不换行、超出省略号。条形 `.u246-bar` 固定高 24px、圆角 7px、底色取该行自己的 `--c`、下方压一道 `inset 0 -3px 0 rgba(0,0,0,.12)` 的暗边。数值 `.u246-v` 距左 6px、11px、字重 800、颜色 `--ux-ink-2`、等宽数字。
+- 底部控件条 `.u246-ct`：绝对定位 left 20px / right 20px / bottom 18px，flex 居中对齐、间距 12px。
+- 播放键 `.u246-pp`：34×34px 圆形按钮，无边框，底色 `--ux-ink`、图形色 `--ux-surface`，grid 居中；内含两枚 14×14 的内联 SVG——暂停图形是两根 3.6×12px 的圆角竖条（x=2 与 x=8.4，y=1），播放图形是路径 `M3 1.5v11l9.5-5.5z` 的三角；默认显示暂停图形，暂停态（`.is-paused`）改显三角。`focus-visible` 为 `outline: 2px solid var(--ux-accent)`、偏移 3px。
+- 时间轴 `.u246-sl`：`role="slider"`、`tabindex="0"`、`aria-label="Year"`、`aria-valuemin="2019"`、`aria-valuemax="2026"`，position relative、高 34px、flex 占满剩余宽度、光标 pointer、`touch-action: none`、圆角 8px。轨道是伪元素 `::before`（left 0 / right 0 / top 15px / 高 4px / 圆角 2px / 底色 `--ux-line`）；已播放部分是 `.u246-fl`（left 0 / top 15px / 高 4px / 圆角 2px / 底色 `--ux-accent`），宽度按年份进度百分比设置。
+- 刻度 `.u246-tk`：共 8 根，绝对定位 top 24px、宽 1px、高 4px、底色 `--ux-ink-3`、透明度 .5；第 k 根的 left 为 `k / 7 × 100%`，即 2019 到 2026 每年一根。
+- 滑块 `.u246-th`：绝对定位 top 9px、16×16px 圆形、`margin-left: -8px` 居中于指针位置，底色 `--ux-surface`，外圈 `0 0 0 3px var(--ux-accent)`，投影 `0 4px 10px -3px var(--ux-shadow-strong)`。时间轴聚焦时为 `outline: 2px solid var(--ux-accent)`、偏移 2px。
+- 组件自身不声明 font-family，字体继承宿主；建议实现时使用 `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto, "Noto Sans KR", sans-serif`。
+- 响应式：`createSurface` 的 `responsive` 为 false，场景固定 340×340 逻辑像素；容器窄于 340px 时整景等比缩放，`options.height` 覆盖场景高度。
+
+## 数据
+
+- 写死 8 个饮品名与其颜色（一一对应，顺序即数组顺序）：`Americano` #6366F1、`Latte` #F59E0B、`Cold brew` #10B981、`Matcha latte` #84CC16、`Milk tea` #A855F7、`Lemonade` #EAB308、`Grapefruit` #F43F5E、`Vanilla latte` #0EA5E9。
+- 写死 8×8 的销量矩阵，每行对应一个饮品、每列对应一年（2019→2026），单位是万杯：
+  - Americano：120, 128, 135, 140, 146, 150, 153, 156
+  - Latte：95, 100, 104, 108, 110, 112, 113, 115
+  - Cold brew：20, 38, 60, 82, 104, 121, 138, 152
+  - Matcha latte：30, 34, 45, 63, 80, 102, 118, 130
+  - Milk tea：70, 75, 72, 66, 62, 58, 55, 52
+  - Lemonade：50, 48, 52, 56, 58, 60, 57, 55
+  - Grapefruit：40, 55, 64, 68, 66, 63, 60, 56
+  - Vanilla latte：60, 63, 66, 70, 74, 79, 86, 98
+- 数值全部是写死的字面量，没有任何随机数或随机种子；名次互换由这份数据本身决定（`Cold brew` 与 `Matcha latte` 逐年爬升，`Milk tea` 逐年下滑）。
+- 写死的布局常量：年份起始 2019、年份数 8、可见名次 6、行距 37px、满幅条长 172px、每年播放时长 1.5 秒、坐标轴最大值系数 1.08、最小条长 4px。
+- 写死文案：标题 `Drink sales ranking`，单位 `Unit: 10k cups`；播放键的无障碍名在 `Play` 与 `Pause` 之间切换；时间轴标签为 `Year`。
+- 无写死的接口数据；所有数值都来自上面这份矩阵。
+
+## 操作和动效
+
+- 自动播放：挂载即从 2019 年开始推进，每年走 1.5 秒（时间轴上的时间量 `t` 以年为单位的浮点数，1 年 = 1.5 秒）。年份取整显示为 `2019 + floor(t)`，写入水印与时间轴的 `aria-valuenow` / `aria-valuetext`。
+- 循环播放：推进到最后一年（t ≥ 7）后停留 1.6 秒，然后 t 归零重新开始，循环往复。
+- 插值：任意时刻的值由相邻两年的数值线性插值得到——`a = floor(t)`、`b = min(7, a+1)`、小数部分 `f = t - a`，值为 `V[a] + (V[b] - V[a]) × f`；因此条形是连续变长而不是一格一格跳。
+- 排名与换位：每帧按当前值从大到小排序，名次 `rank` 决定行的纵向位置——前 6 名落在 `rank × 37px`，第 7、8 名落到 `6 × 37 + 8 = 230px`（在 228px 高的图表区之外被裁掉）并把透明度插值到 0。纵向位置与透明度都用指数插值逼近目标：拖动中系数为 `dt × 16`，平时为 `dt × 10`。每帧还会写 `z-index = 10 - rank`，让靠前的条压在靠后的条上面。
+- 条长：按 `值 / 坐标轴上限 × 172px` 计算，其中坐标轴上限平滑逼近当前最大值 × 1.08（平时按 `dt × 4` 逼近，瞬时定位时直接跳到目标），最小条长 4px。条形下方保留 3px 的内阴影暗边。
+- 播放键：点击切换播放/暂停；暂停时按钮图形换成三角、无障碍名改为 `Play`，播放时换回双竖条、名称 `Pause`。若已停在最后一年，再次点播放会先把时间轴拨回起点再开始。
+- 拖动时间轴：按下（`pointerdown`）立刻暂停播放、抓住指针并跳到按下位置；拖动过程中（`pointermove`）持续擦洗，年份、条长、名次与数值同步变化；松手（`pointerup` / `pointercancel`）结束拖动但保持暂停状态。擦洗位置换算为时间轴轨道内的相对比例再乘以 7（总年份跨度），并清零「到头停留」的计时。
+- 键盘操作：时间轴聚焦后按左右方向键各步进/回退一年（向上/向下方向键同效），按 Home 跳到 2019、按 End 跳到 2026；这些操作都会先暂停播放。
+- 无障碍：时间轴是 `role="slider"`，带 `aria-label="Year"`、`aria-valuemin`/`aria-valuemax`/`aria-valuenow`/`aria-valuetext`；年份水印所在容器是 `aria-live="polite"`；播放键是原生按钮并带随状态变化的 `aria-label`；两处焦点环都是 2px accent。
+- 可见性：场景离开视口时暂停渲染循环，回到视口再恢复；帧循环在组件卸载后停止。
+- `prefers-reduced-motion: reduce` 时：初始时间轴直接落在最后一年（2026）、不自动播放，且每帧的定位改为瞬时赋值（纵向位置、透明度、坐标轴上限都直接落位，不做插值）；拖动与键盘擦洗依然可用，但结果一步到位。
+- 销毁时释放帧回调、定时器、观察器与全部监听器；场景宽高随 `options.height`（默认 340）与容器宽度实时重算。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、数据与运动参数均以上述文字为准；界面用 DOM 与 CSS，图形用内联 SVG，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 BarChartRace。从零创建四个文件：BarChartRace.tsx、BarChartRaceEngine.js、motion-runtime.ts、BarChartRaceEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 340），options.reducedMotion 覆盖系统偏好；减少动态时仍保留完整的排名、条长与年份状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；自动播放、到头循环、拖动擦洗、键盘步进、暂停/播放切换均正确；换位与条长插值平滑；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { BarChartRace } from "./BarChartRace";
+
+export default function App() {
+  return <BarChartRace />;
+}
+```

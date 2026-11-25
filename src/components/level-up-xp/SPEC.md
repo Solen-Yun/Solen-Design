@@ -1,0 +1,56 @@
+# 经验条升级 — LevelUpXp
+
+制作「经验条升级」游戏化场景：一张 340×340 的深夜紫渐变卡片。顶部是玩家档案行——渐变圆头像带「S」字母、名字「Solen」与称号「Steady explorer」，右侧一个竖向滚动的金色等级轮（初始停在 Lv 7）；中部一根 18px 高的经验条（初始 60/100 XP）带「N / 100 XP」与「To next level」注记；底部三个活动按钮（Write a post +40 XP、Comment +15 XP、Check in +25 XP）。点击按钮，一枚「+40 XP」薄荷绿胶囊从按钮沿抛物线飞到经验条末端入账；经验攒满时条先亮金边，650ms 后等级轮弹跳进位、彩色冲击环扩散、「Level up!」橙色徽章弹出，经验条清零并按剩余经验重新充填，进入更高一级的循环。
+
+## 布局与材质
+
+- 场景 340×340px，圆角 30px，溢出裁切；底色固定为深夜紫渐变 linear-gradient(165deg, #1A1B3A, #2B1F5C)，不随浅色/深色主题变化；文字基色 #F1EFFF；外圈 1px 线色描边加 0 30px 60px -36px 强阴影。场景根是无底色包装层，视觉卡片放在其内部的绝对填充层上。
+- 档案行绝对定位 left/right 24px、top 30px，flex 垂直居中、间距 14px：头像 64×64px 圆形、渐变 linear-gradient(135deg, #9775FA, #4DABF7)，内含 26px/字重 900 的字母「S」，外圈双环描边 0 0 0 3px #1A1B3A 加 0 0 0 5px #9775FA；名字「Solen」17px/字重 900，称号「Steady explorer」11px/700 色 #B1A7F0。
+- 等级轮居档案行右侧：上方小标「LEVEL」9.5px/字重 800、字距 .14em、色 #B1A7F0；下方 34px 高的裁切窗，窗内竖排 30 个等级数字（1–30），每个 30px/行高 34px/字重 900、tabular-nums、色 #FFD43B，整列 translateY(-(等级−1)×34px)，过渡 transform .55s cubic-bezier(.3,1.5,.5,1)。区块 aria-live="polite"。
+- 经验条：left/right 24px、top 122px、高 18px、圆角 9px，底 rgba(255,255,255,.1) 加内嵌 1px rgba(255,255,255,.08) 描边；填充条同圆角，渐变 linear-gradient(90deg, #7950F2, #4DABF7 70%, #63E6BE)，宽度过渡 .5s cubic-bezier(.3,1.2,.5,1)。每次入账播放 0.7s ease-out 的高光扫过（100° 渐变高光带从 -100% 平移到 100%）。攒满时整条加 0 0 0 2px #FFD43B 金边与 0 0 18px rgba(255,212,59,.7) 辉光。role="progressbar"，aria-label「Experience」，valuemin 0、valuemax 100，aria-valuenow 同步百分比。
+- 注记行：top 146px、left/right 24px，两端对齐，10.5px/字重 750、色 #B1A7F0、tabular-nums：左侧「60 / 100 XP」样式，右侧「To next level 40」样式。
+- 活动按钮区：left/right 24px、bottom 26px，grid 三等分、间距 8px；每钮高 62px、圆角 16px、底 rgba(255,255,255,.08) 加内嵌 1px rgba(255,255,255,.1) 描边，纵向居中、间距 3px：名称 12px/字重 800、奖励 10.5px/字重 800 色 #63E6BE；hover 底色升到 rgba(255,255,255,.14)，按下 scale(.95)，focus-visible 外圈 2px #FFD43B、偏移 2px。
+- 飞行胶囊：绝对定位，padding 2px 7px、圆角 999px、底色 #63E6BE、文字 #0B3D2E、11px/字重 900、pointer-events none，文案如「+40 XP」。
+- 升级徽章「Level up!」：left 50%、top 186px，默认 opacity 0、translate(-50%,10px) scale(.7)，显示时过渡 opacity .25s、transform .45s cubic-bezier(.3,1.8,.5,1)；样式为 padding 8px 18px、圆角 999px、渐变 linear-gradient(90deg, #FCC419, #FF922B)、文字 #3B1F00、16px/字重 900、阴影 0 10px 24px -8px rgba(252,196,25,.7)。头像冲击环：inset -6px 的圆环、3px #FFD43B 描边，升级时跑 0.9s ease-out 动画从 scale(.8) 扩到 scale(2.2) 并淡出，两枚环错峰 0.18s。
+- 场景令牌带浅色/深色两套但卡片视觉全用固定色值。组件固定 340px 逻辑宽度：容器更窄时整景按 min(1, 容器宽/340) 等比缩放，飞行轨迹按缩放比例换算坐标。
+
+## 数据
+
+- 写死初始状态：等级 7、经验 60、升级阈值 100；阈值每升一级加 20（100 → 120 → 140…）。
+- 写死三个活动（名称/奖励）：Write a post/+40 XP、Comment/+15 XP、Check in/+25 XP。等级轮写死 1–30 共 30 档。无外部数据来源。
+
+## 操作和动效
+
+- 点击任一活动按钮（减少动态关闭时跳过飞行直接入账）：生成飞行胶囊，用 WAAPI 播 650ms、缓动 cubic-bezier(.4,0,.6,1) 的三关键帧抛物线——从按钮中心（scale .6、opacity 0）经两者中点上方 50px 处（scale 1.1、opacity 1）落到填充条右端（scale .5、opacity 0.2），终点 x 不小于 40px、y 取条顶 +9px；飞完移除胶囊并调用入账。
+- 入账：经验加值、经验条宽度动画、高光扫过；注记行同步「N / M XP」与「To next level K」。等级轮与百分比 aria-valuenow 同步更新。
+- 攒满升级：条先推到 100% 并亮金边（is-full），同时注记短暂显示「need / need XP」；650ms 后（减少动态下 0ms）扣除阈值、等级 +1、阈值加 20，等级轮弹跳滚到新等级，两枚金色冲击环从头像扩散，徽章「Level up!」弹出并停留，is-up 状态 1.6s 后撤除；经验条无过渡归零后按剩余经验重新充填到新阈值。
+- 无键盘专属路径：三个活动为原生 button，Enter/Space 可触发，focus-visible 样式如上；经验条 role="progressbar" 带完整值域属性；徽章、冲击环、头像字母均 aria-hidden。
+- `prefers-reduced-motion: reduce`（或 options.reducedMotion）下：不生成飞行胶囊、点击立即入账；升级延时压缩为 0，等级轮无过渡直落新等级；冲击环与徽章过渡时长归零但仍完整出现与消失，最终状态与正常模式一致。
+- options.height 调整场景高度（默认 340）；options.reducedMotion 覆盖系统偏好。支持同页多实例，更新选项不重挂载；卸载时释放帧回调与计时器并移除监听。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数值和运动参数均以上述文字为准；界面全部用 DOM 与 CSS 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 LevelUpXp。从零创建四个文件：LevelUpXp.tsx、LevelUpXpEngine.js、motion-runtime.ts、LevelUpXpEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态下仍保留完整的入账与升级循环。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；飞行入账、攒满升级、阈值递增、连续升级均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { LevelUpXp } from "./LevelUpXp";
+
+export default function App() {
+  return <LevelUpXp />;
+}
+```

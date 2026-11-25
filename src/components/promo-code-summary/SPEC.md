@@ -1,0 +1,59 @@
+# 优惠码订单摘要 — PromoCodeSummary
+
+制作「优惠码订单摘要」场景：一张 300×480 的结算订单卡。上半部是两行商品与金额，中部 "Have a promo code?" 折叠行点开后露出输入框和 Apply 按钮：输入错误代码时输入框摇头抖动、红描边并弹出错误提示；输入 WELCOME10 时按钮转一下菊花，随后绿色优惠胶囊落位、Discount 折扣行滑出、旧合计划线淡出、合计数字从 $60.00 滚动到 $54.30，左下浮现 "$5.70 saved" 徽章，底部按钮文案同步变成 "$54.30 · Pay now"。
+
+## 布局与材质
+
+- 300×480px 场景卡，圆角 32px，溢出裁切，背景表面色，外圈 1px 线色描边、下方 0 30px 60px -36px 强阴影。窄容器时整景按 min(1, 可用宽/300) 等比缩放。
+- 头部内边距 24px 20px 0、基线对齐两端：标题 "Order summary" 17px/900、字距 -0.03em；右侧 "2 items" 11px/750 三级墨色。
+- 商品列表：上边距 10px、左右内边距 20px，每行横向 flex、间距 11px、上下内边距 5px。缩略图 42×42px、圆角 11px，两张分别为线性渐变 140deg #E0E7FF→#A5B4FC 与 #FEF3C7→#FCD34D；品名 12.5px/850，规格 10.5px/650 三级墨色，价格 12px/850、tabular-nums。
+- 优惠码区：左右内边距 20px、上边距 8px，上下各 1px 线色分隔线、纵向内边距 12px。折叠按钮高 24px，含 15px 票券 SVG（accent 色）、文字 "Have a promo code?" 12px/800 次级墨色、右端 12px 下拉箭头（展开时旋转 180°，过渡 0.3s）。
+- 展开动画用 grid-template-rows 0fr→1fr、过渡 0.4s cubic-bezier(.3,1,.4,1)。输入行间距 6px：输入框高 38px、圆角 10px、背景 surface-2、内描边 1.5px 线色，文字 12px/800 全大写、字距 0.06em，占位符 "Enter code" 恢复正常大小写；聚焦时内描边变 accent。Apply 按钮 58×38px、圆角 10px、墨色底表面色字、12px/850；忙态时文字隐藏、中央显示 14px 菊花（0.7s linear 旋转）。
+- 错误提示 role="alert"：10.5px/750、#E11D48，从高度 0 过渡到 14px 并带 6px 上边距（0.2s），文案固定 "This code isn’t valid"。
+- 已应用胶囊：高 34px、圆角 999px、背景 #16A34A 12% 混色、文字 #15803D、11.5px/850，内含 13px 对勾 SVG、码文本与 24px 圆形移除按钮（悬停时背景加深到 18%）；出现时以 0.45s cubic-bezier(.3,1.5,.5,1) 从 scale(.7) 弹入。
+- 汇总区：左右 20px、上边距 12px，行文字 12px/700 次级墨色、tabular-nums、行内边距 4px 0；Discount 行同样以 0fr→1fr 网格过渡滑出，文字 #16A34A、850 字重。合计区上缘 1px 线色分隔线：左侧 "Total" 13px/850 与省钱徽章（#16A34A 实底、白字 10px/900、内边距 3px 8px、圆角 999px，从 scale(0) 以 0.4s cubic-bezier(.3,1.7,.5,1) 弹出、延迟 0.5s）；右侧旧合计划线文本（11.5px/700 三级墨色，max-width 0→90px、透明度渐入）与合计 22px/900、字距 -0.03em。
+- 底部支付按钮绝对定位 left 16px、right 16px、bottom 16px：高 48px、圆角 14px、墨色底表面色字、13.5px/850、tabular-nums。所有按钮聚焦时 2px accent 外圈、偏移 2px。
+- 场景令牌浅色/深色两套（light-dark() 切换：浅色表面 #FFFFFF、墨色 #16151B、accent #6A57F2；深色表面 #13141C、墨色 #F4F0E8、accent #B7A4FF）；#16A34A/#15803D/#E11D48 等语义色两套一致。字体栈继承页面。
+
+## 数据
+
+- 写死两件商品：Linen shirt（规格 White · M，$39.00）、Cotton tote（规格 Natural，$18.00）；Subtotal $57.00，Shipping $3.00，应用前合计 $60.00。
+- 唯一有效代码是 WELCOME10：固定打 9 折，折扣额取小计的 10% 即 $5.70，胶囊文案 "WELCOME10 · 10% off"，徽章文案 "$5.70 saved"，Discount 行显示 −$5.70；其余任何输入（如 SAVE10）都按无效代码处理。
+- 折后合计 $54.30，支付按钮文案 "$60.00 · Pay now" ↔ "$54.30 · Pay now"。
+
+## 操作和动效
+
+- 展开收起：点 "Have a promo code?" 切换展开（aria-expanded 同步），箭头旋转；首次展开时延迟 250ms 自动聚焦输入框。
+- Apply（点击或输入框内按 Enter）：空输入只聚焦不提交；提交后按钮进入忙态 650ms（减少动态时 0ms）；代码不等于 WELCOME10 时，输入框重放 0.4s 摇头动画（20%/60% 处左移 5px、40%/80% 处右移 5px）、内描边变 #E11D48，并展开错误提示；输入任一字符即清除错误态。
+- 应用成功：隐藏输入行、显示绿色胶囊与 "WELCOME10 · 10% off"，Discount 行滑出，旧合计划线淡入，省钱徽章延迟 0.5s 弹出；合计与支付按钮文案用 750ms 的 easeOutCubic（1-(1-k)^3）从 $60.00 滚动到 $54.30，金额逐帧四舍五入到两位小数。
+- 移除：点胶囊上的 × 恢复输入态并清空输入框，合计以同一段滚动动画回到 $60.00；50ms 后若折叠行仍展开则重新聚焦输入框。
+- 无障碍：输入框 aria-label "Promo code"，错误提示 role="alert"，合计数字 aria-live="polite"，移除按钮 aria-label "Remove promo code"，折叠按钮 aria-expanded；全部按钮 focus-visible 外圈。
+- prefers-reduced-motion 下：展开/折扣行/徽章/划线的过渡与摇头、弹入、菊花动画全部关闭，金额直接落到目标值。
+- options.height 调整场景高度（默认 480），options.reducedMotion 覆盖系统偏好。支持同页多实例；卸载时取消进行中的金额滚动帧与计时器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、金额、文案与运动参数均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 PromoCodeSummary。从零创建四个文件：PromoCodeSummary.tsx、PromoCodeSummaryEngine.js、motion-runtime.ts、PromoCodeSummaryEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态时有效/无效码的最终状态仍然完整可见。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；无效码摇头、WELCOME10 折扣、金额滚动与移除还原正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { PromoCodeSummary } from "./PromoCodeSummary";
+
+export default function App() {
+  return <PromoCodeSummary />;
+}
+```

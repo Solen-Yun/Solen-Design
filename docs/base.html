@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基础元素 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <main class="content">
+      <section class="page-head">
+        <h1>基础元素</h1>
+      </section>
+
+      <section>
+        <h2>标题</h2>
+        <div class="preview grid">
+          <h1>一级标题</h1>
+          <h2>二级标题</h2>
+          <h3>三级标题</h3>
+          <h4>四级标题</h4>
+          <h5>五级标题</h5>
+          <h6>六级标题</h6>
+        </div>
+      </section>
+
+      <section>
+        <h2>正文</h2>
+        <div class="preview">
+          <div class="prose grid">
+            <p>正文里可以有<a href="#">链接</a>、<strong>强调</strong>，以及<code>行内代码</code>。</p>
+            <blockquote>这是一段引用文本。</blockquote>
+            <pre><code>code block</code></pre>
+            <ul>
+              <li>列表项</li>
+              <li>列表项</li>
+            </ul>
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>表单</h2>
+        <div class="preview">
+          <form class="fields" onsubmit="return false">
+            <input type="text" placeholder="文本输入">
+            <input type="password" placeholder="密码">
+            <textarea rows="2" placeholder="多行文本"></textarea>
+            <select><option>下拉选择</option><option>第二个选项</option></select>
+            <label class="row"><input type="checkbox" checked> 复选框</label>
+            <label class="row"><input type="radio" checked name="r"> 单选框</label>
+            <label class="row"><input type="range"> 滑块</label>
+            <progress value="0.7"></progress>
+            <button type="button">原生按钮</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

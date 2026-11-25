@@ -1,0 +1,58 @@
+# 席位价格计算器 — SeatPriceCalculator
+
+制作「席位价格计算器」卡片：一张 340×340 的团队定价面板。顶部是 Team pricing 标题与 Monthly/Yearly 分段控件（右侧挂一枚 2 months free 小徽章）；中部一条 Team size 席位滑杆，白色圆形拖块上方的墨色气泡实时跟随并显示当前席位数；下方结算卡里是方案名标签、单价说明、随席位数逐位滚动的总价大数字，以及三条功能清单。席位越过 10 或 30 的门槛时，方案标签向上翻页换名、单价变化、新解锁的功能行亮起闪一下；切到 Yearly 时总价按 10 个月计、右端弹入一枚绿色「省了多少」胶囊。
+
+## 布局与材质
+
+- 340×340px 场景卡，圆角 30px，溢出裁切。底色为表面色，外圈 0 0 0 1px 线色描边加 0 30px 60px -36px 强阴影。场景令牌用 CSS light-dark 写浅色/深色两套（`prefers-color-scheme: dark` 自动切换）：表面 #FFFFFF/#13141C，次表面 #F5F3EF/#1A1B25，三级表面 #EAE7E1/#252632，墨色 #16151B/#F4F0E8，次级墨 #57535F/rgba(244,240,232,.68)，三级墨 #8E8A97/rgba(244,240,232,.42)，线色 rgba(22,21,27,.09)/rgba(255,255,255,.08)，强调色 #6A57F2/#B7A4FF，渐变 `linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)`（深色为 `#B7A4FF→#7DB4FF 55%→#A5F2D3`）。字体继承页面，数字统一 tabular-nums。
+- 头部绝对定位 left 20px、right 16px、top 18px，一行排布：左侧标题 Team pricing，15px/字重 900、字距 -0.03em；右侧分段控件 role="radiogroup"、aria-label 为 Billing period，容器内边距 3px、圆角 999px、背景次表面、内嵌 1px 线色描边；滑块是绝对定位的 ::before，宽度 calc(50% - 3px)、圆角胶囊、背景表面色，带 0 1px 4px -1px 阴影与 1px 线色描边，切换时 transform 过渡 0.35s cubic-bezier(.3,1.4,.5,1)。两个按钮 min-width 50px、高 26px、左右内边距 10px，11px/字重 850，未选中三级墨色、选中墨色，颜色过渡 0.2s。
+- 2 months free 徽章绝对定位 right 16px、top 50px，内边距 2px 7px、圆角 6px，背景 #10B981 的 15% 透明色、文字 #059669，9.5px/字重 850。
+- 滑杆区绝对定位 left 22px、right 22px、top 82px：上方小标签 Team size，10.5px/字重 800、三级墨色；轨道容器高 40px、margin-top 4px、cursor 为 pointer、touch-action none。轨道条 top 24px、高 6px、圆角 3px、背景三级表面；已选段从左端起、同尺寸、填渐变色。轨道上叠两枚刻度线（宽 2px、高 14px、top 20px、三级墨色 45% 透明度），按 (刻度值−1)/59 的百分比定位在 10 席与 30 席处。拖块为 20×20px 白色圆形（top 17px、margin-left -10px），阴影 0 0 0 1px rgba(0,0,0,.08) 与 0 3px 8px rgba(0,0,0,.2)，transform 过渡 0.15s，拖动中放大到 1.15。数值气泡位于 top -6px，内边距 2px 7px、圆角 7px、背景墨色、文字取表面色、10.5px/字重 850、tabular-nums，以 translateX(-50%) 跟随同一百分比。
+- 结算卡绝对定位 left/right 16px、top 150px、bottom 16px，内边距 14px 16px、圆角 18px、背景次表面、内嵌 1px 线色描边。内部第一行：方案名标签外层高 22px、圆角 7px、溢出裁切、宽度随内容过渡 0.35s cubic-bezier(.3,1.2,.5,1)；标签文字高 22px、行高 22px、左右内边距 9px、圆角 7px、背景强调色、白字 11px/字重 850；右侧单价说明 10.5px/字重 750、三级墨色、tabular-nums。
+- 总价行 margin-top 10px、基线对齐、间距 3px：数字区初始 30px/字重 900、字距 -0.03em、tabular-nums，字号按整串长度收缩（见动效）；后缀 /mo 或 /yr 为 12px/字重 800、三级墨色。年付胶囊 margin-left auto，内边距 3px 8px、圆角 999px、背景 #059669、白字 10px/字重 850、tabular-nums，默认 scale(0)、transform-origin 100% 50%，展开过渡 0.4s cubic-bezier(.3,1.7,.5,1)。
+- 功能清单 margin-top 10px、无列表符号：每行高 22px、间距 7px、11px/字重 700，默认三级墨色；行首圆圈 15×15px、背景三级表面，内嵌一枚 3×6px、描边 1.6px 白色、旋转 45° 的对勾。点亮行文字变墨色、圆圈变 #10B981。
+
+## 数据
+
+- 滑杆范围 1–60 席，初始 12 席、月付。
+- 三档方案（名称，每席每月价，门槛席数）：Starter，$12，1 席起；Team，$10，10 席起；Business，$8.5，30 席起。单价随席位落入的最高档取值。
+- 三条功能清单文案：Unlimited projects、Admin roles and team spaces、SSO and audit logs；第 k 档点亮前 k+1 行。
+- 金额用 en-US 千分位格式渲染，如 $1,700；年付总价 = 每月总额 × 10，省钱胶囊显示每月总额 × 2 的美元数。
+
+## 操作和动效
+
+- 拖动滑杆：pointerdown 即捕获指针并把席位取整到光标位置（限制在 1–60），pointermove 连续更新，pointerup/cancel 结束；拖动期间拖块放大 1.15。气泡、填充段、拖块三者同步到同一百分比，轨道 aria-valuenow/aria-valuetext 同步为席位数。
+- 键盘：滑轨 tabindex 0，ArrowRight/ArrowUp 加 1，ArrowLeft/ArrowDown 减 1，PageUp 加 10，PageDown 减 10，Home 跳到 1，End 跳到 60，均阻止默认滚动。
+- 总价逐位滚动：每个字符一格；数字格内竖排 0–9 列，改变时 translateY(-数字 × 1.15em)，过渡 0.45s cubic-bezier(.3,1.25,.5,1)；非数字字符直接替换、无动画；字符数增减时动态增删格子。整串长度 ≤8 字符时字号 30px，9 字符 28px，10 字符 26px，更长 24px，过渡 0.3s。
+- 越过门槛：方案名标签向上翻页——新标签从下方（translateY(100%)）滑入到 0，旧标签同时滑到上方（translateY(-100%)）并淡出，均 0.4s cubic-bezier(.3,1.4,.5,1)，旧标签 400ms 后移除；连续快速跨越不留残影。功能清单中新点亮的行重放一次 0.9s ease 的背景闪烁动画（30% 处背景为 #10B981 18% 透明、圆角 7px）。
+- 切换 Monthly/Yearly：点击后根节点加 is-yr，分段滑块 translateX(100%)，两枚按钮 aria-checked 互换；总价重算为 10 个月价、后缀变 /yr、省钱胶囊以回弹曲线弹入显示如 $240 saved；再切回月付即收回。
+- 无障碍：分段控件 role="radiogroup"（aria-label Billing period）内两枚 role="radio" + aria-checked；滑轨 role="slider"、aria-label Team size、aria-valuemin 1、aria-valuemax 60；功能清单行首圆圈纯装饰。两处 focus-visible 均为 2px 强调色描边（按钮偏移 1px，滑轨偏移 2px、圆角 8px）。
+- `prefers-reduced-motion` 下：数字滚动、方案标签翻页、省钱胶囊、分段滑块的过渡全部关闭（直接落位），功能行闪烁动画不播放；运行时宿主还会把残余动画时长压为 0。
+- options.height 调整场景高度（默认 340），容器变窄时整景按宽度比例缩小；options.reducedMotion 覆盖系统偏好。支持同页多实例，更新选项不重挂载，卸载时释放计时器、帧回调与监听器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动算法均以上述文字为准；所有装饰用 CSS 与原生 DOM 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SeatPriceCalculator。从零创建四个文件：SeatPriceCalculator.tsx、SeatPriceCalculatorEngine.js、motion-runtime.ts、SeatPriceCalculatorEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整可用的滑杆与计价状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或「自行补齐核心」的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；拖杆、键盘、门槛跨越、月年切换、逐位滚动均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SeatPriceCalculator } from "./SeatPriceCalculator";
+
+export default function App() {
+  return <SeatPriceCalculator />;
+}
+```

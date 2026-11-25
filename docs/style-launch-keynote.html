@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>发布会主题 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body lkey">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 126 · 深色版面</p>
+        <h1>发布会主题 <span class="style-card-en">LAUNCH KEYNOTE</span></h1>
+        <p class="page-lead">纯黑舞台，产品自己发光，一屏一个主张，滚动即播放。</p>
+        <div class="style-card-tags"><span>纯黑舞台</span><span>电蓝单强调</span><span>一屏一主张</span><span>滚动擦洗帧序列</span></div>
+      </header>
+
+      <section class="lkey-hero">
+        <p class="lkey-label"> Introducing </p>
+        <h3 class="lkey-display">One Machine.<br>One Idea.</h3>
+        <p class="lkey-sub">一台设备，一个主张。下面是它发光的样子。</p>
+        <a class="lkey-buy" href="#0" onclick="return false">购买</a>
+        <div class="lkey-stage">
+          <div class="lkey-device"><span>产品渲染</span></div>
+          <p class="lkey-stage-note">帧序列区块：外层 3–4 × 100vh，内层 sticky 100vh 的 canvas 播放预渲染帧。</p>
+        </div>
+        <div class="lkey-cards">
+          <div class="lkey-spec">
+            <p class="lkey-spec-label">续航</p>
+            <h4 class="lkey-spec-title">18 小时</h4>
+            <p class="lkey-spec-body">一次充电覆盖完整工作日，标称数据仅供参考。</p>
+          </div>
+          <div class="lkey-spec">
+            <p class="lkey-spec-label">重量</p>
+            <h4 class="lkey-spec-title">1.4 kg</h4>
+            <p class="lkey-spec-body">整机重量，含电池与外壳，不含电源适配器。</p>
+          </div>
+        </div>
+        <div class="lkey-form">
+          <input class="lkey-field" type="email" placeholder="邮箱地址" aria-label="邮箱地址">
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Stage Black</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f7"></span><span class="palette-name">Near White</span><code>#f5f5f7</code></li>
+          <li><span class="swatch-chip" style="background:#86868b"></span><span class="palette-name">Mid Grey</span><code>#86868b</code></li>
+          <li><span class="swatch-chip" style="background:#2997ff"></span><span class="palette-name">Electric Blue</span><code>#2997ff</code></li>
+          <li><span class="swatch-chip" style="background:#1d1d1f"></span><span class="palette-name">Card Graphite</span><code>#1d1d1f</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>舞台是纯黑无纹理，让产品图的边缘消失，形成无限深的舞台。主要文字用比纯白柔的 #f5f5f7，长时间看不刺眼；中灰做次级说明与规格，永远是第三层级；卡面深灰只比舞台亮一点，用来在不破坏纯黑的前提下分区。电蓝是全页唯一强调色，只给链接、主 CTA 与关键数字——全页不得出现第二种彩色。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Stage Black</strong><span class="swatch-role">页面底。纯黑无纹理。</span></div><code>#000000</code><code>--color-stage-black</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f7"></span><div><strong>Near White</strong><span class="swatch-role">主要文字与高对比元素。</span></div><code>#f5f5f7</code><code>--color-near-white</code></li>
+          <li><span class="swatch-chip" style="background:#86868b"></span><div><strong>Mid Grey</strong><span class="swatch-role">次级文字、说明与规格。</span></div><code>#86868b</code><code>--color-mid-grey</code></li>
+          <li><span class="swatch-chip" style="background:#2997ff"></span><div><strong>Electric Blue</strong><span class="swatch-role">唯一强调色：链接、主 CTA 与关键数字。</span></div><code>#2997ff</code><code>--color-electric-blue</code></li>
+          <li><span class="swatch-chip" style="background:#1d1d1f"></span><div><strong>Card Graphite</strong><span class="swatch-role">卡片与信息块。</span></div><code>#1d1d1f</code><code>--color-card-graphite</code></li>
+        </ul>
+        <p class="style-body-note">舞台没有深度线索：<code>none — the stage has no depth cues</code>。卡片可用 <code>0 24px 60px rgba(0,0,0,0.6)</code>，其余一律不加。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站一种字体。两种极端并置是这套风格的声音：大标题 56 到 80px 配 -0.035em 的紧字距，小标签 12px 全大写 0.2em 宽字距。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="lkey-specimen-title">One Machine.</p>
+            <p class="specimen-meta">SF Pro Display — 标题。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 700 · 行高 1.02 · 字距 -0.035em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="lkey-specimen-label">INTRODUCING</p>
+            <p class="specimen-meta">SF Pro Display — 标签。字重 500 · 12px · 全大写 · 字距 0.2em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>SF Pro Display</td><td>700</td><td>80px</td><td>1.02</td><td>-0.035em</td><td><code>--text-display</code></tr>
+            <tr><td>heading-lg</td><td>SF Pro Display</td><td>700</td><td>56px</td><td>1.05</td><td>-0.03em</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>SF Pro Display</td><td>600</td><td>40px</td><td>1.1</td><td>-0.025em</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>SF Pro Display</td><td>500</td><td>28px</td><td>1.2</td><td>-0.02em</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>SF Pro Display</td><td>400</td><td>21px</td><td>1.45</td><td>—</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>SF Pro Display</td><td>400</td><td>17px</td><td>1.5</td><td>—</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>SF Pro Display</td><td>500</td><td>12px</td><td>1.4</td><td>0.2em</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1120px，区块间距 240px——大到近乎奢侈，几乎全部居中。文字块宽度不超过 20 个汉字或 40 个字符，因为短句才配得上这么大的留白。帧序列区块占 3 到 4 屏滚动高度。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+          <li><span class="spacing-bar" style="width:240px"></span><code>240</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮 999px · 输入 12px · 媒体 0</td></tr>
+            <tr><td>页面</td><td>上限 1120px</td></tr>
+            <tr><td>区块间距</td><td>240px</td></tr>
+            <tr><td>卡片内边距</td><td>32px</td></tr>
+            <tr><td>文字块宽度</td><td>不超过 20 汉字或 40 字符</td></tr>
+            <tr><td>帧序列区块</td><td>3–4 屏滚动高度</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Buy Button</h3>
+            <p class="style-body-comp-role">主行动按钮。电蓝填充、白字、999px 全圆角、无描边，17px/500、紧字距、padding 12px 24px。hover 时填充转 #0071e3；按下缩到 0.98。过渡 300ms。全页只有一个这样的按钮——hero 里那个就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Spec Card</h3>
+            <p class="style-body-comp-role">规格与特性卡。卡面深灰填充、24px 圆角、无描边、内边距 32px。上方 12px 全大写 0.2em 的电蓝标签，中间 28px/600 白标题，下方 17px 中灰说明。卡片本身不加边框与阴影——纯黑舞台上加边框会毁掉无限深。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scrub Stage</h3>
+            <p class="style-body-comp-role">滚动擦洗帧序列（签名组件）。外层高度为视口的 3 到 4 倍，内层 sticky top-0、高 100vh，内含一个 canvas。帧以 WebP 存放，用 IntersectionObserver 在区块接近视口时才加载（绝不首次渲染就预载全部帧），画布尺寸按 devicePixelRatio 封顶 2 倍。滚动进度用 requestAnimationFrame 读取 window.scrollY 一次并缓存，绝不在处理器里读 getBoundingClientRect 或 offsetTop。prefers-reduced-motion 时只画关键帧。所有关键文字必须叠在 canvas 之外的 DOM 里。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Glass Nav</h3>
+            <p class="style-body-comp-role">顶部导航。固定顶部、高 48px、黑 70% 底加 24px 模糊、底部 1px 白 10% 描边。左侧 17px/600 近白字标，右侧链接 14px 近白 80%，购买链接用电蓝。hover 时链接转纯白。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Dark Field</h3>
+            <p class="style-body-comp-role">邮箱与表单输入。卡面深灰填充、1px 白 10% 描边、12px 圆角、padding 12px 20px、17px 字。占位符中灰。聚焦时描边转电蓝，不加外环、不加光晕。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>纯黑舞台，无边框无纹理</li>
+              <li>只用一支电蓝强调色</li>
+              <li>帧用 IntersectionObserver 懒加载</li>
+              <li>滚动进度在 rAF 里读一次并缓存</li>
+              <li>关键文字放在 DOM，不放帧图</li>
+              <li>尊重 reduced-motion，给 DPR 封顶</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用多彩渐变或第二个强调色</li>
+              <li>不要在滚动处理器里读布局属性</li>
+              <li>不要在首屏预载全部帧</li>
+              <li>不要把关键信息烘焙进帧图</li>
+              <li>不要堆砌边框与圆角装饰</li>
+              <li>不要忽略 reduced-motion 与 DPR 封顶</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>产品渲染图是唯一图像，且必须自带光源、边缘融入纯黑。允许产品特写、内部结构剖视与帧序列动画。不使用人物摄影、多彩渐变与背景纹理。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="launch-keynote">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的舞台、留白与帧序列技术约束。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，纯黑舞台、240px 区块间距与帧序列的懒加载约束必须原样保留；预载全部帧或在滚动处理器里读布局属性即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

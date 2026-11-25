@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中世纪手抄本 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body mscript">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 102 · 浅色版面</p>
+        <h1>中世纪手抄本 <span class="style-card-en">MEDIEVAL MANUSCRIPT</span></h1>
+        <p class="page-lead">羊皮纸、双线边框、金红首字：一页被手指翻旧的书。</p>
+        <div class="style-card-tags"><span>双线边框 3+1px</span><span>泥金首字 4 倍</span><span>全页衬线</span><span>页边藤蔓</span></div>
+      </header>
+
+      <section class="mscript-hero">
+        <div class="mscript-hero-copy">
+          <p>中世纪手抄本模仿泥金装饰手稿：羊皮纸底，金与深红作装饰与标题，深棕作正文，边框用 border-double 或双层实线（外层 3 到 4px、内层 1px）模拟手抄本的双线框，标题首字放大到 5xl 以上做首字下沉，全页衬线保证古典一致。</p>
+          <p>它的层次全靠装饰性边框与首字，不靠阴影与颜色对比。下面这一页就写在双线框里。</p>
+        </div>
+        <div class="mscript-demo">
+          <div class="mscript-frame">
+            <span class="mscript-corner mscript-corner--tl" aria-hidden="true"></span>
+            <span class="mscript-corner mscript-corner--tr" aria-hidden="true"></span>
+            <span class="mscript-corner mscript-corner--bl" aria-hidden="true"></span>
+            <span class="mscript-corner mscript-corner--br" aria-hidden="true"></span>
+            <p class="mscript-rubric">CAPITULUM I</p>
+            <p class="mscript-title">De Lumine</p>
+            <p class="mscript-body"><span class="mscript-initial" aria-hidden="true">D</span>在羊皮纸被翻旧之前，抄写者先在页边画出藤蔓，再落墨写字。首字用金箔填满，深红的轮廓框住它。</p>
+            <button type="button" class="mscript-btn">翻开</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#f0e6d0"></span><span class="palette-name">Parchment</span><code>#f0e6d0</code></li>
+          <li><span class="swatch-chip" style="background:#8b1a1a"></span><span class="palette-name">Deep Red</span><code>#8b1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#c9a74e"></span><span class="palette-name">Gold</span><code>#c9a74e</code></li>
+          <li><span class="swatch-chip" style="background:#3d2b1f"></span><span class="palette-name">Deep Brown</span><code>#3d2b1f</code></li>
+          <li><span class="swatch-chip" style="background:#2d4a2d"></span><span class="palette-name">Forest</span><code>#2d4a2d</code></li>
+          <li><span class="swatch-chip" style="background:#6bc15e"></span><span class="palette-name">Bright Green</span><code>#6bc15e</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>泛黄的羊皮纸是页面底，所有内容写在它上面；深红是抄本里的朱砂墨，管标题与重要文字；金是泥金装饰的颜色，管边框、首字底与装饰；像旧墨水的棕黑管正文与辅助边框；墨绿管藤蔓装饰与次级强调；亮绿最亮，只在首字内部的叶片点缀出现。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f0e6d0"></span><div><strong>Parchment</strong><span class="swatch-role">页面底。泛黄的纸，所有内容写在它上面。</span></div><code>#f0e6d0</code><code>--color-parchment</code></li>
+          <li><span class="swatch-chip" style="background:#3d2b1f"></span><div><strong>Deep Brown</strong><span class="swatch-role">正文与辅助边框。像旧墨水的棕黑。</span></div><code>#3d2b1f</code><code>--color-deep-brown</code></li>
+          <li><span class="swatch-chip" style="background:#8b1a1a"></span><div><strong>Deep Red</strong><span class="swatch-role">标题与重要文字。抄本里的朱砂墨。</span></div><code>#8b1a1a</code><code>--color-deep-red</code></li>
+          <li><span class="swatch-chip" style="background:#c9a74e"></span><div><strong>Gold</strong><span class="swatch-role">边框、首字底与装饰。泥金装饰的颜色。</span></div><code>#c9a74e</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#2d4a2d"></span><div><strong>Forest</strong><span class="swatch-role">藤蔓装饰与次级强调。</span></div><code>#2d4a2d</code><code>--color-forest</code></li>
+          <li><span class="swatch-chip" style="background:#6bc15e"></span><div><strong>Bright Green</strong><span class="swatch-role">首字内部的叶片点缀，出现频率最低。</span></div><code>#6bc15e</code><code>--color-bright-green</code></li>
+        </ul>
+        <p class="style-body-note">阴影禁用：<code>none — the double frame carries all depth</code>；最高只允许 <code>inset 0 0 40px rgba(61,43,31,0.06)</code>。零圆角。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用哥特体或高对比装饰衬线，正文用可读衬线。哥特体只做标题与首字。正文行高 1.8，像手抄本的正文栏。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="mscript-specimen-title">De Lumine</p>
+            <p class="specimen-meta">UnifrakturMaguntia — 装饰衬线标题。替代栈：'Cinzel', Georgia, serif · 正文 EB Garamond（替代栈：Garamond, 'Songti SC', serif）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>UnifrakturMaguntia</td><td>400</td><td>76px</td><td>1.15</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>UnifrakturMaguntia</td><td>400</td><td>58px</td><td>1.2</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>UnifrakturMaguntia</td><td>400</td><td>44px</td><td>1.25</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>EB Garamond</td><td>400</td><td>21px</td><td>1.75</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>EB Garamond</td><td>400</td><td>18px</td><td>1.8</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>EB Garamond</td><td>600</td><td>16px</td><td>1.6</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 960px、容器内边距 32px，区块间距 128px。整页包在一个 Double Frame 里，页边保留装饰栏。正文单栏、行宽不超过 60 字符，像抄本的正文块。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 0 · 首字 4px</td></tr>
+            <tr><td>双线框</td><td>外 3px 深棕 + 内 1px 金，中间留 8px 空隙</td></tr>
+            <tr><td>角饰</td><td>四角各 16px 几何卷草或十字</td></tr>
+            <tr><td>首字</td><td>4 倍正文字号、金 18% 底、2px 深红描边</td></tr>
+            <tr><td>朱批</td><td>16px/600、0.16em、深红、无底无边框</td></tr>
+            <tr><td>页边藤蔓</td><td>1px 墨绿、6–10 片 8px 小叶、单屏 ≤2 条</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Double Frame</h3>
+            <p class="style-body-comp-role">双线边框（核心组件）。外层 3px 深棕实线、内层 1px 金实线，两层之间留 8px 羊皮纸色空隙（用 padding + 内层描边实现，或双 border 配 outline-offset）。零圆角。四角各放一个 16px 的角饰（几何卷草或十字）。整个内容写在框内，像一页抄本。hero 里的框就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Illuminated Initial</h3>
+            <p class="style-body-comp-role">泥金首字（签名）。段落首字母 float: left、字号为正文的 4 倍、行高对齐三到四行，字体内填金 18% 底、外描 2px 深红、四角各有 2px 的深棕角线。首字内部可放极简的卷草或叶片线条（墨绿）。每个内容区块只允许一次——hero 里那个「D」就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Rubric Label</h3>
+            <p class="style-body-comp-role">朱批标签。16px/600、字距 0.16em、深红文字、无底无边框。它是抄本里用红墨写的小标题，用在区块上方 8px 处与段落之间的批注。</p>
+            <p class="mscript-rubric mscript-rubric--inline">CAPITULUM I</p>
+          </div>
+          <div class="comp-item">
+            <h3>Parchment Button</h3>
+            <p class="style-body-comp-role">行动按钮。羊皮纸填充、深棕文字、零圆角、3px 深棕描边加内层 1px 金线（双层）、16px/600、字距 0.16em、padding 14px 32px，无阴影。hover 时底层填充转金 18%、描边转深红；按下时整体位移 1px 2px。过渡 250ms ease-out。</p>
+            <button type="button" class="mscript-btn">翻开</button>
+          </div>
+          <div class="comp-item">
+            <h3>Margin Vine</h3>
+            <p class="style-body-comp-role">页边藤蔓。沿页边（或区块侧边）垂直延伸的 1px 墨绿藤蔓线，带 6 到 10 片小叶（各 8px）与 2 到 3 朵深红小花。它模拟抄本页边的装饰栏，单屏最多两条。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>羊皮纸底配金与深红</li>
+              <li>边框必须是双线（3px 加 1px）</li>
+              <li>标题首字放大到 4 倍</li>
+              <li>全页衬线</li>
+              <li>页边有藤蔓装饰</li>
+              <li>正文行宽不超过 60 字符</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用单线边框</li>
+              <li>不要用哥特体排正文</li>
+              <li>不要用写实摄影</li>
+              <li>不要用圆角</li>
+              <li>不要用阴影</li>
+              <li>不要每段都有首字下沉</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>手抄本插图、木刻版画、泥金装饰、羊皮纸纹理。图像必须有平面化的线稿与金红配色，可加金箔底。不使用写实摄影、现代插画与彩色渐变图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="medieval-manuscript">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的双线框、泥金首字与朱批标签。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双线边框、4 倍泥金首字与「零阴影零圆角」必须原样保留；单线边框或写实摄影一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

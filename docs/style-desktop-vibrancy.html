@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>桌面毛玻璃 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body dvib">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 19 · 深色版面</p>
+        <h1>桌面毛玻璃 <span class="style-card-en">DESKTOP VIBRANCY</span></h1>
+        <p class="page-lead">三层深灰、系统级模糊、几乎没有装饰——像一台安静的桌面应用。</p>
+        <div class="style-card-tags"><span>三层深灰</span><span>80% 通透侧栏</span><span>1px 细分隔线</span><span>只动颜色</span></div>
+      </header>
+
+      <section class="dvib-hero">
+        <div class="dvib-hero-copy">
+          <p>这套风格模仿桌面系统的原生材质：窗口是三层深浅不同的深灰（#1c1c1e 最深、#2c2c2e 中间、#3a3a3c 最浅），侧边栏用 80% 不透明的深灰配大半径 backdrop-blur 做出通透感，所有分隔线都是 1px 白色 8% 到 12%，绝不加粗。</p>
+          <p>标题用衬线体（Georgia）与正文的无衬线形成对话，这是它与普通暗色仪表盘的区别。动效只允许变颜色，200ms ease-out；任何位移或缩放都会让人意识到这是网页而不是系统。右边这扇窗口是真的——行可以悬停，按钮可以按。</p>
+        </div>
+        <div class="dvib-demo">
+          <div class="dvib-window">
+            <div class="dvib-toolbar"><span class="dvib-dot dvib-dot--r"></span><span class="dvib-dot dvib-dot--a"></span><span class="dvib-dot dvib-dot--g"></span><span class="dvib-toolbar-title">备忘录</span></div>
+            <div class="dvib-win-body">
+              <div class="dvib-side">
+                <span class="dvib-row on">全部</span>
+                <span class="dvib-row">工作</span>
+                <span class="dvib-row">灵感</span>
+                <span class="dvib-row">归档</span>
+              </div>
+              <div class="dvib-content">
+                <p class="dvib-win-title">安静的窗口。</p>
+                <p class="dvib-win-text">层级靠明度差，不靠描边。</p>
+                <button type="button" class="dvib-btn">新建</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1c1c1e"></span><span class="palette-name">Deepest Grey</span><code>#1c1c1e</code></li>
+          <li><span class="swatch-chip" style="background:#2c2c2e"></span><span class="palette-name">Mid Grey</span><code>#2c2c2e</code></li>
+          <li><span class="swatch-chip" style="background:#3a3a3c"></span><span class="palette-name">Light Grey</span><code>#3a3a3c</code></li>
+          <li><span class="swatch-chip" style="background:#0a84ff"></span><span class="palette-name">System Blue</span><code>#0a84ff</code></li>
+          <li><span class="swatch-chip" style="background:#30d158"></span><span class="palette-name">System Green</span><code>#30d158</code></li>
+          <li><span class="swatch-chip" style="background:#ff9f0a"></span><span class="palette-name">System Orange</span><code>#ff9f0a</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>窗口底与侧边栏用最深灰，内容区亮一档做区分，工具栏与浮层再亮一档靠近观者。系统蓝只给选中项、链接与主按钮——等同于桌面系统的强调色，只此一支；绿、橙、红各管一种状态，小面积出现。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1c1c1e"></span><div><strong>Deepest Grey</strong><span class="swatch-role">窗口底与侧边栏基色。整页最深的一层，其他灰都压在它上面。</span></div><code>#1c1c1e</code><code>--color-deepest</code></li>
+          <li><span class="swatch-chip" style="background:#2c2c2e"></span><div><strong>Mid Grey</strong><span class="swatch-role">内容区与列表行。与最深灰差一档，用来区分侧边栏与主区。</span></div><code>#2c2c2e</code><code>--color-mid</code></li>
+          <li><span class="swatch-chip" style="background:#3a3a3c"></span><div><strong>Light Grey</strong><span class="swatch-role">工具栏、悬浮面板与需要再靠近观者一层的表面。</span></div><code>#3a3a3c</code><code>--color-light-grey</code></li>
+          <li><span class="swatch-chip" style="background:#0a84ff"></span><div><strong>System Blue</strong><span class="swatch-role">选中项、链接与主按钮。等同于桌面系统的强调色，只此一支。</span></div><code>#0a84ff</code><code>--color-system-blue</code></li>
+          <li><span class="swatch-chip" style="background:#30d158"></span><div><strong>System Green</strong><span class="swatch-role">成功、在线、已完成。与系统蓝同屏时只做小面积标记。</span></div><code>#30d158</code><code>--color-system-green</code></li>
+          <li><span class="swatch-chip" style="background:#ff9f0a"></span><div><strong>System Orange</strong><span class="swatch-role">警告与待处理。表示「需要你看一眼」，不表示失败。</span></div><code>#ff9f0a</code><code>--color-system-orange</code></li>
+          <li><span class="swatch-chip" style="background:#ff453a"></span><div><strong>System Red</strong><span class="swatch-role">删除与不可逆操作。出现即意味着有代价。</span></div><code>#ff453a</code><code>--color-system-red</code></li>
+        </ul>
+        <p class="style-body-note">面板阴影：<code>inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 48px rgba(0,0,0,0.5)</code>；浮层 <code>0 12px 32px rgba(0,0,0,0.55)</code>。分隔线一律 1px 白色 8% 到 12%。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>三套字各司其职：窗口标题与大标题用衬线 Georgia，是这套暗色界面唯一的「人味」；正文与控件用系统无衬线，字级偏小（11 到 17px），这是桌面应用的密度；代码与数值用 SF Mono，不做装饰用途。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="dvib-specimen-title">桌面毛玻璃，Desk</p>
+            <p class="specimen-meta">Georgia — 窗口标题与大标题。替代栈：'New York', 'Times New Roman', serif · 400 / 700 · 字距 -0.01em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="dvib-specimen-label">正文、控件与菜单。0123456789</p>
+            <p class="specimen-meta">SF Pro Text — 正文与控件。替代栈：-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif · 400 / 500 / 600 · 字级 11–17px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Georgia</td><td>700</td><td>40px</td><td>1.15</td><td>-0.01em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Georgia</td><td>400</td><td>32px</td><td>1.25</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>SF Pro Text</td><td>600</td><td>17px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>SF Pro Text</td><td>400</td><td>15px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>SF Pro Text</td><td>400</td><td>13px</td><td>1.5</td><td>—</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>SF Pro Text</td><td>500</td><td>11px</td><td>1.4</td><td>0.02em</td><td><code>--text-label</code></td></tr>
+            <tr><td>code</td><td>SF Mono</td><td>400</td><td>13px</td><td>1.6</td><td>—</td><td><code>--text-code</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1280px，左侧 240px 固定侧边栏加右侧内容区。行高 44px、区块间距 48px、内边距 16px，密度明显高于网页。工具栏固定顶部，内容区可独立滚动，侧边栏不随内容滚动。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>10px（面板 14px，按钮与输入框 6px）</td></tr>
+            <tr><td>卡片内边距</td><td>16px</td></tr>
+            <tr><td>元素间距</td><td>8px</td></tr>
+            <tr><td>列表行高</td><td>44px，圆角 6px</td></tr>
+            <tr><td>侧栏宽度</td><td>240px 固定</td></tr>
+            <tr><td>工具栏高度</td><td>52px，标题居中</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Vibrancy Sidebar</h3>
+            <p class="style-body-comp-role">侧边栏与浮层背景。深灰 80% 不透明填充、backdrop-blur 40px、仅右侧 1px 白色 10% 描边；宽 240px、内边距 12px。选中项用系统蓝 18% 底、圆角 6px；hover 用白色 8% 底。不做位移与缩放。上方演示窗口的侧栏即此组件。</p>
+            <p class="dvib-comp-note">悬停左侧列表行，只有颜色在变。</p>
+          </div>
+          <div class="comp-item">
+            <h3>System Button</h3>
+            <p class="style-body-comp-role">主按钮与工具栏按钮。系统蓝填充、白字、6px 圆角、无描边、字级 13px/500、padding 6px 14px；hover 只把填充亮度提高 8%，按下降低 10%，过渡 200ms 且只动颜色。禁用态用白色 12% 填充配 40% 文字。</p>
+            <button type="button" class="dvib-btn">完成</button>
+          </div>
+          <div class="comp-item">
+            <h3>List Row</h3>
+            <p class="style-body-comp-role">设置项、文件列表与消息列表。高 44px、水平内边距 12px、圆角 6px、无背景；行与行之间用 1px 白色 8% 分隔线。hover 填充白色 6%，选中填充系统蓝 18%；左侧图标 16px、右侧说明文字 13px 白色 60%。</p>
+            <div class="dvib-list-demo" role="presentation">
+              <span class="dvib-row">偏好设置</span>
+              <span class="dvib-row">账户</span>
+              <span class="dvib-row on">通用</span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Segmented Control + Vibrancy Toolbar</h3>
+            <p class="style-body-comp-role">视图切换与筛选：轨道白色 6% 填充、8px 圆角、高 28px，选中段浅灰填充、6px 圆角、内阴影 0 1px 0 白色 6%，字体 11px/500，切换只做颜色与位置过渡。窗口工具栏：高 52px、浅灰填充、底部 1px 白色 10% 描边、无阴影；左侧窗口控件三个 12px 圆点（红黄绿），中间标题用衬线 13px 且居中而非左对齐。上方演示窗口的标题栏即此。</p>
+            <div class="dvib-seg" role="presentation"><span class="on">列表</span><span>分栏</span><span>画廊</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只用三层深灰，层级靠明度差而不是描边</li>
+              <li>侧边栏与浮层用 80% 不透明加深模糊做通透</li>
+              <li>所有分隔线都是 1px 白色 8% 到 12%</li>
+              <li>标题用衬线，正文用系统无衬线</li>
+              <li>动效 200ms，只改颜色</li>
+              <li>密度按桌面应用设定：行高 44px、字级 11 到 17px</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用超过 1px 的描边</li>
+              <li>不要在动效里加位移或缩放</li>
+              <li>不要用玻璃拟态那种高饱和光斑，这里是系统材质不是装饰</li>
+              <li>不要把强调色用于大面积填充</li>
+              <li>不要用网页级的大字号破坏桌面密度</li>
+              <li>不要给面板加圆角超过 14px</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以应用截图与窗口截图为主，浅色壁纸做窗口背景时才有通透感。允许网格与列表的真实密度。不使用插画、卡通图标或高饱和摄影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="desktop-vibrancy">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的明度分层、通透材质与「只动颜色」的动效纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，三层深灰、80% 通透侧栏与「只改颜色」必须原样保留；衬线标题是它和普通暗色仪表盘的分界线。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

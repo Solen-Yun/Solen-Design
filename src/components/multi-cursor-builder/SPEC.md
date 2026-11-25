@@ -1,0 +1,61 @@
+从零制作"多光标页面搭建"交互组件。它在一个独立的可滚动区域里演示12个彩色光标协作搭建作品集：开场围绕站标旋转、向外散开、拉出白色页面，然后依次打字、改字体、画图片框、搬入图片、摆放统计卡片和标签、铺开贡献格。下滚继续搭建，上滚反向撤回。画面必须是可访问的真实DOM、真实图片、原生滚动及Canvas2D光标/选框，不能用视频、截图或iframe代替交互。
+
+结构和视觉
+默认宽1120、高760，height可改。根容器为position:relative的div，overflow:hidden、container-type:inline-size。内层滚动区域绝对定位inset:0、overflow:auto、overscroll-behavior:contain、scrollbar-gutter:stable、tabindex=0；内容、Canvas、居中开场标记、底部工具条各有独立层。不要锁定宿主body、修改history或滚动外层页面。同页多实例互不影响。
+底色#e7e7e9，22px节距的#cfcfd3单像素点阵。页面白色，最大宽1160，外边距0 auto 140，内边距28px 72px 40px，轻阴影0 1px 2px黑色5%和0 8px 40px黑色5%。上方小字行距页面顶部56px，文字"Desktop""Solen Design — Portfolio""1160 × auto"，11.5px灰色。浅色预览将外围和滚动区域完整铺为#f4f4f4，页面仍白色。
+字色#111214、次级#55585f、弱化#8b8e95，边线#ececee，强调紫#5b5ff0，选框蓝#0d99ff，辅助线红#f24822。正文字体Inter,-apple-system,"Segoe UI",system-ui,sans-serif；衬线Instrument Serif,Georgia,serif；等宽JetBrains Mono,ui-monospace,Menlo,monospace。无需外部字体也可运行，可将相应OFL字体内嵌并保留声明。Canvas标签使用600 11px无衬线，圆角4px、彩色底白字、高19px。
+
+品牌标记
+开场居中72×72的Solen Design站标，内嵌SVG、200×200 viewBox：两段月牙形弧带拼成S形，左下、右上各一枚半径3的圆点，右上一枚橙色#f2662a圆角短横，外圈一道3px圆头弧线，主色#101820。SVG源码见下，直接使用这些路径。导航左侧放同一站标，高32px；右侧配文字"Solen"，17px、600字重、字距-.045em、颜色#111214。
+
+站标的内嵌SVG如下，直接创建这些矢量路径而非依赖字体排字：
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Solen Design"><g fill="#101820"><path d="M 165.3 65.3 L 167.8 70.4 L 169.9 75.8 L 171.6 81.3 L 172.8 86.9 L 173.6 92.6 L 174.0 98.3 L 173.9 104.0 L 173.4 109.7 L 172.4 115.4 L 171.0 120.9 L 169.1 126.4 L 166.9 131.7 L 164.2 136.8 L 161.2 141.6 L 157.8 146.2 L 154.0 150.6 L 149.9 154.6 L 145.6 158.3 L 140.9 161.7 L 136.0 164.7 L 130.9 167.2 L 125.6 169.4 L 120.1 171.2 L 114.5 172.6 L 108.9 173.5 L 103.2 173.9 L 97.4 174.0 L 91.7 173.5 L 86.0 172.7 L 80.4 171.4 L 75.0 169.6 L 69.6 167.5 L 64.5 164.9 L 59.6 162.0 L 54.9 158.7 L 50.5 155.0 L 54.5 150.5 L 59.0 153.4 L 63.6 155.8 L 68.3 157.9 L 73.2 159.6 L 78.1 160.9 L 83.1 161.7 L 88.0 162.2 L 93.0 162.3 L 97.8 162.0 L 102.6 161.3 L 107.3 160.2 L 111.8 158.8 L 116.1 157.1 L 120.3 155.1 L 124.2 152.7 L 127.9 150.1 L 131.3 147.2 L 134.5 144.1 L 137.3 140.8 L 139.9 137.4 L 142.2 133.7 L 144.1 130.0 L 145.7 126.2 L 147.0 122.2 L 148.0 118.3 L 148.6 114.3 L 148.9 110.4 L 148.9 106.5 L 148.6 102.6 L 148.0 98.9 L 147.1 95.2 L 145.9 91.7 L 144.5 88.4 L 142.8 85.2 L 140.9 82.1 L 138.8 79.3 Z"/><path d="M 38.2 132.9 L 36.0 128.3 L 34.1 123.6 L 32.5 118.7 L 31.4 113.8 L 30.5 108.7 L 30.1 103.7 L 30.0 98.6 L 30.3 93.5 L 31.0 88.4 L 32.0 83.5 L 33.4 78.6 L 35.1 73.8 L 37.2 69.1 L 39.6 64.6 L 42.3 60.4 L 45.3 56.3 L 48.7 52.4 L 52.3 48.8 L 56.1 45.5 L 60.2 42.4 L 64.5 39.7 L 68.9 37.3 L 73.6 35.2 L 78.4 33.4 L 83.3 32.0 L 88.2 31.0 L 93.3 30.3 L 98.4 30.0 L 103.5 30.1 L 108.5 30.5 L 113.6 31.3 L 118.5 32.5 L 123.4 34.0 L 128.1 35.9 L 132.7 38.1 L 137.1 40.6 L 133.9 45.7 L 129.6 43.9 L 125.2 42.5 L 120.8 41.4 L 116.3 40.6 L 111.8 40.2 L 107.4 40.1 L 103.0 40.4 L 98.6 40.9 L 94.4 41.8 L 90.3 42.9 L 86.3 44.4 L 82.5 46.1 L 78.9 48.1 L 75.4 50.3 L 72.2 52.8 L 69.2 55.4 L 66.4 58.2 L 63.9 61.2 L 61.6 64.4 L 59.6 67.6 L 57.8 71.0 L 56.4 74.5 L 55.2 78.0 L 54.3 81.5 L 53.6 85.1 L 53.3 88.6 L 53.2 92.2 L 53.3 95.6 L 53.7 99.1 L 54.4 102.4 L 55.3 105.6 L 56.4 108.7 L 57.8 111.7 L 59.3 114.5 L 61.0 117.2 L 62.9 119.7 Z"/><circle cx="52.5" cy="152.8" r="3"/><circle cx="135.5" cy="43.2" r="3"/><rect fill="#f2662a" x="137" y="59" width="11" height="3.5" rx="1.75" transform="rotate(-25 142 61)"/></g><path d="M 180.8 85.8 A 82 82 0 0 1 78.8 179.2" fill="none" stroke="#101820" stroke-width="3" stroke-linecap="round"/></svg>
+
+
+页面内容
+导航高44px、左右分布品牌、Work/Experience/Stack/Contact锚点和浅绿"Available · Dec 2026"状态胶囊。每一项是独立搬运积木。
+首屏padding-top76px。12px等宽小标题"Component library — Solen Design"；主标题"Components and motion that feel physical."，末词斜体紫色，82px/1.0衬线、400字重、字距-.025em、最大880px。18px/1.6说明"Solen Design is a working library of interface components, page blocks and small tools — the kind of work where the last two percent of motion is the whole point."，最大600px。下面是黑底"See selected work →"及白底描边"Get in touch"按钮，高44px、圆角12px、间距12px，上间距30px。
+首图上间距48px、高420px、圆角20px；下方四张统计卡片"2025 / library first release""16 / shipped components""60 fps / or it isn't done""6 / framework entries"，四列、间距16px、圆角16px、内边距20px 22px，数字40px衬线。
+后续section上间距56px、顶部细线、padding64px 0 8px。依次是"01 — Selected work""Things that move."；两列项目网格，间距20px，四张卡片，每张缩略图高260px、圆角18px，下面有标题、序号和两行项目说明。标题依次为Cosmic panels、Glass folder、Velocity calendar、Otp pill；编号01至04。
+接着"02 — Experience""Where I've been building."和三条经历：Solen Design / Design Engineer / 2024 — now；Studio Nord / Motion Developer / 2022 — 2024；Freelance / 3D & Web Developer / 2019 — 2022。每行24px上下内边距、底线，列宽200px/1fr/130px、间距24px。
+然后"03 — Stack""Tools I reach for."及13个标签：Three.js、WebGL / GLSL、TypeScript、React、GSAP、Blender、After Effects、FFmpeg、Node.js、Figma、Python、Playwright、Web Audio。标签高38px、圆角10px、左右15px、间距10px，前置9px彩色小方块。
+再后是"04 — Activity""Shipping, most days."，53列×7行贡献格，格距4px、外padding22px、圆角16px，五色#ebedf0/#c6e9cf/#86d39b/#3fae66/#1f7a44。底部"1,284 contributions in the last year"和Less/More图例。
+尾部"05 — Contact""Let's build something that moves."，末词斜体紫色、72px、居中，联系和返回顶部按钮；页脚"© 2026 Solen Design""Designed & built in public, one cursor at a time."。这是本地视觉演示的内容，可替换，不代表真实业务统计或服务。
+五张图片均随产物内嵌并由内嵌 SVG 程序化绘制：首图是深紫蓝场上的组件卡堆叠，四张项目图依次是轨道星群、浅底玻璃文件夹、绿底日历卡片与暖纸验证胶囊，均带细颗粒纹理；运行时不依赖远程素材或既有图片文件。
+
+光标与开场时间线
+7个工作光标依次为Su/Ada/Kai/Momo/Ren/Yuki/Sol，颜色#0d99ff/#9747ff/#ff24bd/#14ae5c/#ffa629/#f24822/#00b5ce；另有Nova/Jin/Mia/Theo/Lina五个围观光标。光标用Canvas矢量绘制：箭头多边形顶点(0,0),(0,18.2),(5.1,13.4),(12.9,13.4)，彩色填充、1.4px白边；按下时scale .92；十字为原点处±9px两条正交线，先白色4px再深色1.6px描边；I形文本光标为y=-10至10的竖线和上下弯曲端帽，同样双描边。用小画布缓存各种颜色/工具/按压状态及姓名标签。
+开场2.3秒：对第n个光标令g=n%6、j=floor(n/6)，角度a=g*1.047+t*(g奇数?1:-1)*(1.3+(g%3)*.15)，半径r=92+(g%3)*30+sin(t*1.7+g)*10。中心位置(cx+cos(a)*r*1.5,cy+sin(a)*r*.66)，沿切线再错开j*22px，光标旋转为切线角减1.25。透明度min(1,t*1.8)。接下来.6秒以1-(1-k)^3向外散开，距离260–500px，姓名逐渐显示；Logo .5秒缩到.5并淡出。
+随后主光标先.35秒移动到白色页面左上，再.75秒用easeInOutCubic拉出页面遮罩和蓝色Desktop框。此后解除内层滚动锁定，显示工具条，进入搭建。skipIntro=true时直接进入搭建，不自动显示整页已完成状态。
+
+搭建调度和连续回退
+每个积木保存当前局部时间s、时长D、方向dir、执行者和已缓存的真实布局。滚动时，积木顶部小于视口高*.82则目标搭建；大于*.92则目标回退；中间区保持当前目标。已经越出视口上缘的积木直接完成；远在视口下方且无人操作的已搭积木复位。前一积木完成至少min(D,.2)秒后才开放后一积木；回退从下往上排队。
+从空闲工作光标中选择离当前操作点最近的一个，先以easeInOutCubic飞过去，飞行时长clamp(距离/1500,.22,.55)秒，到位才推进局部时间。正向1倍，反向2.2倍，s限制在0至D；反向从当前s接续，不能重播一张截图。easeInOutCubic(t)=t<.5?4*t^3:1-(-2*t+2)^3/2。
+普通文本：.45秒拉出文字框、.14秒回到插入点，然后逐字显示；D=.59+字符数/(字符数>60?110:46)。标题：.22秒后以34字符/秒打字，T1=.22+字符数/34；接着.38秒光标移到字体弹窗，.18秒点击，最后.55秒变成衬线目标字号；总D=T1+1.11。未输入部分用不可见span保留布局，标题预留最终高度，显示I形插入光标。字体弹窗232×78、圆角10px、白底、轻投影，含Text标签、字体名和字号框；点击前显示Inter/15，点击后显示Instrument Serif及82/52/72。
+图片和项目卡片：.6秒从左上拉出矩形，.38秒移出取图，.8秒沿带30px正弦上拱的曲线把缩略图片搬回中心，1.78秒开始用.22秒渐入真实图片，1.9秒显示卡片说明，D=2.08秒。搬图在Canvas绘制真实图片，宽从150px变到目标宽一半，带轻投影和文件名标签。
+搬运积木：.32秒移到侧方，随后.72秒搬回原位，左右偏移min(360,视口宽*.3)，垂直路径有14px正弦拱起。直接变换同一个DOM元素translate3d；结束清理临时transform/will-change。标签：.25秒开始，每项延后.15秒，每项.2秒用back缓动放大落下，back(t)=1+2.7*(t-1)^3+1.7*(t-1)^2。贡献格：.3秒起1.9秒从左上扫到右下，扫过的格子显现，当前矩形和已显示单元数同步。
+执行中的积木绘制1px蓝色选框，四角7px白色蓝边控制点，11px类别名和17px高蓝底尺寸标签；结束后.8秒淡出。搬运将要吸附时显示红色竖向对齐线、相邻间距标记。点击波纹持续.45秒，半径3→17、透明度.7→0。
+空闲工作光标缓慢跟随归一化home位置，并加50px/36px正弦漂移，跟随系数1-exp(-dt*1.4)。围观光标每2–4秒换一个工作光标，以80–160px偏移跟随；没有任务时按视口比例缓慢游动，不能突然传送。
+
+坐标、性能和生命周期
+所有坐标相对于组件根容器，来自getBoundingClientRect并保留小数：先减根容器left/top，再除宿主CSS缩放比例，最后加内层scrollTop/Left。搬运元素测量时扣除自己的translate；标签子元素缩放在批量测量时临时还原。批量完成布局写入后统一读取矩形；文字变化后只批量测一次插入点。滚动条槽位在开场锁定时也保留，避免居中页面在解锁后横移；解锁和尺寸变化触发重新测量。
+Canvas只覆盖组件可视区，不覆盖整个宿主窗口；绘图矩阵按实际局部CSS宽高与画布像素宽高比例计算。根据显示缩放和DPR设置分辨率，最多约240万像素。工作时最多60fps、空闲漂移30fps；暂停、离屏、隐藏页面或销毁后取消RAF。使用逻辑时钟，恢复后不累计停留期间时间；speed范围.25–2。缓存光标和标签，DPR变化后清空相应缓存。禁止每帧读写整页布局或拦截滚轮做逐帧scrollTo。
+滚动区域可键盘聚焦；原生方向键/PageUp/PageDown/Home/End滚动，空格或P暂停/继续，R重播并恢复播放。工具条包含工具状态、姓名头像、滚动百分比、Pause/Resume及Replay真按钮。锚点只滚动当前实例内部。触屏原生上下滑动，按钮可点。容器900px以下内边距改24px，主标题52px、联系标题48px，经历单列，导航链接隐藏；600px以下按钮组按可用宽度换行，工具条隐藏头像，保证Pause和Replay完整可见。
+options.playing默认true；speed默认1；skipIntro默认false；showToolbar默认true；height默认760；reducedMotion覆盖系统偏好；onPhaseChange收到intro/burst/board/build；onReplay只在用户重播时触发。更新选项保留当前时间线，除skipIntro改变需要重启。减少动态效果立即显示完整页面、保留滚动和按钮、不启动RAF。用组件独立的字体名和引用计数注册字体，最后一实例卸载时移除；卸载还要断开所有ResizeObserver/IntersectionObserver和监听器。
+交付React、Vue、Svelte、Solid、Preact、Vanilla原生入口，复用框架无关DOM/Canvas核心，提供四文件完整代码、真实依赖和使用示例。验证双实例不同位置、外层页面滚动、传统滚动条、不同DPR、375/768/1440、触屏、暂停、重播、连续回退、字体样式及卸载零残留。
+
+独立实现与六框架交付
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS、内嵌 SVG 或 Canvas 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 MultiCursorBuilder。从零创建四个文件：MultiCursorBuilder.tsx、MultiCursorBuilderEngine.js、motion-runtime.ts、MultiCursorBuilderEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整交互状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；鼠标、键盘及相关触屏状态可用；成功、错误、快速中断、复制成功与失败均有反馈；多实例互不干扰，卸载后停止所有任务。
+
+生成完成后的使用示例
+import { MultiCursorBuilder } from "./MultiCursorBuilder";
+
+export default function App() {
+  return <MultiCursorBuilder />;
+}

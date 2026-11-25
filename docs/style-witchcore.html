@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>巫术核心 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body witch">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 109 · 深色版面</p>
+        <h1>巫术核心 <span class="style-card-en">WITHCORE</span></h1>
+        <p class="page-lead">月相、塔罗、紫水晶与金符文：一次摆在深夜桌面上的占卜。</p>
+        <div class="style-card-tags"><span>深紫到午夜黑渐变</span><span>金符文 8px 微光</span><span>月相与塔罗语汇</span><span>星尘缓慢闪烁</span></div>
+      </header>
+
+      <section class="witch-hero">
+        <div class="witch-hero-copy">
+          <p>巫术核心是神秘学美学：深紫到午夜黑的垂直渐变作底，金色符文文字带 0 0 8px 的微光，边框是 30% 的金色半透明细线、hover 时升到 60%，卡片用 #0d0b14 的 80% 加轻微模糊营造朦胧感，紫水晶作次级信息色，背景点缀星尘。</p>
+          <p>衬线字体加宽字距，让文字有仪式感。月相、塔罗牌、水晶与草药是它的图形语汇。</p>
+        </div>
+        <div class="witch-demo">
+          <span class="witch-stars" aria-hidden="true"></span>
+          <div class="witch-card">
+            <div class="witch-moons" role="presentation">
+              <span class="witch-moon"></span>
+              <span class="witch-moon"></span>
+              <span class="witch-moon"></span>
+              <span class="witch-moon is-current"></span>
+              <span class="witch-moon"></span>
+            </div>
+            <p class="witch-card-title">Waning Crescent</p>
+            <p class="witch-card-text">第三夜的月亮。塔罗说这一张适合提问，不适合回答。</p>
+            <span class="witch-rune">✦ THE READING ✦</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#4a1942"></span><span class="palette-name">Deep Violet</span><code>#4a1942</code></li>
+          <li><span class="swatch-chip" style="background:#0d0b14"></span><span class="palette-name">Midnight</span><code>#0d0b14</code></li>
+          <li><span class="swatch-chip" style="background:#c9a74e"></span><span class="palette-name">Gold</span><code>#c9a74e</code></li>
+          <li><span class="swatch-chip" style="background:#7b68ae"></span><span class="palette-name">Amethyst</span><code>#7b68ae</code></li>
+          <li><span class="swatch-chip" style="background:#3d8b6e"></span><span class="palette-name">Herb Green</span><code>#3d8b6e</code></li>
+          <li><span class="swatch-chip" style="background:#6bc15e"></span><span class="palette-name">Sprout</span><code>#6bc15e</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黄昏的深紫是渐变顶端，往午夜黑过渡；带紫的午夜黑是渐变底端与卡片底；金是符文、边框与所有发光，仪式感的来源；紫水晶管次级信息与月光语义；草药绿管草药与「生长」语义，出现频率较低；嫩绿最亮，只在草药细节与「新增」标记上出现。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0d0b14"></span><div><strong>Midnight</strong><span class="swatch-role">渐变底端与卡片底。带紫的近黑。</span></div><code>#0d0b14</code><code>--color-midnight</code></li>
+          <li><span class="swatch-chip" style="background:#4a1942"></span><div><strong>Deep Violet</strong><span class="swatch-role">渐变顶端。黄昏的紫，往午夜黑过渡。</span></div><code>#4a1942</code><code>--color-deep-violet</code></li>
+          <li><span class="swatch-chip" style="background:#c9a74e"></span><div><strong>Gold</strong><span class="swatch-role">符文、边框与所有发光。仪式感的来源。</span></div><code>#c9a74e</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#7b68ae"></span><div><strong>Amethyst</strong><span class="swatch-role">次级信息与月光语义。</span></div><code>#7b68ae</code><code>--color-amethyst</code></li>
+          <li><span class="swatch-chip" style="background:#3d8b6e"></span><div><strong>Herb Green</strong><span class="swatch-role">草药与「生长」的语义，出现频率较低。</span></div><code>#3d8b6e</code><code>--color-herb-green</code></li>
+          <li><span class="swatch-chip" style="background:#6bc15e"></span><div><strong>Sprout</strong><span class="swatch-role">最亮的一支，只在草药细节与「新增」标记上出现。</span></div><code>#6bc15e</code><code>--color-sprout</code></li>
+        </ul>
+        <p class="style-body-note">金光两档：<code>0 0 8px rgba(201,167,78,0.40)</code> 与 <code>0 0 24px rgba(201,167,78,0.30)</code>。卡片是 80% 午夜加 8px 模糊。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>衬线体 Cormorant Garamond，标题加 0.04em 字距、标签加 0.24em。宽字距让文字像被念出来的咒语。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="witch-specimen-title">Witchcore</p>
+            <p class="specimen-meta">Cormorant Garamond — 衬线体。替代栈：'EB Garamond', Georgia, 'Songti SC', serif · 400/600 · display 48px 字距 0.04em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cormorant Garamond</td><td>600</td><td>48px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Cormorant Garamond</td><td>600</td><td>36px</td><td>1.25</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cormorant Garamond</td><td>400</td><td>28px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Cormorant Garamond</td><td>400</td><td>21px</td><td>1.7</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Cormorant Garamond</td><td>400</td><td>17px</td><td>1.75</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Cormorant Garamond</td><td>600</td><td>14px</td><td>1.55</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1040px、容器内边距 24px，区块间距 112px。允许元素轻微旋转（-1 到 1 度）与错位，像牌被摊开。留白宽松，星尘填补空白但不承载内容。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:112px"></span><code>112</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px · 按钮 8px · 月相 999px</td></tr>
+            <tr><td>渐变</td><td>linear-gradient(#4a1942, #0d0b14) 垂直</td></tr>
+            <tr><td>卡片</td><td>rgba(13,11,20,0.8) + 8px 模糊 + 1px 金 30% 描边</td></tr>
+            <tr><td>月相</td><td>16px、间距 12px、当前相 0 0 12px 微光</td></tr>
+            <tr><td>塔罗</td><td>2:3 竖向、金 40% 描边、上下各 1px 金内框</td></tr>
+            <tr><td>星尘</td><td>1–2px 光点 20–50%、周期 4–8s 错峰、绝不快速闪</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Haze Card</h3>
+            <p class="style-body-comp-role">朦胧卡片（核心组件）。午夜 80% 填充、8px 模糊、12px 圆角、1px 金 30% 描边、内边距 32px。标题 36px/600 金并带 0 0 8px 金字微光，正文 17px 白 80%。hover 时描边升到 60%、金字光晕扩到 24px。hero 里那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Rune Label</h3>
+            <p class="style-body-comp-role">符文标签。透明底、1px 金 30% 描边、8px 圆角、14px/600、字距 0.24em、padding 4px 12px，文字金色带 0 0 8px 微光。左右可各放一个 6px 的金色菱形作为符文分隔。</p>
+            <span class="witch-rune">✦ THE READING ✦</span>
+          </div>
+          <div class="comp-item">
+            <h3>Moon Phase Row</h3>
+            <p class="style-body-comp-role">月相装饰。一排 5 到 8 个 16px 的月相图标（新月到满月），间距 12px，颜色金或紫水晶，当前相带 0 0 12px 微光。它既是装饰也是「现在处于哪一阶段」的指示，用于章节与状态——hero 卡顶部那排就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Tarot Frame</h3>
+            <p class="style-body-comp-role">塔罗牌卡片。竖向 2:3 比例、12px 圆角、1px 金 40% 描边、内边距 20px，午夜 90% 填充。顶部与底部各一条 1px 金线内框，中央放图形（月相、水晶、草药线稿）。hover 时卡片上浮 4px、金线描边升到 80%、并让星尘在 600ms 内亮起。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Stardust Bed</h3>
+            <p class="style-body-comp-role">星尘背景。在渐变底上叠 20 到 40 个 1 到 2px 的白色或淡金光点（radial-gradient 或 box-shadow 多重投影），不透明度 20% 到 50%，分布不均。可做极慢的闪烁（每点周期 4 到 8 秒、错峰），但绝不做快速闪烁。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>深紫到午夜黑的垂直渐变</li>
+              <li>金色符文配 8px 微光</li>
+              <li>边框 30% 金，hover 升到 60%</li>
+              <li>卡片 80% 午夜加轻微模糊</li>
+              <li>衬线加宽字距</li>
+              <li>月相与塔罗作图形语汇</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮摄影</li>
+              <li>不要用高饱和图像</li>
+              <li>不要让星尘快速闪烁</li>
+              <li>不要用粗边框</li>
+              <li>不要用现代无衬线作标题</li>
+              <li>不要让星尘承载内容</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>神秘学图像：塔罗牌面、月相、水晶、草药、烛光、星图。必须暗调、金紫配色、有朦胧感。不使用明亮摄影、现代插画与高饱和图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="witchcore">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的金符文、月相与朦胧卡片。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，深紫到午夜黑渐变、金符文 8px 微光与「星尘只做装饰」必须原样保留；快速闪烁或明亮摄影一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

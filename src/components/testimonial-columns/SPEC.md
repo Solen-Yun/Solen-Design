@@ -1,0 +1,34 @@
+创建一个可独立运行的落地页好评墙组件（300×480 卡片内的双列无限滚动评论流），完整实现下面列出的画面、数据和动效。
+
+画面与排版
+- 卡片 300×480px，圆角 32px，overflow hidden。背景 --ux-surface（明 #FFFFFF / 暗 #13141C），文字 --ux-ink（明 #16151B / 暗 #F4F0E8），内衬面 --ux-surface-2（明 #F5F3EF / 暗 #1A1B25），次级文字 --ux-ink-2（明 #57535F / 暗 rgba(244,240,232,.68)），弱化文字 --ux-ink-3（明 #8E8A97 / 暗 rgba(244,240,232,.42)），描线 --ux-line（明 rgba(22,21,27,.09) / 暗 rgba(255,255,255,.08)），强调橙 #F59E0B，阴影 0 30px 60px -36px --ux-shadow-strong（明 rgba(40,30,80,.3) / 暗 rgba(0,0,0,.72)）。字体栈 Pretendard, -apple-system, "Segoe UI", Roboto, sans-serif，场景以 grid place-items center 包裹、在容器内水平居中，窄容器整景等比缩小。
+- 顶部标题区（absolute 顶 0，padding 26px 20px 10px，文字居中）：h3「Loved by teams」（20px/900，字距 -.035em）；下方评分行（11px/800，--ux-ink-2，inline-flex 居中，gap 5px）：五颗橙星（10px 字号直接用 ★ 字符、#F59E0B、字距 -1px）+「4.9」（13px/900，--ux-ink）+「2,341 reviews」。
+- 评论墙（absolute，左右 12px，top 88px 到底部）：两列 grid（1fr 1fr，gap 9px），overflow hidden，上下边缘用 mask-image 线性渐隐（transparent → #000 14% → #000 82% → transparent）。
+- 评论卡（figure，margin 0，padding 12px 11px，圆角 16px，背景 --ux-surface-2，内阴影描线 --ux-line）：橙色五星行（10px，字距 -1px）→ 评语（margin 5px 0 0，11px/600，行高 1.5，--ux-ink-2；金句短语用 mark 高亮：linear-gradient(transparent 55%, rgba 黄 #FACC15 45%) 从 55% 起覆盖下半，文字转 --ux-ink、750 字重）→ 作者行（flex，gap 7px，margin-top 9px）：24px 圆形头像色块（内放姓名首字母，10px/850 白字）+ 姓名（10.5px/850，--ux-ink）与职位（9px/650，--ux-ink-3）。
+
+数据
+- 8 条评论，姓名/职位/评语（金句以 mark 包裹）依次为：Seoyun Kim / Startup founder /「Since we adopted it, <mark>our meetings were cut in half.</mark> Everyone checks progress on their own.」；Junho Lee / Frontend developer /「It barely needs setup. <mark>The whole team moved over in 10 minutes.</mark>」；Haeun Park / Marketer /「Seeing every campaign date on one screen means <mark>nothing slips anymore.</mark>」；Minjae Jung / Product designer /「<mark>Design reviews got so much faster.</mark> I love that comments sit right on the screen.」；Yuna Choi / Support lead /「Inquiries sort themselves, so <mark>our reply time dropped 40%.</mark>」；Doyun Han / Solo founder /「Even working alone, things stay organized <mark>as if I had a team.</mark> And the price is easy.」；Jia Yoon / HR manager /「With onboarding as a template, new hires say <mark>their first week got easier.</mark>」；Taemin Oh / Data analyst /「<mark>No more building reports by hand every week.</mark> They pile up on their own.」
+- 头像色依次 #6366F1、#0EA5E9、#EC4899、#10B981、#F59E0B、#8B5CF6、#EF4444、#14B8A6。
+- 左列放序号 0/2/4/6 四张，右列放 1/3/5/7 四张；每列把 4 张再连排一份（第二份对读屏 aria-hidden），滚动半程时画面复原，实现无缝循环。左列时长 24s 正向，右列 30s reverse。
+
+动效与交互
+- 两列匀速无限滚动：keyframes 到 translateY(calc(-50% - 4.5px))，linear 无限。指针悬停某列或该列获得键盘焦点（focusin/focusout 维护 is-hold）时，该列 animation-play-state paused，另一列继续。
+- 暂停的列里，pointermove 按 clientY 命中卡片：命中的卡加 .is-hl（translateY(-3px) scale(1.02)、背景转 --ux-surface、外描线与下投影 0 14px 26px -14px --ux-shadow-strong，过渡 .3s cubic-bezier(.3,1.4,.5,1)），pointerleave 清除。
+- 组件滚出视口（IntersectionObserver）时给根节点加 .is-off，两列暂停，回来自动恢复。
+- prefers-reduced-motion：两列不滚动，评论墙改纵向滚动（overflow-y auto、列 overflow visible），第二份克隆卡不渲染，其余样式不变。
+
+独立实现与六框架交付
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案与动效参数均以上述文字为准；界面用 DOM 与 CSS 实现，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 TestimonialColumns。从零创建四个文件：TestimonialColumns.tsx、TestimonialColumnsEngine.js、motion-runtime.ts、TestimonialColumnsEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。组件的布局、样式和滚动算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- options.height 调整场景高度（默认 480），options.reducedMotion 覆盖系统偏好。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；两列以不同速度反向滚动，悬停仅暂停所悬停列并抬起所指卡片；滚出视口暂停、回视口恢复；减少动态下不滚动且可纵向翻看；多实例互不干扰，卸载后停止所有任务。
+
+生成完成后的使用示例
+import { TestimonialColumns } from "./TestimonialColumns";
+
+export default function App() {
+  return <TestimonialColumns />;
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>动力学排印 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ktyp">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 80 · 深色版面</p>
+        <h1>动力学排印 <span class="style-card-en">KINETIC TYPOGRAPHY</span></h1>
+        <p class="page-lead">字就是界面：它逐个到场、字重会呼吸、宽度跟着滚动速度伸展。</p>
+        <div class="style-card-tags"><span>字母遮罩上升</span><span>可变字重呼吸</span><span>只动 transform/opacity</span><span>一屏一个主效</span></div>
+      </header>
+
+      <section class="ktyp-hero">
+        <div class="ktyp-hero-copy">
+          <p>动力学排印把可变字体当成动画本体：近黑舞台配暖骨白文字，字母逐个入场、字重呼吸、宽度随滚动速度伸展，唯一的强调色是信号橙，只落在主 CTA、关键词与 hover 态。它的技术纪律比视觉更硬——只许动 transform、opacity 与 font-variation-settings，绝不动 top、left、width、height（那会重排卡顿）。</p>
+          <p>离散入场用 expo-out 0.7 到 0.9 秒，超过 1.2 秒或对一次性过渡用 linear 都算错；一屏只能有一个主导动效（一次一个主角）。</p>
+        </div>
+        <div class="ktyp-demo">
+          <p class="ktyp-stagger" aria-label="KINETIC"><span>K</span><span>I</span><span>N</span><span>E</span><span>T</span><span>I</span><span>C</span></p>
+          <div class="ktyp-marquee" role="presentation">
+            <span>EVERY LETTER ON STAGE · 字母逐个到场 ·&nbsp;</span><span>EVERY LETTER ON STAGE · 字母逐个到场 ·&nbsp;</span>
+          </div>
+          <button type="button" class="ktyp-btn">BEGIN</button>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0b0b0c"></span><span class="palette-name">Ink Black</span><code>#0b0b0c</code></li>
+          <li><span class="swatch-chip" style="background:#f4f1eb"></span><span class="palette-name">Bone</span><code>#f4f1eb</code></li>
+          <li><span class="swatch-chip" style="background:#ff4d00"></span><span class="palette-name">Signal Orange</span><code>#ff4d00</code></li>
+          <li><span class="swatch-chip" style="background:#141416"></span><span class="palette-name">Panel</span><code>#141416</code></li>
+          <li><span class="swatch-chip" style="background:#8a857b"></span><span class="palette-name">Muted Grey</span><code>#8a857b</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>近黑的舞台让骨白文字与橙色跳跃；微暖的骨白在深底上不刺眼，承担全部文字；信号橙是唯一强调色——主 CTA、关键词与 hover，绝不作大面积底色；面板只比底色亮一档，做卡片与浮层；哑灰管次级文字、元数据与时间戳。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0b0b0c"></span><div><strong>Ink Black</strong><span class="swatch-role">舞台底。近黑，让骨白文字与橙色跳跃。</span></div><code>#0b0b0c</code><code>--color-ink-black</code></li>
+          <li><span class="swatch-chip" style="background:#f4f1eb"></span><div><strong>Bone</strong><span class="swatch-role">全部文字。微暖的白，在深底上不刺眼。</span></div><code>#f4f1eb</code><code>--color-bone</code></li>
+          <li><span class="swatch-chip" style="background:#ff4d00"></span><div><strong>Signal Orange</strong><span class="swatch-role">唯一强调色：主 CTA、关键词与 hover。绝不作大面积底色。</span></div><code>#ff4d00</code><code>--color-signal-orange</code></li>
+          <li><span class="swatch-chip" style="background:#141416"></span><div><strong>Panel</strong><span class="swatch-role">卡片与浮层，只比底色亮一档。</span></div><code>#141416</code><code>--color-panel</code></li>
+          <li><span class="swatch-chip" style="background:#8a857b"></span><div><strong>Muted Grey</strong><span class="swatch-role">次级文字、元数据与时间戳。</span></div><code>#8a857b</code><code>--color-muted-grey</code></li>
+        </ul>
+        <p class="style-body-note">层次几乎为零：<code>none — the type carries the depth</code>；唯一的投影属于面板 <code>0 24px 60px rgba(0,0,0,0.60)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>可变字体 Inter Variable 是这套风格的动画引擎：字重与字宽随滚动与交互实时变化，标题 96 到 132px。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ktyp-specimen-title">TYPE IN MOTION</p>
+            <p class="specimen-meta">Inter Variable — 可变字体。替代栈：'Helvetica Neue', system-ui, sans-serif · 300–900 · display 132px 行高 0.92</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter Variable</td><td>900</td><td>132px</td><td>0.92</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter Variable</td><td>900</td><td>96px</td><td>0.95</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter Variable</td><td>700</td><td>64px</td><td>1</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter Variable</td><td>700</td><td>40px</td><td>1.05</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter Variable</td><td>500</td><td>18px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter Variable</td><td>300</td><td>14px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter Variable</td><td>500</td><td>14px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1360px、容器内边距 32px，区块间距 160px。字可以极大并跨越整个宽度，允许与容器边缘齐平或溢出。一屏只安排一个主导动效，其余元素保持静止。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮/输入 2px</td></tr>
+            <tr><td>入场</td><td>字符间隔 30–40ms、单字符 0.7–0.9s expo-out</td></tr>
+            <tr><td>呼吸</td><td>2.4s ease-in-out 循环、单屏最多一个元素</td></tr>
+            <tr><td>跑马灯</td><td>24s linear 无缝、hover 暂停、长播须有暂停键</td></tr>
+            <tr><td>一次性过渡</td><td>≤1.2s、绝不 linear</td></tr>
+            <tr><td>可动属性</td><td>仅 transform、opacity、font-variation-settings</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Letter Stagger</h3>
+            <p class="style-body-comp-role">字母逐个入场（核心动效）。标题按字符拆成 span，每个字符初始 translateY(110%) 加 opacity 0，进入视口时按 30 到 40ms 间隔依次回到 0 与 1，缓动 cubic-bezier(0.22, 1, 0.36, 1)（expo-out），单字符时长 0.7 到 0.9 秒。父容器加 overflow hidden 形成遮罩上升，绝不用纯 opacity 淡入代替。prefers-reduced-motion 时直接显示终态。hero 里的 KINETIC 就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Variable Breath</h3>
+            <p class="style-body-comp-role">字重与字宽呼吸。用 font-variation-settings 在 2.4 秒内循环改变 wght（300 到 900）与 wdth（85 到 100），缓动 ease-in-out。连续装饰循环不受一次性过渡的 1.2 秒上限约束。单屏最多一个元素在做呼吸，否则会互相打架。</p>
+            <p class="ktyp-breath" aria-hidden="true">BREATHE</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scroll Marquee</h3>
+            <p class="style-body-comp-role">跑马灯。内容复制两份、容器 overflow hidden，用 translateX 从 0 到 -50% 的 24 秒 linear 无缝循环。hover 时暂停。自动播放超过 5 秒且与其他内容并列时，必须提供可持续使用的暂停／停止／隐藏控制，不能只靠 hover。hero 下面那条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Signal CTA</h3>
+            <p class="style-body-comp-role">主行动按钮。信号橙填充、墨黑文字、2px 圆角、无描边，18px/700、padding 14px 32px。hover 时填充提亮 8% 并把文字变成可变字重的 900（0.4 秒 expo-out）；按下缩放 0.98。过渡只动 opacity、transform 与 font-variation-settings。</p>
+            <button type="button" class="ktyp-btn">SIGNAL</button>
+          </div>
+          <div class="comp-item">
+            <h3>Velocity Widen</h3>
+            <p class="style-body-comp-role">随滚动速度改变字宽。读取滚动速度（在 rAF 内计算两帧 scrollY 差值并缓存），映射到 font-variation-settings 的 wdth（85 到 100）与 letter-spacing（-0.04em 到 -0.02em）。速度衰减用 0.3 秒的阻尼，静止时回到默认值。禁止在 scroll 事件里读布局属性。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只动 transform、opacity、font-variation-settings</li>
+              <li>入场用 expo-out 0.7 到 0.9 秒</li>
+              <li>一屏只有一个主导动效</li>
+              <li>跑马灯用 24 秒 linear 无缝循环</li>
+              <li>自动播放超过 5 秒必须提供暂停控制</li>
+              <li>信号橙只给 CTA、关键词与 hover</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要动布局属性（top/left/width/height）</li>
+              <li>不要一屏跑多个主效</li>
+              <li>不要让图像抢戏</li>
+              <li>不要超过一个强调色</li>
+              <li>不要用纯 opacity 淡入代替遮罩上升</li>
+              <li>不要让一次性过渡超过 1.2 秒或用 linear</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几乎没有图像——文字就是图像。允许极低不透明度的噪点或网格作为舞台纹理。不使用插画与摄影，任何有形象的图像都会抢走字的戏。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="kinetic-typography">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的字母入场、可变字呼吸与跑马灯纪律。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，遮罩上升入场、只动 transform/opacity 与「一屏一个主效」必须原样保留；动画布局属性一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

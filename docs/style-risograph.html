@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risograph 印刷风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body riso">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 44 · 浅色版面</p>
+        <h1>Risograph 印刷风 <span class="style-card-en">RISOGRAPH</span></h1>
+        <p class="page-lead">两个墨版印歪了：套印错位加网点，才是 Riso 的样子。</p>
+        <div class="style-card-tags"><span>双向套印错位</span><span>multiply 叠印</span><span>100ms ease-linear</span><span>网点与对位标</span></div>
+      </header>
+
+      <section class="riso-hero">
+        <div class="riso-hero-copy">
+          <p>Risograph 是一种真实的孔版印刷：每次只上一个色版，纸走一遍印一层，所以会有套印错位、网点、以及三色以内的限制。界面上的还原靠两条硬规则——第一是 Misregistration Offset：hover 时必须用双向硬阴影模拟两个墨版错开，一个往右下（蓝版）、一个往左上（橙版），单方向阴影是错的。</p>
+          <p>第二是 Instant Print：所有过渡 100ms 且必须 ease-linear，因为是机械印刷而不是有机运动，绝不允许 ease-in-out 或用 opacity 过渡来换色。右边这张叠印卡是真的——移上去，两个墨版一起错开。</p>
+        </div>
+        <div class="riso-demo">
+          <div class="riso-card-demo">
+            <span class="riso-reg" aria-hidden="true"></span>
+            <p class="riso-demo-title">两版印歪。</p>
+            <p class="riso-demo-body">粉版右下、橙版左上，multiply 出紫。</p>
+            <button type="button" class="riso-btn">PRINT RUN</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#ff6b9d"></span><span class="palette-name">Riso Pink</span><code>#ff6b9d</code></li>
+          <li><span class="swatch-chip" style="background:#2563eb"></span><span class="palette-name">Riso Blue</span><code>#2563eb</code></li>
+          <li><span class="swatch-chip" style="background:#ff8a00"></span><span class="palette-name">Riso Orange</span><code>#ff8a00</code></li>
+          <li><span class="swatch-chip" style="background:#a38bff"></span><span class="palette-name">Riso Lavender</span><code>#a38bff</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><span class="palette-name">Riso Green</span><code>#22c55e</code></li>
+          <li><span class="swatch-chip" style="background:#faf5eb"></span><span class="palette-name">Cream Stock</span><code>#faf5eb</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>Riso 的粉墨饱和度极高，是签名色；蓝与粉叠印后产出紫——这个混合是 Riso 的核心；橙是第三个墨版与套印错位的第二个方向；纸张从来不是纯白，本身就是米白；绿与丁香是可选墨版。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ff6b9d"></span><div><strong>Riso Pink</strong><span class="swatch-role">第一个墨版。Riso 的粉墨饱和度极高，是它的签名色。</span></div><code>#ff6b9d</code><code>--color-riso-pink</code></li>
+          <li><span class="swatch-chip" style="background:#2563eb"></span><div><strong>Riso Blue</strong><span class="swatch-role">第二个墨版。与粉叠印后会产出紫，这个混合是 Riso 的核心。</span></div><code>#2563eb</code><code>--color-riso-blue</code></li>
+          <li><span class="swatch-chip" style="background:#ff8a00"></span><div><strong>Riso Orange</strong><span class="swatch-role">第三个墨版与套印错位的第二个方向。</span></div><code>#ff8a00</code><code>--color-riso-orange</code></li>
+          <li><span class="swatch-chip" style="background:#faf5eb"></span><div><strong>Cream Stock</strong><span class="swatch-role">纸张底。Riso 从不印纯白，纸本身是米白的。</span></div><code>#faf5eb</code><code>--color-cream-stock</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><div><strong>Riso Green</strong><span class="swatch-role">可选墨版，用于第三色或替换橙。</span></div><code>#22c55e</code><code>--color-riso-green</code></li>
+          <li><span class="swatch-chip" style="background:#a38bff"></span><div><strong>Riso Lavender</strong><span class="swatch-role">粉与蓝叠印后的产物色，也可直接作为墨版使用。</span></div><code>#a38bff</code><code>--color-riso-lavender</code></li>
+        </ul>
+        <p class="style-body-note">套印错位公式：<code>6px 6px 0 #2563eb, -4px -4px 0 #ff8a00</code>、小号 <code>4px 4px 0 #2563eb, -3px -3px 0 #ff8a00</code>——双向才对，单方向即错。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>Space Mono——等宽或粗无衬线，字距略开。Riso 印刷的边缘会略微涨墨，所以字形要选笔直有力的。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="riso-specimen-title">RISO PRESS 0123456789</p>
+            <p class="specimen-meta">Space Mono — 等宽印刷体。替代栈：ui-monospace, 'Courier New', monospace · 400 / 700 · 字距 0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="riso-specimen-label">2 INKS / PINK + BLUE</p>
+            <p class="specimen-meta">正文 14–17px / 400 / 行高 1.7；大写标签 12px / 700 / 0.14em；文字一律墨黑 #1a1a1a</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>48px</td><td>1.1</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>700</td><td>34px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>700</td><td>24px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>17px</td><td>1.65</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>700</td><td>12px</td><td>1.4</td><td>0.14em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 96px。零圆角，版式可略微歪斜（0.5 到 1 度）模拟手工对位。所有色块必须来自二到三支墨版，绝不超过四支。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>叠印</td><td>粉 28% + 蓝 22%，multiply 混合，各偏移 2px</td></tr>
+            <tr><td>卡片内边距</td><td>28px</td></tr>
+            <tr><td>元素间距</td><td>20px</td></tr>
+            <tr><td>网点</td><td>4px 间距、半径 1px，角度 15 或 45 度防摩尔纹</td></tr>
+            <tr><td>动效</td><td>一律 100ms ease-linear，绝不用 opacity 换色</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Overprint Card</h3>
+            <p class="style-body-comp-role">叠印卡片（核心组件）。奶白纸底上叠两层墨版：第一层粉 28%，第二层蓝 22%，两层用 multiply 混合模式并各偏移 2px（一个右下、一个左上）；零圆角、1px 墨蓝 30% 描边、内边距 28px。hover 时双向硬阴影出现：6px 6px 0 蓝 与 -4px -4px 0 橙，过渡 100ms ease-linear。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Riso Button</h3>
+            <p class="style-body-comp-role">行动按钮。荧光粉填充、奶白文字、零圆角、无描边，14px/700、字距 0.14em、padding 12px 28px。hover 时出现双向硬阴影 4px 4px 0 蓝 与 -3px -3px 0 橙，同时填充硬切到橙（不做透明度过渡）；按下时位移 2px 2px 且阴影归零。全程 100ms ease-linear。</p>
+            <button type="button" class="riso-btn">RUN THE DRUM</button>
+          </div>
+          <div class="comp-item">
+            <h3>Halftone Bed + Registration Mark</h3>
+            <p class="style-body-comp-role">网点底：用 radial-gradient 做 4px 间距、半径 1px 的网点，颜色取墨蓝 20% 或粉 20%；网点角度在不同版本间应略有不同（15 度或 45 度），避免出现摩尔纹——本页背景就是。套印对位标记：一个 16px 的圆环（1px 墨蓝）叠一个 24px 的十字（1px 橙），中心留空；放在页面四角或卡片角上——纯装饰，但它证明了这是印刷品。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Ink Counter</h3>
+            <p class="style-body-comp-role">用色计数标记。在页面角落放一行 12px 等宽小字标注本次用了几版墨，颜色取墨黑 50%。这是 Riso 工作流的真实痕迹，也是这套风格最有说服力的细节——本页角落这行「3 INKS / PINK + BLUE + ORANGE」就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>只用二到三支墨版色</li>
+              <li>hover 必须双向硬阴影</li>
+              <li>过渡 100ms ease-linear</li>
+              <li>阴影零模糊</li>
+              <li>米白纸张底</li>
+              <li>叠印用 multiply 混合</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用复杂渐变</li>
+              <li>不要超过四支颜色</li>
+              <li>不要用写实阴影或光照</li>
+              <li>不要用圆角</li>
+              <li>不要用单方向阴影</li>
+              <li>不要用 ease-in-out 或 opacity 过渡</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>双色或三色网点图像：把照片分解成两到三块墨版，允许套印错位与边缘涨墨。允许手绘线稿叠印。不使用全彩摄影、写实阴影与渐变图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="risograph">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的套印错位、网点底与机械打印节奏。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，双向套印阴影、100ms ease-linear 与三色上限必须原样保留；单方向阴影即错版。</p>
+      </section>
+    </main>
+    <span class="riso-counter" aria-hidden="true">3 INKS / PINK + BLUE + ORANGE</span>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

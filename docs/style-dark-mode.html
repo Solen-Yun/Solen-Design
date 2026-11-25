@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>暗黑模式 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body darkmode">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 11 · 深色版面</p>
+        <h1>暗黑模式 <span class="style-card-en">DARK MODE</span></h1>
+        <p class="page-lead">深板岩底上的一支蓝，靠内发光而不是投影说明层次。</p>
+        <div class="style-card-tags"><span>三级明度</span><span>描边分层</span><span>顶边内高光</span><span>状态色克制</span></div>
+      </header>
+
+      <section class="darkmode-hero">
+        <div class="darkmode-hero-copy">
+          <p>暗黑模式不是把白色反过来，而是重建一套明度秩序：最深的一层是 #0f172a，绝不用纯黑——纯黑会让阴影失效。往上每一级只提亮 4% 到 6%，最多三级；边框用 1px 的白色 6% 到 10%，靠它切分区块而不是靠阴影。</p>
+          <p>所有发光都朝内：按钮顶边一层 inset 白色高光，模拟屏幕自下而上的光，这才是暗色界面里真实的物理。强调色只有一支蓝，绿、橙、红仅作为状态。右边这张卡可以悬停：填充升到完全不透明，描边转亮，上浮 2px——暗色里的层次感来自这三件事同时发生。</p>
+        </div>
+        <div class="darkmode-demo">
+          <div class="surface-card-demo">
+            <span class="darkmode-chip darkmode-chip--green"><i></i>ONLINE</span>
+            <p class="darkmode-demo-title">深板岩，不是黑。</p>
+            <p class="darkmode-demo-body">描边在分层，内高光在发光。</p>
+            <button type="button" class="primary-btn">DEPLOY</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0f172a"></span><span class="palette-name">Deep Slate</span><code>#0f172a</code></li>
+          <li><span class="swatch-chip" style="background:#1e293b"></span><span class="palette-name">Slate 800</span><code>#1e293b</code></li>
+          <li><span class="swatch-chip" style="background:#334155"></span><span class="palette-name">Slate 700</span><code>#334155</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><span class="palette-name">Primary Blue</span><code>#3b82f6</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><span class="palette-name">State Green</span><code>#22c55e</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><span class="palette-name">State Amber</span><code>#f59e0b</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>明度只有三级：深板岩做底，石板 800 承载，石板 700 给浮层与 hover，不再往上加。蓝是唯一强调色，主行动、链接与选中态都用它；绿、橙、红各管一种状态，用 15% 底配实色文字，出现即传达信息，不做装饰。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0f172a"></span><div><strong>Deep Slate</strong><span class="swatch-role">页面底，全站最深的一层。用它替代纯黑，阴影才有落点。</span></div><code>#0f172a</code><code>--color-deep-slate</code></li>
+          <li><span class="swatch-chip" style="background:#1e293b"></span><div><strong>Slate 800</strong><span class="swatch-role">卡片与面板。比底色亮 4%，是主要的承载层。</span></div><code>#1e293b</code><code>--color-slate-800</code></li>
+          <li><span class="swatch-chip" style="background:#334155"></span><div><strong>Slate 700</strong><span class="swatch-role">浮层与 hover 态。第三级，不再往上加。</span></div><code>#334155</code><code>--color-slate-700</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><div><strong>Primary Blue</strong><span class="swatch-role">主行动、链接与选中态。深底上要提起一档亮度才够读。</span></div><code>#3b82f6</code><code>--color-primary-blue</code></li>
+          <li><span class="swatch-chip" style="background:#22c55e"></span><div><strong>State Green</strong><span class="swatch-role">成功与在线，用 15% 底配实色文字。</span></div><code>#22c55e</code><code>--color-state-green</code></li>
+          <li><span class="swatch-chip" style="background:#f59e0b"></span><div><strong>State Amber</strong><span class="swatch-role">警告与待处理，只在图标与徽标上出现。</span></div><code>#f59e0b</code><code>--color-state-amber</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><div><strong>State Red</strong><span class="swatch-role">错误与删除，出现即代表代价。</span></div><code>#ef4444</code><code>--color-state-red</code></li>
+        </ul>
+        <p class="style-body-note">层次由 1px 描边承担：<code>rgba(255,255,255,0.08)</code> 常态、<code>0.16</code> hover。发光只有一个方向：<code>inset 0 1px 0 rgba(255,255,255,0.15)</code> 顶边内高光；hover 外发光 <code>0 0 10px rgba(59,130,246,0.30)</code> 只给主按钮。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter。暗底上需要比亮色版更宽松的行高（1.6）与略低的最大字重，避免光晕；正文用 90% 到 95% 的白而不是纯白。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="darkmode-specimen-title">暗黑模式，DARK MODE</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="darkmode-specimen-label">正文、标签与状态。0123456789</p>
+            <p class="specimen-meta">正文 14–16px / 400 / 行高 1.6；大写标签 12px / 500 / 0.04em；文字一律 #e2e8f0，次级 #94a3b8</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>60px</td><td>1.1</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>700</td><td>40px</td><td>1.15</td><td>-0.015em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>30px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>600</td><td>20px</td><td>1.35</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>500</td><td>12px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1200px、12 栏、容器内边距 24px，区块间距 96px。区块之间用 1px 白色 6% 的分隔线而不是阴影；允许侧栏与主区同时存在，但两者明度至少相差一级。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>12px</td></tr>
+            <tr><td>按钮与输入框圆角</td><td>8px</td></tr>
+            <tr><td>徽标圆角</td><td>999px 全圆角</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>分隔线</td><td>1px 白色 6%，替代区块间阴影</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Primary Button</h3>
+            <p class="style-body-comp-role">主行动按钮。主蓝填充、白字、8px 圆角、无描边；核心是顶边内高光 inset 0 1px 0 白 15%，模拟屏幕自身的光。hover 时填充提亮并叠一层蓝 30% 外发光；按下缩放 0.98，内阴影换成下压。过渡 200ms ease-out。</p>
+            <button type="button" class="primary-btn">CONTINUE</button>
+          </div>
+          <div class="comp-item">
+            <h3>Surface Card</h3>
+            <p class="style-body-comp-role">内容卡与列表容器。石板 800 的 50% 填充、1px 石板 700 描边、12px 圆角、24px 内边距、无阴影——暗色里阴影几乎不可见，靠描边分层。hover 时填充升到完全不透明、描边转亮、上浮 2px、加 0 8px 30px 黑 50%。上方演示卡即此组件。</p>
+            <p class="darkmode-comp-note">悬停上面那张卡试试描边与填充的变化。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Dark Input</h3>
+            <p class="style-body-comp-role">表单与搜索。石板 800 填充、1px 石板 700 描边、8px 圆角、padding 8px 12px、14px 字，占位符用石板 400。聚焦时描边转主蓝并加 2px 主蓝 30% 外环，焦点环 offset 用深板岩本色以免出现白边。</p>
+            <label class="dark-field"><span>搜索</span><input type="text" value="deploy log"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Status Chip</h3>
+            <p class="style-body-comp-role">状态与分类标记。全圆角、12px 字、500 字重、padding 2px 10px；成功绿 15% 配绿 400，警告橙 15% 配橙 400，错误红 15% 配红 400。必须带一个小圆点，不只靠色相传达状态。</p>
+            <p class="darkmode-chip-row">
+              <span class="darkmode-chip darkmode-chip--green"><i></i>PASSED</span>
+              <span class="darkmode-chip darkmode-chip--amber"><i></i>PENDING</span>
+              <span class="darkmode-chip darkmode-chip--red"><i></i>FAILED</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用深板岩 #0f172a 而不是纯黑做底</li>
+              <li>明度分三级，每级只差 4% 到 6%</li>
+              <li>用 1px 白色 6% 到 10% 的描边分层</li>
+              <li>按钮带顶边内高光</li>
+              <li>正文行高 1.6，字重不超过 700</li>
+              <li>焦点环的 offset 用底色而不是白色</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用纯黑 #000000 做底</li>
+              <li>不要靠投影分层，暗色里看不见</li>
+              <li>不要把状态色当装饰色</li>
+              <li>不要用低于 4.5:1 的正文对比</li>
+              <li>不要用纯白文字，用 90% 到 95%</li>
+              <li>不要在暗底上使用亮色大色块</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>产品界面截图与暗色场景摄影。允许在 hero 使用一层极暗的径向渐变光。所有素材必须本身偏暗，把亮部留给界面。不使用白底图、彩色插画与大面积纯色块。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="dark-mode">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的明度秩序、描边分层与内发光规则。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，深板岩底、三级明度、1px 描边分层与顶边内高光必须原样保留；状态色不做装饰。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

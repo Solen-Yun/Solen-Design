@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新野兽派 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body brutal">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 02 · 浅色版面</p>
+        <h1>新野兽派 <span class="style-card-en">NEO-BRUTALIST</span></h1>
+        <p class="page-lead">黑框、硬阴影、零圆角：界面由一块块压不扁的实体组成。</p>
+        <div class="style-card-tags"><span>硬阴影</span><span>零圆角</span><span>等宽标签</span><span>物理交互</span><span>高饱和强调色</span></div>
+      </header>
+
+      <section class="brutal-hero">
+        <div class="brutal-hero-copy">
+          <p>新野兽派从建筑取来态度：结构外露，材料不加装饰。网页上的做法是给每个元素一个 2px 到 4px 的纯黑外框、一层无模糊的偏移阴影、以及零圆角，让平面产生真实厚度。</p>
+          <p>交互也必须是物理的——hover 时阴影变大、元素向左上抬起（Brutal Snap）；active 时元素位移量正好等于阴影偏移量，阴影归零，像被手掌压平（Physical Crushing）。颜色只有黑白打底，加四支高饱和强调色，每支承担一个固定职能，不做渐变、不做半透明。右边这张卡可以悬停和按压，试试它。</p>
+        </div>
+        <div class="brutal-demo">
+          <div class="brutal-card-demo">
+            <span class="mono-label">FEATURED</span>
+            <p class="brutal-demo-title">压不扁。</p>
+            <p class="brutal-demo-body">结构外露，材料不加装饰。</p>
+            <button type="button" class="block-btn">ACTION</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#000000"></span><span class="palette-name">Ink</span><code>#000000</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Paper</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#ff006e"></span><span class="palette-name">Hot Pink</span><code>#ff006e</code></li>
+          <li><span class="swatch-chip" style="background:#ccff00"></span><span class="palette-name">Acid Lime</span><code>#ccff00</code></li>
+          <li><span class="swatch-chip" style="background:#00d9ff"></span><span class="palette-name">Electric Cyan</span><code>#00d9ff</code></li>
+          <li><span class="swatch-chip" style="background:#ff9500"></span><span class="palette-name">Tangerine</span><code>#ff9500</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑白打底，加四支高饱和强调色，每支承担一个固定职能。Ink 承担结构的全部重量，不允许换成深灰；Tangerine 使用频率最低，全站不超过三处同时出现。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#000000"></span><div><strong>Ink</strong><span class="swatch-role">所有边框、文字、硬阴影与反色区块。结构的全部重量都由它承担，不允许换成深灰。</span></div><code>#000000</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Paper</strong><span class="swatch-role">页面画布与卡片填充。纯白是为了让黑框与阴影的对比拉到最大。</span></div><code>#ffffff</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#ff006e"></span><div><strong>Hot Pink</strong><span class="swatch-role">选中文字与主强调。也是卡片 hover 时阴影可切换的颜色。</span></div><code>#ff006e</code><code>--color-hot-pink</code></li>
+          <li><span class="swatch-chip" style="background:#ccff00"></span><div><strong>Acid Lime</strong><span class="swatch-role">hover 强调底色。用于标签与主按钮的悬停底；背景过渡遵循通用 token，或具名组件单独声明的状态时长。</span></div><code>#ccff00</code><code>--color-acid-lime</code></li>
+          <li><span class="swatch-chip" style="background:#00d9ff"></span><div><strong>Electric Cyan</strong><span class="swatch-role">数据、状态与次级面板的强调。和粉、绿同时出现时只占小面积。</span></div><code>#00d9ff</code><code>--color-electric-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#ff9500"></span><div><strong>Tangerine</strong><span class="swatch-role">警示与第四强调色。使用频率最低，全站不超过三处同时出现。</span></div><code>#ff9500</code><code>--color-tangerine</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Paper <code>#ffffff</code>，1 Slab <code>#f4f4f4</code>（次级面板与分区底）。阴影只有硬偏移三档：<code>4px 4px 0 0 #000000</code>、<code>8px 8px 0 0 #000000</code>、hover 抬起 <code>10px 10px 0 0 #000000</code>；按下时归零。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>两套字各司其职：标题的力量来自 900 字重与紧缩字距，不来自字号堆叠；等宽字体让界面读起来像终端输出，是这套风格的第二识别点。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="brutal-specimen-serif">新野兽派，NEO-BRUTALIST</p>
+            <p class="specimen-meta">sans-serif — 所有标题，权重固定 900。替代栈：Inter, 'Helvetica Neue', Arial, sans-serif · 700 / 900 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="brutal-specimen-mono">正文、标签、按钮与数据。0123456789</p>
+            <p class="specimen-meta">mono — 等宽是第二识别点。替代栈：ui-monospace, SFMono-Regular, Menlo, Consolas, monospace · 400 / 700 · 大写标签字距 0.12em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>sans-serif</td><td>900</td><td>72px</td><td>0.95</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>sans-serif</td><td>900</td><td>48px</td><td>1</td><td>-0.02em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>sans-serif</td><td>900</td><td>32px</td><td>1.1</td><td>-0.01em</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>sans-serif</td><td>700</td><td>24px</td><td>1.2</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>mono</td><td>400</td><td>16px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>body-sm</td><td>mono</td><td>400</td><td>14px</td><td>1.6</td><td>—</td><td><code>--text-body-sm</code></td></tr>
+            <tr><td>label</td><td>mono</td><td>700</td><td>12px</td><td>1.4</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。12 栏、上限 1280px，容器内边距 16px 到 32px，区块间距 80px，卡片间距 32px。允许元素相对网格偏移 4px 到 8px 制造碰撞感，但同一区块内偏移方向保持一致；标题与正文硬对齐，不做居中柔化。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0——卡片、按钮、输入框、徽标，任何圆角都会削弱实体感</td></tr>
+            <tr><td>卡片内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>边框</td><td>2px 到 4px 纯黑，绝不用灰色或半透明边框</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Block Button</h3>
+            <p class="style-body-comp-role">主行动按钮。白底、2px 墨黑描边、直角、4px 硬阴影。字号 12px、字重 700、全大写、字距 0.12em、等宽；padding 12px 24px。hover 时阴影增到 10px、元素向左上位移 4px，背景转为酸柠绿，按 150ms ease-out 过渡。按下时元素右下位移 6px，阴影归零。</p>
+            <button type="button" class="block-btn">START NOW</button>
+          </div>
+          <div class="comp-item">
+            <h3>Brutal Card</h3>
+            <p class="style-body-comp-role">内容卡片与商品卡。白底、2px 墨黑描边、直角、8px 硬阴影，内边距 24px，卡片间距 32px。hover 时元素上移 4px、阴影增到 10px，阴影色可切到荧光粉，过渡 150ms ease-out。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Mono Label</h3>
+            <p class="style-body-comp-role">分类标签与状态徽标。墨黑填充、白字、直角、无描边。12px 等宽、字重 700、全大写、字距 0.12em；padding 4px 8px。反色用途时改为白底黑框。</p>
+            <p><span class="mono-label">CATEGORY</span> <span class="mono-label mono-label-invert">INVERTED</span></p>
+          </div>
+          <div class="comp-item">
+            <h3>Hard Input</h3>
+            <p class="style-body-comp-role">表单输入。白底、2px 墨黑描边、直角、无阴影。14px 等宽、padding 12px 16px。聚焦时出现 4px 硬阴影并保持描边宽度不变，不改变尺寸以避免布局抖动。</p>
+            <label class="hard-field"><span>项目名</span><input type="text" value="neo-brutalist"></label>
+          </div>
+          <div class="comp-item">
+            <h3>Marquee Bar</h3>
+            <p class="style-body-comp-role">页面顶部或底部的滚动条。墨黑底、白字、直角、无阴影。16px 等宽、全大写、字距 0.12em、上下 padding 8px，内容横向匀速滚动，间隔用 4px 实心方块分隔。页面末尾这条即此组件。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>所有元素使用 2px 到 4px 纯黑边框，绝不用灰色边框</li>
+              <li>阴影必须是零模糊的硬偏移，4px 与 8px 两档</li>
+              <li>保持直角，任何圆角都会削弱实体感</li>
+              <li>hover 增大阴影，active 位移等于阴影偏移并把阴影归零</li>
+              <li>标题固定 900 字重，正文用等宽字体</li>
+              <li>共享过渡 token 为 transition-all duration-200；本页具名 showcase 组件示例采用 150ms ease-out</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要使用任何圆角（rounded-lg、rounded-full 等）</li>
+              <li>不要用模糊阴影（shadow-lg、shadow-xl），它们会毁掉物理感</li>
+              <li>不要用渐变，包括按钮与背景</li>
+              <li>不要用灰色或半透明边框</li>
+              <li>不要用 opacity 淡入淡出；区分共享 token 的 200ms 与具名 showcase 组件的 150ms 覆盖</li>
+              <li>不要在 active 时只位移不归零阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>不用摄影。用粗描边的几何图形、点阵与棋盘格、像素化的图标，全部单色或四支强调色之一。任何图像都必须能画成 2px 线条与实心块，出现渐变或柔光就破坏风格。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="neo-brutalist">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的配色职责、字体规则、间距与组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，黑框、硬阴影、零圆角与物理交互规则必须原样保留；强调色职能不可互换。</p>
+      </section>
+    </main>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>NEO-BRUTALIST ■ HARD SHADOWS ■ ZERO RADIUS ■ MONO LABELS ■ PHYSICAL CRUSHING ■ </span><span>NEO-BRUTALIST ■ HARD SHADOWS ■ ZERO RADIUS ■ MONO LABELS ■ PHYSICAL CRUSHING ■ </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拼贴艺术风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body collage">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 54 · 浅色版面</p>
+        <h1>拼贴艺术风 <span class="style-card-en">COLLAGE ART</span></h1>
+        <p class="page-lead">剪下来、撕开口、歪着贴上去：一页手工拼贴的杂志内页。</p>
+        <div class="style-card-tags"><span>撕纸毛边</span><span>三种字体交替</span><span>胶带与标签条</span><span>±3 度拼贴</span></div>
+      </header>
+
+      <section class="collage-hero">
+        <div class="collage-hero-copy">
+          <p>拼贴艺术风模拟手工拼贴：纸片被剪下、撕出毛边、用胶粘在旧纸上，边缘对不齐，角度也不统一。技术上靠四件事——clip-path polygon 做撕纸边、任意角度旋转（避免与 hover 冲突）、硬偏移阴影模拟纸片厚度、以及混合字体交替（衬线、无衬线、等宽在同一页轮流出现）。</p>
+          <p>它禁止平滑渐变、禁止 8px 以上的圆角、禁止毛玻璃，因为手工拼贴的每一块都是实体纸。右边这张撕纸卡是真的——胶带压角，hover 时它会摆正。</p>
+        </div>
+        <div class="collage-demo">
+          <div class="collage-torn-demo">
+            <span class="collage-tape" aria-hidden="true"></span>
+            <span class="collage-tag" aria-hidden="true">SCRAP 07</span>
+            <p class="collage-demo-title">剪下来，贴上去。</p>
+            <p class="collage-demo-sub">MAGAZINE PAGE · 1987</p>
+            <p class="collage-demo-body">三种字体各自旋转，拼成一页。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#e74c3c"></span><span class="palette-name">Clipping Red</span><code>#e74c3c</code></li>
+          <li><span class="swatch-chip" style="background:#3498db"></span><span class="palette-name">Clipping Blue</span><code>#3498db</code></li>
+          <li><span class="swatch-chip" style="background:#f39c12"></span><span class="palette-name">Clipping Orange</span><code>#f39c12</code></li>
+          <li><span class="swatch-chip" style="background:#9b59b6"></span><span class="palette-name">Clipping Violet</span><code>#9b59b6</code></li>
+          <li><span class="swatch-chip" style="background:#2d2d2d"></span><span class="palette-name">Ink</span><code>#2d2d2d</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e8"></span><span class="palette-name">Aged Paper</span><code>#f5f0e8</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>黑色记号笔承担文字与剪影描边；泛黄的旧纸做页面底，所有纸片贴在上面；红是第一块撞色纸片，蓝与红形成主对位；橙是暖色纸片与高亮标签；紫是最异质的一支，专门让画面失去秩序感。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#2d2d2d"></span><div><strong>Ink</strong><span class="swatch-role">文字与剪影描边。像黑色记号笔。</span></div><code>#2d2d2d</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f5f0e8"></span><div><strong>Aged Paper</strong><span class="swatch-role">页面底。泛黄的纸，所有纸片都贴在上面。</span></div><code>#f5f0e8</code><code>--color-aged-paper</code></li>
+          <li><span class="swatch-chip" style="background:#e74c3c"></span><div><strong>Clipping Red</strong><span class="swatch-role">第一块撞色纸片，也是最常见的强调。</span></div><code>#e74c3c</code><code>--color-clipping-red</code></li>
+          <li><span class="swatch-chip" style="background:#3498db"></span><div><strong>Clipping Blue</strong><span class="swatch-role">第二块撞色，与红形成主对位。</span></div><code>#3498db</code><code>--color-clipping-blue</code></li>
+          <li><span class="swatch-chip" style="background:#f39c12"></span><div><strong>Clipping Orange</strong><span class="swatch-role">暖色纸片与高亮标签。</span></div><code>#f39c12</code><code>--color-clipping-orange</code></li>
+          <li><span class="swatch-chip" style="background:#9b59b6"></span><div><strong>Clipping Violet</strong><span class="swatch-role">最异质的一支，用于让画面失去秩序感。</span></div><code>#9b59b6</code><code>--color-clipping-violet</code></li>
+        </ul>
+        <p class="style-body-note">纸片厚度靠硬偏移阴影：<code>6px 6px 0 rgba(45,45,45,0.28)</code>、小号 <code>3px 3px 0 rgba(45,45,45,0.22)</code>；按下归零。撕边用 8–12 顶点的 clip-path 多边形，绝不能规律。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>大标题用衬线 Playfair Display，模拟从杂志上剪下来的标题块；正文与标签用无衬线 Inter；编号、坐标与注释标签用等宽 JetBrains Mono，像打字机打的标签条——字体在页面中交替出现是本风格的语法。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="collage-specimen-title">剪下来的一页</p>
+            <p class="specimen-meta">Playfair Display — 大标题衬线。替代栈：Georgia, 'Songti SC', serif · 700 / 900 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="collage-specimen-label">SCRAP NO.07 — 1987</p>
+            <p class="specimen-meta">Inter 正文 + JetBrains Mono 标签，同页交替。正文 15–18px / 400 / 行高 1.6；标签 13px / 400 / 0.12em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Playfair Display</td><td>900</td><td>64px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Playfair Display</td><td>700</td><td>48px</td><td>1.1</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>900</td><td>34px</td><td>1.15</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>18px</td><td>1.55</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.6</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>13px</td><td>1.4</td><td>0.12em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1200px、容器内边距 24px，区块间距 96px。元素允许互相覆盖与错位，旋转范围 -3 到 3 度。整体保持一条隐形的中轴让拼贴不至于失控，但每块都偏离它一点。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片与按钮 2px、贴纸 999px、撕纸 0</td></tr>
+            <tr><td>撕边</td><td>clip-path 多边形 8–12 顶点、各点偏移 2–6px</td></tr>
+            <tr><td>卡片内边距</td><td>28px</td></tr>
+            <tr><td>元素间距</td><td>20px</td></tr>
+            <tr><td>胶带</td><td>96–160px 长、20px 高、-6 到 6 度，跨边 8px</td></tr>
+            <tr><td>旋转</td><td>每块 -3 到 3 度，角度互不相同</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Torn Paper Card</h3>
+            <p class="style-body-comp-role">撕纸卡片（核心组件）。旧纸色或撞色填充、零圆角，用 clip-path 的多边形（8 到 12 个顶点，各点上下随机偏移 2 到 6px）做出撕开的毛边；硬偏移阴影 6px 6px 0 墨色 28%；默认旋转 -2 到 -1 度。hover 时旋转归零并上浮 2px，阴影扩到 8px。过渡 200ms。上方演示卡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Cutout Tag + Tape Strip</h3>
+            <p class="style-body-comp-role">剪下来的标签条：高 28px、内边距 0 12px、零圆角，左右两端用 clip-path 切成斜角（各 8px），填撞色之一，文字用等宽 13px 全大写 0.12em；整体旋转 1 到 3 度，硬阴影 3px 3px 0 墨 22%——演示卡右上那条就是。胶带：96 到 160px 长、20px 高、旋转 -6 到 6 度，填半透明撞色（60%）或半透明白，两端切锯齿；压在纸片的角上，跨过边缘 8px；无边框无阴影。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Mixed Type Stack</h3>
+            <p class="style-body-comp-role">混合字体排版组。同一区块内故意混用三种字体：标题衬线 900、副标题无衬线 900、标签等宽；三者各自带不同的旋转（-2、0、+2 度）与不同的底色条，形成「分别剪下来再拼」的效果。演示卡内部就是按这个组排的。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Cut Mark Border</h3>
+            <p class="style-body-comp-role">剪切痕迹边框。2px 虚线或实线边框，颜色取墨 40%，配合一个小剪刀图标或沿边的短刻度线，暗示「这块是沿着这条线剪下来的」；只用于强调某一个元素，不滥用。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用 clip-path 做撕纸与斜角</li>
+              <li>旋转用 rotate 工具类不用 inline transform</li>
+              <li>硬偏移阴影模拟纸片厚度</li>
+              <li>三种字体在同页交替</li>
+              <li>旧纸底，纸片贴在上面</li>
+              <li>每块旋转 -3 到 3 度</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用平滑渐变</li>
+              <li>不要用 8px 以上圆角</li>
+              <li>不要用毛玻璃</li>
+              <li>不要让所有块角度一致</li>
+              <li>不要用统一字体</li>
+              <li>不要让撕边完全规律</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>剪报照片、杂志碎片、手绘涂鸦、标签与印花。图像必须有清晰剪裁边缘（可带白边），允许叠两层不同来源的碎片。不使用平滑渐变、圆形裁切与统一风格的摄影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="collage-art">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的撕纸 clip-path、混合字体与胶带装饰。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，撕纸毛边、三字体交替与硬偏移阴影必须原样保留；统一角度即假拼贴。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

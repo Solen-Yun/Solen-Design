@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>开发者平台风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body devp">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 108 · 浅色版面</p>
+        <h1>开发者平台风 <span class="style-card-en">DEV PLATFORM</span></h1>
+        <p class="page-lead">灰度做结构，蓝只做交互，颜色永远带语义。</p>
+        <div class="style-card-tags"><span>五档灰阶承担结构</span><span>蓝只给可点击元素</span><span>圆角统一 6px</span><span>动效 80ms 内</span></div>
+      </header>
+
+      <section class="devp-hero">
+        <div class="devp-hero-copy">
+          <p>开发者平台风是开发者工具的默认语言：绝大部分界面由灰阶组成（白、#f6f8fa、#d0d7de、#656d76、#1f2328 五档），蓝色 #0969da 只用于可点击的东西，绿黄红三色只有语义（通过、警告、失败）。圆角统一 6px，边框统一 1px #d0d7de，阴影几乎为零。</p>
+          <p>代码块用等宽字体加浅灰底，是它最重要的识别元素。</p>
+        </div>
+        <div class="devp-demo">
+          <div class="devp-repo">
+            <p class="devp-repo-title">solen-design/engine</p>
+            <p class="devp-repo-desc">把提示词编译成组件的一套构建管线。</p>
+            <div class="devp-repo-meta"><span class="devp-dot" style="background:#3178c6"></span><span>TypeScript</span><span>★ 1.2k</span><span>updated 3h ago</span></div>
+            <pre class="devp-code"><code><span class="devp-kw">const</span> build = <span class="devp-fn">compile</span>(spec);
+<span class="devp-kw">await</span> build.<span class="devp-fn">write</span>(ai, <span class="devp-str">'ai/components'</span>);</code></pre>
+            <button type="button" class="devp-btn">Merge</button>
+            <span class="devp-state devp-state--ok">PASSED</span>
+            <span class="devp-state devp-state--warn">PENDING</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0969da"></span><span class="palette-name">Link Blue</span><code>#0969da</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#f6f8fa"></span><span class="palette-name">Canvas Grey</span><code>#f6f8fa</code></li>
+          <li><span class="swatch-chip" style="background:#d0d7de"></span><span class="palette-name">Border Grey</span><code>#d0d7de</code></li>
+          <li><span class="swatch-chip" style="background:#656d76"></span><span class="palette-name">Muted Grey</span><code>#656d76</code></li>
+          <li><span class="swatch-chip" style="background:#1f2328"></span><span class="palette-name">Ink</span><code>#1f2328</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>蓝是唯一的主色，只用于链接、主按钮与选中状态；白是卡片与内容区底，与浅灰底形成唯一的分层手段；浅灰画布是页面底与代码块底，整套界面的地基；边框灰统一所有 1px 边框与分隔线，只用这一个值；次灰管元数据、时间戳与说明文字；带一点蓝的深灰做标题与正文，比纯黑柔和。绿黄红三色是语义专用：绿通过、黄待处理、红失败。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f6f8fa"></span><div><strong>Canvas Grey</strong><span class="swatch-role">页面底与代码块底。整套界面的地基。</span></div><code>#f6f8fa</code><code>--color-canvas-grey</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">卡片与内容区底。与浅灰底形成唯一的分层手段。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#d0d7de"></span><div><strong>Border Grey</strong><span class="swatch-role">所有 1px 边框与分隔线，统一只用这一个值。</span></div><code>#d0d7de</code><code>--color-border-grey</code></li>
+          <li><span class="swatch-chip" style="background:#656d76"></span><div><strong>Muted Grey</strong><span class="swatch-role">元数据、时间戳与说明文字。</span></div><code>#656d76</code><code>--color-muted-grey</code></li>
+          <li><span class="swatch-chip" style="background:#1f2328"></span><div><strong>Ink</strong><span class="swatch-role">标题与正文。带一点蓝的深灰，比纯黑柔和。</span></div><code>#1f2328</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#0969da"></span><div><strong>Link Blue</strong><span class="swatch-role">唯一的主色，只用于链接、主按钮与选中状态。</span></div><code>#0969da</code><code>--color-link-blue</code></li>
+        </ul>
+        <p class="style-body-note">语义三色：<code>#1f883d</code> 通过 / <code>#9a6700</code> 待处理 / <code>#cf222e</code> 失败。阴影几乎为零，只留 <code>0 8px 24px rgba(31,35,40,0.12)</code> 给浮层。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>界面文字用 Inter，字级偏小（12 到 16px 为主），极少超过 24px；代码块、分支名、commit hash 与命令行用 JetBrains Mono——等宽是这套风格的识别核心。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="devp-specimen-title">Dev Platform</p>
+            <p class="specimen-meta">Inter — 界面文字。替代栈：-apple-system, 'Segoe UI', system-ui, sans-serif · 400–600 · 12–16px 为主</p>
+          </div>
+          <div class="type-specimen">
+            <p class="devp-specimen-code">npm run ai:build</p>
+            <p class="specimen-meta">JetBrains Mono — 代码与标识符。替代栈：ui-monospace, SFMono-Regular, Menlo, monospace · 12–14px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>heading-lg</td><td>Inter</td><td>600</td><td>24px</td><td>1.25</td><td><code>--text-heading-lg</code></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>20px</td><td>1.3</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Inter</td><td>600</td><td>16px</td><td>1.4</td><td><code>--text-subheading</code></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>14px</td><td>1.5</td><td><code>--text-body</code></tr>
+            <tr><td>body-sm</td><td>Inter</td><td>400</td><td>13px</td><td>1.5</td><td><code>--text-body-sm</code></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 1280px、容器内边距 16px，区块间距 24px，卡片间距 16px。典型结构是左侧 240px 导航加右侧内容区，内容区里列表项行高 56px。密度接近桌面应用，留白只出现在区块之间。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮/输入 6px · 胶囊 999px</td></tr>
+            <tr><td>边框</td><td>统一 1px #d0d7de</td></tr>
+            <tr><td>代码块</td><td>#f6f8fa 底、13px 等宽、行高 1.5、可横向滚动</td></tr>
+            <tr><td>状态标签</td><td>999px、语义色 10% 底 + 25% 描边、12px/500</td></tr>
+            <tr><td>侧导航</td><td>宽 240px、项高 32px、选中项 2px 蓝左边条</td></tr>
+            <tr><td>过渡</td><td>80ms 以内，无弹跳</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Primary Button</h3>
+            <p class="style-body-comp-role">主行动按钮。通过绿 #1f883d 填充、白字、6px 圆角、1px rgba(31,35,40,0.15) 描边、无阴影，14px/500、padding 5px 16px。hover 时填充加深到 #1a7f37；按下内阴影 inset 0 1px 0 rgba(31,35,40,0.10)。过渡 80ms。注意主按钮是绿色而链接是蓝色，两者分工不混。</p>
+            <button type="button" class="devp-btn">Merge</button>
+          </div>
+          <div class="comp-item">
+            <h3>Repo Card</h3>
+            <p class="style-body-comp-role">仓库卡与内容卡。白底、6px 圆角、1px #d0d7de 描边、内边距 16px、无阴影。标题 16px/600 用交互蓝（可点击），描述 14px 主文字，底部一行 12px 次灰放语言色点、star 数与更新时间。hover 时描边颜色不变，只让标题加下划线——hero 那张就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Code Block</h3>
+            <p class="style-body-comp-role">代码块（识别核心）。浅灰 #f6f8fa 底、6px 圆角、1px #d0d7de 描边、内边距 16px，字体 JetBrains Mono 13px、行高 1.5、可横向滚动。语法高亮只用五到六种色，且不改变字重。右上角可放一个复制按钮（12px、次灰）。</p>
+          </div>
+          <div class="comp-item">
+            <h3>State Label</h3>
+            <p class="style-body-comp-role">状态标签与徽标。999px 全圆角、语义色 10% 底、语义色文字、1px 同色 25% 描边、12px/500、padding 2px 10px。通过用绿、待处理用黄、失败用红、信息用蓝。每个标签必须带文字，颜色只是辅助。</p>
+            <span class="devp-state devp-state--ok">PASSED</span>
+          </div>
+          <div class="comp-item">
+            <h3>Side Nav</h3>
+            <p class="style-body-comp-role">侧边导航与筛选。白底或透明、宽 240px、无右边框。项目高 32px、6px 圆角、14px 字，选中项用 #f6f8fa 底加 2px 交互蓝左边条。分组标题 12px/600 次灰，上方间距 16px。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>五档灰阶承担结构</li>
+              <li>蓝色只用于可点击元素</li>
+              <li>绿黄红只表达语义</li>
+              <li>圆角统一 6px，边框统一 #d0d7de</li>
+              <li>代码块用等宽加浅灰底</li>
+              <li>动效 80ms 以内，无弹跳</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用渐变背景或彩色装饰</li>
+              <li>不要用重阴影</li>
+              <li>不要用非语义的装饰色</li>
+              <li>不要用衬线字体</li>
+              <li>不要用过大字号或过宽间距</li>
+              <li>不要用动感十足的动画</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>几乎没有图像。允许头像 20 到 40px、图标 16px、语言色点 8px。不使用插画、摄影与背景图，界面本身就是内容。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="dev-platform">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的灰阶结构、语义用色与代码块规范。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，五档灰阶、蓝只给可点击元素与语义三色必须原样保留；渐变或装饰色一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

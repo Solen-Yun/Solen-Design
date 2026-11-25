@@ -1,0 +1,18 @@
+# The repository stores text with LF endings. Without this, a Windows checkout
+# with core.autocrlf=true rewrites the worktree copies to CRLF, and the
+# generated ai/ prompts then carry stray \r characters that the committed
+# source files do not have. The build reads whatever is on disk, so the
+# mismatch reappears every time one of those files is touched.
+* text=auto eol=lf
+
+# Binary assets stay binary.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.mp3 binary

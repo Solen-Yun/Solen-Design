@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>仪表盘布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body dash">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 05 · 指标版面</p>
+        <h1>仪表盘布局 <span class="style-card-en">DASHBOARD LAYOUT</span></h1>
+        <p class="page-lead">指标先行：先给数字，再给图，最后才给细节。</p>
+        <div class="style-card-tags"><span>KPI 三件事</span><span>tabular-nums</span><span>2:1 图表区</span><span>44px 行高</span></div>
+      </header>
+
+      <section class="dash-intro">
+        <p>仪表盘布局解决的是「一眼看懂」：顶部一排 KPI 卡（3 到 4 张），下面是图表区与明细表。每张 KPI 卡只放三个元素——指标名、数字、变化率，变化率用绿色与红色的 10% 底色块表示，不靠箭头。左侧深色侧栏与浅灰内容区形成固定分区，卡片用 12px 圆角、1px 描边、一级阴影。</p>
+        <p>密度比企业站更高：图表内边距 16px、表格行高 44px、数字用等宽字体对齐。下面就是一张按规格跑的仪表盘。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>侧栏 240px 固定；顶部 KPI 行为 12 栏栅格，3 到 4 张卡等宽；下面图表区两栏 2:1；表格满宽。区块间距 24px，卡片间距 16px。用上方按钮切换视口宽度，看它怎么退化：桌面保留侧栏与 2:1 图表区，平板收起侧栏、图表改上下堆叠，手机只剩一列 KPI。</p>
+        <div class="dash-stage-bar" role="group" aria-label="预览视口宽度">
+          <button type="button" data-stage="desktop" aria-pressed="true">桌面 · 侧栏 + 2:1</button>
+          <button type="button" data-stage="tablet" aria-pressed="false">平板 · 无侧栏</button>
+          <button type="button" data-stage="mobile" aria-pressed="false">手机 · 单列</button>
+        </div>
+        <div class="dash-stage" data-stage-view="desktop">
+          <div class="dash-app" role="presentation">
+            <div class="dash-rail">
+              <span class="dash-rail-brand">SOLEN</span>
+              <span class="dash-rail-item on">总览</span>
+              <span class="dash-rail-item">订单</span>
+              <span class="dash-rail-item">用户</span>
+              <span class="dash-rail-item">设置</span>
+            </div>
+            <div class="dash-main">
+              <div class="dash-kpis">
+                <div class="dash-kpi">
+                  <span class="dash-kpi-head"><span class="dash-kpi-name">今日营收</span><span class="dash-chip chip-pos">+12.4%</span></span>
+                  <span class="dash-kpi-num">¥48,209</span>
+                  <span class="dash-kpi-note">对比上周同期</span>
+                </div>
+                <div class="dash-kpi">
+                  <span class="dash-kpi-head"><span class="dash-kpi-name">订单量</span><span class="dash-chip chip-pos">+3.1%</span></span>
+                  <span class="dash-kpi-num">1,284</span>
+                  <span class="dash-kpi-note">对比上周同期</span>
+                </div>
+                <div class="dash-kpi">
+                  <span class="dash-kpi-head"><span class="dash-kpi-name">退款率</span><span class="dash-chip chip-neg">+0.8%</span></span>
+                  <span class="dash-kpi-num">2.16%</span>
+                  <span class="dash-kpi-note">对比上周同期</span>
+                </div>
+                <div class="dash-kpi">
+                  <span class="dash-kpi-head"><span class="dash-kpi-name">活跃用户</span><span class="dash-chip chip-pos">+9.7%</span></span>
+                  <span class="dash-kpi-num">8,932</span>
+                  <span class="dash-kpi-note">对比上周同期</span>
+                </div>
+              </div>
+              <div class="dash-charts">
+                <div class="dash-chart">
+                  <p class="dash-chart-title">营收趋势 <span class="dash-legend"><i></i>本周</span></p>
+                  <div class="dash-spark" role="presentation">
+                    <span style="--h:42%"></span><span style="--h:58%"></span><span style="--h:40%"></span><span style="--h:66%"></span><span style="--h:52%"></span><span style="--h:74%"></span><span style="--h:61%"></span><span style="--h:83%"></span>
+                  </div>
+                </div>
+                <div class="dash-chart">
+                  <p class="dash-chart-title">渠道占比 <span class="dash-legend"><i class="alt"></i>直达</span></p>
+                  <div class="dash-bars" role="presentation">
+                    <span style="--h:72%"></span><span style="--h:48%"></span><span style="--h:63%"></span><span style="--h:36%"></span><span style="--h:55%"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="dash-table">
+                <div class="dash-tr dash-th"><span>订单号</span><span>客户</span><span class="num">金额</span><span>状态</span></div>
+                <div class="dash-tr"><span>#20481</span><span>桥本制药</span><span class="num">¥1,280</span><span><i class="dash-chip chip-pos">已支付</i></span></div>
+                <div class="dash-tr"><span>#20480</span><span>北岸书店</span><span class="num">¥864</span><span><i class="dash-chip chip-amber">待支付</i></span></div>
+                <div class="dash-tr"><span>#20479</span><span>雾岛工作室</span><span class="num">¥3,120</span><span><i class="dash-chip chip-pos">已支付</i></span></div>
+                <div class="dash-tr"><span>#20478</span><span>海角杂货</span><span class="num">¥96</span><span><i class="dash-chip chip-neg">已退款</i></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#111827"></span><span class="palette-name">Near Black</span><code>#111827</code></li>
+          <li><span class="swatch-chip" style="background:#f9fafb"></span><span class="palette-name">Mist</span><code>#f9fafb</code></li>
+          <li><span class="swatch-chip" style="background:#6366f1"></span><span class="palette-name">Indigo</span><code>#6366f1</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><span class="palette-name">Positive</span><code>#10b981</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><span class="palette-name">Negative</span><code>#ef4444</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>仪表盘需要比企业站更强的对比：近黑承担侧栏、标题与主要数字，雾灰是内容画布，卡片白浮在其上。靛蓝是唯一强调色——主行动与图表主序列都用它，全屏只允许一个蓝紫色系；增长与下降分别用绿与红的 10% 底芯片，两者保持同等面积与字重。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#111827"></span><div><strong>Near Black</strong><span class="swatch-role">侧栏底色、标题与主要数字。仪表盘需要比企业站更强的对比。</span></div><code>#111827</code><code>--color-near-black</code></li>
+          <li><span class="swatch-chip" style="background:#f9fafb"></span><div><strong>Mist</strong><span class="swatch-role">内容区画布，卡片浮在其上。</span></div><code>#f9fafb</code><code>--color-mist</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">KPI 卡、图表容器与表格底。</span></div><code>#ffffff</code><code>--color-card-white</code></li>
+          <li><span class="swatch-chip" style="background:#6366f1"></span><div><strong>Indigo</strong><span class="swatch-role">主行动与图表主序列。全屏只允许一个蓝紫色系。</span></div><code>#6366f1</code><code>--color-indigo</code></li>
+          <li><span class="swatch-chip" style="background:#10b981"></span><div><strong>Positive Green</strong><span class="swatch-role">增长指标与成功状态。用 10% 底配实色文字，不用实色块。</span></div><code>#10b981</code><code>--color-positive</code></li>
+          <li><span class="swatch-chip" style="background:#ef4444"></span><div><strong>Negative Red</strong><span class="swatch-role">下降指标与错误。与绿色保持同等的面积与字重。</span></div><code>#ef4444</code><code>--color-negative</code></li>
+        </ul>
+        <p class="style-body-note">阴影只有两档：<code>0 1px 2px rgba(17,24,39,0.06)</code> 常态、<code>0 4px 12px rgba(17,24,39,0.08)</code> hover。图表不画竖网格，只留 <code>1px #f3f4f6</code> 的水平虚线。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter；数字用 tabular-nums 保证列对齐，这是仪表盘最重要的排版细节。表格数值、ID 与代码片段用 JetBrains Mono，等宽让纵向比较成为可能。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="dash-specimen-title">¥48,209 / 1,284 / 8,932</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 数字 tabular-nums</p>
+          </div>
+          <div class="type-specimen">
+            <p class="dash-specimen-label">#20481 · ¥1,280 · OK</p>
+            <p class="specimen-meta">JetBrains Mono — 表格数值与 ID。替代栈：ui-monospace, SFMono-Regular, Menlo, monospace · 400 / 500 · 数值列右对齐</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>36px</td><td>1.15</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>20px</td><td>1.3</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>500</td><td>14px</td><td>1.5</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>13px</td><td>1.5</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>11px</td><td>1.4</td><td>0.04em</td><td><code>--text-label</code></td></tr>
+            <tr><td>数值</td><td>JetBrains Mono</td><td>400 / 500</td><td>12–13px</td><td>1.4–1.5</td><td>—</td><td><code>--text-numeric</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。侧栏 240px 固定，内容区上限 1600px、内边距 24px；区块间距 24px，卡片间距 16px；图表高度固定 280px 或 320px，避免容器抖动。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>卡片圆角</td><td>12px（按钮、输入框与芯片 8px）</td></tr>
+            <tr><td>卡片内边距</td><td>20px（图表 16px）</td></tr>
+            <tr><td>卡片间距</td><td>16px</td></tr>
+            <tr><td>表格行高</td><td>44px，表头 36px</td></tr>
+            <tr><td>侧栏宽度</td><td>240px 固定，项目高 40px</td></tr>
+            <tr><td>图表区</td><td>两栏 2:1，高度固定 280 / 320px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>KPI Card</h3>
+            <p class="style-body-comp-role">顶部指标卡。白底、12px 圆角、1px #f3f4f6 描边、内边距 20px、阴影 0 1px 2px。第一行 13px 灰字指标名加右侧变化率芯片；第二行 36px/700 数字用 tabular-nums；第三行 11px 灰字对比说明。hover 时底色转 #f9fafb、阴影升到 0 4px 12px。布局实演顶部那排就是它。</p>
+            <p class="dash-comp-note">一排四张，每张只有三件事。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Chart Panel</h3>
+            <p class="style-body-comp-role">折线、柱状与面积图容器。白底、12px 圆角、1px 描边、内边距 16px；标题 20px/600 与图例同行，图例 11px、色点 8px 圆角。图表本身不留网格竖线，只留水平虚线 1px #f3f4f6；高度固定 280px 或 320px，避免容器抖动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Data Table</h3>
+            <p class="style-body-comp-role">明细表与活动流。白底、12px 圆角、1px 描边；表头 11px/500 全大写 0.04em、灰底 #f9fafb、高 36px；行高 44px、行间 1px #f3f4f6 分隔、hover 行底色 #f9fafb；数值列右对齐并用等宽字体，状态列用 10% 底芯片。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sidebar Rail</h3>
+            <p class="style-body-comp-role">左侧导航。宽 240px、近黑填充、白字 70%、固定；项目高 40px、8px 圆角、图标 18px；选中项白 10% 底配纯白，hover 白 6%；分组之间 24px 间距加 1px 白 8% 分隔线。布局实演左侧那条深色导轨就是它。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>KPI 卡只放名称、数字、变化率三件事</li>
+              <li>数字用 tabular-nums 保证列对齐</li>
+              <li>变化率用 10% 底色芯片，不用箭头与强调色块</li>
+              <li>图表只留水平虚线，不放竖网格</li>
+              <li>表格行高 44px，数值右对齐</li>
+              <li>图表高度固定，避免布局抖动</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要在一张 KPI 卡里塞图表或按钮</li>
+              <li>不要用彩虹配色区分数据系列</li>
+              <li>不要用超过 12px 的卡片圆角</li>
+              <li>不要用重阴影或发光</li>
+              <li>不要让表格行高低于 40px</li>
+              <li>不要把筛选器藏在二级菜单里</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图表是主要视觉元素，不用摄影。允许头像、产品缩略图与图标。图表配色必须与强调色同源，不用离线彩虹色。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="dashboard-layout">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的分区结构、KPI 三件事与对齐细节。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，侧栏 240px、KPI 三件事、tabular-nums 与 44px 行高必须原样保留；图表只留水平虚线。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

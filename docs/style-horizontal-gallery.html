@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>横滚画廊 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body hgal">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 14 · 展廊版面</p>
+        <h1>横滚画廊 <span class="style-card-en">HORIZONTAL GALLERY</span></h1>
+        <p class="page-lead">白盒展厅：作品沿一条横向轨道排开，看展变成一次散步。</p>
+        <div class="style-card-tags"><span>snap-x 吸附轨道</span><span>图注在图外</span><span>sticky 章节首格</span><span>一切分割线 1px</span></div>
+      </header>
+
+      <section class="hgal-intro">
+        <p>横滚画廊模仿美术馆的白盒展厅：作品沿着一条横向的 snap 滚动轨道排开（overflow-x-auto、snap-x mandatory、每件 shrink-0 snap-start），留白就是展墙，图注用 12px 全大写 0.2em 的灰字放在图外下方并带 No. 01 编号，章节标题作为轨道首格 sticky 在左侧随滚动常驻。它的禁令全部指向「不要让作品被装饰干扰」——不许给作品图加阴影圆角边框、不许把文字压在图上、不许厚重边框、不许花哨背景墙、不许高饱和多色装饰，唯一点缀色是克制的赤陶。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>下面就是一条真实的轨道：左右拖动（或用键盘方向键），作品会逐件吸附；章节标题钉在轨道左端。</p>
+        <div class="hgal-rail" tabindex="0" aria-label="作品轨道，可横向滚动">
+          <div class="hgal-cell hgal-cell--title">
+            <p class="hgal-title">静物 / 2024</p>
+            <p class="hgal-chapter-no">ROOM 01</p>
+          </div>
+          <div class="hgal-cell">
+            <div class="hgal-art hgal-art--a" role="img" aria-label="作品一：灰蓝矩形构成"></div>
+            <p class="hgal-caption"><b>No. 01</b> / 河的记法 / 2024 / 布面丙烯</p>
+          </div>
+          <div class="hgal-cell">
+            <div class="hgal-art hgal-art--b" role="img" aria-label="作品二：暖赭色块"></div>
+            <p class="hgal-caption"><b>No. 02</b> / 午后的墙 / 2024 / 木板油画</p>
+          </div>
+          <div class="hgal-cell">
+            <div class="hgal-art hgal-art--c" role="img" aria-label="作品三：细长深色竖条"></div>
+            <p class="hgal-caption"><b>No. 03</b> / 无题（窗） / 2023 / 纸本水彩</p>
+          </div>
+          <div class="hgal-cell">
+            <div class="hgal-art hgal-art--d" role="img" aria-label="作品四：留白"></div>
+            <p class="hgal-caption"><b>No. 04</b> / 空白练习 / 2025 / 现成品</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#fcfcfa"></span><span class="palette-name">Gallery White</span><code>#fcfcfa</code></li>
+          <li><span class="swatch-chip" style="background:#a85a3a"></span><span class="palette-name">Terracotta</span><code>#a85a3a</code></li>
+          <li><span class="swatch-chip" style="background:#8a8a85"></span><span class="palette-name">Stone</span><code>#8a8a85</code></li>
+          <li><span class="swatch-chip" style="background:#e8e6e1"></span><span class="palette-name">Hairline</span><code>#e8e6e1</code></li>
+          <li><span class="swatch-chip" style="background:#2e2e2c"></span><span class="palette-name">Dark Stone</span><code>#2e2e2c</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>展签的墨色管标题与主要文字；略暖的展墙白像刷过漆的墙面；赤陶是唯一点缀色，少量出现在编号、链接与选中标记上；灰石管图注、编号与元信息，级别最低但必须可读；发丝灰承担所有 1px hairline，永远不超过 1px；深石色做反色区块底，用于「关于」与页脚。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fcfcfa"></span><div><strong>Gallery White</strong><span class="swatch-role">页面底。略暖的白，像刷过漆的展墙。</span></div><code>#fcfcfa</code><code>--color-gallery-white</code></li>
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">标题与主要文字。展签的颜色。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#a85a3a"></span><div><strong>Terracotta</strong><span class="swatch-role">唯一点缀色，少量出现在编号、链接与选中标记上。</span></div><code>#a85a3a</code><code>--color-terracotta</code></li>
+          <li><span class="swatch-chip" style="background:#8a8a85"></span><div><strong>Stone</strong><span class="swatch-role">图注、编号与元信息。级别最低但必须可读。</span></div><code>#8a8a85</code><code>--color-stone</code></li>
+          <li><span class="swatch-chip" style="background:#e8e6e1"></span><div><strong>Hairline</strong><span class="swatch-role">所有 1px hairline，永远不超过 1px。</span></div><code>#e8e6e1</code><code>--color-hairline</code></li>
+          <li><span class="swatch-chip" style="background:#2e2e2c"></span><div><strong>Dark Stone</strong><span class="swatch-role">反色区块底，用于「关于」与页脚。</span></div><code>#2e2e2c</code><code>--color-dark-stone</code></li>
+        </ul>
+        <p class="style-body-note">层次为零：<code>none — a shadow would mount the work on the wall</code>。作品图零圆角、零边框、零阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用细衬线 Cormorant Garamond 加宽字距，层级靠字号与字距建立，绝不靠加粗；正文与图注用浅色无衬线 Inter，字号压到 12 到 15px 让作品独占注意力。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="hgal-specimen-title">Horizontal Gallery</p>
+            <p class="specimen-meta">Cormorant Garamond — 细衬线标题。替代栈：Georgia, 'Songti SC', serif · 300/400 · display 64px 字距 0.02em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="hgal-specimen-label">NO. 01 / TITLE / YEAR / MEDIUM</p>
+            <p class="specimen-meta">Inter — 图注无衬线。替代栈：system-ui, 'Helvetica Neue', sans-serif · 300/400 · 12px 全大写 0.2em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Cormorant Garamond</td><td>300</td><td>64px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Cormorant Garamond</td><td>300</td><td>48px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Cormorant Garamond</td><td>400</td><td>36px</td><td>1.25</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>300</td><td>15px</td><td>1.7</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>300</td><td>13px</td><td>1.7</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>400</td><td>12px</td><td>1.5</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1440px，轨道左右内边距 32px，章节间距 160px。垂直方向几乎全是留白，横向承载全部内容。允许轨道在移动端降至 82vw 单件可见。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>轨道</td><td>overflow-x auto、snap-x mandatory、作品间距 64px</td></tr>
+            <tr><td>作品宽</td><td>桌面 42vw / 平板 60vw / 手机 82vw</td></tr>
+            <tr><td>图注</td><td>图下 16px、12px 全大写 0.2em、格式 No. 01 / 名 / 年 / 材质</td></tr>
+            <tr><td>sticky 首格</td><td>sticky left-0、宽 320px、右侧 1px hairline</td></tr>
+            <tr><td>展墙线</td><td>1px 发丝灰、两端收进 24px，绝不 2px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Snap Rail</h3>
+            <p class="style-body-comp-role">横滚轨道（核心结构）。容器 overflow-x: auto、scroll-snap-type: x mandatory、隐藏滚动条但保留键盘与触控可滚。每件作品 shrink-0、scroll-snap-align: start、间距 64px。轨道上下各一条 1px hairline。实演里的轨道就是——试试左右拖动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gallery Cell</h3>
+            <p class="style-body-comp-role">作品格。图片宽度按视口比例（桌面 42vw、平板 60vw、手机 82vw），高度自适应保持原始比例，零圆角零边框零阴影。图片下方 16px 处放图注：12px 全大写 0.2em 的灰石色编号（No. 01）加作品名与年份。图注绝不出现在图上。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Sticky Title</h3>
+            <p class="style-body-comp-role">常驻章节标题（首格）。作为轨道的第一个格子，sticky left-0、与页面同色底、宽 320px、右侧 1px hairline。标题 48px 细衬线，下方 12px 全大写章节编号。它随横滚常驻，指明当前章节——实演左端的「静物 / 2024」就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Hairline Caption</h3>
+            <p class="style-body-comp-role">图注与元信息。12px、字距 0.2em、全大写、灰石 #8a8a85。格式固定为「No. 01 / 作品名 / 年份 / 材质」。编号用赤陶色。它模仿博物馆的展签，绝不加粗也绝不省略编号。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Wall Rule</h3>
+            <p class="style-body-comp-role">展墙分隔线。1px、色 #e8e6e1，横跨内容宽，两端各收进 24px。用于分隔不同章节的轨道。绝对不允许 2px 及以上——粗线会让页面变成表格而不是展墙。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用 snap-x mandatory 做横向吸附</li>
+              <li>每件作品带 No. 01 编号与展签</li>
+              <li>一切分割线只有 1px</li>
+              <li>章节标题 sticky 在轨道左侧</li>
+              <li>标题用细衬线，层级靠字距</li>
+              <li>点缀色只有赤陶，少量出现</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要给作品图加阴影圆角边框</li>
+              <li>不要把文字压在作品图上</li>
+              <li>不要在轨道里混排瀑布流</li>
+              <li>不要用 2px 及以上边框</li>
+              <li>不要用花哨背景墙</li>
+              <li>不要用高饱和多色装饰</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>作品图是唯一内容，必须高质、精确裁切、无滤镜。允许不同尺寸与比例（这正是画廊的节奏），但每件作品都要有编号与展签。不使用装饰插画、背景纹理与多色图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="horizontal-gallery">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的 snap 轨道、展签规范与 sticky 首格。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，snap 吸附、「图注绝不上图」与 1px 展墙线必须原样保留；给作品加阴影或圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

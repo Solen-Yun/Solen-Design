@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F 型布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body fpat">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 07 · 扫读版面</p>
+        <h1>F 型布局 <span class="style-card-en">F-PATTERN LAYOUT</span></h1>
+        <p class="page-lead">按眼动轨迹排版：先横扫顶部，再下移横扫，最后沿左缘直落。</p>
+        <div class="style-card-tags"><span>关键词前置</span><span>65–75 字符行宽</span><span>左缘竖条列表</span><span>极简强调</span></div>
+      </header>
+
+      <section class="fpat-intro">
+        <p>F 型布局来自眼动研究：读者先横向扫过顶部，再往下横扫一次，最后沿左边缘纵向跳读，轨迹像字母 F。所以它把最重要的信息放在顶部两行、把关键词放在每段的句首、把行宽压到 65 到 75 字符。</p>
+        <p>视觉上它必须安静：白底、深色标题、极少的强调色，因为任何装饰都会打断扫描。它的价值不在好看，而在让一屏能多读 30% 的内容——适合文档、博客、新闻列表与长页说明。下面就是一张按 F 轨迹排的页面。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>页面结构固定为：顶横（标题加导语）→ 中横（三到四项）→ 竖笔（列表）。重要内容永远在左上，右下角只放次要信息。</p>
+        <div class="fpat-scan-header">
+          <p class="fpat-title">扫读先于阅读：F 型的三段轨迹</p>
+          <p class="fpat-lead">读者不会读完每一个字——他们扫过顶部、横扫中段、沿左缘直落，然后才决定读哪里。</p>
+        </div>
+        <div class="fpat-scan-row">
+          <div class="fpat-scan-item"><span class="fpat-label">顶部</span><span class="fpat-item-title">第一横扫</span><span class="fpat-item-desc">标题与导语承担全部结论。</span></div>
+          <div class="fpat-scan-item"><span class="fpat-label">中段</span><span class="fpat-item-title">第二横扫</span><span class="fpat-item-desc">三到四项并列，句首即结论。</span></div>
+          <div class="fpat-scan-item"><span class="fpat-label">左缘</span><span class="fpat-item-title">纵向直落</span><span class="fpat-item-desc">竖条列表沿左缘跳读。</span></div>
+        </div>
+        <div class="fpat-list">
+          <div class="fpat-item-row"><i class="fpat-bar" style="background:#e63946"></i><div><span class="fpat-row-title">先横扫顶部两行</span><span class="fpat-row-desc">关键词必须出现在标题前三个词之内。</span></div></div>
+          <div class="fpat-item-row"><i class="fpat-bar" style="background:#457b9d"></i><div><span class="fpat-row-title">再下移一次横扫</span><span class="fpat-item-desc">中横的三到四项承接次级结论。</span></div></div>
+          <div class="fpat-item-row"><i class="fpat-bar" style="background:#2a9d8f"></i><div><span class="fpat-row-title">最后沿左缘直落</span><span class="fpat-row-desc">左缘竖条帮助视线定位每一个条目。</span></div></div>
+          <div class="fpat-item-row"><i class="fpat-bar" style="background:#e63946"></i><div><span class="fpat-row-title">行宽压到 65–75 字符</span><span class="fpat-row-desc">过长会把 F 的中横拉断。</span></div></div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><span class="palette-name">Ink</span><code>#1a1a2e</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><span class="palette-name">Vermilion</span><code>#e63946</code></li>
+          <li><span class="swatch-chip" style="background:#457b9d"></span><span class="palette-name">Steel Blue</span><code>#457b9d</code></li>
+          <li><span class="swatch-chip" style="background:#2a9d8f"></span><span class="palette-name">Pine</span><code>#2a9d8f</code></li>
+          <li><span class="swatch-chip" style="background:#e9c46a"></span><span class="palette-name">Sand</span><code>#e9c46a</code></li>
+          <li><span class="swatch-chip" style="background:#f8f9fa"></span><span class="palette-name">Paper</span><code>#f8f9fa</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深而不黑的墨色让长读不刺眼；极浅冷白把文字对比拉到最大；朱红是唯一的高强调，只给关键结论与必须被扫到的词；钢蓝管链接与次级标题；松绿管「可执行」，频率最低；沙金只做行内高亮，标记关键短语。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a2e"></span><div><strong>Ink</strong><span class="swatch-role">标题与正文。深而不黑，长读不刺眼。</span></div><code>#1a1a2e</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#f8f9fa"></span><div><strong>Paper</strong><span class="swatch-role">页面底。极浅的冷白，让文字对比最大化。</span></div><code>#f8f9fa</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><div><strong>Vermilion</strong><span class="swatch-role">唯一的高强调，用于关键结论与必须被扫到的词。</span></div><code>#e63946</code><code>--color-vermilion</code></li>
+          <li><span class="swatch-chip" style="background:#457b9d"></span><div><strong>Steel Blue</strong><span class="swatch-role">链接与次级标题，扫读时次要但仍需可见。</span></div><code>#457b9d</code><code>--color-steel-blue</code></li>
+          <li><span class="swatch-chip" style="background:#2a9d8f"></span><div><strong>Pine</strong><span class="swatch-role">成功与「可执行」提示，出现频率低。</span></div><code>#2a9d8f</code><code>--color-pine</code></li>
+          <li><span class="swatch-chip" style="background:#e9c46a"></span><div><strong>Sand</strong><span class="swatch-role">行内高亮，用于标记一段里的关键短语。</span></div><code>#e9c46a</code><code>--color-sand</code></li>
+        </ul>
+        <p class="style-body-note">没有投影——分隔靠 1px 规线与留白；列表项 hover 才出现 <code>0 2px 8px rgba(26,26,46,0.06)</code>。行内高亮是 <code>#e9c46a</code> 的 35% 底，一篇文章不超过三处。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：层级靠四级字号加两档字重建立，不靠颜色。正文行高 1.7，长读不疲劳。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="fpat-specimen-title">扫读先于阅读</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：system-ui, -apple-system, 'Segoe UI', sans-serif · 400–700 · 字距 -0.02em（display）</p>
+          </div>
+          <div class="type-specimen">
+            <p class="fpat-specimen-label">正文与列表。0123456789</p>
+            <p class="specimen-meta">正文 14–16px / 400 / 行高 1.7；大写标签 12px / 600 / 0.06em；文字一律墨色 #1a1a2e</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>700</td><td>36px</td><td>1.15</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>700</td><td>28px</td><td>1.25</td><td>-0.01em</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>600</td><td>20px</td><td>1.35</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>400</td><td>16px</td><td>1.7</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>400</td><td>14px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>600</td><td>12px</td><td>1.4</td><td>0.06em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。上限 760px 单栏、容器内边距 24px，区块间距 48px。正文行宽控制在 65 到 75 字符（约 34em）。左内边距 0、右内边距留白；段间距 20px，段首不缩进。禁止把正文居中。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 8px、按钮与输入框 6px、标签 4px</td></tr>
+            <tr><td>正文列宽</td><td>760px 上限，行宽 34em</td></tr>
+            <tr><td>列表行高</td><td>88px，左侧竖条 2px 宽 48px 高</td></tr>
+            <tr><td>中横行高</td><td>不超过 160px，项间距 32px</td></tr>
+            <tr><td>区块间距</td><td>48px</td></tr>
+            <tr><td>顶横</td><td>标题单行 ≤34 字符 + 两行导语 + 1px 横线</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Scan Header</h3>
+            <p class="style-body-comp-role">页面顶部标题区（F 的顶横）。标题 36px/700 单行、行宽不超过 34 字符；其下 16px 导语最多两行；再下一条 1px #e2e8f0 横线；整块左对齐，顶部内边距 48px。关键词放在标题前三个词内。上方实演的标题区即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scan Row</h3>
+            <p class="style-body-comp-role">横向扫描行（F 的中横）。三到四项横向排列，每项：12px 全大写标签在上、20px/600 标题在中、14px 摘要在下（最多两行）；项与项之间 32px 间距，整行高度不超过 160px。左对齐，不居中。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Article List</h3>
+            <p class="style-body-comp-role">纵向列表（F 的竖笔）。每行左侧一条 2px 宽、48px 高的强调色竖条（朱、钢蓝或松绿），右侧 16px/600 标题与 14px 摘要；行高 88px、行间 1px 分隔。hover 时竖条加宽到 4px、背景转白。上方实演的列表即此组件——悬停任意一行试试。</p>
+            <p class="fpat-comp-note">hover 让竖条加宽，视线跟着左缘走。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Inline Highlight + Measure Column</h3>
+            <p class="style-body-comp-role">行内高亮：淡沙金底（35%）、无圆角、padding 0 2px，只在行内使用、不加粗，一篇不超过三处——本句里就有一处<mark class="fpat-mark">关键的锚点</mark>。正文列宽容器：最大 760px、行宽 65 到 75 字符（约 34em）、左内边距 0、段间距 20px、段首不缩进、禁止居中。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>关键词放在标题前三个词</li>
+              <li>正文行宽 65 到 75 字符</li>
+              <li>每段首句承担结论</li>
+              <li>强调色只用于必须被扫到的词</li>
+              <li>重要内容放左上</li>
+              <li>用标题层级、列表与分段提升可扫描性</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要把重要内容放右下角</li>
+              <li>不要居中大段文字</li>
+              <li>不要忽视内容优先级</li>
+              <li>不要写没有分段的长文</li>
+              <li>不要在左侧留过多空白</li>
+              <li>不要用超过三处高亮</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>以文字为主，图像必须服务于扫读：图表、截图、缩略图（统一 16:10）。不使用装饰性大图与背景图，它们会把 F 的轨迹切断。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="f-pattern-layout">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的三段轨迹、行宽纪律与扫读配色。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，顶横-中横-竖笔的结构、34em 行宽与「强调只给必须扫到的词」必须原样保留。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

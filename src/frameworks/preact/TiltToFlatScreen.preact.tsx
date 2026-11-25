@@ -1,0 +1,18 @@
+/** @jsxImportSource preact */
+import { useEffect, useRef } from "preact/hooks";
+import { mountTiltToFlatScreen, type TiltToFlatScreenOptions } from "../../components/tilt-to-flat-screen/TiltToFlatScreenEngine.js";
+import type { MotionController } from "../../components/tilt-to-flat-screen/motion-runtime";
+
+export function TiltToFlatScreen({ options, className }: { options?: TiltToFlatScreenOptions; className?: string }) {
+  const host = useRef<HTMLDivElement>(null);
+  const controller = useRef<MotionController | null>(null);
+  useEffect(() => {
+    const instance = mountTiltToFlatScreen(host.current!, options);
+    controller.current = instance;
+    return () => { instance.destroy(); controller.current = null; };
+    // Options are updated below without remounting the state machine.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => { controller.current?.update(options ?? {}); }, [options]);
+  return <div ref={host} className={className} data-motion-component="tilt-to-flat-screen" />;
+}

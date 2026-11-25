@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日系清新风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body jfresh">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 60 · 浅色版面</p>
+        <h1>日系清新风 <span class="style-card-en">JAPANESE FRESH</span></h1>
+        <p class="page-lead">「間」是主要设计工具：留白比元素更重要，字重永远不到 400。</p>
+        <div class="style-card-tags"><span>留白六成以上</span><span>字重只有 200/300</span><span>1px 暖灰线 30%</span><span>500ms 慢如呼吸</span></div>
+      </header>
+
+      <section class="jfresh-hero">
+        <div class="jfresh-hero-copy">
+          <p>日系清新风建立在「間」（Ma）这个概念上：元素之间的空，和元素本身一样重要甚至更重要。区块之间 128 到 160px，元素之间 32px 起；所有文字只用 200 与 300 字重，永不大写；边框只有 1px 的 30% 透明度，没有可见阴影——元素像浮在纸上，没有重量。</p>
+          <p>右边这张卡是真的 Ma Card：hover 时只有边框从 30% 升到 60%，不上浮、不加阴影，过渡 500ms，慢得像呼吸。</p>
+        </div>
+        <div class="jfresh-demo">
+          <div class="jfresh-ma-card">
+            <p class="jfresh-card-kicker">box no.04</p>
+            <p class="jfresh-card-title">静物与呼吸</p>
+            <p class="jfresh-card-body">一枝花、一碗水。画面只占三分之一，其余交给空白。</p>
+            <a class="jfresh-quiet-link" href="#0" onclick="return false">查看更多</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#64b5f6"></span><span class="palette-name">Pale Blue</span><code>#64b5f6</code></li>
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><span class="palette-name">Paper</span><code>#fafaf8</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4cf"></span><span class="palette-name">Warm Line</span><code>#d4d4cf</code></li>
+          <li><span class="swatch-chip" style="background:#98d8c8"></span><span class="palette-name">Mint</span><code>#98d8c8</code></li>
+          <li><span class="swatch-chip" style="background:#ffb7c5"></span><span class="palette-name">Sakura</span><code>#ffb7c5</code></li>
+          <li><span class="swatch-chip" style="background:#b8d4e3"></span><span class="palette-name">Mist Blue</span><code>#b8d4e3</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>和纸白做画布，比纯白更柔和；淡蓝是唯一的彩色强调，必须小面积、低饱和地出现；暖灰线只在 30% 不透明度下使用，绝不用冷灰；薄荷绿管植物与自然语义；樱花粉是季节性的柔和强调，出现频率最低；雾蓝比主色浅一档，管信息与天空。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#fafaf8"></span><div><strong>Paper</strong><span class="swatch-role">页面画布。比纯白更柔和，接近和纸。</span></div><code>#fafaf8</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#64b5f6"></span><div><strong>Pale Blue</strong><span class="swatch-role">唯一的彩色强调，用于链接与图标。必须小面积、低饱和地出现。</span></div><code>#64b5f6</code><code>--color-pale-blue</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4cf"></span><div><strong>Warm Line</strong><span class="swatch-role">所有分隔线。只在 30% 不透明度下使用，绝不用冷灰。</span></div><code>#d4d4cf</code><code>--color-warm-line</code></li>
+          <li><span class="swatch-chip" style="background:#98d8c8"></span><div><strong>Mint</strong><span class="swatch-role">植物与自然语义，用于图标底与标签。</span></div><code>#98d8c8</code><code>--color-mint</code></li>
+          <li><span class="swatch-chip" style="background:#ffb7c5"></span><div><strong>Sakura</strong><span class="swatch-role">季节性的柔和强调，出现频率最低。</span></div><code>#ffb7c5</code><code>--color-sakura</code></li>
+          <li><span class="swatch-chip" style="background:#b8d4e3"></span><div><strong>Mist Blue</strong><span class="swatch-role">信息与天空语义，比主色更浅一档。</span></div><code>#b8d4e3</code><code>--color-mist-blue</code></li>
+        </ul>
+        <p class="style-body-note">正文色 <code>#4a4a46</code>——不是纯黑，是一支压旧的墨灰。分隔线永远是 <code>rgba(212,212,207,0.30)</code>，hover 升到 0.60。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter，只用 200 与 300 两档字重，行高 1.9、字距微开，永不使用大写与粗体。替代栈用 Hiragino Sans、PingFang SC。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="jfresh-specimen-title">Japanese Fresh 0123456789</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：'Hiragino Sans', 'PingFang SC', system-ui, sans-serif · 只用 200/300 · 行高 1.9 · 永不大写</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>200</td><td>32px</td><td>1.3</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>300</td><td>26px</td><td>1.4</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>300</td><td>20px</td><td>1.5</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>300</td><td>16px</td><td>1.9</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>300</td><td>14px</td><td>1.9</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>300</td><td>12px</td><td>1.6</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 960px、容器内边距 32px，区块间距 160px。单栏偏左或非对称双栏，右侧常留大片空白；元素之间至少 32px，标题上下各 48px。整页的空白占比目标超过 60%。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px · 按钮/输入 8px · 图标 999px</td></tr>
+            <tr><td>区块间距</td><td>160px，不加分隔线，只靠留白</td></tr>
+            <tr><td>卡片内边距</td><td>32px，无阴影</td></tr>
+            <tr><td>正文行宽</td><td>上限 32em</td></tr>
+            <tr><td>分隔线</td><td>1px 暖灰 30%，横跨内容宽而非全宽</td></tr>
+            <tr><td>过渡</td><td>500ms，慢如呼吸</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Quiet Link</h3>
+            <p class="style-body-comp-role">链接与次级行动。无填充、无边框、14px/300、字距 0.02em，文字下方一条 1px 的暖灰线（30%）作为唯一提示。hover 时线条升到 60%、文字转淡蓝，过渡 500ms。无位移、无缩放。</p>
+            <a class="jfresh-quiet-link" href="#0" onclick="return false">只此一条线</a>
+          </div>
+          <div class="comp-item">
+            <h3>Ma Card</h3>
+            <p class="style-body-comp-role">内容卡与作品卡。纸白填充（与页面几乎同色）、12px 圆角、1px 暖灰线 30%、内边距 32px，无阴影。标题 26px/300，正文 14px/300 行高 1.9。hover 时边框升到 60%，不加阴影不上浮。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Line Input</h3>
+            <p class="style-body-comp-role">表单输入。透明底、仅底部 1px 暖灰线 30%、无左右边框、8px 圆角、padding 8px 4px、14px/300 字。聚焦时底线转淡蓝并保持 1px，不加外环、不改背景。</p>
+            <input class="jfresh-line-input" type="text" placeholder="你的名字">
+          </div>
+          <div class="comp-item">
+            <h3>Botanical Accent</h3>
+            <p class="style-body-comp-role">植物线稿装饰。单线条植物图形（枝叶、茎），stroke 1px、颜色暖灰 40% 或薄荷 50%，尺寸 48px 到 96px。置于卡片角落或区块之间作为呼吸点，绝不覆盖文字。单屏不超过两处。</p>
+            <div class="jfresh-botanical" aria-hidden="true">
+              <svg viewBox="0 0 96 96" fill="none" stroke="#98d8c8" stroke-opacity="0.5" stroke-width="1">
+                <path d="M48 88 C48 60 48 40 48 12" />
+                <path d="M48 64 C36 60 28 50 26 38 C38 42 46 52 48 64 Z" />
+                <path d="M48 44 C60 40 68 30 70 18 C58 22 50 32 48 44 Z" />
+                <path d="M48 28 C40 24 34 18 32 10 C42 14 46 20 48 28 Z" />
+              </svg>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Breath Section</h3>
+            <p class="style-body-comp-role">区块容器。区块间距 160px，标题与正文之间 32px，正文行宽上限 32em。区块之间不加分隔线，只靠留白；需要分隔时用一条 1px 暖灰线 30%，横跨内容宽而非全宽——本页的每个 section 之间就是这样。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>字重只用 200 与 300</li>
+              <li>永不使用大写</li>
+              <li>留白占页面的六成以上</li>
+              <li>边框只有 1px 的 30%</li>
+              <li>无可见阴影</li>
+              <li>过渡 500ms，慢如呼吸</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用粗体或半粗</li>
+              <li>不要用大写文字</li>
+              <li>不要用 2px 以上边框</li>
+              <li>不要用可见阴影</li>
+              <li>不要用深色背景</li>
+              <li>不要用快于 200ms 的过渡</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>自然光下的静物：一枝花、一碗水、和纸纹理、竹影。低饱和、留白极多、可只占画面三分之一。不使用高对比摄影、人物特写与装饰插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="japanese-fresh">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的 Ma 卡片、细线输入框与留白节奏。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，200/300 字重、1px 暖灰线 30% 与 160px 区块间距必须原样保留；粗体或深色背景一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

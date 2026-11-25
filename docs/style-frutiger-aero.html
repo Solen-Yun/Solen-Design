@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frutiger Aero — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body aero">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 83 · 浅色版面</p>
+        <h1>Frutiger Aero <span class="style-card-en">FRUTIGER AERO</span></h1>
+        <p class="page-lead">天蓝玻璃、水滴与草叶：一个相信科技会让世界更清透的年代。</p>
+        <div class="style-card-tags"><span>天蓝渐变铺底</span><span>玻璃配亮边高光</span><span>0.95 果冻按压</span><span>气泡草叶点缀</span></div>
+      </header>
+
+      <section class="aero-hero">
+        <div class="aero-hero-copy">
+          <p>Frutiger Aero 是 2004 到 2012 年的系统美学：那一代桌面系统、早期手机系统与游戏主机的默认皮肤。它的配方固定——天蓝渐变作底，面板是半透明白玻璃配 1px 亮边与顶部高光，圆角大而圆润（16 到 24px），再点缀水滴、气泡、草叶与光晕。</p>
+          <p>按压是要有弹性的：active 时缩到 0.95，像果冻被按了一下，这个「jelly press」是它与后来扁平化最明显的分歧。右边这张玻璃卡是真的：hover 时填充升到 65%、阴影扩到 32px。</p>
+        </div>
+        <div class="aero-demo">
+          <span class="aero-bubble aero-bubble--a" aria-hidden="true"></span>
+          <span class="aero-bubble aero-bubble--b" aria-hidden="true"></span>
+          <div class="aero-panel">
+            <span class="aero-leaf" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round"><path d="M5 20 C6 12 9 7 15 4"/><path d="M15 4 C15 9 13 13 9 15"/></svg></span>
+            <p class="aero-panel-title">清透的窗口</p>
+            <p class="aero-panel-text">天蓝、玻璃与光晕——那个年代相信未来是干净的。</p>
+            <button type="button" class="aero-btn">点一下</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#87ceeb"></span><span class="palette-name">Sky</span><code>#87ceeb</code></li>
+          <li><span class="swatch-chip" style="background:#5fb3cc"></span><span class="palette-name">Deep Sky</span><code>#5fb3cc</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Glass White</span><code>rgba(255,255,255,0.55)</code></li>
+          <li><span class="swatch-chip" style="background:#e0f2fe"></span><span class="palette-name">Pale Mist</span><code>#e0f2fe</code></li>
+          <li><span class="swatch-chip" style="background:#34d399"></span><span class="palette-name">Grass</span><code>#34d399</code></li>
+          <li><span class="swatch-chip" style="background:#7dd3fc"></span><span class="palette-name">Bright Blue</span><code>#7dd3fc</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>天蓝是渐变起点与主背景，整套风格的情绪由它决定；深天蓝低两档，压住画面，做渐变终点与按钮底；玻璃白必须配 1px 亮边与顶部高光，否则会显得脏；淡蓝雾色用于在同一玻璃上再分一层；草绿管自然语义与成功状态，也是草叶装饰的颜色；亮蓝管高光、链接与光晕，让元素显得在发光。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#87ceeb"></span><div><strong>Sky</strong><span class="swatch-role">渐变起点与主背景。整套风格的情绪由它决定。</span></div><code>#87ceeb</code><code>--color-sky</code></li>
+          <li><span class="swatch-chip" style="background:#5fb3cc"></span><div><strong>Deep Sky</strong><span class="swatch-role">渐变终点与按钮底。比天蓝低两档，用来压住画面。</span></div><code>#5fb3cc</code><code>--color-deep-sky</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Glass White</strong><span class="swatch-role">面板填充。必须配 1px 亮边与顶部高光，否则会显得脏。</span></div><code>rgba(255,255,255,0.55)</code><code>--color-glass</code></li>
+          <li><span class="swatch-chip" style="background:#e0f2fe"></span><div><strong>Pale Mist</strong><span class="swatch-role">卡片内层与次级面板，用于在同一玻璃上再分一层。</span></div><code>#e0f2fe</code><code>--color-pale-mist</code></li>
+          <li><span class="swatch-chip" style="background:#34d399"></span><div><strong>Grass</strong><span class="swatch-role">自然语义与成功状态，也是草叶装饰的颜色。</span></div><code>#34d399</code><code>--color-grass</code></li>
+          <li><span class="swatch-chip" style="background:#7dd3fc"></span><div><strong>Bright Blue</strong><span class="swatch-role">高光、链接与光晕，用于让元素显得在发光。</span></div><code>#7dd3fc</code><code>--color-bright-blue</code></li>
+        </ul>
+        <p class="style-body-note">玻璃面板影 <code>0 8px 24px rgba(60,130,170,0.22), inset 0 1px 0 rgba(255,255,255,0.90)</code>，hover <code>0 12px 32px</code>。页面底固定 <code>linear-gradient(#a8dcf0, #87ceeb, #5fb3cc)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Segoe UI，字重偏细（300 到 600）。人文无衬线是这套风格的「清透」来源。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="aero-specimen-title">Frutiger Aero 0123</p>
+            <p class="specimen-meta">Segoe UI — 人文无衬线。替代栈：Frutiger, 'Helvetica Neue', system-ui, sans-serif · 300–600 · display 40px/600</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Segoe UI</td><td>600</td><td>40px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Segoe UI</td><td>600</td><td>28px</td><td>1.3</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Segoe UI</td><td>400</td><td>20px</td><td>1.4</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Segoe UI</td><td>400</td><td>16px</td><td>1.6</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Segoe UI</td><td>400</td><td>14px</td><td>1.6</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Segoe UI</td><td>300</td><td>12px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、容器内边距 24px，区块间距 80px。整页以天蓝渐变铺底，面板浮在上面，允许面板重叠 8px 制造窗口层次。图标与按钮都带光泽，没有纯平的区域。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 24px · 按钮/输入 16px · 胶囊 999px</td></tr>
+            <tr><td>果冻按压</td><td>active scale(0.95) + 填充压暗</td></tr>
+            <tr><td>面板</td><td>白 55% 玻璃 + 12px 模糊 + 内边距 24px</td></tr>
+            <tr><td>气泡</td><td>24–96px 径向渐变水泡，单屏 ≤5 个</td></tr>
+            <tr><td>焦点环</td><td>白 2px + 2px offset（取天蓝底色）</td></tr>
+            <tr><td>过渡</td><td>200ms ease-out</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Jelly Button</h3>
+            <p class="style-body-comp-role">主行动按钮。深天蓝填充、白字、16px 圆角、1px 白 60% 描边，阴影 0 4px 12px 深蓝 30% 加 inset 0 1px 0 白 80%。15px/600、padding 10px 24px。hover 时填充提亮 6%、阴影扩到 16px；按下时缩到 0.95 并压暗填充，这是果冻按压。过渡 200ms ease-out。焦点环用白色 2px 加 2px offset，offset 色取天蓝以在蓝底上可见。</p>
+            <button type="button" class="aero-btn">按我一下</button>
+          </div>
+          <div class="comp-item">
+            <h3>Aero Panel</h3>
+            <p class="style-body-comp-role">卡片与窗口面板。55% 白玻璃填充、24px 圆角、1px 白 60% 描边、内边距 24px，阴影 0 8px 24px 深蓝 22% 加 inset 0 1px 0 白 90%。面板内可再叠一层淡蓝雾色的小卡。hover 时填充升到 65%、阴影扩到 32px。hero 里的玻璃卡就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Gloss Input</h3>
+            <p class="style-body-comp-role">搜索与表单输入。白 70% 填充、16px 圆角、1px 白 70% 描边，内阴影 inset 0 2px 4px 深蓝 15% 制造轻微凹陷，padding 10px 16px、14px 字。聚焦时描边转亮蓝并加 2px 亮蓝 40% 外环。</p>
+            <input class="aero-input" type="text" placeholder="搜索晴朗的天气…">
+          </div>
+          <div class="comp-item">
+            <h3>Gloss Nav</h3>
+            <p class="style-body-comp-role">顶部导航。高 64px、白 45% 玻璃、16px 模糊、底部 1px 白 40% 描边、无阴影。字标 16px/600，链接 14px、间距 24px，hover 时链接下方出现 2px 亮蓝下划线。右侧放一个果冻按钮。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Bubble Ornament</h3>
+            <p class="style-body-comp-role">水滴与气泡装饰。24px 到 96px 的圆，径向渐变从左上白 90% 到亮蓝 20%，加 inset 0 -3px 6px 深蓝 25% 与 inset 0 3px 6px 白 90%，形成透明水泡。斜向置于面板角落，可半透出背景。单屏不超过五个——hero 里那两颗就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>天蓝渐变铺满整个页面</li>
+              <li>玻璃必须配亮边与顶部高光</li>
+              <li>圆角 16 到 24px</li>
+              <li>按压用 0.95 的果冻缩放</li>
+              <li>焦点环 offset 取底色，保证可见</li>
+              <li>用气泡与草叶点缀自然感</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用深色或黑色背景</li>
+              <li>不要用锐角与硬边几何</li>
+              <li>不要用霓虹或刺眼色</li>
+              <li>不要用等宽字体</li>
+              <li>不要用无玻璃效果的哑光面</li>
+              <li>不要用 0.98 的轻按压，果冻要更明显</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>天空、水面、草叶、玻璃与水滴的高清照片或渲染。允许 40% 到 60% 的不透明度叠在渐变上。不使用深色照片、噪点纹理与扁平插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="frutiger-aero">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的天蓝玻璃、果冻按压与气泡装饰。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，天蓝渐变、玻璃亮边高光与 0.95 果冻按压必须原样保留；深色背景或锐角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文排版风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body papertex">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 121 · 浅色版面</p>
+        <h1>论文排版风 <span class="style-card-en">ACADEMIC PAPER</span></h1>
+        <p class="page-lead">Computer Modern 的比例、编号的层级、三线表的克制：一张纸。</p>
+        <div class="style-card-tags"><span>全文衬线</span><span>1 / 1.1 编号</span><span>booktabs 三线表</span><span>零圆角零阴影</span></div>
+      </header>
+
+      <section class="papertex-hero">
+        <div class="papertex-abstract">
+          <p class="papertex-abs-title">摘要</p>
+          <p class="papertex-abs-text">本文讨论如何把学术排版的语汇搬到网页：版心收紧、正文两端对齐、表格只用三条横线，其余交给留白。</p>
+        </div>
+        <h3 class="papertex-h"><span class="papertex-num">1</span><span>引言</span></h3>
+        <p class="papertex-body">论文式版面不靠装饰建立层次，而靠编号、横线与留白。链接统一用论文蓝，交叉引用与之一致。</p>
+        <div class="papertex-theorem">
+          <p class="papertex-th-label">定理 1</p>
+          <p class="papertex-th-body">纸是平的；层次只来自横线与留白，任何圆角或阴影都破坏版心的一致。</p>
+        </div>
+        <table class="papertex-table">
+          <caption>表 1：三种分隔线的用法</caption>
+          <thead>
+            <tr><th>线型</th><th class="papertex-num">线宽</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>粗线</td><td class="papertex-num">2px</td><td>表顶线与底线</td></tr>
+            <tr><td>细线</td><td class="papertex-num">1px</td><td>表头分隔</td></tr>
+          </tbody>
+        </table>
+        <p class="papertex-ref">[1] Knuth, D. The Art of Computer Programming. 1968.</p>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#111111"></span><span class="palette-name">Ink</span><code>#111111</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#0b5394"></span><span class="palette-name">Hyperref Blue</span><code>#0b5394</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><span class="palette-name">Theorem Ground</span><code>#f5f5f0</code></li>
+          <li><span class="swatch-chip" style="background:#6b6b66"></span><span class="palette-name">Muted Grey</span><code>#6b6b66</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4d0"></span><span class="palette-name">Rule Grey</span><code>#d4d4d0</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>印刷黑做正文、标题与三线表的粗线；纯白做纸面，不泛黄；论文蓝是链接与交叉引用，也是唯一允许出现的彩色；定理环境的浅底托住推导；灰做图注、元数据与参考文献补充信息；规则灰做表头细线与极次级分隔。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>White</strong><span class="swatch-role">纸面。纯白，不泛黄。</span></div><code>#ffffff</code><code>--color-white</code></li>
+          <li><span class="swatch-chip" style="background:#111111"></span><div><strong>Ink</strong><span class="swatch-role">正文、标题、三线表的粗线。印刷黑。</span></div><code>#111111</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#0b5394"></span><div><strong>Hyperref Blue</strong><span class="swatch-role">链接与交叉引用，是唯一允许出现的彩色。</span></div><code>#0b5394</code><code>--color-hyperref-blue</code></li>
+          <li><span class="swatch-chip" style="background:#f5f5f0"></span><div><strong>Theorem Ground</strong><span class="swatch-role">定理环境与代码块的浅底。</span></div><code>#f5f5f0</code><code>--color-theorem-ground</code></li>
+          <li><span class="swatch-chip" style="background:#6b6b66"></span><div><strong>Muted Grey</strong><span class="swatch-role">图注、元数据与参考文献的补充信息。</span></div><code>#6b6b66</code><code>--color-muted-grey</code></li>
+          <li><span class="swatch-chip" style="background:#d4d4d0"></span><div><strong>Rule Grey</strong><span class="swatch-role">表头细线与极次级分隔。</span></div><code>#d4d4d0</code><code>--color-rule-grey</code></li>
+        </ul>
+        <p class="style-body-note">纸是平的：<code>none — paper is flat</code>。零圆角、零阴影，表格绝无竖线与斑马纹。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全文衬线 Latin Modern Roman，标题加紧字距模拟 Computer Modern。正文行高 1.55，比常规论文略松以适应屏幕。代码、公式编号与算法块用 Latin Modern Mono——等宽只在代码处出现。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="papertex-specimen-title">1 引言</p>
+            <p class="specimen-meta">Latin Modern Roman — 全文衬线。替代栈：'Computer Modern', 'Source Serif', Georgia, serif · 400/700 · 行高 1.55</p>
+          </div>
+          <div class="type-specimen">
+            <p class="papertex-specimen-mono">\begin{theorem}</p>
+            <p class="specimen-meta">Latin Modern Mono — 代码与公式编号。替代栈：ui-monospace, 'Courier New', monospace · 12–13px</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Latin Modern Roman</td><td>700</td><td>34px</td><td>1.2</td><td><code>--text-display</code></tr>
+            <tr><td>heading</td><td>Latin Modern Roman</td><td>700</td><td>26px</td><td>1.25</td><td><code>--text-heading</code></tr>
+            <tr><td>subheading</td><td>Latin Modern Roman</td><td>700</td><td>20px</td><td>1.3</td><td><code>--text-subheading</code></tr>
+            <tr><td>body-lg</td><td>Latin Modern Roman</td><td>400</td><td>17px</td><td>1.55</td><td><code>--text-body-lg</code></tr>
+            <tr><td>body</td><td>Latin Modern Roman</td><td>400</td><td>14px</td><td>1.55</td><td><code>--text-body</code></tr>
+            <tr><td>label</td><td>Latin Modern Roman</td><td>700</td><td>12px</td><td>1.4</td><td><code>--text-label</code></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 comfortable。版心 700px、居中、文字两端对齐。区块间距 48px，标题上方留 32px。单栏，页边距对称。所有分隔用横线，绝不用底色块或阴影分区。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部 0</td></tr>
+            <tr><td>版心</td><td>700px 居中、两端对齐</td></tr>
+            <tr><td>小节编号</td><td>1 / 1.1、与标题间距 12px、26px 与 20px/700</td></tr>
+            <tr><td>定理</td><td>浅底 #f5f5f0 或 2px 左线、标签 12px/700、正文 14px 斜体</td></tr>
+            <tr><td>三线表</td><td>顶 2px 墨、表头下 1px、底 2px 墨、单元格 4px 12px</td></tr>
+            <tr><td>摘要</td><td>36rem 窄块、32px 两侧内边距、12px 居中小标题</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Numbered Section</h3>
+            <p class="style-body-comp-role">带编号的小节标题。格式为「1 引言」「1.1 背景」，编号与标题之间用 12px 空隙（不用制表符）。一级 26px/700，二级 20px/700，均为衬线并紧字距。编号不缩进，标题与编号左对齐。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Theorem Block</h3>
+            <p class="style-body-comp-role">定理环境。浅底 #f5f5f0（或白底配 2px 墨色左线）、零圆角、内边距 12px 16px，无阴影。标签用 12px/700 正体（如「定理 1」），正文用 14px 斜体衬线、行高 1.55，标签与正文之间一个空格——hero 里那块就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Booktabs Table</h3>
+            <p class="style-body-comp-role">三线表。顶部 2px 墨线、表头下 1px 墨线（或 #d4d4d0）、底部 2px 墨线，单元格 padding 4px 12px、14px 衬线，数值列右对齐。绝不允许竖线与斑马纹。表题在表上方，格式为「表 1：」。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Abstract Block</h3>
+            <p class="style-body-comp-role">摘要。最大宽度 36rem、左右各 32px 内边距、居中放置。上方一个 12px/700 居中小标题「摘要」，正文 14px 衬线、行高 1.6、两端对齐。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Reference Entry</h3>
+            <p class="style-body-comp-role">参考文献条目。14px 衬线、行高 1.5、悬挂缩进（padding-left: 1.5em 配 text-indent: -1.5em），条目编号用 [1] 方括号。条目之间 8px。作者与年份不加粗，保持平铺。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>全文衬线，标题紧字距</li>
+              <li>小节用 1 与 1.1 编号</li>
+              <li>表格用 booktabs 三线</li>
+              <li>链接统一 hyperref 蓝</li>
+              <li>定理用浅底或左线</li>
+              <li>零圆角、零阴影</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要给表格加竖线与斑马纹</li>
+              <li>不要用彩色大按钮与渐变</li>
+              <li>不要用无衬线正文</li>
+              <li>不要用任何圆角</li>
+              <li>不要用阴影</li>
+              <li>不要用装饰图形与 emoji</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>图形只能作为带编号图注的 Figure 出现：折线、柱状、示意图，黑白或低饱和。图注在图下方、14px 次灰、格式为「图 1：」。不使用装饰插画、emoji、彩色大图与任何无编号的图像。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="latex-paper">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的三线表、编号层级与定理环境。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，三线表、全文衬线与零圆角零阴影必须原样保留；表格竖线或无衬线正文一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

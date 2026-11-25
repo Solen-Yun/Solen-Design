@@ -1,0 +1,55 @@
+# 纵滚横移钉定画轴 — HorizontalPinTrack
+
+一个 340×330 的滚动叙事场景：纵向滚动时视口被 sticky 钉住，滚动距离被换算成一条横向面板带的水平位移——四块彩色面板（Seed / Sprout / Stem / Fruit，各配巨型半透明序号与白色图形）依次横穿一个圆角窗口，面板内的大序号与图形相对面板带做反向小幅视差；底部一根墨色进度条与四枚圆点实时标出当前所处阶段，滚动尽头出现一行「That's all four」收尾。
+
+## 布局与材质
+
+- 340×330px 场景，圆角 28px，溢出裁切，底色表面色，外圈 1px 线色描边加 0 30px 60px -36px 强阴影。响应式行为是整景等比缩放：容器窄于 340px 时按「可用宽度 ÷ 340」缩放（不超过 1 倍），内部不重排。
+- 场景根内是一个铺满的纵向滚动区（overflow-y 自动、滚动条隐藏），可聚焦（tabindex 0）。滚动区内两段内容：一段「运行轨道」高度为 330px + 横移总距离（按内容实测，见操作节），内部一块 sticky 钉定层 top 0、高 330px、纵向 flex、内边距 22px 0 20px；另一段是收尾区高 120px。
+- 钉定层顶部标题 "Four stages of an idea"：左右边距 22px，14px/字重 850、字距 -0.02em、墨色。
+- 面板窗口：上边距 14px、左右 16px，圆角 22px，溢出裁切——面板带只在这个圆角窗内移动。窗口内面板带为横向 flex、间距 10px。
+- 四块面板各 252×206px、内边距 20px、圆角 22px、溢出裁切、白字，实底色依次为 #845EF7、#20C997、#FF922B、#F03E3E。每块面板：右下角巨型序号 "01"–"04"，定位 right 10px、bottom -26px，字号 150px/行高 1、字重 900、字距 -0.06em、透明度 0.25；左下角 64×64px 白色图形（20px 边距处），依次为圆形种子（半径 14 实心）、双子叶幼芽（5px 圆头描边）、分叉茎秆（5px 圆头描边）、双圆果实（副圆 70% 透明度）；标题 26px/字重 880、字距 -0.04em，副标题上边距 4px、13.5px/字重 650、透明度 0.88。
+- 底部指示行：flex、间距 10px、上外边距自动（贴住钉定层底部内边距 20px）、左右 22px。进度条占满剩余宽度，高 4px、圆角 4px、底槽为线色的加重变体；填充为墨色、transform-origin 左中、scaleX 表达进度。右侧四枚圆点各 7×7px、间距 5px，默认线色加重变体；激活点变墨色并放大 1.3 倍（背景 0.3s、位移 0.4s cubic-bezier(.34,1.56,.64,1) 弹性过渡）。
+- 收尾区：高 120px，水平垂直居中，文案 "That's all four"，14px/字重 800、三级墨色；文字左侧一枚 18px 圆形徽章——第三表面色实底、内嵌 1px 线色描边，中央一枚 2px 圆头描边的 #10B981 对勾（内联 SVG）。
+- 场景令牌浅色深色两套（`prefers-color-scheme: dark` 切换）：表面 #FFFFFF/#13141C、第三表面 #EAE7E1/#252632、墨色 #16151B/#F4F0E8、三级墨色 #8E8A97/rgba(244,240,232,.42)、线色 rgba(22,21,27,.09)/rgba(255,255,255,.08)、加重线色 rgba(22,21,27,.17)/rgba(255,255,255,.16)。场景根继承宿主字体；滚动区 focus 时无默认 outline（outline none），焦点能力供键盘滚动使用。
+
+## 数据
+
+- 写死四块面板（标题、副标题、底色、图形）：Seed · Write down a small idea · #845EF7 · 圆形种子；Sprout · Shape it so others can see · #20C997 · 幼芽；Stem · Build it piece by piece · #FF922B · 分叉茎秆；Fruit · Put it in people's hands · #F03E3E · 双圆果实。序号文案 01–04。
+- 收尾文案 "That's all four"；顶部标题 "Four stages of an idea"。无其余写死数据。
+
+## 操作和动效
+
+- 滚动驱动：在场景上纵向滚动（滚轮、触摸、键盘——滚动区可聚焦后可用方向键/PageUp/PageDown），滚动距离被映射为面板带 translateX(−滚动距离)，钉定层保持不动，形成「竖滚横移」。挂载与每帧绘制时实测横移总距离 = 面板带 scrollWidth − 窗口 clientWidth（340px 场景下为 730px：面板带宽 1038px、窗口宽 308px），并把运行轨道高度撑到 330px + 该距离，使竖向滚动量恰好等于横移量。
+- 视差：每帧按「面板 offsetLeft − 滚动距离」除以 262（面板宽 + 间距）求进度 f，大序号随 f 平移 +26px，白色图形随 f 平移 −18px 并旋转 −14°，产生面板间轻微的层间错动；全部用 requestAnimationFrame 合帧，scroll 监听为 passive。
+- 进度指示：进度条 scaleX = 滚动进度（0–1，transform-origin 左中）；圆点激活下标 = round(进度 × 3)，单点激活。
+- 可逆：映射为纯函数，向上滚动即精确回退；无时间型动画。
+- 无障碍：滚动区 aria-label "Stages, scroll to move along"、tabindex 0，键盘可聚焦滚动；大序号、图形、进度条与圆点均 aria-hidden（装饰）。
+- `prefers-reduced-motion`（或 options.reducedMotion）下：宿主层把所有过渡与动画时长压为 0——圆点激活瞬切、无弹性过渡；滚动映射本身是用户主动驱动的位移，保持可用。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 330 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、数据与运动参数均以上述文字为准；所有界面用 DOM、CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 HorizontalPinTrack。从零创建四个文件：HorizontalPinTrack.tsx、HorizontalPinTrackEngine.js、motion-runtime.ts、HorizontalPinTrackEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新选项不重挂载、状态保持，销毁时清理动画帧、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、滚动插值与算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度（默认 330），options.reducedMotion 覆盖系统偏好；减少动态时钉定与横移仍正确。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；竖滚横移、视差、进度条与圆点、来回可逆均正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { HorizontalPinTrack } from "./HorizontalPinTrack";
+
+export default function App() {
+  return <HorizontalPinTrack />;
+}
+```

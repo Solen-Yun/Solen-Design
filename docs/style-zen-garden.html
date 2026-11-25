@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>枯山水 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body zen">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 75 · 浅色版面</p>
+        <h1>枯山水 <span class="style-card-en">ZEN GARDEN</span></h1>
+        <p class="page-lead">白砂、苔石、耙纹：留白不是空的，是被梳理过的。</p>
+        <div class="style-card-tags"><span>白砂底 + 苔绿</span><span>1px 边框 30%</span><span>留白 240px 起步</span><span>过渡 1000ms</span></div>
+      </header>
+
+      <section class="zen-hero zen-raked">
+        <div class="zen-hero-copy">
+          <p>枯山水用白砂、苔藓与石头三种材料构成一个没有水的庭园：界面上就是沙白底、苔绿点缀、纤细到几乎看不见的边框（1px 的 30%），以及大量被「梳理过」的留白——留白在这里是核心结构而不是余量。它的时间感极慢：过渡 1000ms ease-in-out，因为耙纹与苔藓的变化以年为单位。</p>
+          <p>禁令是：不许明亮鲜艳的色彩、不许厚重边框与粗线条、不许快速动画与弹跳、不许密集排列。本页背景叠着 24px 间隔的耙纹。</p>
+        </div>
+        <div class="zen-demo">
+          <span class="zen-moss zen-moss--a" aria-hidden="true"></span>
+          <span class="zen-moss zen-moss--b" aria-hidden="true"></span>
+          <p class="zen-stone-title">三石一组</p>
+          <p class="zen-stone-text">主石立，客石伏，从石斜倚。它们没有对齐任何网格。</p>
+          <button type="button" class="zen-btn">入园</button>
+        </div>
+      </section>
+
+      <div class="zen-silence" aria-hidden="true"></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#4a5548"></span><span class="palette-name">Stone</span><code>#4a5548</code></li>
+          <li><span class="swatch-chip" style="background:#f5f3ee"></span><span class="palette-name">Sand</span><code>#f5f3ee</code></li>
+          <li><span class="swatch-chip" style="background:#8a9a7b"></span><span class="palette-name">Moss</span><code>#8a9a7b</code></li>
+          <li><span class="swatch-chip" style="background:#c4bba8"></span><span class="palette-name">Gravel</span><code>#c4bba8</code></li>
+          <li><span class="swatch-chip" style="background:#7a7062"></span><span class="palette-name">Rock</span><code>#7a7062</code></li>
+          <li><span class="swatch-chip" style="background:#799d91"></span><span class="palette-name">Pond Teal</span><code>#799d91</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>带绿的深灰是庭园里唯一的重量，管文字与石头；沙白是白砂的颜色，所有内容铺在它上面；苔绿是唯一强调色，管 hover 态、选中与「生长」语义；砂砾色永远只以 1px 的 30% 出现，管边框与分隔；岩色管次级文字与元数据；池青是冷侧的一笔，暗示「水」，出现频率极低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f5f3ee"></span><div><strong>Sand</strong><span class="swatch-role">页面底。白砂的颜色，所有内容铺在它上面。</span></div><code>#f5f3ee</code><code>--color-sand</code></li>
+          <li><span class="swatch-chip" style="background:#4a5548"></span><div><strong>Stone</strong><span class="swatch-role">文字与石头。带绿的深灰，是庭园里唯一的重量。</span></div><code>#4a5548</code><code>--color-stone</code></li>
+          <li><span class="swatch-chip" style="background:#8a9a7b"></span><div><strong>Moss</strong><span class="swatch-role">唯一强调色：hover 态、选中与「生长」语义。</span></div><code>#8a9a7b</code><code>--color-moss</code></li>
+          <li><span class="swatch-chip" style="background:#c4bba8"></span><div><strong>Gravel</strong><span class="swatch-role">边框与分隔，永远只有 1px 的 30%。</span></div><code>#c4bba8</code><code>--color-gravel</code></li>
+          <li><span class="swatch-chip" style="background:#7a7062"></span><div><strong>Rock</strong><span class="swatch-role">次级文字与元数据。</span></div><code>#7a7062</code><code>--color-rock</code></li>
+          <li><span class="swatch-chip" style="background:#799d91"></span><div><strong>Pond Teal</strong><span class="swatch-role">冷侧的一笔，用于「水」的暗示，出现频率极低。</span></div><code>#799d91</code><code>--color-pond-teal</code></li>
+        </ul>
+        <p class="style-body-note">庭园是平的——<code>none — the garden is flat</code>。唯一的强调只有苔绿，且几乎总是以 5% 到 30% 的透明度出现。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站衬线 Noto Serif SC，行高 1.9，字距放到 0.28em。字与字、行与行之间的空隙和内容一样重要。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="zen-specimen-title">枯山水 0123</p>
+            <p class="specimen-meta">Noto Serif SC — 全站衬线。替代栈：'Songti SC', Georgia, serif · 只用 300/400 · 行高 1.9 · 标签 0.28em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Noto Serif SC</td><td>300</td><td>50px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Noto Serif SC</td><td>300</td><td>38px</td><td>1.35</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Noto Serif SC</td><td>400</td><td>28px</td><td>1.45</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Noto Serif SC</td><td>400</td><td>22px</td><td>1.8</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Noto Serif SC</td><td>300</td><td>18px</td><td>1.9</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Noto Serif SC</td><td>400</td><td>15px</td><td>1.7</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 960px、容器内边距 32px，区块间距 240px。构图像庭园：内容偏一侧、另一侧留白，元素不必对齐网格。禁止密集排列，一屏最多三个元素。上方的空白区块就是 Silence Gap——没有它，庭园只是几堆石头。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:160px"></span><code>160</code></li>
+          <li><span class="spacing-bar" style="width:240px"></span><code>240</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 0 · 石头 999px</td></tr>
+            <tr><td>边框</td><td>1px 砂砾 30%，hover 升 55%</td></tr>
+            <tr><td>区块间距</td><td>240px</td></tr>
+            <tr><td>卡片内边距</td><td>40px，无阴影</td></tr>
+            <tr><td>耙纹</td><td>24px 间隔 1px 平行线，覆盖不透明度 50%</td></tr>
+            <tr><td>过渡</td><td>1000ms ease-in-out，元素不动</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Quiet Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、无描边（默认 border-color: transparent）、零圆角、衬线 15px、字距 0.28em、padding 12px 32px，文字为石色 70%。hover 时描边转苔绿 30%、文字升到 100%、背景加苔绿 5%、并加一层几乎看不见的苔绿光晕（0 0 20px 苔 5%）。过渡 1000ms ease-in-out。</p>
+            <button type="button" class="zen-btn">静 坐</button>
+          </div>
+          <div class="comp-item">
+            <h3>Stone Card</h3>
+            <p class="style-body-comp-role">内容卡与石组。沙色填充（与底同色，靠边框区分）、零圆角、1px 砂砾 30% 描边、内边距 40px，无阴影。hover 时描边升到 55%，其余完全不变。卡片之间可错位 16 到 48px，像石头不按网格摆放。hero 里的石组卡就是（它偏置在右）。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Raked Line</h3>
+            <p class="style-body-comp-role">耙纹装饰。用 repeating-linear-gradient 画 24px 间隔的 1px 沙色 40% 或砂砾 25% 的平行线，覆盖在一个区块上（不透明度 50%），模拟砂纹。线必须是等距的同心弧或直线，绝不杂乱——本页背景即是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Moss Cluster</h3>
+            <p class="style-body-comp-role">苔与石的点缀。由两到三个不同尺寸的圆或不规则块组成（16 到 64px），苔绿或岩色，不透明度 60% 到 80%，紧挨着放在卡片角落或标题旁，像一组石头旁长了苔。单屏最多两处——hero 卡左上那两颗就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Silence Gap</h3>
+            <p class="style-body-comp-role">留白区块。240px 到 320px 高的空区块，作为真实元素存在。枯山水的核心就是它——没有这块空白，庭园只是几堆石头。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>沙白底，苔绿点缀</li>
+              <li>边框 1px 且只有 30%</li>
+              <li>留白到 240px，它是核心</li>
+              <li>过渡 1000ms，元素不动</li>
+              <li>行高 1.9、字距 0.28em</li>
+              <li>用耙纹做装饰</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用明亮鲜艳色彩</li>
+              <li>不要用厚重边框与粗线条</li>
+              <li>不要用快速动画与弹跳</li>
+              <li>不要密集排列元素</li>
+              <li>不要用阴影</li>
+              <li>不要把耙纹画得杂乱</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>枯山水摄影与极简线稿：砂纹、石组、苔、竹篱、远处山影。必须有大量留白，色调压在灰绿与沙之间。不使用鲜艳色彩、密集图案与彩色插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="zen-garden">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的砂纹、石组与留白结构。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，240px 留白、1px 30% 边框与 1000ms 静态过渡必须原样保留；鲜艳色或阴影一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

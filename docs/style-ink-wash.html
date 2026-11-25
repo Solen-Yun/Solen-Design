@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水墨画风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body ink">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 92 · 浅色版面</p>
+        <h1>水墨画风 <span class="style-card-en">INK WASH</span></h1>
+        <p class="page-lead">墨分五色，纸留大片空白：气韵在没画的地方。</p>
+        <div class="style-card-tags"><span>墨线 1px 20%</span><span>留白即内容</span><span>印章唯一彩色</span><span>hover 只渗不位移</span></div>
+      </header>
+
+      <section class="ink-hero">
+        <div class="ink-hero-copy">
+          <p>水墨画风来自传统水墨：墨色的浓淡干湿是唯一的表达手段，纸的大片空白是构图的主体（计白当黑）。落到界面上，纪律很明确——衬线字体呼应书法、边框必须像毛笔一样细（1px 且只有 20% 墨色）、颜色全部压在灰调里、阴影一律不许有。</p>
+          <p>交互也照此收紧：hover 只让墨色加深、边框稍微渗开，绝不做位移、绝不用 spring 或 bounce，因为任何机械弹性都会破坏「静谧」。印章是唯一允许的彩色。</p>
+        </div>
+        <div class="ink-demo">
+          <div class="ink-card">
+            <span class="ink-seal" aria-hidden="true">墨</span>
+            <p class="ink-card-title">远山与孤舟</p>
+            <p class="ink-card-text">一笔淡墨扫过纸面，山的形状只到第七分，剩下三分交给雾。</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="ink-emptiness" aria-hidden="true"></div>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><span class="palette-name">Ink</span><code>#2c2c2c</code></li>
+          <li><span class="swatch-chip" style="background:#f8f5f0"></span><span class="palette-name">Xuan Paper</span><code>#f8f5f0</code></li>
+          <li><span class="swatch-chip" style="background:#6b7b6e"></span><span class="palette-name">Grey Green</span><code>#6b7b6e</code></li>
+          <li><span class="swatch-chip" style="background:#a89279"></span><span class="palette-name">Ochre</span><code>#a89279</code></li>
+          <li><span class="swatch-chip" style="background:#c4b9a8"></span><span class="palette-name">Pale Sand</span><code>#c4b9a8</code></li>
+          <li><span class="swatch-chip" style="background:#697a7c"></span><span class="palette-name">Slate Blue</span><code>#697a7c</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨色不是纯黑，留出「浓墨」与「焦墨」的余地，承担全部文字与线条；略带暖黄的宣纸色是所有留白的载体；灰绿做远景山色与次级强调；赭石是温暖的一笔，用于需要人气的元素，出现频率低；淡沙是淡墨层，用于区块底色与分隔；青灰是冷侧的一笔，用于水与天空。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#f8f5f0"></span><div><strong>Xuan Paper</strong><span class="swatch-role">页面底。略带暖黄的纸色，是所有留白的载体。</span></div><code>#f8f5f0</code><code>--color-xuan</code></li>
+          <li><span class="swatch-chip" style="background:#2c2c2c"></span><div><strong>Ink</strong><span class="swatch-role">全部文字与线条。不是纯黑，留出「浓墨」与「焦墨」的余地。</span></div><code>#2c2c2c</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#6b7b6e"></span><div><strong>Grey Green</strong><span class="swatch-role">第一辅色，用于远景山色与次级强调。</span></div><code>#6b7b6e</code><code>--color-grey-green</code></li>
+          <li><span class="swatch-chip" style="background:#a89279"></span><div><strong>Ochre</strong><span class="swatch-role">温暖的一笔，用于需要人气的元素，出现频率低。</span></div><code>#a89279</code><code>--color-ochre</code></li>
+          <li><span class="swatch-chip" style="background:#c4b9a8"></span><div><strong>Pale Sand</strong><span class="swatch-role">淡墨层，用于区块底色与分隔。</span></div><code>#c4b9a8</code><code>--color-pale-sand</code></li>
+          <li><span class="swatch-chip" style="background:#697a7c"></span><div><strong>Slate Blue</strong><span class="swatch-role">冷侧的一笔，用于水与天空。</span></div><code>#697a7c</code><code>--color-slate-blue</code></li>
+        </ul>
+        <p class="style-body-note">墨线固定为 <code>rgba(44,44,44,0.20)</code>、左右各收进 15%；阴影被禁止——<code>none — shadows break the ethereal mood</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站衬线 Noto Serif SC。行高 1.9 是水墨的必要条件——字距与行距都要空出来，像纸上未落笔的部分。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="ink-specimen-title">水墨 0123</p>
+            <p class="specimen-meta">Noto Serif SC — 全站衬线。替代栈：'Songti SC', 'STSong', Georgia, serif · 300–500 · 行高 1.9 · 标签 0.3em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Noto Serif SC</td><td>300</td><td>52px</td><td>1.2</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Noto Serif SC</td><td>400</td><td>38px</td><td>1.35</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Noto Serif SC</td><td>400</td><td>28px</td><td>1.45</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Noto Serif SC</td><td>400</td><td>22px</td><td>1.8</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Noto Serif SC</td><td>300</td><td>18px</td><td>1.9</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Noto Serif SC</td><td>500</td><td>15px</td><td>1.7</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1000px、容器内边距 32px，区块间距 192px。构图借鉴卷轴：内容偏一侧，另一侧大面积留白，标题常竖排或偏上。禁止居中的密集排版。上方那块空白就是 Emptiness Block——留白本身就是内容。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:144px"></span><code>144</code></li>
+          <li><span class="spacing-bar" style="width:192px"></span><code>192</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片/按钮 0 · 印章 4px</td></tr>
+            <tr><td>墨线</td><td>1px 墨 20%、左右收进 15%、两端渐隐</td></tr>
+            <tr><td>区块间距</td><td>192px</td></tr>
+            <tr><td>卡片内边距</td><td>40px，无阴影</td></tr>
+            <tr><td>渗墨</td><td>hover 描边升至 35% 并外渗 2px，600ms ease-out</td></tr>
+            <tr><td>印章</td><td>32px 见方、4px 圆角、边缘残缺、全站唯一彩色</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Ink Rule</h3>
+            <p class="style-body-comp-role">墨线分隔（核心结构）。1px、墨色 20%、横跨内容宽但并不贯穿全宽（左右各收进 15%），两端可以渐隐到透明。整条线必须足够细，像毛笔的收笔。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Quiet Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 墨色 30% 描边、零圆角、衬线 15px、字距 0.3em、padding 14px 36px，无阴影。hover 时描边升到 60%、文字从 70% 升到 100%、并出现一层极淡的墨晕（0 0 12px 墨 8%，这是唯一允许的「阴影」）。过渡 600ms ease-out，绝不做位移。</p>
+            <button type="button" class="ink-btn">观 卷</button>
+          </div>
+          <div class="comp-item">
+            <h3>Rice Paper Card</h3>
+            <p class="style-body-comp-role">内容卡与画卷块。宣纸色填充、零圆角、1px 墨色 15% 描边、内边距 40px，无阴影。标题 38px/400，正文 18px/300 行高 1.9。hover 时描边升到 35% 并向外渗开 2px（用 outline-offset 或第二层描边模拟墨在纸上洇开）。hero 里的卡片就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Seal Stamp</h3>
+            <p class="style-body-comp-role">印章。32px 见方、4px 圆角、朱红或赭石填充（唯一的非灰颜色，只在此处出现）、内嵌 20px 的白色衬线单字，边缘做 1px 的残缺处理（用 mask 或伪元素切掉几个像素）。用于标记章节与「已读」。</p>
+            <span class="ink-seal ink-seal--inline" aria-hidden="true">印</span>
+          </div>
+          <div class="comp-item">
+            <h3>Emptiness Block</h3>
+            <p class="style-body-comp-role">留白区块。一个不承载任何内容的区块，高度 128px 到 320px，仅用于让前后的内容呼吸。在文档结构里它是真实存在的（不是 margin），因为在这套风格里留白本身就是内容。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>墨色为主，颜色全在灰调里</li>
+              <li>边框 1px 且只有 20% 墨色</li>
+              <li>留白是结构，不是余量</li>
+              <li>衬线字体，行高 1.9</li>
+              <li>交互只加深墨色与渗开边框</li>
+              <li>印章是唯一允许的彩色</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用鲜艳饱和色彩</li>
+              <li>不要用厚重阴影</li>
+              <li>不要用粗边框</li>
+              <li>不要用装饰性动画与弹跳</li>
+              <li>不要用 spring 或 bounce 曲线</li>
+              <li>不要在 hover 位移元素</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>水墨画：远山、枯枝、孤舟、云气。必须有大量留白，墨色分层但不许鲜艳。允许书法题字。不使用照片、几何插画与饱和色彩。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="ink-wash">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的墨线、留白节奏与印章规范。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，1px 20% 墨线、「留白即内容」与印章唯一彩色必须原样保留；鲜艳色或弹跳动效一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

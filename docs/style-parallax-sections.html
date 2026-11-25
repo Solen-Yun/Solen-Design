@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视差滚动 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body psec">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 11 · 景深版面</p>
+        <h1>视差滚动 <span class="style-card-en">PARALLAX SECTIONS</span></h1>
+        <p class="page-lead">每一屏都是一张定住的背景，内容从上面滑过去。</p>
+        <div class="style-card-tags"><span>100vh × bg-fixed</span><span>80% 海军遮罩</span><span>90% 白卡承载</span><span>160px 渐变缝合</span></div>
+      </header>
+
+      <section class="psec-intro">
+        <p>视差滚动把页面切成若干个 100vh 的区块，每个区块有自己的固定背景（bg-fixed），内容在其上滚动，于是前景与背景产生速度差，深景被模拟出来。可读性靠两层处理：区块内铺一层从深海军蓝 80% 到底透明的渐变遮罩，内容本身再包一层 90% 白色的半透明卡片。表现力集中在「景深」而不是位移——交互优先改变不透明度与模糊，避免大幅度平移导致眩晕。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>下面两个 mini 区块模拟了固定背景与滚动前景：左边是暗屏（遮罩 80%），右边是过渡带——注意两张卡都压在渐变遮罩上，背景本身纹丝不动。</p>
+        <div class="psec-stage">
+          <div class="psec-frame psec-frame--dark" role="presentation">
+            <span class="psec-frame-veil" aria-hidden="true"></span>
+            <span class="psec-frame-bg" aria-hidden="true"></span>
+            <div class="psec-frame-card">
+              <p class="psec-frame-title">第一屏 · 山脊线</p>
+              <p class="psec-frame-text">背景固定，前景滚动。文字永远坐在白卡上。</p>
+              <span class="psec-frame-cue" aria-hidden="true"><i></i>SCROLL</span>
+            </div>
+          </div>
+          <div class="psec-frame psec-frame--band" role="presentation">
+            <span class="psec-band-grad" aria-hidden="true"></span>
+            <span class="psec-band-label">160px 过渡带 · 不承载内容</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1e3a5f"></span><span class="palette-name">Deep Navy</span><code>#1e3a5f</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><span class="palette-name">Snow</span><code>#f8fafc</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><span class="palette-name">Primary Blue</span><code>#3b82f6</code></li>
+          <li><span class="swatch-chip" style="background:#93c5fd"></span><span class="palette-name">Pale Blue</span><code>#93c5fd</code></li>
+          <li><span class="swatch-chip" style="background:#0ea5e9"></span><span class="palette-name">Sky</span><code>#0ea5e9</code></li>
+          <li><span class="swatch-chip" style="background:#c559f0"></span><span class="palette-name">Violet</span><code>#c559f0</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>深海军蓝承担视差区块的全部暗部——遮罩与深色区块的基调都是它；雪白以 90% 不透明度叠在背景上，做内容卡与亮色区块底；主蓝在暗色背景上要提到这一档才够亮，管主行动与链接；淡蓝管次级强调与图标；天蓝做渐变末端与高亮，用于区块之间的过渡带；紫罗兰是唯一暖偏色，区分相邻区块的情绪，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1e3a5f"></span><div><strong>Deep Navy</strong><span class="swatch-role">遮罩与深色区块的基调。视差区块的暗部全靠它。</span></div><code>#1e3a5f</code><code>--color-deep-navy</code></li>
+          <li><span class="swatch-chip" style="background:#f8fafc"></span><div><strong>Snow</strong><span class="swatch-role">内容卡填充与亮色区块底。以 90% 不透明度叠在背景上。</span></div><code>#f8fafc</code><code>--color-snow</code></li>
+          <li><span class="swatch-chip" style="background:#3b82f6"></span><div><strong>Primary Blue</strong><span class="swatch-role">主行动与链接，在暗色背景上要提到这一档才够亮。</span></div><code>#3b82f6</code><code>--color-primary-blue</code></li>
+          <li><span class="swatch-chip" style="background:#93c5fd"></span><div><strong>Pale Blue</strong><span class="swatch-role">次级强调与图标，用于深蓝底上的细节。</span></div><code>#93c5fd</code><code>--color-pale-blue</code></li>
+          <li><span class="swatch-chip" style="background:#0ea5e9"></span><div><strong>Sky</strong><span class="swatch-role">渐变末端与高亮，用于区块之间的过渡带。</span></div><code>#0ea5e9</code><code>--color-sky</code></li>
+          <li><span class="swatch-chip" style="background:#c559f0"></span><div><strong>Violet</strong><span class="swatch-role">唯一暖偏色，用于区分相邻区块的情绪，出现频率最低。</span></div><code>#c559f0</code><code>--color-violet</code></li>
+        </ul>
+        <p class="style-body-note">遮罩固定为 <code>linear-gradient(to bottom, rgba(30,58,95,0.8), transparent)</code>；内容卡 <code>rgba(248,250,252,0.90)</code> + 12px 模糊；卡影 <code>0 24px 60px rgba(15,23,42,0.18)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：区块标题 80px 配紧字距，正文 16px 配 1.65 行高，全屏区块里读起来才不费劲。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="psec-specimen-title">PARALLAX 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Segoe UI', system-ui, sans-serif · 400–700 · display 行高 1.02</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>700</td><td>80px</td><td>1.02</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>700</td><td>56px</td><td>1.05</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>32px</td><td>1.15</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Inter</td><td>500</td><td>20px</td><td>1.35</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>18px</td><td>1.65</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>16px</td><td>1.65</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。页面由若干 100vh 区块纵向串起，区块之间用 160px 渐变带缝合（section gap 记 0）。内容宽度上限 1120px，垂直居中。每屏只讲一件事，标题加一段正文加一个行动，不超过三个元素。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>区块</td><td>min-height 100vh、bg-fixed、cover、center</td></tr>
+            <tr><td>遮罩</td><td>深海军 80% → 底部透明</td></tr>
+            <tr><td>内容卡</td><td>雪白 90%、12px 模糊、24px 圆角、内边距 48px</td></tr>
+            <tr><td>过渡带</td><td>高 160px 纯渐变，不承载内容</td></tr>
+            <tr><td>滚动提示</td><td>1px 白 50% 竖线 48px 高，2.4s 往复淡入淡出</td></tr>
+            <tr><td>移动端</td><td>关闭 fixed，改普通滚动</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Parallax Section</h3>
+            <p class="style-body-comp-role">全屏区块容器。min-height: 100vh、背景图使用 background-attachment: fixed、background-size: cover、background-position: center。上覆一层从深海军蓝 80% 到底部透明的线性渐变。内容垂直居中，最大宽度 1120px、左右内边距 32px。移动端关闭 fixed（性能与视觉都会崩），改为普通滚动。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Content Card</h3>
+            <p class="style-body-comp-role">区块内的内容容器。雪白 90% 填充、12px 模糊、24px 圆角、内边距 48px，阴影 0 24px 60px 黑 18%。标题与正文都压在这张卡上以保证可读。hover 时阴影扩到 80px、上浮 4px，过渡 400ms ease-out。实演里的白卡就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Transition Band</h3>
+            <p class="style-body-comp-role">区块之间的缝。高 160px 的纯渐变带，从上一区块的末端色过渡到下一区块的起始色，中间可加一层 40px 模糊。它不承载内容，唯一职责是让两块固定背景不出现硬边——实演右边那条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scroll Cue</h3>
+            <p class="style-body-comp-role">首屏滚动提示。首屏底部居中放一条 1px 白色 50% 的竖线，高 48px，下方配 12px 全大写 0.08em 的白 70% 文字。线与文字做 2.4 秒的往复淡入淡出，只改不透明度，不做位移。实演暗屏里的 SCROLL 就是。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>每屏 100vh，背景 fixed</li>
+              <li>遮罩从 80% 渐变到透明</li>
+              <li>内容包在 90% 白卡里保证可读</li>
+              <li>区块之间用 160px 渐变带缝合</li>
+              <li>交互优先改不透明度与模糊</li>
+              <li>移动端关闭 fixed</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让背景与内容以相同速度滚动</li>
+              <li>不要用超过 0.5 的视差比</li>
+              <li>不要在大幅位移上做动效</li>
+              <li>不要在移动端保留 fixed</li>
+              <li>不要在一屏里放两个背景</li>
+              <li>不要让文字直接压在图上</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>每屏一张全幅背景：风景、建筑、产品特写。背景必须有明确的暗部来承载遮罩与文字，而且要能自然衔接下一屏。不使用白底图与插画。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="parallax-sections">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套布局的固定背景、双层可读性处理与过渡带。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套布局时，100vh + bg-fixed、80% 遮罩与 90% 白卡必须原样保留；文字直接压图或移动端保留 fixed 一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

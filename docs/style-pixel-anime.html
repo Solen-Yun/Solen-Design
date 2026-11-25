@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>像素动漫风 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body panime">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 59 · 深色版面</p>
+        <h1>像素动漫风 <span class="style-card-en">PIXEL ANIME</span></h1>
+        <p class="page-lead">一屏 GBA 时代的 JRPG：对话框有角块，动画只有 15 帧。</p>
+        <div class="style-card-tags"><span>4px 边框四角方块</span><span>分段状态条</span><span>Framerate Drop 75ms</span><span>零模糊零圆角</span></div>
+      </header>
+
+      <section class="panime-hero">
+        <div class="panime-hero-copy">
+          <p>像素动漫风把经典 JRPG 的界面语法搬进网页：RPG 对话框用 4px 勇者蓝边框加四角实心方块，状态条分段成 8px 小格，全站等宽像素字。它的时间规则叫 Framerate Drop——所有过渡 75ms、缓动只用 linear，因为 2000 年代初的掌机只有 15 帧，动画是跳的不是滑的。</p>
+          <p>禁令同样硬：禁止平滑渐变、禁止圆角、禁止任何模糊——像素的发光必须是零模糊的硬边。右边这块对话框是真的：四角有 8px 方块，按钮 hover 时直接调色板替换，不做渐变。</p>
+        </div>
+        <div class="panime-demo">
+          <div class="panime-dialog-demo">
+            <span class="panime-corner panime-corner--tl" aria-hidden="true"></span>
+            <span class="panime-corner panime-corner--tr" aria-hidden="true"></span>
+            <span class="panime-corner panime-corner--bl" aria-hidden="true"></span>
+            <span class="panime-corner panime-corner--br" aria-hidden="true"></span>
+            <p class="panime-dialog-text">勇者同盟 Lv.12 — HP 86/120。前方洞窟的封印已解除。</p>
+            <div class="panime-status-demo" role="presentation">
+              <span class="panime-status-label">HP</span>
+              <span class="panime-status-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-empty"></i><i class="is-empty"></i></span>
+              <span class="panime-status-val">86/120</span>
+            </div>
+            <div class="panime-status-demo panime-status-demo--exp" role="presentation">
+              <span class="panime-status-label">EXP</span>
+              <span class="panime-status-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-empty"></i><i class="is-empty"></i><i class="is-empty"></i><i class="is-empty"></i><i class="is-empty"></i></span>
+              <span class="panime-status-val">7/12</span>
+            </div>
+            <div class="panime-demo-actions">
+              <button type="button" class="panime-btn">たたかう</button>
+              <button type="button" class="panime-btn panime-btn--ghost">にげる</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#4a90d9"></span><span class="palette-name">Hero Blue</span><code>#4a90d9</code></li>
+          <li><span class="swatch-chip" style="background:#2d1b69"></span><span class="palette-name">Night Purple</span><code>#2d1b69</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><span class="palette-name">Alert Red</span><code>#ff6b6b</code></li>
+          <li><span class="swatch-chip" style="background:#ffd93d"></span><span class="palette-name">Coin Gold</span><code>#ffd93d</code></li>
+          <li><span class="swatch-chip" style="background:#50c878"></span><span class="palette-name">Heal Green</span><code>#50c878</code></li>
+          <li><span class="swatch-chip" style="background:#a98d16"></span><span class="palette-name">Olive</span><code>#a98d16</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>勇者蓝是 JRPG 的界面蓝，管对话框边框、主按钮与选中项；夜紫做深底与对话框内部，像战斗时的暗场；警报红管危险、伤害与「敌人」标记；金币黄是画面里唯一「亮」的东西，给经验、金币与高亮；治疗绿管生命值与成功；橄榄绿最暗，专门压在金色上做文字。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#4a90d9"></span><div><strong>Hero Blue</strong><span class="swatch-role">主色：对话框边框、主按钮与选中项。JRPG 的界面蓝。</span></div><code>#4a90d9</code><code>--color-hero-blue</code></li>
+          <li><span class="swatch-chip" style="background:#2d1b69"></span><div><strong>Night Purple</strong><span class="swatch-role">深底与对话框内部。像战斗时的暗场。</span></div><code>#2d1b69</code><code>--color-night-purple</code></li>
+          <li><span class="swatch-chip" style="background:#ff6b6b"></span><div><strong>Alert Red</strong><span class="swatch-role">危险、伤害与「敌人」标记。</span></div><code>#ff6b6b</code><code>--color-alert-red</code></li>
+          <li><span class="swatch-chip" style="background:#ffd93d"></span><div><strong>Coin Gold</strong><span class="swatch-role">经验、金币与高亮，是画面里唯一「亮」的东西。</span></div><code>#ffd93d</code><code>--color-coin-gold</code></li>
+          <li><span class="swatch-chip" style="background:#50c878"></span><div><strong>Heal Green</strong><span class="swatch-role">生命值、恢复与成功。</span></div><code>#50c878</code><code>--color-heal-green</code></li>
+          <li><span class="swatch-chip" style="background:#a98d16"></span><div><strong>Olive</strong><span class="swatch-role">最暗的一支强调，用于压在金色上的文字。</span></div><code>#a98d16</code><code>--color-olive</code></li>
+        </ul>
+        <p class="style-body-note">对话框内部固定 <code>#1a1038</code>；硬阴影只有一种：<code>4px 4px 0 #2d1b69</code>，按下时归零。发光必须零模糊——要亮就用实心色块，不要 box-shadow 晕开。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Press Start 2P，等宽像素字。行高必须放大到 1.8，否则像素字会粘在一起。替代栈用 'Courier New'、ui-monospace。display 加 0.05em 字距，全大写标签放宽到 0.12em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="panime-specimen-title">PIXEL ANIME 0123456789</p>
+            <p class="specimen-meta">Press Start 2P — 全站唯一字体，等宽像素字。替代栈：'Courier New', ui-monospace, monospace · 400 · 行高 1.8</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Press Start 2P</td><td>400</td><td>32px</td><td>1.35</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Press Start 2P</td><td>400</td><td>24px</td><td>1.4</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Press Start 2P</td><td>400</td><td>18px</td><td>1.5</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Press Start 2P</td><td>400</td><td>14px</td><td>1.8</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Press Start 2P</td><td>400</td><td>12px</td><td>1.8</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Press Start 2P</td><td>400</td><td>10px</td><td>1.6</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 4px，密度 compact。上限 960px、容器内边距 16px，区块间距 64px。布局像游戏画面：中央是主内容区，底部可固定一条对话框，右上角挂状态。所有尺寸取 4 的倍数并落在 4px 网格上。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:4px"></span><code>4</code></li>
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:12px"></span><code>12</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>对话框</td><td>4px 勇者蓝边框 + 四角 8px 方块，内边距 20px</td></tr>
+            <tr><td>状态条</td><td>高 12px、8px 分格、格间 2px 空隙</td></tr>
+            <tr><td>硬阴影</td><td>4px 4px 0 夜紫，按下归零</td></tr>
+            <tr><td>过渡</td><td>75ms linear 或 transition-none</td></tr>
+            <tr><td>角块装饰</td><td>8px 或 12px 实心方块，可组成 2×2 星光簇</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Dialog Box</h3>
+            <p class="style-body-comp-role">RPG 对话框（核心组件）。深紫 #1a1038 填充、4px 勇者蓝边框、零圆角、内边距 20px；四角各放一个 8px × 8px 实心方块（勇者蓝），位于边框内侧 4px。文字 14px 等宽、行高 1.8、白色。框外可选 4px 零模糊硬阴影。上方演示面板即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Command Button</h3>
+            <p class="style-body-comp-role">指令按钮。勇者蓝填充、白色等宽字、4px 夜紫边框、零圆角、14px、字距 0.12em、padding 12px 24px，硬阴影 4px 4px 0 夜紫。hover 时填充硬切到金币黄、文字转夜紫——调色板替换，不做渐变；按下时位移 4px 4px 且阴影归零。全程 transition-none 或 75ms linear。</p>
+            <button type="button" class="panime-btn">コマンド</button>
+          </div>
+          <div class="comp-item">
+            <h3>Status Bar</h3>
+            <p class="style-body-comp-role">状态条（HP / EXP）。高 12px、零圆角、4px 夜紫边框，内部填充用治疗绿（HP）或金币黄（EXP），分成 8px 宽的小格、格间 2px 空隙，模拟分段血条。绝不使用平滑渐变。数值以等宽字体放在条右侧——演示卡里的 HP 与 EXP 条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Corner Block Decoration</h3>
+            <p class="style-body-comp-role">角块与像素装饰。8px 或 12px 的实心方块，取调色板四色之一，放在面板四角、标题两侧或作为分隔符。可组成 2×2 的小簇作为「星光」效果，但每个方块必须有硬边、零模糊、零圆角。</p>
+            <div class="panime-sparkle" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="comp-item">
+            <h3>Menu List</h3>
+            <p class="style-body-comp-role">菜单与选项列表。每项高 32px、零圆角，左侧 8px 处一个 8px 的箭头方块指示选中（未选中时透明）。选中项填充勇者蓝 20%、文字转金币黄。切选项时只做颜色硬切，不做滑动。</p>
+            <ul class="panime-menu" role="presentation">
+              <li class="is-active">アイテム</li>
+              <li>まほう</li>
+              <li>そうび</li>
+              <li>ステータス</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>4px 边框加四角方块装饰</li>
+              <li>全站等宽像素字体</li>
+              <li>只用 NES 调色板的四支色</li>
+              <li>过渡 75ms 或 transition-none</li>
+              <li>缓动只用 linear</li>
+              <li>发光必须是零模糊硬边</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用平滑渐变</li>
+              <li>不要用任何圆角</li>
+              <li>不要用模糊（含 backdrop-blur）</li>
+              <li>不要用衬线字体</li>
+              <li>不要用 ease-in-out 或 ease</li>
+              <li>不要用柔和阴影</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>像素画：16×16 到 64×64 的角色、道具与地形，必须放大整数倍（2× 或 3×）并用 image-rendering: pixelated 保持硬边。允许把照片降采样成像素图。不使用矢量插画、平滑渐变与模糊。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="pixel-anime">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的角块对话框、分段状态条与 Framerate Drop 时序。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，四角方块、分段血条与 75ms linear 时序必须原样保留；平滑渐变与圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

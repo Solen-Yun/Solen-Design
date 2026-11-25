@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>漫画风格 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body comic">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 31 · 浅色版面</p>
+        <h1>漫画风格 <span class="style-card-en">COMIC STYLE</span></h1>
+        <p class="page-lead">粗墨线、硬阴影、对话气泡与爆炸字：屏幕上的一本漫画分镜。</p>
+        <div class="style-card-tags"><span>4px 墨线</span><span>套印硬阴影</span><span>对话气泡</span><span>100ms 跳切</span></div>
+      </header>
+
+      <section class="comic-hero">
+        <div class="comic-hero-copy">
+          <p>漫画风格把印刷漫画的语汇搬到界面上：4px 纯黑墨线包围每个元素，4px 零模糊阴影模拟套印偏移，网点（halftone）作为背景纹理，信息装在对话气泡里而不是卡片里。</p>
+          <p>字体必须粗、必须全大写、字距放宽，像标题框。动效要夸张但短：hover 时元素放大 1.05 并旋转 1 度，时长不超过 100ms，像分镜之间的跳切。圆角只允许给气泡，其它一律直角。</p>
+        </div>
+        <div class="comic-bubble-demo">
+          <p>墨线在说话！每一格都要有分镜的味道——</p>
+        </div>
+        <p class="comic-burst">WHAM!</p>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#ff3333"></span><span class="palette-name">Comic Red</span><code>#ff3333</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><span class="palette-name">Comic Yellow</span><code>#ffcc00</code></li>
+          <li><span class="swatch-chip" style="background:#3366ff"></span><span class="palette-name">Comic Blue</span><code>#3366ff</code></li>
+          <li><span class="swatch-chip" style="background:#33cc33"></span><span class="palette-name">Comic Green</span><code>#33cc33</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Paper</span><code>#ffffff</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>墨线是这套风格唯一的结构语言：边框、阴影、正文与气泡描边全归它。纸白保持印刷纸的干净，网点才显得出来；红标记「这一格很重要」，黄管高亮与爆炸效果，蓝管链接与「系统」语义，绿管「过关」，出现频率最低。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">所有边框、阴影、正文与气泡描边。墨线是这套风格唯一的结构语言。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Paper</strong><span class="swatch-role">分镜底色。保持印刷纸的干净，网点才显得出来。</span></div><code>#ffffff</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#ff3333"></span><div><strong>Comic Red</strong><span class="swatch-role">动作、警告与冲击字。用来标记「这一格很重要」。</span></div><code>#ff3333</code><code>--color-comic-red</code></li>
+          <li><span class="swatch-chip" style="background:#ffcc00"></span><div><strong>Comic Yellow</strong><span class="swatch-role">高亮与爆炸效果，通常配红色使用。</span></div><code>#ffcc00</code><code>--color-comic-yellow</code></li>
+          <li><span class="swatch-chip" style="background:#3366ff"></span><div><strong>Comic Blue</strong><span class="swatch-role">链接、信息气泡与「系统」语义。</span></div><code>#3366ff</code><code>--color-comic-blue</code></li>
+          <li><span class="swatch-chip" style="background:#33cc33"></span><div><strong>Comic Green</strong><span class="swatch-role">成功与「过关」状态，出现频率最低。</span></div><code>#33cc33</code><code>--color-comic-green</code></li>
+        </ul>
+        <p class="style-body-note">阴影就是套印偏移：<code>4px 4px 0 #1a1a1a</code> 常态、<code>4px 4px 0 #ff3333</code> 强调；按下归零。网点纹理 <code>radial-gradient(#1a1a1a 1px, transparent 1px) 6px</code>，整体 12% 不透明度。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题与冲击字用 Bangers——漫画字体带手绘的不规则，是这套风格的语气；气泡内文字与正文用 Comic Neue——必须可读，且保持手写感。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="comic-specimen-title">POW! 0123456789</p>
+            <p class="specimen-meta">Bangers — 标题与冲击字。替代栈：'Impact', 'Arial Black', sans-serif · 400 · 全大写、字距 0.02em</p>
+          </div>
+          <div class="type-specimen">
+            <p class="comic-specimen-label">气泡里的正文。0123456789</p>
+            <p class="specimen-meta">Comic Neue — 气泡与正文。替代栈：'Comic Sans MS', 'Segoe UI', sans-serif · 400 / 700 · 行高 1.55</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Bangers</td><td>400</td><td>56px</td><td>1</td><td>0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>Bangers</td><td>400</td><td>40px</td><td>1.05</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Bangers</td><td>400</td><td>28px</td><td>1.1</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>Comic Neue</td><td>700</td><td>18px</td><td>1.45</td><td>—</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Comic Neue</td><td>400</td><td>15px</td><td>1.55</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Comic Neue</td><td>700</td><td>13px</td><td>1.3</td><td>0.08em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1120px、2 到 3 列分镜格、12px 间隙，页面外留 48px 白边。区块之间用一条贯穿的 4px 墨线分隔，像翻页。首屏通常是一整格全幅标题加一个对话气泡。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>只有气泡 24px，其余一律 0</td></tr>
+            <tr><td>边框</td><td>一律 4px 墨黑，绝不更细</td></tr>
+            <tr><td>卡片内边距</td><td>24px（气泡 20px）</td></tr>
+            <tr><td>元素间距</td><td>16px（分镜格 12px）</td></tr>
+            <tr><td>网点面积</td><td>不超过一屏的 40%</td></tr>
+            <tr><td>爆炸字</td><td>40–56px，可旋转 ±3 度，一屏最多一处</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Ink Button</h3>
+            <p class="style-body-comp-role">主行动按钮。纸白填充、4px 墨黑边框、零圆角、4px 硬阴影、18px 全大写粗体、字距 0.08em、padding 14px 28px。hover 时填充硬切到漫画黄、放大 1.05、旋转 1 度、时长 100ms；按下时位移 4px 4px 且阴影归零。</p>
+            <button type="button" class="comic-btn">BANG!</button>
+          </div>
+          <div class="comp-item">
+            <h3>Speech Bubble</h3>
+            <p class="style-body-comp-role">信息容器（替代卡片）。纸白填充、3px 墨黑描边、24px 圆角（唯一允许圆角的元素）、内边距 20px、4px 硬阴影；用两个伪元素画尾巴：一个 3px 描边的三角，一个盖住描边的白色三角，形成中空的对话尖端；文字 15px、行高 1.55。首屏那个气泡即此组件。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Halftone Panel + Burst Lettering</h3>
+            <p class="style-body-comp-role">背景分镜块：白底叠一层 6px 间距的径向网点（半径 1px、墨黑），整体 12% 不透明度；面积不超过一屏的 40%，块本身可加 4px 墨线边框形成分镜格。冲击字：漫画字体 40 到 56px、全大写、填漫画红或黄、2px 墨黑描边、4px 4px 墨黑偏移阴影，可旋转 ±3 度，一屏最多一处——首屏的「WHAM!」就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Panel Grid</h3>
+            <p class="style-body-comp-role">分镜格容器。2 到 3 列网格、12px 间隙、每格 4px 墨线边框、零圆角；格子高度可以不同，允许一格跨两列作为主镜头；网格外留 48px 白边，模拟印刷页的页边距。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>4px 墨线包住每个元素</li>
+              <li>硬阴影模拟套印偏移</li>
+              <li>圆角只给对话气泡</li>
+              <li>网点作为背景纹理</li>
+              <li>动效不超过 100ms，动作要夸张</li>
+              <li>标题用漫画体，全大写</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用 2px 以下的细边框</li>
+              <li>不要用柔和阴影</li>
+              <li>不要把渐变当主要视觉</li>
+              <li>不要给卡片加圆角</li>
+              <li>不要用超过 100ms 的动效</li>
+              <li>不要用正式的无衬线体做标题</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>漫画分镜与原稿风格的插画：粗描边、平涂、网点阴影。允许把照片处理成网点单色后放入分镜格。不使用写实摄影、渐变与柔和阴影。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="comic-style">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的墨线系统、气泡画法与跳切动效。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，4px 墨线、套印硬阴影与「圆角只给气泡」必须原样保留；动效超过 100ms 就不是跳切了。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

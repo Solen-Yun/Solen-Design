@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<!-- 首页光束层挂在 .layout 之前：它和顶部导航条同为 fixed 分层时，
+     合成器会把光束错画到导航内容之上（整块区域像蒙了层雾）。拆出
+     同级并放在最前，层级恢复正常。 -->
+<div class="home-hero-rays" id="home-rays" aria-hidden="true"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <main class="content home-content">
+      <section class="home-hero">
+        <h1>Solen Design</h1>
+        <div class="home-hero-counter" id="home-counter"></div>
+        <div id="home-cta"></div>
+      </section>
+      <div class="home-marquee" id="home-marquee"></div>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script src="./theme.js"></script>
+<script type="module" src="./index-page.jsx"></script>
+</body>
+</html>

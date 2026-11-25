@@ -1,0 +1,62 @@
+# 邮箱纠错补全 — EmailTypoFix
+
+一张 340×340 的注册表单卡：顶部标题「Create account」，下面是「Email」标签与一个 46px 高的邮箱输入框，输入框右侧留出一枚 20px 的圆形对勾位。输入框里只打了「@」时，输入框下方展开一排圆角胶囊，列出四个常用域名（@gmail.com、@naver.com、@kakao.com、@icloud.com），点胶囊即补全域名。输入的域名存在错拼时（与常用域名的编辑距离不超过 2），表单里再展开一行琥珀色提示条「Did you mean xxx?」，其中真正写错的那几个字母用同色下划线标出，点这条提示即把域名一键改对。域名合法且没有待纠错建议时，输入框描边转绿、右上角对勾画出，底部「Continue」按钮解除禁用。
+
+## 布局与材质
+
+- 场景卡为 340×340px 的 div，圆角 30px，overflow 裁切。底色是表面色，外圈 1px 线色描边（0 0 0 1px），下方 0 30px 60px -36px 强阴影。场景体内 body 用 grid + place-items 居中。
+- 场景令牌用 `light-dark()` 给浅色与深色两套：表面 #FFFFFF / #13141C，次表面 #F5F3EF / #1A1B25，三级表面 #EAE7E1 / #252632，主墨 #16151B / #F4F0E8，次墨 #57535F / rgba(244,240,232,.68)，弱墨 #8E8A97 / rgba(244,240,232,.42)，线 rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 rgba(22,21,27,.17) / rgba(255,255,255,.16)，强调色 #6A57F2 / #B7A4FF，次强调 #2F8FE0 / #7DB4FF，强调柔光 rgba(106,87,242,.12) / rgba(183,164,255,.15)，强调字色 #FFFFFF / #0B0C12，薄荷 #119C72 / #7EE8C0，警示 #D6731E / #FFB26B，危险 #D93A55 / #FF7D8C，玻璃 rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃线 rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 rgba(40,30,80,.3) / rgba(0,0,0,.72)，渐变 120deg 的 #7B61FF→#3D8BFF 55%→#1FB89A（深色为 #B7A4FF→#7DB4FF 55%→#A5F2D3）。深浅切换由宿主的 color-scheme 决定，组件自身不写 color-scheme。
+- 表单主体绝对定位在左 22px、右 22px、上 30px。标题「Create account」margin 0、20px/字重 900/字距 -.035em。标签「Email」是块级元素、上距 22px、11px/字重 800/次墨色。
+- 输入框行相对定位、上距 6px。输入框占满宽度、高 46px、内边距 0 40px 0 14px、无边框、圆角 13px、底色次表面色、内嵌 1.5px 线色描边、13.5px/字重 700/主墨色、outline none，过渡 box-shadow .2s。占位文字是「you@example.com」，输入框 type=email、autocomplete off、spellcheck false、aria-label="Email"。
+- 聚焦时输入框描边换成 2px 强调色（inset 0 0 0 2px）；校验通过时描边换成 2px #10B981。输入框右上角的 20×20 对勾 SVG 绝对定位在右 12px、上 13px：外圆填 #10B981，初始 scale(0)、transform-origin 为 center、transform-box 为 fill-box，过渡 transform .35s cubic-bezier(.3,1.7,.5,1)；勾是白色描边路径（stroke-width 2.2、圆头圆角），stroke-dasharray 14、stroke-dashoffset 14，过渡 stroke-dashoffset .3s ease .2s。校验通过时圆恢复 scale(1)、勾的 dashoffset 归零，表现为先弹圆、再画勾。
+- 域名胶囊区是横向 flex、间距 5px、允许换行，默认高 0、溢出裁切、透明度 0，过渡 height .3s cubic-bezier(.3,1,.4,1)、opacity .2s、margin .3s。展开时（is-at）高 30px、透明度 1、上距 8px。胶囊按钮高 28px、内边距 0 10px、无边框、圆角 999px、底色次表面色、内嵌 1px 线色描边、次墨色、11px/字重 800；初始下移 6px 且透明，过渡 transform .35s cubic-bezier(.3,1.5,.5,1) 与 opacity .2s，展开后归位；悬停时底色换成强调柔光、文字换成强调色。
+- 纠错提示条是整行按钮：flex 居中、间距 7px、宽 100%、上距 8px、内边距 10px 12px、无边框、圆角 12px、底色 color-mix(in srgb,#F59E0B 13%,transparent)、12px/字重 700、左对齐。左侧 16×16 三角警示图标，填充 #D97706，里面两道白色笔画（stroke-width 1.6）。文案为「Did you mean 」加一枚 b 标签（字重 850）加「?」；b 内的 mark 只给真正写错的那段字母上色：文字 #D97706、背景 none、2px 下划线、下划线偏移 3px。提示条初始 transform 为 translateY(-8px) scaleY(.6)、透明且不可点，过渡 transform .35s cubic-bezier(.3,1.4,.5,1) 与 opacity .2s；出现时归位并可点。
+- 底部栏绝对定位在左 22px、右 22px、下 24px：小字「We’ll send you a sign-in link」居中显示、上距 8px 之后是按钮，10.5px/字重 650/弱墨色。Continue 按钮占满宽度、高 46px、无边框、圆角 13px、底色主墨色、文字表面色、13px/字重 850、过渡 opacity .25s；禁用时透明度 0.3。
+- 组件不声明字体族，字形继承宿主；纠错提示条上的域名以 b/mark 强调，不换字体。
+
+## 数据
+
+- 常用域名表共 9 个：gmail.com、naver.com、kakao.com、icloud.com、outlook.com、hanmail.net、daum.net、yahoo.com、hotmail.com。前 4 个（gmail.com、naver.com、kakao.com、icloud.com）是指纹里显示的补全胶囊，胶囊文字统一带 @ 前缀，即「@gmail.com」等 4 条。
+- 纠错比对的候选是全部 9 个域名，判定用带相邻换位计一次的标准编辑距离，阈值 2；命中多个时取距离最小的，距离相同时保留表里靠前的一个。
+- 提示条文案模板是「Did you mean {正确域名}?」，正确域名里与用户输入相同的开头和结尾照常显示，只有中间不一致的那一段被 mark 标出。
+- 表单里其他写死文案：标题「Create account」、标签「Email」、占位「you@example.com」、页脚提示「We’ll send you a sign-in link」、主按钮「Continue」。
+- 除上述内容外没有其他写死数据；图形只有那只对勾与警示三角，都是内联 SVG。
+
+## 操作和动效
+
+- 每次输入都会重新判定：取输入值去首尾空白，找 @ 的位置，@ 之后的部分转小写作为域名候选。当且仅当 @ 在第 0 位之后、且 @ 之后没有字符时，输入框进入「已输入 @」状态，展开域名胶囊；否则收起胶囊。
+- 域名候选必须以「. + 至少两个字母」结尾、且不在 9 个常用域名之列，才进入纠错判定。判定出最近域名（距离 ≤ 2）时，场景根加上 is-typo，提示条淡入并可聚焦，同时记录修正后的完整邮箱（本地部分 + '@' + 正确域名）；判定不出时移除 is-typo、提示条隐藏，并把提示条从 Tab 序列里摘掉（tabindex 设为 -1）。
+- 点域名胶囊：把输入框的值改成本地部分 + '@' + 该域名，光标回到输入框末尾（focus 且 preventScroll），随即重新判定，胶囊区因域名已填而收起。
+- 点纠错提示条：把输入框的值替换为记录好的修正结果，重放一次 0.5s 的绿色闪动动画（移除类再强制回流后重新加上，30% 处背景换成 color-mix(in srgb,#10B981 16%,transparent)），随后重新判定并把焦点还给输入框。
+- 邮箱合法（`^[^\s@]+@[^\s@]+\.[a-z]{2,}$` 且没有待纠错建议）时，场景根加上 is-ok：输入框描边转绿、对勾圆放大并画出，同时 Continue 按钮解除禁用；否则取消 is-ok、按钮禁用。
+- 域名胶囊逐个错峰入场：第 i 枚的 transition-delay 为 i × 0.04s。
+- `prefers-reduced-motion` 下：胶囊区、胶囊、提示条、对勾圆与对勾路径的过渡全部关闭，绿色闪动动画取消；状态切换仍在同一帧完成，功能不变。
+- 键盘操作：输入框、四个域名胶囊、提示条、Continue 都是原生可聚焦控件，可用 Tab 依次到达；提示条只在存在纠错建议时进入 Tab 序列（否则 tabindex -1）；焦点可见样式为 2px 强调色实线外框，偏移 2px。
+- 窄容器时整景按比例缩小：缩放系数为 min(1, 可用宽度 ÷ 340)，场景本身没有布局断点。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 340 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 EmailTypoFix。从零创建四个文件：EmailTypoFix.tsx、EmailTypoFixEngine.js、motion-runtime.ts、EmailTypoFixEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的补全、纠错、校验与按钮启用状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；@ 补全、错拼提示、一键修正、合法邮箱启用按钮四条路径都正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { EmailTypoFix } from "./EmailTypoFix";
+
+export default function App() {
+  return <EmailTypoFix />;
+}
+```

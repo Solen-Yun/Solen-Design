@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电影视频首屏 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body cine">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 73 · 深色版面</p>
+        <h1>电影视频首屏 <span class="style-card-en">CINEMATIC VIDEO HERO</span></h1>
+        <p class="page-lead">一帧海报先到，然后画面开始动——像预告片的第一镜。</p>
+        <div class="style-card-tags"><span>poster 即 LCP</span><span>入视才 load</span><span>文字压遮罩</span><span>关键信息在 DOM</span></div>
+      </header>
+
+      <section class="cine-hero">
+        <div class="cine-hero-copy">
+          <p>电影视频首屏用一个短片建立氛围：海报帧先渲染成为 LCP，静音视频在进入视口后才加载并自动循环，文字压在可读性遮罩上。它的技术纪律比视觉更严格——视频绝不能是 LCP 依赖，必须有 poster，绝不能 preload=auto，关键信息绝不能放进视频（视频可能不播或被降级），不能有声自动播，循环必须无缝且运动要慢。</p>
+          <p>prefers-reduced-motion 与移动端降级都必须处理，否则在弱网设备上会直接变成一片黑。右边这个舞台是海报帧的样子：底部 75% 黑渐变托着文字。</p>
+        </div>
+        <div class="cine-demo">
+          <div class="cine-stage" role="presentation">
+            <span class="cine-stage-scrim" aria-hidden="true"></span>
+            <span class="cine-stage-tag">SCENE 01 · 城市夜景</span>
+            <p class="cine-stage-title">预告片的第一镜</p>
+            <div class="cine-stage-actions">
+              <button type="button" class="cine-btn"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 1 L11 6 L2 11 Z" fill="currentColor"/></svg>播放预告</button>
+              <button type="button" class="cine-ghost">了解更多</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#05060a"></span><span class="palette-name">Film Black</span><code>#05060a</code></li>
+          <li><span class="swatch-chip" style="background:#f3efe8"></span><span class="palette-name">Warm White</span><code>#f3efe8</code></li>
+          <li><span class="swatch-chip" style="background:#e4c063"></span><span class="palette-name">Warm Gold</span><code>#e4c063</code></li>
+          <li><span class="swatch-chip" style="background:#141821"></span><span class="palette-name">Card Dark</span><code>#141821</code></li>
+          <li><span class="swatch-chip" style="background:#9aa6b8"></span><span class="palette-name">Silver</span><code>#9aa6b8</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>近黑带蓝的影黑让金色强调显得更暖；暖白偏米色，像放映厅的银幕；暖金是唯一的强调色，管主按钮、场景编号与高亮；卡面深比影黑亮一点，用于在不破坏暗场的前提下分区；银灰像字幕的灰，管次级文字与元数据。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#05060a"></span><div><strong>Film Black</strong><span class="swatch-role">视频区与页面底。近黑带蓝，让金色强调显得更暖。</span></div><code>#05060a</code><code>--color-film-black</code></li>
+          <li><span class="swatch-chip" style="background:#f3efe8"></span><div><strong>Warm White</strong><span class="swatch-role">浅色区块与文字。偏暖的米白，像放映厅的银幕。</span></div><code>#f3efe8</code><code>--color-warm-white</code></li>
+          <li><span class="swatch-chip" style="background:#e4c063"></span><div><strong>Warm Gold</strong><span class="swatch-role">唯一的强调色：主按钮、场景编号与高亮。</span></div><code>#e4c063</code><code>--color-warm-gold</code></li>
+          <li><span class="swatch-chip" style="background:#141821"></span><div><strong>Card Dark</strong><span class="swatch-role">卡片与信息块。比影黑亮一点，用于在不破坏暗场的前提下分区。</span></div><code>#141821</code><code>--color-card-dark</code></li>
+          <li><span class="swatch-chip" style="background:#9aa6b8"></span><div><strong>Silver</strong><span class="swatch-role">次级文字与元数据，像字幕的灰。</span></div><code>#9aa6b8</code><code>--color-silver</code></li>
+        </ul>
+        <p class="style-body-note">遮罩固定为 <code>linear-gradient(to top, rgba(0,0,0,0.75), transparent)</code>；金色按钮影 <code>0 8px 24px rgba(228,192,99,0.28)</code>。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>全站唯一字体 Inter：首屏标题 40 到 56px、500 字重，小标签 11px 全大写 0.16em。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="cine-specimen-title">SCENE 01 0123</p>
+            <p class="specimen-meta">Inter — 全站唯一字体。替代栈：-apple-system, 'Helvetica Neue', system-ui, sans-serif · 400–600 · display 500 字重</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Inter</td><td>500</td><td>56px</td><td>1.05</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Inter</td><td>500</td><td>40px</td><td>1.1</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Inter</td><td>600</td><td>24px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>body-lg</td><td>Inter</td><td>400</td><td>16px</td><td>1.55</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>13px</td><td>1.55</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>11px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 airy。上限 1200px，首屏 100vh 全幅、文字居中或左下三分之一。区块间距 128px。视频区之外全部用影黑或卡面深，不用白色大区块，保持暗场连贯。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+          <li><span class="spacing-bar" style="width:128px"></span><code>128</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>卡片 12px · 按钮/输入 999px</td></tr>
+            <tr><td>视频纪律</td><td>muted + loop + playsInline + preload=none，入视 25% 才 load/play</td></tr>
+            <tr><td>海报</td><td>AVIF poster 先渲染，作为 LCP</td></tr>
+            <tr><td>遮罩</td><td>底部黑 75% → 透明</td></tr>
+            <tr><td>场景卡</td><td>16:9、无边框、左下角场景编号</td></tr>
+            <tr><td>降级</td><td>reduced-motion 只留 poster；移动端可降为静帧</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Gold Button</h3>
+            <p class="style-body-comp-role">主行动按钮。暖金填充、影黑文字、999px 全圆角、无描边，16px/600、padding 14px 28px。hover 时填充提亮到 #efce78；按下缩放 0.98。可带一个 12px 的播放三角图标，间距 8px。过渡 300ms。</p>
+            <button type="button" class="cine-btn"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 1 L11 6 L2 11 Z" fill="currentColor"/></svg>立即观看</button>
+          </div>
+          <div class="comp-item">
+            <h3>Video Stage</h3>
+            <p class="style-body-comp-role">视频首屏（签名组件）。高 100vh、overflow hidden、影黑底。先渲染 poster 图（AVIF，作为 LCP），video 元素设 muted、loop、playsInline、preload="none"，用 IntersectionObserver 在 25% 入视时调用 load 与 play。上覆一层从底部黑 75% 到透明的渐变遮罩。prefers-reduced-motion 时完全不播放，只保留 poster。移动端可降级为 poster 加一张静帧。hero 里的舞台即此组件的静态化。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Scene Card</h3>
+            <p class="style-body-comp-role">场景卡与影片条目。16:9 比例、12px 圆角、overflow hidden，底图用 poster 静帧并叠一层从底部黑 75% 到透明的遮罩。左下角放 11px 全大写 0.16em 的暖金场景编号，下方 18px/600 白色标题。整卡不加边框。</p>
+            <div class="cine-scene-card" role="presentation">
+              <span class="cine-scene-no">SCENE 02</span>
+              <span class="cine-scene-name">雨夜天桥</span>
+            </div>
+          </div>
+          <div class="comp-item">
+            <h3>Ghost Button</h3>
+            <p class="style-body-comp-role">次级行动。白 10% 填充、12px 模糊、999px 全圆角、1px 白 25% 描边、白字 16px/500、padding 14px 28px。hover 时填充升到 18%。用于「了解更多」这类次级动作。</p>
+            <button type="button" class="cine-ghost">了解更多</button>
+          </div>
+          <div class="comp-item">
+            <h3>Pill Field</h3>
+            <p class="style-body-comp-role">邮箱与订阅输入。白 10% 填充、12px 模糊、999px 全圆角、1px 白 25% 描边、padding 12px 20px、16px 字，占位符白 50%。聚焦时描边转暖金 70%、填充升到 15%。</p>
+            <input class="cine-pill" type="email" placeholder="订阅上映通知">
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>poster 先渲染并作为 LCP</li>
+              <li>video 用 preload=none，入视才加载</li>
+              <li>必须静音、playsInline、无缝循环</li>
+              <li>文字必须压在遮罩上</li>
+              <li>关键信息放在 DOM，不放视频里</li>
+              <li>reduced-motion 时只留 poster</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让视频成为 LCP 依赖</li>
+              <li>不要省略 poster</li>
+              <li>不要用 preload=auto 加载大视频</li>
+              <li>不要把关键信息放进视频</li>
+              <li>不要有声自动播</li>
+              <li>不要用快切或无缝失败的循环</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>视频与静帧必须同源同调：暗场、慢速运动、无缝循环。允许自然光与夜景。不使用快速剪辑、跳变运动与色彩跳变的素材。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="cinematic-video-hero">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的视频纪律、遮罩文字与场景卡。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，poster 即 LCP、preload=none 与遮罩文字必须原样保留；preload=auto 或视频承载关键信息一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

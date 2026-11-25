@@ -1,0 +1,111 @@
+{
+  "name": "solen-design",
+  "version": "1.1.18",
+  "description": "A cool, minimal CSS design system with entries for React, Vue, Svelte, Solid, Preact and vanilla DOM.",
+  "license": "MIT",
+  "author": "Solen-Yun",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solen-Yun/Solen-Design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Solen-Yun/Solen-Design/issues"
+  },
+  "homepage": "https://github.com/Solen-Yun/Solen-Design#readme",
+  "keywords": [
+    "css",
+    "design-system",
+    "ui",
+    "design-tokens",
+    "dark-mode",
+    "react",
+    "framework-agnostic"
+  ],
+  "main": "src/index.css",
+  "style": "src/index.css",
+  "bin": {
+    "solen-design-mcp": "./mcp/server.mjs"
+  },
+  "exports": {
+    ".": "./src/index.css",
+    "./react": {
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
+    },
+    "./vue": "./src/frameworks/vue/index.js",
+    "./svelte": "./src/frameworks/svelte/index.js",
+    "./solid": "./src/frameworks/solid/index.js",
+    "./preact": "./src/frameworks/preact/index.js",
+    "./vanilla": "./src/frameworks/vanilla/index.js",
+    "./src/*": "./src/*",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "src",
+    "dist",
+    "ai",
+    "mcp",
+    ".agents",
+    "docs/styles",
+    "docs/style.html",
+    "docs/style-field.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:docs": "vite build --config vite.docs.config.js",
+    "preview": "vite preview --config vite.docs.config.js",
+    "ai:build": "node scripts/build-ai.mjs",
+    "covers": "node scripts/shoot-covers.mjs",
+    "mcp:test": "node scripts/test-mcp.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.6",
+    "@gsap/react": "^2.1.2",
+    "@hugeicons/core-free-icons": "^4.4.0",
+    "@hugeicons/react": "^1.1.10",
+    "@radix-ui/react-slider": "^1.4.7",
+    "clsx": "^2.1.1",
+    "deep-agent-base-ui": "npm:@base-ui/react@^1.8.0",
+    "deep-agent-lucide": "npm:lucide-react@^1.43.0",
+    "gsap": "^3.13.0",
+    "matter-js": "^0.20.0",
+    "motion": "^14.14.0",
+    "ogl": "^1.0.11",
+    "react-circular-progressbar": "^2.2.0",
+    "tailwind-merge": "^3.7.0",
+    "three": "0.185.1",
+    "@react-three/drei": "^10.7.4",
+    "@react-three/fiber": "^9.3.0",
+    "@use-gesture/react": "^10.2.27",
+    "vgpu": "^0.3.1"
+  },
+  "allowScripts": {
+    "webgpu@0.4.0": true
+  }
+}

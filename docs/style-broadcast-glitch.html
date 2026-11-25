@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>故障广播 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body bcgl">
+      <div class="bcgl-smpte" aria-hidden="true">
+        <i style="background:#ededed"></i><i style="background:#f5e000"></i><i style="background:#00e5d8"></i><i style="background:#1c8f3a"></i><i style="background:#c027bd"></i><i style="background:#ff2e4c"></i><i style="background:#2243ff"></i>
+      </div>
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html">← 返回目录</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">风格 79 · 深色版面</p>
+        <h1>故障广播 <span class="style-card-en">BROADCAST GLITCH</span></h1>
+        <p class="page-lead">信号正在断：扫描线在爬，RGB 在抖，色条偶尔扫过。</p>
+        <div class="style-card-tags"><span>滚动扫描线</span><span>三支信号色</span><span>steps() 硬切</span><span>SMPTE 彩条签名</span></div>
+      </header>
+
+      <section class="bcgl-hero">
+        <div class="bcgl-hero-copy">
+          <p>故障广播是 90 年代电视台台标与 VHS 故障艺术的复活，与合成波不同：它不画日落与网格，而是模拟信号本身坏掉的样子。CRT 近黑底上永远覆着一层缓缓滚动的扫描线，只有三支信号色（故障红、CRT 青、测试卡黄），SMPTE 彩条作签名装饰，所有故障动效用 steps() 硬切（帧跳、VHS 横向撕裂、色条横扫），绝不平滑过渡。</p>
+          <p>它明令禁止合成波的紫粉橙日落与地平线网格——那是另一个风格。右边这块面板是真的：hover 时一条 2px 色条会横扫一遍。</p>
+        </div>
+        <div class="bcgl-demo">
+          <div class="bcgl-panel">
+            <p class="bcgl-panel-title">信号中断</p>
+            <p class="bcgl-panel-text">CH.04 · 正在尝试重新校准。</p>
+            <button type="button" class="bcgl-btn">RECALIBRATE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#0b0b0e"></span><span class="palette-name">CRT Black</span><code>#0b0b0e</code></li>
+          <li><span class="swatch-chip" style="background:#ededed"></span><span class="palette-name">Signal White</span><code>#ededed</code></li>
+          <li><span class="swatch-chip" style="background:#ff2e4c"></span><span class="palette-name">Glitch Red</span><code>#ff2e4c</code></li>
+          <li><span class="swatch-chip" style="background:#00e5d8"></span><span class="palette-name">CRT Cyan</span><code>#00e5d8</code></li>
+          <li><span class="swatch-chip" style="background:#f5e000"></span><span class="palette-name">Test Card Yellow</span><code>#f5e000</code></li>
+          <li><span class="swatch-chip" style="background:#111116"></span><span class="palette-name">Signal Panel</span><code>#111116</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>显像管的黑永远覆扫描线；略带灰的信号白像老电视的亮，管正文与彩条里的白；故障红是 RGB 分离的一侧与警报，取自彩条的红；CRT 青是分离的另一侧与状态；测试卡黄管高亮与彩条的高光段。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#0b0b0e"></span><div><strong>CRT Black</strong><span class="swatch-role">页面底。显像管的黑，永远覆扫描线。</span></div><code>#0b0b0e</code><code>--color-crt-black</code></li>
+          <li><span class="swatch-chip" style="background:#ededed"></span><div><strong>Signal White</strong><span class="swatch-role">正文与彩条里的白。略带灰，像老电视的亮。</span></div><code>#ededed</code><code>--color-signal-white</code></li>
+          <li><span class="swatch-chip" style="background:#ff2e4c"></span><div><strong>Glitch Red</strong><span class="swatch-role">RGB 分离的一侧与警报。取自彩条的红。</span></div><code>#ff2e4c</code><code>--color-glitch-red</code></li>
+          <li><span class="swatch-chip" style="background:#00e5d8"></span><div><strong>CRT Cyan</strong><span class="swatch-role">RGB 分离的另一侧与状态。</span></div><code>#00e5d8</code><code>--color-crt-cyan</code></li>
+          <li><span class="swatch-chip" style="background:#f5e000"></span><div><strong>Test Card Yellow</strong><span class="swatch-role">高亮与彩条的高光段。</span></div><code>#f5e000</code><code>--color-test-yellow</code></li>
+        </ul>
+        <p class="style-body-note">通道分离固定为 <code>2px 0 #ff2e4c, -2px 0 #00e5d8</code>。层次为零——这是硬信号，不是软 UI。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>等宽 JetBrains Mono，全大写。像电视台的字幕机与时间码。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="bcgl-specimen-title">BROADCAST GLITCH 0123</p>
+            <p class="specimen-meta">JetBrains Mono — 等宽。替代栈：ui-monospace, 'Courier New', monospace · 400/700 · 全大写 0.16em</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字体</th><th>字重</th><th>字号</th><th>行高</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>JetBrains Mono</td><td>700</td><td>48px</td><td>1.1</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading</td><td>JetBrains Mono</td><td>700</td><td>32px</td><td>1.2</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>JetBrains Mono</td><td>700</td><td>22px</td><td>1.3</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body-lg</td><td>JetBrains Mono</td><td>400</td><td>16px</td><td>1.5</td><td><code>--text-body-lg</code></td></tr>
+            <tr><td>body</td><td>JetBrains Mono</td><td>400</td><td>13px</td><td>1.5</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>JetBrains Mono</td><td>400</td><td>11px</td><td>1.4</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 compact。上限 1240px、容器内边距 16px，区块间距 64px。零圆角贯穿全站。全屏扫描线覆盖所有内容，色条只在顶部出现一次。允许元素每 6 秒抖一次，幅度 2 到 4px，频率极低。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>圆角</td><td>全部为 0</td></tr>
+            <tr><td>扫描线</td><td>4px 间距 1px 黑 50%，8s linear 爬行</td></tr>
+            <tr><td>通道分离</td><td>只做标题与装饰，正文绝不分离</td></tr>
+            <tr><td>抖动</td><td>120ms steps(2)、每 6 秒一次、幅度 ≤4px</td></tr>
+            <tr><td>SMPTE 彩条</td><td>24–48px 高、七段、每屏恰好一条</td></tr>
+            <tr><td>撕裂</td><td>clip-path 三条水平错位，80ms 复位</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Scanline Crawl</h3>
+            <p class="style-body-comp-role">滚动扫描线（核心）。全页固定覆盖 repeating-linear-gradient（每 4px 一条 1px 黑 50% 横线），再叠一层同样的图案并用 transform: translateY 在 8 秒内从 0 移到 4px（linear 无限循环），形成「信号在爬」的错觉。绝不改 top 或 height。reduced-motion 时静止——本页背景就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>RGB Split Title</h3>
+            <p class="style-body-comp-role">通道分离标题。标题叠两层副本：一层偏移 2px 用故障红、一层 -2px 用 CRT 青，混合模式 screen。静置时偏移 2px；每 6 秒触发一次 120ms 的 steps(2) 抖动（偏移跳到 4px 再回）。正文层绝不做通道分离——那会让字不可读。</p>
+            <p class="bcgl-split-demo">SIGNAL LOST</p>
+          </div>
+          <div class="comp-item">
+            <h3>SMPTE Bars</h3>
+            <p class="style-body-comp-role">SMPTE 彩条（签名）。一条 24 到 48px 高的彩条带，按标准顺序排七段：白、黄、青、绿、品红、红、蓝。它只在页面顶部或区块之间出现，每次恰好一条，用作「信号校准」的装饰——本页顶上那条就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Signal Panel</h3>
+            <p class="style-body-comp-role">信号面板。#111116 填充、零圆角、1px 信号白 12% 描边、内边距 24px，无阴影。标题 22px/700 带通道分离，正文 13px 信号白 80%。hover 时描边升到 25% 并让一条 2px 高的色条在 200ms 内横扫一遍（steps(4)）。hero 里的面板就是。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Broadcast Button</h3>
+            <p class="style-body-comp-role">行动按钮。透明底、1px 信号白 30% 描边、零圆角、13px/700 全大写 0.16em、padding 10px 24px。hover 时描边转故障红、文字转测试卡黄；按下时整体横向撕裂——clip-path 切出 3 条水平错位（各偏 2 到 4px），并在 80ms 内复位。transition-none 或 80ms steps(2)。</p>
+            <button type="button" class="bcgl-btn">REC</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>CRT 黑底加滚动扫描线</li>
+              <li>只用三支信号色</li>
+              <li>故障动效用 steps() 硬切</li>
+              <li>SMPTE 彩条作签名，只一条</li>
+              <li>通道分离只做在标题与装饰</li>
+              <li>抖动幅度 2 到 4px、频率极低</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要用合成波的日落渐变与地平线网格</li>
+              <li>不要用圆角、柔光与柔和阴影</li>
+              <li>不要引入第四种颜色</li>
+              <li>不要满屏持续抖动</li>
+              <li>不要在正文做通道分离</li>
+              <li>不要动画布局属性</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>VHS 画面、测试卡、色条、电视噪点、监控画面。必须带扫描线与轻微色偏。允许把照片压成 3 色信号调色板。不使用干净摄影、柔和插画与任何合成波日落。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="broadcast-glitch">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套风格的扫描线爬行、通道分离与 SMPTE 签名。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套风格时，steps() 硬切、三支信号色与「正文不做通道分离」必须原样保留；日落渐变或圆角一出现即违规。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+# 客服聊天窗 — SupportChatWidget
+
+一张 300×480 的网页场景卡：背景是一段站点页面（顶部导航「Nimbus / Pricing / Docs / Blog」与两块灰色占位内容块），右下角浮着一枚 54px 的圆形对话按钮。点它，聊天窗从按钮的位置缩放长出——渐变色的头部、三枚团队头像、标题「How can we help?」与绿点提示「We usually reply in 3 minutes」，中间是消息流，右下角排着三枚常见问题胶囊，底部是一条输入栏。点问题胶囊会先出现用户气泡与三点打字指示，随后弹出客服答复，其中前两个问题附带一张「Help article」小卡，第三个问题会转入真人（系统提示「Minji joined the chat」后由真人气泡接话）。
+
+## 布局与材质
+
+- 场景卡为 300×480px 的 div，圆角 32px，overflow 裁切，底色表面色，外圈 1px 线色描边（0 0 0 1px），下方 0 30px 60px -36px 强阴影。
+- 场景令牌用 `light-dark()` 给浅色与深色两套：表面 #FFFFFF / #13141C，次表面 #F5F3EF / #1A1B25，三级表面 #EAE7E1 / #252632，主墨 #16151B / #F4F0E8，次墨 #57535F / rgba(244,240,232,.68)，弱墨 #8E8A97 / rgba(244,240,232,.42)，线 rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 rgba(22,21,27,.17) / rgba(255,255,255,.16)，强调色 #6A57F2 / #B7A4FF，次强调 #2F8FE0 / #7DB4FF，强调柔光 rgba(106,87,242,.12) / rgba(183,164,255,.15)，强调字色 #FFFFFF / #0B0C12，薄荷 #119C72 / #7EE8C0，警示 #D6731E / #FFB26B，危险 #D93A55 / #FF7D8C，玻璃 rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃线 rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 rgba(40,30,80,.3) / rgba(0,0,0,.72)，渐变 120deg 的 #7B61FF→#3D8BFF 55%→#1FB89A（深色为 #B7A4FF→#7DB4FF 55%→#A5F2D3）。字体沿用宿主，组件不声明字体族。
+- 背景页层铺满整卡，内边距 22px 18px。导航是一行 flex（间距 12px，11.5px/字重 800/次墨色）：站名「Nimbus」为主墨色、字重 900 并把后面的项推到右边，其后是「Pricing」「Docs」「Blog」。导航下有两块灰色占位内容：第一块高 120px、第二块高 70px，圆角 16px，底色次表面色，上下间距 14px。
+- 悬浮按钮在右 16px、下 16px，54×54px 的圆形，无边框，底色强调色，图标白色，投影 0 14px 28px -10px 强调色；按下时缩到 0.92。按钮里叠了两枚 24×24 内联 SVG：气泡图标与叉号图标。闲置时气泡为正位、叉号旋转 -90deg 且缩到 0.5 并透明；窗口打开后两者互换——气泡旋转 90deg 缩到 0.5 并透明，叉号归位且不透明，图标过渡 0.35s cubic-bezier(.3,1.5,.5,1)、透明度 0.2s。
+- 聊天窗位于左 12px、右 12px、上 14px、下 80px（浮在按钮上方 24px），圆角 22px，底色表面色，外圈 1px 线色描边，投影 0 30px 50px -20px rgba(0,0,0,.4)，内容裁切，flex 纵向排列。transform-origin 锚在 calc(100% - 31px) calc(100% + 39px)，即窗口右下角偏右下的位置，让窗口从悬浮按钮处展开；闲置态缩到 0.1 且全透明并禁用指针事件，打开态恢复原尺寸与不透明，缩放过渡 0.45s cubic-bezier(.3,1.15,.4,1)、透明度 0.25s。
+- 窗头内边距 16px 16px 14px，底色是 120deg 渐变（浅色 #7B61FF→#3D8BFF→#1FB89A，深色 #B7A4FF→#7DB4FF→#A5F2D3），文字白色。三枚 26px 圆形头像，右边距 -7px 互相压叠，外圈 2px rgba(255,255,255,.9)，字母 10px/字重 850，底色依次 #F9A8D4（M）、#A5B4FC（J）、#FDE68A（H）。标题「How can we help?」15px/字重 900、上距 10px；副行「We usually reply in 3 minutes」10px/字重 700/透明度 0.9、上距 2px，行首一枚 6px 的 #4ADE80 圆点。
+- 消息区占满剩余高度，纵向 flex、间距 7px、内边距 12px 12px 4px，可纵向滚动且隐藏滚动条。气泡最大宽 82%，内边距 8px 11px，圆角 14px，11px/字重 650/行高 1.45，入场动画 0.35s cubic-bezier(.3,1.4,.5,1)（从透明度 0、位移 8px、缩放 0.96 进入）。三种变体：机器人气泡贴左、底色次表面色、左下角圆角收到 5px；用户气泡贴右、底色强调色、白字、右下角圆角收到 5px；真人气泡贴左、底色 #EC4899 12% 混表面色、左下角圆角收到 5px。
+- 打字指示器贴左，内边距 10px 12px，圆角 14px（左下 5px），底色次表面色，内含三枚 6px 圆点（底色弱墨色），动画 1s ease-in-out 无限循环，位移在 30% 关键帧上抬 4px 且透明度降到 0.6，三点依次延迟 0.15s、0.3s。
+- 文章小卡紧跟在机器人气泡下方：内边距 7px、圆角 10px、底色表面色、内描边 1px 线色，左侧一枚 28×28、圆角 7px 的渐变方块（135deg #A5B4FC→#F0ABFC），右侧两行文字——标题 10.5px/字重 850，副题 9px/字重 700/弱墨色。
+- 系统提示是一枚居中的小胶囊：内边距 3px 9px、圆角 999px、底色次表面色、9.5px/字重 800/弱墨色，入场动画 0.35s。
+- 常见问题胶囊区靠右排列（flex-wrap、间距 5px、内边距 4px 12px 8px）：每枚高 28px、内边距 0 10px、圆角 999px、底色表面色、内描边 1.5px 强调色 50% 混透明、文字 10.5px/字重 800/强调色；不可用时透明度降到 0.35 且指针变默认。输入栏在最底：flex、间距 6px、内边距 8px 10px 10px、顶部 1px 线色分隔；输入框高 34px、内边距 0 11px、圆角 10px、底色次表面色、11px/字重 650，无边框无描边。
+- 页面容器在窄容器里整景等比缩小，缩放系数为 min(1, 可用宽度 ÷ 场景宽度)。
+
+## 数据
+
+- 站点背景写死：站名「Nimbus」与导航项「Pricing」「Docs」「Blog」，外加两块占位内容块（无文字）。
+- 窗口头部写死：三枚头像字母 M、J、H；标题「How can we help?」；副行「We usually reply in 3 minutes」。
+- 开场机器人气泡文案：「Hi there! Pick what you need 👋」。
+- 三枚问题胶囊文案：「I want to change plans」「Where do I get receipts?」「Talk to a person」。
+- 前两个问题的答复与文章卡标题：「You can switch anytime in Settings › Billing. Unused time is prorated.」配「Changing your plan」；「You can download them monthly from your billing history.」配「How to get receipts」。文章卡副题统一为「Help article · 2 min read」。
+- 第三个问题转入真人：系统提示「Minji joined the chat」，随后真人气泡「Hi, I'm Minji. What can I help with?」。
+- 输入框占位文字「Type a message」，输入框本身不发送消息，只是一个外观件。
+
+## 操作和动效
+
+- 点击悬浮按钮切换窗口开合。开合时同步更新：窗口的 aria-hidden、按钮的 aria-expanded 与 aria-label（「Open chat」/「Close chat」），并把三枚胶囊与输入框的 tabindex 在 0 与 -1 之间切换；窗口打开 350ms 后把焦点送到第一枚问题胶囊（阻止滚动）。
+- 打开时聊天气泡图标旋转 90deg 并缩到 0.5、叉号归位，窗口自身从按钮锚点缩放展开；关闭时反向收回。
+- 点问题胶囊：立刻插入一条用户气泡（内容就是胶囊文字），300ms 后插入三点打字指示器；1300ms 后移除打字指示器并给出答复——前两个问题插入机器人气泡并在气泡里挂上文章小卡，第三个问题插入系统提示胶囊，600ms 后再插入真人气泡。答复后消息区自动滚到底部，胶囊按钮在等待期间置灰，回合结束后恢复可用。
+- 同一时刻只允许一次问答进行中，进行中再次点击被忽略。
+- 键盘：窗口打开时按 Escape 关闭并把焦点交回悬浮按钮；窗口内的按钮与输入框可 Tab 到达，焦点可见样式为 2px 强调色外框、偏移 2px。
+- `prefers-reduced-motion` 下：窗口缩放与图标旋转的过渡关闭，气泡与系统提示的入场动画关闭，三点打字指示器的上下跳动动画关闭；打字指示器与答复的等待时间压缩为 0ms，气泡直接出现，但消息顺序、文案与开关逻辑不变。
+- 无障碍：聊天窗是 `role="dialog"` 并带 aria-hidden；消息区是 `aria-live="polite"`，新增的气泡会被朗读；悬浮按钮是原生按钮并带 aria-label 与 aria-expanded；问题胶囊是原生按钮并带 aria-label；装饰性 SVG 全部 aria-hidden。
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 SupportChatWidget。从零创建四个文件：SupportChatWidget.tsx、SupportChatWidgetEngine.js、motion-runtime.ts、SupportChatWidgetEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整的问答流程与全部文案。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；窗口从按钮锚点生长与收回；胶囊问答依次给出答复与文章卡；Escape 可关闭；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { SupportChatWidget } from "./SupportChatWidget";
+
+export default function App() {
+  return <SupportChatWidget />;
+}
+```

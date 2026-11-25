@@ -1,0 +1,65 @@
+# 移动端下钻菜单 — MobileDrillMenu
+
+制作一张 300×480 的移动端站点场景。顶栏左侧是 16×16 的渐变方块 logo 与品牌字 "Tidy"，右侧一枚 38×38 的汉堡按钮（三根 16×2px 的横线）。页面层是一句两行大标题 "Make today's work / lighter"，下面一块 150px 高的渐变占位图。点汉堡：三线并成 X，页面层模糊并降到 40% 不透明，菜单层自上而下展开——顶部一栏显示当前层级标题与返回箭头，下面是菜单项列表（16px 大字，带子菜单的项右端有箭头），底部是 "Log in" 与 "Start free" 两枚并排按钮。带子菜单的项（Product、Customers、AI tools）点进去后，父级列表向左退场、子级列表从右侧推入，层级标题换成子菜单名、返回箭头出现；点返回箭头则反向退回上一层。
+
+## 布局与材质
+
+- 300×480px 场景卡，圆角 32px，overflow 裁切；底色为表面色纯色，外圈 `0 0 0 1px` 线色描边，下方 `0 30px 60px -36px` 强阴影。
+- 顶栏绝对定位 left 0 / right 0 / top 0、z-index 3，横向 flex、垂直居中、高 56px、内边距 0 14px 0 18px，底色为表面色（覆盖在页面层之上）。品牌块 flex、间距 6px、14px / 900，文字 "Tidy"；前面的 logo 方块 16×16px、5px 圆角，底色为主色渐变（浅色 `linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A)`，深色 `linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3)`）。
+- 汉堡按钮 38×38px、12px 圆角、无边框、表面色 2 号底、grid 居中。三根横线放在一个 16×12px 的相对定位盒内，各为绝对定位 left 0、宽 16px、高 2px、1px 圆角、墨色底；三条的 top 分别是 0px、5px、10px。菜单打开时：第 1 条 top 变 5px 并旋转 45°，第 2 条 opacity 归 0 且 scaleX(.2)，第 3 条 top 变 5px 并旋转 -45°，三线合成 X；位移与旋转 0.35s cubic-bezier(.3,1.4,.5,1)，透明度 0.2s。
+- 页面层绝对定位 left 0 / right 0 / top 56px / bottom 0，内边距 30px 20px；菜单打开时 `filter: blur(2px)` 且 opacity 0.4，过渡 filter 0.3s、opacity 0.3s。标题 26px / 行高 1.15 / 900 / 字距 -0.04em，文案为 "Make today's work" 加一个硬换行再接 "lighter"。标题下的占位块高 150px、上外边距 20px、18px 圆角，底色为 `linear-gradient(140deg,主色淡底,表面色2)`。
+- 菜单层绝对定位 left 0 / right 0 / top 56px / bottom 0、z-index 2，底色表面色、overflow 裁切；用 `clip-path: inset(0 0 100% 0)` 完全收起，打开时切到 `inset(0 0 0 0)`，过渡 0.45s cubic-bezier(.7,0,.2,1)（自上而下的卷帘揭示）。
+- 菜单层顶栏 flex、间距 6px、高 40px、内边距 0 12px，下边框 1px 线色。返回按钮 30×30px、9px 圆角、无边框、表面色 2 号底、墨色图标、grid 居中，过渡 opacity 0.25s、transform 0.3s；隐藏时仍占位（display 保持 grid），但 opacity 0、左移 6px 且不吃指针。按钮内是 14×14 SVG 箭头 `M9 2.5 L4.5 7 9 11.5`，描边 1.9、圆头圆角连接。层级标题 12px / 850、次级墨色。
+- 列表视口绝对定位 top 40px / bottom 96px；列表绝对铺满、内边距 8px 10px、去点，横向切换时过渡 transform 0.38s cubic-bezier(.2,.8,.2,1)、opacity 0.3s。
+- 菜单项 flex、占满宽、高 50px、内边距 0 10px、无边框、12px 圆角、透明底、主色文字、16px / 800 / 字距 -0.02em、左对齐；初始 opacity 0 且下移 8px，列表加 `is-in` 后恢复 opacity 1 与原位，过渡 opacity 0.3s、transform 0.35s cubic-bezier(.3,1.3,.5,1)、background 0.2s；悬停时底色变表面色 2 号。带子菜单的项右端有一枚 14×14 箭头 SVG（路径 `M5 2.5 L9.5 7 5 11.5`，描边 1.9、圆头圆角连接），颜色为三级墨色，margin-left auto。
+- 底部操作区绝对定位 left 16px / right 16px / bottom 22px，两列等分 grid、间距 8px；初始 opacity 0，菜单打开后过渡到 opacity 1（transition opacity 0.3s，延迟 0.25s）。每格高 42px、13px 圆角、grid 居中、12.5px / 850、表面色 2 号底；右格改墨色底、表面色字。
+- 场景令牌用 CSS `light-dark()` 随 `color-scheme` 切换，浅色 / 深色两套：表面 #FFFFFF / #13141C，表面 2 #F5F3EF / #1A1B25，表面 3 #EAE7E1 / #252632，墨色 #16151B / #F4F0E8，次级墨色 #57535F / rgba(244,240,232,.68)，三级墨色 #8E8A97 / rgba(244,240,232,.42)，线色 rgba(22,21,27,.09) / rgba(255,255,255,.08)，强线 rgba(22,21,27,.17) / rgba(255,255,255,.16)，主色 #6A57F2 / #B7A4FF，主色 2 #2F8FE0 / #7DB4FF，主色淡底 rgba(106,87,242,.12) / rgba(183,164,255,.15)，主色字 #FFFFFF / #0B0C12，薄荷 #119C72 / #7EE8C0，警告 #D6731E / #FFB26B，危险 #D93A55 / #FF7D8C，玻璃 rgba(255,255,255,.58) / rgba(255,255,255,.07)，玻璃线 rgba(255,255,255,.85) / rgba(255,255,255,.18)，阴影 rgba(40,30,80,.14) / rgba(0,0,0,.45)，强阴影 rgba(40,30,80,.3) / rgba(0,0,0,.72)。组件不声明字体族，继承宿主页面字体；按钮统一 `font: inherit`。
+- 组件只有 `@media (prefers-reduced-motion: reduce)` 一个媒体查询；场景是固定 300px 宽的等比缩放画布，容器变窄时整景按 `min(1, 可用宽/300)` 缩小，内部用绝对定位与固定行高，不做响应式重排。
+
+## 数据
+
+- 菜单树共 4 层，节点数据为「标题 + 子节点数组」：
+  - 根层标题 "Menu"，子项 5 个：Product（3 个子项）、Pricing、Customers（2 个子项）、Blog、Support；
+  - Product 层子项 3 个：Collaboration、AI tools（3 个子项）、Integrations；
+  - AI tools 层子项 3 个：Summaries、Translation、Meeting notes；
+  - Customers 层子项 2 个：Startups、Enterprise。
+- 写死文案：品牌 "Tidy"、页面标题 "Make today's work" / "lighter"、底部按钮 "Log in" 与 "Start free"、返回按钮无障碍名 "Back"。
+- 带子菜单的项会追加无障碍名 "<标题> submenu"。
+
+## 操作和动效
+
+- 点汉堡按钮开合菜单：根节点加 `is-open` 类，三线并成 X、页面层模糊降透明、菜单层卷帘展开、底部按钮淡入；按钮的 `aria-expanded` 在 true / false 间切换，无障碍名在 "Open menu" 与 "Close menu" 之间切换。再次点则全部反向收起。
+- 每次打开菜单都把层级栈重置为根层，清空列表视口，从根层重新渲染，层级标题显示 "Menu"，返回按钮隐藏。
+- 菜单项错峰升起：每一项的过渡延迟按序号递增——第 1 项 0.05s、每往后一项多 0.04s（第 5 项 0.21s），配合 0.35s 的 transform 与 0.3s 的透明度过渡，列表自上而下依次浮现。
+- 点带子菜单的项：把该节点压入层级栈，新列表以 `translateX(100%)` 从右侧进入（0.38s cubic-bezier(.2,.8,.2,1)），同时旧列表向左退到 -30% 并淡出，400ms 后被移除；层级标题更新为该子菜单名，返回按钮出现。若系统处于减少动态偏好，新列表直接就位、旧列表立即移除，不做位移动画。
+- 点返回按钮：层级栈弹出一层，按同样方式反向切换（旧列表向右退 30%、新列表从左侧 -100% 进入），层级标题回退，返回按钮在回到根层后再次隐藏。
+- 无子菜单的项（Pricing、Blog、Support、Collaboration、Integrations、Summaries、Translation、Meeting notes、Startups、Enterprise）点击后没有额外反应。
+- 无障碍：菜单项是原生按钮，带子菜单的项另有 "… submenu" 无障碍名；汉堡按钮带 `aria-expanded` 与动态无障碍名；返回按钮带 "Back" 无障碍名；列表视口与菜单层用 `aria-hidden` 之外的常规 DOM 顺序承载焦点，按钮 focus-visible 时 2px 主色描边、外偏移 2px。
+- `prefers-reduced-motion: reduce`（或 `options.reducedMotion` 为真）时：菜单层展开、列表切换、菜单项升起三组过渡全部关闭，直接就位；功能与最终画面完全保留。
+- 支持同页多实例：查询限定在各自 ShadowRoot 内，不使用全局 id；卸载时清理计时器、事件监听与观察器。
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| height | number | 480 | 场景高度，逻辑像素；窄容器整景按比例缩小 |
+| reducedMotion | boolean | 跟随系统 | 覆盖系统的减少动态偏好 |
+
+## 独立实现与六框架交付
+
+- 仅凭本文从零生成可运行的实现。尺寸、颜色、文案、图形和运动算法均以上述文字为准；所有装饰用 CSS 与内联 SVG 绘制，不加载远程图片、字体、视频或素材。
+- 当前交付重点为 React，组件名称 MobileDrillMenu。从零创建四个文件：MobileDrillMenu.tsx、MobileDrillMenuEngine.js、motion-runtime.ts、MobileDrillMenuEngine.d.ts；分别实现框架入口、完整交互核心、实例生命周期和类型声明。文件名是需要生成的产物，不假定接收者已经拥有任何文件。
+- 同时提供 React、Vue、Svelte、Solid、Preact、Vanilla 原生生命周期入口，共享框架无关核心。DOM 仅在挂载后访问，支持同页多实例；更新时保持状态，销毁时清理动画、计时器、观察器及监听器。不要用 iframe 代替组件实现。
+- 依赖安装说明：npm install react react-dom。若使用依赖，只使用其公开 API；组件的布局、样式、图形和算法必须在本次生成的文件中完整实现，不引用现成效果组件。
+- 实现 options.height 以调整场景高度，options.reducedMotion 覆盖系统偏好；减少动态效果仍保留完整流程状态。
+- 给出每个文件的完整内容、安装和运行步骤、以下使用示例所需的全部实现。不得留省略号、待补素材或"自行补齐核心"的占位。
+- 验收：375 / 768 / 1440px 无横向溢出；开合、三级下钻与逐级返回都正确；浅色深色两套令牌正确；多实例互不干扰，卸载后停止所有任务。
+
+## 使用示例
+
+```tsx
+import { MobileDrillMenu } from "./MobileDrillMenu";
+
+export default function App() {
+  return <MobileDrillMenu />;
+}

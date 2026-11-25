@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>杂志网格布局 — Solen Design</title>
+<link rel="stylesheet" href="../src/index.css">
+<link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="main">
+    <main class="content style-body mgrid">
+      <div class="style-head-row">
+        <a class="source-button style-back" href="style.html?cat=layout">← 返回布局模式</a>
+        <button type="button" class="takeaway-copy" data-copy-doc title="复制这套风格的完整 Markdown 设计文档">复制复现提示词</button>
+      </div>
+
+      <header class="page-head">
+        <p class="style-kicker">布局模式 17 · 版面版面</p>
+        <h1>杂志网格布局 <span class="style-card-en">MAGAZINE GRID</span></h1>
+        <p class="page-lead">版面自己会说话：大块讲主故事，小块填次要，尺寸就是优先级。</p>
+        <div class="style-card-tags"><span>grid-template-areas</span><span>头条 2×2</span><span>衬线标题</span><span>4px 圆角</span><span>栏目分色</span></div>
+      </header>
+
+      <section class="mgrid-intro">
+        <p>杂志网格把印刷版的版面逻辑搬到网页：用 grid-template-areas 画出不等大的区块，头条占 2×2，次条占 2×1，短讯占 1×1，读者一眼就知道什么最重要。</p>
+        <p>它的三条纪律是——所有块不能同尺寸（那等于没有层级）、图片裁切比例必须统一（否则网格会歪）、正文段落绝不能加位移动画（阅读稳定性优先）。标题的 hover 只允许直接换色，不允许发光或阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>布局实演</h2>
+        <p>用上方按钮切换视口宽度，看版面怎么退化：桌面 4 列、平板 2 列、手机单列。头条在手机上不再跨列，标签颜色始终跟着栏目走——红是头条、青是文化、深蓝是深度。</p>
+        <div class="mgrid-stage-bar" role="group" aria-label="预览视口宽度">
+          <button type="button" data-stage="desktop" aria-pressed="true">桌面 · 4 列</button>
+          <button type="button" data-stage="tablet" aria-pressed="false">平板 · 2 列</button>
+          <button type="button" data-stage="mobile" aria-pressed="false">手机 · 单列</button>
+        </div>
+        <div class="mgrid-stage" data-stage-view="desktop">
+          <div class="mgrid-grid">
+            <article class="mgrid-lead">
+              <p class="mgrid-label mgrid-label--red">头条</p>
+              <h3 class="mgrid-lead-title">一整屏的雪落下来，整座城安静了</h3>
+              <p class="mgrid-standfirst">凌晨四点，扫雪车还没上街，整条街只有铁锹刮过柏油的声音。等到第一班公交驶过，积雪已经被压成一条灰白的线。</p>
+              <figure class="mgrid-figure mgrid-figure--lead">
+                <img src="./assets/demo-photos/photo-03.jpg" alt="雪中的鸟居" />
+              </figure>
+            </article>
+
+            <article class="mgrid-brick mgrid-brick--wide">
+              <p class="mgrid-label mgrid-label--teal">文化</p>
+              <h3 class="mgrid-brick-title">老城区的书店活了下来</h3>
+              <figure class="mgrid-figure mgrid-figure--wide">
+                <img src="./assets/demo-photos/photo-06.jpg" alt="城市夜色" />
+              </figure>
+              <p class="mgrid-brick-body">三条街之外，纸质书的销量涨了四成。店主说，来买书的人比十年前多，只是他们不再叫它「买书」。</p>
+            </article>
+
+            <article class="mgrid-brick mgrid-brick--tall">
+              <p class="mgrid-label mgrid-label--ink">短讯</p>
+              <h3 class="mgrid-brick-title">本周六条</h3>
+              <p class="mgrid-brick-body">1. 城南的旧粮仓改成图书馆，下月开放。<br />2. 地铁三号线延长段开始试运行。<br />3. 城北的最后一间照相馆关门，第七代决定不续。<br />4. 河边的夜市从今年起不再用塑料碗。<br />5. 一只灰喜鹊连续七天在同一根电线上等人。<br />6. 市立美术馆的夜场延长到十点。</p>
+            </article>
+
+            <aside class="mgrid-quote">
+              <p class="mgrid-quote-text">版面的秩序不是把东西排整齐，是让人一眼知道先看哪里。</p>
+              <p class="mgrid-quote-by">— 版面笔记</p>
+            </aside>
+
+            <article class="mgrid-brick mgrid-brick--wide">
+              <p class="mgrid-label mgrid-label--navy">深度</p>
+              <h3 class="mgrid-brick-title">为什么我们开始怀念纸质地图</h3>
+              <figure class="mgrid-figure mgrid-figure--wide">
+                <img src="./assets/demo-photos/photo-01.jpg" alt="夜色中的街道" />
+              </figure>
+              <p class="mgrid-brick-body">不是因为导航慢了，是因为导航把「路」变成了「路线」：你不再知道自己正穿过哪条街，只是被送到目的地。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>配色方案</h2>
+        <ul class="palette-strip">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><span class="palette-name">Ink</span><code>#1a1a1a</code></li>
+          <li><span class="swatch-chip" style="background:#fafafa"></span><span class="palette-name">Paper</span><code>#fafafa</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><span class="palette-name">Card White</span><code>#ffffff</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><span class="palette-name">Red</span><code>#e63946</code></li>
+          <li><span class="swatch-chip" style="background:#2a9d8f"></span><span class="palette-name">Teal</span><code>#2a9d8f</code></li>
+          <li><span class="swatch-chip" style="background:#e9c46a"></span><span class="palette-name">Gold</span><code>#e9c46a</code></li>
+          <li><span class="swatch-chip" style="background:#264653"></span><span class="palette-name">Navy</span><code>#264653</code></li>
+        </ul>
+      </section>
+
+      <section class="style-section">
+        <h2>颜色</h2>
+        <p>版面底色是近白的纸，文字是报纸式的深灰，长读不累。颜色只做一件事：标记栏目。头条红、文化青、深度深蓝，全站不得混用；金色只留给值得单独读的一段引文。</p>
+        <ul class="swatch-list">
+          <li><span class="swatch-chip" style="background:#1a1a1a"></span><div><strong>Ink</strong><span class="swatch-role">标题与正文。报纸式的深灰，长读不累。</span></div><code>#1a1a1a</code><code>--color-ink</code></li>
+          <li><span class="swatch-chip" style="background:#fafafa"></span><div><strong>Paper</strong><span class="swatch-role">页面底。近白但不刺眼，让图片承担对比。</span></div><code>#fafafa</code><code>--color-paper</code></li>
+          <li><span class="swatch-chip" style="background:#ffffff"></span><div><strong>Card White</strong><span class="swatch-role">内容块。全版只有块与纸两级表面。</span></div><code>#ffffff</code><code>--color-card</code></li>
+          <li><span class="swatch-chip" style="background:#e63946"></span><div><strong>Red</strong><span class="swatch-role">头条标记与栏目标签，是版面上最抢眼的色。</span></div><code>#e63946</code><code>--color-red</code></li>
+          <li><span class="swatch-chip" style="background:#2a9d8f"></span><div><strong>Teal</strong><span class="swatch-role">次级分类与文化栏目。</span></div><code>#2a9d8f</code><code>--color-teal</code></li>
+          <li><span class="swatch-chip" style="background:#e9c46a"></span><div><strong>Gold</strong><span class="swatch-role">引文底与高亮，用于标记值得单独读的一段。</span></div><code>#e9c46a</code><code>--color-gold</code></li>
+          <li><span class="swatch-chip" style="background:#264653"></span><div><strong>Navy</strong><span class="swatch-role">深度报道与专题标签，出现频率低于红与青。</span></div><code>#264653</code><code>--color-navy</code></li>
+        </ul>
+        <p class="style-body-note">表面层级：0 Paper <code>#fafafa</code>，1 Card White <code>#ffffff</code>，2 Gold Quote <code>#e9c46a</code>。阴影只用一级：块 hover <code>0 4px 16px rgba(26,26,26,0.08)</code>——网格本身负责分隔，平时不加阴影。</p>
+      </section>
+
+      <section class="style-section">
+        <h2>字体</h2>
+        <p>标题用衬线 Playfair Display，正文、标签与元数据用无衬线 Inter——两者的对照是杂志感的关键。版面层级主要靠字号与栏宽，字体只负责提供印刷感。</p>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <p class="mgrid-specimen-title">杂志网格布局，Magazine Grid</p>
+            <p class="specimen-meta">Playfair Display（标题）— 替代栈：Georgia, 'Songti SC', serif · 400–900；Inter（正文）— system-ui, 'Segoe UI', sans-serif · 400–500 · 字距 0.1em（大写标签）</p>
+          </div>
+        </div>
+        <table class="style-table">
+          <thead><tr><th>角色</th><th>字族</th><th>字重</th><th>字号</th><th>行高</th><th>字距</th><th>令牌</th></tr></thead>
+          <tbody>
+            <tr><td>display</td><td>Playfair Display</td><td>900</td><td>56px</td><td>1.05</td><td>-0.02em</td><td><code>--text-display</code></td></tr>
+            <tr><td>heading-lg</td><td>Playfair Display</td><td>700</td><td>40px</td><td>1.1</td><td>—</td><td><code>--text-heading-lg</code></td></tr>
+            <tr><td>heading</td><td>Playfair Display</td><td>700</td><td>28px</td><td>1.2</td><td>—</td><td><code>--text-heading</code></td></tr>
+            <tr><td>subheading</td><td>Playfair Display</td><td>400</td><td>20px</td><td>1.3</td><td>—</td><td><code>--text-subheading</code></td></tr>
+            <tr><td>body</td><td>Inter</td><td>400</td><td>15px</td><td>1.7</td><td>—</td><td><code>--text-body</code></td></tr>
+            <tr><td>label</td><td>Inter</td><td>500</td><td>12px</td><td>1.4</td><td>0.1em</td><td><code>--text-label</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>间距与版面</h2>
+        <p>基础单位 8px，密度 comfortable。上限 1280px、容器内边距 24px，主网格 4 列、间距 24px，用 grid-template-areas 显式定义版面。区块间距 64px。小于 1024px 时降到 2 列，小于 768px 时全部单列且头条不再跨列。</p>
+        <ul class="spacing-scale">
+          <li><span class="spacing-bar" style="width:8px"></span><code>8</code></li>
+          <li><span class="spacing-bar" style="width:16px"></span><code>16</code></li>
+          <li><span class="spacing-bar" style="width:24px"></span><code>24</code></li>
+          <li><span class="spacing-bar" style="width:32px"></span><code>32</code></li>
+          <li><span class="spacing-bar" style="width:48px"></span><code>48</code></li>
+          <li><span class="spacing-bar" style="width:64px"></span><code>64</code></li>
+          <li><span class="spacing-bar" style="width:96px"></span><code>96</code></li>
+        </ul>
+        <table class="style-table">
+          <thead><tr><th>元素</th><th>值</th></tr></thead>
+          <tbody>
+            <tr><td>块圆角</td><td>8px</td></tr>
+            <tr><td>按钮圆角</td><td>4px</td></tr>
+            <tr><td>图片圆角</td><td>4px</td></tr>
+            <tr><td>块内边距</td><td>24px</td></tr>
+            <tr><td>元素间距</td><td>16px</td></tr>
+            <tr><td>主网格列数</td><td>4（平板 2，手机 1）</td></tr>
+            <tr><td>主网格间距</td><td>24px</td></tr>
+            <tr><td>页面网格上限</td><td>1280px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="style-section">
+        <h2>组件</h2>
+        <div class="comp-list">
+          <div class="comp-item">
+            <h3>Lead Block</h3>
+            <p class="style-body-comp-role">头条区块（2×2）。占两列两行，含一张 16:9 大图（4px 圆角、固定裁切）与下方 40px/700 衬线标题、20px 导语（最多两行）。左上角放一个 12px 全大写 0.1em 的红色栏目标签。整块不加阴影。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Brick Block</h3>
+            <p class="style-body-comp-role">次条与短讯区块。1×1 或 2×1，图片固定 1:1 或 4:3（同尺寸块必须同比例）。标题 28px/700，说明 15px、行高 1.7、最多三行。标签颜色按栏目固定：文化用青、深度用深蓝。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Pull Quote</h3>
+            <p class="style-body-comp-role">引文块。金色底（#e9c46a 的 25%）或纯金色块、4px 圆角、内边距 24px，引文用 28px 衬线斜体、行高 1.4，下方 13px 无衬线署名。只用于整版最值得单独读的一段，每屏最多一处。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Section Label</h3>
+            <p class="style-body-comp-role">栏目与分类标签。12px/500、全大写、字距 0.1em、无底无边框。颜色按栏目固定且全站不得混用：头条红、文化青、深度深蓝、评论墨。标签永远在标题上方 8px。</p>
+          </div>
+          <div class="comp-item">
+            <h3>Title Hover</h3>
+            <p class="style-body-comp-role">标题的 hover 规则。hover 时只把标题颜色换成该栏目的强调色，过渡 120ms，不加下划线、不加阴影、不加发光、不做位移。这是整套风格对「利落」的定义。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>可为与不为</h2>
+        <div class="dos-donts">
+          <div>
+            <h3>可为</h3>
+            <ul>
+              <li>用不等大的区块建立层级</li>
+              <li>同尺寸块必须同图片比例</li>
+              <li>标签颜色按栏目固定</li>
+              <li>标题 hover 只换色，120ms</li>
+              <li>正文行高 1.7，段间 16px</li>
+              <li>移动端降列数并取消跨列</li>
+            </ul>
+          </div>
+          <div>
+            <h3>不为</h3>
+            <ul>
+              <li>不要让所有块同尺寸</li>
+              <li>不要忽略移动端适配</li>
+              <li>不要拥挤到没有留白</li>
+              <li>不要混用栏目标签颜色</li>
+              <li>不要忽略图片裁切比例</li>
+              <li>不要给正文加位移动画</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="style-section">
+        <h2>图像</h2>
+        <p>新闻摄影与编辑类图像，必须统一裁切比例（大图 16:9、小图 1:1 或 4:3）。允许人物、场景与图表。不使用插画与装饰图形。</p>
+      </section>
+
+      <section class="style-section" data-doc-id="magazine-grid">
+        <div class="takeaway-head">
+          <h2>把这个效果带走</h2>
+          <p>一份 Markdown 文档说明这套版面的区块尺寸、图片裁切比例、栏目分色与排版尺度，以及组件构造。复制后可直接交给编程助手。</p>
+        </div>
+        <div class="takeaway-bar">
+          <div class="lang-toggle" role="group" aria-label="文档语言">
+            <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button type="button" data-lang="en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" class="takeaway-copy" data-copy-doc>复制完整文档</button>
+        </div>
+        <pre class="takeaway-preview" id="doc-preview" tabindex="0" aria-label="文档预览（可滚动）"></pre>
+        <p class="takeaway-note">复现这套版面时，区块尺寸必须不等大、标签颜色必须按栏目固定、标题 hover 只能换色——这三条是杂志感的地基。</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="./chrome.js"></script>
+<script type="module" src="./style-field.js"></script>
+<script src="./theme.js"></script>
+</body>
+</html>
