@@ -30,6 +30,8 @@ import "solen-design/src/index.css";         // tokens + base
 import "solen-design/dist/solen-design.css";  // component styles
 ```
 
+`dist/` ships with the npm package. Working from a clone of this repo instead? Run `npm install && npm run build` once and the same paths resolve locally.
+
 React components (React DOM >= 18 as peer dependency):
 
 ```jsx

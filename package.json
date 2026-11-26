@@ -1,6 +1,6 @@
 {
   "name": "solen-design",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "description": "A cool, minimal CSS design system with entries for React, Vue, Svelte, Solid, Preact and vanilla DOM.",
   "license": "MIT",
   "author": "Solen-Yun",
