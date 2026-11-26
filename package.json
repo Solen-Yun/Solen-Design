@@ -12,6 +12,9 @@
     "url": "https://github.com/Solen-Yun/Solen-Design/issues"
   },
   "homepage": "https://github.com/Solen-Yun/Solen-Design#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "css",
     "design-system",
